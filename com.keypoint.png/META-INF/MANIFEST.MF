@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Png Plug-in
+Bundle-SymbolicName: com.keypoint.png
+Bundle-Version: 1.0.0
+Bundle-Activator: com.keypoint.png.Activator
+Bundle-Vendor: KEYPOINT
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Eclipse-LazyStart: true
+Export-Package: com.keypoint,
+ com.keypoint.png
