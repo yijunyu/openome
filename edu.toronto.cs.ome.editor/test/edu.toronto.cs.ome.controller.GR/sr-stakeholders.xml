@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="&lt;scheduler&gt;::"schedule meeting">
+  <rule op="AND"/>
+  <goal name="&lt;scheduler&gt;::"find participants">
+   <rule op="OR"/>
+   <goal name="&lt;scheduler&gt;::find participants by matching interests">
+    <rule op="AND"/>
+    <goal name="&lt;scheduler&gt;::"gather topics">
+     <rule op="DEPENDENCY" to="&lt;initiator&gt;::"provide topics" />
+    </goal>
+    <goal name="&lt;scheduler&gt;::"gather interests">
+     <rule op="DEPENDENCY" to="&lt;participant&gt;::"provide interests" />
+    </goal>
+    <rule op="HELP" to="minimal effort for collection" />
+   </goal>
+   <goal name="&lt;scheduler&gt;::find participants by picking participants">
+    <rule op="HURT" to="minimal effort for collection" />
+    <rule op="DEPENDENCY" to="&lt;initiator&gt;::"choose participants" />
+   </goal>
+   <goal name="&lt;scheduler&gt;::find participants by adding participant">
+    <rule op="HURT" to="minimal effort for collection" />
+    <rule op="DEPENDENCY" to="&lt;participant&gt;::"choose meeting" />
+   </goal>
+  </goal>
+  <goal name="&lt;scheduler&gt;::"collect timetables">
+   <rule op="OR"/>
+   <goal name="&lt;scheduler&gt;::collect timetables by person">
+    <rule op="HURT" to="minimal effort for collection" />
+   </goal>
+   <goal name="&lt;scheduler&gt;::collect timetables by system">
+    <rule op="OR"/>
+    <goal name="&lt;scheduler&gt;::collect timetables by system from agents">
+     <rule op="HELP" to="minimal disturbance" />
+     <rule op="HURT" to="accurate constraints" />
+    </goal>
+    <goal name="&lt;scheduler&gt;::collect timetables by system from users">
+     <rule op="AND"/>
+     <goal name="&lt;scheduler&gt;::"send request" />
+     <goal name="&lt;scheduler&gt;::"receive response" />
+     <rule op="HURT" to="minimal disturbance" />
+     <rule op="HELP" to="accurate constraints" />
+    </goal>
+    <rule op="HELP" to="minimal effort for collection" />
+   </goal>
+  </goal>
+  <goal name="&lt;scheduler&gt;::"choose schedule">
+   <rule op="OR"/>
+   <goal name="&lt;scheduler&gt;::choose schedule manually">
+    <rule op="HURT" to="minimal effort for matching" />
+    <rule op="HURT" to="minimal conflict" />
+    <rule op="HELP" to="good participation" />
+   </goal>
+   <goal name="&lt;scheduler&gt;::choose schedule automatically">
+    <rule op="HELP" to="minimal effort for matching" />
+    <rule op="HELP" to="minimal conflict" />
+    <rule op="HURT" to="good participation" />
+   </goal>
+  </goal>
+  <rule op="DEPENDENCY" to="&lt;initiator&gt;::"provide constraints" />
+  <rule op="DEPENDENCY" to="&lt;participant&gt;::"provide constraints" />
+ </goal>
+ <goal name="minimal effort">
+  <rule op="AND"/>
+  <soft name="minimal effort for collection" />
+  <soft name="minimal effort for matching" />
+ </goal>
+ <goal name="good quality schedule">
+  <rule op="AND"/>
+  <soft name="minimal conflict" />
+  <soft name="good participation" />
+ </goal>
+ <goal name="&lt;initiator&gt;::"organize meeting">
+  <rule op="AND"/>
+  <goal name="&lt;initiator&gt;::"provide meeting info.">
+   <rule op="AND"/>
+   <goal name="&lt;initiator&gt;::"provide time and location" />
+   <goal name="&lt;initiator&gt;::"call for participation">
+    <rule op="OR"/>
+    <goal name="&lt;initiator&gt;::"provide topics">
+     <rule op="HELP" to="minimal effort for collection" />
+    </goal>
+    <goal name="&lt;initiator&gt;::"choose participants">
+     <rule op="HURT" to="minimal effort for collection" />
+    </goal>
+   </goal>
+  </goal>
+  <goal name="&lt;initiator&gt;::"find schedule">
+   <rule op="DEPENDENCY" to="&lt;scheduler&gt;::"schedule meeting" />
+  </goal>
+ </goal>
+ <goal name="&lt;participant&gt;::"attend meeting">
+  <rule op="AND"/>
+  <goal name="&lt;participant&gt;::"provide constraints">
+   <rule op="AND"/>
+   <goal name="&lt;participant&gt;::"provide available time and location" />
+   <goal name="&lt;participant&gt;::"find meeting">
+    <rule op="OR"/>
+    <goal name="&lt;participant&gt;::"provide interests">
+     <rule op="HELP" to="minimal effort for collection" />
+    </goal>
+    <goal name="&lt;participant&gt;::"choose meeting">
+     <rule op="HURT" to="minimal effort for collection" />
+    </goal>
+   </goal>
+  </goal>
+  <goal name="&lt;participant&gt;::"book schedule">
+   <rule op="DEPENDENCY" to="&lt;scheduler&gt;::"schedule meeting" />
+  </goal>
+ </goal>
+</model>

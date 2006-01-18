@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="edu.toronto.cs.ome.eclipse"
+   name="OpenOME for Eclipse"
+   version="0.0.14"
+   provider-name="University of Toronto"
+   class="edu.toronto.cs.ome.eclipse.Plugin">    
+   <runtime>
+      <library name="ome4eclipse.jar">
+         <export name="*"/>
+         <packages prefixes="edu.toronto.cs.ome.eclipse,org.lexgrid.ui.extension.protege,edu.stanford.smi.protege.plugin"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.resources" export="true"/>
+      <import plugin="org.eclipse.core.runtime" export="true"/>
+      <import plugin="org.eclipse.jdt.core" export="true"/>
+      <import plugin="org.eclipse.jface" export="true"/>
+      <import plugin="org.eclipse.ui" export="true"/>
+      <import plugin="org.eclipse.ui.ide" export="true"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor" export="true"/>
+      <import plugin="org.eclipse.emf" export="true"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" export="true"/>
+      <import plugin="org.junit" export="true"/>
+      <import plugin="org.apache.batik" export="true"/>
+      <import plugin="org.eclipse.ui.editors" export="true"/>
+      <import plugin="edu.toronto.cs.goalmodel" export="true"/>
+      <import plugin="edu.toronto.cs.ome.jtelos" export="true"/>
+      <import plugin="edu.toronto.cs.q7" export="true"/>
+      <import plugin="org.sat4j" export="true"/>
+      <import plugin="edu.stanford.smi.protege" export="true"/>
+      <import plugin="com.ibm.btools.texml" export="true"/>
+      <import plugin="att.grappa" export="true"/>
+      <import plugin="com.keypoint.png" export="true"/>
+      <import plugin="it.unitn.goal_analysis" export="true"/>
+   </requires>      
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="edu.toronto.cs.ome.eclipse.Editor"
+            contributorClass="edu.toronto.cs.ome.eclipse.EditActionContributor"
+            default="true"
+            extensions="tel,q7,vdx"
+            icon="icons/protege.gif"
+            id="edu.toronto.cs.ome.eclipse.editor"
+            name="OpenOME Editor">
+      </editor>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="OpenOME"
+            category="edu.toronto.cs.ome.eclipse.primary"
+            class="edu.toronto.cs.ome.eclipse.PrefPage"
+            id="edu.toronto.cs.ome.eclipse.preference">
+      </page>
+   </extension>
+   <extension
+         id="edu.toronto.cs.ome.eclipse"
+         name="OpenOME"
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="OpenOME"
+            icon="icons/protege.gif"
+            class="edu.toronto.cs.ome.eclipse.Perspective"
+            id="edu.toronto.cs.ome.eclipse.perspective.openome">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="help.xml">
+      </toc>
+      <toc
+            file="helpToc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   <extension
+         id="openome"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="OpenOME">
+         <property
+               name="aboutImage"
+               value="eclipse_lg.gif"/>
+         <property
+               name="aboutText"
+               value="OpenOME, an open-source requirements engineering tool"/>
+         <property
+               name="appName"
+               value="OpenOME"/>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini"/>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="app"
+         name="%appName">
+      <application>
+         <run
+            class="edu.toronto.cs.ome.eclipse.App">
+         </run>
+      </application>
+   </extension>
+</plugin>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ASCII"?>
+<wbim:ModelType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:wbim="http://www.ibm.com/wbim/bomSchema1.0" name="WBIM Test Model" schemaVersion="6.0">
+  <catalogs>
+    <dataCatalogs>
+      <catalog id="BsnssItm" name="Business Items"/>
+    </dataCatalogs>
+    <resourceCatalogs>
+      <catalog id="Rsrcs" name="Resource Catalog"/>
+    </resourceCatalogs>
+    <organizationCatalogs>
+      <catalog id="Orgnztns" name="Organization Catalog"/>
+    </organizationCatalogs>
+    <processCatalogs>
+      <catalog id="Prcsss" name="Processes"/>
+    </processCatalogs>
+    <classifierCatalogs>
+      <catalog id="Clssfrs" name="Classifiers"/>
+    </classifierCatalogs>
+  </catalogs>
+  <processModel>
+    <processes>
+      <process name="Prcsss##Test Process 1">
+        <inputs>
+          <inputCriterion name="Process-Level Input Criterion"/>
+        </inputs>
+        <outputs>
+          <outputCriterion name="Process-Level Output Criterion"/>
+        </outputs>
+        <flowContent>
+          <task name="Check Credit Rating">
+            <inputs>
+              <input name="Check Credit Rating Input"/>
+              <inputCriterion name="Check Credit Rating Input Criterion">
+                <input name="Check Credit Rating Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Check Credit Rating Output"/>
+              <outputCriterion name="Check Credit Rating Output Criterion">
+                <output name="Check Credit Rating Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Build and Package Order#1">
+            <inputs>
+              <input name="Build and Package Order#1 Input"/>
+              <inputCriterion name="Build and Package Order#1 Input Criterion">
+                <input name="Build and Package Order#1 Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Build and Package Order#1 Output"/>
+              <outputCriterion name="Build and Package Order#1 Output Criterion">
+                <output name="Build and Package Order#1 Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Bill and Collect Payment">
+            <inputs>
+              <input name="Bill and Collect Payment Input"/>
+              <inputCriterion name="Bill and Collect Payment Input Criterion">
+                <input name="Bill and Collect Payment Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Bill and Collect Payment Output"/>
+              <outputCriterion name="Bill and Collect Payment Output Criterion">
+                <output name="Bill and Collect Payment Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Get Fax Order">
+            <inputs>
+              <input name="Get Fax Order Input"/>
+              <inputCriterion name="Get Fax Order Input Criterion">
+                <input name="Get Fax Order Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Get Fax Order Output"/>
+              <outputCriterion name="Get Fax Order Output Criterion">
+                <output name="Get Fax Order Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Ship Order#1">
+            <inputs>
+              <input name="Ship Order#1 Input"/>
+              <inputCriterion name="Ship Order#1 Input Criterion">
+                <input name="Ship Order#1 Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Ship Order#1 Output"/>
+              <outputCriterion name="Ship Order#1 Output Criterion">
+                <output name="Ship Order#1 Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Approve Order#1">
+            <inputs>
+              <input name="Approve Order#1 Input"/>
+              <inputCriterion name="Approve Order#1 Input Criterion">
+                <input name="Approve Order#1 Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Approve Order#1 Output"/>
+              <outputCriterion name="Approve Order#1 Output Criterion">
+                <output name="Approve Order#1 Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Get Phone Order">
+            <inputs>
+              <input name="Get Phone Order Input"/>
+              <inputCriterion name="Get Phone Order Input Criterion">
+                <input name="Get Phone Order Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Get Phone Order Output"/>
+              <outputCriterion name="Get Phone Order Output Criterion">
+                <output name="Get Phone Order Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="Check if Return Customer">
+            <inputs>
+              <input name="Check if Return Customer Input"/>
+              <inputCriterion name="Check if Return Customer Input Criterion">
+                <input name="Check if Return Customer Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Check if Return Customer Output"/>
+              <outputCriterion name="Check if Return Customer Output Criterion">
+                <output name="Check if Return Customer Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <task name="_Determine_ Determine Trustworthiness of Customer">
+            <inputs>
+              <input name="_Determine_ Determine Trustworthiness of Customer Input"/>
+              <inputCriterion name="_Determine_ Determine Trustworthiness of Customer Input Criterion">
+                <input name="_Determine_ Determine Trustworthiness of Customer Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="_Determine_ Determine Trustworthiness of Customer Output"/>
+              <outputCriterion name="_Determine_ Determine Trustworthiness of Customer Output Criterion">
+                <output name="_Determine_ Determine Trustworthiness of Customer Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <connection name="_Determine_ Determine Trustworthiness of Customer to Determine Trustworthiness of Customer Decision">
+            <source contactPoint="_Determine_ Determine Trustworthiness of Customer Output" node="_Determine_ Determine Trustworthiness of Customer"/>
+            <target contactPoint="Determine Trustworthiness of Customer Decision Input" node="Determine Trustworthiness of Customer Decision"/>
+          </connection>
+          <connection name="Determine Trustworthiness of Customer Decision to Check if Return Customer">
+            <source contactPoint="Determine Trustworthiness of Customer Decision Output To Check if Return Customer" node="Determine Trustworthiness of Customer Decision"/>
+            <target contactPoint="Check if Return Customer Input" node="Check if Return Customer"/>
+          </connection>
+          <connection name="Check if Return Customer to Determine Trustworthiness of Customer Merge">
+            <source contactPoint="Check if Return Customer Output" node="Check if Return Customer"/>
+            <target contactPoint="Determine Trustworthiness of Customer Merge Input From Check if Return Customer" node="Determine Trustworthiness of Customer Merge"/>
+          </connection>
+          <connection name="Determine Trustworthiness of Customer Decision to Check Credit Rating">
+            <source contactPoint="Determine Trustworthiness of Customer Decision Output To Check Credit Rating" node="Determine Trustworthiness of Customer Decision"/>
+            <target contactPoint="Check Credit Rating Input" node="Check Credit Rating"/>
+          </connection>
+          <connection name="Check Credit Rating to Determine Trustworthiness of Customer Merge">
+            <source contactPoint="Check Credit Rating Output" node="Check Credit Rating"/>
+            <target contactPoint="Determine Trustworthiness of Customer Merge Input From Check Credit Rating" node="Determine Trustworthiness of Customer Merge"/>
+          </connection>
+          <merge name="Determine Trustworthiness of Customer Merge">
+            <inputBranch name="Determine Trustworthiness of Customer Merge Input Branch From Check if Return Customer">
+              <input name="Determine Trustworthiness of Customer Merge Input From Check if Return Customer"/>
+            </inputBranch>
+            <inputBranch name="Determine Trustworthiness of Customer Merge Input Branch From Check Credit Rating">
+              <input name="Determine Trustworthiness of Customer Merge Input From Check Credit Rating"/>
+            </inputBranch>
+            <outputBranch name="Determine Trustworthiness of Customer Merge Output Branch">
+              <output name="Determine Trustworthiness of Customer Merge Output"/>
+            </outputBranch>
+          </merge>
+          <decision isInclusive="false" name="Determine Trustworthiness of Customer Decision">
+            <inputBranch name="Determine Trustworthiness of Customer Decision Input Branch">
+              <input name="Determine Trustworthiness of Customer Decision Input"/>
+            </inputBranch>
+            <outputBranch name="b_Check if Return Customer">
+              <output name="Determine Trustworthiness of Customer Decision Output To Check if Return Customer"/>
+            </outputBranch>
+            <outputBranch name="b_Check Credit Rating">
+              <output name="Determine Trustworthiness of Customer Decision Output To Check Credit Rating"/>
+            </outputBranch>
+          </decision>
+          <connection name="Ship and Bill Fork to Bill and Collect Payment">
+            <source contactPoint="Ship and Bill Fork Output To Bill and Collect Payment" node="Ship and Bill Fork"/>
+            <target contactPoint="Bill and Collect Payment Input" node="Bill and Collect Payment"/>
+          </connection>
+          <connection name="Bill and Collect Payment to Ship and Bill Join">
+            <source contactPoint="Bill and Collect Payment Output" node="Bill and Collect Payment"/>
+            <target contactPoint="Ship and Bill Join Input From Bill and Collect Payment" node="Ship and Bill Join"/>
+          </connection>
+          <connection name="Ship and Bill Fork to Ship Order#1">
+            <source contactPoint="Ship and Bill Fork Output To Ship Order#1" node="Ship and Bill Fork"/>
+            <target contactPoint="Ship Order#1 Input" node="Ship Order#1"/>
+          </connection>
+          <connection name="Ship Order#1 to Ship and Bill Join">
+            <source contactPoint="Ship Order#1 Output" node="Ship Order#1"/>
+            <target contactPoint="Ship and Bill Join Input From Ship Order#1" node="Ship and Bill Join"/>
+          </connection>
+          <fork name="Ship and Bill Fork">
+            <inputBranch name="Ship and Bill Fork Input Branch">
+              <input name="Ship and Bill Fork Input"/>
+            </inputBranch>
+            <outputBranch name="Ship and Bill Fork Output Branch To Bill and Collect Payment">
+              <output name="Ship and Bill Fork Output To Bill and Collect Payment"/>
+            </outputBranch>
+            <outputBranch name="Ship and Bill Fork Output Branch To Ship Order#1">
+              <output name="Ship and Bill Fork Output To Ship Order#1"/>
+            </outputBranch>
+          </fork>
+          <join name="Ship and Bill Join">
+            <inputBranch name="Ship and Bill Join Input Branch From Bill and Collect Payment">
+              <input name="Ship and Bill Join Input From Bill and Collect Payment"/>
+            </inputBranch>
+            <inputBranch name="Ship and Bill Join Input Branch From Ship Order#1">
+              <input name="Ship and Bill Join Input From Ship Order#1"/>
+            </inputBranch>
+            <outputBranch name="Ship and Bill Join Output branch">
+              <output name="Ship and Bill Join Output"/>
+            </outputBranch>
+          </join>
+          <task name="Get Online Order">
+            <inputs>
+              <input name="Get Online Order Input"/>
+              <inputCriterion name="Get Online Order Input Criterion">
+                <input name="Get Online Order Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="Get Online Order Output"/>
+              <outputCriterion name="Get Online Order Output Criterion">
+                <output name="Get Online Order Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <connection name="Determine Trustworthiness of Customer Merge to Approve Order#1">
+            <source contactPoint="Determine Trustworthiness of Customer Merge Output" node="Determine Trustworthiness of Customer Merge"/>
+            <target contactPoint="Approve Order#1 Input" node="Approve Order#1"/>
+          </connection>
+          <connection name="Approve Order#1 to Build and Package Order#1">
+            <source contactPoint="Approve Order#1 Output" node="Approve Order#1"/>
+            <target contactPoint="Build and Package Order#1 Input" node="Build and Package Order#1"/>
+          </connection>
+          <connection name="Build and Package Order#1 to Ship and Bill Fork">
+            <source contactPoint="Build and Package Order#1 Output" node="Build and Package Order#1"/>
+            <target contactPoint="Ship and Bill Fork Input" node="Ship and Bill Fork"/>
+          </connection>
+          <task name="_Determine_ Get Customer Order">
+            <inputs>
+              <input name="_Determine_ Get Customer Order Input"/>
+              <inputCriterion name="_Determine_ Get Customer Order Input Criterion">
+                <input name="_Determine_ Get Customer Order Input"/>
+              </inputCriterion>
+            </inputs>
+            <outputs>
+              <output name="_Determine_ Get Customer Order Output"/>
+              <outputCriterion name="_Determine_ Get Customer Order Output Criterion">
+                <output name="_Determine_ Get Customer Order Output"/>
+              </outputCriterion>
+            </outputs>
+          </task>
+          <connection name="_Determine_ Get Customer Order to Get Customer Order Decision">
+            <source contactPoint="_Determine_ Get Customer Order Output" node="_Determine_ Get Customer Order"/>
+            <target contactPoint="Get Customer Order Decision Input" node="Get Customer Order Decision"/>
+          </connection>
+          <connection name="Get Customer Order Decision to Get Phone Order">
+            <source contactPoint="Get Customer Order Decision Output To Get Phone Order" node="Get Customer Order Decision"/>
+            <target contactPoint="Get Phone Order Input" node="Get Phone Order"/>
+          </connection>
+          <connection name="Get Phone Order to Get Customer Order Merge">
+            <source contactPoint="Get Phone Order Output" node="Get Phone Order"/>
+            <target contactPoint="Get Customer Order Merge Input From Get Phone Order" node="Get Customer Order Merge"/>
+          </connection>
+          <connection name="Get Customer Order Decision to Get Fax Order">
+            <source contactPoint="Get Customer Order Decision Output To Get Fax Order" node="Get Customer Order Decision"/>
+            <target contactPoint="Get Fax Order Input" node="Get Fax Order"/>
+          </connection>
+          <connection name="Get Fax Order to Get Customer Order Merge">
+            <source contactPoint="Get Fax Order Output" node="Get Fax Order"/>
+            <target contactPoint="Get Customer Order Merge Input From Get Fax Order" node="Get Customer Order Merge"/>
+          </connection>
+          <connection name="Get Customer Order Decision to Get Online Order">
+            <source contactPoint="Get Customer Order Decision Output To Get Online Order" node="Get Customer Order Decision"/>
+            <target contactPoint="Get Online Order Input" node="Get Online Order"/>
+          </connection>
+          <connection name="Get Online Order to Get Customer Order Merge">
+            <source contactPoint="Get Online Order Output" node="Get Online Order"/>
+            <target contactPoint="Get Customer Order Merge Input From Get Online Order" node="Get Customer Order Merge"/>
+          </connection>
+          <merge name="Get Customer Order Merge">
+            <inputBranch name="Get Customer Order Merge Input Branch From Get Phone Order">
+              <input name="Get Customer Order Merge Input From Get Phone Order"/>
+            </inputBranch>
+            <inputBranch name="Get Customer Order Merge Input Branch From Get Fax Order">
+              <input name="Get Customer Order Merge Input From Get Fax Order"/>
+            </inputBranch>
+            <inputBranch name="Get Customer Order Merge Input Branch From Get Online Order">
+              <input name="Get Customer Order Merge Input From Get Online Order"/>
+            </inputBranch>
+            <outputBranch name="Get Customer Order Merge Output Branch">
+              <output name="Get Customer Order Merge Output"/>
+            </outputBranch>
+          </merge>
+          <decision isInclusive="false" name="Get Customer Order Decision">
+            <inputBranch name="Get Customer Order Decision Input Branch">
+              <input name="Get Customer Order Decision Input"/>
+            </inputBranch>
+            <outputBranch name="b_Get Phone Order">
+              <output name="Get Customer Order Decision Output To Get Phone Order"/>
+            </outputBranch>
+            <outputBranch name="b_Get Fax Order">
+              <output name="Get Customer Order Decision Output To Get Fax Order"/>
+            </outputBranch>
+            <outputBranch name="b_Get Online Order">
+              <output name="Get Customer Order Decision Output To Get Online Order"/>
+            </outputBranch>
+          </decision>
+          <connection name="Get Customer Order Merge to _Determine_ Determine Trustworthiness of Customer">
+            <source contactPoint="Get Customer Order Merge Output" node="Get Customer Order Merge"/>
+            <target contactPoint="_Determine_ Determine Trustworthiness of Customer Input" node="_Determine_ Determine Trustworthiness of Customer"/>
+          </connection>
+          <startNode name="Start Node"/>
+          <connection name="Start Node To _Determine_ Get Customer Order">
+            <source node="Start Node"/>
+            <target contactPoint="_Determine_ Get Customer Order Input" node="_Determine_ Get Customer Order"/>
+          </connection>
+          <stopNode name="Stop Node"/>
+          <connection name="Ship and Bill Join to Stop Node">
+            <source contactPoint="Ship and Bill Join Output" node="Ship and Bill Join"/>
+            <target node="Stop Node"/>
+          </connection>
+        </flowContent>
+      </process>
+    </processes>
+  </processModel>
+</wbim:ModelType>
