@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Q7 Plug-in
+Bundle-SymbolicName: edu.toronto.cs.q7
+Bundle-Version: 1.0.0
+Bundle-Activator: edu.toronto.cs.q7.Activator
+Bundle-Vendor: Yijun Yu
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf,
+ org.eclipse.emf.ecore.xmi,
+ org.junit,
+ edu.toronto.cs.goalmodel
+Eclipse-LazyStart: true
+Export-Package: edu.toronto.cs.q7,
+ edu.toronto.cs.q7.codegen,
+ edu.toronto.cs.q7.model,
+ edu.toronto.cs.q7.parser,
+ edu.toronto.cs.util
