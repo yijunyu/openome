@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Grappa Plug-in
+Bundle-SymbolicName: att.grappa
+Bundle-Version: 1.2.0
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Export-Package: att.grappa,
+ java_cup.runtime
