@@ -1,0 +1,8 @@
+#!/bin/bash
+ECLIPSE_HOME=$HOME/IDE/sdk/3.2M4/eclipse
+ln -sf `pwd`/.configuration/links $ECLIPSE_HOME
+cp $ECLIPSE_HOME/configuration/config.ini .configuration
+export LD_LIBRARY_PATH=$ECLIPSE_HOME
+$ECLIPSE_HOME/eclipse -showLocation -configuration .configuration -data . -nosplash -vmargs -Xms256m -Xmx512m
+rm -f $ECLIPSE_HOME/eclipse/links
+rm -f .configuration/config.ini
