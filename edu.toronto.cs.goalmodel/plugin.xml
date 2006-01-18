@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.1 2005/09/20 20:39:06 yijunsf Exp $
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http:///edu/toronto/cs/goalmodel.ecore" 
+       class = "edu.toronto.cs.goalmodel.GoalmodelPackage"
+       genModel = "src/edu/toronto/cs/goalmodel/model.genmodel" /> 
+  </extension>
+
+</plugin>
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="goalmodel"
+    nsURI="http:///edu/toronto/cs/goalmodel.ecore" nsPrefix="edu.toronto.cs.goalmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContributionType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//goal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="goal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DecompositionType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//goal"
+        eOpposite="#//goal/goal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goal" upperBound="-1" eType="#//goal"
+        containment="true" resolveProxies="false" eOpposite="#//goal/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="#//LabelType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//contribution"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topic" upperBound="-1"
+        eType="#//topic" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//topic" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="#//topic" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exclusive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//property" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//actor"
+        eOpposite="#//actor/goals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyFrom" upperBound="-1"
+        eType="#//dependency" containment="true" resolveProxies="false" eOpposite="#//dependency/dependencyTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
+        eType="#//dependency" containment="true" resolveProxies="false" eOpposite="#//dependency/dependencyFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="topic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="actor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//actor"
+        eOpposite="#//actor/sub"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" upperBound="-1" eType="#//actor"
+        containment="true" resolveProxies="false" eOpposite="#//actor/super"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActorType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
+        eType="#//goal" containment="true" resolveProxies="false" eOpposite="#//goal/actor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContributionType">
+    <eLiterals name="HELP" value="1"/>
+    <eLiterals name="HURT" value="-1"/>
+    <eLiterals name="MAKE" value="2"/>
+    <eLiterals name="BREAK" value="-2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DecompositionType">
+    <eLiterals name="OR"/>
+    <eLiterals name="AND" value="1"/>
+    <eLiterals name="LEAF" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LabelType">
+    <eLiterals name="Satisfied" value="2"/>
+    <eLiterals name="Denied" value="-2"/>
+    <eLiterals name="PartiallySatisfied" value="1"/>
+    <eLiterals name="PartiallyDenied" value="-1"/>
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Conflict" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActorType">
+    <eLiterals name="ACTOR"/>
+    <eLiterals name="AGENT" value="1"/>
+    <eLiterals name="ROLE" value="2"/>
+    <eLiterals name="POSITION" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="dependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyFrom" eType="#//goal"
+        eOpposite="#//goal/dependencyTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" eType="#//goal"
+        eOpposite="#//goal/dependencyFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trust" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>
