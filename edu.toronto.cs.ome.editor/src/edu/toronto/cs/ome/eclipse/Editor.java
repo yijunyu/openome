@@ -67,10 +67,12 @@ public class Editor extends EditorPart {
 		ot.createWidgets();
 		OMETab.inProtege = true;
 		OMETab.setFrame(OMETab.iframe);
-		SwingUtilities.updateComponentTreeUI(OMETab.iframe);
-		OMETab.iframe.setDoubleBuffered(true);
-		OMETab.iframe.setFocusable(true);
-		OMETab.iframe.setIgnoreRepaint(false);
+		if (OMETab.iframe!=null) {
+			SwingUtilities.updateComponentTreeUI(OMETab.iframe);
+			OMETab.iframe.setDoubleBuffered(true);
+			OMETab.iframe.setFocusable(true);
+			OMETab.iframe.setIgnoreRepaint(false);
+		}
 		return OMETab.iframe;
 	}
 	
@@ -495,8 +497,10 @@ public class Editor extends EditorPart {
 	 * @see org.eclipse.ui.IWorkbenchPart#setFocus()
 	 */
 	public void setFocus() {
+		try {
 		if (OMETab.iframe!=null)
 			SwingUtilities.updateComponentTreeUI(OMETab.iframe);
+		} catch (Exception e) {}
 	}
 	public void updateOpenOME(String m) {
 		if (OMETab.mm!=null && sfa!=null)

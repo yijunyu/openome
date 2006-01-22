@@ -1372,7 +1372,10 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		drawAttributes(g, gl);
 		
 		Stroke s = g.getStroke();
-		gl.setColor(Color.gray);
+		if (Computing.propertyHolds("edu.toronto.cs.ome.editor.link.color.grey"))
+			gl.setColor(Color.gray);
+		else
+			gl.setColor(Color.blue);
 		gl.setStroke();
 		g.setStroke(gl.getStroke());
 		if (!to_print){
@@ -1848,7 +1851,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	/** zoom in */
 	public void zoomin() {
 		setScale(getScale() + 0.1);
-		if (System.getProperty("Zoom distance")!=null)
+		if (Computing.propertyHolds("Zoom.distance"))
 			resetFontSize(true);		
 		repaint();
 	}
@@ -1875,7 +1878,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	/** zoom out */
 	public void zoomout() {
 		setScale(getScale() - 0.1);
-		if (System.getProperty("Zoom distance")!=null)
+		if (Computing.propertyHolds("Zoom.distance"))
 			resetFontSize(false);		
 		repaint();
 	}
@@ -1883,7 +1886,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	static Font font = null;
 	public Font getFont() {
 		if (font==null)
-			font = new Font("SansSerif", Font.PLAIN, 9);
+			font = new Font("SansSerif", Font.PLAIN, 12);
 		return font;
 	}
 	/** Sets the input mode for the GVC */
