@@ -1139,7 +1139,7 @@ public class GraphicView implements View {
 							.get(new Integer(gr.ID));
 					if (gve == null) {
 						D.o("can't find " + gr.ID + " in the serialized graph view");
-						D.a(false);
+						//D.a(false);
 					} else {
 						gve.moveTo(new Point(gr.x, gr.y));
 						gve.setScale(gr.scale);
@@ -1162,21 +1162,23 @@ public class GraphicView implements View {
 				} else if (gr.objecttype == 0) {
 					GraphicViewLink gvl = (GraphicViewLink) ids2gvls
 							.get(new Integer(gr.ID));
-					gvl.getend1().setLocation(gr.end1x, gr.end1y);
-					gvl.getstart2().setLocation(gr.start2x, gr.start2y);
-					gvl.getcontrol2().setLocation(gr.control2x, gr.control2y);
-					gvl.getctrl2().setLocation(
-							(int) ((gvl.getcontrol2().x) - 4),
-							(int) ((gvl.getcontrol2().y) - 4));
-					gvl.getcontrol1().setLocation(gr.control1x, gr.control1y);
-					gvl.getctrl1().setLocation(
-							(int) ((gvl.getcontrol1().x) - 4),
-							(int) ((gvl.getcontrol1().y) - 4));
-					gvl.getQuad1().setCurve(gvl.getstart1(), gvl.getcontrol1(),
-							gvl.getend1());
-					gvl.getQuad2().setCurve(gvl.getstart2(), gvl.getcontrol2(),
-							gvl.getend2());
-					gvl.setScale(gr.scale);
+					if (gvl!=null) {
+						gvl.getend1().setLocation(gr.end1x, gr.end1y);
+						gvl.getstart2().setLocation(gr.start2x, gr.start2y);
+						gvl.getcontrol2().setLocation(gr.control2x, gr.control2y);
+						gvl.getctrl2().setLocation(
+								(int) ((gvl.getcontrol2().x) - 4),
+								(int) ((gvl.getcontrol2().y) - 4));
+						gvl.getcontrol1().setLocation(gr.control1x, gr.control1y);
+						gvl.getctrl1().setLocation(
+								(int) ((gvl.getcontrol1().x) - 4),
+								(int) ((gvl.getcontrol1().y) - 4));
+						gvl.getQuad1().setCurve(gvl.getstart1(), gvl.getcontrol1(),
+								gvl.getend1());
+						gvl.getQuad2().setCurve(gvl.getstart2(), gvl.getcontrol2(),
+								gvl.getend2());
+						gvl.setScale(gr.scale);
+					}
 				}
 			}
 //			D.o("n = " + n);
