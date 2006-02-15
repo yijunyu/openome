@@ -1250,11 +1250,11 @@ Token SerializedViewObject_0_32
      IN SerializedObject 
      WITH
           attribute, ID
-            : 33
+            : 32
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1280,7 +1280,7 @@ Token SerializedViewObject_0_32
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1289,11 +1289,11 @@ Token SerializedViewObject_0_33
      IN SerializedObject 
      WITH
           attribute, ID
-            : 34
+            : 33
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1319,7 +1319,7 @@ Token SerializedViewObject_0_33
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1328,11 +1328,11 @@ Token SerializedViewObject_0_34
      IN SerializedObject 
      WITH
           attribute, ID
-            : 35
+            : 34
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1358,7 +1358,7 @@ Token SerializedViewObject_0_34
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1367,11 +1367,11 @@ Token SerializedViewObject_0_35
      IN SerializedObject 
      WITH
           attribute, ID
-            : 36
+            : 35
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1397,7 +1397,7 @@ Token SerializedViewObject_0_35
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1406,11 +1406,11 @@ Token SerializedViewObject_0_36
      IN SerializedObject 
      WITH
           attribute, ID
-            : 37
+            : 36
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1436,7 +1436,7 @@ Token SerializedViewObject_0_36
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1445,11 +1445,11 @@ Token SerializedViewObject_0_37
      IN SerializedObject 
      WITH
           attribute, ID
-            : 38
+            : 37
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1475,7 +1475,7 @@ Token SerializedViewObject_0_37
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1484,11 +1484,11 @@ Token SerializedViewObject_0_38
      IN SerializedObject 
      WITH
           attribute, ID
-            : 39
+            : 38
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1514,7 +1514,7 @@ Token SerializedViewObject_0_38
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1523,11 +1523,11 @@ Token SerializedViewObject_0_39
      IN SerializedObject 
      WITH
           attribute, ID
-            : 40
+            : 39
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1553,7 +1553,7 @@ Token SerializedViewObject_0_39
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -1562,11 +1562,11 @@ Token SerializedViewObject_0_40
      IN SerializedObject 
      WITH
           attribute, ID
-            : 41
+            : 40
           attribute, objecttype
-            : 1
+            : 0
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
           attribute, x
             : 0.0
           attribute, y
@@ -1592,7 +1592,7 @@ Token SerializedViewObject_0_40
           attribute, hidden
             : 0
           attribute, justification
-            : 0
+            : 2
           attribute, highlight
             : 0
 END
@@ -2728,358 +2728,7 @@ Token SerializedViewObject_0_69
             : 0
 END
 
-Token SerializedViewObject_0_70
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 70
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_71
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 71
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_72
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 72
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_73
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 73
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_74
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 74
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_75
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 75
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_76
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 76
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_77
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 77
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token SerializedViewObject_0_78
-     IN SerializedObject 
-     WITH
-          attribute, ID
-            : 78
-          attribute, objecttype
-            : 0
-          attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
-          attribute, x
-            : 0.0
-          attribute, y
-            : 0.0
-          attribute, control1x
-            : 10.0
-          attribute, control1y
-            : 10.0
-          attribute, control2x
-            : 100.0
-          attribute, control2y
-            : 100
-          attribute, start2x
-            : 20.0
-          attribute, start2y
-            : 20.0
-          attribute, end1x
-            : 80.0
-          attribute, end1y
-            : 80.0
-          attribute, expanded
-            : 0
-          attribute, hidden
-            : 0
-          attribute, justification
-            : 2
-          attribute, highlight
-            : 0
-END
-
-Token Link_41
+Token Link_32
     IN IStarDecompositionLink
     WITH
        attribute, name
@@ -3090,7 +2739,7 @@ Token Link_41
               : Element_21
 END
 
-Token Link_42
+Token Link_33
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3101,7 +2750,7 @@ Token Link_42
               : Element_27
 END
 
-Token Link_43
+Token Link_34
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3112,7 +2761,7 @@ Token Link_43
               : Element_1
 END
 
-Token Link_44
+Token Link_35
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3123,7 +2772,7 @@ Token Link_44
               : Element_26
 END
 
-Token Link_45
+Token Link_36
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3134,7 +2783,7 @@ Token Link_45
               : Element_10
 END
 
-Token Link_46
+Token Link_37
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3145,7 +2794,7 @@ Token Link_46
               : Element_22
 END
 
-Token Link_47
+Token Link_38
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3156,7 +2805,7 @@ Token Link_47
               : Element_17
 END
 
-Token Link_48
+Token Link_39
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3167,7 +2816,7 @@ Token Link_48
               : Element_7
 END
 
-Token Link_49
+Token Link_40
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3178,7 +2827,7 @@ Token Link_49
               : Element_12
 END
 
-Token Link_50
+Token Link_41
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3189,7 +2838,7 @@ Token Link_50
               : Element_18
 END
 
-Token Link_51
+Token Link_42
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3200,7 +2849,7 @@ Token Link_51
               : Element_1
 END
 
-Token Link_52
+Token Link_43
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3211,7 +2860,7 @@ Token Link_52
               : Element_18
 END
 
-Token Link_53
+Token Link_44
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3222,7 +2871,7 @@ Token Link_53
               : Element_3
 END
 
-Token Link_54
+Token Link_45
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3233,7 +2882,7 @@ Token Link_54
               : Element_20
 END
 
-Token Link_55
+Token Link_46
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3244,7 +2893,7 @@ Token Link_55
               : Element_9
 END
 
-Token Link_56
+Token Link_47
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3255,7 +2904,7 @@ Token Link_56
               : Element_8
 END
 
-Token Link_57
+Token Link_48
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3266,7 +2915,7 @@ Token Link_57
               : Element_11
 END
 
-Token Link_58
+Token Link_49
     IN IStarDecompositionLink
     WITH
        attribute, name
@@ -3277,7 +2926,7 @@ Token Link_58
               : Element_13
 END
 
-Token Link_59
+Token Link_50
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3288,7 +2937,7 @@ Token Link_59
               : Element_30
 END
 
-Token Link_60
+Token Link_51
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3299,7 +2948,7 @@ Token Link_60
               : Element_23
 END
 
-Token Link_61
+Token Link_52
     IN IStarDecompositionLink
     WITH
        attribute, name
@@ -3310,7 +2959,7 @@ Token Link_61
               : Element_15
 END
 
-Token Link_62
+Token Link_53
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3321,7 +2970,7 @@ Token Link_62
               : Element_32
 END
 
-Token Link_63
+Token Link_54
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3332,7 +2981,7 @@ Token Link_63
               : Element_16
 END
 
-Token Link_64
+Token Link_55
     IN IStarBreakContribution
     WITH
        attribute, name
@@ -3343,7 +2992,7 @@ Token Link_64
               : Element_18
 END
 
-Token Link_65
+Token Link_56
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3354,7 +3003,7 @@ Token Link_65
               : Element_19
 END
 
-Token Link_66
+Token Link_57
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3365,7 +3014,7 @@ Token Link_66
               : Element_13
 END
 
-Token Link_67
+Token Link_58
     IN IStarDecompositionLink
     WITH
        attribute, name
@@ -3376,7 +3025,7 @@ Token Link_67
               : Element_24
 END
 
-Token Link_68
+Token Link_59
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3387,7 +3036,7 @@ Token Link_68
               : Element_2
 END
 
-Token Link_69
+Token Link_60
     IN IStarHurtContribution
     WITH
        attribute, name
@@ -3398,7 +3047,7 @@ Token Link_69
               : Element_5
 END
 
-Token Link_70
+Token Link_61
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3409,7 +3058,7 @@ Token Link_70
               : Element_25
 END
 
-Token Link_71
+Token Link_62
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3420,7 +3069,7 @@ Token Link_71
               : Element_4
 END
 
-Token Link_72
+Token Link_63
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3431,7 +3080,7 @@ Token Link_72
               : Element_27
 END
 
-Token Link_73
+Token Link_64
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3442,7 +3091,7 @@ Token Link_73
               : Element_29
 END
 
-Token Link_74
+Token Link_65
     IN IStarBreakContribution
     WITH
        attribute, name
@@ -3453,7 +3102,7 @@ Token Link_74
               : Element_19
 END
 
-Token Link_75
+Token Link_66
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3464,7 +3113,7 @@ Token Link_75
               : Element_28
 END
 
-Token Link_76
+Token Link_67
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3475,7 +3124,7 @@ Token Link_76
               : Element_18
 END
 
-Token Link_77
+Token Link_68
     IN IStarMeansEndsLink
     WITH
        attribute, name
@@ -3486,7 +3135,7 @@ Token Link_77
               : Element_31
 END
 
-Token Link_78
+Token Link_69
     IN IStarHelpContribution
     WITH
        attribute, name
@@ -3507,10 +3156,12 @@ Token Element_1
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_43
+             : Link_34
         attribute, links
-             : Link_51
+             : Link_42
 END
 
 Token Element_2
@@ -3518,17 +3169,17 @@ Token Element_2
      WITH 
         attribute, name
              : "lower Jap. interest rates"
-        attribute, parent
-             : Element_41
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_43
+             : Link_34
         attribute, links
-             : Link_68
+             : Link_59
 END
 
 Token Element_3
@@ -3536,17 +3187,17 @@ Token Element_3
      WITH 
         attribute, name
              : "Yen rises"
-        attribute, parent
-             : Element_35
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_51
+             : Link_42
         attribute, links
-             : Link_53
+             : Link_44
 END
 
 Token Element_4
@@ -3559,8 +3210,10 @@ Token Element_4
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_71
+             : Link_62
 END
 
 Token Element_5
@@ -3568,19 +3221,19 @@ Token Element_5
      WITH 
         attribute, name
              : "gas price rises"
-        attribute, parent
-             : Element_33
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_56
+             : Link_47
         attribute, links
-             : Link_69
+             : Link_60
         attribute, links
-             : Link_71
+             : Link_62
 END
 
 Token Element_6
@@ -3593,8 +3246,10 @@ Token Element_6
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_78
+             : Link_69
 END
 
 Token Element_7
@@ -3602,23 +3257,23 @@ Token Element_7
      WITH 
         attribute, name
              : "increase customer loyalty"
-        attribute, parent
-             : Element_39
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_42
+             : Link_33
         attribute, links
-             : Link_45
+             : Link_36
         attribute, links
-             : Link_48
+             : Link_39
         attribute, links
-             : Link_52
+             : Link_43
         attribute, links
-             : Link_78
+             : Link_69
 END
 
 Token Element_8
@@ -3626,17 +3281,17 @@ Token Element_8
      WITH 
         attribute, name
              : "Japanese gas price rises"
-        attribute, parent
-             : Element_38
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_53
+             : Link_44
         attribute, links
-             : Link_56
+             : Link_47
 END
 
 Token Element_9
@@ -3644,8 +3299,6 @@ Token Element_9
      WITH 
         attribute, name
              : "lower gas price"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklySatisficedElementLabel
@@ -3653,10 +3306,12 @@ Token Element_9
              : 0.8
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_55
+             : Link_46
         attribute, links
-             : Link_69
+             : Link_60
 END
 
 Token Element_10
@@ -3664,17 +3319,17 @@ Token Element_10
      WITH 
         attribute, name
              : "improve car services"
-        attribute, parent
-             : Element_36
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_45
+             : Link_36
         attribute, links
-             : Link_50
+             : Link_41
 END
 
 Token Element_11
@@ -3682,17 +3337,17 @@ Token Element_11
      WITH 
         attribute, name
              : "increase Toyota sales"
-        attribute, parent
-             : Element_40
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
+        attribute, links
+             : Link_48
         attribute, links
              : Link_57
-        attribute, links
-             : Link_66
 END
 
 Token Element_12
@@ -3700,17 +3355,17 @@ Token Element_12
      WITH 
         attribute, name
              : "increase VW sales"
-        attribute, parent
-             : Element_37
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_49
+             : Link_40
         attribute, links
-             : Link_57
+             : Link_48
 END
 
 Token Element_13
@@ -3718,25 +3373,25 @@ Token Element_13
      WITH 
         attribute, name
              : "increase sales volume"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_44
+             : Link_35
         attribute, links
-             : Link_48
+             : Link_39
+        attribute, links
+             : Link_40
         attribute, links
              : Link_49
         attribute, links
-             : Link_58
+             : Link_57
         attribute, links
-             : Link_66
-        attribute, links
-             : Link_70
+             : Link_61
 END
 
 Token Element_14
@@ -3744,17 +3399,17 @@ Token Element_14
      WITH 
         attribute, name
              : "increase return on investment (GM)"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_58
+             : Link_49
         attribute, links
-             : Link_61
+             : Link_52
 END
 
 Token Element_15
@@ -3762,23 +3417,23 @@ Token Element_15
      WITH 
         attribute, name
              : "increase profit per vehicle"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_47
+             : Link_38
+        attribute, links
+             : Link_45
+        attribute, links
+             : Link_52
         attribute, links
              : Link_54
         attribute, links
-             : Link_61
-        attribute, links
-             : Link_63
-        attribute, links
-             : Link_76
+             : Link_67
 END
 
 Token Element_16
@@ -3786,8 +3441,6 @@ Token Element_16
      WITH 
         attribute, name
              : "increase foreign earnings"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklyDeniedElementLabel
@@ -3795,8 +3448,10 @@ Token Element_16
              : 0.0
         attribute, den
              : 0.9
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_63
+             : Link_54
 END
 
 Token Element_17
@@ -3804,8 +3459,6 @@ Token Element_17
      WITH 
         attribute, name
              : "increase high margin sales"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklyDeniedElementLabel
@@ -3813,8 +3466,10 @@ Token Element_17
              : 0.0
         attribute, den
              : 0.6
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_47
+             : Link_38
 END
 
 Token Element_18
@@ -3822,8 +3477,6 @@ Token Element_18
      WITH 
         attribute, name
              : "increase sales price"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklyDeniedElementLabel
@@ -3831,16 +3484,18 @@ Token Element_18
              : 0.0
         attribute, den
              : 0.5
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_50
+             : Link_41
         attribute, links
-             : Link_52
+             : Link_43
         attribute, links
-             : Link_64
+             : Link_55
         attribute, links
-             : Link_74
+             : Link_65
         attribute, links
-             : Link_76
+             : Link_67
 END
 
 Token Element_19
@@ -3848,8 +3503,6 @@ Token Element_19
      WITH 
         attribute, name
              : "lower sales price"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklySatisficedElementLabel
@@ -3857,14 +3510,16 @@ Token Element_19
              : 0.8
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_64
+             : Link_55
+        attribute, links
+             : Link_56
+        attribute, links
+             : Link_59
         attribute, links
              : Link_65
-        attribute, links
-             : Link_68
-        attribute, links
-             : Link_74
 END
 
 Token Element_20
@@ -3872,19 +3527,19 @@ Token Element_20
      WITH 
         attribute, name
              : "lower production costs"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_41
+             : Link_32
         attribute, links
-             : Link_54
+             : Link_45
         attribute, links
-             : Link_67
+             : Link_58
 END
 
 Token Element_21
@@ -3892,19 +3547,19 @@ Token Element_21
      WITH 
         attribute, name
              : "improve economies of production"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_41
+             : Link_32
         attribute, links
-             : Link_46
+             : Link_37
         attribute, links
-             : Link_60
+             : Link_51
 END
 
 Token Element_22
@@ -3912,15 +3567,15 @@ Token Element_22
      WITH 
         attribute, name
              : "outsource units of production"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_46
+             : Link_37
 END
 
 Token Element_23
@@ -3928,15 +3583,15 @@ Token Element_23
      WITH 
         attribute, name
              : "reduce raw materials costs"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_60
+             : Link_51
 END
 
 Token Element_24
@@ -3944,8 +3599,6 @@ Token Element_24
      WITH 
         attribute, name
              : "keep labour costs low"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklyDeniedElementLabel
@@ -3953,8 +3606,10 @@ Token Element_24
              : 0.0
         attribute, den
              : 0.9
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_67
+             : Link_58
 END
 
 Token Element_25
@@ -3962,8 +3617,6 @@ Token Element_25
      WITH 
         attribute, name
              : "expand markets"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklySatisficedElementLabel
@@ -3971,8 +3624,10 @@ Token Element_25
              : 0.3
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_70
+             : Link_61
 END
 
 Token Element_26
@@ -3980,21 +3635,21 @@ Token Element_26
      WITH 
         attribute, name
              : "increase consumer appeal"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_44
+             : Link_35
         attribute, links
-             : Link_72
+             : Link_63
         attribute, links
-             : Link_75
+             : Link_66
         attribute, links
-             : Link_77
+             : Link_68
 END
 
 Token Element_27
@@ -4002,8 +3657,6 @@ Token Element_27
      WITH 
         attribute, name
              : "lower environment impact"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklySatisficedElementLabel
@@ -4011,10 +3664,12 @@ Token Element_27
              : 0.9
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_42
+             : Link_33
         attribute, links
-             : Link_72
+             : Link_63
 END
 
 Token Element_28
@@ -4022,21 +3677,21 @@ Token Element_28
      WITH 
         attribute, name
              : "lower purchase costs"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_59
+             : Link_50
         attribute, links
-             : Link_65
+             : Link_56
         attribute, links
-             : Link_73
+             : Link_64
         attribute, links
-             : Link_75
+             : Link_66
 END
 
 Token Element_29
@@ -4044,15 +3699,15 @@ Token Element_29
      WITH 
         attribute, name
              : "lower loan interest rates"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_73
+             : Link_64
 END
 
 Token Element_30
@@ -4060,8 +3715,6 @@ Token Element_30
      WITH 
         attribute, name
              : "offer rebates"
-        attribute, parent
-             : Element_34
 
         attribute, label
              : IStarWeaklySatisficedElementLabel
@@ -4069,8 +3722,10 @@ Token Element_30
              : 0.3
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_59
+             : Link_50
 END
 
 Token Element_31
@@ -4078,19 +3733,19 @@ Token Element_31
      WITH 
         attribute, name
              : "reducing operating costs"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
              : 0.0
+        attribute, perf
+             : 0.0
         attribute, links
-             : Link_55
+             : Link_46
         attribute, links
-             : Link_62
+             : Link_53
         attribute, links
-             : Link_77
+             : Link_68
 END
 
 Token Element_32
@@ -4098,181 +3753,15 @@ Token Element_32
      WITH 
         attribute, name
              : "improve mileage"
-        attribute, parent
-             : Element_34
 
         attribute, sat
              : 0.0
         attribute, den
+             : 0.0
+        attribute, perf
              : 0.0
         attribute, links
-             : Link_62
-END
-
-Token Element_33
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "gas price rises"
-        attribute, children
-             : Element_5
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_34
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "increase return on investment (GM)"
-        attribute, children
-             : Element_14
-        attribute, children
-             : Element_13
-        attribute, children
-             : Element_15
-        attribute, children
-             : Element_16
-        attribute, children
-             : Element_25
-        attribute, children
-             : Element_18
-        attribute, children
-             : Element_26
-        attribute, children
-             : Element_17
-        attribute, children
-             : Element_20
-        attribute, children
-             : Element_24
-        attribute, children
-             : Element_27
-        attribute, children
-             : Element_28
-        attribute, children
-             : Element_31
-        attribute, children
-             : Element_21
-        attribute, children
-             : Element_22
-        attribute, children
-             : Element_9
-        attribute, children
-             : Element_30
-        attribute, children
-             : Element_23
-        attribute, children
-             : Element_32
-        attribute, children
-             : Element_19
-        attribute, children
-             : Element_29
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_35
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "Yen rises"
-        attribute, children
-             : Element_3
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_36
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "improve car services"
-        attribute, children
-             : Element_10
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_37
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "increase VW sales"
-        attribute, children
-             : Element_12
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_38
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "Japanese gas price rises"
-        attribute, children
-             : Element_8
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_39
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "increase customer loyalty"
-        attribute, children
-             : Element_7
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_40
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "increase Toyota sales"
-        attribute, children
-             : Element_11
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
-END
-
-Token Element_41
-     IN IStarAspectElement
-     WITH 
-        attribute, name
-             : "lower Jap. interest rates"
-        attribute, children
-             : Element_2
-
-        attribute, sat
-             : 0.0
-        attribute, den
-             : 0.0
+             : Link_53
 END
 
 Token SerializedView_0
@@ -4418,22 +3907,889 @@ Token SerializedView_0
             : SerializedViewObject_0_68
         attribute,view_objects
             : SerializedViewObject_0_69
-        attribute,view_objects
-            : SerializedViewObject_0_70
-        attribute,view_objects
-            : SerializedViewObject_0_71
-        attribute,view_objects
-            : SerializedViewObject_0_72
-        attribute,view_objects
-            : SerializedViewObject_0_73
-        attribute,view_objects
-            : SerializedViewObject_0_74
-        attribute,view_objects
-            : SerializedViewObject_0_75
-        attribute,view_objects
-            : SerializedViewObject_0_76
-        attribute,view_objects
-            : SerializedViewObject_0_77
-        attribute,view_objects
-            : SerializedViewObject_0_78
 END
+Token SerializedView_0
+    IN SerializedView
+END
+
+SimpleClass IStarRoleElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "i* Role"
+        attribute, attribute, imagesize
+            height : 60
+        attribute, attribute, imagesize
+            width : 60
+        attribute, attribute, imagename
+             : "Role.gif"
+END
+
+SimpleClass IStarPositionElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "i* Position"
+        attribute, attribute, imagesize
+            height : 60
+        attribute, attribute, imagesize
+            width : 60
+        attribute, attribute, imagename
+             : "Position.gif"
+END
+
+SimpleClass IStarAspectElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "i* Aspect"
+        attribute, attribute, imagesize
+            height : 40
+        attribute, attribute, imagesize
+            width : 40
+        attribute, attribute, imagename
+             : "Annotation.gif"
+END
+
+SimpleClass IStarAgentElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "i* Agent"
+        attribute, attribute, imagesize
+            height : 60
+        attribute, attribute, imagesize
+            width : 60
+        attribute, attribute, imagename
+             : "Agent.gif"
+END
+
+SimpleClass IStarActorElement
+    IN IStarClass, IStarActorElementClass, OMEInstantiableClass
+    ISA IStarElement, OMEGrowableElement
+    WITH
+        attribute, attribute, name
+             : "i* Actor"
+        attribute, attribute, imagesize
+            height : 60
+        attribute, attribute, imagesize
+            width : 60
+        attribute, children
+             : IStarIntentionalElement
+        attribute, attribute, imagename
+             : "Actor.gif"
+END
+
+SimpleClass IStarGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "i* Goal"
+        attribute, attribute, imagesize
+            height : 50
+        attribute, attribute, imagesize
+            width : 75
+        attribute, attribute, imagename
+             : "Goal.gif"
+END
+
+SimpleClass IStarTaskElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "i* Task"
+        attribute, attribute, imagesize
+            height : 50
+        attribute, attribute, imagesize
+            width : 75
+        attribute, attribute, imagename
+             : "Task.gif"
+END
+
+SimpleClass IStarSoftGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH       
+        attribute, attribute, name
+             : "i* Softgoal"
+        attribute, attribute, imagesize
+            height : 50
+        attribute, attribute, imagesize
+            width : 75
+        attribute, attribute, satisficing
+            sat: 0.0
+        attribute, attribute, satisficing
+            den: 0.0
+        attribute, attribute, imagename
+             : "Softgoal.gif"
+END
+
+SimpleClass IStarClaimElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement, IStarSoftGoalElement
+    WITH
+        attribute, attribute, name
+             : "i* Claim"
+        attribute, attribute, imagesize
+            height : 50
+        attribute, attribute, imagesize
+            width : 75
+        attribute, attribute, imagename
+             : "Claim.gif"
+END
+
+SimpleClass IStarResourceElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "i* Resource"
+        attribute, attribute, imagesize
+            height : 50
+        attribute, attribute, imagesize
+            width : 75
+        attribute, attribute, imagename
+             : "Resource.gif"
+END
+
+SimpleClass IStarIntentionalElement
+    IN IStarClass, OMEElementClass, OMEVisibleClass
+    ISA IStarElement
+    WITH
+        attribute, imagesize, attribute
+            height : 50
+        attribute, imagesize, attribute
+            width : 75
+        attribute, parent
+             : IStarActorElement
+        attribute, OMEAttributes
+            feature : IStarFeatureLabelClass
+        attribute, OMEAttributes
+            control : IStarControlLabelClass
+        attribute, OMEAttributes
+            label : IStarElementLabelClass
+        attribute, priority
+            : 0
+        attribute, sat
+            : 0
+        attribute, den
+            : 0
+END
+
+SimpleClass IStarElement
+    IN IStarClass
+    ISA OMEElement
+    WITH
+        attribute, name
+             : String
+END
+
+SimpleClass IStarDependencyLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Dependency link"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagename
+             : "Dependency.gif"
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarDecompositionLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Decomposition link"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarTaskElement
+        attribute, attribute, defaultname
+             : "And"
+        attribute, attribute, imagename
+             : "Decomposition.gif"
+        attribute, from
+             : IStarIntentionalElement
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarMeansEndsLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Means-ends link"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarGoalElement
+        attribute, attribute, defaultname
+             : "Or"
+        attribute, attribute, imagename
+             : "Means-Ends.gif"
+        attribute, from
+             : IStarIntentionalElement
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarISALink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* ISA"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarActorElement
+        attribute, attribute, defaultname
+             : "ISA"
+        attribute, attribute, imagename
+             : "ISA.gif"
+        attribute, from
+             : IStarActorElement
+END
+
+SimpleClass IStarINSLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* INS"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarActorElement
+        attribute, attribute, defaultname
+             : "INS"
+        attribute, attribute, imagename
+             : "ISA.gif"
+        attribute, from
+             : IStarActorElement
+END
+
+SimpleClass IStarPlaysLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Plays"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarRoleElement
+        attribute, attribute, defaultname
+             : "PLAYS"
+        attribute, attribute, imagename
+             : "ISA.gif"
+        attribute, from
+             : IStarAgentElement
+END
+
+SimpleClass IStarOccupiesLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Occupies"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarPositionElement
+        attribute, attribute, defaultname
+             : "OCCUPIES"
+        attribute, attribute, imagename
+             : "ISA.gif"
+        attribute, from
+             : IStarAgentElement
+END
+
+SimpleClass IStarCoversLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Covers"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarRoleElement
+        attribute, attribute, defaultname
+             : "COVERS"
+        attribute, attribute, imagename
+             : "ISA.gif"
+        attribute, from
+             : IStarPositionElement
+END
+
+SimpleClass IStarDeniedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "Cross.gif"
+        attribute, attribute, imageposition
+            dy : 30
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Denied"
+END
+
+SimpleClass IStarWeaklyDeniedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "WeaklyDenied.gif"
+        attribute, attribute, imageposition
+            dy : 30
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Weakly Denied"
+END
+
+SimpleClass IStarUndecidedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "Undecided.gif"
+        attribute, attribute, imageposition
+            dy : 35
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Undecided"
+END
+
+SimpleClass IStarWeaklySatisficedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "WeaklySatisficed.gif"
+        attribute, attribute, imageposition
+            dy : 25
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Weakly Satisficed"
+END
+
+SimpleClass IStarSatisficedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "Check.gif"
+        attribute, attribute, imageposition
+            dy : 30
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Satisficed"
+END
+
+SimpleClass IStarConflictElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 25
+        attribute, imagename, attribute, imagename
+             : "Conflict.gif"
+        attribute, attribute, imageposition
+            dy : 30
+        attribute, imagesize, attribute, imagesize
+            width : 25
+        attribute, attribute, imageposition
+            dx : 30
+        attribute, name, attribute, name
+             : "i* Conflict"
+END
+
+SimpleClass IStarDeniedLinkLabel
+    IN OMEVisibleClass, IStarLinkLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, imagename, attribute, imagename
+             : "Cross.gif"
+        attribute, attribute, imageposition
+            dy : 10
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, attribute, imageposition
+            dx : 20
+        attribute, name, attribute, name
+             : "i* Denied Link"
+END
+
+SimpleClass IStarOptionalFeatureLabel
+    IN OMEVisibleClass, IStarFeatureLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, imagename, attribute, imagename
+             : "optional.gif"
+        attribute, attribute, imageposition
+            dy : -20
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, attribute, imageposition
+            dx : 0
+        attribute, name, attribute, name
+             : "optional"
+END
+
+SimpleClass IStarAlternativeFeatureLabel
+    IN OMEVisibleClass, IStarFeatureLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, imagename, attribute, imagename
+             : "alternative.gif"
+        attribute, attribute, imageposition
+            dy : 20
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, attribute, imageposition
+            dx : 0
+        attribute, name, attribute, name
+             : "alternative"
+END
+
+SimpleClass IStarSequentialControlLabel
+    IN OMEVisibleClass, IStarControlLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, imagename, attribute, imagename
+             : "sequential.gif"
+        attribute, attribute, imageposition
+            dy : 40
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, attribute, imageposition
+            dx : 0
+        attribute, name, attribute, name
+             : "sequential"
+END
+
+SimpleClass IStarParallelControlLabel
+    IN OMEVisibleClass, IStarControlLabelClass
+    WITH
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, imagename, attribute, imagename
+             : "parallel.gif"
+        attribute, attribute, imageposition
+            dy : 40
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, attribute, imageposition
+            dx : 0
+        attribute, name, attribute, name
+             : "parallel"
+END
+
+SimpleClass IStarPartsLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "i* Is-Part-of"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, to
+             : IStarActorElement
+        attribute, attribute, defaultname
+             : "Is-Part-of"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, from
+             : IStarActorElement
+END
+
+SimpleClass IStarBreakContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Break"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Break"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarMakeContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Make"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Make"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarOrContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Or"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Or"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarAndContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* And"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "And"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarEqualContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Equal"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "="
+        attribute, attribute, imagename
+             : "DoubleArrow.gif"
+END
+
+SimpleClass IStarHurtContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Hurt"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Hurt"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarHelpContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Help"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Help"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarUnknownContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Unknown"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Unknown"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarSomePositiveContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Some +"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Some +"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarSomeNegativeContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA IStarSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "i* Some -"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Some -"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+END
+
+SimpleClass IStarSoftgoalContribution
+    IN OMEVisibleClass, OMELinkClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, imagename
+             : "Contribution.gif"
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, name, attribute
+             : "i* Contribution link"
+END
+
+SimpleClass IStarLink
+    ISA OMELink
+END
+
+SimpleClass OMEGrowableElement
+    IN OMEGrowableElementClass
+    ISA OMEElement
+    WITH
+        attribute, children
+             : OMEElement
+END
+
+SimpleClass OMEElement
+    IN OMEElementClass
+    ISA OMEObject
+    WITH
+        attribute, parent
+             : OMEElement
+END
+
+SimpleClass OMELink
+    IN OMELinkClass
+    ISA OMEObject
+    WITH
+        attribute, to
+             : OMEObject
+        attribute, from
+             : OMEObject
+END
+
+SimpleClass OMEObject
+    IN OMEObjectClass
+    WITH
+        attribute, links
+             : OMELink
+        attribute, OMEValueAttributes
+            comment : String
+        attribute, name
+             : String
+END
+
+SimpleClass SerializedView
+    WITH
+        attribute, view_objects
+             : Token
+END
+
+SimpleClass SerializedObject
+    WITH
+        attribute, type
+             : String
+END
+
+MetaClass IStarElementLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarControlLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarFeatureLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarLinkLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarLinkClass
+    ISA IStarClass, OMELinkClass
+END
+
+MetaClass IStarActorElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarIntentionalElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarElementClass
+    ISA IStarClass, OMEElementClass
+END
+
+MetaClass IStarClass
+    ISA OMEObjectClass
+END
+
+MetaClass IStarContributionLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass OMEInstantiableClass
+    ISA OMEClass, OMEVisibleClass
+    WITH
+        attribute, autogui
+             : Integer
+END
+
+MetaClass OMEVisibleClass
+    ISA OMEClass
+    WITH
+        attribute, imagename
+             : String
+        attribute, imagesize
+             : Integer
+        attribute, name
+             : String
+END
+
+MetaClass OMEGrowableElementClass
+    ISA OMEObjectClass, OMEElementClass
+END
+
+MetaClass OMEElementClass
+    ISA OMEObjectClass
+END
+
+MetaClass OMELinkClass
+    ISA OMEObjectClass
+    WITH
+        attribute, stroke
+             : String
+END
+
+MetaClass OMEObjectClass
+    ISA OMEClass
+    WITH
+        attribute, OMEValueAttributes
+             : SClass
+        attribute, defaultname
+             : String
+        attribute, OMEAttributes
+             : OMEAttributeMetaClass
+END
+
+MetaClass OMEClass
+END
+
+MetaClass OMEAttributeClass
+    WITH
+        attribute, imageposition
+             : Integer
+        attribute, imagename
+             : String
+        attribute, imagesize
+             : Integer
+        attribute, name
+             : String
+END
+
+MetaMetaClass OMEAttributeMetaClass
+END
+
