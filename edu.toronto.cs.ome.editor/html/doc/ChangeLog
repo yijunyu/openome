@@ -1,6 +1,12 @@
 ** ChangeLogs **
 TIME			  AUTHOR     MAINTENANCE TYPE:NFR TYPE:COMPONENT NAME
 =============   ==========   ========================================
+Feb 15, 2006      Yijun Yu
+
+-- Kick off next agile RE iteration
+   To collect requirements from users
+-- Update the installation documents
+
 Dec 18, 2005      Yijun Yu
 
 -- Release of version 0.14
