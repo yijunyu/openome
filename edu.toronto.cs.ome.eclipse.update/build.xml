@@ -10,10 +10,10 @@
 <property file="${buildProperties}"/>
 <property name="customTargets" location="${builderDirectory}/customTargets.xml"/>
 <property name="genericTargets" location="genericTargets.xml"/>
-<property name="eclipse" location="/h/27/yijun/IDE/sdk/3.2M4/eclipse" />
+<property name="eclipse" location="/h/27/yijun/IDE/sdk/3.1.2/eclipse" />
 <taskdef name="eclipse.idReplacer" 
 	classname="org.eclipse.pde.internal.build.tasks.IdReplaceTask" 
-	classpath="${eclipse}/plugins/org.eclipse.pde.build_3.2.0.v20051212/lib/pdebuild-ant.jar"/>
+	classpath="${eclipse}/plugins/org.eclipse.pde.build_3.1.2/lib/pdebuild-ant.jar"/>
 <!-- ===================================================================== -->
 <!-- main entry point to setup, fetch, generate, build etc. Use -->
 <!-- the customTargets.xml to modify the build behaviour. -->
