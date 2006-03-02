@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="Japanese interest rate rise"0.8,0.3>
+  <rule op="+0.6" to="Yen rises" />
+  <rule op="-0.8" to="lower Jap. interest rates" />
+ </goal>
+</model>

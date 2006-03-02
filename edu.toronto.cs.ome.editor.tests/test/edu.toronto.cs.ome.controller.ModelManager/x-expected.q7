@@ -1,0 +1,10 @@
+<"Aspect a">::"May a" { &
+  "May b" { |
+    "May d1"
+    "May d2"
+  }
+  "May c" { &
+    "May c1"
+    "May d2"
+  }
+}

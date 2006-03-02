@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.goalmodel="http:///edu/toronto/cs/goalmodel.ecore">
+  <edu.toronto.cs.goalmodel:goal name="May Give instructions to data processor #1" type="LEAF">
+    <rule target="/19/@goal.1/@goal.0"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Certainty" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Performance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Feasibility" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Trust" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Give instructions to data processor #2" type="LEAF">
+    <rule target="/4"/>
+    <rule target="/3"/>
+    <rule target="/24"/>
+    <rule target="/1"/>
+    <rule target="/2"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Certainty" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Performance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Feasibility" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Trust" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Give instructions to data processor #1" type="LEAF">
+    <rule target="/9"/>
+    <rule target="/6"/>
+    <rule target="/8"/>
+    <rule target="/7"/>
+    <rule target="/0"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Trust" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Trust" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Certainty" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Certainty" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Performance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Performance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Feasibility" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Feasibility" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Appoint data processor" type="LEAF">
+    <goal name="May Identify data processor" type="AND">
+      <goal name="May Identify data processor #2">
+        <rule target="/17"/>
+        <rule target="/15"/>
+        <rule target="/13"/>
+        <rule target="/20"/>
+        <rule target="/11"/>
+      </goal>
+      <goal name="May Assess certainty">
+        <goal name="May Identify data processor #1" type="AND">
+          <rule target="/15"/>
+          <rule target="/11"/>
+          <rule target="/13"/>
+          <rule target="/22"/>
+          <rule target="/17"/>
+        </goal>
+        <goal name="May Monitor data processor" type="AND">
+          <rule target="/17"/>
+          <rule target="/15"/>
+          <rule target="/13"/>
+        </goal>
+      </goal>
+    </goal>
+    <goal name="May Give instructions to data processor" type="AND">
+      <goal name="May Give instructions to data processor #1"/>
+      <goal name="May Give instructions to data processor #2"/>
+      <rule target="/13"/>
+      <rule target="/17"/>
+      <rule target="/15"/>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Identify data processor #2" type="LEAF">
+    <rule target="/21"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Identify data processor #2" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Identify data processor #1" type="LEAF">
+    <rule target="/23"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Identify data processor #1" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Give instructions to data processor #2" type="LEAF">
+    <rule target="/19/@goal.1/@goal.1"/>
+  </edu.toronto.cs.goalmodel:goal>
+</xmi:XMI>

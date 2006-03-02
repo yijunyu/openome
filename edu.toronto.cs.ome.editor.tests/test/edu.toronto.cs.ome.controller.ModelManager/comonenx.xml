@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="Sell to Customer">
+  <rule op="AND"/>
+ ;  <goal name="Get Customer Order">
+   <rule op="OR"/>
+   <goal name="Get Phone Order" />
+   <goal name="Get Fax Order" />
+   <goal name="Get Online Order" />
+  </goal>
+  <goal name="Process Customer Order">
+   <rule op="OR"/>
+   <goal name="Bill, Build, then Ship">
+    <rule op="AND"/>
+ ;    <goal name="Bill" />
+    <goal name="Collect Payment" />
+    <goal name="Build and Package Order" />
+    <goal name="Ship Order" />
+    <rule op="MAKE" to="Minimize Risk" />
+    <rule op="HURT" to="Customer Satisfaction" />
+   </goal>
+   <goal name="Build, then Ship and Bill">
+    <rule op="AND"/>
+ ;    <goal name="Apply Process To Customer">
+     <rule op="OR"/>
+     <goal name="Apply to Any Customer">
+      <rule op="AND"/>
+      <goal name="Approve Order" />
+      <rule op="HURT" to="Minimize Risk" />
+     </goal>
+     <goal name="Apply to Trusted Customer">
+      <rule op="AND"/>
+ ;      <goal name="Determine Trustworthiness of Customer">
+       <rule op="OR"/>
+       <goal name="Check if Return Customer" />
+       <goal name="Check Credit Rating" />
+      </goal>
+      <goal name="Approve Order" />
+      <rule op="HELP" to="Minimize Risk" />
+     </goal>
+    </goal>
+    <goal name="Build and Package Order" />
+    <goal name="Ship and Bill">
+     <rule op="AND"/>
+ ||     <goal name="Ship Order" />
+     <goal name="Bill and Collect Payment" />
+    </goal>
+    <rule op="HELP" to="Customer Satisfaction" />
+   </goal>
+  </goal>
+ </goal>
+</model>

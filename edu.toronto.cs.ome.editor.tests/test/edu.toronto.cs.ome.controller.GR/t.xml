@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="&lt;A&gt;::h">
+  <rule op="OR"/>
+  <goal name="&lt;A&gt;::a0">
+   <rule op="AND"/>
+   <goal name="&lt;A&gt;::"a#1">
+    <rule op="~ 0.6" to="&lt;B&gt;::"a#1" />
+   </goal>
+   <goal name="&lt;A&gt;::m_a" />
+  </goal>
+  <goal name="&lt;A&gt;::"a#2">
+   <rule op="~ 1.0" to="&lt;C&gt;::"a#2" />
+  </goal>
+ </goal>
+</model>

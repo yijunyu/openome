@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="&lt;middleware&gt;::"inter-program" [communication]">
+  <rule op="OR"/>
+  <goal name="&lt;middleware&gt;::"inter-network" [communication]">
+   <rule op="AND"/>
+   <goal("network notification") =>  name="&lt;"priority-based sender"&gt;::"inter-network send" [request,response,"byte packets"]">
+    <rule op="AND"/>
+    <goal name="&lt;sender&gt;::"inter-network send" />
+    <goal name="&lt;"priority-based sender"&gt;::"encode priority info" />
+    <rule op="HELP" to="predictable communications" />
+   </goal>
+   <goal("message arrives at send queue") =>  name="&lt;"priority-based receiver"&gt;::"inter-network receive" ["byte packets",request]">
+    <rule op="AND"/>
+    <goal name="&lt;"priority-based receiver"&gt;::"decode priority info" />
+    <goal name="&lt;receiver&gt;::"inter-network receive" />
+    <rule op="HELP" to="predictable communications" />
+   </goal>
+   <goal("formatted request arrives dispatcher") =>  name="&lt;dispatcher&gt;::dispatch [request,"target service"]" />
+   <goal name="&lt;"user app"&gt;::process [request,response]" />
+  </goal>
+  <goal name="&lt;dispatcher&gt;::"inter-process" [communication]" />
+  <rule op="HELP" to="usability" />
+  <rule op="HELP" to="flexibility" />
+  <rule op="HELP" to="fault tolerance" />
+  <rule op="HELP" to="ease of programming" />
+ </goal>
+ <soft name="predictable communications">
+  <rule op="HELP" to="efficiency" />
+ </soft>
+</model>
