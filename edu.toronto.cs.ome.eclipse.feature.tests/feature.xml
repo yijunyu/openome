@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.toronto.cs.openome.sdk.tests"
+      label="%featureName"
+      version="0.0.14"
+      image= "eclipse_update_120.jpg"
+      provider-name="%providerName">
+      
+   <description>
+      %description
+   </description>
+
+   <license url="%licenseURL">
+     %license
+   </license>
+
+   <url>
+      <update
+         url="http://www.cs.toronto.edu/km/openome/update"
+         label="%updateSiteName">
+      </update>
+   </url>
+
+   <includes id="org.eclipse.test" version="3.1.0" /> 
+
+   <plugin id="edu.toronto.cs.openome.sdk.tests" version="0.0.14"/>
+
+   <!--  OpenOME test plugins  -->
+   <plugin id="edu.toronto.cs.ome.editor.tests" version="0.0.14" />
+
+</feature>
