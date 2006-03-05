@@ -2,8 +2,12 @@ package edu.toronto.cs.ome.controller.test;
 
 import java.io.File;
 
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+
 import edu.toronto.cs.ome.OMETab;
 import edu.toronto.cs.ome.controller.ModelManager;
+import edu.toronto.cs.ome.editor.tests.OpenOMETestPlugin;
 import edu.toronto.cs.ome.model.TelosModel;
 import edu.toronto.cs.util.FileBasedTest;
 
@@ -132,11 +136,14 @@ public class ModelManagerTest extends FileBasedTest {
 			}
 		}
 	}	
+	
 	/*
 	 * Test method for 'edu.toronto.cs.ome.controller.ModelManager.saveModelToQ7(TelosModel, File)'
 	 */
 	public void testSaveModelToQ7() {
-		Transform(this, "saveToQ7", "test/edu.toronto.cs.ome.controller.ModelManger", 
+		Transform(this, "saveToQ7", 
+				OpenOMETestPlugin.getDefault().getFileInPlugin(new Path(
+						"test/edu.toronto.cs.ome.controller.ModelManger")), 
 					".tel", ".q7", "-expected.q7");		
 	}
 
@@ -170,7 +177,9 @@ public class ModelManagerTest extends FileBasedTest {
 	 * Test method for 'edu.toronto.cs.ome.controller.ModelManager.saveModelToDat(TelosModel, File)'
 	 */
 	public void testSaveModelToDat() {
-		Transform(this, "saveToDat", "test/edu.toronto.cs.ome.controller.GR", 
+		Transform(this, "saveToDat", 
+				OpenOMETestPlugin.getDefault().getFileInPlugin(new Path(
+						"test/edu.toronto.cs.ome.controller.GR")),
 				".tel", "-output.dat", "-no-expected.dat");
 	}
 

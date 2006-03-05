@@ -8,9 +8,12 @@ package edu.toronto.cs.telos.test;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.eclipse.core.runtime.Path;
+
 import jtelos.KB;
 import junit.framework.TestCase;
 import edu.toronto.cs.ome.controller.ModelManager;
+import edu.toronto.cs.ome.editor.tests.OpenOMETestPlugin;
 import edu.toronto.cs.ome.model.TelosModel;
 import edu.toronto.cs.util.Computing;
 import edu.toronto.cs.util.D;
@@ -39,7 +42,9 @@ public class TelosTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		if (listed_files == null) { // just do it once
-			listed_files = Computing.listContents(new File(testDir), inputExt);
+			listed_files = Computing.listContents(
+					OpenOMETestPlugin.getDefault().getFileInPlugin(new Path(testDir)),
+					inputExt);
 		}		
 	}
 

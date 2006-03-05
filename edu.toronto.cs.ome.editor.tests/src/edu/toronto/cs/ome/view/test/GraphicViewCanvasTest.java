@@ -1,6 +1,9 @@
 package edu.toronto.cs.ome.view.test;
 
+import org.eclipse.core.runtime.Path;
+
 import edu.toronto.cs.ome.Telos2SVG;
+import edu.toronto.cs.ome.editor.tests.OpenOMETestPlugin;
 import edu.toronto.cs.util.FileBasedTest;
 
 public class GraphicViewCanvasTest extends FileBasedTest {
@@ -17,7 +20,9 @@ public class GraphicViewCanvasTest extends FileBasedTest {
 	 * Test method for 'edu.toronto.cs.ome.view.GraphicViewCanvas.GraphicViewCanvas(JMenuBar, GraphicView, GraphicViewFrame)'
 	 */
 	public void testGraphicViewCanvas() {
-		Transform(this, "transform", "test/edu.toronto.cs.ome.view.GraphicViewCanvas",
+		Transform(this, "transform", 
+				OpenOMETestPlugin.getDefault().getFileInPlugin(new Path(
+				"test/edu.toronto.cs.ome.view.GraphicViewCanvas")),
 				".tel", ".svg", "-not-expected.svg");
 	}
 
