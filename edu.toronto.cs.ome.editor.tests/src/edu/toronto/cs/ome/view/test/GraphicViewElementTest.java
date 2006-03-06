@@ -86,7 +86,6 @@ public class GraphicViewElementTest extends ViewTest {
 	}
 
 	public void testAddChild() {
-		if (listed_files == null) return;
 		for (int f=0; f<listed_files.size(); f++) {
 			String n = (String ) listed_files.get(f);
 			View view = GraphicView.loadViewFromFile(n);
