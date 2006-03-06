@@ -22,6 +22,8 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 
+import org.eclipse.core.runtime.Path;
+
 import edu.toronto.cs.q7.model.Advice;
 import edu.toronto.cs.q7.model.Effect;
 import edu.toronto.cs.q7.model.Entity;
@@ -29,7 +31,6 @@ import edu.toronto.cs.q7.model.IStarElement;
 import edu.toronto.cs.q7.model.IStarLink;
 import edu.toronto.cs.q7.model.Pointcut;
 import edu.toronto.cs.util.Computing;
-import edu.toronto.cs.util.D;
 import edu.toronto.cs.util.SortArrayList;
 /**
  * @author Yijun Yu

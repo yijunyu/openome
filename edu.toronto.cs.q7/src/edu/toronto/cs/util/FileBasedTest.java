@@ -12,7 +12,7 @@ import junit.framework.TestCase;
 /**
  * @author Yijun Yu
  */
-public class FileBasedTest extends TestCase {	
+public abstract class FileBasedTest extends TestCase {	
 	public FileBasedTest() {
 		super();
 	}	
@@ -38,11 +38,10 @@ public class FileBasedTest extends TestCase {
 	 * @throws IllegalAccessException 
 	 * @throws IllegalArgumentException 
 	 */
-	public void Transform(Object o, String method_name, String testDir, 
+	public void Transform(Object o, String method_name, File testDir, 
 			String inputExt, String outputExt, String expectedExt)  {	// roundtrip test
 		ArrayList listed_files = new ArrayList(); 	
-		listed_files = Computing.listContents(new File(testDir), expectedExt);
-		if (listed_files !=null)
+		listed_files = Computing.listContents(testDir, expectedExt);
 		for (int i=0; i<listed_files.size(); i++) {
 			String n = (String ) listed_files.get(i);
 			Method m;

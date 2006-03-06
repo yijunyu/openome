@@ -142,17 +142,20 @@ public class Computing {
 	public static ArrayList listContents(File dir, String suffix) {
 	   // Assume that dir is a directory.  List its contents.
 	   ArrayList listed_files = new ArrayList();
-	   String[] files;  // The names of the files in the directory.
-	   files = dir.list();
+	   if (dir == null) {
+		   return listed_files;
+	   }
+	   File[] files;  // The names of the files in the directory.
+	   files = dir.listFiles();
 	   if (files ==null)
 	   	  return null;
 	   for (int i = 0; i < files.length; i++) {
-	       File f = new File(dir, files[i]); 
+	       File f = files[i]; 
 	       	// One of the files in the directory.
 	       if ( !f.isDirectory() ) {
 	           // For a regular file, just print the name, files[i].
-	           if (files[i].indexOf(suffix)>=0) { 
-		       	   listed_files.add(dir.getAbsolutePath() + File.separator + files[i]);
+	           if (f.getAbsolutePath().indexOf(suffix)>=0) { 
+		       	   listed_files.add(""+files[i]);
 	           }
 	       }
 	   }
