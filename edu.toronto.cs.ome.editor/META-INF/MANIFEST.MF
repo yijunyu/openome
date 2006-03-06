@@ -25,18 +25,21 @@ Require-Bundle: org.eclipse.ui;reprovide=true,
 Eclipse-AutoStart: true
 Bundle-ClassPath: ome4eclipse.jar
 Provide-Package: edu.toronto.cs.ome,
- edu.toronto.cs.ome.eclipse
-Export-Package: edu.toronto.cs.ome,
  edu.toronto.cs.ome.controller,
- edu.toronto.cs.ome.controller.test,
  edu.toronto.cs.ome.eclipse,
  edu.toronto.cs.ome.model,
- edu.toronto.cs.ome.model.test,
  edu.toronto.cs.ome.plugins,
  edu.toronto.cs.ome.view,
- edu.toronto.cs.ome.view.test,
  edu.toronto.cs.telos,
- edu.toronto.cs.telos.test,
+ edu.toronto.cs.undo,
+ edu.toronto.cs.wbimodel
+Export-Package: edu.toronto.cs.ome,
+ edu.toronto.cs.ome.controller,
+ edu.toronto.cs.ome.eclipse,
+ edu.toronto.cs.ome.model,
+ edu.toronto.cs.ome.plugins,
+ edu.toronto.cs.ome.view,
+ edu.toronto.cs.telos,
  edu.toronto.cs.undo,
  edu.toronto.cs.wbimodel,
  resources

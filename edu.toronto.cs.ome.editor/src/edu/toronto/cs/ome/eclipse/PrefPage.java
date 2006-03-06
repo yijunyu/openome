@@ -88,8 +88,9 @@ public class PrefPage extends PreferencePage implements IWorkbenchPreferencePage
      * Method declared on PreferencePage
      */
     protected Control createContents(Composite parent) {
-    	PlatformUI.getWorkbench().getHelpSystem().setHelp(parent,
-				IConstants.PREFERENCE_PAGE_CONTEXT);
+        // The following method is not supported in SDK 3.0.2 !
+//    	PlatformUI.getWorkbench().getHelpSystem().setHelp(parent,
+//				IConstants.PREFERENCE_PAGE_CONTEXT);
         //composite_textField << parent
         Composite composite_textField = createComposite(parent, 2);
         Composite composite_tab = createComposite(parent, 2);

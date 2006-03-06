@@ -61,8 +61,8 @@ public class Editor extends EditorPart {
 		System.setProperty("fitDot", "false");
 		System.setProperty("ome.eclipse", "true");
 		String model = input;
-		OMETab ot = new OMETab();
 		OMETab.inProtege = false;
+		OMETab ot = new OMETab();
 		System.setProperty("model", model);
 		ot.createWidgets();
 		OMETab.inProtege = true;
