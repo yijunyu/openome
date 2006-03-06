@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="&lt;"Actor Counselling Management"&gt;::"!A Training Computer Be Present"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"!An IT Trainer Be Present"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"!Calls Be Recorded into a Data Base"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"!Performance Review Information Be Collected in Data Base"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"May *Increase" ["IT Training for Counsellors"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"May Improve" ["Call Recording Equipment"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"May Increase IT Methods to Acquire Feedback"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling Management"&gt;::"May Support Analysis" ["Counsellors Time"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"!IT Systems Be Integrated"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"Do *Implement Bulletin Board"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"Do *Implement Categorization Tool"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"Do *Implement Email for Counsellors"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May *Increase" ["IT Training for Counsellors"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Decrease Clumsiness" [Technology]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Easily Accessable Technology Instructions"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Improve Quality Assurance Technology"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Improve" ["Call Recording Equipment"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Increase IT Methods to Acquire Feedback"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor Counselling"&gt;::"May Simple" [Technology]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"Do ! Provide compiled call data"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"Do Get web event technology"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"Do Provide Document Library System"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"Do Provide Online Donor Technology"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"May Increase Access Speed" ["Regional Offices to DL"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor FD and M"&gt;::"Provide: Donor/Accounting Data Base"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Do !Implement Phone Feedback"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Do Put Content Onto Website"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Provide: Feedback Form Software"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Provide: Web Server"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+  <rule op="" to="&lt;"Role IT Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Provide: Web Software"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Actor KHP Services"&gt;::"Telephony Be Implemented and Managed"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"KHP Be Not for Profit"">
+  <rule op="" to="&lt;KHP&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"May Increase IT Resources"">
+  <rule op="" to="&lt;KHP&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"May Increased Emphasis on IT in Hiring Process" ["of Counsellors"]">
+  <rule op="" to="&lt;"Actor Counselling Management"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Free Software"">
+  <rule op="" to="&lt;"Role Pro Bono Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Free Upgrades"">
+  <rule op="" to="&lt;"Role Pro Bono Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Free Web Server"">
+  <rule op="" to="&lt;"Role Pro Bono Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Hardware"">
+  <rule op="" to="&lt;"Role IT Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: IT Resources"">
+  <rule op="" to="&lt;KHP&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Oracle"">
+  <rule op="" to="&lt;"Role Pro Bono Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Software"">
+  <rule op="" to="&lt;"Role IT Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Upgrades"">
+  <rule op="" to="&lt;"Role IT Company"&gt;" />
+ </goal>
+ <goal name="&lt;"Position IT Department"&gt;::"Provide: Web Server"">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+  <rule op="" to="&lt;"Role IT Company"&gt;" />
+ </goal>
+ <goal name="&lt;KHP&gt;::"May Properly and Suitably Equipped in IT" ["to Accomplish KHP Needs"]">
+  <rule op="" to="&lt;"Position IT Department"&gt;" />
+ </goal>
+</model>
