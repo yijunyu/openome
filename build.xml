@@ -11,9 +11,6 @@
     </target>
     <target name="test" depends="build">
         <mkdir dir="../testing/results"/>
-	<exec dir="../testing" executable="test.sh"/>
-<!--
-        <ant antfile="../testing/test-cc.xml" target="all"/>
--->
+	<exec dir="../testing" executable="/h/27/yijun/Workspaces/cruise/projects/openome-sdk/testing/test.sh"/>
     </target>
 </project>
