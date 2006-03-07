@@ -23,5 +23,9 @@
 		    <property name="feature.destination" value="${UpdateSiteStagingLocation}/features"/>
 		    <property name="plugin.destination" value="${UpdateSiteStagingLocation}/plugins"/>
 		</ant>
+	    <ant antfile="build.xml" dir="../edu.toronto.cs.ome.eclipse.feature.tests" target="build.update.jar" inheritAll="true">
+		    <property name="feature.destination" value="${UpdateSiteStagingLocation}/features"/>
+		    <property name="plugin.destination" value="${UpdateSiteStagingLocation}/plugins"/>
+    		</ant>
 	</target>
 </project>
