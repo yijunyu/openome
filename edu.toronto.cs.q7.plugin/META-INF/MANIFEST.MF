@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Q7 Plug-in
+Bundle-SymbolicName: edu.toronto.cs.q7.plugin; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: edu.toronto.cs.q7.plugin.Activator
+Bundle-Vendor: University of Toronto
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ edu.toronto.cs.q7,
+ edu.toronto.cs.goalmodel.editor,
+ org.eclipse.core.runtime.compatibility,
+ org.eclipse.ui.editors
+Eclipse-LazyStart: true
