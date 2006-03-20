@@ -278,11 +278,12 @@ Advice Advice() :
 }
 {
   ([ <LEFT_PAR> op = Op() when = When() <RIGHT_PAR> <IMPLIES> ]
-  [ (<LEFT_BR>  who=Who() <RIGHT_BR> <SCOPE>) ] 
-  why=Why()
+  ( 
+  [ LOOKAHEAD(3) (<LEFT_BR> who=Who() <RIGHT_BR> <SCOPE>) ] why=Why()
   [ <LEFT_BRACKET> what=What() <RIGHT_BRACKET> ]
   [ (<ALIAS> | <AS>) alias = Alias() ]
   [ <WEAVES> where=Where() ]
+  | LOOKAHEAD(3) (<LEFT_BR> who=Who() <RIGHT_BR> ))
   [ <LEFT_BRACE> how=How() <RIGHT_BRACE> ]
   [ <AT> label = Label() <AT> ] [ ( <IMPLIES> how_much = HowMuch() | <DEPENDS> how_much = Agents() /* shorthand */) ]
   )

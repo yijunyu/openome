@@ -1008,14 +1008,12 @@ static StringBuffer image;
 static int jjimageLen;
 static int lengthOfMatch;
 static protected char curChar;
-public Q7TokenManager(JavaCharStream stream)
-{
+public Q7TokenManager(JavaCharStream stream){
    if (input_stream != null)
       throw new TokenMgrError("ERROR: Second call to constructor of static lexer. You must use ReInit() to initialize the static variables.", TokenMgrError.STATIC_LEXER_ERROR);
    input_stream = stream;
 }
-public Q7TokenManager(JavaCharStream stream, int lexState)
-{
+public Q7TokenManager(JavaCharStream stream, int lexState){
    this(stream);
    SwitchTo(lexState);
 }
@@ -1205,9 +1203,8 @@ static void SkipLexicalActions(Token matchedToken)
    {
       case 11 :
          if (image == null)
-            image = new StringBuffer(new String(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1))));
-         else
-            image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
+            image = new StringBuffer();
+         image.append(input_stream.GetSuffix(jjimageLen + (lengthOfMatch = jjmatchedPos + 1)));
         if (Q7.comment==null)
                 Q7.comment = ""+ matchedToken;
         else
@@ -1224,9 +1221,8 @@ static void MoreLexicalActions()
    {
       case 7 :
          if (image == null)
-              image = new StringBuffer(new String(input_stream.GetSuffix(jjimageLen)));
-         else
-            image.append(input_stream.GetSuffix(jjimageLen));
+            image = new StringBuffer();
+         image.append(input_stream.GetSuffix(jjimageLen));
          jjimageLen = 0;
                    input_stream.backup(1);
          break;

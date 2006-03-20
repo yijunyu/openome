@@ -15,6 +15,8 @@
    <requires>
       <import plugin="edu.toronto.cs.q7"/>
       <import plugin="org.junit"/>
-      <import plugin="edu.toronto.cs.ome.eclipse"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
    </requires>
 </plugin>

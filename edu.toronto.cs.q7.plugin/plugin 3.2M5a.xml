@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         id="edu.toronto.cs.q7.plugin.application"
+         name="edu.toronto.cs.q7.plugin.application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="edu.toronto.cs.q7.plugin.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Goal Modeling Perspective"
+            class="edu.toronto.cs.q7.plugin.Perspective"
+            id="edu.toronto.cs.q7.plugin.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.q7"
+            id="edu.toronto.cs.q7.plugin.contribution1">
+         <menu
+               label="Convert the Q7 representation into"
+               path="additions"
+               id="edu.toronto.cs.q7.plugin.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="edu.toronto.cs.q7.plugin.popup.actions.TelosAction"
+               id="edu.toronto.cs.q7.plugin.TelosAction"
+               label="Telos"
+               menubarPath="edu.toronto.cs.q7.plugin.menu1/group1"
+               tooltip="Convert into an i* model">
+         </action>
+         <action
+               class="edu.toronto.cs.q7.plugin.popup.actions.GoalModelAction"
+               id="edu.toronto.cs.q7.plugin.GoalModelAction"
+               label="Goal Model"
+               menubarPath="edu.toronto.cs.q7.plugin.menu1/group1"
+               tooltip="Convert into a goal model">
+         </action>
+      </objectContribution>
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.goalmodel"
+            id="edu.toronto.cs.q7.plugin.contribution2">
+         <menu
+               label="Convert the Goal Model into"
+               path="additions"
+               id="edu.toronto.cs.q7.plugin.menu2">
+            <separator
+                  name="group2">
+            </separator>
+         </menu>
+         <action
+               class="edu.toronto.cs.q7.plugin.popup.actions.BPELAction"
+               id="edu.toronto.cs.q7.plugin.BPELAction"
+               label="BPEL"
+               menubarPath="edu.toronto.cs.q7.plugin.menu2/group1"
+               tooltip="Convert into a BPEL process model">
+         </action>
+         <action
+               class="edu.toronto.cs.q7.plugin.popup.actions.Q7Action"
+               id="edu.toronto.cs.q7.plugin.Q7Action"
+               label="Q7"
+               menubarPath="edu.toronto.cs.q7.plugin.menu2/group1"
+               tooltip="Convert into a Q7 representation">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="edu.toronto.cs.q7.plugin.application"
+            name="edu.toronto.cs.q7.plugin.product"/>
+   </extension>
+</plugin>

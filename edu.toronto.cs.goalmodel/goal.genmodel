@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.toronto.cs.goalmodel/src"
+    modelPluginID="edu.toronto.cs.goalmodel" modelName="Goal" importerID="org.eclipse.emf.importer.java">
+  <foreignModel>@model</foreignModel>
+  <genPackages prefix="Goalmodel" basePackage="edu.toronto.cs" disposableProviderFactory="true"
+      ecorePackage="goalmodel.ecore#/">
+    <genEnums ecoreEnum="goalmodel.ecore#//ActorType">
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ActorType/ACTOR"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ActorType/AGENT"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ActorType/ROLE"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ActorType/POSITION"/>
+    </genEnums>
+    <genEnums ecoreEnum="goalmodel.ecore#//ContributionType">
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ContributionType/HELP"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ContributionType/HURT"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ContributionType/MAKE"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ContributionType/BREAK"/>
+    </genEnums>
+    <genEnums ecoreEnum="goalmodel.ecore#//DecompositionType">
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//DecompositionType/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//DecompositionType/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//DecompositionType/LEAF"/>
+    </genEnums>
+    <genEnums ecoreEnum="goalmodel.ecore#//LabelType">
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Satisfied"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Denied"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/PartiallySatisfied"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/PartiallyDenied"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Conflict"/>
+    </genEnums>
+    <genClasses ecoreClass="goalmodel.ecore#//actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//actor/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//actor/super"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//actor/sub"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//actor/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//actor/goals"/>
+    </genClasses>
+    <genClasses ecoreClass="goalmodel.ecore#//contribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//contribution/type"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//contribution/target"/>
+    </genClasses>
+    <genClasses ecoreClass="goalmodel.ecore#//dependency">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//dependency/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//dependency/dependencyTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//dependency/trust"/>
+    </genClasses>
+    <genClasses ecoreClass="goalmodel.ecore#//goal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/goal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/system"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/boundary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/exclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/sequential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/parallel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/property"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/actor"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/dependencyTo"/>
+    </genClasses>
+    <genClasses ecoreClass="goalmodel.ecore#//property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="goalmodel.ecore#//topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//topic/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//topic/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

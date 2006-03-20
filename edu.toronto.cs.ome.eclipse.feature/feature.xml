@@ -37,6 +37,11 @@ SAT4J          sat4j.org      LGPL
       <discovery label="OpenOME Update Site" url="http://www.cs.toronto.edu/km/openome"/>
    </url>
 
+   <includes
+         id="org.eclipse.emf"
+         version="2.1.2"
+         search-location="both"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
@@ -46,8 +51,9 @@ SAT4J          sat4j.org      LGPL
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import plugin="org.junit"/>
+      <import plugin="org.eclipse.emf"/>
    </requires>
 
    <plugin

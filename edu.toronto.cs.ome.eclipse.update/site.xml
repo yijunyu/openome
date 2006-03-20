@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <feature url="features/edu.toronto.cs.ome.eclipse.feature_0.0.14.jar" id="edu.toronto.cs.ome.eclipse.feature" version="0.0.14"/>
+   <feature url="features/edu.toronto.cs.ome.eclipse.feature.tests_0.0.14.jar" id="edu.toronto.cs.ome.eclipse.feature.tests" version="0.0.14"/>
 </site>

@@ -88,18 +88,21 @@ public class GoalModelCodeGenerator extends TelosCodeGenerator {
 	public GoalModelCodeGenerator(ArrayList a) {
 		super(a);
 	}
-
+	GoalmodelPackage e = GoalmodelPackage.eINSTANCE;
+	GoalmodelFactory f = e.getGoalmodelFactory();
+	Resource resource;
 	public void generateGoalModel(String out_file) {
 		if (advices == null) {
 			System.out.println("No model parsed?");
 			return;
 		}
+		try {
 		ResourceSet resourceSet = new ResourceSetImpl();
 	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
 	    		Resource.Factory.Registry.DEFAULT_EXTENSION, 
 	    		new XMIResourceFactoryImpl());
 	    // Get the URI of the model file.
-	    URI fileURI = URI.createFileURI(new File(out_file).getAbsolutePath());
+	    URI fileURI = URI.createURI("file:///" + out_file);
 	    // Create a resource for this file.
 	    resource = resourceSet.createResource(fileURI);
 		for (Iterator i = advices.iterator(); i.hasNext();) {
@@ -152,23 +155,33 @@ public class GoalModelCodeGenerator extends TelosCodeGenerator {
 			goal y = (goal) hm.get(new Integer(s.to.id));
 			if (s.op.equals("And") || s.op.equals("Or")) {
 				x.getGoal().add(y);
+				if (s.op.equals("And")) {
+					x.setType(DecompositionType.AND_LITERAL);
+				} else {
+					x.setType(DecompositionType.OR_LITERAL);					
+				}
 			} else {
 				contribution c = f.createcontribution();
 				resource.getContents().add(c);
-				x.getRule().add(c);
+				y.getRule().add(c);
 				if (s.op.equals("Help")) 
 					c.setType(ContributionType.get(ContributionType.HELP));
 				else if (s.op.equals("Make")) c.setType(ContributionType.get(ContributionType.MAKE)); 
 				else if (s.op.equals("Hurt")) c.setType(ContributionType.get(ContributionType.HURT));  
 				else if (s.op.equals("Break")) c.setType(ContributionType.get(ContributionType.BREAK));				
-				c.setTarget(y);
+				c.setTarget(x);
 			}				
+		}
+		} catch (Exception e) { 
+		 e.printStackTrace();
 		}
 		  try
 		  {
 		    resource.save(Collections.EMPTY_MAP);
 		  }
-		  catch (IOException e) {}
+		  catch (Exception e) {
+			  e.printStackTrace();
+		  }
 		
 	}
 
@@ -224,9 +237,6 @@ public class GoalModelCodeGenerator extends TelosCodeGenerator {
 			}
 		}
 	}
-	GoalmodelPackage e = GoalmodelPackage.eINSTANCE;
-	GoalmodelFactory f = e.getGoalmodelFactory();
-	Resource resource;
 	/**
 	 * @param a
 	 */

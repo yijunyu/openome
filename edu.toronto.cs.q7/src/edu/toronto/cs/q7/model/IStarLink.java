@@ -18,7 +18,7 @@ public class IStarLink {
 		from = _from;
 		to = _to;
 	}
-	boolean isEqual() {
+	public boolean isEqual() {
 		return op.equalsIgnoreCase("Equal");
 	}
 	public boolean isOrDecomposition() {

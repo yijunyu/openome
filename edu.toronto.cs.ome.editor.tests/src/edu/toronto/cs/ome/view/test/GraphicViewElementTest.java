@@ -5,6 +5,7 @@
  * Window - Preferences - Java - Code Style - Code Templates
  */
 package edu.toronto.cs.ome.view.test;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -21,6 +22,15 @@ import edu.toronto.cs.util.D;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class GraphicViewElementTest extends ViewTest {
+	
+	protected void setUp() {
+		try {
+			super.setUp();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public GraphicViewElementTest() {
 		super("test/edu.toronto.cs.ome.view.GraphViewElement", ".tel");
 	}

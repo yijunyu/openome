@@ -12,7 +12,6 @@ Require-Bundle: org.eclipse.ui;reprovide=true,
  org.eclipse.ui.workbench.texteditor,
  edu.toronto.cs.goalmodel,
  org.eclipse.emf.ecore.xmi,
- org.junit,
  org.apache.batik,
  edu.toronto.cs.ome.jtelos,
  org.sat4j,
@@ -21,7 +20,8 @@ Require-Bundle: org.eclipse.ui;reprovide=true,
  att.grappa,
  edu.toronto.cs.q7,
  com.keypoint.png,
- it.unitn.goal_analysis
+ it.unitn.goal_analysis,
+ org.eclipse.core.runtime.compatibility
 Eclipse-AutoStart: true
 Bundle-ClassPath: ome4eclipse.jar
 Provide-Package: edu.toronto.cs.ome,

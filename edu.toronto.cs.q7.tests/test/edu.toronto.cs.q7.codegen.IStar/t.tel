@@ -197,11 +197,11 @@ Token SerializedViewObject_0_5
      IN SerializedObject 
      WITH
           attribute, ID
-            : 5
+            : 6
           attribute, objecttype
-            : 0
+            : 1
           attribute, type
-            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
+            : "edu.toronto.cs.ome.OME.GraphicView$GVERecord"
           attribute, x
             : 0.0
           attribute, y
@@ -227,7 +227,7 @@ Token SerializedViewObject_0_5
           attribute, hidden
             : 0
           attribute, justification
-            : 2
+            : 0
           attribute, highlight
             : 0
 END
@@ -271,7 +271,46 @@ Token SerializedViewObject_0_6
             : 0
 END
 
-Token Link_5
+Token SerializedViewObject_0_7
+     IN SerializedObject 
+     WITH
+          attribute, ID
+            : 7
+          attribute, objecttype
+            : 0
+          attribute, type
+            : "edu.toronto.cs.ome.OME.GraphicView$GVLRecord"
+          attribute, x
+            : 0.0
+          attribute, y
+            : 0.0
+          attribute, control1x
+            : 10.0
+          attribute, control1y
+            : 10.0
+          attribute, control2x
+            : 100.0
+          attribute, control2y
+            : 100
+          attribute, start2x
+            : 20.0
+          attribute, start2y
+            : 20.0
+          attribute, end1x
+            : 80.0
+          attribute, end1y
+            : 80.0
+          attribute, expanded
+            : 0
+          attribute, hidden
+            : 0
+          attribute, justification
+            : 2
+          attribute, highlight
+            : 0
+END
+
+Token Link_6
     IN IStarDependencyLink
     WITH
        attribute, name
@@ -282,7 +321,7 @@ Token Link_5
               : Element_5
 END
 
-Token Link_6
+Token Link_7
     IN IStarDependencyLink
     WITH
        attribute, name
@@ -326,7 +365,7 @@ Token Element_2
         attribute, perf
              : 0.0
         attribute, links
-             : Link_6
+             : Link_7
 END
 
 Token Element_3
@@ -360,7 +399,7 @@ Token Element_4
         attribute, perf
              : 0.0
         attribute, links
-             : Link_5
+             : Link_6
 END
 
 Token Element_5
@@ -368,6 +407,8 @@ Token Element_5
      WITH 
         attribute, name
              : "aaa"
+        attribute, parent
+             : Element_6
 
         attribute, sat
              : 0.0
@@ -376,9 +417,25 @@ Token Element_5
         attribute, perf
              : 0.0
         attribute, links
-             : Link_5
-        attribute, links
              : Link_6
+        attribute, links
+             : Link_7
+END
+
+Token Element_6
+     IN IStarAspectElement
+     WITH 
+        attribute, name
+             : "aaa"
+        attribute, children
+             : Element_5
+
+        attribute, sat
+             : 0.0
+        attribute, den
+             : 0.0
+        attribute, perf
+             : 0.0
 END
 
 Token SerializedView_0
@@ -398,6 +455,8 @@ Token SerializedView_0
             : SerializedViewObject_0_5
         attribute,view_objects
             : SerializedViewObject_0_6
+        attribute,view_objects
+            : SerializedViewObject_0_7
 END
 Token SerializedView_0
     IN SerializedView

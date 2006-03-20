@@ -21,7 +21,7 @@ import edu.toronto.cs.util.Computing;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class ViewTest extends TestCase {
-	protected static ArrayList listed_files = new ArrayList(); 
+	protected static ArrayList listed_files = null; 
 	String testDir = "test/edu.toronto.cs.ome.view";
 	String inputExt = ".tel";
 	public ViewTest(String dir, String ext) {

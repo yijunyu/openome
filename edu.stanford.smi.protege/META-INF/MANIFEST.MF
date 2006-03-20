@@ -3,7 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Protege Plug-in
 Bundle-SymbolicName: edu.stanford.smi.protege
 Bundle-Version: 3.0
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ com/,
+ edu/
 Bundle-Localization: plugin
 Export-Package: com.jgoodies.clearlook,
  com.jgoodies.plaf,

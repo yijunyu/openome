@@ -15,7 +15,6 @@
    <requires>
       <import plugin="org.eclipse.core.resources" export="true"/>
       <import plugin="org.eclipse.core.runtime" export="true"/>
-      <import plugin="org.eclipse.jdt.core" export="true"/>
       <import plugin="org.eclipse.jface" export="true"/>
       <import plugin="org.eclipse.ui" export="true"/>
       <import plugin="org.eclipse.ui.ide" export="true"/>
@@ -80,18 +79,14 @@
    <extension
          id="openome"
          point="org.eclipse.core.runtime.products">
+	 <!--
+      <product
+            application="edu.toronto.cs.ome.eclipse.OpenOME"
+            name="openome">
+	    -->
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="OpenOME">
-         <property
-               name="aboutImage"
-               value="eclipse_lg.gif"/>
-         <property
-               name="aboutText"
-               value="OpenOME, an open-source requirements engineering tool"/>
-         <property
-               name="appName"
-               value="OpenOME"/>
+            name="openome">
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini"/>
@@ -99,8 +94,7 @@
    </extension>
    <extension
          point="org.eclipse.core.runtime.applications"
-         id="app"
-         name="%appName">
+         id="OpenOME" name="OpenOME">
       <application>
          <run
             class="edu.toronto.cs.ome.eclipse.App">
