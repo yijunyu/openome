@@ -10,46 +10,47 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl;
 
-import com.ibm.btools.te.xml.model.Catalog;
-import com.ibm.btools.te.xml.model.Catalogs;
-import com.ibm.btools.te.xml.model.CatalogsType;
-import com.ibm.btools.te.xml.model.Connection;
-import com.ibm.btools.te.xml.model.ControlActionOutputRef;
-import com.ibm.btools.te.xml.model.Decision;
-import com.ibm.btools.te.xml.model.DocumentRoot;
-import com.ibm.btools.te.xml.model.FlowContentType;
-import com.ibm.btools.te.xml.model.Fork;
-import com.ibm.btools.te.xml.model.Input;
-import com.ibm.btools.te.xml.model.InputBranch;
-import com.ibm.btools.te.xml.model.InputCriterion;
-import com.ibm.btools.te.xml.model.InputCriterionRef;
-import com.ibm.btools.te.xml.model.InputType;
-import com.ibm.btools.te.xml.model.Inputs;
-import com.ibm.btools.te.xml.model.Join;
-import com.ibm.btools.te.xml.model.Merge;
-import com.ibm.btools.te.xml.model.ModelFactory;
-import com.ibm.btools.te.xml.model.ModelPackage;
-import com.ibm.btools.te.xml.model.ModelType;
-import com.ibm.btools.te.xml.model.Output;
-import com.ibm.btools.te.xml.model.OutputBranch;
-import com.ibm.btools.te.xml.model.OutputBranchType;
-import com.ibm.btools.te.xml.model.OutputCriterion;
-import com.ibm.btools.te.xml.model.OutputRef;
-import com.ibm.btools.te.xml.model.Outputs;
-import com.ibm.btools.te.xml.model.Process;
-import com.ibm.btools.te.xml.model.ProcessModel;
-import com.ibm.btools.te.xml.model.ProcessesType;
-import com.ibm.btools.te.xml.model.RelatedInputCriteriaType;
-import com.ibm.btools.te.xml.model.SourceType;
-import com.ibm.btools.te.xml.model.StartNodeType;
-import com.ibm.btools.te.xml.model.StopNodeType;
-import com.ibm.btools.te.xml.model.TargetType;
-import com.ibm.btools.te.xml.model.Task;
+import com.ibm.wbim.bom.schema1.Catalog;
+import com.ibm.wbim.bom.schema1.Catalogs;
+import com.ibm.wbim.bom.schema1.CatalogsType;
+import com.ibm.wbim.bom.schema1.Connection;
+import com.ibm.wbim.bom.schema1.ControlActionOutputRef;
+import com.ibm.wbim.bom.schema1.Decision;
+import com.ibm.wbim.bom.schema1.DocumentRoot;
+import com.ibm.wbim.bom.schema1.FlowContentType;
+import com.ibm.wbim.bom.schema1.Fork;
+import com.ibm.wbim.bom.schema1.Input;
+import com.ibm.wbim.bom.schema1.InputBranch;
+import com.ibm.wbim.bom.schema1.InputCriterion;
+import com.ibm.wbim.bom.schema1.InputCriterionRef;
+import com.ibm.wbim.bom.schema1.InputType;
+import com.ibm.wbim.bom.schema1.Inputs;
+import com.ibm.wbim.bom.schema1.Join;
+import com.ibm.wbim.bom.schema1.Merge;
+import com.ibm.wbim.bom.schema1.ModelType;
+import com.ibm.wbim.bom.schema1.Output;
+import com.ibm.wbim.bom.schema1.OutputBranch;
+import com.ibm.wbim.bom.schema1.OutputBranchType;
+import com.ibm.wbim.bom.schema1.OutputCriterion;
+import com.ibm.wbim.bom.schema1.OutputRef;
+import com.ibm.wbim.bom.schema1.Outputs;
+import com.ibm.wbim.bom.schema1.Process;
+import com.ibm.wbim.bom.schema1.ProcessModel;
+import com.ibm.wbim.bom.schema1.ProcessesType;
+import com.ibm.wbim.bom.schema1.RelatedInputCriteriaType;
+import com.ibm.wbim.bom.schema1.Schema1Factory;
+import com.ibm.wbim.bom.schema1.Schema1Package;
+import com.ibm.wbim.bom.schema1.SourceType;
+import com.ibm.wbim.bom.schema1.StartNodeType;
+import com.ibm.wbim.bom.schema1.StopNodeType;
+import com.ibm.wbim.bom.schema1.TargetType;
+import com.ibm.wbim.bom.schema1.Task;
+
 
 public class test {
 
-	static ModelPackage p = ModelPackage.eINSTANCE;
-	static ModelFactory f = p.getModelFactory();
+	static Schema1Package p = Schema1Package.eINSTANCE;
+	static Schema1Factory f = p.getSchema1Factory();
 	static Resource r;
 	static final String processesName = "Prcsss";
 	static final String classifiersName = "Clssfrs";
@@ -65,7 +66,7 @@ public class test {
                String name = "Start Node";
                startNode.setName(name);
                //Adding node to process flow content
-               proc.getFlowContent().getStartNode().add(startNode);
+               ((Process) proc).getFlowContent().getStartNode().add(startNode);
 
                //Connect the start node with the fist process chunk
                EntryExit ee = (EntryExit) startstop.get(firstProc);
@@ -429,11 +430,11 @@ public static void addLeaf(Process proc, String name) {
 	 * @param model
 	 * @return
 	 */
-	public static com.ibm.btools.te.xml.model.Process init_process(ModelType model) {
+	public static Process init_process(ModelType model) {
 		CatalogsType catalogsT = createCatalogsType(model);
 		ProcessModel processModel = createProcessModel(catalogsT);
 		ProcessesType processesType = createProcessesType(processModel);
-		com.ibm.btools.te.xml.model.Process process1 = createProcess(processesType);
+		Process process1 = createProcess(processesType);
 		updateProcess(process1, 
 				processesType, 
 				processModel, 
@@ -481,7 +482,7 @@ public static void addLeaf(Process proc, String name) {
 		classifierCatalog.setName("Classifiers");
 		classifierCatalogs.getCatalog().add(classifierCatalog);
 		//		Add resource catalogs to the set of catalogs
-		catalogsT.setClassifierCatalogs(classifierCatalogs);	
+		catalogsT.setDataCatalogs(classifierCatalogs);	
 		//		Creating process catalogs		
 		Catalogs processCatalogs = f.createCatalogs();
 		Catalog processCatalog = f.createCatalog();
@@ -525,9 +526,9 @@ public static void addLeaf(Process proc, String name) {
 		ProcessesType processesType = f.createProcessesType();
 		return processesType;
 	}
-	public static com.ibm.btools.te.xml.model.Process createProcess(ProcessesType processesType) {		
+	public static Process createProcess(ProcessesType processesType) {		
 		//Creating Process1
-		com.ibm.btools.te.xml.model.Process process1 = f.createProcess();
+		Process process1 = f.createProcess();
 		process1.setName(processesName+"##"+"Test Process 1");		
 		//DESCRIPTION DOES NOT GET IMPORTED CORRECTLY!!!!
 		//process1.setDescription("Process1 for testing");
@@ -557,7 +558,7 @@ public static void addLeaf(Process proc, String name) {
 		return process1;
 	}
 
-	public static void updateProcess(com.ibm.btools.te.xml.model.Process process1, 
+	public static void updateProcess(Process process1, 
 			ProcessesType processesType, 
 			ProcessModel processModel,
 			CatalogsType catalogsT,

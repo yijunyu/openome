@@ -31,7 +31,9 @@
       <plugin id="bpel"/>
       <plugin id="bpel.edit"/>
       <plugin id="bpel.editor"/>
-      <plugin id="com.ibm.btools.texml"/>
+      <plugin id="com.ibm.wbimodel"/>
+      <plugin id="com.ibm.wbimodel.edit"/>
+      <plugin id="com.ibm.wbimodel.editor"/>
       <plugin id="com.keypoint.png"/>
       <plugin id="com.omondo.xerces"/>
       <plugin id="edu.stanford.smi.protege"/>

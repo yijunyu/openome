@@ -62,9 +62,9 @@ import org.sat4j.minisat.SolverFactory;
 import org.sat4j.reader.DimacsReader;
 import org.sat4j.specs.ISolver;
 
-import att.grappa.Graph;
+import com.ibm.wbim.bom.schema1.ModelType;
 
-import com.ibm.btools.te.xml.model.ModelType;
+import att.grappa.Graph;
 
 import edu.toronto.cs.goalmodel.ContributionType;
 import edu.toronto.cs.goalmodel.DecompositionType;
@@ -2413,7 +2413,7 @@ public class ModelManager {
 
 	Resource resource;
 
-	private com.ibm.btools.te.xml.model.Process myprocess;
+	private com.ibm.wbim.bom.schema1.Process myprocess;
 	private void create_goal_model(Resource resource) {
 		HashMap hm = new HashMap();
 		for (Enumeration i = istarelements.keys(); i.hasMoreElements();) {

@@ -16,12 +16,12 @@ Require-Bundle: org.eclipse.ui;reprovide=true,
  edu.toronto.cs.ome.jtelos,
  org.sat4j,
  edu.stanford.smi.protege,
- com.ibm.btools.texml,
  att.grappa,
  edu.toronto.cs.q7,
  com.keypoint.png,
  it.unitn.goal_analysis,
- org.eclipse.core.runtime.compatibility
+ org.eclipse.core.runtime.compatibility,
+ com.ibm.wbimodel
 Eclipse-AutoStart: true
 Bundle-ClassPath: ome4eclipse.jar
 Provide-Package: edu.toronto.cs.ome,
