@@ -2,8 +2,8 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.toronto.cs.goalmodel/src"
-    modelPluginID="edu.toronto.cs.goalmodel" modelName="Goal" importerID="org.eclipse.emf.importer.java">
-  <foreignModel>@model</foreignModel>
+    modelPluginID="edu.toronto.cs.goalmodel" modelName="Goal" importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>goalmodel.ecore</foreignModel>
   <genPackages prefix="Goalmodel" basePackage="edu.toronto.cs" disposableProviderFactory="true"
       ecorePackage="goalmodel.ecore#/">
     <genEnums ecoreEnum="goalmodel.ecore#//ActorType">
@@ -30,6 +30,12 @@
       <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/PartiallyDenied"/>
       <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Unknown"/>
       <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//LabelType/Conflict"/>
+    </genEnums>
+    <genEnums ecoreEnum="goalmodel.ecore#//ModeType">
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ModeType/HARD"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ModeType/SOFT"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ModeType/TASK"/>
+      <genEnumLiterals ecoreEnumLiteral="goalmodel.ecore#//ModeType/RESOURCE"/>
     </genEnums>
     <genClasses ecoreClass="goalmodel.ecore#//actor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//actor/name"/>
@@ -65,6 +71,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/actor"/>
       <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/dependencyFrom"/>
       <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference goalmodel.ecore#//goal/dependencyTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//goal/mode"/>
     </genClasses>
     <genClasses ecoreClass="goalmodel.ecore#//property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalmodel.ecore#//property/name"/>

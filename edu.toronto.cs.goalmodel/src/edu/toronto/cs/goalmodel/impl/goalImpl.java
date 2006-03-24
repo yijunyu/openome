@@ -9,6 +9,7 @@ package edu.toronto.cs.goalmodel.impl;
 import edu.toronto.cs.goalmodel.DecompositionType;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
 import edu.toronto.cs.goalmodel.LabelType;
+import edu.toronto.cs.goalmodel.ModeType;
 import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.dependency;
@@ -60,6 +61,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getDependencyTo <em>Dependency To</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getMode <em>Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -295,6 +297,26 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * @ordered
 	 */
 	protected EList dependencyTo = null;
+
+	/**
+	 * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ModeType MODE_EDEFAULT = ModeType.HARD_LITERAL;
+
+	/**
+	 * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModeType mode = MODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -633,6 +655,27 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeType getMode() {
+		return mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMode(ModeType newMode) {
+		ModeType oldMode = mode;
+		mode = newMode == null ? MODE_EDEFAULT : newMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.GOAL__MODE, oldMode, mode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
 		if (featureID >= 0) {
 			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
@@ -752,6 +795,8 @@ public class goalImpl extends EObjectImpl implements goal {
 				return getDependencyFrom();
 			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
 				return getDependencyTo();
+			case GoalmodelPackage.GOAL__MODE:
+				return getMode();
 		}
 		return eDynamicGet(eFeature, resolve);
 	}
@@ -821,6 +866,9 @@ public class goalImpl extends EObjectImpl implements goal {
 				getDependencyTo().clear();
 				getDependencyTo().addAll((Collection)newValue);
 				return;
+			case GoalmodelPackage.GOAL__MODE:
+				setMode((ModeType)newValue);
+				return;
 		}
 		eDynamicSet(eFeature, newValue);
 	}
@@ -883,6 +931,9 @@ public class goalImpl extends EObjectImpl implements goal {
 			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
 				getDependencyTo().clear();
 				return;
+			case GoalmodelPackage.GOAL__MODE:
+				setMode(MODE_EDEFAULT);
+				return;
 		}
 		eDynamicUnset(eFeature);
 	}
@@ -928,6 +979,8 @@ public class goalImpl extends EObjectImpl implements goal {
 				return dependencyFrom != null && !dependencyFrom.isEmpty();
 			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
 				return dependencyTo != null && !dependencyTo.isEmpty();
+			case GoalmodelPackage.GOAL__MODE:
+				return mode != MODE_EDEFAULT;
 		}
 		return eDynamicIsSet(eFeature);
 	}
@@ -957,6 +1010,8 @@ public class goalImpl extends EObjectImpl implements goal {
 		result.append(sequential);
 		result.append(", parallel: ");
 		result.append(parallel);
+		result.append(", mode: ");
+		result.append(mode);
 		result.append(')');
 		return result.toString();
 	}

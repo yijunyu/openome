@@ -76,6 +76,11 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 				return result;
 			}
+			case GoalmodelPackage.MODE_TYPE: {
+				ModeType result = ModeType.get(initialValue);
+				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+				return result;
+			}
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +100,8 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 			case GoalmodelPackage.DECOMPOSITION_TYPE:
 				return instanceValue == null ? null : instanceValue.toString();
 			case GoalmodelPackage.LABEL_TYPE:
+				return instanceValue == null ? null : instanceValue.toString();
+			case GoalmodelPackage.MODE_TYPE:
 				return instanceValue == null ? null : instanceValue.toString();
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");

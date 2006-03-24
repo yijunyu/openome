@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface GoalmodelPackage extends EPackage {
+public interface GoalmodelPackage extends EPackage{
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -371,13 +371,22 @@ public interface GoalmodelPackage extends EPackage {
 	int GOAL__DEPENDENCY_TO = 16;
 
 	/**
+	 * The feature id for the '<em><b>Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__MODE = 17;
+
+	/**
 	 * The number of structural features of the the '<em>goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_FEATURE_COUNT = 17;
+	int GOAL_FEATURE_COUNT = 18;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.propertyImpl <em>property</em>}' class.
@@ -492,6 +501,17 @@ public interface GoalmodelPackage extends EPackage {
 	 * @generated
 	 */
 	int LABEL_TYPE = 9;
+
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.ModeType <em>Mode Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.ModeType
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getModeType()
+	 * @generated
+	 */
+	int MODE_TYPE = 10;
 
 
 	/**
@@ -832,6 +852,17 @@ public interface GoalmodelPackage extends EPackage {
 	EReference getgoal_DependencyTo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.goal#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mode</em>'.
+	 * @see edu.toronto.cs.goalmodel.goal#getMode()
+	 * @see #getgoal()
+	 * @generated
+	 */
+	EAttribute getgoal_Mode();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.property <em>property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -934,6 +965,16 @@ public interface GoalmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getLabelType();
+
+	/**
+	 * Returns the meta object for enum '{@link edu.toronto.cs.goalmodel.ModeType <em>Mode Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Mode Type</em>'.
+	 * @see edu.toronto.cs.goalmodel.ModeType
+	 * @generated
+	 */
+	EEnum getModeType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

@@ -56,6 +56,8 @@
         eType="#//dependency" eOpposite="#//dependency/dependencyTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
         eType="#//dependency" eOpposite="#//dependency/dependencyFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//ModeType"
+        defaultValueLiteral="HARD"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -90,5 +92,11 @@
     <eLiterals name="PartiallyDenied" value="-1"/>
     <eLiterals name="Unknown"/>
     <eLiterals name="Conflict" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ModeType" instanceClassName="">
+    <eLiterals name="HARD"/>
+    <eLiterals name="SOFT" value="1"/>
+    <eLiterals name="TASK" value="2"/>
+    <eLiterals name="RESOURCE" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

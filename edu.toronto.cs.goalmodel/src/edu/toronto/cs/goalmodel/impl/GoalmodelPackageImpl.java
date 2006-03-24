@@ -12,6 +12,7 @@ import edu.toronto.cs.goalmodel.DecompositionType;
 import edu.toronto.cs.goalmodel.GoalmodelFactory;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
 import edu.toronto.cs.goalmodel.LabelType;
+import edu.toronto.cs.goalmodel.ModeType;
 import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.dependency;
@@ -103,6 +104,13 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	private EEnum labelTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum modeTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -456,6 +464,15 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getgoal_Mode() {
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getproperty() {
 		return propertyEClass;
 	}
@@ -546,6 +563,15 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getModeType() {
+		return modeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GoalmodelFactory getGoalmodelFactory() {
 		return (GoalmodelFactory)getEFactoryInstance();
 	}
@@ -603,6 +629,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEReference(goalEClass, GOAL__ACTOR);
 		createEReference(goalEClass, GOAL__DEPENDENCY_FROM);
 		createEReference(goalEClass, GOAL__DEPENDENCY_TO);
+		createEAttribute(goalEClass, GOAL__MODE);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -617,6 +644,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		contributionTypeEEnum = createEEnum(CONTRIBUTION_TYPE);
 		decompositionTypeEEnum = createEEnum(DECOMPOSITION_TYPE);
 		labelTypeEEnum = createEEnum(LABEL_TYPE);
+		modeTypeEEnum = createEEnum(MODE_TYPE);
 	}
 
 	/**
@@ -679,6 +707,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		initEReference(getgoal_Actor(), this.getactor(), this.getactor_Goals(), "actor", null, 0, 1, goal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_DependencyFrom(), this.getdependency(), this.getdependency_DependencyTo(), "dependencyFrom", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_DependencyTo(), this.getdependency(), this.getdependency_DependencyFrom(), "dependencyTo", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getgoal_Mode(), this.getModeType(), "mode", "HARD", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, property.class, "property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getproperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -713,6 +742,12 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		addEEnumLiteral(labelTypeEEnum, LabelType.PARTIALLY_DENIED_LITERAL);
 		addEEnumLiteral(labelTypeEEnum, LabelType.UNKNOWN_LITERAL);
 		addEEnumLiteral(labelTypeEEnum, LabelType.CONFLICT_LITERAL);
+
+		initEEnum(modeTypeEEnum, ModeType.class, "ModeType");
+		addEEnumLiteral(modeTypeEEnum, ModeType.HARD_LITERAL);
+		addEEnumLiteral(modeTypeEEnum, ModeType.SOFT_LITERAL);
+		addEEnumLiteral(modeTypeEEnum, ModeType.TASK_LITERAL);
+		addEEnumLiteral(modeTypeEEnum, ModeType.RESOURCE_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

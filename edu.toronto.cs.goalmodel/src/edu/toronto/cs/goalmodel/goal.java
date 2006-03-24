@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getActor <em>Actor</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getDependencyTo <em>Dependency To</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.goal#getMode <em>Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,7 +43,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface goal extends EObject {
+public interface goal extends EObject{
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -435,5 +436,35 @@ public interface goal extends EObject {
 	 * @generated
 	 */
 	EList getDependencyTo();
+
+	/**
+	 * Returns the value of the '<em><b>Mode</b></em>' attribute.
+	 * The default value is <code>"HARD"</code>.
+	 * The literals are from the enumeration {@link edu.toronto.cs.goalmodel.ModeType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode</em>' attribute.
+	 * @see edu.toronto.cs.goalmodel.ModeType
+	 * @see #setMode(ModeType)
+	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Mode()
+	 * @model default="HARD"
+	 * @generated
+	 */
+	ModeType getMode();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.goalmodel.goal#getMode <em>Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mode</em>' attribute.
+	 * @see edu.toronto.cs.goalmodel.ModeType
+	 * @see #getMode()
+	 * @generated
+	 */
+	void setMode(ModeType value);
 
 } // goal
