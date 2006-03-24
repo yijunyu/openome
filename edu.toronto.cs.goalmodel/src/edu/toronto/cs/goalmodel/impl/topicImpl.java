@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: topicImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 
@@ -24,7 +24,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.toronto.cs.goalmodel.impl.topicImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.impl.topicImpl#getName <em>Name</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.impl.topicImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +33,44 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class topicImpl extends EObjectImpl implements topic {
 	/**
-	 * The default value of the '{@link #getTopic() <em>Topic</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopic()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TOPIC_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopic()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String topic = TOPIC_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = "String";
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,8 +95,8 @@ public class topicImpl extends EObjectImpl implements topic {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTopic() {
-		return topic;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -83,11 +104,32 @@ public class topicImpl extends EObjectImpl implements topic {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTopic(String newTopic) {
-		String oldTopic = topic;
-		topic = newTopic;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.TOPIC__TOPIC, oldTopic, topic));
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.TOPIC__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.TOPIC__TYPE, oldType, type));
 	}
 
 	/**
@@ -97,8 +139,10 @@ public class topicImpl extends EObjectImpl implements topic {
 	 */
 	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
 		switch (eDerivedStructuralFeatureID(eFeature)) {
-			case GoalmodelPackage.TOPIC__TOPIC:
-				return getTopic();
+			case GoalmodelPackage.TOPIC__NAME:
+				return getName();
+			case GoalmodelPackage.TOPIC__TYPE:
+				return getType();
 		}
 		return eDynamicGet(eFeature, resolve);
 	}
@@ -110,8 +154,11 @@ public class topicImpl extends EObjectImpl implements topic {
 	 */
 	public void eSet(EStructuralFeature eFeature, Object newValue) {
 		switch (eDerivedStructuralFeatureID(eFeature)) {
-			case GoalmodelPackage.TOPIC__TOPIC:
-				setTopic((String)newValue);
+			case GoalmodelPackage.TOPIC__NAME:
+				setName((String)newValue);
+				return;
+			case GoalmodelPackage.TOPIC__TYPE:
+				setType((String)newValue);
 				return;
 		}
 		eDynamicSet(eFeature, newValue);
@@ -124,8 +171,11 @@ public class topicImpl extends EObjectImpl implements topic {
 	 */
 	public void eUnset(EStructuralFeature eFeature) {
 		switch (eDerivedStructuralFeatureID(eFeature)) {
-			case GoalmodelPackage.TOPIC__TOPIC:
-				setTopic(TOPIC_EDEFAULT);
+			case GoalmodelPackage.TOPIC__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case GoalmodelPackage.TOPIC__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 		}
 		eDynamicUnset(eFeature);
@@ -138,8 +188,10 @@ public class topicImpl extends EObjectImpl implements topic {
 	 */
 	public boolean eIsSet(EStructuralFeature eFeature) {
 		switch (eDerivedStructuralFeatureID(eFeature)) {
-			case GoalmodelPackage.TOPIC__TOPIC:
-				return TOPIC_EDEFAULT == null ? topic != null : !TOPIC_EDEFAULT.equals(topic);
+			case GoalmodelPackage.TOPIC__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case GoalmodelPackage.TOPIC__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return eDynamicIsSet(eFeature);
 	}
@@ -153,8 +205,10 @@ public class topicImpl extends EObjectImpl implements topic {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (topic: ");
-		result.append(topic);
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

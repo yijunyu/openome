@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelPackageImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 
@@ -22,7 +22,6 @@ import edu.toronto.cs.goalmodel.topic;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -40,7 +39,21 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass actorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass contributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dependencyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,14 +81,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass actorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dependencyEClass = null;
+	private EEnum actorTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,13 +103,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	private EEnum labelTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum actorTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -178,6 +177,60 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getactor() {
+		return actorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getactor_Name() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getactor_Super() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getactor_Sub() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getactor_Type() {
+		return (EAttribute)actorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getactor_Goals() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getcontribution() {
 		return contributionEClass;
 	}
@@ -198,6 +251,42 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 */
 	public EReference getcontribution_Target() {
 		return (EReference)contributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getdependency() {
+		return dependencyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getdependency_DependencyFrom() {
+		return (EReference)dependencyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getdependency_DependencyTo() {
+		return (EReference)dependencyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getdependency_Trust() {
+		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -268,17 +357,8 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getgoal_Topic() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getgoal_System() {
-		return (EAttribute)goalEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -287,7 +367,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EAttribute getgoal_Boundary() {
-		return (EAttribute)goalEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -296,7 +376,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_Input() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(9);
+		return (EReference)goalEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -305,7 +385,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_Output() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(10);
+		return (EReference)goalEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -314,7 +394,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EAttribute getgoal_Exclusive() {
-		return (EAttribute)goalEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -323,7 +403,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EAttribute getgoal_Sequential() {
-		return (EAttribute)goalEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -332,7 +412,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EAttribute getgoal_Parallel() {
-		return (EAttribute)goalEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -341,7 +421,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_Property() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(14);
+		return (EReference)goalEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -350,7 +430,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_Actor() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(15);
+		return (EReference)goalEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -359,7 +439,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_DependencyFrom() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(16);
+		return (EReference)goalEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -368,7 +448,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	public EReference getgoal_DependencyTo() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(17);
+		return (EReference)goalEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -412,7 +492,7 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute gettopic_Topic() {
+	public EAttribute gettopic_Name() {
 		return (EAttribute)topicEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -421,8 +501,8 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getactor() {
-		return actorEClass;
+	public EAttribute gettopic_Type() {
+		return (EAttribute)topicEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -430,80 +510,8 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getactor_Name() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getactor_Super() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getactor_Sub() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getactor_Type() {
-		return (EAttribute)actorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getactor_Goals() {
-		return (EReference)actorEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getdependency() {
-		return dependencyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getdependency_DependencyFrom() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getdependency_DependencyTo() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getdependency_Trust() {
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(2);
+	public EEnum getActorType() {
+		return actorTypeEEnum;
 	}
 
 	/**
@@ -538,15 +546,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getActorType() {
-		return actorTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GoalmodelFactory getGoalmodelFactory() {
 		return (GoalmodelFactory)getEFactoryInstance();
 	}
@@ -570,9 +569,21 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		isCreated = true;
 
 		// Create classes and their features
+		actorEClass = createEClass(ACTOR);
+		createEAttribute(actorEClass, ACTOR__NAME);
+		createEReference(actorEClass, ACTOR__SUPER);
+		createEReference(actorEClass, ACTOR__SUB);
+		createEAttribute(actorEClass, ACTOR__TYPE);
+		createEReference(actorEClass, ACTOR__GOALS);
+
 		contributionEClass = createEClass(CONTRIBUTION);
 		createEAttribute(contributionEClass, CONTRIBUTION__TYPE);
 		createEReference(contributionEClass, CONTRIBUTION__TARGET);
+
+		dependencyEClass = createEClass(DEPENDENCY);
+		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_FROM);
+		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_TO);
+		createEAttribute(dependencyEClass, DEPENDENCY__TRUST);
 
 		goalEClass = createEClass(GOAL);
 		createEAttribute(goalEClass, GOAL__NAME);
@@ -581,7 +592,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEReference(goalEClass, GOAL__GOAL);
 		createEAttribute(goalEClass, GOAL__LABEL);
 		createEReference(goalEClass, GOAL__RULE);
-		createEReference(goalEClass, GOAL__TOPIC);
 		createEAttribute(goalEClass, GOAL__SYSTEM);
 		createEAttribute(goalEClass, GOAL__BOUNDARY);
 		createEReference(goalEClass, GOAL__INPUT);
@@ -599,25 +609,14 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEAttribute(propertyEClass, PROPERTY__VALUE);
 
 		topicEClass = createEClass(TOPIC);
-		createEAttribute(topicEClass, TOPIC__TOPIC);
-
-		actorEClass = createEClass(ACTOR);
-		createEAttribute(actorEClass, ACTOR__NAME);
-		createEReference(actorEClass, ACTOR__SUPER);
-		createEReference(actorEClass, ACTOR__SUB);
-		createEAttribute(actorEClass, ACTOR__TYPE);
-		createEReference(actorEClass, ACTOR__GOALS);
-
-		dependencyEClass = createEClass(DEPENDENCY);
-		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_FROM);
-		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_TO);
-		createEAttribute(dependencyEClass, DEPENDENCY__TRUST);
+		createEAttribute(topicEClass, TOPIC__NAME);
+		createEAttribute(topicEClass, TOPIC__TYPE);
 
 		// Create enums
+		actorTypeEEnum = createEEnum(ACTOR_TYPE);
 		contributionTypeEEnum = createEEnum(CONTRIBUTION_TYPE);
 		decompositionTypeEEnum = createEEnum(DECOMPOSITION_TYPE);
 		labelTypeEEnum = createEEnum(LABEL_TYPE);
-		actorTypeEEnum = createEEnum(ACTOR_TYPE);
 	}
 
 	/**
@@ -646,18 +645,29 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(actorEClass, actor.class, "actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getactor_Name(), ecorePackage.getEString(), "name", null, 0, 1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getactor_Super(), this.getactor(), this.getactor_Sub(), "super", null, 0, 1, actor.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getactor_Sub(), this.getactor(), this.getactor_Super(), "sub", null, 0, -1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getactor_Type(), this.getActorType(), "type", null, 0, 1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getactor_Goals(), this.getgoal(), this.getgoal_Actor(), "goals", null, 0, -1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(contributionEClass, contribution.class, "contribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getcontribution_Type(), this.getContributionType(), "type", null, 0, 1, contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getcontribution_Target(), this.getgoal(), null, "target", null, 0, 1, contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(dependencyEClass, dependency.class, "dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getdependency_DependencyFrom(), this.getgoal(), this.getgoal_DependencyTo(), "dependencyFrom", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getdependency_DependencyTo(), this.getgoal(), this.getgoal_DependencyFrom(), "dependencyTo", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getdependency_Trust(), ecorePackage.getEFloat(), "trust", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(goalEClass, goal.class, "goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getgoal_Name(), ecorePackage.getEString(), "name", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_Type(), this.getDecompositionType(), "type", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_Parent(), this.getgoal(), this.getgoal_Goal(), "parent", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getgoal_Parent(), this.getgoal(), this.getgoal_Goal(), "parent", null, 0, 1, goal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_Goal(), this.getgoal(), this.getgoal_Parent(), "goal", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_Label(), this.getLabelType(), "label", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_Rule(), this.getcontribution(), null, "rule", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_Topic(), this.gettopic(), null, "topic", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_System(), ecorePackage.getEBooleanObject(), "system", "true", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_Boundary(), ecorePackage.getEBooleanObject(), "boundary", "false", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_Input(), this.gettopic(), null, "input", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -666,30 +676,25 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		initEAttribute(getgoal_Sequential(), ecorePackage.getEBooleanObject(), "sequential", "true", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_Parallel(), ecorePackage.getEBooleanObject(), "parallel", "false", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_Property(), this.getproperty(), null, "property", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_Actor(), this.getactor(), this.getactor_Goals(), "actor", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_DependencyFrom(), this.getdependency(), this.getdependency_DependencyTo(), "dependencyFrom", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_DependencyTo(), this.getdependency(), this.getdependency_DependencyFrom(), "dependencyTo", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getgoal_Actor(), this.getactor(), this.getactor_Goals(), "actor", null, 0, 1, goal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getgoal_DependencyFrom(), this.getdependency(), this.getdependency_DependencyTo(), "dependencyFrom", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getgoal_DependencyTo(), this.getdependency(), this.getdependency_DependencyFrom(), "dependencyTo", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, property.class, "property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getproperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getproperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(topicEClass, topic.class, "topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(gettopic_Topic(), ecorePackage.getEString(), "topic", null, 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(actorEClass, actor.class, "actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getactor_Name(), ecorePackage.getEString(), "name", null, 0, 1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getactor_Super(), this.getactor(), this.getactor_Sub(), "super", null, 0, 1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getactor_Sub(), this.getactor(), this.getactor_Super(), "sub", null, 0, -1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getactor_Type(), this.getActorType(), "type", null, 0, 1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getactor_Goals(), this.getgoal(), this.getgoal_Actor(), "goals", null, 0, -1, actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dependencyEClass, dependency.class, "dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getdependency_DependencyFrom(), this.getgoal(), this.getgoal_DependencyTo(), "dependencyFrom", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getdependency_DependencyTo(), this.getgoal(), this.getgoal_DependencyFrom(), "dependencyTo", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getdependency_Trust(), ecorePackage.getEFloat(), "trust", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(gettopic_Name(), ecorePackage.getEString(), "name", null, 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(gettopic_Type(), ecorePackage.getEString(), "type", "String", 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(actorTypeEEnum, ActorType.class, "ActorType");
+		addEEnumLiteral(actorTypeEEnum, ActorType.ACTOR_LITERAL);
+		addEEnumLiteral(actorTypeEEnum, ActorType.AGENT_LITERAL);
+		addEEnumLiteral(actorTypeEEnum, ActorType.ROLE_LITERAL);
+		addEEnumLiteral(actorTypeEEnum, ActorType.POSITION_LITERAL);
+
 		initEEnum(contributionTypeEEnum, ContributionType.class, "ContributionType");
 		addEEnumLiteral(contributionTypeEEnum, ContributionType.HELP_LITERAL);
 		addEEnumLiteral(contributionTypeEEnum, ContributionType.HURT_LITERAL);
@@ -708,12 +713,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		addEEnumLiteral(labelTypeEEnum, LabelType.PARTIALLY_DENIED_LITERAL);
 		addEEnumLiteral(labelTypeEEnum, LabelType.UNKNOWN_LITERAL);
 		addEEnumLiteral(labelTypeEEnum, LabelType.CONFLICT_LITERAL);
-
-		initEEnum(actorTypeEEnum, ActorType.class, "ActorType");
-		addEEnumLiteral(actorTypeEEnum, ActorType.ACTOR_LITERAL);
-		addEEnumLiteral(actorTypeEEnum, ActorType.AGENT_LITERAL);
-		addEEnumLiteral(actorTypeEEnum, ActorType.ROLE_LITERAL);
-		addEEnumLiteral(actorTypeEEnum, ActorType.POSITION_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

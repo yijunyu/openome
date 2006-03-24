@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: goalImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 
@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -48,7 +49,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getGoal <em>Goal</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getRule <em>Rule</em>}</li>
- *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getTopic <em>Topic</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getSystem <em>System</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getBoundary <em>Boundary</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getInput <em>Input</em>}</li>
@@ -145,16 +145,6 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * @ordered
 	 */
 	protected EList rule = null;
-
-	/**
-	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTopic()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList topic = null;
 
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
@@ -287,7 +277,7 @@ public class goalImpl extends EObjectImpl implements goal {
 	protected EList property = null;
 
 	/**
-	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' containment reference list.
+	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDependencyFrom()
@@ -297,7 +287,7 @@ public class goalImpl extends EObjectImpl implements goal {
 	protected EList dependencyFrom = null;
 
 	/**
-	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' containment reference list.
+	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDependencyTo()
@@ -440,18 +430,6 @@ public class goalImpl extends EObjectImpl implements goal {
 			rule = new EObjectContainmentEList(contribution.class, this, GoalmodelPackage.GOAL__RULE);
 		}
 		return rule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getTopic() {
-		if (topic == null) {
-			topic = new EObjectContainmentEList(topic.class, this, GoalmodelPackage.GOAL__TOPIC);
-		}
-		return topic;
 	}
 
 	/**
@@ -633,7 +611,7 @@ public class goalImpl extends EObjectImpl implements goal {
 	 */
 	public EList getDependencyFrom() {
 		if (dependencyFrom == null) {
-			dependencyFrom = new EObjectContainmentWithInverseEList(dependency.class, this, GoalmodelPackage.GOAL__DEPENDENCY_FROM, GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO);
+			dependencyFrom = new EObjectWithInverseResolvingEList(dependency.class, this, GoalmodelPackage.GOAL__DEPENDENCY_FROM, GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO);
 		}
 		return dependencyFrom;
 	}
@@ -645,7 +623,7 @@ public class goalImpl extends EObjectImpl implements goal {
 	 */
 	public EList getDependencyTo() {
 		if (dependencyTo == null) {
-			dependencyTo = new EObjectContainmentWithInverseEList(dependency.class, this, GoalmodelPackage.GOAL__DEPENDENCY_TO, GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM);
+			dependencyTo = new EObjectWithInverseResolvingEList(dependency.class, this, GoalmodelPackage.GOAL__DEPENDENCY_TO, GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM);
 		}
 		return dependencyTo;
 	}
@@ -695,8 +673,6 @@ public class goalImpl extends EObjectImpl implements goal {
 					return ((InternalEList)getGoal()).basicRemove(otherEnd, msgs);
 				case GoalmodelPackage.GOAL__RULE:
 					return ((InternalEList)getRule()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__TOPIC:
-					return ((InternalEList)getTopic()).basicRemove(otherEnd, msgs);
 				case GoalmodelPackage.GOAL__INPUT:
 					return ((InternalEList)getInput()).basicRemove(otherEnd, msgs);
 				case GoalmodelPackage.GOAL__OUTPUT:
@@ -754,8 +730,6 @@ public class goalImpl extends EObjectImpl implements goal {
 				return getLabel();
 			case GoalmodelPackage.GOAL__RULE:
 				return getRule();
-			case GoalmodelPackage.GOAL__TOPIC:
-				return getTopic();
 			case GoalmodelPackage.GOAL__SYSTEM:
 				return getSystem();
 			case GoalmodelPackage.GOAL__BOUNDARY:
@@ -808,10 +782,6 @@ public class goalImpl extends EObjectImpl implements goal {
 			case GoalmodelPackage.GOAL__RULE:
 				getRule().clear();
 				getRule().addAll((Collection)newValue);
-				return;
-			case GoalmodelPackage.GOAL__TOPIC:
-				getTopic().clear();
-				getTopic().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.GOAL__SYSTEM:
 				setSystem((Boolean)newValue);
@@ -880,9 +850,6 @@ public class goalImpl extends EObjectImpl implements goal {
 			case GoalmodelPackage.GOAL__RULE:
 				getRule().clear();
 				return;
-			case GoalmodelPackage.GOAL__TOPIC:
-				getTopic().clear();
-				return;
 			case GoalmodelPackage.GOAL__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
 				return;
@@ -939,8 +906,6 @@ public class goalImpl extends EObjectImpl implements goal {
 				return label != LABEL_EDEFAULT;
 			case GoalmodelPackage.GOAL__RULE:
 				return rule != null && !rule.isEmpty();
-			case GoalmodelPackage.GOAL__TOPIC:
-				return topic != null && !topic.isEmpty();
 			case GoalmodelPackage.GOAL__SYSTEM:
 				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
 			case GoalmodelPackage.GOAL__BOUNDARY:

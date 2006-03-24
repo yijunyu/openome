@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: propertyImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 

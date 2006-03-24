@@ -1,3 +1,9 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
 package edu.toronto.cs.goalmodel;
 
 import java.util.Arrays;
@@ -6,20 +12,106 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.AbstractEnumerator;
 
-/** @model */
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Label Type</b></em>',
+ * and utility methods for working with them.
+ * <!-- end-user-doc -->
+ * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getLabelType()
+ * @model
+ * @generated
+ */
 public final class LabelType extends AbstractEnumerator {
-	/** @model name="Satisfied" */
+	/**
+	 * The '<em><b>Satisfied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Satisfied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SATISFIED_LITERAL
+	 * @model name="Satisfied"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int SATISFIED = 2;
-	/** @model name="Denied" */
+
+	/**
+	 * The '<em><b>Denied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Denied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DENIED_LITERAL
+	 * @model name="Denied"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int DENIED = -2;
-	/** @model name="PartiallySatisfied" */
+
+	/**
+	 * The '<em><b>Partially Satisfied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Partially Satisfied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PARTIALLY_SATISFIED_LITERAL
+	 * @model name="PartiallySatisfied"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int PARTIALLY_SATISFIED = 1;
-	/** @model name="PartiallyDenied" */
+
+	/**
+	 * The '<em><b>Partially Denied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Partially Denied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PARTIALLY_DENIED_LITERAL
+	 * @model name="PartiallyDenied"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int PARTIALLY_DENIED = -1;
-	/** @model name="Unknown" */
+
+	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unknown</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_LITERAL
+	 * @model name="Unknown"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int UNKNOWN = 0;
-	/** @model name="Conflict" */
+
+	/**
+	 * The '<em><b>Conflict</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Conflict</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CONFLICT_LITERAL
+	 * @model name="Conflict"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int CONFLICT = 4;
+
 	/**
 	 * The '<em><b>Satisfied</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -148,4 +240,4 @@ public final class LabelType extends AbstractEnumerator {
 		super(value, name);
 	}
 
-} 
+} //LabelType

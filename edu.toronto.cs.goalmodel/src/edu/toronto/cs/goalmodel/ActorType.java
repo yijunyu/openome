@@ -1,3 +1,9 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
 package edu.toronto.cs.goalmodel;
 
 import java.util.Arrays;
@@ -6,16 +12,76 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.AbstractEnumerator;
 
-/** @model */
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Actor Type</b></em>',
+ * and utility methods for working with them.
+ * <!-- end-user-doc -->
+ * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getActorType()
+ * @model
+ * @generated
+ */
 public final class ActorType extends AbstractEnumerator {
-	/** @model name="ACTOR" */
+	/**
+	 * The '<em><b>ACTOR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ACTOR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ACTOR_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int ACTOR = 0;
-	/** @model name="AGENT" */
+
+	/**
+	 * The '<em><b>AGENT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AGENT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #AGENT_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int AGENT = 1;
-	/** @model name="ROLE" */
+
+	/**
+	 * The '<em><b>ROLE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ROLE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ROLE_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int ROLE = 2;
-	/** @model name="POSITION" */
+
+	/**
+	 * The '<em><b>POSITION</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>POSITION</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #POSITION_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int POSITION = 3;
+
 	/**
 	 * The '<em><b>ACTOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -120,4 +186,4 @@ public final class ActorType extends AbstractEnumerator {
 		super(value, name);
 	}
 
-}
+} //ActorType

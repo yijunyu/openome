@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelSwitch.java,v 1.2 2005/09/26 00:02:00 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.util;
 
@@ -12,12 +12,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import edu.toronto.cs.goalmodel.GoalmodelPackage;
-import edu.toronto.cs.goalmodel.contribution;
-import edu.toronto.cs.goalmodel.goal;
-import edu.toronto.cs.goalmodel.property;
-import edu.toronto.cs.goalmodel.topic;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,9 +87,21 @@ public class GoalmodelSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case GoalmodelPackage.ACTOR: {
+				actor actor = (actor)theEObject;
+				Object result = caseactor(actor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GoalmodelPackage.CONTRIBUTION: {
 				contribution contribution = (contribution)theEObject;
 				Object result = casecontribution(contribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GoalmodelPackage.DEPENDENCY: {
+				dependency dependency = (dependency)theEObject;
+				Object result = casedependency(dependency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,20 +123,23 @@ public class GoalmodelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GoalmodelPackage.ACTOR: {
-				actor actor = (actor)theEObject;
-				Object result = caseactor(actor);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GoalmodelPackage.DEPENDENCY: {
-				dependency dependency = (dependency)theEObject;
-				Object result = casedependency(dependency);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>actor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseactor(actor object) {
+		return null;
 	}
 
 	/**
@@ -145,6 +154,21 @@ public class GoalmodelSwitch {
 	 * @generated
 	 */
 	public Object casecontribution(contribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object casedependency(dependency object) {
 		return null;
 	}
 
@@ -190,36 +214,6 @@ public class GoalmodelSwitch {
 	 * @generated
 	 */
 	public Object casetopic(topic object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>actor</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseactor(actor object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>dependency</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>dependency</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object casedependency(dependency object) {
 		return null;
 	}
 

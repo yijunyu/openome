@@ -2,21 +2,19 @@
  * <copyright>
  * </copyright>
  *
- * $Id: contributionImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 
 import edu.toronto.cs.goalmodel.ContributionType;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
 import edu.toronto.cs.goalmodel.contribution;
-
 import edu.toronto.cs.goalmodel.goal;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;

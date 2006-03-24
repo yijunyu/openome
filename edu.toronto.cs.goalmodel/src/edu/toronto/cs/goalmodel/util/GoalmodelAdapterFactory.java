@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelAdapterFactory.java,v 1.2 2005/09/26 00:02:00 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.util;
 
@@ -14,12 +14,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import edu.toronto.cs.goalmodel.GoalmodelPackage;
-import edu.toronto.cs.goalmodel.contribution;
-import edu.toronto.cs.goalmodel.goal;
-import edu.toronto.cs.goalmodel.property;
-import edu.toronto.cs.goalmodel.topic;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,8 +70,14 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected GoalmodelSwitch modelSwitch =
 		new GoalmodelSwitch() {
+			public Object caseactor(actor object) {
+				return createactorAdapter();
+			}
 			public Object casecontribution(contribution object) {
 				return createcontributionAdapter();
+			}
+			public Object casedependency(dependency object) {
+				return createdependencyAdapter();
 			}
 			public Object casegoal(goal object) {
 				return creategoalAdapter();
@@ -87,12 +87,6 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object casetopic(topic object) {
 				return createtopicAdapter();
-			}
-			public Object caseactor(actor object) {
-				return createactorAdapter();
-			}
-			public Object casedependency(dependency object) {
-				return createdependencyAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -113,6 +107,20 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.actor <em>actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.goalmodel.actor
+	 * @generated
+	 */
+	public Adapter createactorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.contribution <em>contribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -123,6 +131,20 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createcontributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.dependency <em>dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.goalmodel.dependency
+	 * @generated
+	 */
+	public Adapter createdependencyAdapter() {
 		return null;
 	}
 
@@ -165,34 +187,6 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createtopicAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.actor <em>actor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.goalmodel.actor
-	 * @generated
-	 */
-	public Adapter createactorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.dependency <em>dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.goalmodel.dependency
-	 * @generated
-	 */
-	public Adapter createdependencyAdapter() {
 		return null;
 	}
 

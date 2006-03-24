@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelFactoryImpl.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.impl;
 
@@ -38,12 +38,12 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case GoalmodelPackage.ACTOR: return createactor();
 			case GoalmodelPackage.CONTRIBUTION: return createcontribution();
+			case GoalmodelPackage.DEPENDENCY: return createdependency();
 			case GoalmodelPackage.GOAL: return creategoal();
 			case GoalmodelPackage.PROPERTY: return createproperty();
 			case GoalmodelPackage.TOPIC: return createtopic();
-			case GoalmodelPackage.ACTOR: return createactor();
-			case GoalmodelPackage.DEPENDENCY: return createdependency();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -56,6 +56,11 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 */
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case GoalmodelPackage.ACTOR_TYPE: {
+				ActorType result = ActorType.get(initialValue);
+				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+				return result;
+			}
 			case GoalmodelPackage.CONTRIBUTION_TYPE: {
 				ContributionType result = ContributionType.get(initialValue);
 				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -71,11 +76,6 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 				return result;
 			}
-			case GoalmodelPackage.ACTOR_TYPE: {
-				ActorType result = ActorType.get(initialValue);
-				if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-				return result;
-			}
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -88,13 +88,13 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 */
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case GoalmodelPackage.ACTOR_TYPE:
+				return instanceValue == null ? null : instanceValue.toString();
 			case GoalmodelPackage.CONTRIBUTION_TYPE:
 				return instanceValue == null ? null : instanceValue.toString();
 			case GoalmodelPackage.DECOMPOSITION_TYPE:
 				return instanceValue == null ? null : instanceValue.toString();
 			case GoalmodelPackage.LABEL_TYPE:
-				return instanceValue == null ? null : instanceValue.toString();
-			case GoalmodelPackage.ACTOR_TYPE:
 				return instanceValue == null ? null : instanceValue.toString();
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -106,9 +106,29 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public actor createactor() {
+		actorImpl actor = new actorImpl();
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public contribution createcontribution() {
 		contributionImpl contribution = new contributionImpl();
 		return contribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public dependency createdependency() {
+		dependencyImpl dependency = new dependencyImpl();
+		return dependency;
 	}
 
 	/**
@@ -139,26 +159,6 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	public topic createtopic() {
 		topicImpl topic = new topicImpl();
 		return topic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public actor createactor() {
-		actorImpl actor = new actorImpl();
-		return actor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public dependency createdependency() {
-		dependencyImpl dependency = new dependencyImpl();
-		return dependency;
 	}
 
 	/**

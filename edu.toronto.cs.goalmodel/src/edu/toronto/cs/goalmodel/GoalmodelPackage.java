@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelPackage.java,v 1.2 2005/09/26 00:01:59 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface GoalmodelPackage extends EPackage{
+public interface GoalmodelPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -61,289 +61,6 @@ public interface GoalmodelPackage extends EPackage{
 	GoalmodelPackage eINSTANCE = edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.contributionImpl <em>contribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.impl.contributionImpl
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getcontribution()
-	 * @generated
-	 */
-	int CONTRIBUTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__TARGET = 1;
-
-	/**
-	 * The number of structural features of the the '<em>contribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.goalImpl <em>goal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.impl.goalImpl
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getgoal()
-	 * @generated
-	 */
-	int GOAL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__PARENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Goal</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__GOAL = 3;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__LABEL = 4;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__RULE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Topic</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__TOPIC = 6;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__SYSTEM = 7;
-
-	/**
-	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__BOUNDARY = 8;
-
-	/**
-	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__INPUT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Output</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__OUTPUT = 10;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__EXCLUSIVE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__SEQUENTIAL = 12;
-
-	/**
-	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__PARALLEL = 13;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__PROPERTY = 14;
-
-	/**
-	 * The feature id for the '<em><b>Actor</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__ACTOR = 15;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__DEPENDENCY_FROM = 16;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__DEPENDENCY_TO = 17;
-
-	/**
-	 * The number of structural features of the the '<em>goal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL_FEATURE_COUNT = 18;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.propertyImpl <em>property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.impl.propertyImpl
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getproperty()
-	 * @generated
-	 */
-	int PROPERTY = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__VALUE = 1;
-
-	/**
-	 * The number of structural features of the the '<em>property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.topicImpl <em>topic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.impl.topicImpl
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#gettopic()
-	 * @generated
-	 */
-	int TOPIC = 3;
-
-	/**
-	 * The feature id for the '<em><b>Topic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOPIC__TOPIC = 0;
-
-	/**
-	 * The number of structural features of the the '<em>topic</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOPIC_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.actorImpl <em>actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,7 +68,7 @@ public interface GoalmodelPackage extends EPackage{
 	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getactor()
 	 * @generated
 	 */
-	int ACTOR = 4;
+	int ACTOR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -408,6 +125,43 @@ public interface GoalmodelPackage extends EPackage{
 	int ACTOR_FEATURE_COUNT = 5;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.contributionImpl <em>contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.impl.contributionImpl
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getcontribution()
+	 * @generated
+	 */
+	int CONTRIBUTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__TARGET = 1;
+
+	/**
+	 * The number of structural features of the the '<em>contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.dependencyImpl <em>dependency</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -415,10 +169,10 @@ public interface GoalmodelPackage extends EPackage{
 	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getdependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 5;
+	int DEPENDENCY = 2;
 
 	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' container reference.
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -427,7 +181,7 @@ public interface GoalmodelPackage extends EPackage{
 	int DEPENDENCY__DEPENDENCY_FROM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' container reference.
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -454,35 +208,250 @@ public interface GoalmodelPackage extends EPackage{
 	int DEPENDENCY_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.ContributionType <em>Contribution Type</em>}' enum.
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.goalImpl <em>goal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.ContributionType
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getContributionType()
+	 * @see edu.toronto.cs.goalmodel.impl.goalImpl
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getgoal()
 	 * @generated
 	 */
-	int CONTRIBUTION_TYPE = 6;
+	int GOAL = 3;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.DecompositionType <em>Decomposition Type</em>}' enum.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.DecompositionType
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getDecompositionType()
 	 * @generated
+	 * @ordered
 	 */
-	int DECOMPOSITION_TYPE = 7;
+	int GOAL__NAME = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.LabelType <em>Label Type</em>}' enum.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.goalmodel.LabelType
-	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getLabelType()
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__PARENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Goal</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__GOAL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__LABEL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__RULE = 5;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__SYSTEM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__BOUNDARY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__INPUT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__OUTPUT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__EXCLUSIVE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__SEQUENTIAL = 11;
+
+	/**
+	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__PARALLEL = 12;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__PROPERTY = 13;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__ACTOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__DEPENDENCY_FROM = 15;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__DEPENDENCY_TO = 16;
+
+	/**
+	 * The number of structural features of the the '<em>goal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL_FEATURE_COUNT = 17;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.propertyImpl <em>property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.impl.propertyImpl
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getproperty()
 	 * @generated
 	 */
-	int LABEL_TYPE = 8;
+	int PROPERTY = 4;
 
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the the '<em>property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.impl.topicImpl <em>topic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.impl.topicImpl
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#gettopic()
+	 * @generated
+	 */
+	int TOPIC = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__TYPE = 1;
+
+	/**
+	 * The number of structural features of the the '<em>topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.ActorType <em>Actor Type</em>}' enum.
@@ -492,8 +461,103 @@ public interface GoalmodelPackage extends EPackage{
 	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getActorType()
 	 * @generated
 	 */
-	int ACTOR_TYPE = 9;
+	int ACTOR_TYPE = 6;
 
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.ContributionType <em>Contribution Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.ContributionType
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getContributionType()
+	 * @generated
+	 */
+	int CONTRIBUTION_TYPE = 7;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.DecompositionType <em>Decomposition Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.DecompositionType
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getDecompositionType()
+	 * @generated
+	 */
+	int DECOMPOSITION_TYPE = 8;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.goalmodel.LabelType <em>Label Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.goalmodel.LabelType
+	 * @see edu.toronto.cs.goalmodel.impl.GoalmodelPackageImpl#getLabelType()
+	 * @generated
+	 */
+	int LABEL_TYPE = 9;
+
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.actor <em>actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>actor</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor
+	 * @generated
+	 */
+	EClass getactor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.actor#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor#getName()
+	 * @see #getactor()
+	 * @generated
+	 */
+	EAttribute getactor_Name();
+
+	/**
+	 * Returns the meta object for the container reference '{@link edu.toronto.cs.goalmodel.actor#getSuper <em>Super</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Super</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor#getSuper()
+	 * @see #getactor()
+	 * @generated
+	 */
+	EReference getactor_Super();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.actor#getSub <em>Sub</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor#getSub()
+	 * @see #getactor()
+	 * @generated
+	 */
+	EReference getactor_Sub();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.actor#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor#getType()
+	 * @see #getactor()
+	 * @generated
+	 */
+	EAttribute getactor_Type();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.actor#getGoals <em>Goals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Goals</em>'.
+	 * @see edu.toronto.cs.goalmodel.actor#getGoals()
+	 * @see #getactor()
+	 * @generated
+	 */
+	EReference getactor_Goals();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.contribution <em>contribution</em>}'.
@@ -526,6 +590,49 @@ public interface GoalmodelPackage extends EPackage{
 	 * @generated
 	 */
 	EReference getcontribution_Target();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.dependency <em>dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>dependency</em>'.
+	 * @see edu.toronto.cs.goalmodel.dependency
+	 * @generated
+	 */
+	EClass getdependency();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.goalmodel.dependency#getDependencyFrom <em>Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dependency From</em>'.
+	 * @see edu.toronto.cs.goalmodel.dependency#getDependencyFrom()
+	 * @see #getdependency()
+	 * @generated
+	 */
+	EReference getdependency_DependencyFrom();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.goalmodel.dependency#getDependencyTo <em>Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dependency To</em>'.
+	 * @see edu.toronto.cs.goalmodel.dependency#getDependencyTo()
+	 * @see #getdependency()
+	 * @generated
+	 */
+	EReference getdependency_DependencyTo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.dependency#getTrust <em>Trust</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trust</em>'.
+	 * @see edu.toronto.cs.goalmodel.dependency#getTrust()
+	 * @see #getdependency()
+	 * @generated
+	 */
+	EAttribute getdependency_Trust();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.goal <em>goal</em>}'.
@@ -602,17 +709,6 @@ public interface GoalmodelPackage extends EPackage{
 	 * @generated
 	 */
 	EReference getgoal_Rule();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.goal#getTopic <em>Topic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Topic</em>'.
-	 * @see edu.toronto.cs.goalmodel.goal#getTopic()
-	 * @see #getgoal()
-	 * @generated
-	 */
-	EReference getgoal_Topic();
 
 	/**
 	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.goal#getSystem <em>System</em>}'.
@@ -714,10 +810,10 @@ public interface GoalmodelPackage extends EPackage{
 	EReference getgoal_Actor();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.goal#getDependencyFrom <em>Dependency From</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.goalmodel.goal#getDependencyFrom <em>Dependency From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependency From</em>'.
+	 * @return the meta object for the reference list '<em>Dependency From</em>'.
 	 * @see edu.toronto.cs.goalmodel.goal#getDependencyFrom()
 	 * @see #getgoal()
 	 * @generated
@@ -725,10 +821,10 @@ public interface GoalmodelPackage extends EPackage{
 	EReference getgoal_DependencyFrom();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.goal#getDependencyTo <em>Dependency To</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.goalmodel.goal#getDependencyTo <em>Dependency To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependency To</em>'.
+	 * @return the meta object for the reference list '<em>Dependency To</em>'.
 	 * @see edu.toronto.cs.goalmodel.goal#getDependencyTo()
 	 * @see #getgoal()
 	 * @generated
@@ -778,123 +874,36 @@ public interface GoalmodelPackage extends EPackage{
 	EClass gettopic();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.topic#getTopic <em>Topic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Topic</em>'.
-	 * @see edu.toronto.cs.goalmodel.topic#getTopic()
-	 * @see #gettopic()
-	 * @generated
-	 */
-	EAttribute gettopic_Topic();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.actor <em>actor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>actor</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor
-	 * @generated
-	 */
-	EClass getactor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.actor#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.topic#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor#getName()
-	 * @see #getactor()
+	 * @see edu.toronto.cs.goalmodel.topic#getName()
+	 * @see #gettopic()
 	 * @generated
 	 */
-	EAttribute getactor_Name();
+	EAttribute gettopic_Name();
 
 	/**
-	 * Returns the meta object for the container reference '{@link edu.toronto.cs.goalmodel.actor#getSuper <em>Super</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Super</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor#getSuper()
-	 * @see #getactor()
-	 * @generated
-	 */
-	EReference getactor_Super();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.actor#getSub <em>Sub</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sub</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor#getSub()
-	 * @see #getactor()
-	 * @generated
-	 */
-	EReference getactor_Sub();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.actor#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.topic#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor#getType()
-	 * @see #getactor()
+	 * @see edu.toronto.cs.goalmodel.topic#getType()
+	 * @see #gettopic()
 	 * @generated
 	 */
-	EAttribute getactor_Type();
+	EAttribute gettopic_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.goalmodel.actor#getGoals <em>Goals</em>}'.
+	 * Returns the meta object for enum '{@link edu.toronto.cs.goalmodel.ActorType <em>Actor Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Goals</em>'.
-	 * @see edu.toronto.cs.goalmodel.actor#getGoals()
-	 * @see #getactor()
+	 * @return the meta object for enum '<em>Actor Type</em>'.
+	 * @see edu.toronto.cs.goalmodel.ActorType
 	 * @generated
 	 */
-	EReference getactor_Goals();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.goalmodel.dependency <em>dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>dependency</em>'.
-	 * @see edu.toronto.cs.goalmodel.dependency
-	 * @generated
-	 */
-	EClass getdependency();
-
-	/**
-	 * Returns the meta object for the container reference '{@link edu.toronto.cs.goalmodel.dependency#getDependencyFrom <em>Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Dependency From</em>'.
-	 * @see edu.toronto.cs.goalmodel.dependency#getDependencyFrom()
-	 * @see #getdependency()
-	 * @generated
-	 */
-	EReference getdependency_DependencyFrom();
-
-	/**
-	 * Returns the meta object for the container reference '{@link edu.toronto.cs.goalmodel.dependency#getDependencyTo <em>Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Dependency To</em>'.
-	 * @see edu.toronto.cs.goalmodel.dependency#getDependencyTo()
-	 * @see #getdependency()
-	 * @generated
-	 */
-	EReference getdependency_DependencyTo();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.goalmodel.dependency#getTrust <em>Trust</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Trust</em>'.
-	 * @see edu.toronto.cs.goalmodel.dependency#getTrust()
-	 * @see #getdependency()
-	 * @generated
-	 */
-	EAttribute getdependency_Trust();
+	EEnum getActorType();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.goalmodel.ContributionType <em>Contribution Type</em>}'.
@@ -925,16 +934,6 @@ public interface GoalmodelPackage extends EPackage{
 	 * @generated
 	 */
 	EEnum getLabelType();
-
-	/**
-	 * Returns the meta object for enum '{@link edu.toronto.cs.goalmodel.ActorType <em>Actor Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Actor Type</em>'.
-	 * @see edu.toronto.cs.goalmodel.ActorType
-	 * @generated
-	 */
-	EEnum getActorType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

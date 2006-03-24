@@ -1,3 +1,9 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
 package edu.toronto.cs.goalmodel;
 
 import java.util.Arrays;
@@ -6,14 +12,61 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.AbstractEnumerator;
 
-/** @model */
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the literals of the enumeration '<em><b>Decomposition Type</b></em>',
+ * and utility methods for working with them.
+ * <!-- end-user-doc -->
+ * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getDecompositionType()
+ * @model
+ * @generated
+ */
 public final class DecompositionType extends AbstractEnumerator {
-	/** @model name="OR" */
+	/**
+	 * The '<em><b>OR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>OR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #OR_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int OR = 0;
-	/** @model name="AND" */
+
+	/**
+	 * The '<em><b>AND</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>AND</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #AND_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int AND = 1;
-	/** @model name="LEAF" */
+
+	/**
+	 * The '<em><b>LEAF</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>LEAF</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LEAF_LITERAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
 	public static final int LEAF = 2;
+
 	/**
 	 * The '<em><b>OR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -106,4 +159,4 @@ public final class DecompositionType extends AbstractEnumerator {
 		super(value, name);
 	}
 
-}
+} //DecompositionType
