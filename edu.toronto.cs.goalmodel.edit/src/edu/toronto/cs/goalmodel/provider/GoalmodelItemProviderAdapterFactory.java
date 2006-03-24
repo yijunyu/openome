@@ -303,12 +303,12 @@ public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
+		if (actorItemProvider != null) actorItemProvider.dispose();
 		if (contributionItemProvider != null) contributionItemProvider.dispose();
+		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
 		if (goalItemProvider != null) goalItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (topicItemProvider != null) topicItemProvider.dispose();
-		if (actorItemProvider != null) actorItemProvider.dispose();
-		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
 	}
 
 }

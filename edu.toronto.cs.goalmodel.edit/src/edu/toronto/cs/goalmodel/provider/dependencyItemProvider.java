@@ -62,9 +62,51 @@ public class dependencyItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDependencyFromPropertyDescriptor(object);
+			addDependencyToPropertyDescriptor(object);
 			addTrustPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_dependency_dependencyFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_dependencyFrom_feature", "_UI_dependency_type"),
+				 GoalmodelPackage.eINSTANCE.getdependency_DependencyFrom(),
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_dependency_dependencyTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_dependencyTo_feature", "_UI_dependency_type"),
+				 GoalmodelPackage.eINSTANCE.getdependency_DependencyTo(),
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

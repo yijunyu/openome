@@ -73,6 +73,8 @@ public class goalItemProvider
 			addExclusivePropertyDescriptor(object);
 			addSequentialPropertyDescriptor(object);
 			addParallelPropertyDescriptor(object);
+			addDependencyFromPropertyDescriptor(object);
+			addDependencyToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -238,6 +240,46 @@ public class goalItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Dependency From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_goal_dependencyFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_goal_dependencyFrom_feature", "_UI_goal_type"),
+				 GoalmodelPackage.eINSTANCE.getgoal_DependencyFrom(),
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_goal_dependencyTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_goal_dependencyTo_feature", "_UI_goal_type"),
+				 GoalmodelPackage.eINSTANCE.getgoal_DependencyTo(),
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -250,12 +292,9 @@ public class goalItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Goal());
 			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Rule());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Topic());
 			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Input());
 			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Output());
 			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Property());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_DependencyFrom());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_DependencyTo());
 		}
 		return childrenFeatures;
 	}
@@ -318,12 +357,9 @@ public class goalItemProvider
 				return;
 			case GoalmodelPackage.GOAL__GOAL:
 			case GoalmodelPackage.GOAL__RULE:
-			case GoalmodelPackage.GOAL__TOPIC:
 			case GoalmodelPackage.GOAL__INPUT:
 			case GoalmodelPackage.GOAL__OUTPUT:
 			case GoalmodelPackage.GOAL__PROPERTY:
-			case GoalmodelPackage.GOAL__DEPENDENCY_FROM:
-			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -352,11 +388,6 @@ public class goalItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Topic(),
-				 GoalmodelFactory.eINSTANCE.createtopic()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(GoalmodelPackage.eINSTANCE.getgoal_Input(),
 				 GoalmodelFactory.eINSTANCE.createtopic()));
 
@@ -369,16 +400,6 @@ public class goalItemProvider
 			(createChildParameter
 				(GoalmodelPackage.eINSTANCE.getgoal_Property(),
 				 GoalmodelFactory.eINSTANCE.createproperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_DependencyFrom(),
-				 GoalmodelFactory.eINSTANCE.createdependency()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_DependencyTo(),
-				 GoalmodelFactory.eINSTANCE.createdependency()));
 	}
 
 	/**
@@ -392,11 +413,8 @@ public class goalItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Topic() ||
 			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Input() ||
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Output() ||
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_DependencyFrom() ||
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_DependencyTo();
+			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Output();
 
 		if (qualify) {
 			return getString

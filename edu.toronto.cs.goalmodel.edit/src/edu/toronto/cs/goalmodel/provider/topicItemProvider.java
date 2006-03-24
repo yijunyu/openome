@@ -62,25 +62,46 @@ public class topicItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTopicPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Topic feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTopicPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_topic_topic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_topic_topic_feature", "_UI_topic_type"),
-				 GoalmodelPackage.eINSTANCE.gettopic_Topic(),
+				 getString("_UI_topic_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_topic_name_feature", "_UI_topic_type"),
+				 GoalmodelPackage.eINSTANCE.gettopic_Name(),
+				 true,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_topic_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_topic_type_feature", "_UI_topic_type"),
+				 GoalmodelPackage.eINSTANCE.gettopic_Type(),
 				 true,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -104,7 +125,7 @@ public class topicItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((topic)object).getTopic();
+		String label = ((topic)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_topic_type") :
 			getString("_UI_topic_type") + " " + label;
@@ -121,7 +142,8 @@ public class topicItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(topic.class)) {
-			case GoalmodelPackage.TOPIC__TOPIC:
+			case GoalmodelPackage.TOPIC__NAME:
+			case GoalmodelPackage.TOPIC__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -86,10 +86,16 @@
 	    -->
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="openome">
+            name="OpenOME">
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini"/>
+         <property
+               name="aboutImage"
+               value="eclipse_lg.gif"/>
+         <property
+               name="aboutText"
+               value="OpenOME, an open-source requirements engineering tool"/>
       </product>
    </extension>
    <extension
