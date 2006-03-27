@@ -12,3 +12,4 @@ reuse/mediashop.q7
 reuse/WBT.q7
 wbimodel/README.txt
 wbimodel/componenx.q7
+web.url

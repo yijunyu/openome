@@ -12,6 +12,7 @@ import it.unitn.goal_analysis.graph_creation.ContinuousRelType;
 import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -53,11 +54,22 @@ import jtelos.Individual;
 import jtelos.KB;
 import jtelos.Proposition;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.osgi.framework.Bundle;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.reader.DimacsReader;
 import org.sat4j.specs.ISolver;
@@ -74,6 +86,7 @@ import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.goal;
 import edu.toronto.cs.goalmodel.impl.GoalmodelFactoryImpl;
 import edu.toronto.cs.ome.OMETab;
+import edu.toronto.cs.ome.eclipse.Plugin;
 import edu.toronto.cs.ome.model.KBManager;
 import edu.toronto.cs.ome.model.OMEElement;
 import edu.toronto.cs.ome.model.OMEModel;
@@ -589,7 +602,7 @@ public class ModelManager {
 	public static File apply_xslt(File f) {
 		String n = f.getAbsolutePath();
 		OMETab.init_layout = false;
-		if (!n.endsWith(".tel") & !n.endsWith(".q7") & !n.endsWith(".goalmodel")) {
+		if (!n.endsWith(".tel") & !n.endsWith(".q7") & !n.endsWith(".url")) {
 			// an XSLT is assumed to be used
 			if (xslt_stylesheets == null)
 				xslt_stylesheets = Computing.listContents(new File(System
@@ -639,12 +652,63 @@ public class ModelManager {
 				XMLCodeGenerator xcg = new XMLCodeGenerator(Q7.a);
 				xcg.generateGoalModel(xml);
 			}
-		} else if (n.endsWith(".goalmodel")) { // goal model
-//			loadGoalModel1(n);
-//			loadGoalModel2(n);
-			System.exit(0);
+		} else if (n.endsWith(".url")) { // goal model
+			String pn = n.substring(1, n.indexOf(".url"));
+			pn = pn.substring(pn.lastIndexOf(File.separator)+1);
+			IProject project = getExampleProject(pn);
+			try {
+				InputStream ins = new FileInputStream(n);
+				int count = ins.available();
+				BufferedReader in = new BufferedReader(new InputStreamReader(ins));
+				char[] cbuf = new char[count];
+				in.read(cbuf);
+				in.close();
+				String[] lines = new String(cbuf).split("\n");
+				for (int i = 0; i < lines.length; i++) {
+					String string = lines[i];
+					string = string.trim();
+					if (string.length() > 0) {
+						String name = string;
+						System.out.println(name);
+						URL doc = Computing.fetchURL(name);
+						if (doc!=null) {
+							String fn = name.substring(name.indexOf("://")+3);
+							String[] words = fn.split("/");
+							String pathName = "";
+							IFolder folder = null;
+							for (int j = 0; j < words.length - 1; j++) {
+								String str = words[j];
+								pathName = pathName + str + "/";
+								folder = project.getFolder(pathName);
+								if (!folder.exists())
+									folder.create(IResource.NONE, true, null);
+							}
+							InputStream stream = doc.openStream();
+							IFile local = folder.getFile(words[words.length - 1]);
+							local.create(stream, false, null);
+							stream.close();
+							f = new File(local.getLocation().toOSString());
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
 		}
 		return f;
+	}
+
+	private static IProject getExampleProject(String name) {
+		IWorkspace w = ResourcesPlugin.getWorkspace();
+		IProject project = w.getRoot().getProject(name);
+		try {
+			if (!project.exists())
+				project.create(null);
+			project.open(null);
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return project;
 	}
 
 	public static ResourceSet createResourceSet()

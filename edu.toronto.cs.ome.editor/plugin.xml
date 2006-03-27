@@ -40,7 +40,7 @@
             class="edu.toronto.cs.ome.eclipse.Editor"
             contributorClass="edu.toronto.cs.ome.eclipse.EditActionContributor"
             default="true"
-            extensions="tel,q7,vdx"
+            extensions="tel,q7,vdx,url"
             icon="icons/goal.gif"
             id="edu.toronto.cs.ome.eclipse.editor"
             name="OpenOME Editor">
