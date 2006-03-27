@@ -29,7 +29,7 @@
       <import plugin="edu.toronto.cs.q7" export="true"/>
       <import plugin="org.sat4j" export="true"/>
       <import plugin="edu.stanford.smi.protege" export="true"/>
-      <import plugin="com.ibm.btools.texml" export="true"/>
+      <import plugin="com.ibm.wbimodel" export="true"/>
       <import plugin="att.grappa" export="true"/>
       <import plugin="com.keypoint.png" export="true"/>
       <import plugin="it.unitn.goal_analysis" export="true"/>

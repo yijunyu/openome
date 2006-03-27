@@ -7,6 +7,7 @@ mkdir %ECLIPSE_HOME%\links
 echo path=%IDE2%/test/3.1.0 > %ECLIPSE_HOME%\links\test.link
 echo path=%IDE2%/emf/2.1.2 > %ECLIPSE_HOME%\links\emf.link
 echo path=%IDE2%/delta/3.1.2 > %ECLIPSE_HOME%\links\delta.link
+REM echo path=%IDE2%/openome/0.0.15 > %ECLIPSE_HOME%\links\openome.link
 set DATA=.
 set CONFIG=%DATA%\.configuration
 rmdir /q /s %CONFIG%

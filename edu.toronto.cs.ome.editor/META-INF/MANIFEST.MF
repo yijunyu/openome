@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: OpenOME
 Bundle-SymbolicName: edu.toronto.cs.ome.eclipse; singleton=true
-Bundle-Version: 0.0.14
+Bundle-Version: 0.0.15
 Bundle-Activator: edu.toronto.cs.ome.eclipse.Plugin
 Bundle-Vendor: University of Toronto
 Bundle-Localization: plugin

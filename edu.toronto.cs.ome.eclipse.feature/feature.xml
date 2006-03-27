@@ -2,7 +2,7 @@
 <feature
       id="edu.toronto.cs.ome.eclipse.feature"
       label="edu.toronto.cs.ome.eclipse.feature"
-      version="0.0.14"
+      version="0.0.15"
       provider-name="Unversity of Toronto">
    <install-handler/>
 
@@ -87,7 +87,7 @@ SAT4J          sat4j.org      LGPL
          id="edu.toronto.cs.ome.eclipse"
          download-size="0"
          install-size="0"
-         version="0.0.14"/>
+         version="0.0.15"/>
 
    <plugin
          id="org.apache.batik"
@@ -100,13 +100,6 @@ SAT4J          sat4j.org      LGPL
          download-size="0"
          install-size="0"
          version="1.2.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.ibm.btools.texml"
-         download-size="0"
-         install-size="0"
-         version="1.0.0"
          unpack="false"/>
 
    <plugin
@@ -149,6 +142,13 @@ SAT4J          sat4j.org      LGPL
          download-size="0"
          install-size="0"
          version="1.5.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.wbimodel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>

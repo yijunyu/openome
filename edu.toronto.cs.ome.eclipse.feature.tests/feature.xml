@@ -2,7 +2,7 @@
 <feature
       id="edu.toronto.cs.ome.eclipse.feature.tests"
       label="edu.toronto.cs.ome.eclipse.feature.tests"
-      version="0.0.14"
+      version="0.0.15"
       provider-name="www.cs.toronto.edu"
       image="eclipse_update_120.jpg">
 
@@ -11,7 +11,7 @@
    </description>
 
    <license url="license.html">
-OpenOME is provided by University of Toronto: 
+      OpenOME is provided by University of Toronto: 
 http://www.cs.toronto.edu/km/openome.
 It is a open-source software under the license Eclipse Public License (EPL) 1.0.
 The 3rd party components are included under the following licenses:
