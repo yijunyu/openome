@@ -1,0 +1,17 @@
+speed { &
+  powerful
+  streamline { &
+    constant
+    narrowing
+    widening
+  } => ++beauty
+}
+<car>::design { &
+  design [engine] => ++powerful
+  design [shape] { &
+    design [body] => ++constant
+    design [head] => ++widening
+    design [tail] => ++narrowing
+  } => ++streamline
+  design [wheels]
+}

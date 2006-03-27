@@ -10,12 +10,13 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Preferences;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.ui.IStartup;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * The main plugin class to be used in the desktop.
  */
-public class Plugin extends AbstractUIPlugin {
+public class Plugin extends AbstractUIPlugin implements IStartup {
 	private static Plugin plugin;
 	private static boolean prefsInit = false;
 	private ResourceBundle resourceBundle = null;
@@ -127,5 +128,8 @@ public class Plugin extends AbstractUIPlugin {
 	 */
 	public ResourceBundle getResourceBundle() {
 		return resourceBundle;
+	}
+
+	public void earlyStartup() {
 	}
 }
