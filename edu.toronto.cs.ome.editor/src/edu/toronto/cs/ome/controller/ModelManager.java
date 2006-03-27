@@ -61,22 +61,18 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.osgi.framework.Bundle;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.reader.DimacsReader;
 import org.sat4j.specs.ISolver;
 
-import com.ibm.wbim.bom.schema1.ModelType;
-
 import att.grappa.Graph;
+
+import com.ibm.wbim.bom.schema1.ModelType;
 
 import edu.toronto.cs.goalmodel.ContributionType;
 import edu.toronto.cs.goalmodel.DecompositionType;
@@ -86,7 +82,6 @@ import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.goal;
 import edu.toronto.cs.goalmodel.impl.GoalmodelFactoryImpl;
 import edu.toronto.cs.ome.OMETab;
-import edu.toronto.cs.ome.eclipse.Plugin;
 import edu.toronto.cs.ome.model.KBManager;
 import edu.toronto.cs.ome.model.OMEElement;
 import edu.toronto.cs.ome.model.OMEModel;
@@ -307,15 +302,6 @@ public class ModelManager {
 	 *            the file to be loaded
 	 */
 	public OMEModel openModel(String modelfile) {
-//		boolean is_file = true;
-//		try {
-//			java.net.URI u = new java.net.URI(modelfile);
-//			if (u!=null)
-//				is_file = false;
-//		} catch (URISyntaxException e1) {
-//			e1.printStackTrace();
-//		}
-//		D.o(modelfile + " is a file? " + is_file);
 		File f = new File(modelfile);
 		D.o(f.toURI());
 		while (!modelfile.substring(modelfile.lastIndexOf(".") + 1)
@@ -343,6 +329,8 @@ public class ModelManager {
 				view.load(s);
 				straighten_all_links(view);
 			}
+			if (OMETab.iframe != null)
+				OMETab.iframe.setTitle(modelfile);
 			return model;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -668,6 +656,9 @@ public class ModelManager {
 					String string = lines[i];
 					string = string.trim();
 					if (string.length() > 0) {
+						if (string.endsWith(".url")) {
+							return null; // otherwise it might be recursive
+						}
 						String name = string;
 						System.out.println(name);
 						URL doc = Computing.fetchURL(name);
@@ -685,14 +676,20 @@ public class ModelManager {
 							}
 							InputStream stream = doc.openStream();
 							IFile local = folder.getFile(words[words.length - 1]);
-							local.create(stream, false, null);
-							stream.close();
-							f = new File(local.getLocation().toOSString());
+							try {
+								local.create(stream, false, null);
+								stream.close();
+								f = new File(local.getLocation().toOSString());
+							} catch (Exception e) {
+								return null;
+							}
 						}
 					}
 				}
+				if (f==null)
+					return null;
 			} catch (Exception e) {
-				e.printStackTrace();
+				return null;
 			}			
 		}
 		return f;

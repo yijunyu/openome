@@ -216,8 +216,10 @@ public class OMETab extends AbstractTabWidget implements KnowledgeBaseFactory {
 			mm = new ModelManager(this);
 			if(modelfile!=null) {
 				File f = ModelManager.apply_xslt(new File(modelfile));
-				modelfile = f.getAbsolutePath();
-				model = (TelosModel) mm.openModel(modelfile);
+				if (f!=null) {
+					modelfile = f.getAbsolutePath();
+					model = (TelosModel) mm.openModel(modelfile);
+				}
 			}
 			if (model != null) {
 				Iterator i = model.getViewManager().getViews();
