@@ -358,11 +358,7 @@ public class IStarModelCodeGenerator extends TelosCodeGenerator {
 	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
 	    		Resource.Factory.Registry.DEFAULT_EXTENSION, 
 	    		new XMIResourceFactoryImpl());
-	    // Get the URI of the model file.
-		File file = new File(out_file);
-		URI uri = file.isFile() ? 
-				URI.createFileURI(file.getAbsolutePath()): 
-				URI.createURI(out_file);		
+	    URI uri = Computing.fetchURI(out_file);		
 	    // Create a resource for this file.
 	    resource = resourceSet.createResource(uri);
 		HashMap hm = new HashMap();

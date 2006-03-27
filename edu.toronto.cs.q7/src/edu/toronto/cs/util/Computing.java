@@ -7,9 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Properties;
+
+import org.eclipse.emf.common.util.URI;
 
 public class Computing {
 	
@@ -305,6 +309,28 @@ public class Computing {
 	public static boolean propertyHolds(String string) {
 		String p = System.getProperty(string);
 		return p!=null && p.equalsIgnoreCase("true");
+	}
+
+	/**
+	 *  Get the URI of the file.
+	 */
+	public static URI fetchURI(String name) {
+		File file = new File(name);
+		URI uri = file.isFile() ? 
+				URI.createFileURI(file.getAbsolutePath()): 
+				URI.createURI(name);
+		return uri;
+	}
+
+	/**
+	 *  Get the URL.
+	 */
+	public static URL fetchURL(String url) {
+		try {
+			return new URL(url);
+		} catch (MalformedURLException e) {
+			return null;
+		}
 	}
 }
 
