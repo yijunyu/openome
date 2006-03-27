@@ -10,3 +10,5 @@ top-down-reasoning/example.q7
 reuse/README.txt
 reuse/mediashop.q7
 reuse/WBT.q7
+wbimodel/README.txt
+wbimodel/componenx.q7
