@@ -86,13 +86,19 @@ public class CreateExamplesAction implements
 					IPath path = new Path("samples/" + name);
 					InputStream stream = Plugin.getPlugin()
 							.openStream(path);
-					IFile file = folder.getFile(words[words.length - 1]);
+					IFile file;
+					if (folder == null)
+						file = project.getFile(name);
+					else
+						file = folder.getFile(words[words.length - 1]);						
 					file.create(stream, false, null);
 					stream.close();
 				} catch (CoreException x) {
 					errors += x.toString() + "\n";
+					x.printStackTrace();
 				} catch (IOException x) {
 					errors += x.toString() + "\n";
+					x.printStackTrace();
 				}
 			}
 			if (errors.length() > 0) {
@@ -106,7 +112,10 @@ public class CreateExamplesAction implements
 		} catch (IOException x) {
 			MessageDialog.openInformation(window.getShell(), "OpenOME",
 					"Unable to create the Examples project due to " + x);
+		} catch (Exception x) {
+			x.printStackTrace();
 		}
+		System.out.println("Example project created");
 	}
 
 	public void selectionChanged(IAction action, ISelection selection) {
