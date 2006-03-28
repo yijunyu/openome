@@ -1,3 +1,6 @@
+/**
+ Alexei Lapouchnian et al, Generating Autonomic Computing Systems from Goal Models, CASCON'05.
+ */
 "Sell to Customer" { & ;
  "Get Customer Order" { |
    "Get Phone Order"

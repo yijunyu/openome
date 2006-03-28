@@ -1,3 +1,6 @@
+/**
+Paolo Giorgini, John Mylopoulos, Eleonora Nicchiarelli, Roberto Sebastiani: Reasoning with Goal Models. ER 2002: 167-181.
+ */
 "Japanese interest rate rise" => + 0.6 "Yen rises", - 0.8 "lower Jap. interest rates"
 "US gas price rises" => + 0.6 "gas price rises"
 "improve car quality" => + 0.8 "increase customer loyalty"

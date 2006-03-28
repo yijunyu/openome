@@ -1,3 +1,6 @@
+/**
+   Leite et al. Goal-based Software Reuse. CAiSE'05.
+ */
 <"Aspect Security [system]">::"May Security" [system] { &
   "May Confidentiality" [system]
   "May Info. flow Security" [system]

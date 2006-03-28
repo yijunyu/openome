@@ -1,15 +1,10 @@
-aspects/README.txt
 aspects/streamline.q7
 aspects/streamline-aspects-separated.q7
 aspects/mediashop.q7
 aspects/mediashop-aspects-separated.q7
-bottom-up-reasoning/README.txt
 bottom-up-reasoning/er02.q7
-top-down-reasoning/README.txt
 top-down-reasoning/example.q7
-reuse/README.txt
 reuse/mediashop.q7
 reuse/WBT.q7
-wbimodel/README.txt
 wbimodel/componenx.q7
 web.url
