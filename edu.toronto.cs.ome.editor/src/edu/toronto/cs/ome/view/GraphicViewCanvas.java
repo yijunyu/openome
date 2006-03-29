@@ -49,7 +49,9 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.AbstractButton;
@@ -57,6 +59,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -95,10 +98,13 @@ import edu.toronto.cs.ome.controller.OMEPlugin;
 import edu.toronto.cs.ome.controller.PluginMethod;
 import edu.toronto.cs.ome.controller.PluginParameter;
 import edu.toronto.cs.ome.controller.PopupMenuSeparatorMethod;
+import edu.toronto.cs.ome.model.KBManager;
 import edu.toronto.cs.ome.model.OMEElement;
 import edu.toronto.cs.ome.model.OMELink;
+import edu.toronto.cs.ome.model.OMEModel;
 import edu.toronto.cs.ome.model.OMEObject;
 import edu.toronto.cs.ome.model.TelosElement;
+import edu.toronto.cs.ome.model.TelosFramework;
 import edu.toronto.cs.ome.view.GraphicViewObject.GraphicViewTextAttribute;
 import edu.toronto.cs.telos.TelosParserIndividual;
 import edu.toronto.cs.undo.AbstractUndoableEdit;
@@ -108,6 +114,8 @@ import edu.toronto.cs.undo.Undo;
 import edu.toronto.cs.util.Computing;
 import edu.toronto.cs.util.D;
 import edu.toronto.cs.util.Pair;
+import edu.toronto.cs.ome.model.TelosModel;
+import edu.toronto.cs.telos.TelosParserKB;
 
 /**
  * This class provides an interface to display and edit a graphic view, 
@@ -160,6 +168,9 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	private GVCParameterCollector pcollector;
 	Point offset = new Point();
 	boolean dragging = false;
+	//Map models2kbs;
+	//KBManager kbm;
+	//public TelosParserKB kb;
 	/**
 	 * Takes care of parameter collecting for methods.
 	 */
@@ -381,6 +392,9 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		undo = gview.getUndo();
 		setPreferredSize(new Dimension(1024, 800));
 		setBackground(Color.WHITE);
+		//models2kbs = new HashMap();
+		//kb=null;
+		//kbm = new KBManager();
 	}
 	/** Searches through our plugins for the OMEDefaultPlugin, gets the Save
 	 *  method, and hooks it in to the GraphicViewFrame (for window closing).*/
@@ -1235,13 +1249,13 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 			t2 = new TextLayout("d=" + Math.round(100*d)/100f, gvta.font, gvta.fontrc);
 		if (Computing.propertyHolds("ome.visualization.performance.label"))
 			t3 = new TextLayout("p=" + Math.round(100*p)/100f, gvta.font, gvta.fontrc);
-		if (t1!=null) {
-			h1 = t1.getBounds().getBounds().height;
-			t1.draw(g, ge.getImageBounds().x + 80, ge.getImageBounds().y + ge.getImageBounds().height - h1 - h2 - 2);
-		}
 		if (t2!=null) {
 			h2 = t2.getBounds().getBounds().height;
 			t2.draw(g, ge.getImageBounds().x + 80, ge.getImageBounds().y + ge.getImageBounds().height - h2);
+		}
+		if (t1!=null) {
+			h1 = t1.getBounds().getBounds().height;
+			t1.draw(g, ge.getImageBounds().x + 80, ge.getImageBounds().y + ge.getImageBounds().height - h1 - h2 - 2);
 		}
 		if (t3!=null) {
 			h3 = t3.getBounds().getBounds().height;
@@ -1827,6 +1841,90 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		tf.repaint();
 		tf.requestFocus();
 		D.o("resizebox created.");
+	}
+	/** Displays the Add Quantitive Attributes box. 
+	 *  @param gve	the graphic view element we wish to assign values to
+	 */
+	/*package*/
+	void openAddQuanBox(TelosModel m,GraphicViewElement e) {
+		//String [] quan={"Satisficed=\n", "Denied=\n"};
+		String s = (String)JOptionPane.showInputDialog(
+		                    null,
+		                    //quan,
+		                    "Satisficed=\n",
+		                    "Add Quantitive Attribute",
+		                    JOptionPane.PLAIN_MESSAGE
+		                   );
+		float sat=Float.parseFloat(s);
+		String d =(String)JOptionPane.showInputDialog(
+                null,
+                "Denied=\n",
+                null,
+                JOptionPane.PLAIN_MESSAGE);  
+		float den=Float.parseFloat(d);
+		m.setSATDEN(e,sat,den);
+		repaint();
+		/*try{
+		kb = (TelosParserKB)kbm.createKB();// this kb is now TelosParserKB
+		//kb.fileTELL(modelfile);
+		//TelosFramework tfw = new TelosFramework(kb);
+		//OMEModel model = new TelosModel(kb, tfw, this);
+		models2kbs.put(m, kb);
+		TelosParserKB kb=(TelosParserKB)models2kbs.get(m);
+		//int id=e.getID();
+		TelosElement telE= (TelosElement)kb.individual(""+id);
+		telE.setSat(sat);
+		telE.setDen(den);
+		} catch (Exception exe) {
+			exe.printStackTrace();
+		}*/
+		
+		//gvo.setQuanLabel(Double.parseDouble(s),Double.parseDouble(d));
+		//		If a string was returned, say so.
+		//if ((s != null) && (s.length() > 0)) {
+		    //setLabel("Green eggs and... " + s + "!");
+		    //return;
+		//}
+		/*int sizex = gvo.getSelectableBounds().width / 2;
+		int sizey = gvo.getSelectableBounds().height / 2;
+		JTextField tfSAT = new JTextField(15);
+		tfSAT.setText("Satisficed =\n");
+		tfSAT.setBounds(
+			gvo.getSelectableBounds().x - view.getDisplayBounds().x,
+			gvo.getSelectableBounds().y
+				- view.getDisplayBounds().y
+				+ sizey
+				- 12,
+			2 * sizex,
+			24);
+		boxclosed = false;
+		tfSAT.addKeyListener(new ResizeBoxKeyAdapter(gvo, tfSAT, this));
+		tfSAT.addFocusListener(new ResizeBoxFocusAdapter(gvo, tfSAT, this));
+		//tfSAT.setText("" + gvo.getScale());
+		add(tfSAT);
+		tfSAT.selectAll();
+		tfSAT.repaint();
+		tfSAT.requestFocus();
+		//Dialogue box for denial value
+		JTextField tfDEN = new JTextField(15);
+		tfSAT.setText("Denied =\n");
+		tfDEN.setBounds(
+			gvo.getSelectableBounds().x - view.getDisplayBounds().x,
+			gvo.getSelectableBounds().y
+				- view.getDisplayBounds().y
+				+ sizey
+				- 12,
+			2 * sizex,
+			24);
+		boxclosed = false;
+		tfDEN.addKeyListener(new ResizeBoxKeyAdapter(gvo, tfDEN, this));
+		tfDEN.addFocusListener(new ResizeBoxFocusAdapter(gvo, tfDEN, this));
+		//tfDEN.setText("" + gvo.getScale());
+		add(tfDEN);
+		tfDEN.selectAll();
+		tfDEN.repaint();
+		tfDEN.requestFocus();
+		D.o("resizebox created.");*/
 	}
 	/** Saves the clicked point. 
 	 *  @param p	the clicked point

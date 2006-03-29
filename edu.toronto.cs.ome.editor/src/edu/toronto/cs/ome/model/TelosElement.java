@@ -504,7 +504,7 @@ public class TelosElement extends TelosObject implements ModelElement {
 	}
 	public void setDen(float d) {
 		den = d;
-		Attribute sat[] = individual.directAttributes(SATCAT,NOLABEL);
+		Attribute sat[] = individual.directAttributes(DENCAT,NOLABEL);
 		if(sat.length!=0)
 		    individual.removeDirectAttr(sat[FIRST]);
 		kb.newAttribute(individual,DENCAT,NOLABEL,new TelosReal(d));		

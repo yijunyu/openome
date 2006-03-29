@@ -797,6 +797,13 @@ public class GraphicView implements View {
 		gvc.openResizeBox((GraphicViewObject) vo);
 	}
 	/**
+	 * Prompts user to assign quantitive label (sat, den) to a given element. 
+	 */
+	public void promptAddQuan(TelosModel m,GraphicViewElement e){
+	    //int id=e.getID();
+		gvc.openAddQuanBox(m, e);
+	}
+	/**
 	 * Add the new element to the appropriate lists
 	 * 
 	 * @param gve

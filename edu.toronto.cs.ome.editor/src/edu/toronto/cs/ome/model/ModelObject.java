@@ -68,7 +68,7 @@ public interface ModelObject extends OMEObject {
 	 */
 	public void setLabel(TelosParserIndividual newname);
 
-
+    //public void setQuanLabel(double s,double d);
     /** Returns a Collection of the links connected to this object. */
     //public Collection getLinks();
 }

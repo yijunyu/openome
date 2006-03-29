@@ -23,7 +23,7 @@ import edu.toronto.cs.ome.model.ModelObject;
 import edu.toronto.cs.ome.model.OMEModel;
 import edu.toronto.cs.ome.model.ViewSerializer;
 import edu.toronto.cs.undo.Undo;
-
+import edu.toronto.cs.ome.model.TelosModel;
 /**
  * This interface describes the methods that characterize a graphical state  * of a model. These characteristics include the positions,expandednesses,  * visibilities, and selections of the various objects in the model.  * <P>IMPORTANT: A view provides access for users to inspect <I>as well as </I> * modify a model. *  * At present the only implementing view is GraphicView.  But future views * could include ListView, TreeView etc.
  */
@@ -169,7 +169,7 @@ public interface View {
 
     public void setStraighten(boolean b);    
     public void promptResize(ViewObject o);
-
+    public void promptAddQuan(TelosModel m, GraphicViewElement e);
     /** Selects the given object. 
       *
       * @param o the <code>ViewObject</code> we wish to select

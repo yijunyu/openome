@@ -124,13 +124,15 @@ public class TelosParserKB implements KB {
 		}
 		TelosParserIndividual ind=(TelosParserIndividual)name2individual.get(id);
 		if(ind!=null){			
+			String ID=ind.id;
 			ind.telosKB=this;
 			return ind;			
 		}
 		for (int i = 0; i < individuals.size(); i++) {
 			TelosParserIndividual t = (TelosParserIndividual) individuals
 					.get(i);
-			if (t.telosName().equals(id)) {
+			String tname=t.telosName();
+			if (tname.equals(id)) {
 				t.telosKB=this;
 				return t;
 			}

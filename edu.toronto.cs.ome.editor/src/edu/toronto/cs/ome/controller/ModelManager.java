@@ -91,6 +91,7 @@ import edu.toronto.cs.ome.model.TelosModel;
 import edu.toronto.cs.ome.model.TelosObject;
 import edu.toronto.cs.ome.model.TelosViewSerializer;
 import edu.toronto.cs.ome.view.GraphicView;
+import edu.toronto.cs.ome.view.GraphicViewElement;
 import edu.toronto.cs.ome.view.GraphicViewFrame;
 import edu.toronto.cs.ome.view.GraphicViewObject;
 import edu.toronto.cs.ome.view.View;
@@ -149,6 +150,8 @@ public class ModelManager {
 	public static String OME_PLUGIN_JAR = System
 			.getProperty("java.library.path")
 			+ File.separator + "../../../ome4eclipse.jar";
+	public static final String SATCAT[] = {"sat"};
+	public static final String DENCAT[] = {"den"};
 
 	/** Creates a new, empty ModelManager. */
 	public ModelManager(OMETab protege) {
@@ -492,7 +495,23 @@ public class ModelManager {
 		if (newGraph !=null)
 			JTelosUtil.backToOME(oldView, newGraph);
 	}
-
+	public void setSD(TelosModel m, GraphicViewElement e, float s, float d) {
+		TelosParserKB kb = (TelosParserKB) models2kbs.get(m);
+		String eleID="Element_"+e.getID();
+		TelosParserIndividual ind=(TelosParserIndividual)(kb.individual(eleID));
+		Attribute sat[] = ind.directAttributes(SATCAT,"");
+		if(sat.length!=0)
+		    ind.removeDirectAttr(sat[0]);
+		kb.newAttribute(ind,SATCAT,"",new TelosReal(s));
+		Attribute den[] = ind.directAttributes(DENCAT,"");
+		if(den.length!=0)
+		    ind.removeDirectAttr(den[0]);
+		kb.newAttribute(ind,DENCAT,"",new TelosReal(d));
+		//String[] Name={"name"};
+		//Attribute name[] = ind.directAttributes(Name,"");
+		//e.setName(name[0].to()+" ("+s+", "+d+")");
+		//e.updateName();
+	}
 	private static URL u = null;
 
 	/**

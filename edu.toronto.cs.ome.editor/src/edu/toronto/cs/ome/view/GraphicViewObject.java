@@ -499,7 +499,17 @@ public abstract class GraphicViewObject implements ViewObject {
 		}
 		updateLabel(); // Update the cache.
 	}	
-
+	/*public void setQuanLabel(double s, double d) {
+		try {
+			getModelObject().setQuanLabel(s,d);
+		} catch (Exception e) {
+			D.a(e);
+		}
+		updateQuanLabel(); // Update the cache.
+	}*/
+	public void updateQuanLabel(){
+		
+	}
 	/**
 	 * 
 	 */

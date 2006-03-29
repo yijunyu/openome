@@ -60,6 +60,8 @@ public class GraphicViewElement extends GraphicViewObject
 
 	private double scale; // our size scale.
 	private int justification; // our justifcation
+	//private double sat;
+	//private double den;
 	private static int SELECTBOXOFFSET = 2;
 	public static final double DEFAULTSCALE = 1.0;
 
@@ -993,6 +995,11 @@ public class GraphicViewElement extends GraphicViewObject
 		// Reset the text for our name based on the new image size.
 		//nameattribute.setText(getName());
 	}
+/*	public void setSatDen(double satisficed, double denied){
+		
+		this.sat=satisficed;
+		this.den=denied;
+	}*/
 	public void reset() {
 		undo.addEdit(new ScaleEdit(this.scale));
 		this.scale = 1.0;

@@ -24,6 +24,7 @@ import jtelos.KB;
 import jtelos.Proposition;
 import edu.toronto.cs.ome.controller.ModelManager;
 import edu.toronto.cs.ome.view.GraphicView;
+import edu.toronto.cs.ome.view.GraphicViewElement;
 import edu.toronto.cs.ome.view.View;
 import edu.toronto.cs.ome.view.ViewManager;
 import edu.toronto.cs.telos.TelosParserIndividual;
@@ -382,7 +383,9 @@ public class TelosModel extends OMEModel implements TelosFunctionality {
 	public void layout(File f) throws Exception {
 		mm.layOut(this, f);
 	}
-
+	public void setSATDEN(GraphicViewElement e, float s, float d) {
+		mm.setSD(this,e,s,d);
+	}
 	/**
 	 * Returns the int value stored in string <code>s</code>. This is the
 	 * equivalent of the funtion "atoi" in C/C++

@@ -282,6 +282,7 @@ public class OMEDefaultPlugin implements OMEPlugin {
 		ll.add(new PopupMenuSeparatorMethod(v));
 		ll.add(new RemoveAttributeSubmenu(v));
 		ll.add(new AddAttributeSubmenu(v));
+		ll.add(new AddQuanAttributeMethod(v));
 		return ll;
 	}
 
@@ -1545,7 +1546,20 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 			view.promptResize(vo);
 		}
 	}
+	class AddQuanAttributeMethod extends ObjectMethod {
 
+		public AddQuanAttributeMethod(View v) {
+			super(v);
+			name = "Add Quantitive Attributes ";
+			instruction = "Choose the object to be assigned quantitive attributes";
+		}
+
+		protected void operate(ViewObject vo) {
+			GraphicViewElement e=(GraphicViewElement)vo;
+			//int id=e.getID();
+			view.promptAddQuan((TelosModel)model,e);		
+		}
+	}
 	/**
 	 * Swaps the direction of a link. This is going to break the tool when we
 	 * have things other than graphic views kicking around.
