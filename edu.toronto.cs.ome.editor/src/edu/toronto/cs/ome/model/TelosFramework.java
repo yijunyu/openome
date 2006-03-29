@@ -106,10 +106,12 @@ public class TelosFramework implements OMEFramework, TelosFunctionality {
 	 * Returns an the type as found by its name. Returns null if we found squat.
 	 */
 	public Object getType(String name) {
-		Iterator i = getAllTypes();
+ 		Iterator i = getAllTypes();
 		while (i.hasNext()) {
 			Proposition type = (Proposition) i.next();
-			if (getName(type).equals(name)) {
+			String n = getName(type);
+//			System.out.println(n);
+			if (n.equals(name)) {
 				return type;
 			}
 		}

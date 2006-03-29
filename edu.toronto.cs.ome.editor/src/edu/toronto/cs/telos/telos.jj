@@ -9,6 +9,8 @@ options {
 }
 PARSER_BEGIN(TelosParser)
 package edu.toronto.cs.telos;
+import java.util.Collection;
+import java.util.Vector;
 public class TelosParser {
   public static void main(String args[]) {
     TelosParser parser;
@@ -230,11 +232,16 @@ java.util.HashMap AttributeList() :
 {
 	(ids=IdList() <COLON> value=Literal()
 		{
-			if (a.get(ids)!=null) {
-			   String suffix = "-" + a.size();				
-			   ids.set(ids.size()-1, ((String) ids.get(ids.size()-1)) + suffix);
+			Collection c = (Collection) a.get(ids);
+			if (c!=null) {
+			   // String suffix = "-" + a.size();				
+			   // ids.set(ids.size()-1, ((String) ids.get(ids.size()-1)) + suffix);
+			   c.add(value);
+			} else {
+			   c = new Vector();
+			   c.add(value);
+			   a.put(ids, c);
 			}
-			a.put(ids, value);
 		}
 	)*
 	{

@@ -6,6 +6,7 @@
  */
 package edu.toronto.cs.ome.model;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -16,10 +17,13 @@ import jtelos.Levels;
 import jtelos.Proposition;
 import jtelos.PropositionOrPrimitive;
 import jtelos.TelosException;
+import edu.toronto.cs.ome.humaninterventionreasoning.EvaluationLabel;
+import edu.toronto.cs.ome.humaninterventionreasoning.EvaluationLabelBag;
 import edu.toronto.cs.telos.TelosParserIndividual;
 import edu.toronto.cs.telos.TelosParserKB;
 import edu.toronto.cs.telos.TelosReal;
 import edu.toronto.cs.telos.TelosString;
+import edu.toronto.cs.util.Computing;
 import edu.toronto.cs.util.D;
 /** Contains the information neccessary to construct and maintain a Telos Element. 
  *  Each element in a model needs to be represented as a <code> Telos
@@ -29,12 +33,24 @@ import edu.toronto.cs.util.D;
 public class TelosElement extends TelosObject implements ModelElement {
 
     private Collection children;
+   
+    private EvaluationLabel prevEvalLabel;
+    
+    private EvaluationLabel initEvalLabel;
+    
+    private EvaluationLabelBag evalLabelBag;
+    
+    private String EvalResultFromWhichLinkType;
+    
+    //temporary until links problems is fixed
+    private HashSet toLinks;
+    private HashSet fromLinks;
 
 /**
  * Contains the information neccessary to maintains the "children" of an *  expandeable Telos Element.
  */
 
-    public class TelosElementChildCollection extends PessimisticCollection {
+    public class TelosElementChildCollection implements Collection {
 
 	/**
 	 * 
@@ -128,6 +144,60 @@ public class TelosElement extends TelosObject implements ModelElement {
 		}	    
 	    }
 	    return false;
+	}
+
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object[] toArray(Object[] arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public boolean containsAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean addAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean removeAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean retainAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public void clear() {
+		// TODO Auto-generated method stub
+		
 	}
     }
 
@@ -401,6 +471,14 @@ public class TelosElement extends TelosObject implements ModelElement {
 	this.model=model;
 	this.framework=framework;
 	this.type = (Proposition)type;
+	
+	prevEvalLabel = new EvaluationLabel("empty");
+	initEvalLabel = new EvaluationLabel("empty");
+	EvalResultFromWhichLinkType = "";
+	evalLabelBag = new EvaluationLabelBag();
+	
+	toLinks = new HashSet();
+	fromLinks = new HashSet();
 
 	D.o("creating telos element:"+id);
 	try {
@@ -457,6 +535,14 @@ public class TelosElement extends TelosObject implements ModelElement {
 	this.id=id;
 	//links = new TelosElementLinkCollection(this);
 	children = new TelosElementChildCollection(this);
+	
+	prevEvalLabel = new EvaluationLabel("empty");
+	initEvalLabel = new EvaluationLabel("empty");
+	EvalResultFromWhichLinkType = "";
+	evalLabelBag = new EvaluationLabelBag();
+
+	toLinks = new HashSet();
+	fromLinks = new HashSet();
 	
 	// we must find our type.
 	type=null;
@@ -541,7 +627,248 @@ public class TelosElement extends TelosObject implements ModelElement {
 		    individual.removeDirectAttr(perfs[FIRST]);
 		kb.newAttribute(individual,PERFCAT,NOLABEL,new TelosReal(p));		
 	}
+	public EvaluationLabel getEvalLabel() {
+				
+		String label = "empty";		
+		
+		//Do something to get the label from the underlying KB		
+		ModelAttribute att = getAttribute("label");
+		if (att!=null) {
+			TelosParserIndividual t = (TelosParserIndividual) att.getTarget();
+		
+			if (t!=null) {
+				label = t.telosName();
+			}
+			
+		}
+				
+		EvaluationLabel evalLabel = new EvaluationLabel(label);
+				
+		return evalLabel;		
+	}
+	
+	public void setEvalLabel(EvaluationLabel eLabel)  {
+	
+		//do stuff to set the label in the underlying KB
+		
+		//att represents the actual element
+		ModelAttribute att = getAttribute("label");
+		
+		//There are single instances for each type of evaluation label
+		//floating around in memory.  We need to find the one which corresponds
+		//to the evaluation value we want to give to our element
+		if (att != null) {
+			
+			Iterator i = att.getPossibleTargets();
+			
+			boolean found = false;
+			if (eLabel.Empty()) {
+				att.clearTarget();
+			}
+			else {
+				while (i.hasNext()) {
+					//Potential object which matches the label we want to assign
+					TelosParserIndividual in = (TelosParserIndividual)i.next();
+					String potentialLabel = in.telosName();
+				
+					//if this potential label is the same as the label we want to 
+					//give the element, we use this in object
+					if (potentialLabel.equals(eLabel.getName())) {
+						att.setTarget(in);
+						found = true;
+						break;
+					}
+				}
+				
+				if (!found) {
+					System.out.println("Invalid Evaluation Label Name " + eLabel.getName());
+					return;
+				}
+			}
+		}
+		else {
+			System.out.println("Attribute Null in TelosElement");
+		}			
+		
+		
+	}
+	
+	public String getElementType() {
+				
+		return  type.telosName();
+	}
+	
+	
+	public HashSet getLinksFrom() {
+		
+		return fromLinks;
+		/*Iterator i = links.iterator();
+		HashSet linksFrom = new HashSet();
+				
+		while (i.hasNext())  {
+			
+			TelosLink tLink = (TelosLink) i.next();
+		
+			TelosElement tEle;
+						
+			if (tLink.getLinkType().equals("IStarDependencyLink")) {
+			
+				tEle = (TelosElement) tLink.getTo();
+			}
+			else {
+				tEle= (TelosElement) tLink.getFrom();
+			}
+			
+			if (tEle.getID() == getID())  {
+				linksFrom.add(tLink);
+			
+			}
+		}
+		return linksFrom;*/
+	}
+	
+	public HashSet getLinksTo() {
+		
+		return toLinks;
+		
+		/*Iterator i = links.iterator();
+		HashSet linksTo = new HashSet();
+		
+		while (i.hasNext())  {
+			TelosLink tLink = (TelosLink) i.next();
+		
+			TelosElement tEle;
+						
+			if (tLink.getLinkType().equals("IStarDependencyLink")) {
+			
+				tEle = (TelosElement) tLink.getFrom();
+			}
+			else {
+				tEle= (TelosElement) tLink.getTo();
+			}
+			
+			if (tEle.getID() == getID())  {
+				linksTo.add(tLink);
+			
+			}
+		}
+		return linksTo;*/
+	}
+	
+	public boolean isLeaf() {
+		if (getLinksTo().isEmpty())
+			return true;
+		else
+			return false;
+	}
+	
+	public void setInitialEvalLabel(EvaluationLabel eLabel) {
+		initEvalLabel = eLabel;
+	}
+	
+	public EvaluationLabel getInitialEvalLabel() {
+		return initEvalLabel;
+	}
+	
+	public void setPreviousEvalLabel(EvaluationLabel eLabel)  {
+		prevEvalLabel = eLabel;
+	}
+	
+	public EvaluationLabel getPreviousEvalLabel()  {
+		return prevEvalLabel;
+	}
+	
+	public void addToBag(EvaluationLabel label, TelosElement element)  {
+		evalLabelBag.add(label, element);
+	}
+	
+	public void removeFromBag(TelosElement e) {
+		evalLabelBag.removeElement(e);
+	}
+	
+	public boolean isLabelBagEmpty() {
+		return evalLabelBag.isEmpty();
+	}
+	
+	public EvaluationLabelBag getLabelBag() {
+		return evalLabelBag;
+	}
+	
+	public void emptyLabelBag() {
+		evalLabelBag = new EvaluationLabelBag();
+	}
+	
+	public void printAllLinks() {
+		/*Iterator i = links.iterator();
+				
+		while (i.hasNext())  {
+			TelosLink tLink = (TelosLink) i.next();
+			
+			tLink.printLink();
+		}
+		*/
+		System.out.println("To Links:");
+		Iterator to = toLinks.iterator();
+		while (to.hasNext())  {
+			TelosLink l = (TelosLink) to.next();
+			l.printLink();
+		}
+		System.out.println("From Links:");
+		Iterator from = fromLinks.iterator();
+		while (from.hasNext())  {
+			TelosLink l = (TelosLink) from.next();
+			l.printLink();
+		}
+	}
+	
+	public boolean hasLink(TelosLink link)  {
+		if (links.contains(link))
+			return true;
+		return false;
+	}
+	
+	public void addLinkTo(TelosLink link) {
+		toLinks.add(link);
+	}
+	
+	public void addLinkFrom(TelosLink link) {
+		fromLinks.add(link);
+	}
+	
+	public void setEvalResultLinkType(String st) {
+		EvalResultFromWhichLinkType = st;
+	}
+	
+	public String getEvalResultLinkType() {
+		return EvalResultFromWhichLinkType;
+	}
+	
+	public boolean isSoftgoal() {
+		return getElementType().equals("IStarSoftGoalElement");
+	}
+	
+	public boolean isActor() {
+		return ((type.telosName().equals("IStarRoleElement") 
+				| type.telosName().equals("IStarActorElement")
+				| type.telosName().equals("IStarAgentElement") 
+				| type.telosName().equals("IStarPositionElement"))); 
+	}
+	
+	public EvaluationLabel labelBagStateHasOccured() {
+		return evalLabelBag.hasThisState();
+	}
+	
+	public void labelBagStateResolved() {
+		evalLabelBag.saveState(getEvalLabel());
+	}
 }
+
+
+
+
+
+
+
 
 
 

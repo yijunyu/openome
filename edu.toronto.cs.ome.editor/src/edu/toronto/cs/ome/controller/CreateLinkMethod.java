@@ -161,6 +161,7 @@ public class CreateLinkMethod extends AbstractPluginMethod {
 	 * @see PluginMethod#invoke() invoke()
 	 */
 	public void invoke() {
+		System.out.println("CreateLink");
 		if (sources == null || dest == null) {
 			//Somethings wrong, give up.
 		} else {

@@ -323,8 +323,8 @@ public class GraphicViewLink extends GraphicViewObject implements ViewLink {
 						from.getImageBounds().y
 								+ from.getImageBounds().getHeight() / 2);
 		getend2().setLocation(to.getImageBounds().x +
-		to.getImageBounds().getWidth() / 2,
-		to.getImageBounds().y + to.getImageBounds().getHeight() / 2);
+				to.getImageBounds().getWidth() / 2,
+				to.getImageBounds().y + to.getImageBounds().getHeight() / 2);
 		Point2D.Double c;
 		Point2D.Double src = new Point2D.Double(from.getImageBounds().x
 				+ from.getImageBounds().getWidth() / 2,
@@ -543,7 +543,9 @@ public class GraphicViewLink extends GraphicViewObject implements ViewLink {
 			return ((GraphicViewObject) getIcon()).getCentre();
 		}
 		Point a = ((GraphicViewObject) getTo()).getCentre();
-		Point b = ((GraphicViewObject) getFrom()).getCentre();
+		Point b = a;
+		if (getFrom()!=null)
+			b = ((GraphicViewObject) getFrom()).getCentre();
 		return new Point((a.x + b.x) / 2, (a.y + b.y) / 2);
 	}
 

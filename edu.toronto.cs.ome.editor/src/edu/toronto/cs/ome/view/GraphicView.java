@@ -846,6 +846,8 @@ public class GraphicView implements View {
 	public ViewLink createLink(Object type, ModelObject from, ModelObject to) {
 		GraphicViewObject gto = (GraphicViewObject) getViewObject(to);
 		GraphicViewObject gfrom = (GraphicViewObject) getViewObject(from);
+		
+		
 		OMEFramework fw = getModel().getFramework();
 		GraphicViewLink gvl = null;
 		try { // not reasonable handled at all... !!
@@ -858,7 +860,16 @@ public class GraphicView implements View {
 		//D.o("Creating:"+type);
 		// Now that we have the link, we need to set it's to, from, and name.
 		try {
+			
 			gvl.setTo(gto);
+			to.addLink(gvl.getModelLink());
+						
+			from.addLink(gvl.getModelLink());
+			Iterator i = from.getLinks().iterator();
+			while (i.hasNext())  {
+				
+				i.next();
+			}
 			gvl.setFrom(gfrom);
 			gvl.setName(gvl.getModelObject().getName());
 		} catch (Exception e) {
@@ -973,10 +984,14 @@ public class GraphicView implements View {
 				ModelAttribute ma = (ModelAttribute) i.next();
 				if (ma.getName().equals("label")) {
 					if (e.getLabel()!=null) {
-						if (!e.getLabel().telosName().equals("IStarUndecidedElementLabel"))
+						
+						//Changed by Jennifer.  The Undecided Label needs to be 
+						//displayed for evaluaiton, it's a valid label that can be
+						//propagated in the algorithm
+						//if (!e.getLabel().telosName().equals("IStarUndecidedElementLabel"))
 							ma.setTarget(e.getLabel());
-					    else
-						    ma.clearTarget();
+					    //else
+						   // ma.clearTarget();
 					}
 				}
 			}

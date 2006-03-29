@@ -172,7 +172,7 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
     /** Contains the information neccessary to maintains the "links" of this 
      *  Telos Link. 
      */  
-    public class TelosObjectLinkCollection extends PessimisticCollection {
+    public class TelosObjectLinkCollection implements Collection {
       /** Creates a new TelosObjectLinkCollection.
        *  @param to The Telos object which the link collection will belong to
        */	
@@ -197,21 +197,22 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 	    return true;
 	}
 
-
-      /** Returns an Iterator for this Collection. 
-       */ 	
-	public Iterator iterator() {
-	    Attribute links[] = 
-		    /*this.tl.*/getIndividual().directAttributes(LINKS,NOLABEL);
-	   // LinkedList ll = new LinkedList();
-	    Vector ll=new Vector(10,10);
-	    for (int c=0;c<links.length; c++) {
-		ll.addElement(model.getLink((Proposition)links[c].to()));		
-	    }
-	    return ll.iterator();
-	}
-	
-
+//
+//      /** Returns an Iterator for this Collection. 
+//       */ 	
+//	public Iterator iterator() {
+//	    Attribute links[] = 
+//		    /*this.tl.*/getIndividual().directAttributes(LINKS,NOLABEL);
+//	    if (links!=null)
+//	    	System.out.println(links.length);
+//	    Vector ll=new Vector(10,10);
+//	    for (int c=0;c<links.length; c++) {
+//		ll.addElement(model.getLink((Proposition)links[c].to()));		
+//	    }
+//	    return ll.iterator();
+//	}
+//	
+//
       /** Removes a link from the link collection. Note we currently do not delete 
        *  the link. It does not even tell the link that it no longer points to us.
        *  @param o The link to be removed
@@ -234,6 +235,84 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 		return false;
 	    }
 	}	
+	
+	 /** Returns true if a link is in the collection.  Based on the code for the remove
+	  * function above.  Jennifer
+     *  @param o The link to test for
+     *  
+     */	
+	public boolean contains(Object o)  {
+		TelosLink tl = (TelosLink) o;
+		Attribute links[] = getIndividual()
+				.directAttributes(LINKS, NOLABEL);
+		
+		for (int count = 0; count < links.length; count++) {
+			if (links[count].to() == tl.getIndividual()) {
+				return true;
+			}
+		}
+		return false; 
+	}
+
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object[] toArray(Object[] arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public boolean containsAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean addAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean removeAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean retainAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
     }
 
     /** We represent ModelAttributes as Telos Categories in the type of the
@@ -255,6 +334,7 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 
 	/** Sets up an attribute, which might not exist yet. */
 	TelosAttribute(String name) {
+				
 	    this.name = name;
 	    String [] cats = { name };
 	    this.cats = cats;
@@ -290,6 +370,7 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 	    if (target!=null) {
 	    	attribute = kb.newAttribute(getIndividual(), cats, NOLABEL,
 	    			(PropositionOrPrimitive)target);
+	    		    		    
 	    	D.a(attribute.to());
 	    }
 	}
@@ -297,15 +378,16 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 	/** Returns our target. May be null if attribute is not set. */
 	public Object getTarget() {
 	    if (attribute != null) {
-		return attribute.to();
+	    	return attribute.to();
 	    } else {
-		return null;
+	    	return null;
 	    }
 	}
 	
 	
 	/** Removes the target from the attribute. */
 	public void clearTarget() {
+		
 	    if (attribute != null) {
 		individual.removeDirectAttr(attribute);
 		attribute = null;
@@ -507,11 +589,13 @@ public abstract class TelosObject implements ModelObject, TelosFunctionality
 	// temporary solution: I'm going with a lazy initialization in
 	// getAttributes().
 	// modelattributes = new ModelAttribute [0];
-	links = new TelosObjectLinkCollection();
+//	links = new TelosObjectLinkCollection();
+    	links = new Vector();
     }
 
     public TelosObject(Individual individual) {
-	links = new TelosObjectLinkCollection();
+//	links = new TelosObjectLinkCollection();
+    	links = new Vector();
     }
     
     // Abstractions:

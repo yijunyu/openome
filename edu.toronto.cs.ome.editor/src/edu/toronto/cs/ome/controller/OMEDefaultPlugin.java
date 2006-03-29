@@ -17,6 +17,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -31,6 +32,8 @@ import javax.swing.JTextArea;
 import com.keypoint.PngEncoderB;
 
 import edu.toronto.cs.ome.OMETab;
+import edu.toronto.cs.ome.humaninterventionreasoning.EvaluationLabel;
+import edu.toronto.cs.ome.humaninterventionreasoning.HumanInterventionReasoning;
 import edu.toronto.cs.ome.model.ModelAttribute;
 import edu.toronto.cs.ome.model.ModelObject;
 import edu.toronto.cs.ome.model.OMEFramework;
@@ -106,6 +109,7 @@ public class OMEDefaultPlugin implements OMEPlugin {
 		MenuMethod reasoning_toolbar = new MenuMethod("Reasoning");
 		reasoning_toolbar.addItem((PluginMethod)new ReasoningMethod(v));
 		reasoning_toolbar.addItem((PluginMethod)new SATReasoningMethod(v));
+		reasoning_toolbar.addItem((PluginMethod)new HumanInterventionReasoningMethod(v));
 		reasoning_toolbar.addItem((PluginMethod)new ToggleLabelMethod(v));		
 		reasoning_toolbar.addItem((PluginMethod)new SelectSatisfiedMethod(v));		
 		// Toolbar 2: Methods for those instantiable types that have
@@ -230,6 +234,7 @@ public class OMEDefaultPlugin implements OMEPlugin {
 		}
 		reasoningmenu.addItem(new ReasoningMethod(v));
 		reasoningmenu.addItem(new SATReasoningMethod(v));
+		reasoningmenu.addItem(new HumanInterventionReasoningMethod(v));
 		reasoningmenu.addItem(new ToggleLabelMethod(v));
 		reasoningmenu.addItem((PluginMethod)new SelectSatisfiedMethod(v));
 		MenuMethod helpmenu = null;
@@ -1033,6 +1038,8 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 	 * Toggles the Auto-propogation property.
 	 */
 	private class ToggleLabelMethod extends AbstractPluginMethod {
+		private Map ids2gves;
+		
 		public ToggleLabelMethod(View view) {
 //			this.view = view;
 		}
@@ -1051,8 +1058,37 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 		public String getName() {
 			return "Reset";
 		}
+		public void removeQualitativeLabels() {
+			Collection elements = model.getElements();
+			Object [] objelements = elements.toArray();
+			
+			for (int i = 0; i < objelements.length; i++ )  {
+				TelosElement element = (TelosElement) objelements[i];
+				
+				ModelAttribute ma = element.getAttribute("label");
+				if (ma != null)  {
+					ma.clearTarget();
+					element.setLabel(null);
+					element.setEvalLabel(new EvaluationLabel("empty"));
+				}
+			}
+		}
 		public void invoke() {
+			try {
+				model.load();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			model.getModelManager().resetReasoning(model);
+			
+			removeQualitativeLabels();
+			
+			try {
+				model.load();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -2753,5 +2789,52 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	/**
+	 * Bottom-up reasoning method
+	 */
+	private class HumanInterventionReasoningMethod extends AbstractPluginMethod {
+		View view;
+		public HumanInterventionReasoningMethod(View v) {
+			view = v;
+		}
+		public int getMnemonic() {
+			return 'H';
+		}
+		public String getName() {
+			return "Reasoning: Bottom-up Human Intervention Label Propagation";
+		}
+		Image img =
+			new ImageIcon(this.getClass().getResource(
+			"/resources/human-bottom-up.gif")).getImage();
+		public Image getImage() {
+			return img;			
+		}
+		public void invoke() {
+			System.out.println("Human Intervention");
+			
+			try {
+				model.load();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			//Mode is an OMEModel
+			ModelManager mm = model.getModelManager();
+			
+			HumanInterventionReasoning hiEval = 
+				new HumanInterventionReasoning((TelosModel) model, view);
+			
+			hiEval.propagate((TelosModel) model);
+			
+			try {
+				mm.saveAferHumanEval((TelosModel) model);
+			} catch (Exception e)  {
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
 }

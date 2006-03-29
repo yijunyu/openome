@@ -5,6 +5,7 @@
 package edu.toronto.cs.telos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Set;
 
 import jtelos.Attribute;
@@ -27,6 +28,12 @@ public class TelosParserIndividual implements Individual {
 
 	public java.util.ArrayList parents;
 
+	/**
+	 * yijun: I think we shall make sure the element in attributes 
+	 * is a collection (multi-set).
+	 * For most cases, that's a singleton, but for links, children, view-Object,
+	 * they should be vectors.
+	 */
 	public java.util.HashMap attributes;
 
 	/**
@@ -554,9 +561,19 @@ public class TelosParserIndividual implements Individual {
 			else
 				label = currentLabel.equals(requiredLabel);			
 			//find a match,and create the attribute
+			Object values [] = null;
 			if (type && label) {				
 				Object t = attributes.get(key);
-				String value = t.toString();
+				String value = "";
+				Collection v = null;
+				if (t instanceof Collection) {
+	 				v = (Collection) t;
+					values = v.toArray();
+					if (v.size()==1)
+						value = values[0].toString();
+				} else {
+					value = t.toString();
+				}
 				ArrayList newKey = key;				
 				if (shift==1){
 					TelosAttribute attr = new TelosAttribute(currentType,arg0, arg1,
@@ -569,9 +586,18 @@ public class TelosParserIndividual implements Individual {
 					for (int k = 0; k < cate.length; k++) {
 						cateS[k] = (String) cate[k];
 					}
-					TelosAttribute attr = new TelosAttribute(currentType, cateS, currentLabel,
-							value, telosKB);
-					attrs.add(attr);
+					TelosAttribute attr = null;
+					if (values!=null) {
+						for (int k=0; k<values.length; k++) {
+							attr = new TelosAttribute(currentType, cateS, currentLabel,
+								values[k].toString(), telosKB);
+							attrs.add(attr);
+						}
+					} else {
+						attr = new TelosAttribute(currentType, cateS, currentLabel,
+								value.toString(), telosKB);
+							attrs.add(attr);						
+					}
 				} else {
 					Object[] cate = newKey.toArray();
 					String[] cateS = new String[cate.length-1];

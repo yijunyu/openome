@@ -18,11 +18,13 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
 import jtelos.Individual;
 import jtelos.KB;
 import jtelos.Proposition;
 import edu.toronto.cs.ome.controller.ModelManager;
+import edu.toronto.cs.ome.humaninterventionreasoning.EvaluationLabel;
 import edu.toronto.cs.ome.view.GraphicView;
 import edu.toronto.cs.ome.view.GraphicViewElement;
 import edu.toronto.cs.ome.view.View;
@@ -294,18 +296,27 @@ public class TelosModel extends OMEModel implements TelosFunctionality {
 			//TelosParserIndividual p[]= type.allInstances();
 			TelosElement te = null;
 			TelosLink tl = null;
+			
 			for (int i = 0; i < p.length; i++) {
 				// Only add this prop to the model if we haven't already
 				// (multiple inheritance causes multiple instantiation).
+				
 				if (props2objects.containsKey(p[i].telosName())) {
 					// update the proposition only
 					if (type.isChildOf(eltype) && !type.isChildOf(lntype)) {
 						te = (TelosElement) props2objects.get(p[i].telosName());
 			    		ArrayList key = new ArrayList();
 			    		key.add("attribute"); key.add("label");
-			    		String s = (String) ((TelosParserIndividual)p[i]).attributes.get(key);
-				    	TelosParserIndividual x = (TelosParserIndividual)(kb.individual(Computing.strip_quote(s)));
-		    			if (x!=null) {
+			    		Object o = ((TelosParserIndividual)p[i]).attributes.get(key);
+			    		String s = "";
+			    		if (o!=null) {
+			    			s = o.toString();
+				    		if (o instanceof Vector) {
+				    			s = (String) ((Vector) o).get(0);
+				    		}
+			    		}
+			    	   	TelosParserIndividual x = (TelosParserIndividual)(kb.individual(Computing.strip_quote(s)));	
+			    	   	if (x!=null) {
 		    				te.setLabel(x);
 		    			}
 					} else if (!type.isChildOf(eltype) && type.isChildOf(lntype)) {
@@ -337,10 +348,14 @@ public class TelosModel extends OMEModel implements TelosFunctionality {
 						int id = unmangleID(p[i].label());
 						linkcount++;
 						tl = new TelosLink(kb, framework, this, id, p[i]);
-						if (tl.getFrom()!=null)
-							tl.getFrom().addLink(tl);						
-						if (tl.getTo()!=null)
-							tl.getTo().addLink(tl);
+//						if (tl.getFrom()!=null)
+//							tl.getFrom().addLink(tl);	
+//						//else
+//						//	System.out.println("Tl.getFrom is null");
+//						if (tl.getTo()!=null)
+//							tl.getTo().addLink(tl);
+						//else
+						//	System.out.println("Tl.getTo is null");
 						props2objects.put(p[i].telosName(), tl);
 					}
 					if (!type.isChildOf(eltype) && !type.isChildOf(lntype)) {

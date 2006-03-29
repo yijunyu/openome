@@ -2,6 +2,8 @@ package edu.toronto.cs.ome.controller;
 
 import javax.swing.*;
 
+import edu.toronto.cs.util.D;
+
 
 
 import java.util.Iterator;
@@ -47,7 +49,6 @@ public class RadioButtonChooser extends CheckboxChooser {
 	Iterator i = choices.iterator();
 	while (i.hasNext()) {
 	    Choice c = (Choice)i.next();
-	    //D.o("Adding choice: "+c.name());
 	    JRadioButton rb = new JRadioButton(c.name(), c.chosen());
 	    bg.add(rb);
 	    rb.setEnabled(!c.mandatory());

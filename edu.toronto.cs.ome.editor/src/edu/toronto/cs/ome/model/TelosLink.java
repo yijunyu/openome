@@ -15,6 +15,7 @@ import jtelos.Levels;
 import jtelos.Proposition;
 import jtelos.PropositionOrPrimitive;
 import jtelos.TelosException;
+import edu.toronto.cs.ome.humaninterventionreasoning.EvaluationLabel;
 import edu.toronto.cs.telos.TelosInteger;
 import edu.toronto.cs.telos.TelosParserIndividual;
 import edu.toronto.cs.telos.TelosString;
@@ -26,6 +27,8 @@ import edu.toronto.cs.util.D;
  */
 public class TelosLink extends TelosObject implements ModelLink {
 
+	private EvaluationLabel evalLabel;
+	
 	/** Returns the model in which this Telos link is in. */
 	public OMEModel getModel() {
 		return model;
@@ -175,7 +178,7 @@ public class TelosLink extends TelosObject implements ModelLink {
 	public void setTo(OMEObject e) throws Exception {
 		D.a(e);
 		// remove any pre-extant field, then add.
-		D.o("TelosLink: setting To");
+		
 		Attribute to[] = individual.directAttributes(TOCAT, TO);
 		Individual target = null;
 		if (to.length != 0) {
@@ -269,6 +272,9 @@ public class TelosLink extends TelosObject implements ModelLink {
 		this.model = model;
 		this.id = id;
 		this.type = (Proposition) type;
+		
+		evalLabel = null;
+		
 		try {
 			individual = kb.newIndividual("Link_" + id, Levels.TOKEN_LEVEL);
 			//links = new TelosLinkLinkCollection(this);
@@ -323,6 +329,8 @@ public class TelosLink extends TelosObject implements ModelLink {
 		this.individual = (Individual) p;
 		//links = new TelosLinkLinkCollection(this);
 
+		evalLabel = null;
+		
 		// me must find our type:
 		type = null;
 		Proposition[] ancestors = p.directAncestors();
@@ -359,6 +367,100 @@ public class TelosLink extends TelosObject implements ModelLink {
 		if (type.telosName().indexOf("Dependency")>=0)
 			return true;
 		return false;
+	}
+	
+
+	public String getLinkType() {
+		
+		return type.telosName();
+	}
+	
+	public void printLink() {
+		System.out.println(type.telosName() + " link, from:  " + 
+				this.getFrom().getName() + "  to:  " + this.getTo().getName());
+	}
+	
+	public boolean isContribution() {
+		if (type.telosName().endsWith("Contribution") | type.telosName().endsWith("Correlation"))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isAndContribution() {
+		if (!isContribution())
+			return false;
+		if (type.telosName().contains("And"))
+			return true;
+		return false;
+	}
+	
+	public boolean isOrContribution() {
+		if (!isContribution())
+			return false;
+		if (type.telosName().contains("Or"))
+			return true;
+		return false;
+	}
+	/*	
+	* IStarHelpContribution link
+	 * IStarSomeNegativeContribution link
+	 * IStarMakeContribution 
+	 * IStarAndContribution
+	 * IStarUnknownContribution
+	 * IStarHurtContribution
+	 * IStarSomeNegativeContribution
+	 * */
+	public boolean isMake() {
+		if (type.telosName().indexOf("Make")>=0)
+			return true;
+		return false;
+	}
+	public boolean isHelp() {
+		if (type.telosName().indexOf("Help")>=0)
+			return true;
+		return false;
+	}
+	public boolean isSomePlus() {
+		if (type.telosName().indexOf("SomePositive")>=0)
+			return true;
+		return false;
+	}
+	public boolean isBreak() {
+		if (type.telosName().indexOf("Break")>=0)
+			return true;
+		return false;
+	}
+	public boolean isHurt() {
+		if (type.telosName().indexOf("Hurt")>=0)
+			return true;
+		return false;
+	}
+	public boolean isSomeMinus() {
+		if (type.telosName().indexOf("SomeNegative")>=0)
+			return true;
+		return false;
+	}
+	public boolean isUnknown() {
+		if (type.telosName().indexOf("Unknown")>=0)
+			return true;
+		return false;
+	}
+	
+	public boolean isMeansEnds() {
+		return type.telosName().equals("IStarMeansEndsLink");
+	}
+	
+	public boolean isDecomposition() {
+		return type.telosName().equals("IStarDecompositionLink");
+	}
+
+	public void setEvalLabel(EvaluationLabel label) {
+		evalLabel = label;
+	}
+	
+	public EvaluationLabel getEvalLabel() {
+		return evalLabel;		
 	}
 }
 

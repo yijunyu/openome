@@ -83,6 +83,7 @@ import edu.toronto.cs.goalmodel.goal;
 import edu.toronto.cs.goalmodel.impl.GoalmodelFactoryImpl;
 import edu.toronto.cs.ome.OMETab;
 import edu.toronto.cs.ome.model.KBManager;
+import edu.toronto.cs.ome.model.ModelAttribute;
 import edu.toronto.cs.ome.model.OMEElement;
 import edu.toronto.cs.ome.model.OMEModel;
 import edu.toronto.cs.ome.model.TelosElement;
@@ -1129,10 +1130,15 @@ public class ModelManager {
 						|| l.op.equals("~") && from.id == p.id && to.id != p.id) {
 					// decompositions: turn ~ into AND
 					op = (l.op.equals("&") || l.op.equals("~")) ? "AND" : "OR";
-					if (l.op.equals("~"))
-						sorted_decomps.add(""
-								+ ((Integer) eid2gid.get(new Integer(to.id)))
-										.toString());
+					if (l.op.equals("~")) {
+						Integer id = new Integer(to.id);
+						Integer temp = (Integer) eid2gid.get(id);
+						//this is null sometimes, so we have to check JH
+						if (temp != null)  {
+							String st = temp.toString();
+							sorted_decomps.add("" + st);
+						}
+					}
 					else
 						sorted_decomps.add(""
 								+ ((Integer) eid2gid.get(new Integer(from.id)))
@@ -1257,6 +1263,8 @@ public class ModelManager {
 				kb.newAttribute(telosEle, type, label, newValue);
 				kb.newAttribute(telosEle, satcat, "", new TelosReal(s));
 				kb.newAttribute(telosEle, dencat, "", new TelosReal(d));
+				System.out.println("Element: " + p.name);
+				System.out.println("\tSat: " + s + " Den: " + d);
 			}
 		}
 		try {
@@ -1277,6 +1285,11 @@ public class ModelManager {
 				continue;
 			IStarElement e_f = l1.from;
 			IStarElement e_t = l1.to;
+			
+			//this breaks sometimes without this line JH
+			if (e_f == null | e_t == null)
+				continue;
+			
 			if (e_f.isAgent != e_t.isAgent) {
 				if (e_f.isAgent && !e_t.isAgent && e_t.parent == null) {
 					int m = istarelements.size();
@@ -1832,24 +1845,29 @@ public class ModelManager {
 				continue;
 			TelosParserIndividual telosEle = (TelosParserIndividual) (kb
 					.individual(k));
+			
 			if (telosEle != null) {
 				String[] type = { "label" };
 				String label = "";
-				TelosString newValue = new TelosString("");
-				newValue.value = "IStarUndecidedElementLabel";
-				kb.newAttribute(telosEle, type, label, newValue);
+				/*Values removed due to change in elementDirty GraphicView function
+				 * where Undecided elements are treated as "real" evaluation values
+				 * that must be displayed.  As a result, we don't want to reset values
+				 * to Undecided, we want to remove the attribute all together
+				 * Jennifer
+				 */
+				//TelosString newValue = new TelosString("");
+				//newValue.value = "IStarUndecidedElementLabel";
+				//kb.newAttribute(telosEle, type, label, newValue);
 				String satcat[] = { "sat" };
 				String dencat[] = { "den" };
-				kb.newAttribute(telosEle, type, label, newValue);
+				//kb.newAttribute(telosEle, type, label, newValue);
 				kb.newAttribute(telosEle, satcat, "", new TelosReal(0));
 				kb.newAttribute(telosEle, dencat, "", new TelosReal(0));
+							
+				
 			}
 		}
-		try {
-			model.load();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 	/**
@@ -2741,4 +2759,16 @@ public class ModelManager {
 				e.printStackTrace();
 			}
 		}
+	/**
+	 * 
+	 */
+	public void saveAferHumanEval(TelosModel model) throws Exception {
+		
+		try {
+			model.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	}

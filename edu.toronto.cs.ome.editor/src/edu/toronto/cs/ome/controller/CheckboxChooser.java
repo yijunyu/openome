@@ -213,9 +213,10 @@ public class CheckboxChooser extends JDialog {
 	public void itemStateChanged(ItemEvent e) {
 	    if (e.getStateChange() == ItemEvent.SELECTED) {
 		c.setChosen(true);
+//		D.o("Setting choice: "+c.name()+ " " + true);
 	    } else if (e.getStateChange() == ItemEvent.DESELECTED) {
 		c.setChosen(false);
-		D.o("Setting choice: "+c.name()+ " " + false);
+//		D.o("Setting choice: "+c.name()+ " " + false);
 	    }
 	}
     }

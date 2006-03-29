@@ -338,6 +338,16 @@ public class IStarPlugin implements OMEPlugin {
   				Choice c = new Choice();
   				String name = typenames[i];
   				c.setName(name);
+  				if (model.getFramework().getType(name)==null) {
+  					// for compatiability: some token does not have the right
+  					// type name in i*, e.g., "Some +" maps to NFRSomePositive 
+  					// rather than IStarSomePositive
+  	  				if (name.indexOf("i* ")>=0) {
+  	  					name = "NFR " + name.substring(3);
+  	  				} 
+//  					System.out.println(name);
+//  					System.out.println(model.getFramework().getType(name));
+  				}
   				c.setChoiceObject(model.getFramework().getType(name));
   				v.add(c);
   			}
@@ -350,12 +360,15 @@ public class IStarPlugin implements OMEPlugin {
   				while (i.hasNext()) {
   					Choice c = (Choice) i.next();
   					if (c.chosen()) {
+  						System.out.println("chosen " + c.getName());
   						type = c.choiceObject();
   					}
   				}
   				// and go
   				if (type != null) {
   					super.invoke();
+  				} else {
+  					System.out.println("type is null");
   				}
   			} else {
   				// Users wants to bail out.
@@ -453,7 +466,7 @@ public class IStarPlugin implements OMEPlugin {
 	}
 
 	public void invoke() {
-
+		
 	    // I am tired when I write this.
 
 	    View.Location froml = depender.getLocation();

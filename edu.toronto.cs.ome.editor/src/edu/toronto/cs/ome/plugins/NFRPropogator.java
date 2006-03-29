@@ -1031,6 +1031,7 @@ public class NFRPropogator {
 	private Image getImpactIcon(Impact impact) {
 	    ImageTable it = modelobject.getModel().getFramework().getImageTable();
 	    Image im = impact.getImage();
+	    
 	    return it.getSizing(im,0,iconheight);
 	}
 

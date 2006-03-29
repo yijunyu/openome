@@ -20,7 +20,6 @@ import edu.toronto.cs.ome.model.ModelElement;
 import edu.toronto.cs.ome.model.OMEElement;
 import edu.toronto.cs.ome.model.OMELink;
 import edu.toronto.cs.ome.model.OMEModel;
-import edu.toronto.cs.ome.model.PessimisticCollection;
 import edu.toronto.cs.ome.model.TelosElement;
 import edu.toronto.cs.telos.TelosParserIndividual;
 import edu.toronto.cs.undo.AbstractUndoableEdit;
@@ -70,7 +69,7 @@ public class GraphicViewElement extends GraphicViewObject
 	 * children of this Graphic View Element. Note only expandable elements can
 	 * have children
 	 */
-	class GraphicViewElementChildCollection extends PessimisticCollection {
+	class GraphicViewElementChildCollection implements Collection {
 
 		private Collection c; // our model's child-collection.
 
@@ -135,6 +134,41 @@ public class GraphicViewElement extends GraphicViewObject
 			ArrayList a = new ArrayList();
 			for (Iterator i = iterator(); i.hasNext(); a.add(i.next()));
 			return a.toArray();
+		}
+
+		public boolean isEmpty() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public Object[] toArray(Object[] arg0) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public boolean containsAll(Collection arg0) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public boolean addAll(Collection arg0) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public boolean removeAll(Collection arg0) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public boolean retainAll(Collection arg0) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public void clear() {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

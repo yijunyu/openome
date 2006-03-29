@@ -12,6 +12,7 @@ package edu.toronto.cs.telos;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Vector;
 
 import jtelos.Attribute;
 import jtelos.Individual;
@@ -182,9 +183,11 @@ public class TelosParserKB implements KB {
 				key = new ArrayList();//the key is used for hashing into the Hashmap of attributes
 				key.add(arg1[0]);
 				key.add(arg2);
-			}			
-			(((TelosParserIndividual) ind).attributes).put(key, is_proposition
-					.telosName());	//Update "idn"'s attributes	
+			}
+			Vector v = new Vector();
+			v.add(is_proposition.telosName());
+			(((TelosParserIndividual) ind).attributes).put(key, v);	
+			//Update "idn"'s attributes	
 			// Updated by Xiaoxue --Feb 22, 2005
 			name2individual.remove(name);//delete the old "ind" from "indHash"
 			name2individual.put(name,(TelosParserIndividual)ind);//put the new "ind" to "indHash"
@@ -202,23 +205,31 @@ public class TelosParserKB implements KB {
 					is_proposition.telosName(), this);
 			ArrayList key = new ArrayList();
 			//the attribute's label is ""
-			if (arg2.equals("") && arg1[0].equals("links")) {
-				// Yijun Yu: I don't know why this fix the problem
-				return newAtt;
-			}
+// Another problem occurs when a link is added, it's not inserted into the from's links collection
+//			if (arg2.equals("") && arg1[0].equals("links")) {
+//				// Yijun Yu: I don't know why this fix the problem
+//				return newAtt;
+//			}
 			if (arg2.equals("")) {
 				key.add("attribute");
-				if (arg1[0].equals("children")) {
-					key.add(arg1[0] + "-" + is_proposition.telosName());
-				} else
-					key.add(arg1[0]);
+//				if (arg1[0].equals("children")) {
+//					key.add(arg1[0] + "-" + is_proposition.telosName());
+//				} else
+				key.add(arg1[0]);
 			} else {
 				key.add("attribute");
 				key.add(arg1[0]);
 				key.add(arg2);
-			}			
-			(((TelosParserIndividual) ind).attributes).put(key, is_proposition
-					.telosName());		
+			}
+			Object c = (((TelosParserIndividual) ind).attributes).get(key);
+			Vector v = null;
+			if (c!=null && c instanceof Vector) {
+				v = (Vector) c;
+			} else {
+				v = new Vector();
+			}
+			v.add(is_proposition.telosName());
+			(((TelosParserIndividual) ind).attributes).put(key, v);		
             //Updated by Xiaoxue --Feb 22, 2005
 			name2individual.remove(name);
 			name2individual.put(name,(TelosParserIndividual)ind);			
