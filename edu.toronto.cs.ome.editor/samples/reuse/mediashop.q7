@@ -1,5 +1,6 @@
 /**
-   Leite et al. Goal-based Software Reuse. CAiSE'05.
+ * Julio Cesar Sampaio do Prado Leite et al. Goal-based Software Reuse. CAiSE'05.
+ * http://www.cs.toronto.edu/~yijun/literature/paper/leite05caise.pdf
  */
 <"Aspect Security [system]">::"May Security" [system] { &
   "May Confidentiality" [system]

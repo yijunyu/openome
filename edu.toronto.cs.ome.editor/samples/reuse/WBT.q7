@@ -1,5 +1,6 @@
 /**
- * Leite et al. Goal-based Software Reuse. CAiSE'05.
+ * Julio Cesar Sampaio do Prado Leite et al. Goal-based Software Reuse. CAiSE'05.
+ * http://www.cs.toronto.edu/~yijun/literature/paper/leite05caise.pdf
  */
 "Cost saved" => ++<"Aspect Reduce cost of training by 50% over next year">::"May Reduce cost of training by 50% over next year", +<"Aspect Learners Satisfied">::"May Learners Satisfied"
 "May High dropout rates" => -<"Aspect Earn $200,000 By Selling Courses">::"May Earn $200,000 By Selling Courses"

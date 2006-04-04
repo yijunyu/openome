@@ -1,5 +1,7 @@
 /**
- * Yu et al. From Goals to Aspects. RE'04.
+ * Y. Yu, J.C.S.P. Leite, J. Mylopoulos. 
+ * From goals to aspects: discovering aspects from requirements goal models
+ * http://www.cs.toronto.edu/~yijun/literature/paper/yu04re.pdf
  */
 speed { &
   powerful
