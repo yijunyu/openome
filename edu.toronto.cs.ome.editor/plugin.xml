@@ -45,6 +45,15 @@
             id="edu.toronto.cs.ome.eclipse.editor"
             name="OpenOME Editor">
       </editor>
+      <editor
+            class="org.lexgrid.ui.extension.protege.LgProtegeEditor"
+            contributorClass="org.lexgrid.ui.extension.protege.LgProtegeEditActionContributor"
+            default="true"
+            extensions="pprj"
+            icon="icons/protege.gif"
+            id="org.lexgrid.ui.extension.protege.editor"
+            name="Prot茅g茅 Editor">
+      </editor>
    </extension> 
    <extension
          point="org.eclipse.ui.actionSets">
