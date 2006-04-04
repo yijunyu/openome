@@ -7,4 +7,7 @@ top-down-reasoning/example.q7
 reuse/mediashop.q7
 reuse/WBT.q7
 wbimodel/componenx.q7
+protege/t1.pprj
+protege/t1.pins
+protege/t1.pont
 web.url
