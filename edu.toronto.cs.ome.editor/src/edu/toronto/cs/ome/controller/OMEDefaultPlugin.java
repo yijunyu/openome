@@ -68,7 +68,7 @@ public class OMEDefaultPlugin implements OMEPlugin {
 
 	private boolean use_expandable; //Should we include methods
 
-	private boolean straightenall = true;
+	private boolean straightenall = false;
 
 	//for expandable elements?
 
@@ -166,11 +166,11 @@ public class OMEDefaultPlugin implements OMEPlugin {
 		MenuMethod filemenu = new MenuMethod("File");
 		//Added by Zhifeng Jul 2004
 		//to include "New"(create) functionanality
-		if (System.getProperty("ome.eclipse")==null) {
+		//if (System.getProperty("ome.eclipse")==null) {
 			filemenu.addItem(new NewMethod(v));
 			filemenu.addItem(new OpenMethod(v));
 			filemenu.addItem(new SaveMethod(v));
-		}
+		//}
 		filemenu.addItem(new SaveAsMethod(v));		
 
 		//Added by Zhifeng Liu Jul 2004
@@ -755,7 +755,7 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 
 		public void invoke() {
 			GraphicViewCanvas gvc = ((GraphicView)view).getGraphicViewCanvas(); 
-			File f = gvc.getSaveFileAndDirectory("Telos knowledge base:tel;5W2H:q7;SML:sml;Visio XML:vdx;Graphviz Dot:dot;Portable Network Graph:png;Scalable Vector Graph:svg;Portable Document Format:pdf;GR-tool Input:dat;Goal Model:goalmodel;WBI Modeler XML:xml");
+			File f = gvc.getSaveFileAndDirectory("Telos knowledge base:tel;5W2H:q7;SML:sml;Visio XML:vdx;Graphviz Dot:dot;Portable Network Graph:png;Scalable Vector Graph:svg;Portable Document Format:pdf;GR-tool Input:dat;Goal Model:goalmodel;WBI Modeler XML:xml;Protege Project:pprj");
 			if (f == null) {
 				// Do nothing, user must have changed her mind.
 			} else {
@@ -766,6 +766,8 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 						((TelosModel)model).saveasq7(f);
 					else if (f.getName().endsWith(".sml"))
 						model.saveassml(f);
+					else if (f.getName().endsWith(".pprj"))
+						model.saveaspprj(f);
 					else if (f.getName().endsWith(".vdx"))
 						model.saveasvdx(f); //cai
 					else if (f.getName().endsWith(".dot"))
@@ -882,7 +884,7 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 		}
 
 		public String getName() {
-			return "Straigten All Links";
+			return "Straighten All Links";
 		}
 
 		public Image getImage() {
@@ -895,7 +897,7 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 
 		public void invoke() {
 			// toggle the Autopropogate
-			D.o("here");
+			D.o("here straghten all =" + straightenall);
 			setStraightenAll(!straightenAll());
 			view.setStraighten(straightenAll());
 			if (straightenAll()) {
@@ -1073,6 +1075,18 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 				}
 			}
 		}
+		public void resetQuantativeLabels() {
+			Collection elements = model.getElements();
+			Object [] objelements = elements.toArray();
+			for (int i = 0; i < objelements.length; i++ )  {
+				TelosElement element = (TelosElement) objelements[i];
+				element.setSat(Float.parseFloat("0.0"));
+				element.setDen(Float.parseFloat("0.0"));
+			 
+			}
+			((GraphicView)view).getGraphicViewCanvas().repaint();
+			
+		}
 		public void invoke() {
 			try {
 				model.load();
@@ -1083,6 +1097,7 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 			model.getModelManager().resetReasoning(model);
 			
 			removeQualitativeLabels();
+			resetQuantativeLabels();
 			
 			try {
 				model.load();
@@ -1299,7 +1314,7 @@ private class ExpandAllMethod extends AbstractPluginMethod {
 			resetMethod();
 		}
 
-		protected void operate(ViewObject vo) {
+		protected void operate(ViewObject vo, View view) {
 			ViewElement child = (ViewElement) vo;
 			try {
 				D.o("Promote child from parent");

@@ -210,9 +210,13 @@ public class GraphicViewLink extends GraphicViewObject implements ViewLink {
 	public OMEObject getTo() {
 		OMEObject o;
 		ModelLink ml = getModelLink(); 
+		if(ml!=null){
 		ModelObject mo = (ModelObject) ml.getTo();
 		o = view.getViewObject(mo);
 		return o;
+		}
+		else
+			return null;
 
 	}
 

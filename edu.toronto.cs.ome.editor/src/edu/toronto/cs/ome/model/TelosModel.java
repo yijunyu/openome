@@ -385,7 +385,9 @@ public class TelosModel extends OMEModel implements TelosFunctionality {
 	/** Saves this model and all its views. */
 	public void save(File f) throws Exception {
 		mm.saveModelTo(this, f);
-		if (System.getProperty("protege")!=null)
+	}
+
+	public void saveaspprj(File f) throws Exception {
 			mm.saveModelToProtege(this);
 	}
 

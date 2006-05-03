@@ -17,6 +17,21 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.junit"/>
+      <import plugin="edu.toronto.cs.goalmodel"/>
+      <import plugin="bpel"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="edu.toronto.cs.goalmodel.editor"/>
+      <import plugin="org.eclipse.core.runtime.compatibility"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.platform"/>
+   </requires>
+
    <plugin
          id="edu.toronto.cs.q7"
          download-size="0"

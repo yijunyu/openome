@@ -790,7 +790,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	 *  @param g	the <code> Graphics </code> to draw on.
 	 *  @param ge	the expanded element to be drawn.
 	 */
-	protected void drawExpandedElements(Graphics2D g, GraphicViewElement ge) {
+	public void drawExpandedElements(Graphics2D g, GraphicViewElement ge) {
 		if (!ge.isDirty()) return;
 		Rectangle rec = ge.getExpandedBounds();
 		Color bgcolor = getBackground();
@@ -860,7 +860,68 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 					(int)(rec.x + rec.width - (1-Math.sqrt(3)/2) * rec.width/2 - 4),
 					(int)(rec.y + rec.height/4));
 			g.setStroke(strokeholder);
-		} else if (t.telosName().indexOf("IStarGoal")>=0) { // IStarGoalElement
+		} 
+		/* Xiaoxue Deng - Actor, Role, Position */
+		else if (t.telosName().indexOf("Actor")>=0) {// IstarActorElement
+			Rectangle rec = calc_bounding_box(g, ge);
+			Color bgcolor = getBackground();
+			g.setColor(
+				new Color(
+					(int) (0.8 * bgcolor.getRed()),
+					(int) (0.95 * bgcolor.getGreen()),
+					(int) (0.8 * bgcolor.getBlue())));			
+			fillCircle(g, rec);
+			g.setColor(Color.black);
+			Stroke strokeholder = g.getStroke();
+			g.setStroke(new BasicStroke(2.0f));
+			drawCircle(g, rec);
+			g.setStroke(strokeholder);
+		}
+		else if (t.telosName().indexOf("Position")>=0) { // IStarPositionElement
+			// clear enough space
+			Rectangle rec = calc_bounding_box(g, ge);
+			Color bgcolor = getBackground();
+			g.setColor(
+				new Color(
+					(int) (0.8 * bgcolor.getRed()),
+					(int) (0.95 * bgcolor.getGreen()),
+					(int) (0.8 * bgcolor.getBlue())));			
+			fillCircle(g, rec);
+			g.setColor(Color.black);
+			Stroke strokeholder = g.getStroke();
+			g.setStroke(new BasicStroke(2.0f));
+			drawCircle(g, rec);
+			g.drawLine((int)(rec.x + (1-Math.sqrt(3)/2) * rec.width/2) + 2, 
+					(int)(rec.y - rec.height/4),
+					(int)(rec.x + rec.width - (1-Math.sqrt(3)/2) * rec.width/2 - 4),
+					(int)(rec.y - rec.height/4));
+			g.setStroke(strokeholder);
+		} 
+		/*else if (t.telosName().indexOf("Position")>=0) { // IStarRoleElement
+			// clear enough space
+			Rectangle rec = calc_bounding_box(g, ge);
+			Color bgcolor = getBackground();
+			g.setColor(
+				new Color(
+					(int) (0.8 * bgcolor.getRed()),
+					(int) (0.95 * bgcolor.getGreen()),
+					(int) (0.8 * bgcolor.getBlue())));			
+			fillCircle(g, rec);
+			g.setColor(Color.black);
+			Stroke strokeholder = g.getStroke();
+			g.setStroke(new BasicStroke(2.0f));
+			drawCircle(g, rec);
+			g.drawLine((int)(rec.x + (1-Math.sqrt(3)/2) * rec.width/2) + 2, 
+					(int)(rec.y + rec.height/4),
+					(int)(rec.x + rec.width - (1-Math.sqrt(3)/2) * rec.width/2 - 4),
+					(int)(rec.y + rec.height/4));
+			g.drawLine((int)(rec.x + (1-Math.sqrt(3)/2) * rec.width/2) + 2, 
+					(int)(rec.y - rec.height/4),
+					(int)(rec.x + rec.width - (1-Math.sqrt(3)/2) * rec.width/2 - 4),
+					(int)(rec.y - rec.height/4));
+			g.setStroke(strokeholder);
+		} */
+		else if (t.telosName().indexOf("IStarGoal")>=0) { // IStarGoalElement
 			Rectangle rec = calc_bounding_box(g, ge);
 			g.setColor(getBackground());
 			g.fillRect((int)(rec.x + rec.height/2 + 2),	(int)(rec.y + 2),
@@ -885,7 +946,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 					(int)(rec.x + rec.width - rec.height/2),
 					(int)(rec.y + rec.height - 2));
 			g.drawArc(rec.x + 2 + rec.width- rec.height, rec.y + 2, rec.height - 4, rec.height - 4, -90, 180);
-			g.setStroke(strokeholder);			
+			g.setStroke(strokeholder);		
 		} else if (t.telosName().indexOf("Task")>=0) { // IStarTaskElement
 			int s[] = drawText(g, ge, ELEMENT_TYPE);
 			int w = s[0], h = s[1];
@@ -1241,7 +1302,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		int h1 = 0, h2 = 0, h3 = 0;
 		if (Computing.propertyHolds("ome.visualization.certainty.label"))
 			t1 = new TextLayout("c=" + Math.round(100*s)/100f, gvta.font, gvta.fontrc);
-		else if (Computing.propertyHolds("ome.visualization.satisfice.label"))
+		else if (Computing.propertyHolds("ome.visualization.satisfiability.label"))
 			t1 = new TextLayout("s=" + Math.round(100*s)/100f, gvta.font, gvta.fontrc);
 		if (Computing.propertyHolds("ome.visualization.feasibility.label"))
 			t2 = new TextLayout("f=" + Math.round(100*d)/100f, gvta.font, gvta.fontrc);
@@ -1406,6 +1467,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 			g.setPaint(Color.black);
 		g.setStroke(s);
 		g.translate(.5, .5);
+		/* Xiaoxue Deng - Dependency, means-ends, decomposition, contribution */
 /*		TelosParserIndividual t =(TelosParserIndividual)((TelosLink)gl.getModelLink()).getType(); 
 		if (t.telosName().indexOf("Dependency")>=0) { // IStarDependencyLink
 			int w = (int)(gl.getImageBounds().width * getScale());
@@ -1681,7 +1743,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 	// And here too(!?)... 
 	Image im2;
 	Dimension im2s;
-	Graphics2D im2g;
+	public Graphics2D im2g;
 	// Yijun: for bird's eye view
 //    Ellipse2D.Double scope;
 //    BufferedImage image;
@@ -1864,67 +1926,6 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		float den=Float.parseFloat(d);
 		m.setSATDEN(e,sat,den);
 		repaint();
-		/*try{
-		kb = (TelosParserKB)kbm.createKB();// this kb is now TelosParserKB
-		//kb.fileTELL(modelfile);
-		//TelosFramework tfw = new TelosFramework(kb);
-		//OMEModel model = new TelosModel(kb, tfw, this);
-		models2kbs.put(m, kb);
-		TelosParserKB kb=(TelosParserKB)models2kbs.get(m);
-		//int id=e.getID();
-		TelosElement telE= (TelosElement)kb.individual(""+id);
-		telE.setSat(sat);
-		telE.setDen(den);
-		} catch (Exception exe) {
-			exe.printStackTrace();
-		}*/
-		
-		//gvo.setQuanLabel(Double.parseDouble(s),Double.parseDouble(d));
-		//		If a string was returned, say so.
-		//if ((s != null) && (s.length() > 0)) {
-		    //setLabel("Green eggs and... " + s + "!");
-		    //return;
-		//}
-		/*int sizex = gvo.getSelectableBounds().width / 2;
-		int sizey = gvo.getSelectableBounds().height / 2;
-		JTextField tfSAT = new JTextField(15);
-		tfSAT.setText("Satisficed =\n");
-		tfSAT.setBounds(
-			gvo.getSelectableBounds().x - view.getDisplayBounds().x,
-			gvo.getSelectableBounds().y
-				- view.getDisplayBounds().y
-				+ sizey
-				- 12,
-			2 * sizex,
-			24);
-		boxclosed = false;
-		tfSAT.addKeyListener(new ResizeBoxKeyAdapter(gvo, tfSAT, this));
-		tfSAT.addFocusListener(new ResizeBoxFocusAdapter(gvo, tfSAT, this));
-		//tfSAT.setText("" + gvo.getScale());
-		add(tfSAT);
-		tfSAT.selectAll();
-		tfSAT.repaint();
-		tfSAT.requestFocus();
-		//Dialogue box for denial value
-		JTextField tfDEN = new JTextField(15);
-		tfSAT.setText("Denied =\n");
-		tfDEN.setBounds(
-			gvo.getSelectableBounds().x - view.getDisplayBounds().x,
-			gvo.getSelectableBounds().y
-				- view.getDisplayBounds().y
-				+ sizey
-				- 12,
-			2 * sizex,
-			24);
-		boxclosed = false;
-		tfDEN.addKeyListener(new ResizeBoxKeyAdapter(gvo, tfDEN, this));
-		tfDEN.addFocusListener(new ResizeBoxFocusAdapter(gvo, tfDEN, this));
-		//tfDEN.setText("" + gvo.getScale());
-		add(tfDEN);
-		tfDEN.selectAll();
-		tfDEN.repaint();
-		tfDEN.requestFocus();
-		D.o("resizebox created.");*/
 	}
 	/** Saves the clicked point. 
 	 *  @param p	the clicked point

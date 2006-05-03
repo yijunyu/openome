@@ -101,5 +101,5 @@ public abstract class OMEModel {
 	 * @param f
 	 */
 	public abstract void saveasvdx(File f) throws Exception; // Xiao X. Deng
-
+	public abstract void saveaspprj(File f) throws Exception;
 }

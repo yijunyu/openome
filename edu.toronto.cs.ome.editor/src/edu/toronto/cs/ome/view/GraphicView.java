@@ -826,8 +826,11 @@ public class GraphicView implements View {
 	 *            the the view element to be deleted
 	 */
 	public void deleteElement(ViewElement ve) {
+		//GraphicViewElement parent = (GraphicViewElement)ve. getParent();
 		model.deleteElement(((GraphicViewElement) ve).getModelElement());
 		getHighlightedObjects().remove(ve);
+		//gvc.drawExpandedElements(gvc.im2g, parent);
+				
 	}
 	/**
 	 * Deletes all selected elements within this graphic view.

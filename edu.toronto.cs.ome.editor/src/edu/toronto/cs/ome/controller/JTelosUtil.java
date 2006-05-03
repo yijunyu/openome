@@ -1070,14 +1070,11 @@ public class JTelosUtil {
 		}
 		view.load(vs);
 		GraphicViewCanvas gvc = view.getGraphicViewCanvas();
-		view.setStraighten(true);
-		if (true) {
-			Iterator ii = view.getSelectedLinks().iterator();
+		Iterator ii = view.getAllLinks().iterator();
 			while (ii.hasNext()) {
 				ViewObject vo = (ViewObject) ii.next();
 				view.promptStraighten(vo);
 			}
-		}		
 		OMEDefaultPlugin.to_expand = expand_mode;
 		if (gvc!=null)
 			gvc.repaint();

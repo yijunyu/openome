@@ -289,9 +289,9 @@ public class OMETab extends AbstractTabWidget implements KnowledgeBaseFactory {
 		ot.createWidgets();
 	}
 
-	private static final String CLASS_FILE_NAME_PROPERTY = "example_class_file_name";
+	static public final String CLASS_FILE_NAME_PROPERTY = "example_class_file_name";
 
-	private static final String INSTANCE_FILE_NAME_PROPERTY = "example_instance_file_name";
+	static public final String INSTANCE_FILE_NAME_PROPERTY = "example_instance_file_name";
 
 	public static boolean inProtege;
 

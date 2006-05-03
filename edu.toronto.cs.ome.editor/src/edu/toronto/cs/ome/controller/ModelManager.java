@@ -299,9 +299,8 @@ public class ModelManager {
 	public KB kb = null;
 
 	/**
-	 * Creates a model and ViewManager from a path.
+	 * Creates a model and ViewManager from a path - Xiao Xue Deng.
 	 * 
-	 * TODO open a model file from a network URL
 	 * @param modelfile
 	 *            the file to be loaded
 	 */
@@ -331,7 +330,7 @@ public class ModelManager {
 				TelosViewSerializer s = new TelosViewSerializer(view.getID(),
 						kb);
 				view.load(s);
-				straighten_all_links(view);
+				//straighten_all_links(view);
 			}
 			if (OMETab.iframe != null)
 				OMETab.iframe.setTitle(modelfile);
@@ -496,6 +495,12 @@ public class ModelManager {
 		if (newGraph !=null)
 			JTelosUtil.backToOME(oldView, newGraph);
 	}
+	/* Set an element's quantatitive satisfaction and denial labels. - Xiao Xue Deng
+	 * @param m 
+	 *         the model element e belongs to
+	 * @param s, d
+	 *         the quantatitive labels
+	 */
 	public void setSD(TelosModel m, GraphicViewElement e, float s, float d) {
 		TelosParserKB kb = (TelosParserKB) models2kbs.get(m);
 		String eleID="Element_"+e.getID();
@@ -508,10 +513,6 @@ public class ModelManager {
 		if(den.length!=0)
 		    ind.removeDirectAttr(den[0]);
 		kb.newAttribute(ind,DENCAT,"",new TelosReal(d));
-		//String[] Name={"name"};
-		//Attribute name[] = ind.directAttributes(Name,"");
-		//e.setName(name[0].to()+" ("+s+", "+d+")");
-		//e.updateName();
 	}
 	private static URL u = null;
 
@@ -597,7 +598,7 @@ public class ModelManager {
 	}
 
 	/**
-	 * Yijun: This is an extensive way of treating XML-like inputs, such as
+	 * Xiaoxue Deng: This is an extensive way of treating XML-like inputs, such as
 	 * Visio XML documents: one just provides an XSLT stylesheet to create a
 	 * Telos model, no need to change the Java code
 	 * 
@@ -660,7 +661,15 @@ public class ModelManager {
 				XMLCodeGenerator xcg = new XMLCodeGenerator(Q7.a);
 				xcg.generateGoalModel(xml);
 			}
-		} else if (n.endsWith(".url")) { // goal model
+             /****************************************************************************
+              *                                                                          *
+              *                              OpenURL                                     *
+              *                                                                          *
+              ****************************************************************************/                                                                          
+                
+		} else if (n.endsWith(".url")) { 
+			
+			//Create a new web project.
 			String pn = n.substring(1, n.indexOf(".url"));
 			pn = pn.substring(pn.lastIndexOf(File.separator)+1);
 			IProject project = getExampleProject(pn);
@@ -671,7 +680,14 @@ public class ModelManager {
 				char[] cbuf = new char[count];
 				in.read(cbuf);
 				in.close();
+				
+				// Seperate each line in the .url file into a seperate URL.
 				String[] lines = new String(cbuf).split("\n");
+              
+               /*For each URL listed in the file, create its corresponding Java URL data, split the URL data 
+                 into words, create folders named with the words in the new web project, the hierachy of the
+                 file structure is based on the hierachical structure of the URL, and finally fetch the online
+                 models into local files.*/
 				for (int i = 0; i < lines.length; i++) {
 					String string = lines[i];
 					string = string.trim();
@@ -681,12 +697,16 @@ public class ModelManager {
 						}
 						String name = string;
 						System.out.println(name);
+                        //Create a java URL data.
 						URL doc = Computing.fetchURL(name);
 						if (doc!=null) {
+                            //Split the URL data into words.
 							String fn = name.substring(name.indexOf("://")+3);
 							String[] words = fn.split("/");
 							String pathName = "";
 							IFolder folder = null;
+                            /* Create folders named with the words in the new web project, the hierachy of the
+                               file structure is based on the hierachical structure of the URL.*/
 							for (int j = 0; j < words.length - 1; j++) {
 								String str = words[j];
 								pathName = pathName + str + "/";
@@ -694,16 +714,18 @@ public class ModelManager {
 								if (!folder.exists())
 									folder.create(IResource.NONE, true, null);
 							}
-							InputStream stream = doc.openStream();
-							IFile local = folder.getFile(words[words.length - 1]);
-							try {
-								local.create(stream, false, null);
-								stream.close();
-								f = new File(local.getLocation().toOSString());
-							} catch (Exception e) {
-								return null;
-							}
+						// Fetch the online model "doc" refers to into its corresponding local file.
+    					InputStream stream = doc.openStream();
+						IFile local = folder.getFile(words[words.length - 1]);
+						try {
+							local.create(stream, false, null);
+							stream.close();
+							//Convert the Eclipse file to Java file.
+							f = new File(local.getLocation().toOSString());
+						} catch (Exception e) {
+							return null;
 						}
+					  }
 					}
 				}
 				if (f==null)
@@ -1925,7 +1947,7 @@ public class ModelManager {
 			View view = (View) i.next();
 			TelosViewSerializer s = new TelosViewSerializer(view.getID(), kb);
 			view.load(s);
-			straighten_all_links(view);
+			//straighten_all_links(view);
 		}
 		model.save(f);
 		return model;
