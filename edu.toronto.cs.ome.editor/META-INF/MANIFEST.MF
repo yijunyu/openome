@@ -42,6 +42,4 @@ Export-Package: edu.toronto.cs.ome,
  edu.toronto.cs.telos,
  edu.toronto.cs.undo,
  edu.toronto.cs.wbimodel,
- edu.stanford.smi.protege.plugin,
- org.lexgrid.ui.extension.protege,
  resources
