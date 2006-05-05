@@ -763,12 +763,16 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 		GraphicViewLink gl;
 		setClickedP(p);		
 		if ((ge = view.findElement(p)) != null) {
+			view.deselectAll();
 			ge.setSelected(true);
 		} else if ((gl = view.findLink(p)) != null) {
+			view.deselectAll();
 			gl.setSelected(true);
 		} else if ((gl = view.findLinkControlPoint1(p)) != null) {
+			view.deselectAll();
 			gl.setSelected(true);
 		} else if ((gl = view.findLinkControlPoint2(p)) != null) {
+			view.deselectAll();
 			gl.setSelected(true);
 		} else {
 			view.deselectAll();			
@@ -2229,6 +2233,7 @@ public class GraphicViewCanvas extends JPanel implements Printable {
 			if (initialmode == GET_PARAMETER) {
 				
 				getParameterCollector().processMousePressed(me);
+				//processMousePressed(me);
 			} else if (initialmode == NORMAL_MODE) {
 				// on a left mouse down, try to select stuff.
 				if ((me.getModifiers() & InputEvent.BUTTON3_MASK) == 0) {
