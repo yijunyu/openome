@@ -484,7 +484,8 @@ public class ModelManager {
 	 * @param file
 	 *            the file to store temporary .dot file generated from model
 	 */
-	public void layOut(OMEModel model, File file) throws Exception {
+	public void layOut(OMEModel model, File file) {
+		try {
 		ViewManager vm = getViewManager(model);
 		Iterator i = vm.getViews();
 		GraphicView oldView = null;
@@ -495,6 +496,9 @@ public class ModelManager {
 		Graph newGraph = JTelosUtil.doParse(file);
 		if (newGraph !=null)
 			JTelosUtil.backToOME(oldView, newGraph);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void setSD(TelosModel m, GraphicViewElement e, float s, float d) {
 		TelosParserKB kb = (TelosParserKB) models2kbs.get(m);

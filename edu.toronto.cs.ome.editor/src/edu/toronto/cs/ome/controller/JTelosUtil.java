@@ -996,24 +996,27 @@ public class JTelosUtil {
 		String[] cmd = { cmdDot, "-q -Tdot", fPath, "-o", tmpDot };
 		try {
 //			Process p = Runtime.getRuntime().exec(cmd);
-			System.out.println(cmd[0] + " " + cmd[1] + " " + cmd[2] +  " " + cmd[3] +  " " + cmd[4]);
-			Runtime.getRuntime().exec(cmd);
+			String cmdline = cmd[0] + " " + cmd[1] + " " + cmd[2] +  " " + cmd[3] +  " " + cmd[4];
+			System.out.println(cmdline);
+			Runtime.getRuntime().exec(cmdline);
 //			System.out.println("If the cmd does not finish, you have to restart the program");
 //			p.waitFor();
 		} catch (IOException e) {
 			cmdDot = System.getProperty("java.library.path")+"/ATT/bin/" + sCmd;
 			if (cmdDot == null)
 				cmdDot = new String(sCmd);
-			
 			try {
-			String[] cmd1 = {"chmod", "+x", cmdDot};
-			Process p1 = Runtime.getRuntime().exec(cmd1);
-			System.out.println(cmd1);
-			p1.waitFor();
-			} catch (Exception i) {};
-			String[] cmd2 = { cmdDot, "-q -Tdot", fPath, "-o", tmpDot };
-			Process p = Runtime.getRuntime().exec(cmd2);
-			System.out.println(cmd2);
+				String cmdline = "chmod +x " + cmdDot;
+				Process p1 = Runtime.getRuntime().exec(cmdline);
+				System.out.println(cmdline);
+				p1.waitFor();
+			} catch (Exception i) {
+				i.printStackTrace();
+			}
+//			String[] cmd2 = { cmdDot, " -q -Tdot ", fPath, " -o ", tmpDot };
+			String cmdline = cmdDot + " -q -Tdot " + fPath + " -o " + tmpDot;
+			Process p = Runtime.getRuntime().exec(cmdline);
+			System.out.println(cmdline);
 			p.waitFor();
 		}
 		InputStream input = null;

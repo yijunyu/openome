@@ -20,8 +20,6 @@ import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
@@ -75,23 +73,39 @@ public class Editor extends EditorPart {
 		}
 		return OMETab.iframe;
 	}
-	
-	private static String getPluginInstallPath() {
-		// deprecated in 3.1.0? 		
-		// FIXME: the path is not found when the
-		// plugin is not installed under SDK's default
-		// plugin directory
-		URL url = Plugin.getPlugin().getDescriptor().getInstallURL();
-		String plugin_name = url.getFile();
-		try {
+	// deprecated in 3.1.0? 		
+	private static String getPluginInstallPath() {		
+		Plugin p = (Plugin) Platform.getPlugin("edu.toronto.cs.ome.eclipse");
+		if (p!=null && p.getDescriptor()!=null) {
+			URL url = p.getDescriptor().getInstallURL();
+			String plugin_name = url.getFile();
+			try {
 			URL u = Platform.asLocalURL(url);
 			return u.getPath() +
 			"lib/plugins/edu.toronto.cs.ome";
-		} catch (IOException e) {
-			return url.getPath() + 
+			} catch (IOException e) {
+			return url.getPath() +
 			plugin_name.replaceAll("/plugin","plugins") + "lib/plugins/edu.toronto.cs.ome";
+			}
 		}
-	}
+		return "";
+	}	
+//	private static String getPluginInstallPath() {
+//		// deprecated in 3.1.0? 		
+//		// FIXME: the path is not found when the
+//		// plugin is not installed under SDK's default
+//		// plugin directory
+//		URL url = Plugin.getPlugin().getDescriptor().getInstallURL();
+//		String plugin_name = url.getFile();
+//		try {
+//			URL u = Platform.asLocalURL(url);
+//			return u.getPath() +
+//			"lib/plugins/edu.toronto.cs.ome";
+//		} catch (IOException e) {
+//			return url.getPath() + 
+//			plugin_name.replaceAll("/plugin","plugins") + "lib/plugins/edu.toronto.cs.ome";
+//		}
+//	}
 
 	/**
 	 * Shows a message and activity indicator in the SWT label space. 
