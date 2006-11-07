@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grl-spec SYSTEM "GRL.dtd">
+<grl-spec>
+  <element-definitions>
+    <element>
+      <element element-id="SerializedViewObject_0_9"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_8"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_7"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_6"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_5"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_4"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_3"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_2"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_1"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_0"/>
+    </element>
+    <element>
+      <element element-id="Link_4"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_3"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_2"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_1"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_0"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Element_4"
+               name="Convergence of media reduces cost of ownership"/>
+    </element>
+    <element>
+      <element element-id="Element_3"
+               name="Low Cost"/>
+    </element>
+    <element>
+      <element element-id="Element_2"
+               name="Use VoiceLAN"/>
+    </element>
+    <element>
+      <element element-id="Element_1"
+               name="Use Traditional PBX"/>
+    </element>
+    <element>
+      <element element-id="Element_0"
+               name="Voice Be Transmitted"/>
+    </element>
+    <element>
+      <element element-id="SerializedView_0"/>
+    </element>
+  </element-definitions>
+
+  <goal-model>
+    <goal-model goal-model-id="C:\ome3\projects\grl-samples\\Z151-Fig7.xml"/>
+  <model-constructors>
+    <actors>
+    </actors>
+    <intentional-elements>
+      <intentional-element>
+      <belief>
+        <belief belief-id="Element_4"
+                belief-name="Convergence of media reduces cost of ownership"/>
+      </belief>
+      <softgoal>
+        <softgoal softgoal-id="Element_3"
+                  softgoal-name="Low Cost"/>
+      </softgoal>
+      <task>
+        <task task-id="Element_2"
+              task-name="Use VoiceLAN"/>
+      </task>
+      <task>
+        <task task-id="Element_1"
+              task-name="Use Traditional PBX"/>
+      </task>
+      <goal>
+        <goal goal-id="Element_0"
+              goal-name="Voice Be Transmitted"/>
+      </goal>
+      </intentional-element>
+    </intentional-elements>
+    <intentional-relationships>
+      <intentional-relationship>
+        <orcontribution>
+          <orcontribution orcontribution-id="Link_4"/>
+          <contributee>Link_3</contributee>
+          <contributor>Element_4</contributor>
+          <contribution-type>
+            <contribution-type  contri-type="GRLHelpContributionLabel"/>
+          </contribution-type>
+        </orcontribution>
+        <orcontribution>
+          <orcontribution orcontribution-id="Link_3"/>
+          <contributee>Element_3</contributee>
+          <contributor>Element_2</contributor>
+          <contribution-type>
+            <contribution-type  contri-type="GRLSomePositiveContributionLabel"/>
+          </contribution-type>
+        </orcontribution>
+        <orcontribution>
+          <orcontribution orcontribution-id="Link_2"/>
+          <contributee>Element_3</contributee>
+          <contributor>Element_1</contributor>
+          <contribution-type>
+            <contribution-type  contri-type="GRLSomeNegativeContributionLabel"/>
+          </contribution-type>
+        </orcontribution>
+        <means-ends>
+          <means-ends means-ends-id="Link_1"/>
+          <end-element>Element_0</end-element>
+          <means-element>Element_2</means-element>
+        </means-ends>
+        <means-ends>
+          <means-ends means-ends-id="Link_0"/>
+          <end-element>Element_0</end-element>
+          <means-element>Element_1</means-element>
+        </means-ends>
+      </intentional-relationship>
+    </intentional-relationships>
+  </model-constructors>
+  </goal-model>
+</grl-spec>

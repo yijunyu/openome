@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="Model Requirements">
+  <rule op="AND"/>
+  <goal name="Manage [project]">
+   <rule op="AND"/>
+   <goal name="Create [project]" />
+   <goal name="Exclude [project]" />
+   <goal name="Save as" [project]" />
+   <goal name="Link with" [user,project]" />
+   <goal name="Unlink with" [user,project]" />
+   <goal name="insert [user]" />
+   <goal name="export [project]" />
+   <goal name="import [project]" />
+   <goal name="generate [graph]" />
+   <goal name="edit [project]" />
+  </goal>
+  <goal name="Remember [password]" />
+  <goal name="Register [user]">
+   <rule op="MAKE" to="Security" />
+  </goal>
+  <goal name="install [CeL]" />
+  <goal name="uninstall [CeL]" />
+  <rule op="HELP" to="persistence" />
+  <rule op="HELP" to="Reliability" />
+ </goal>
+ <soft name="Security">
+  <rule op="AND"/>
+  <goal name="Confidentiality">
+   <rule op="AND"/>
+   <goal name="Cryptography">
+    <rule op="AND"/>
+    <goal name="Encrypt [data]" />
+    <goal name="Send [data]" />
+    <goal name="Decrypt [data]" />
+   </goal>
+   <goal name="Authentication">
+    <rule op="AND"/>
+    <goal name="Get [data]" />
+    <goal name="Validate [data]" />
+    <goal name="Set [permission]" />
+    <goal name="Control [access]" />
+   </goal>
+  </goal>
+  <goal name="Integrity" />
+  <goal name="Availability" />
+ </soft>
+ <goal name="Persistence">
+  <rule op="AND"/>
+  <goal name="Persistence in" [DB]">
+   <rule op="AND"/>
+   <goal name="initiate [DB]" />
+   <goal name="verify if is connected" [DB]" />
+   <goal name="Connect [DB]" />
+   <goal name="Disconnect [DB]" />
+   <rule op="HELP" to="mro" />
+  </goal>
+  <goal name="Make registry operations">
+   <rule op="AND"/>
+   <goal name="include [data]" />
+   <goal name="select [data]" />
+   <goal name="delete [data]" />
+   <goal name="update [data]" />
+  </goal>
+  <goal name="Persistence in" [file]">
+   <rule op="HELP" to="Make registry operations" />
+  </goal>
+  <rule op="HELP" to="Authentication" />
+ </goal>
+ <soft name="Reliability">
+  <rule op="AND"/>
+  <goal name="Robustness">
+   <rule op="AND"/>
+   <goal name="Handling [exception]" />
+  </goal>
+ </soft>
+</model>

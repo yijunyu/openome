@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BPEL Convertor Plug-in
+Bundle-SymbolicName: bpel;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Yijun Yu
+Bundle-Localization: plugin
+Require-Bundle: core,
+ org.eclipse.core.resources,
+ edu.toronto.cs.goalmodel,
+ org.eclipse.emf.ecore.xmi,
+ util,
+ org.eclipse.ui,
+ org.eclipse.bpel.model,
+ org.eclipse.bpel.ui,
+ org.eclipse.bpel.common.model,
+ org.eclipse.bpel.common.ui,
+ org.eclipse.gef,
+ org.eclipse.wst.wsdl,
+ org.wsdl4j
+Eclipse-LazyStart: true
+Export-Package: convertor,
+ parser
+

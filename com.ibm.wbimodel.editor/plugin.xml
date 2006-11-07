@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "com.ibm.wbim.bom.schema1.presentation.Schema1ModelWizardID"
+      name = "%_UI_Schema1ModelWizard_label"
+      class = "com.ibm.wbim.bom.schema1.presentation.Schema1ModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/Schema1ModelFile.gif">
+      <description>%_UI_Schema1ModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "com.ibm.wbim.bom.schema1.presentation.Schema1EditorID"
+        name = "%_UI_Schema1Editor_label"
+        icon = "icons/full/obj16/Schema1ModelFile.gif"
+        extensions = "schema1"
+        class = "com.ibm.wbim.bom.schema1.presentation.Schema1Editor" 
+        contributorClass="com.ibm.wbim.bom.schema1.presentation.Schema1ActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

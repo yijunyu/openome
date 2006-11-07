@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.goalmodel="http:///edu/toronto/cs/goalmodel.ecore">
+  <edu.toronto.cs.goalmodel:goal name="persistence" type="LEAF">
+    <rule target="/4"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Security" type="AND">
+    <goal name="Availability" type="LEAF"/>
+    <goal name="Integrity" type="LEAF"/>
+    <goal name="Confidentiality" type="AND">
+      <goal name="Authentication" type="AND">
+        <goal name="Control [access]" type="LEAF"/>
+        <goal name="Set [permission]" type="LEAF"/>
+        <goal name="Validate [data]" type="LEAF"/>
+        <goal name="Get [data]" type="LEAF"/>
+        <rule target="/7"/>
+      </goal>
+      <goal name="Cryptography" type="AND">
+        <goal name="Decrypt [data]" type="LEAF"/>
+        <goal name="Send [data]" type="LEAF"/>
+        <goal name="Encrypt [data]" type="LEAF"/>
+      </goal>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Security" type="LEAF">
+    <rule target="/1"/>
+    <rule type="MAKE" target="/4/@goal.2"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Reliability" type="AND">
+    <goal name="Robustness" type="AND">
+      <goal name="Handling [exception]" type="LEAF"/>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Model Requirements" type="AND">
+    <goal name="uninstall [CeL]" type="LEAF"/>
+    <goal name="install [CeL]" type="LEAF"/>
+    <goal name="Register [user]" type="LEAF"/>
+    <goal name="Remember [password]" type="LEAF"/>
+    <goal name="Manage [project]" type="AND">
+      <goal name="edit [project]" type="LEAF"/>
+      <goal name="generate [graph]" type="LEAF"/>
+      <goal name="import [project]" type="LEAF"/>
+      <goal name="export [project]" type="LEAF"/>
+      <goal name="insert [user]" type="LEAF"/>
+      <goal name="Unlink with [user,project]" type="LEAF"/>
+      <goal name="Link with [user,project]" type="LEAF"/>
+      <goal name="Save as [project]" type="LEAF"/>
+      <goal name="Exclude [project]" type="LEAF"/>
+      <goal name="Create [project]" type="LEAF"/>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Reliability" type="LEAF">
+    <rule target="/3"/>
+    <rule target="/4"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="mro" type="LEAF">
+    <rule target="/7/@goal.2"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Persistence" type="AND">
+    <goal name="Persistence in [file]" type="LEAF"/>
+    <goal name="Make registry operations" type="AND">
+      <goal name="update [data]" type="LEAF"/>
+      <goal name="delete [data]" type="LEAF"/>
+      <goal name="select [data]" type="LEAF"/>
+      <goal name="include [data]" type="LEAF"/>
+    </goal>
+    <goal name="Persistence in [DB]" type="AND">
+      <goal name="Disconnect [DB]" type="LEAF"/>
+      <goal name="Connect [DB]" type="LEAF"/>
+      <goal name="verify if is connected [DB]" type="LEAF"/>
+      <goal name="initiate [DB]" type="LEAF"/>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="&quot;Make registry operations&quot;" type="LEAF">
+    <rule target="/7/@goal.0"/>
+  </edu.toronto.cs.goalmodel:goal>
+</xmi:XMI>

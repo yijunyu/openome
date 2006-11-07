@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FMP Convertor Plug-in
+Bundle-SymbolicName: fmp;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Yijun Yu
+Bundle-Localization: plugin
+Require-Bundle: core,
+ edu.toronto.cs.goalmodel,
+ ca.uwaterloo.gp.fmp,
+ util
+Eclipse-LazyStart: true
+Export-Package: action,
+ convertor,
+ parser
+

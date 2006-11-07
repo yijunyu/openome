@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="core.convertor">
+      <convertor id="Q7 to Goal Model" class="convertor.Q7_GoalModel"
+            input="q7" output="goalmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.q7"
+            id="contribution1">
+         <menu
+               label="Convert the Q7 representation into"
+               path="additions"
+               id="menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="action.GoalModel"
+               icon="icons/goal.gif"
+               id="GoalModelAction"
+               label="Goal Model"
+               menubarPath="menu1/group1"
+               tooltip="goal model">
+         </action>         
+      </objectContribution>
+   </extension>
+</plugin>
