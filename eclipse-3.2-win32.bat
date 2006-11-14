@@ -7,6 +7,7 @@ REM --------------------------------------------------------------
 set ECLIPSE_HOME=%IDE%\sdk\3.2\eclipse
 rmdir /q /s %ECLIPSE_HOME%\links
 mkdir %ECLIPSE_HOME%\links
+REM For user
 echo path=%IDE2%/emf/2.2.0 > %ECLIPSE_HOME%\links\emf.link
 echo path=%IDE2%/test/3.2.0 > %ECLIPSE_HOME%\links\test.link
 echo path=%IDE2%/batik/1.6.0 > %ECLIPSE_HOME%\links\batik.link
@@ -14,9 +15,13 @@ echo path=%IDE2%/emft/1.0.1 > %ECLIPSE_HOME%\links\emft.link
 echo path=%IDE2%/xerces/2.8.0 > %ECLIPSE_HOME%\links\xerces.link
 echo path=%IDE2%/bpel/0.0.1 > %ECLIPSE_HOME%\links\bpel.link
 echo path=%IDE2%/fmp/0.6.6 > %ECLIPSE_HOME%\links\fmp.link
-REM echo path=%IDE2%/openome/0.0.15 > %ECLIPSE_HOME%\links\openome.link
 echo path=%IDE2%/delta/3.2.0 > %ECLIPSE_HOME%\links\delta.link
+REM For development
+REM echo path=%IDE2%/openome/0.0.17 > %ECLIPSE_HOME%\links\openome.link
 REM echo path=%IDE2%/subclipse/1.0.3 > %ECLIPSE_HOME%\links\subclipse.link
+REM echo path=%IDE2%/mylar/0.6.6 > %ECLIPSE_HOME%\links\mylar.link
+REM echo path=%IDE2%/google/1.0.0 > %ECLIPSE_HOME%\links\google.link
+echo path=%IDE2%/pure/2.2.5 > %ECLIPSE_HOME%\links\pure.link
 set DATA=.
 set CONFIG=%DATA%\.configuration
 rmdir /q /s %CONFIG%

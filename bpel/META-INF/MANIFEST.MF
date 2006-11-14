@@ -17,7 +17,8 @@ Require-Bundle: core,
  org.eclipse.bpel.common.ui,
  org.eclipse.gef,
  org.eclipse.wst.wsdl,
- org.wsdl4j
+ org.wsdl4j,
+ goalmodel
 Eclipse-LazyStart: true
 Export-Package: convertor,
  parser

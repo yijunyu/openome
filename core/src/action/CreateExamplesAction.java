@@ -48,7 +48,7 @@ public class CreateExamplesAction extends ExtensionReader implements
 				String pluginname = example.getDeclaringExtension().getNamespaceIdentifier();
 				Bundle bundle = Platform.getBundle(pluginname);
 				String filename = example.getAttribute("file");
-				String name = filename;
+				String name = pluginname + "/" + filename;
 				String[] words = name.split("/");
 				String pathName = "";
 				IFolder folder = null;
@@ -61,7 +61,7 @@ public class CreateExamplesAction extends ExtensionReader implements
 						folder.create(IResource.FORCE, true, null);
 					} catch (Exception e) {}
 				}
-				InputStream stream = FileLocator.openStream(bundle, new Path("samples/" + name), false);
+				InputStream stream = FileLocator.openStream(bundle, new Path("samples/" + filename), false);
 				IFile file;
 				if (folder == null)
 					file = project.getFile(name);

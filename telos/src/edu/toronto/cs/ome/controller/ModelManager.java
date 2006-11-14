@@ -2006,8 +2006,6 @@ public class ModelManager {
 		DimacsReader reader = new DimacsReader(solver);
 		PrintWriter p = new PrintWriter(new FileOutputStream(Computing.getTempFilename("file.txt")), true);
 		p.println(graphStr.toString());
-//		D.o("input=");
-//		D.o(graphStr.toString());
 		try {
 		reader.parseInstance(Computing.getTempFilename("file.txt"));
 		if (solver.isSatisfiable()) {

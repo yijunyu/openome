@@ -7,9 +7,12 @@ Bundle-Vendor: Yijun Yu
 Bundle-Localization: plugin
 Require-Bundle: edu.toronto.cs.goalmodel.editor,
  q7,
- util
+ util,
+ org.sat4j,
+ org.eclipse.core.runtime
 Eclipse-LazyStart: true
-Export-Package: codegen,
- action,
- convertor
+Export-Package: action,
+ codegen,
+ convertor,
+ parser
 

@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import util.Computing;
 import convertor.IConvertor;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
 import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.goal;
-import util.Computing;
 
 public abstract class GoalModelLoader implements IConvertor {
 	

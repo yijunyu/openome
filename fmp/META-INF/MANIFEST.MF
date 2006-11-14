@@ -7,8 +7,10 @@ Bundle-Vendor: Yijun Yu
 Bundle-Localization: plugin
 Require-Bundle: core,
  edu.toronto.cs.goalmodel,
- ca.uwaterloo.gp.fmp,
- util
+ util,
+ org.eclipse.ui,
+ org.eclipse.emf.ecore.xmi,
+ ca.uwaterloo.gp.fmp
 Eclipse-LazyStart: true
 Export-Package: action,
  convertor,

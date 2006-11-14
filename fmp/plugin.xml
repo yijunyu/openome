@@ -14,7 +14,7 @@
       <objectContribution
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.goalmodel"
-            id="contribution2">
+            id="goalmodel">
          <menu
                label="Convert the Goal Model into"
                path="additions"

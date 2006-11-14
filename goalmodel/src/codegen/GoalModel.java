@@ -39,6 +39,8 @@ import edu.toronto.cs.goalmodel.ContributionType;
 import edu.toronto.cs.goalmodel.DecompositionType;
 import edu.toronto.cs.goalmodel.GoalmodelFactory;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
+import edu.toronto.cs.goalmodel.LabelType;
+import edu.toronto.cs.goalmodel.ModeType;
 import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.dependency;
@@ -399,7 +401,7 @@ public class GoalModel extends IStar {
 							} else if (s.from.control!=null && s.from.control.equals("||")) {
 								x.setParallel(Boolean.TRUE);
 							} else /* default */ {
-								x.setSequential(Boolean.TRUE);
+								x.setSequential(Boolean.FALSE);
 							}
 						} else if (! s.op.startsWith("Dep")){
 							contribution c = f.createcontribution();
@@ -455,6 +457,58 @@ public class GoalModel extends IStar {
 			if (!g.isAgent && !g.isAspect && 
 					g.name!=null && !g.name.equals("")) {
 				goal x = f.creategoal();
+				if (g.isSoftGoal)
+					x.setMode(ModeType.SOFT_LITERAL);
+				else if (g.isTask)
+					x.setMode(ModeType.TASK_LITERAL);
+				else if (g.isOperationalization)
+					x.setMode(ModeType.TASK_LITERAL);
+				else
+					x.setMode(ModeType.HARD_LITERAL);
+				if (g.getFeature().equals("|")) {
+					x.setExclusive(true); // exclusive OR
+				} else {
+					x.setExclusive(false); // inclusive OR
+				}
+				if (g.getFeature().equals("/")) { // optional
+					x.setSystem(false);
+				} else {
+					x.setSystem(true);
+				}
+				if (g.getControl().equals(";")) {
+					x.setSequential(true);
+				} else {
+					x.setSequential(false);
+				}
+				if (g.getControl().equals("||")) {
+					x.setParallel(true);
+				} else {
+					x.setParallel(false);
+				}
+				// see computing.sdtolabel
+				LabelType lbl = LabelType.UNKNOWN_LITERAL;
+//				System.out.println(g.label);
+//				System.out.println("s, d = " + g.s + ", " + g.d);
+				if (g.label!=null && g.label.equals("FS")
+						|| g.s == 1 && g.d == 0) {
+					lbl = LabelType.SATISFIED_LITERAL;
+				} else if(g.label!=null && g.label.equals("FD")
+						|| g.s == 0 && g.d == 1){
+					lbl = LabelType.DENIED_LITERAL;		    			
+				} else if(g.label!=null && g.label.equals("PS")
+						|| g.s > g.d){
+					lbl = LabelType.PARTIALLY_SATISFIED_LITERAL;  			
+				} else if(g.label!=null && g.label.equals("PD")
+						|| g.s < g.d){
+					lbl = LabelType.PARTIALLY_DENIED_LITERAL;		    			
+				} else if(g.label!=null && g.label.equals("CF")
+						|| g.s == g.d && g.s >= 0.5){
+					lbl = LabelType.CONFLICT_LITERAL;
+				} else if(g.label!=null && g.label.equals("UN")
+						|| g.s == g.d && g.s < 0.5){
+					lbl = LabelType.UNKNOWN_LITERAL;
+				}
+				x.setLabel(lbl);
 				resource.getContents().add(x);
 				if (g.parent!=null) {
 					actor a = (actor) hm.get(new Integer(g.parent.id));
