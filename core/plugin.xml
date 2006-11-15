@@ -66,16 +66,28 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="OpenOME">
+            name="%productName">
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini"/>            
          <property
                name="aboutText"
-               value="OpenOME, an open-source requirements engineering tool"/>
+               value="%productBlurb"/>
          <property
                name="aboutImage"
-               value="icons/eclipse_lg.gif"/>
+               value="eclipse_lg.gif"/>
+         <property
+               name="startupProgressRect"
+               value="0,280,455,15"/>
+         <property
+               name="startupMessageRect"
+               value="7,220,441,20"/>
+         <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png"/>
+         <property
+               name="startupForegroundColor"
+               value="C8D5EA"/>
       </product>
    </extension>
 </plugin>
