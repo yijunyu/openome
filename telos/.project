@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>telos</name>
-	<comment>@key 32303036303331342D31303030206564752E746F726F6E746F2E63732E6F6D652E656469746F722F6A656E686F726B </comment>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -25,16 +25,10 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>com.omondo.uml.std.Builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.UpdateSiteNature</nature>
-		<nature>com.omondo.uml.std.Nature</nature>
 	</natures>
 </projectDescription>

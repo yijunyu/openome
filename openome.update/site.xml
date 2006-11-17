@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/openome.core_1.0.0.jar" id="openome.core" version="1.0.0">
+      <category name="core"/>
+   </feature>
+   <feature url="features/openome.q7_1.0.0.jar" id="openome.q7" version="1.0.0">
+      <category name="q7"/>
+   </feature>
+   <feature url="features/openome.goalmodel_1.0.0.jar" id="openome.goalmodel" version="1.0.0">
+      <category name="goalmodel"/>
+   </feature>
+   <feature url="features/openome.java.ast_1.0.0.jar" id="openome.java.ast" version="1.0.0">
+      <category name="java.ast"/>
+   </feature>
+   <feature url="features/openome.fmp_1.0.0.jar" id="openome.fmp" version="1.0.0">
+      <category name="fmp"/>
+   </feature>
+   <feature url="features/openome.telos_1.0.0.jar" id="openome.telos" version="1.0.0">
+      <category name="telos"/>
+   </feature>
+   <category-def name="core" label="Core"/>
+   <category-def name="goalmodel" label="GoalModel"/>
+   <category-def name="q7" label="Q7"/>
+   <category-def name="fmp" label="FeatureModelPlugin"/>
+   <category-def name="java.ast" label="AST2Goal"/>
+   <category-def name="telos" label="Telos"/>
+</site>
