@@ -3,14 +3,13 @@ set JVM="C:\Program files\java\jre1.5.0_06\bin\javaw.exe"
 goto :main
 
 :configure_eclipse_products
-call :openome
-goto :eof
 call :telos
 call :q7
 call :goalmodel
 call :ast
 call :fmp
 call :bpel
+call :openome
 goto :eof
 
 :main
