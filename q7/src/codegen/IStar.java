@@ -1275,28 +1275,7 @@ public class IStar {
 	}
 
 	public void generateGoalModel(String out_file) {
-		if (advices == null) {
-			System.out.println("No model parsed?");
-			return;
-		}
-		preprocess();		
-		create_elements_and_links(out_file);		
-		mark_prefixed_subgoals();
-		mark_parent_goal_of_softgoal_as_softgoal();
-		mark_subgoal_of_softgoal_as_softgoal();
-		if (Computing.propertyHolds("q7.codegen.istar.create_aspects")) {
-			create_aspect();
-		}
-		if (Computing.propertyHolds("q7.codegen.istar.marking_istar_tasks")) {
-			mark_leaf_or_ANDdecomposed_goal_as_task();
-			mark_subgoal_of_task_as_task();
-		}
-		if (Computing.propertyHolds("q7.codegen.istar.create_new_goal_with_same_name")) {
-			duplicate_high_fan_in_goals();
-		}
-		if (Computing.propertyHolds("q7.codegen.creating_dependencies")) {
-			create_dependencies();
-		}
+		process_q7_model(out_file);
 		output_serialized_views_and_objects();
 	}
 
@@ -1968,4 +1947,30 @@ public class IStar {
 	protected String getMetaModel() {
 		return "/edu/toronto/cs/q7/metamodel/istar.tel";
 	}
+
+	protected void process_q7_model(String out_file) {
+		if (advices == null) {
+			System.out.println("No model parsed?");
+			return;
+		}
+		preprocess();		
+		create_elements_and_links(out_file);		
+		mark_prefixed_subgoals();
+		mark_parent_goal_of_softgoal_as_softgoal();
+		mark_subgoal_of_softgoal_as_softgoal();
+		if (Computing.propertyHolds("q7.codegen.istar.create_aspects")) {
+			create_aspect();
+		}
+		if (Computing.propertyHolds("q7.codegen.istar.marking_istar_tasks")) {
+			mark_leaf_or_ANDdecomposed_goal_as_task();
+			mark_subgoal_of_task_as_task();
+		}
+		if (Computing.propertyHolds("q7.codegen.istar.create_new_goal_with_same_name")) {
+			duplicate_high_fan_in_goals();
+		}
+		if (Computing.propertyHolds("q7.codegen.creating_dependencies")) {
+			create_dependencies();
+		}
+	}
+	
 }
