@@ -81,7 +81,7 @@ public class FlowContentTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getFlowContentType_Group());
+			childrenFeatures.add(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP);
 		}
 		return childrenFeatures;
 	}
@@ -93,7 +93,7 @@ public class FlowContentTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/FlowContentType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FlowContentType"));
 	}
 
 	/**
@@ -136,212 +136,212 @@ public class FlowContentTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_StartNode(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__START_NODE,
 					 Schema1Factory.eINSTANCE.createStartNodeType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_StopNode(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__STOP_NODE,
 					 Schema1Factory.eINSTANCE.createStopNodeType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_EndNode(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__END_NODE,
 					 Schema1Factory.eINSTANCE.createEndNodeType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createTask())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createMap())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createNotificationBroadcaster())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createNotificationReceiver())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createObserver())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createService())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Task(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK,
 					 Schema1Factory.eINSTANCE.createTimer())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Decision(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__DECISION,
 					 Schema1Factory.eINSTANCE.createDecision())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Merge(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__MERGE,
 					 Schema1Factory.eINSTANCE.createMerge())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Fork(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__FORK,
 					 Schema1Factory.eINSTANCE.createFork())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Join(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__JOIN,
 					 Schema1Factory.eINSTANCE.createJoin())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_NotificationBroadcaster(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_BROADCASTER,
 					 Schema1Factory.eINSTANCE.createNotificationBroadcaster())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_NotificationReceiver(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_RECEIVER,
 					 Schema1Factory.eINSTANCE.createNotificationReceiver())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Observer(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__OBSERVER,
 					 Schema1Factory.eINSTANCE.createObserver())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Timer(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__TIMER,
 					 Schema1Factory.eINSTANCE.createTimer())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Map(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__MAP,
 					 Schema1Factory.eINSTANCE.createMap())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Loop(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOOP,
 					 Schema1Factory.eINSTANCE.createLoop())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_ForLoop(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__FOR_LOOP,
 					 Schema1Factory.eINSTANCE.createForLoop())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Process(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS,
 					 Schema1Factory.eINSTANCE.createProcess())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Process(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS,
 					 Schema1Factory.eINSTANCE.createForLoop())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Process(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS,
 					 Schema1Factory.eINSTANCE.createLoop())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_LocalRepository(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOCAL_REPOSITORY,
 					 Schema1Factory.eINSTANCE.createLocalRepository())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_CallToProcess(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_PROCESS,
 					 Schema1Factory.eINSTANCE.createCallToProcessType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_CallToTask(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_TASK,
 					 Schema1Factory.eINSTANCE.createCallToTaskType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_CallToService(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_SERVICE,
 					 Schema1Factory.eINSTANCE.createCallToServiceType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Connection(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__CONNECTION,
 					 Schema1Factory.eINSTANCE.createConnection())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFlowContentType_Group(),
+				(Schema1Package.Literals.FLOW_CONTENT_TYPE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getFlowContentType_Annotation(),
+					(Schema1Package.Literals.FLOW_CONTENT_TYPE__ANNOTATION,
 					 Schema1Factory.eINSTANCE.createAnnotation())));
 	}
 
@@ -362,15 +362,15 @@ public class FlowContentTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Task() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Map() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_NotificationBroadcaster() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_NotificationReceiver() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Observer() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Timer() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Loop() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_Process() ||
-			childFeature == Schema1Package.eINSTANCE.getFlowContentType_ForLoop();
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__MAP ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_BROADCASTER ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_RECEIVER ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__OBSERVER ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__TIMER ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__LOOP ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS ||
+			childFeature == Schema1Package.Literals.FLOW_CONTENT_TYPE__FOR_LOOP;
 
 		if (qualify) {
 			return getString

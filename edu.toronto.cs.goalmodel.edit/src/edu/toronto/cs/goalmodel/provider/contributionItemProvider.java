@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: contributionItemProvider.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.provider;
 
@@ -82,8 +82,10 @@ public class contributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_contribution_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_contribution_type_feature", "_UI_contribution_type"),
-				 GoalmodelPackage.eINSTANCE.getcontribution_Type(),
+				 GoalmodelPackage.Literals.CONTRIBUTION__TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -102,8 +104,10 @@ public class contributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_contribution_target_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_contribution_target_feature", "_UI_contribution_type"),
-				 GoalmodelPackage.eINSTANCE.getcontribution_Target(),
+				 GoalmodelPackage.Literals.CONTRIBUTION__TARGET,
 				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -113,10 +117,21 @@ public class contributionItemProvider
 	 * This returns contribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/contribution");
+		contribution c = (contribution) object;
+		switch (c.getType().getValue()) {
+		case ContributionType.HELP:
+			return getResourceLocator().getImage("full/obj16/help");
+		case ContributionType.HURT:
+			return getResourceLocator().getImage("full/obj16/hurt");
+		case ContributionType.MAKE:
+			return getResourceLocator().getImage("full/obj16/make");
+		case ContributionType.BREAK:
+			return getResourceLocator().getImage("full/obj16/break");
+		}
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/contribution"));
 	}
 
 	/**

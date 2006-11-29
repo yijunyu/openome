@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Jtelos Plug-in
-Bundle-SymbolicName: edu.toronto.cs.ome.jtelos
-Bundle-Version: 1.0.0
-Bundle-ClassPath: .
-Bundle-Localization: plugin
-Export-Package: jtelos,
- jtelos.cpp

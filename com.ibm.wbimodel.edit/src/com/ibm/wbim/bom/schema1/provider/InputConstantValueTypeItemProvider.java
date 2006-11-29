@@ -79,8 +79,10 @@ public class InputConstantValueTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputConstantValueType_input_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputConstantValueType_input_feature", "_UI_InputConstantValueType_type"),
-				 Schema1Package.eINSTANCE.getInputConstantValueType_Input(),
+				 Schema1Package.Literals.INPUT_CONSTANT_VALUE_TYPE__INPUT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -93,7 +95,7 @@ public class InputConstantValueTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/InputConstantValueType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputConstantValueType"));
 	}
 
 	/**

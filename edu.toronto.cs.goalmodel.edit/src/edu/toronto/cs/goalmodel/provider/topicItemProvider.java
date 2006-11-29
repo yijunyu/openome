@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: topicItemProvider.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.provider;
 
@@ -81,8 +81,10 @@ public class topicItemProvider
 				 getResourceLocator(),
 				 getString("_UI_topic_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_topic_name_feature", "_UI_topic_type"),
-				 GoalmodelPackage.eINSTANCE.gettopic_Name(),
+				 GoalmodelPackage.Literals.TOPIC__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class topicItemProvider
 				 getResourceLocator(),
 				 getString("_UI_topic_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_topic_type_feature", "_UI_topic_type"),
-				 GoalmodelPackage.eINSTANCE.gettopic_Type(),
+				 GoalmodelPackage.Literals.TOPIC__TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class topicItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/topic");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/topic"));
 	}
 
 	/**

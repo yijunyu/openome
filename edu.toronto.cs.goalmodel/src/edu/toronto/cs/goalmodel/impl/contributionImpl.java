@@ -14,7 +14,6 @@ import edu.toronto.cs.goalmodel.goal;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -80,7 +79,7 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return GoalmodelPackage.eINSTANCE.getcontribution();
+		return GoalmodelPackage.Literals.CONTRIBUTION;
 	}
 
 	/**
@@ -111,8 +110,8 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 */
 	public goal getTarget() {
 		if (target != null && target.eIsProxy()) {
-			goal oldTarget = target;
-			target = (goal)eResolveProxy((InternalEObject)target);
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (goal)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GoalmodelPackage.CONTRIBUTION__TARGET, oldTarget, target));
@@ -147,15 +146,15 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TYPE:
 				return getType();
 			case GoalmodelPackage.CONTRIBUTION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
 		}
-		return eDynamicGet(eFeature, resolve);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -163,8 +162,8 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eSet(EStructuralFeature eFeature, Object newValue) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TYPE:
 				setType((ContributionType)newValue);
 				return;
@@ -172,7 +171,7 @@ public class contributionImpl extends EObjectImpl implements contribution {
 				setTarget((goal)newValue);
 				return;
 		}
-		eDynamicSet(eFeature, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -180,8 +179,8 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eUnset(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
@@ -189,7 +188,7 @@ public class contributionImpl extends EObjectImpl implements contribution {
 				setTarget((goal)null);
 				return;
 		}
-		eDynamicUnset(eFeature);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -197,14 +196,14 @@ public class contributionImpl extends EObjectImpl implements contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eIsSet(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TYPE:
 				return type != TYPE_EDEFAULT;
 			case GoalmodelPackage.CONTRIBUTION__TARGET:
 				return target != null;
 		}
-		return eDynamicIsSet(eFeature);
+		return super.eIsSet(featureID);
 	}
 
 	/**

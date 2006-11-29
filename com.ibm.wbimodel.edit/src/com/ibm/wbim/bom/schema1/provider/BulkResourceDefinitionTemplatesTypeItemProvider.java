@@ -76,7 +76,7 @@ public class BulkResourceDefinitionTemplatesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResourceDefinitionTemplatesType_BulkResourceDefinitionTemplate());
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE_DEFINITION_TEMPLATES_TYPE__BULK_RESOURCE_DEFINITION_TEMPLATE);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class BulkResourceDefinitionTemplatesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/BulkResourceDefinitionTemplatesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BulkResourceDefinitionTemplatesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class BulkResourceDefinitionTemplatesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResourceDefinitionTemplatesType_BulkResourceDefinitionTemplate(),
+				(Schema1Package.Literals.BULK_RESOURCE_DEFINITION_TEMPLATES_TYPE__BULK_RESOURCE_DEFINITION_TEMPLATE,
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

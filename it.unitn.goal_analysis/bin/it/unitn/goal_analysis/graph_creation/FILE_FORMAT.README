@@ -1,0 +1,27 @@
+This file describes a file format for the specification of a goal graph,
+to be used during the construction of a 
+java.it.unitn.goal_analysis.graph_creation.Graph object
+
+The indexes for the nodes start from 0!!
+
+* First line: T nn nr
+
+where T  is the type of the propagation, namely, discrete (D) or continuous (C)
+      nn is the number of nodes in the graph
+      nr is the number of relations in the graph
+
+* nn lines for nodes: N l1 l2
+
+where N  means that this is a node 
+      l1 is a string representing its satisfaction degree label
+      l2 is a string representing its negation degree label
+
+* nr lines for the relations: R t p f1 ... fk
+
+where R means that this line specifies a relation
+      t           is a string representing the type of the relation
+      p           is an index that identifies the parent node in the relation
+      f1 ... fk   are any finite number of indexes, identifying the 
+                  children nodes in the relation	
+
+

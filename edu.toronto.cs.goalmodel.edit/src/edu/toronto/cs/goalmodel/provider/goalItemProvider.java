@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: goalItemProvider.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.provider;
 
@@ -93,8 +93,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_name_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Name(),
+				 GoalmodelPackage.Literals.GOAL__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -113,8 +115,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_type_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Type(),
+				 GoalmodelPackage.Literals.GOAL__TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -133,8 +137,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_label_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Label(),
+				 GoalmodelPackage.Literals.GOAL__LABEL,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -153,8 +159,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_system_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_system_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_System(),
+				 GoalmodelPackage.Literals.GOAL__SYSTEM,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -173,8 +181,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_boundary_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_boundary_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Boundary(),
+				 GoalmodelPackage.Literals.GOAL__BOUNDARY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -193,8 +203,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_exclusive_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_exclusive_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Exclusive(),
+				 GoalmodelPackage.Literals.GOAL__EXCLUSIVE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -213,8 +225,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_sequential_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_sequential_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Sequential(),
+				 GoalmodelPackage.Literals.GOAL__SEQUENTIAL,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -233,8 +247,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_parallel_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_parallel_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Parallel(),
+				 GoalmodelPackage.Literals.GOAL__PARALLEL,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -253,8 +269,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_dependencyFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_dependencyFrom_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_DependencyFrom(),
+				 GoalmodelPackage.Literals.GOAL__DEPENDENCY_FROM,
 				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -273,8 +291,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_dependencyTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_dependencyTo_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_DependencyTo(),
+				 GoalmodelPackage.Literals.GOAL__DEPENDENCY_TO,
 				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -293,8 +313,10 @@ public class goalItemProvider
 				 getResourceLocator(),
 				 getString("_UI_goal_mode_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_goal_mode_feature", "_UI_goal_type"),
-				 GoalmodelPackage.eINSTANCE.getgoal_Mode(),
+				 GoalmodelPackage.Literals.GOAL__MODE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -311,11 +333,12 @@ public class goalItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Goal());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Rule());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Input());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Output());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getgoal_Property());
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__GOAL);
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__RULE);
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__INPUT);
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__OUTPUT);
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__PROPERTY);
+			childrenFeatures.add(GoalmodelPackage.Literals.GOAL__ANNOTATION);
 		}
 		return childrenFeatures;
 	}
@@ -339,7 +362,7 @@ public class goalItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/goal");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/goal"));
 	}
 
 	/**
@@ -382,6 +405,7 @@ public class goalItemProvider
 			case GoalmodelPackage.GOAL__INPUT:
 			case GoalmodelPackage.GOAL__OUTPUT:
 			case GoalmodelPackage.GOAL__PROPERTY:
+			case GoalmodelPackage.GOAL__ANNOTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -400,28 +424,33 @@ public class goalItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Goal(),
+				(GoalmodelPackage.Literals.GOAL__GOAL,
 				 GoalmodelFactory.eINSTANCE.creategoal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Rule(),
+				(GoalmodelPackage.Literals.GOAL__RULE,
 				 GoalmodelFactory.eINSTANCE.createcontribution()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Input(),
+				(GoalmodelPackage.Literals.GOAL__INPUT,
 				 GoalmodelFactory.eINSTANCE.createtopic()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Output(),
+				(GoalmodelPackage.Literals.GOAL__OUTPUT,
 				 GoalmodelFactory.eINSTANCE.createtopic()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getgoal_Property(),
+				(GoalmodelPackage.Literals.GOAL__PROPERTY,
 				 GoalmodelFactory.eINSTANCE.createproperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GoalmodelPackage.Literals.GOAL__ANNOTATION,
+				 GoalmodelFactory.eINSTANCE.createlinkAnnotation()));
 	}
 
 	/**
@@ -435,8 +464,8 @@ public class goalItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Input() ||
-			childFeature == GoalmodelPackage.eINSTANCE.getgoal_Output();
+			childFeature == GoalmodelPackage.Literals.GOAL__INPUT ||
+			childFeature == GoalmodelPackage.Literals.GOAL__OUTPUT;
 
 		if (qualify) {
 			return getString

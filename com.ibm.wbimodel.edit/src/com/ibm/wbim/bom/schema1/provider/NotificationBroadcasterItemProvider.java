@@ -80,8 +80,10 @@ public class NotificationBroadcasterItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NotificationBroadcaster_notification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationBroadcaster_notification_feature", "_UI_NotificationBroadcaster_type"),
-				 Schema1Package.eINSTANCE.getNotificationBroadcaster_Notification(),
+				 Schema1Package.Literals.NOTIFICATION_BROADCASTER__NOTIFICATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -100,8 +102,10 @@ public class NotificationBroadcasterItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NotificationBroadcaster_scope_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationBroadcaster_scope_feature", "_UI_NotificationBroadcaster_type"),
-				 Schema1Package.eINSTANCE.getNotificationBroadcaster_Scope(),
+				 Schema1Package.Literals.NOTIFICATION_BROADCASTER__SCOPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -114,7 +118,7 @@ public class NotificationBroadcasterItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/NotificationBroadcaster");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotificationBroadcaster"));
 	}
 
 	/**
@@ -171,8 +175,8 @@ public class NotificationBroadcasterItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
-			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition();
+			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
+			childFeature == Schema1Package.Literals.TASK__POSTCONDITION;
 
 		if (qualify) {
 			return getString

@@ -81,8 +81,10 @@ public class ExpressionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Expression_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_description_feature", "_UI_Expression_type"),
-				 Schema1Package.eINSTANCE.getExpression_Description(),
+				 Schema1Package.Literals.EXPRESSION__DESCRIPTION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class ExpressionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Expression_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_name_feature", "_UI_Expression_type"),
-				 Schema1Package.eINSTANCE.getExpression_Name(),
+				 Schema1Package.Literals.EXPRESSION__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class ExpressionItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Expression");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Expression"));
 	}
 
 	/**

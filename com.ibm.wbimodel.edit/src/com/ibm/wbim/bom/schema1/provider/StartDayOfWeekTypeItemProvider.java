@@ -83,8 +83,10 @@ public class StartDayOfWeekTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartDayOfWeekType_dayOfWeek_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartDayOfWeekType_dayOfWeek_feature", "_UI_StartDayOfWeekType_type"),
-				 Schema1Package.eINSTANCE.getStartDayOfWeekType_DayOfWeek(),
+				 Schema1Package.Literals.START_DAY_OF_WEEK_TYPE__DAY_OF_WEEK,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,8 +105,10 @@ public class StartDayOfWeekTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartDayOfWeekType_startTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartDayOfWeekType_startTime_feature", "_UI_StartDayOfWeekType_type"),
-				 Schema1Package.eINSTANCE.getStartDayOfWeekType_StartTime(),
+				 Schema1Package.Literals.START_DAY_OF_WEEK_TYPE__START_TIME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -123,8 +127,10 @@ public class StartDayOfWeekTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartDayOfWeekType_weekNumber_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartDayOfWeekType_weekNumber_feature", "_UI_StartDayOfWeekType_type"),
-				 Schema1Package.eINSTANCE.getStartDayOfWeekType_WeekNumber(),
+				 Schema1Package.Literals.START_DAY_OF_WEEK_TYPE__WEEK_NUMBER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -137,7 +143,7 @@ public class StartDayOfWeekTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/StartDayOfWeekType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StartDayOfWeekType"));
 	}
 
 	/**

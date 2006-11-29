@@ -80,8 +80,10 @@ public class ObserverItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Observer_isObserveContinuously_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Observer_isObserveContinuously_feature", "_UI_Observer_type"),
-				 Schema1Package.eINSTANCE.getObserver_IsObserveContinuously(),
+				 Schema1Package.Literals.OBSERVER__IS_OBSERVE_CONTINUOUSLY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -98,7 +100,7 @@ public class ObserverItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getObserver_ObservationExpression());
+			childrenFeatures.add(Schema1Package.Literals.OBSERVER__OBSERVATION_EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -110,7 +112,7 @@ public class ObserverItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Observer");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Observer"));
 	}
 
 	/**
@@ -159,7 +161,7 @@ public class ObserverItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getObserver_ObservationExpression(),
+				(Schema1Package.Literals.OBSERVER__OBSERVATION_EXPRESSION,
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 
@@ -174,9 +176,9 @@ public class ObserverItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
-			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition() ||
-			childFeature == Schema1Package.eINSTANCE.getObserver_ObservationExpression();
+			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
+			childFeature == Schema1Package.Literals.TASK__POSTCONDITION ||
+			childFeature == Schema1Package.Literals.OBSERVER__OBSERVATION_EXPRESSION;
 
 		if (qualify) {
 			return getString

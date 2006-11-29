@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -30,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link edu.toronto.cs.goalmodel.impl.dependencyImpl#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.dependencyImpl#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.dependencyImpl#getTrust <em>Trust</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.impl.dependencyImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +77,26 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	protected float trust = TRUST_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String label = LABEL_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -91,7 +111,7 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return GoalmodelPackage.eINSTANCE.getdependency();
+		return GoalmodelPackage.Literals.DEPENDENCY;
 	}
 
 	/**
@@ -101,8 +121,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 */
 	public goal getDependencyFrom() {
 		if (dependencyFrom != null && dependencyFrom.eIsProxy()) {
-			goal oldDependencyFrom = dependencyFrom;
-			dependencyFrom = (goal)eResolveProxy((InternalEObject)dependencyFrom);
+			InternalEObject oldDependencyFrom = (InternalEObject)dependencyFrom;
+			dependencyFrom = (goal)eResolveProxy(oldDependencyFrom);
 			if (dependencyFrom != oldDependencyFrom) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM, oldDependencyFrom, dependencyFrom));
@@ -161,8 +181,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 */
 	public goal getDependencyTo() {
 		if (dependencyTo != null && dependencyTo.eIsProxy()) {
-			goal oldDependencyTo = dependencyTo;
-			dependencyTo = (goal)eResolveProxy((InternalEObject)dependencyTo);
+			InternalEObject oldDependencyTo = (InternalEObject)dependencyTo;
+			dependencyTo = (goal)eResolveProxy(oldDependencyTo);
 			if (dependencyTo != oldDependencyTo) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO, oldDependencyTo, dependencyTo));
@@ -240,24 +260,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
-		if (featureID >= 0) {
-			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
-				case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
-					if (dependencyFrom != null)
-						msgs = ((InternalEObject)dependencyFrom).eInverseRemove(this, GoalmodelPackage.GOAL__DEPENDENCY_TO, goal.class, msgs);
-					return basicSetDependencyFrom((goal)otherEnd, msgs);
-				case GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO:
-					if (dependencyTo != null)
-						msgs = ((InternalEObject)dependencyTo).eInverseRemove(this, GoalmodelPackage.GOAL__DEPENDENCY_FROM, goal.class, msgs);
-					return basicSetDependencyTo((goal)otherEnd, msgs);
-				default:
-					return eDynamicInverseAdd(otherEnd, featureID, baseClass, msgs);
-			}
-		}
-		if (eContainer != null)
-			msgs = eBasicRemoveFromContainer(msgs);
-		return eBasicSetContainer(otherEnd, featureID, msgs);
+	public String getLabel() {
+		return label;
 	}
 
 	/**
@@ -265,18 +269,11 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
-		if (featureID >= 0) {
-			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
-				case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
-					return basicSetDependencyFrom(null, msgs);
-				case GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO:
-					return basicSetDependencyTo(null, msgs);
-				default:
-					return eDynamicInverseRemove(otherEnd, featureID, baseClass, msgs);
-			}
-		}
-		return eBasicSetContainer(null, featureID, msgs);
+	public void setLabel(String newLabel) {
+		String oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.DEPENDENCY__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -284,8 +281,42 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
+				if (dependencyFrom != null)
+					msgs = ((InternalEObject)dependencyFrom).eInverseRemove(this, GoalmodelPackage.GOAL__DEPENDENCY_TO, goal.class, msgs);
+				return basicSetDependencyFrom((goal)otherEnd, msgs);
+			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO:
+				if (dependencyTo != null)
+					msgs = ((InternalEObject)dependencyTo).eInverseRemove(this, GoalmodelPackage.GOAL__DEPENDENCY_FROM, goal.class, msgs);
+				return basicSetDependencyTo((goal)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
+				return basicSetDependencyFrom(null, msgs);
+			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO:
+				return basicSetDependencyTo(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
 				if (resolve) return getDependencyFrom();
 				return basicGetDependencyFrom();
@@ -294,8 +325,10 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 				return basicGetDependencyTo();
 			case GoalmodelPackage.DEPENDENCY__TRUST:
 				return new Float(getTrust());
+			case GoalmodelPackage.DEPENDENCY__LABEL:
+				return getLabel();
 		}
-		return eDynamicGet(eFeature, resolve);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -303,8 +336,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eSet(EStructuralFeature eFeature, Object newValue) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
 				setDependencyFrom((goal)newValue);
 				return;
@@ -314,8 +347,11 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 			case GoalmodelPackage.DEPENDENCY__TRUST:
 				setTrust(((Float)newValue).floatValue());
 				return;
+			case GoalmodelPackage.DEPENDENCY__LABEL:
+				setLabel((String)newValue);
+				return;
 		}
-		eDynamicSet(eFeature, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -323,8 +359,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eUnset(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
 				setDependencyFrom((goal)null);
 				return;
@@ -334,8 +370,11 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 			case GoalmodelPackage.DEPENDENCY__TRUST:
 				setTrust(TRUST_EDEFAULT);
 				return;
+			case GoalmodelPackage.DEPENDENCY__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
 		}
-		eDynamicUnset(eFeature);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -343,16 +382,18 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eIsSet(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
 				return dependencyFrom != null;
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO:
 				return dependencyTo != null;
 			case GoalmodelPackage.DEPENDENCY__TRUST:
 				return trust != TRUST_EDEFAULT;
+			case GoalmodelPackage.DEPENDENCY__LABEL:
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
-		return eDynamicIsSet(eFeature);
+		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -366,6 +407,8 @@ public class dependencyImpl extends EObjectImpl implements dependency {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (trust: ");
 		result.append(trust);
+		result.append(", label: ");
+		result.append(label);
 		result.append(')');
 		return result.toString();
 	}

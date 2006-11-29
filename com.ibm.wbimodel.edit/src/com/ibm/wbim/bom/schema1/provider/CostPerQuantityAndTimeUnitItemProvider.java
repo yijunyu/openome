@@ -79,8 +79,10 @@ public class CostPerQuantityAndTimeUnitItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CostPerQuantityAndTimeUnit_timeUnit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostPerQuantityAndTimeUnit_timeUnit_feature", "_UI_CostPerQuantityAndTimeUnit_type"),
-				 Schema1Package.eINSTANCE.getCostPerQuantityAndTimeUnit_TimeUnit(),
+				 Schema1Package.Literals.COST_PER_QUANTITY_AND_TIME_UNIT__TIME_UNIT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -93,7 +95,7 @@ public class CostPerQuantityAndTimeUnitItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/CostPerQuantityAndTimeUnit");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CostPerQuantityAndTimeUnit"));
 	}
 
 	/**

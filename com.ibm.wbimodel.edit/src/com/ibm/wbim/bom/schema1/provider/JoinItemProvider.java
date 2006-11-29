@@ -84,8 +84,10 @@ public class JoinItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Join_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Join_description_feature", "_UI_Join_type"),
-				 Schema1Package.eINSTANCE.getJoin_Description(),
+				 Schema1Package.Literals.JOIN__DESCRIPTION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class JoinItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Join_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Join_name_feature", "_UI_Join_type"),
-				 Schema1Package.eINSTANCE.getJoin_Name(),
+				 Schema1Package.Literals.JOIN__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,8 +126,8 @@ public class JoinItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getJoin_InputBranch());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getJoin_OutputBranch());
+			childrenFeatures.add(Schema1Package.Literals.JOIN__INPUT_BRANCH);
+			childrenFeatures.add(Schema1Package.Literals.JOIN__OUTPUT_BRANCH);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +151,7 @@ public class JoinItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Join");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Join"));
 	}
 
 	/**
@@ -198,12 +202,12 @@ public class JoinItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getJoin_InputBranch(),
+				(Schema1Package.Literals.JOIN__INPUT_BRANCH,
 				 Schema1Factory.eINSTANCE.createInputBranch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getJoin_OutputBranch(),
+				(Schema1Package.Literals.JOIN__OUTPUT_BRANCH,
 				 Schema1Factory.eINSTANCE.createOutputBranch()));
 	}
 

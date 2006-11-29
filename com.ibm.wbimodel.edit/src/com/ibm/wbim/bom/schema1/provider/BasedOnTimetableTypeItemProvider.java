@@ -80,8 +80,10 @@ public class BasedOnTimetableTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_BasedOnTimetableType_timetable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BasedOnTimetableType_timetable_feature", "_UI_BasedOnTimetableType_type"),
-				 Schema1Package.eINSTANCE.getBasedOnTimetableType_Timetable(),
+				 Schema1Package.Literals.BASED_ON_TIMETABLE_TYPE__TIMETABLE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class BasedOnTimetableTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/BasedOnTimetableType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BasedOnTimetableType"));
 	}
 
 	/**

@@ -89,8 +89,10 @@ public class ExtendedAttributeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ExtendedAttributeType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExtendedAttributeType_name_feature", "_UI_ExtendedAttributeType_type"),
-				 Schema1Package.eINSTANCE.getExtendedAttributeType_Name(),
+				 Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -109,8 +111,10 @@ public class ExtendedAttributeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ExtendedAttributeType_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExtendedAttributeType_value_feature", "_UI_ExtendedAttributeType_type"),
-				 Schema1Package.eINSTANCE.getExtendedAttributeType_Value(),
+				 Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__VALUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -127,7 +131,7 @@ public class ExtendedAttributeTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed());
+			childrenFeatures.add(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED);
 		}
 		return childrenFeatures;
 	}
@@ -139,7 +143,7 @@ public class ExtendedAttributeTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ExtendedAttributeType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtendedAttributeType"));
 	}
 
 	/**
@@ -189,37 +193,37 @@ public class ExtendedAttributeTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed(),
+				(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED,
 				 FeatureMapUtil.createEntry
-					(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Comment(),
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed(),
+				(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED,
 				 FeatureMapUtil.createEntry
-					(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(),
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed(),
+				(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED,
 				 FeatureMapUtil.createEntry
-					(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_CDATA(),
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed(),
+				(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getDocumentRoot_Model(),
+					(Schema1Package.Literals.DOCUMENT_ROOT__MODEL,
 					 Schema1Factory.eINSTANCE.createModelType())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getExtendedAttributeType_Mixed(),
+				(Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__MIXED,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getDocumentRoot_Model(),
+					(Schema1Package.Literals.DOCUMENT_ROOT__MODEL,
 					 Schema1Factory.eINSTANCE.createModelType())));
 	}
 
@@ -240,7 +244,7 @@ public class ExtendedAttributeTypeItemProvider
 		}
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getDocumentRoot_Model();
+			childFeature == Schema1Package.Literals.DOCUMENT_ROOT__MODEL;
 
 		if (qualify) {
 			return getString

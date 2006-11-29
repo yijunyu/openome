@@ -78,10 +78,10 @@ public class CatalogsTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getCatalogsType_DataCatalogs());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getCatalogsType_ResourceCatalogs());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getCatalogsType_OrganizationCatalogs());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getCatalogsType_ProcessCatalogs());
+			childrenFeatures.add(Schema1Package.Literals.CATALOGS_TYPE__DATA_CATALOGS);
+			childrenFeatures.add(Schema1Package.Literals.CATALOGS_TYPE__RESOURCE_CATALOGS);
+			childrenFeatures.add(Schema1Package.Literals.CATALOGS_TYPE__ORGANIZATION_CATALOGS);
+			childrenFeatures.add(Schema1Package.Literals.CATALOGS_TYPE__PROCESS_CATALOGS);
 		}
 		return childrenFeatures;
 	}
@@ -105,7 +105,7 @@ public class CatalogsTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/CatalogsType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CatalogsType"));
 	}
 
 	/**
@@ -151,22 +151,22 @@ public class CatalogsTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getCatalogsType_DataCatalogs(),
+				(Schema1Package.Literals.CATALOGS_TYPE__DATA_CATALOGS,
 				 Schema1Factory.eINSTANCE.createCatalogs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getCatalogsType_ResourceCatalogs(),
+				(Schema1Package.Literals.CATALOGS_TYPE__RESOURCE_CATALOGS,
 				 Schema1Factory.eINSTANCE.createCatalogs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getCatalogsType_OrganizationCatalogs(),
+				(Schema1Package.Literals.CATALOGS_TYPE__ORGANIZATION_CATALOGS,
 				 Schema1Factory.eINSTANCE.createCatalogs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getCatalogsType_ProcessCatalogs(),
+				(Schema1Package.Literals.CATALOGS_TYPE__PROCESS_CATALOGS,
 				 Schema1Factory.eINSTANCE.createCatalogs()));
 	}
 
@@ -181,10 +181,10 @@ public class CatalogsTypeItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getCatalogsType_DataCatalogs() ||
-			childFeature == Schema1Package.eINSTANCE.getCatalogsType_ResourceCatalogs() ||
-			childFeature == Schema1Package.eINSTANCE.getCatalogsType_OrganizationCatalogs() ||
-			childFeature == Schema1Package.eINSTANCE.getCatalogsType_ProcessCatalogs();
+			childFeature == Schema1Package.Literals.CATALOGS_TYPE__DATA_CATALOGS ||
+			childFeature == Schema1Package.Literals.CATALOGS_TYPE__RESOURCE_CATALOGS ||
+			childFeature == Schema1Package.Literals.CATALOGS_TYPE__ORGANIZATION_CATALOGS ||
+			childFeature == Schema1Package.Literals.CATALOGS_TYPE__PROCESS_CATALOGS;
 
 		if (qualify) {
 			return getString

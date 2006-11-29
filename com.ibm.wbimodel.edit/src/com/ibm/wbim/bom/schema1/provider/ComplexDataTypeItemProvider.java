@@ -84,8 +84,10 @@ public class ComplexDataTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComplexDataType_documentation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataType_documentation_feature", "_UI_ComplexDataType_type"),
-				 Schema1Package.eINSTANCE.getComplexDataType_Documentation(),
+				 Schema1Package.Literals.COMPLEX_DATA_TYPE__DOCUMENTATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class ComplexDataTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComplexDataType_parentTemplate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataType_parentTemplate_feature", "_UI_ComplexDataType_type"),
-				 Schema1Package.eINSTANCE.getComplexDataType_ParentTemplate(),
+				 Schema1Package.Literals.COMPLEX_DATA_TYPE__PARENT_TEMPLATE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,9 +126,9 @@ public class ComplexDataTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getComplexDataType_Attribute());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getComplexDataType_Rule());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getComplexDataType_ExtendedAttributes());
+			childrenFeatures.add(Schema1Package.Literals.COMPLEX_DATA_TYPE__ATTRIBUTE);
+			childrenFeatures.add(Schema1Package.Literals.COMPLEX_DATA_TYPE__RULE);
+			childrenFeatures.add(Schema1Package.Literals.COMPLEX_DATA_TYPE__EXTENDED_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +152,7 @@ public class ComplexDataTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ComplexDataType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexDataType"));
 	}
 
 	/**
@@ -200,17 +204,17 @@ public class ComplexDataTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getComplexDataType_Attribute(),
+				(Schema1Package.Literals.COMPLEX_DATA_TYPE__ATTRIBUTE,
 				 Schema1Factory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getComplexDataType_Rule(),
+				(Schema1Package.Literals.COMPLEX_DATA_TYPE__RULE,
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getComplexDataType_ExtendedAttributes(),
+				(Schema1Package.Literals.COMPLEX_DATA_TYPE__EXTENDED_ATTRIBUTES,
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 

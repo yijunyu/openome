@@ -1,18 +1,25 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-SymbolicName: bpel; singleton:=true
+Bundle-Name: BPEL Convertor Plug-in
+Bundle-SymbolicName: bpel;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: Yijun Yu
 Bundle-Localization: plugin
-Export-Package: org.xmlsoap.schemas.ws._2003._03.business.process,
- org.xmlsoap.schemas.ws._2003._03.business.process.impl,
- org.xmlsoap.schemas.ws._2003._03.business.process.util,
- org.xmlsoap.schemas.wsdl,
- org.xmlsoap.schemas.wsdl.impl,
- org.xmlsoap.schemas.wsdl.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport
-Eclipse-AutoStart: true
+Require-Bundle: core,
+ org.eclipse.core.resources,
+ edu.toronto.cs.goalmodel,
+ org.eclipse.emf.ecore.xmi,
+ util,
+ org.eclipse.ui,
+ org.eclipse.bpel.model,
+ org.eclipse.bpel.ui,
+ org.eclipse.bpel.common.model,
+ org.eclipse.bpel.common.ui,
+ org.eclipse.gef,
+ org.eclipse.wst.wsdl,
+ org.wsdl4j,
+ goalmodel
+Eclipse-LazyStart: true
+Export-Package: convertor,
+ parser
+

@@ -1,0 +1,7722 @@
+Token SerializedViewObject_0_134
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 276
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 868.6667
+        attribute
+            end1y : 455.33334
+        attribute
+            start2x : 868.6667
+        attribute
+            start2y : 455.33334
+        attribute
+            control1x : 824.3333
+        attribute
+            control1y : 485.66666
+        attribute
+            control2x : 890.8333
+        attribute
+            control2y : 440.16666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_133
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 275
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 734.0
+        attribute
+            end1y : 495.0
+        attribute
+            start2x : 734.0
+        attribute
+            start2y : 495.0
+        attribute
+            control1x : 688.0
+        attribute
+            control1y : 474.0
+        attribute
+            control2x : 757.0
+        attribute
+            control2y : 505.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_132
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 274
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 123.333336
+        attribute
+            end1y : 414.66666
+        attribute
+            start2x : 123.333336
+        attribute
+            start2y : 414.66666
+        attribute
+            control1x : 148.66667
+        attribute
+            control1y : 456.33334
+        attribute
+            control2x : 110.666664
+        attribute
+            control2y : 393.83334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_131
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 273
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 216.33333
+        attribute
+            end1y : 484.0
+        attribute
+            start2x : 216.33333
+        attribute
+            start2y : 484.0
+        attribute
+            control1x : 258.66666
+        attribute
+            control1y : 470.0
+        attribute
+            control2x : 195.16667
+        attribute
+            control2y : 491.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_130
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 272
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 854.3333
+        attribute
+            end1y : 443.33334
+        attribute
+            start2x : 854.3333
+        attribute
+            start2y : 443.33334
+        attribute
+            control1x : 823.6667
+        attribute
+            control1y : 455.66666
+        attribute
+            control2x : 869.6667
+        attribute
+            control2y : 437.16666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_129
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 271
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 713.6667
+        attribute
+            end1y : 456.0
+        attribute
+            start2x : 713.6667
+        attribute
+            start2y : 456.0
+        attribute
+            control1x : 656.3333
+        attribute
+            control1y : 452.0
+        attribute
+            control2x : 742.3333
+        attribute
+            control2y : 458.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_128
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 270
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 132.33333
+        attribute
+            end1y : 393.0
+        attribute
+            start2x : 132.33333
+        attribute
+            start2y : 393.0
+        attribute
+            control1x : 166.66667
+        attribute
+            control1y : 413.0
+        attribute
+            control2x : 115.166664
+        attribute
+            control2y : 383.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_127
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 269
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 234.33333
+        attribute
+            end1y : 440.66666
+        attribute
+            start2x : 234.33333
+        attribute
+            start2y : 440.66666
+        attribute
+            control1x : 267.66666
+        attribute
+            control1y : 448.33334
+        attribute
+            control2x : 217.66667
+        attribute
+            control2y : 436.83334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_126
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 268
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 584.6667
+        attribute
+            end1y : -197.0
+        attribute
+            start2x : 584.6667
+        attribute
+            start2y : -197.0
+        attribute
+            control1x : 640.3333
+        attribute
+            control1y : -165.0
+        attribute
+            control2x : 556.8333
+        attribute
+            control2y : -213.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_125
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 267
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 751.0
+        attribute
+            end1y : -165.0
+        attribute
+            start2x : 751.0
+        attribute
+            start2y : -165.0
+        attribute
+            control1x : 806.0
+        attribute
+            control1y : -197.0
+        attribute
+            control2x : 723.5
+        attribute
+            control2y : -149.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_124
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 266
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 584.6667
+        attribute
+            end1y : -215.33333
+        attribute
+            start2x : 584.6667
+        attribute
+            start2y : -215.33333
+        attribute
+            control1x : 640.3333
+        attribute
+            control1y : -201.66667
+        attribute
+            control2x : 556.8333
+        attribute
+            control2y : -222.16667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_123
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 265
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 751.0
+        attribute
+            end1y : -201.66667
+        attribute
+            start2x : 751.0
+        attribute
+            start2y : -201.66667
+        attribute
+            control1x : 806.0
+        attribute
+            control1y : -215.33333
+        attribute
+            control2x : 723.5
+        attribute
+            control2y : -194.83333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_122
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 264
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 187.66667
+        attribute
+            end1y : -241.66667
+        attribute
+            start2x : 187.66667
+        attribute
+            start2y : -241.66667
+        attribute
+            control1x : 252.33333
+        attribute
+            control1y : -263.33334
+        attribute
+            control2x : 155.33333
+        attribute
+            control2y : -230.83333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_121
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 263
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 387.66666
+        attribute
+            end1y : -266.33334
+        attribute
+            start2x : 387.66666
+        attribute
+            start2y : -266.33334
+        attribute
+            control1x : 458.33334
+        attribute
+            control1y : -247.66667
+        attribute
+            control2x : 352.33334
+        attribute
+            control2y : -275.66666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_120
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 168
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 264.33334
+        attribute
+            end1y : 218.66667
+        attribute
+            start2x : 264.33334
+        attribute
+            start2y : 218.66667
+        attribute
+            control1x : 185.66667
+        attribute
+            control1y : 103.333336
+        attribute
+            control2x : 303.66666
+        attribute
+            control2y : 276.33334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_119
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 167
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 485.66666
+        attribute
+            end1y : 287.33334
+        attribute
+            start2x : 485.66666
+        attribute
+            start2y : 287.33334
+        attribute
+            control1x : 421.33334
+        attribute
+            control1y : 320.66666
+        attribute
+            control2x : 517.8333
+        attribute
+            control2y : 270.66666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_118
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 166
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 493.66666
+        attribute
+            end1y : 271.33334
+        attribute
+            start2x : 493.66666
+        attribute
+            start2y : 271.33334
+        attribute
+            control1x : 437.33334
+        attribute
+            control1y : 288.66666
+        attribute
+            control2x : 521.8333
+        attribute
+            control2y : 262.66666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_117
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 165
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 294.33334
+        attribute
+            end1y : 206.66667
+        attribute
+            start2x : 294.33334
+        attribute
+            start2y : 206.66667
+        attribute
+            control1x : 207.66667
+        attribute
+            control1y : 107.333336
+        attribute
+            control2x : 337.66666
+        attribute
+            control2y : 256.33334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_116
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 164
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 205.0
+        attribute
+            end1y : -19.666666
+        attribute
+            start2x : 205.0
+        attribute
+            start2y : -19.666666
+        attribute
+            control1x : 289.0
+        attribute
+            control1y : -47.333332
+        attribute
+            control2x : 163.0
+        attribute
+            control2y : -5.833333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_115
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 163
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 473.0
+        attribute
+            end1y : -47.0
+        attribute
+            start2x : 473.0
+        attribute
+            start2y : -47.0
+        attribute
+            control1x : 573.0
+        attribute
+            control1y : -19.0
+        attribute
+            control2x : 423.0
+        attribute
+            control2y : -61.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_114
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 162
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 496.66666
+        attribute
+            end1y : 254.0
+        attribute
+            start2x : 496.66666
+        attribute
+            start2y : 254.0
+        attribute
+            control1x : 443.33334
+        attribute
+            control1y : 254.0
+        attribute
+            control2x : 523.3333
+        attribute
+            control2y : 254.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_113
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 161
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 300.33334
+        attribute
+            end1y : 172.0
+        attribute
+            start2x : 300.33334
+        attribute
+            start2y : 172.0
+        attribute
+            control1x : 210.66667
+        attribute
+            control1y : 90.0
+        attribute
+            control2x : 345.16666
+        attribute
+            control2y : 213.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_112
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 160
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 685.3333
+        attribute
+            end1y : 430.33334
+        attribute
+            start2x : 685.3333
+        attribute
+            start2y : 430.33334
+        attribute
+            control1x : 728.6667
+        attribute
+            control1y : 407.66666
+        attribute
+            control2x : 663.6667
+        attribute
+            control2y : 441.66666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_111
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 159
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 816.6667
+        attribute
+            end1y : 399.33334
+        attribute
+            start2x : 816.6667
+        attribute
+            start2y : 399.33334
+        attribute
+            control1x : 861.3333
+        attribute
+            control1y : 413.66666
+        attribute
+            control2x : 794.3333
+        attribute
+            control2y : 392.16666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_110
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 158
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 268.0
+        attribute
+            end1y : 412.66666
+        attribute
+            start2x : 268.0
+        attribute
+            start2y : 412.66666
+        attribute
+            control1x : 244.0
+        attribute
+            control1y : 381.33334
+        attribute
+            control2x : 280.0
+        attribute
+            control2y : 428.33334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_109
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 153
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 185.33333
+        attribute
+            end1y : 365.66666
+        attribute
+            start2x : 185.33333
+        attribute
+            start2y : 365.66666
+        attribute
+            control1x : 141.66667
+        attribute
+            control1y : 369.33334
+        attribute
+            control2x : 207.16667
+        attribute
+            control2y : 363.83334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_108
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 143
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 500.66666
+        attribute
+            end1y : 233.0
+        attribute
+            start2x : 500.66666
+        attribute
+            start2y : 233.0
+        attribute
+            control1x : 451.33334
+        attribute
+            control1y : 212.0
+        attribute
+            control2x : 525.3333
+        attribute
+            control2y : 243.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_107
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 142
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 300.33334
+        attribute
+            end1y : 137.0
+        attribute
+            start2x : 300.33334
+        attribute
+            start2y : 137.0
+        attribute
+            control1x : 206.66667
+        attribute
+            control1y : 76.0
+        attribute
+            control2x : 347.16666
+        attribute
+            control2y : 167.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_106
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 141
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 208.0
+        attribute
+            end1y : 28.333334
+        attribute
+            start2x : 208.0
+        attribute
+            start2y : 28.333334
+        attribute
+            control1x : 295.0
+        attribute
+            control1y : 48.666668
+        attribute
+            control2x : 164.5
+        attribute
+            control2y : 18.166666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_105
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 140
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 479.0
+        attribute
+            end1y : 49.0
+        attribute
+            start2x : 479.0
+        attribute
+            start2y : 49.0
+        attribute
+            control1x : 576.0
+        attribute
+            control1y : 29.0
+        attribute
+            control2x : 430.5
+        attribute
+            control2y : 59.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_104
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 135
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 577.6667
+        attribute
+            end1y : -2.666667
+        attribute
+            start2x : 577.6667
+        attribute
+            start2y : -2.666667
+        attribute
+            control1x : 482.33334
+        attribute
+            control1y : -14.333333
+        attribute
+            control2x : 625.3333
+        attribute
+            control2y : 3.166667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_103
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 134
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 298.33334
+        attribute
+            end1y : -14.666667
+        attribute
+            start2x : 298.33334
+        attribute
+            start2y : -14.666667
+        attribute
+            control1x : 209.66667
+        attribute
+            control1y : -3.333333
+        attribute
+            control2x : 342.66666
+        attribute
+            control2y : -20.333334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_102
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 107
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 150.33333
+        attribute
+            end1y : 728.3333
+        attribute
+            start2x : 150.33333
+        attribute
+            start2y : 728.3333
+        attribute
+            control1x : 191.66667
+        attribute
+            control1y : 739.6667
+        attribute
+            control2x : 129.66667
+        attribute
+            control2y : 722.6667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_101
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 106
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 275.66666
+        attribute
+            end1y : 742.0
+        attribute
+            start2x : 275.66666
+        attribute
+            start2y : 742.0
+        attribute
+            control1x : 311.33334
+        attribute
+            control1y : 733.0
+        attribute
+            control2x : 257.83334
+        attribute
+            control2y : 746.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_100
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 105
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 147.0
+        attribute
+            end1y : 707.3333
+        attribute
+            start2x : 147.0
+        attribute
+            start2y : 707.3333
+        attribute
+            control1x : 185.0
+        attribute
+            control1y : 697.6667
+        attribute
+            control2x : 128.0
+        attribute
+            control2y : 712.1667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_99
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 104
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 262.0
+        attribute
+            end1y : 700.0
+        attribute
+            start2x : 262.0
+        attribute
+            start2y : 700.0
+        attribute
+            control1x : 301.0
+        attribute
+            control1y : 712.0
+        attribute
+            control2x : 242.5
+        attribute
+            control2y : 694.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_98
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 103
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 354.33334
+        attribute
+            end1y : 439.5
+        attribute
+            start2x : 354.33334
+        attribute
+            start2y : 439.5
+        attribute
+            control1x : 407.66666
+        attribute
+            control1y : 423.0
+        attribute
+            control2x : 327.66666
+        attribute
+            control2y : 447.75
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_97
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 102
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 521.3333
+        attribute
+            end1y : 422.0
+        attribute
+            start2x : 521.3333
+        attribute
+            start2y : 422.0
+        attribute
+            control1x : 581.6667
+        attribute
+            control1y : 437.5
+        attribute
+            control2x : 491.16666
+        attribute
+            control2y : 414.25
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_96
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 94
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 640.6667
+        attribute
+            end1y : 718.0
+        attribute
+            start2x : 640.6667
+        attribute
+            start2y : 718.0
+        attribute
+            control1x : 688.3333
+        attribute
+            control1y : 710.0
+        attribute
+            control2x : 616.8333
+        attribute
+            control2y : 722.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_95
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 93
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 788.3333
+        attribute
+            end1y : 710.3333
+        attribute
+            start2x : 788.3333
+        attribute
+            start2y : 710.3333
+        attribute
+            control1x : 840.6667
+        attribute
+            control1y : 718.6667
+        attribute
+            control2x : 762.1667
+        attribute
+            control2y : 706.1667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_94
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 92
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 841.3333
+        attribute
+            end1y : 739.3333
+        attribute
+            start2x : 841.3333
+        attribute
+            start2y : 739.3333
+        attribute
+            control1x : 789.6667
+        attribute
+            control1y : 751.6667
+        attribute
+            control2x : 867.1667
+        attribute
+            control2y : 733.1667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_93
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 91
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 689.6667
+        attribute
+            end1y : 751.3333
+        attribute
+            start2x : 689.6667
+        attribute
+            start2y : 751.3333
+        attribute
+            control1x : 641.3333
+        attribute
+            control1y : 738.6667
+        attribute
+            control2x : 713.8333
+        attribute
+            control2y : 757.6667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_92
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 86
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 208.33333
+        attribute
+            end1y : 12.0
+        attribute
+            start2x : 208.33333
+        attribute
+            start2y : 12.0
+        attribute
+            control1x : 295.66666
+        attribute
+            control1y : 16.0
+        attribute
+            control2x : 164.66667
+        attribute
+            control2y : 10.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_91
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 80
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 479.66666
+        attribute
+            end1y : 16.333334
+        attribute
+            start2x : 479.66666
+        attribute
+            start2y : 16.333334
+        attribute
+            control1x : 576.3333
+        attribute
+            control1y : 12.666667
+        attribute
+            control2x : 431.33334
+        attribute
+            control2y : 18.166666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_90
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 77
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 352.33334
+        attribute
+            end1y : 477.0
+        attribute
+            start2x : 352.33334
+        attribute
+            start2y : 477.0
+        attribute
+            control1x : 403.66666
+        attribute
+            control1y : 498.0
+        attribute
+            control2x : 326.66666
+        attribute
+            control2y : 466.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_89
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 76
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 517.3333
+        attribute
+            end1y : 497.0
+        attribute
+            start2x : 517.3333
+        attribute
+            start2y : 497.0
+        attribute
+            control1x : 579.6667
+        attribute
+            control1y : 475.0
+        attribute
+            control2x : 486.16666
+        attribute
+            control2y : 508.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_88
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 71
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 351.33334
+        attribute
+            end1y : 458.33334
+        attribute
+            start2x : 351.33334
+        attribute
+            start2y : 458.33334
+        attribute
+            control1x : 401.66666
+        attribute
+            control1y : 460.66666
+        attribute
+            control2x : 326.16666
+        attribute
+            control2y : 457.16666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_87
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 70
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 515.3333
+        attribute
+            end1y : 459.66666
+        attribute
+            start2x : 515.3333
+        attribute
+            start2y : 459.66666
+        attribute
+            control1x : 578.6667
+        attribute
+            control1y : 456.33334
+        attribute
+            control2x : 483.66666
+        attribute
+            control2y : 461.33334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_86
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 27
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 584.0
+        attribute
+            end1y : -229.33333
+        attribute
+            start2x : 584.0
+        attribute
+            start2y : -229.33333
+        attribute
+            control1x : 639.0
+        attribute
+            control1y : -229.66667
+        attribute
+            control2x : 556.5
+        attribute
+            control2y : -229.16667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_85
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 26
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 749.6667
+        attribute
+            end1y : -229.66667
+        attribute
+            start2x : 749.6667
+        attribute
+            start2y : -229.66667
+        attribute
+            control1x : 805.3333
+        attribute
+            control1y : -229.33333
+        attribute
+            control2x : 721.8333
+        attribute
+            control2y : -229.83333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_84
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 25
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 188.0
+        attribute
+            end1y : -221.0
+        attribute
+            start2x : 188.0
+        attribute
+            start2y : -221.0
+        attribute
+            control1x : 253.0
+        attribute
+            control1y : -222.0
+        attribute
+            control2x : 155.5
+        attribute
+            control2y : -220.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_83
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 24
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 389.33334
+        attribute
+            end1y : -227.0
+        attribute
+            start2x : 389.33334
+        attribute
+            start2y : -227.0
+        attribute
+            control1x : 459.66666
+        attribute
+            control1y : -224.0
+        attribute
+            control2x : 354.16666
+        attribute
+            control2y : -228.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_82
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 23
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 459.0
+        attribute
+            end1y : -208.33333
+        attribute
+            start2x : 459.0
+        attribute
+            start2y : -208.33333
+        attribute
+            control1x : 389.0
+        attribute
+            control1y : -187.66667
+        attribute
+            control2x : 494.0
+        attribute
+            control2y : -218.66667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_81
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 22
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 253.66667
+        attribute
+            end1y : -184.66667
+        attribute
+            start2x : 253.66667
+        attribute
+            start2y : -184.66667
+        attribute
+            control1x : 188.33333
+        attribute
+            control1y : -202.33333
+        attribute
+            control2x : 286.33334
+        attribute
+            control2y : -175.83333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_80
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 21
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 583.3333
+        attribute
+            end1y : -247.0
+        attribute
+            start2x : 583.3333
+        attribute
+            start2y : -247.0
+        attribute
+            control1x : 637.6667
+        attribute
+            control1y : -265.0
+        attribute
+            control2x : 556.1667
+        attribute
+            control2y : -238.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_79
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 20
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 748.3333
+        attribute
+            end1y : -265.0
+        attribute
+            start2x : 748.3333
+        attribute
+            start2y : -265.0
+        attribute
+            control1x : 804.6667
+        attribute
+            control1y : -247.0
+        attribute
+            control2x : 720.1667
+        attribute
+            control2y : -274.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_78
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 170
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 780.6667
+        attribute
+            end1y : -144.33333
+        attribute
+            start2x : 780.6667
+        attribute
+            start2y : -144.33333
+        attribute
+            control1x : 526.3333
+        attribute
+            control1y : 51.333332
+        attribute
+            control2x : 907.8333
+        attribute
+            control2y : -242.16667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_77
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 169
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 876.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 876.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 891.0
+        attribute
+            control1y : 214.0
+        attribute
+            control2x : 868.5
+        attribute
+            control2y : -107.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_76
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 146
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 536.0
+        attribute
+            end1y : -68.0
+        attribute
+            start2x : 536.0
+        attribute
+            start2y : -68.0
+        attribute
+            control1x : 543.0
+        attribute
+            control1y : 93.0
+        attribute
+            control2x : 532.5
+        attribute
+            control2y : -148.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_75
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 90
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 398.33334
+        attribute
+            end1y : 546.0
+        attribute
+            start2x : 398.33334
+        attribute
+            start2y : 546.0
+        attribute
+            control1x : 495.66666
+        attribute
+            control1y : 636.0
+        attribute
+            control2x : 349.66666
+        attribute
+            control2y : 501.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_74
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 89
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 237.0
+        attribute
+            end1y : 543.0
+        attribute
+            start2x : 237.0
+        attribute
+            start2y : 543.0
+        attribute
+            control1x : 173.0
+        attribute
+            control1y : 630.0
+        attribute
+            control2x : 269.0
+        attribute
+            control2y : 499.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_73
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 215
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 380.33334
+        attribute
+            end1y : 780.0
+        attribute
+            start2x : 380.33334
+        attribute
+            start2y : 780.0
+        attribute
+            control1x : 417.66666
+        attribute
+            control1y : 835.0
+        attribute
+            control2x : 361.66666
+        attribute
+            control2y : 752.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_72
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 214
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 352.0
+        attribute
+            end1y : 811.6667
+        attribute
+            start2x : 352.0
+        attribute
+            start2y : 811.6667
+        attribute
+            control1x : 361.0
+        attribute
+            control1y : 866.3333
+        attribute
+            control2x : 347.5
+        attribute
+            control2y : 784.3333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_71
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 213
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 312.66666
+        attribute
+            end1y : 801.3333
+        attribute
+            start2x : 312.66666
+        attribute
+            start2y : 801.3333
+        attribute
+            control1x : 294.33334
+        attribute
+            control1y : 855.6667
+        attribute
+            control2x : 321.83334
+        attribute
+            control2y : 774.1667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_70
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 152
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 113.333336
+        attribute
+            end1y : 129.66667
+        attribute
+            start2x : 113.333336
+        attribute
+            start2y : 129.66667
+        attribute
+            control1x : 105.666664
+        attribute
+            control1y : 251.33333
+        attribute
+            control2x : 117.166664
+        attribute
+            control2y : 68.833336
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_69
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 148
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 580.6667
+        attribute
+            end1y : 320.33334
+        attribute
+            start2x : 580.6667
+        attribute
+            start2y : 320.33334
+        attribute
+            control1x : 611.3333
+        attribute
+            control1y : 386.66666
+        attribute
+            control2x : 565.3333
+        attribute
+            control2y : 287.16666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_68
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 147
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 467.0
+        attribute
+            end1y : 321.33334
+        attribute
+            start2x : 467.0
+        attribute
+            start2y : 321.33334
+        attribute
+            control1x : 384.0
+        attribute
+            control1y : 388.66666
+        attribute
+            control2x : 508.5
+        attribute
+            control2y : 287.66666
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_67
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 144
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 264.0
+        attribute
+            end1y : 90.0
+        attribute
+            start2x : 264.0
+        attribute
+            start2y : 90.0
+        attribute
+            control1x : 407.0
+        attribute
+            control1y : 172.0
+        attribute
+            control2x : 192.5
+        attribute
+            control2y : 49.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_66
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 101
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 966.3333
+        attribute
+            end1y : 811.3333
+        attribute
+            start2x : 966.3333
+        attribute
+            start2y : 811.3333
+        attribute
+            control1x : 1012.6667
+        attribute
+            control1y : 860.6667
+        attribute
+            control2x : 943.1667
+        attribute
+            control2y : 786.6667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_65
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 100
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 916.3333
+        attribute
+            end1y : 793.0
+        attribute
+            start2x : 916.3333
+        attribute
+            start2y : 793.0
+        attribute
+            control1x : 933.6667
+        attribute
+            control1y : 844.0
+        attribute
+            control2x : 907.6667
+        attribute
+            control2y : 767.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_64
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 99
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 868.0
+        attribute
+            end1y : 809.6667
+        attribute
+            start2x : 868.0
+        attribute
+            start2y : 809.6667
+        attribute
+            control1x : 854.0
+        attribute
+            control1y : 860.3333
+        attribute
+            control2x : 875.0
+        attribute
+            control2y : 784.3333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_63
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 98
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 586.0
+        attribute
+            end1y : 792.6667
+        attribute
+            start2x : 586.0
+        attribute
+            start2y : 792.6667
+        attribute
+            control1x : 583.0
+        attribute
+            control1y : 840.3333
+        attribute
+            control2x : 587.5
+        attribute
+            control2y : 768.8333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_62
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 97
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 138.33333
+        attribute
+            end1y : 785.0
+        attribute
+            start2x : 138.33333
+        attribute
+            start2y : 785.0
+        attribute
+            control1x : 162.66667
+        attribute
+            control1y : 842.0
+        attribute
+            control2x : 126.166664
+        attribute
+            control2y : 756.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_61
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 96
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 99.0
+        attribute
+            end1y : 812.0
+        attribute
+            start2x : 99.0
+        attribute
+            start2y : 812.0
+        attribute
+            control1x : 95.0
+        attribute
+            control1y : 869.0
+        attribute
+            control2x : 101.0
+        attribute
+            control2y : 783.5
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_60
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 95
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 62.0
+        attribute
+            end1y : 797.3333
+        attribute
+            start2x : 62.0
+        attribute
+            start2y : 797.3333
+        attribute
+            control1x : 31.0
+        attribute
+            control1y : 853.6667
+        attribute
+            control2x : 77.5
+        attribute
+            control2y : 769.1667
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_59
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 79
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 662.6667
+        attribute
+            end1y : 157.0
+        attribute
+            start2x : 662.6667
+        attribute
+            start2y : 157.0
+        attribute
+            control1x : 652.3333
+        attribute
+            control1y : 305.0
+        attribute
+            control2x : 667.8333
+        attribute
+            control2y : 83.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_58
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 78
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 750.6667
+        attribute
+            end1y : 148.66667
+        attribute
+            start2x : 750.6667
+        attribute
+            start2y : 148.66667
+        attribute
+            control1x : 828.3333
+        attribute
+            control1y : 288.33334
+        attribute
+            control2x : 711.8333
+        attribute
+            control2y : 78.833336
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_57
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 55
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 563.6667
+        attribute
+            end1y : -269.66666
+        attribute
+            start2x : 563.6667
+        attribute
+            start2y : -269.66666
+        attribute
+            control1x : 598.3333
+        attribute
+            control1y : -310.33334
+        attribute
+            control2x : 546.3333
+        attribute
+            control2y : -249.33333
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_56
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 54
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 528.0
+        attribute
+            end1y : -282.66666
+        attribute
+            start2x : 528.0
+        attribute
+            start2y : -282.66666
+        attribute
+            control1x : 527.0
+        attribute
+            control1y : -324.33334
+        attribute
+            control2x : 528.5
+        attribute
+            control2y : -261.83334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_55
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVLRecord"
+        attribute
+            ID : 53
+        attribute
+            objecttype : 0
+        attribute
+            x : 0
+        attribute
+            y : 0
+        attribute
+            expanded : 1
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 473.33334
+        attribute
+            end1y : -290.66666
+        attribute
+            start2x : 473.33334
+        attribute
+            start2y : -290.66666
+        attribute
+            control1x : 437.66666
+        attribute
+            control1y : -333.33334
+        attribute
+            control2x : 491.16666
+        attribute
+            control2y : -269.33334
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_54
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 160
+        attribute
+            objecttype : 1
+        attribute
+            x : 740
+        attribute
+            y : 491
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_53
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 159
+        attribute
+            objecttype : 1
+        attribute
+            x : 134
+        attribute
+            y : 473
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_52
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 158
+        attribute
+            objecttype : 1
+        attribute
+            x : 730
+        attribute
+            y : 436
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_51
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 157
+        attribute
+            objecttype : 1
+        attribute
+            x : 141
+        attribute
+            y : 413
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_50
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 156
+        attribute
+            objecttype : 1
+        attribute
+            x : 656
+        attribute
+            y : -158
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_49
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 155
+        attribute
+            objecttype : 1
+        attribute
+            x : 656
+        attribute
+            y : -213
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_48
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 154
+        attribute
+            objecttype : 1
+        attribute
+            x : 277
+        attribute
+            y : -310
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_47
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 151
+        attribute
+            objecttype : 1
+        attribute
+            x : 412
+        attribute
+            y : 849
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_46
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 150
+        attribute
+            objecttype : 1
+        attribute
+            x : 327
+        attribute
+            y : 848
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_45
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 149
+        attribute
+            objecttype : 1
+        attribute
+            x : 245
+        attribute
+            y : 847
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_44
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 106
+        attribute
+            objecttype : 1
+        attribute
+            x : 58
+        attribute
+            y : 333
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_43
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 105
+        attribute
+            objecttype : 1
+        attribute
+            x : 510
+        attribute
+            y : 214
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_42
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 71
+        attribute
+            objecttype : 1
+        attribute
+            x : 300
+        attribute
+            y : 684
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_41
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 70
+        attribute
+            objecttype : 1
+        attribute
+            x : 984
+        attribute
+            y : 857
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_40
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 69
+        attribute
+            objecttype : 1
+        attribute
+            x : 895
+        attribute
+            y : 857
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_39
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 68
+        attribute
+            objecttype : 1
+        attribute
+            x : 808
+        attribute
+            y : 861
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_38
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 67
+        attribute
+            objecttype : 1
+        attribute
+            x : 544
+        attribute
+            y : 855
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_37
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 66
+        attribute
+            objecttype : 1
+        attribute
+            x : 142
+        attribute
+            y : 848
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_36
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 65
+        attribute
+            objecttype : 1
+        attribute
+            x : 57
+        attribute
+            y : 848
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_35
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 64
+        attribute
+            objecttype : 1
+        attribute
+            x : -24
+        attribute
+            y : 846
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_34
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 61
+        attribute
+            objecttype : 1
+        attribute
+            x : 853
+        attribute
+            y : 687
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_33
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 60
+        attribute
+            objecttype : 1
+        attribute
+            x : 553
+        attribute
+            y : 686
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_32
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 59
+        attribute
+            objecttype : 1
+        attribute
+            x : 69
+        attribute
+            y : 677
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_31
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 58
+        attribute
+            objecttype : 1
+        attribute
+            x : 81
+        attribute
+            y : -32
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_30
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 54
+        attribute
+            objecttype : 1
+        attribute
+            x : 633
+        attribute
+            y : -31
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_29
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 49
+        attribute
+            objecttype : 1
+        attribute
+            x : 602
+        attribute
+            y : 413
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_28
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 46
+        attribute
+            objecttype : 1
+        attribute
+            x : 593
+        attribute
+            y : -391
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_27
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 45
+        attribute
+            objecttype : 1
+        attribute
+            x : 486
+        attribute
+            y : -394
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_26
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 44
+        attribute
+            objecttype : 1
+        attribute
+            x : 382
+        attribute
+            y : -397
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_25
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 26
+        attribute
+            objecttype : 1
+        attribute
+            x : 873
+        attribute
+            y : 385
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_24
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 21
+        attribute
+            objecttype : 1
+        attribute
+            x : 821
+        attribute
+            y : -269
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_23
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 20
+        attribute
+            objecttype : 1
+        attribute
+            x : 83
+        attribute
+            y : -260
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_22
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 19
+        attribute
+            objecttype : 1
+        attribute
+            x : 489
+        attribute
+            y : -269
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_21
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 3
+        attribute
+            objecttype : 1
+        attribute
+            x : 259
+        attribute
+            y : 412
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_20
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 108
+        attribute
+            objecttype : 1
+        attribute
+            x : 732
+        attribute
+            y : 360
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_19
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 107
+        attribute
+            objecttype : 1
+        attribute
+            x : 357
+        attribute
+            y : 177
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_18
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 103
+        attribute
+            objecttype : 1
+        attribute
+            x : 345
+        attribute
+            y : 56
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.1
+END
+
+Token SerializedViewObject_0_17
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 75
+        attribute
+            objecttype : 1
+        attribute
+            x : 189
+        attribute
+            y : 725
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_16
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 74
+        attribute
+            objecttype : 1
+        attribute
+            x : 183
+        attribute
+            y : 663
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.1
+END
+
+Token SerializedViewObject_0_15
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 73
+        attribute
+            objecttype : 1
+        attribute
+            x : 417
+        attribute
+            y : 379
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.1
+END
+
+Token SerializedViewObject_0_14
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 63
+        attribute
+            objecttype : 1
+        attribute
+            x : 696
+        attribute
+            y : 677
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_13
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 62
+        attribute
+            objecttype : 1
+        attribute
+            x : 698
+        attribute
+            y : 739
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_12
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 23
+        attribute
+            objecttype : 1
+        attribute
+            x : 279
+        attribute
+            y : -192
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_11
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 22
+        attribute
+            objecttype : 1
+        attribute
+            x : 652
+        attribute
+            y : -308
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_10
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 15
+        attribute
+            objecttype : 1
+        attribute
+            x : 189
+        attribute
+            y : 337
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_9
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 113
+        attribute
+            objecttype : 1
+        attribute
+            x : 317
+        attribute
+            y : 329
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_8
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 112
+        attribute
+            objecttype : 1
+        attribute
+            x : 341
+        attribute
+            y : 281
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_7
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 111
+        attribute
+            objecttype : 1
+        attribute
+            x : 357
+        attribute
+            y : -101
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_6
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 110
+        attribute
+            objecttype : 1
+        attribute
+            x : 350
+        attribute
+            y : 229
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_5
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 101
+        attribute
+            objecttype : 1
+        attribute
+            x : 347
+        attribute
+            y : -51
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.2
+END
+
+Token SerializedViewObject_0_4
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 56
+        attribute
+            objecttype : 1
+        attribute
+            x : 353
+        attribute
+            y : 3
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_3
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 53
+        attribute
+            objecttype : 1
+        attribute
+            x : 421
+        attribute
+            y : 502
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_2
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 51
+        attribute
+            objecttype : 1
+        attribute
+            x : 412
+        attribute
+            y : 438
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.2
+END
+
+Token SerializedViewObject_0_1
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 25
+        attribute
+            objecttype : 1
+        attribute
+            x : 654
+        attribute
+            y : -255
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token SerializedViewObject_0_0
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            ID : 24
+        attribute
+            objecttype : 1
+        attribute
+            x : 278
+        attribute
+            y : -248
+        attribute
+            expanded : 0
+        attribute
+            hidden : 0
+        attribute
+            highlight : 0
+        attribute
+            end1x : 0.0
+        attribute
+            end1y : 0.0
+        attribute
+            start2x : 0.0
+        attribute
+            start2y : 0.0
+        attribute
+            control1x : 0.0
+        attribute
+            control1y : 0.0
+        attribute
+            control2x : 0.0
+        attribute
+            control2y : 0.0
+        attribute
+            scale : 1.0
+END
+
+Token Link_276
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_26
+        attribute, from
+            from : Element_160
+        attribute, name
+             : ""
+END
+
+Token Link_275
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_160
+        attribute, from
+            from : Element_49
+        attribute, name
+             : ""
+END
+
+Token Element_160
+    IN IStarTaskElement
+    WITH
+        attribute, name
+             : "send state changed commands"
+        attribute, links
+             : Link_275
+        attribute, links
+             : Link_276
+END
+
+Token Link_274
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_106
+        attribute, from
+            from : Element_159
+        attribute, name
+             : ""
+END
+
+Token Link_273
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_159
+        attribute, from
+            from : Element_3
+        attribute, name
+             : ""
+END
+
+Token Element_159
+    IN IStarTaskElement
+    WITH
+        attribute, name
+             : "send state changed commands"
+        attribute, links
+             : Link_273
+        attribute, links
+             : Link_274
+END
+
+Token Link_272
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_26
+        attribute, from
+            from : Element_158
+        attribute, name
+             : ""
+END
+
+Token Link_271
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_158
+        attribute, from
+            from : Element_49
+        attribute, name
+             : ""
+END
+
+Token Element_158
+    IN IStarResourceElement
+    WITH
+        attribute, links
+             : Link_271
+        attribute, links
+             : Link_272
+        attribute, name
+             : "command & data stream"
+END
+
+Token Link_270
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_106
+        attribute, from
+            from : Element_157
+        attribute, name
+             : ""
+END
+
+Token Link_269
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_157
+        attribute, from
+            from : Element_3
+        attribute, name
+             : ""
+END
+
+Token Element_157
+    IN IStarResourceElement
+    WITH
+        attribute, links
+             : Link_269
+        attribute, links
+             : Link_270
+        attribute, name
+             : "command & data stream"
+END
+
+Token Link_268
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_19
+        attribute, from
+            from : Element_156
+        attribute, name
+             : ""
+END
+
+Token Link_267
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_156
+        attribute, from
+            from : Element_21
+        attribute, name
+             : ""
+END
+
+Token Element_156
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "minimize processing errors"
+        attribute, links
+             : Link_267
+        attribute, links
+             : Link_268
+END
+
+Token Link_266
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_19
+        attribute, from
+            from : Element_155
+        attribute, name
+             : ""
+END
+
+Token Link_265
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_155
+        attribute, from
+            from : Element_21
+        attribute, name
+             : ""
+END
+
+Token Element_155
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "performance"
+        attribute, links
+             : Link_265
+        attribute, links
+             : Link_266
+END
+
+Token Link_264
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_20
+        attribute, from
+            from : Element_154
+        attribute, name
+             : ""
+END
+
+Token Link_263
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_154
+        attribute, from
+            from : Element_19
+        attribute, name
+             : ""
+END
+
+Token Element_154
+    IN IStarTaskElement
+    WITH
+        attribute, name
+             : "send state changed commands"
+        attribute, links
+             : Link_263
+        attribute, links
+             : Link_264
+END
+
+Token Link_215
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_151
+        attribute, to
+            to : Element_71
+END
+
+Token Link_214
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_150
+        attribute, to
+            to : Element_71
+END
+
+Token Link_213
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_149
+        attribute, to
+            to : Element_71
+END
+
+Token Element_151
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_215
+        attribute, name
+             : "data stream redirector"
+END
+
+Token Element_150
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_214
+        attribute, name
+             : "state manager"
+END
+
+Token Element_149
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_213
+        attribute, name
+             : "command interpreter"
+END
+
+Token Link_170
+    IN IStarISALink
+    WITH
+        attribute, to
+            to : Element_21
+        attribute, from
+            from : Element_106
+        attribute, name
+             : "ISA"
+END
+
+Token Link_169
+    IN IStarISALink
+    WITH
+        attribute, to
+            to : Element_21
+        attribute, from
+            from : Element_26
+        attribute, name
+             : "ISA"
+END
+
+Token Link_168
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_113
+        attribute, from
+            from : Element_58
+        attribute, name
+             : ""
+END
+
+Token Link_167
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_113
+        attribute, name
+             : ""
+END
+
+Token Element_113
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "reuse"
+        attribute, links
+             : Link_167
+        attribute, links
+             : Link_168
+END
+
+Token Link_166
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_112
+        attribute, name
+             : ""
+END
+
+Token Link_165
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_112
+        attribute, from
+            from : Element_58
+        attribute, name
+             : ""
+END
+
+Token Element_112
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "performance"
+        attribute, links
+             : Link_165
+        attribute, links
+             : Link_166
+END
+
+Token Link_164
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_58
+        attribute, from
+            from : Element_111
+        attribute, name
+             : ""
+END
+
+Token Link_163
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_111
+        attribute, from
+            from : Element_54
+        attribute, name
+             : ""
+END
+
+Token Element_111
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "performance"
+        attribute, links
+             : Link_163
+        attribute, links
+             : Link_164
+END
+
+Token Link_162
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_110
+        attribute, name
+             : ""
+END
+
+Token Link_161
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_110
+        attribute, from
+            from : Element_58
+        attribute, name
+             : ""
+END
+
+Token Element_110
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_161
+        attribute, links
+             : Link_162
+        attribute, name
+             : "evolved components in controller"
+END
+
+Token Link_160
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_49
+        attribute, from
+            from : Element_108
+        attribute, name
+             : ""
+END
+
+Token Link_159
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_108
+        attribute, from
+            from : Element_26
+        attribute, name
+             : ""
+END
+
+Token Link_158
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_3
+        attribute, from
+            from : Element_15
+        attribute, name
+             : ""
+END
+
+Token Element_108
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : "exclusive telephone set ownership be granted"
+        attribute, links
+             : Link_159
+        attribute, links
+             : Link_160
+END
+
+Token Link_153
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_15
+        attribute, from
+            from : Element_106
+        attribute, name
+             : ""
+END
+
+Token Link_152
+    IN IStarPartsLink
+    WITH
+        attribute, to
+            to : Element_58
+        attribute, from
+            from : Element_106
+        attribute, name
+             : "Is-Part-of"
+END
+
+Token Link_148
+    IN IStarPartsLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_49
+        attribute, name
+             : "Is-Part-of"
+END
+
+Token Link_147
+    IN IStarPartsLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_3
+        attribute, name
+             : "Is-Part-of"
+END
+
+Token Link_146
+    IN IStarISALink
+    WITH
+        attribute, to
+            to : Element_19
+        attribute, from
+            from : Element_105
+        attribute, name
+             : "ISA"
+END
+
+Token Link_144
+    IN IStarPartsLink
+    WITH
+        attribute, to
+            to : Element_58
+        attribute, from
+            from : Element_105
+        attribute, name
+             : "Is-Part-of"
+END
+
+Token Link_143
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_105
+        attribute, from
+            from : Element_107
+        attribute, name
+             : ""
+END
+
+Token Link_142
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_107
+        attribute, from
+            from : Element_58
+        attribute, name
+             : ""
+END
+
+Token Element_107
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : "WML infrastructure be external controller based"
+        attribute, links
+             : Link_142
+        attribute, links
+             : Link_143
+END
+
+Token Element_106
+    IN IStarRoleElement
+    WITH
+        attribute, name
+             : "new applications"
+        attribute, links
+             : Link_152
+        attribute, links
+             : Link_153
+        attribute, links
+             : Link_170
+        attribute, links
+             : Link_270
+        attribute, links
+             : Link_274
+END
+
+Token Element_105
+    IN IStarRoleElement
+    WITH
+        attribute, name
+             : "shared controllers"
+        attribute, links
+             : Link_143
+        attribute, links
+             : Link_144
+        attribute, links
+             : Link_146
+        attribute, links
+             : Link_147
+        attribute, links
+             : Link_148
+        attribute, links
+             : Link_162
+        attribute, links
+             : Link_166
+        attribute, links
+             : Link_167
+END
+
+Token Link_141
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_58
+        attribute, from
+            from : Element_103
+        attribute, name
+             : ""
+END
+
+Token Link_140
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_103
+        attribute, from
+            from : Element_54
+        attribute, name
+             : ""
+END
+
+Token Element_103
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_140
+        attribute, links
+             : Link_141
+        attribute, name
+             : "service creation infrastructure be WML based"
+END
+
+Token Link_135
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_54
+        attribute, from
+            from : Element_101
+        attribute, name
+             : ""
+END
+
+Token Link_134
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_101
+        attribute, from
+            from : Element_58
+        attribute, name
+             : ""
+END
+
+Token Element_101
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_134
+        attribute, links
+             : Link_135
+        attribute, name
+             : "evolved components in legacy system"
+END
+
+Token Link_107
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_75
+        attribute, to
+            to : Element_59
+END
+
+Token Link_106
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_71
+        attribute, to
+            to : Element_75
+END
+
+Token Element_75
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_107
+        attribute, links
+             : Link_106
+        attribute, name
+             : "new application data stream redirected"
+END
+
+Token Link_105
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_74
+        attribute, to
+            to : Element_59
+END
+
+Token Link_104
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_71
+        attribute, to
+            to : Element_74
+END
+
+Token Element_74
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_105
+        attribute, links
+             : Link_104
+        attribute, name
+             : "legacy data stream & command provided"
+END
+
+Token Link_103
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_73
+        attribute, to
+            to : Element_3
+END
+
+Token Link_102
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_73
+END
+
+Token Element_73
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_103
+        attribute, links
+             : Link_102
+        attribute, name
+             : "legacy data & signal stream provided"
+END
+
+Token Element_71
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_215
+        attribute, links
+             : Link_214
+        attribute, links
+             : Link_213
+        attribute, links
+             : Link_106
+        attribute, links
+             : Link_104
+        attribute, name
+             : "legacy controller"
+END
+
+Token Link_101
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_70
+        attribute, to
+            to : Element_61
+END
+
+Token Link_100
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_69
+        attribute, to
+            to : Element_61
+END
+
+Token Link_99
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_68
+        attribute, to
+            to : Element_61
+END
+
+Token Element_70
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_101
+        attribute, name
+             : "data stream redirector"
+END
+
+Token Element_69
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_100
+        attribute, name
+             : "legacy and new state manager"
+END
+
+Token Element_68
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_99
+        attribute, name
+             : "legacy and new command interpreter"
+END
+
+Token Link_98
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_67
+        attribute, to
+            to : Element_60
+END
+
+Token Element_67
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_98
+        attribute, name
+             : "data stream redirector"
+END
+
+Token Link_97
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_66
+        attribute, to
+            to : Element_59
+END
+
+Token Element_66
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_97
+        attribute, name
+             : "data stream redirector"
+END
+
+Token Link_96
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_65
+        attribute, to
+            to : Element_59
+END
+
+Token Element_65
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_96
+        attribute, name
+             : "state manager"
+END
+
+Token Link_95
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_64
+        attribute, to
+            to : Element_59
+END
+
+Token Element_64
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_95
+        attribute, name
+             : "command interpreter"
+END
+
+Token Link_94
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_63
+        attribute, to
+            to : Element_60
+END
+
+Token Link_93
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_61
+        attribute, to
+            to : Element_63
+END
+
+Token Element_63
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_94
+        attribute, links
+             : Link_93
+        attribute, name
+             : "new application data stream redirected"
+END
+
+Token Link_92
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_62
+        attribute, to
+            to : Element_61
+END
+
+Token Link_91
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_60
+        attribute, to
+            to : Element_62
+END
+
+Token Element_62
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : "redirection notified"
+        attribute, links
+             : Link_92
+        attribute, links
+             : Link_91
+END
+
+Token Element_61
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_101
+        attribute, links
+             : Link_100
+        attribute, links
+             : Link_99
+        attribute, links
+             : Link_93
+        attribute, links
+             : Link_92
+        attribute, name
+             : "enhanced legacy controller"
+END
+
+Token Link_90
+    IN IStarISALink
+    WITH
+        attribute, name
+             : "ISA"
+        attribute, from
+            from : Element_60
+        attribute, to
+            to : Element_3
+END
+
+Token Element_60
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_98
+        attribute, links
+             : Link_94
+        attribute, links
+             : Link_91
+        attribute, links
+             : Link_90
+        attribute, name
+             : "stateless new controller"
+END
+
+Token Link_89
+    IN IStarISALink
+    WITH
+        attribute, name
+             : "ISA"
+        attribute, from
+            from : Element_59
+        attribute, to
+            to : Element_3
+END
+
+Token Element_59
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_107
+        attribute, links
+             : Link_105
+        attribute, links
+             : Link_97
+        attribute, links
+             : Link_96
+        attribute, links
+             : Link_95
+        attribute, links
+             : Link_89
+        attribute, name
+             : "stateful new controller"
+END
+
+Token Link_86
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_56
+        attribute, to
+            to : Element_58
+END
+
+Token Element_58
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_86
+        attribute, links
+             : Link_134
+        attribute, name
+             : "new system extension"
+        attribute, links
+             : Link_141
+        attribute, links
+             : Link_142
+        attribute, links
+             : Link_144
+        attribute, links
+             : Link_152
+        attribute, links
+             : Link_161
+        attribute, links
+             : Link_164
+        attribute, links
+             : Link_165
+        attribute, links
+             : Link_168
+END
+
+Token Link_80
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_54
+        attribute, to
+            to : Element_56
+END
+
+Token Element_56
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_86
+        attribute, links
+             : Link_80
+        attribute, name
+             : "maintain architectural integrity"
+END
+
+Token Link_79
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_54
+END
+
+Token Link_78
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_26
+        attribute, to
+            to : Element_54
+END
+
+Token Element_54
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_80
+        attribute, links
+             : Link_79
+        attribute, links
+             : Link_78
+        attribute, name
+             : "legacy system"
+        attribute, links
+             : Link_135
+        attribute, links
+             : Link_140
+        attribute, links
+             : Link_163
+END
+
+Token Link_77
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_53
+        attribute, to
+            to : Element_3
+END
+
+Token Link_76
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_53
+END
+
+Token Element_53
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_77
+        attribute, links
+             : Link_76
+        attribute, name
+             : "reuse existing sw"
+END
+
+Token Link_71
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_51
+        attribute, to
+            to : Element_3
+END
+
+Token Link_70
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_51
+END
+
+Token Element_51
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_71
+        attribute, links
+             : Link_70
+        attribute, name
+             : "reduce change to legacy controller"
+END
+
+Token Element_49
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_102
+        attribute, links
+             : Link_79
+        attribute, links
+             : Link_76
+        attribute, links
+             : Link_70
+        attribute, name
+             : "legacy controller"
+        attribute, links
+             : Link_148
+        attribute, links
+             : Link_160
+        attribute, links
+             : Link_271
+        attribute, links
+             : Link_275
+END
+
+Token Link_55
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_46
+        attribute, to
+            to : Element_19
+END
+
+Token Link_54
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_45
+        attribute, to
+            to : Element_19
+END
+
+Token Link_53
+    IN IStarPartsLink
+    WITH
+        attribute, name
+             : "Is-Part-of"
+        attribute, from
+            from : Element_44
+        attribute, to
+            to : Element_19
+END
+
+Token Element_46
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_55
+        attribute, name
+             : "data stream redirector"
+END
+
+Token Element_45
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_54
+        attribute, name
+             : "state manager"
+END
+
+Token Element_44
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_53
+        attribute, name
+             : "command interpreter"
+END
+
+Token Element_26
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_78
+        attribute, name
+             : "legacy application"
+        attribute, links
+             : Link_159
+        attribute, links
+             : Link_169
+        attribute, links
+             : Link_272
+        attribute, links
+             : Link_276
+END
+
+Token Link_27
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_25
+        attribute, to
+            to : Element_19
+END
+
+Token Link_26
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_21
+        attribute, to
+            to : Element_25
+END
+
+Token Element_25
+    IN IStarResourceElement
+    WITH
+        attribute, links
+             : Link_27
+        attribute, links
+             : Link_26
+        attribute, name
+             : "data stream"
+END
+
+Token Link_25
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_24
+        attribute, to
+            to : Element_20
+END
+
+Token Link_24
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_19
+        attribute, to
+            to : Element_24
+END
+
+Token Element_24
+    IN IStarResourceElement
+    WITH
+        attribute, links
+             : Link_25
+        attribute, links
+             : Link_24
+        attribute, name
+             : "command & data stream"
+END
+
+Token Link_23
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_23
+        attribute, to
+            to : Element_19
+END
+
+Token Link_22
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_20
+        attribute, to
+            to : Element_23
+END
+
+Token Element_23
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_23
+        attribute, links
+             : Link_22
+        attribute, name
+             : "be shared"
+END
+
+Token Link_21
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_22
+        attribute, to
+            to : Element_19
+END
+
+Token Link_20
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_21
+        attribute, to
+            to : Element_22
+END
+
+Token Element_22
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_21
+        attribute, links
+             : Link_20
+        attribute, name
+             : "exclusive ownership granted"
+END
+
+Token Element_21
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_26
+        attribute, links
+             : Link_20
+        attribute, name
+             : "applications"
+        attribute, links
+             : Link_169
+        attribute, links
+             : Link_170
+        attribute, links
+             : Link_265
+        attribute, links
+             : Link_267
+END
+
+Token Element_20
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_25
+        attribute, links
+             : Link_22
+        attribute, name
+             : "shared device"
+        attribute, links
+             : Link_264
+END
+
+Token Element_19
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_55
+        attribute, links
+             : Link_54
+        attribute, links
+             : Link_53
+        attribute, links
+             : Link_27
+        attribute, links
+             : Link_24
+        attribute, links
+             : Link_23
+        attribute, links
+             : Link_21
+        attribute, name
+             : "device controller"
+        attribute, links
+             : Link_146
+        attribute, links
+             : Link_263
+        attribute, links
+             : Link_266
+        attribute, links
+             : Link_268
+END
+
+Token Element_15
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : "exclusive telephone set ownership granted"
+        attribute, links
+             : Link_153
+        attribute, links
+             : Link_158
+END
+
+Token Element_3
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_103
+        attribute, links
+             : Link_90
+        attribute, links
+             : Link_89
+        attribute, name
+             : "new controller"
+        attribute, links
+             : Link_77
+        attribute, links
+             : Link_71
+        attribute, links
+             : Link_147
+        attribute, links
+             : Link_158
+        attribute, links
+             : Link_269
+        attribute, links
+             : Link_273
+END
+
+Token SerializedView_0
+    IN SerializedView
+    WITH
+        attribute, view_objects
+             : SerializedViewObject_0_0
+        attribute, view_objects
+             : SerializedViewObject_0_1
+        attribute, view_objects
+             : SerializedViewObject_0_2
+        attribute, view_objects
+             : SerializedViewObject_0_3
+        attribute, view_objects
+             : SerializedViewObject_0_4
+        attribute, view_objects
+             : SerializedViewObject_0_5
+        attribute, view_objects
+             : SerializedViewObject_0_6
+        attribute, view_objects
+             : SerializedViewObject_0_7
+        attribute, view_objects
+             : SerializedViewObject_0_8
+        attribute, view_objects
+             : SerializedViewObject_0_9
+        attribute, view_objects
+             : SerializedViewObject_0_10
+        attribute, view_objects
+             : SerializedViewObject_0_11
+        attribute, view_objects
+             : SerializedViewObject_0_12
+        attribute, view_objects
+             : SerializedViewObject_0_13
+        attribute, view_objects
+             : SerializedViewObject_0_14
+        attribute, view_objects
+             : SerializedViewObject_0_15
+        attribute, view_objects
+             : SerializedViewObject_0_16
+        attribute, view_objects
+             : SerializedViewObject_0_17
+        attribute, view_objects
+             : SerializedViewObject_0_18
+        attribute, view_objects
+             : SerializedViewObject_0_19
+        attribute, view_objects
+             : SerializedViewObject_0_20
+        attribute, view_objects
+             : SerializedViewObject_0_21
+        attribute, view_objects
+             : SerializedViewObject_0_22
+        attribute, view_objects
+             : SerializedViewObject_0_23
+        attribute, view_objects
+             : SerializedViewObject_0_24
+        attribute, view_objects
+             : SerializedViewObject_0_25
+        attribute, view_objects
+             : SerializedViewObject_0_26
+        attribute, view_objects
+             : SerializedViewObject_0_27
+        attribute, view_objects
+             : SerializedViewObject_0_28
+        attribute, view_objects
+             : SerializedViewObject_0_29
+        attribute, view_objects
+             : SerializedViewObject_0_30
+        attribute, view_objects
+             : SerializedViewObject_0_31
+        attribute, view_objects
+             : SerializedViewObject_0_32
+        attribute, view_objects
+             : SerializedViewObject_0_33
+        attribute, view_objects
+             : SerializedViewObject_0_34
+        attribute, view_objects
+             : SerializedViewObject_0_35
+        attribute, view_objects
+             : SerializedViewObject_0_36
+        attribute, view_objects
+             : SerializedViewObject_0_37
+        attribute, view_objects
+             : SerializedViewObject_0_38
+        attribute, view_objects
+             : SerializedViewObject_0_39
+        attribute, view_objects
+             : SerializedViewObject_0_40
+        attribute, view_objects
+             : SerializedViewObject_0_41
+        attribute, view_objects
+             : SerializedViewObject_0_42
+        attribute, view_objects
+             : SerializedViewObject_0_43
+        attribute, view_objects
+             : SerializedViewObject_0_44
+        attribute, view_objects
+             : SerializedViewObject_0_45
+        attribute, view_objects
+             : SerializedViewObject_0_46
+        attribute, view_objects
+             : SerializedViewObject_0_47
+        attribute, view_objects
+             : SerializedViewObject_0_48
+        attribute, view_objects
+             : SerializedViewObject_0_49
+        attribute, view_objects
+             : SerializedViewObject_0_50
+        attribute, view_objects
+             : SerializedViewObject_0_51
+        attribute, view_objects
+             : SerializedViewObject_0_52
+        attribute, view_objects
+             : SerializedViewObject_0_53
+        attribute, view_objects
+             : SerializedViewObject_0_54
+        attribute, view_objects
+             : SerializedViewObject_0_55
+        attribute, view_objects
+             : SerializedViewObject_0_56
+        attribute, view_objects
+             : SerializedViewObject_0_57
+        attribute, view_objects
+             : SerializedViewObject_0_58
+        attribute, view_objects
+             : SerializedViewObject_0_59
+        attribute, view_objects
+             : SerializedViewObject_0_60
+        attribute, view_objects
+             : SerializedViewObject_0_61
+        attribute, view_objects
+             : SerializedViewObject_0_62
+        attribute, view_objects
+             : SerializedViewObject_0_63
+        attribute, view_objects
+             : SerializedViewObject_0_64
+        attribute, view_objects
+             : SerializedViewObject_0_65
+        attribute, view_objects
+             : SerializedViewObject_0_66
+        attribute, view_objects
+             : SerializedViewObject_0_67
+        attribute, view_objects
+             : SerializedViewObject_0_68
+        attribute, view_objects
+             : SerializedViewObject_0_69
+        attribute, view_objects
+             : SerializedViewObject_0_70
+        attribute, view_objects
+             : SerializedViewObject_0_71
+        attribute, view_objects
+             : SerializedViewObject_0_72
+        attribute, view_objects
+             : SerializedViewObject_0_73
+        attribute, view_objects
+             : SerializedViewObject_0_74
+        attribute, view_objects
+             : SerializedViewObject_0_75
+        attribute, view_objects
+             : SerializedViewObject_0_76
+        attribute, view_objects
+             : SerializedViewObject_0_77
+        attribute, view_objects
+             : SerializedViewObject_0_78
+        attribute, view_objects
+             : SerializedViewObject_0_79
+        attribute, view_objects
+             : SerializedViewObject_0_80
+        attribute, view_objects
+             : SerializedViewObject_0_81
+        attribute, view_objects
+             : SerializedViewObject_0_82
+        attribute, view_objects
+             : SerializedViewObject_0_83
+        attribute, view_objects
+             : SerializedViewObject_0_84
+        attribute, view_objects
+             : SerializedViewObject_0_85
+        attribute, view_objects
+             : SerializedViewObject_0_86
+        attribute, view_objects
+             : SerializedViewObject_0_87
+        attribute, view_objects
+             : SerializedViewObject_0_88
+        attribute, view_objects
+             : SerializedViewObject_0_89
+        attribute, view_objects
+             : SerializedViewObject_0_90
+        attribute, view_objects
+             : SerializedViewObject_0_91
+        attribute, view_objects
+             : SerializedViewObject_0_92
+        attribute, view_objects
+             : SerializedViewObject_0_93
+        attribute, view_objects
+             : SerializedViewObject_0_94
+        attribute, view_objects
+             : SerializedViewObject_0_95
+        attribute, view_objects
+             : SerializedViewObject_0_96
+        attribute, view_objects
+             : SerializedViewObject_0_97
+        attribute, view_objects
+             : SerializedViewObject_0_98
+        attribute, view_objects
+             : SerializedViewObject_0_99
+        attribute, view_objects
+             : SerializedViewObject_0_100
+        attribute, view_objects
+             : SerializedViewObject_0_101
+        attribute, view_objects
+             : SerializedViewObject_0_102
+        attribute, view_objects
+             : SerializedViewObject_0_103
+        attribute, view_objects
+             : SerializedViewObject_0_104
+        attribute, view_objects
+             : SerializedViewObject_0_105
+        attribute, view_objects
+             : SerializedViewObject_0_106
+        attribute, view_objects
+             : SerializedViewObject_0_107
+        attribute, view_objects
+             : SerializedViewObject_0_108
+        attribute, view_objects
+             : SerializedViewObject_0_109
+        attribute, view_objects
+             : SerializedViewObject_0_110
+        attribute, view_objects
+             : SerializedViewObject_0_111
+        attribute, view_objects
+             : SerializedViewObject_0_112
+        attribute, view_objects
+             : SerializedViewObject_0_113
+        attribute, view_objects
+             : SerializedViewObject_0_114
+        attribute, view_objects
+             : SerializedViewObject_0_115
+        attribute, view_objects
+             : SerializedViewObject_0_116
+        attribute, view_objects
+             : SerializedViewObject_0_117
+        attribute, view_objects
+             : SerializedViewObject_0_118
+        attribute, view_objects
+             : SerializedViewObject_0_119
+        attribute, view_objects
+             : SerializedViewObject_0_120
+        attribute, view_objects
+             : SerializedViewObject_0_121
+        attribute, view_objects
+             : SerializedViewObject_0_122
+        attribute, view_objects
+             : SerializedViewObject_0_123
+        attribute, view_objects
+             : SerializedViewObject_0_124
+        attribute, view_objects
+             : SerializedViewObject_0_125
+        attribute, view_objects
+             : SerializedViewObject_0_126
+        attribute, view_objects
+             : SerializedViewObject_0_127
+        attribute, view_objects
+             : SerializedViewObject_0_128
+        attribute, view_objects
+             : SerializedViewObject_0_129
+        attribute, view_objects
+             : SerializedViewObject_0_130
+        attribute, view_objects
+             : SerializedViewObject_0_131
+        attribute, view_objects
+             : SerializedViewObject_0_132
+        attribute, view_objects
+             : SerializedViewObject_0_133
+        attribute, view_objects
+             : SerializedViewObject_0_134
+END
+
+SimpleClass IStarRoleElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Role"
+        attribute, attribute, imagename
+             : "Role.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarPositionElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Position"
+        attribute, attribute, imagename
+             : "Position.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarAgentElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Agent"
+        attribute, attribute, imagename
+             : "Agent.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarActorElement
+    IN IStarClass, IStarActorElementClass, OMEInstantiableClass
+    ISA IStarElement, OMEGrowableElement
+    WITH
+        attribute
+            children : IStarIntentionalElement
+        attribute, attribute, name
+             : "Actor"
+        attribute, attribute, imagename
+             : "Actor.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Goal"
+        attribute, attribute, imagename
+             : "Goal.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+END
+
+SimpleClass IStarTaskElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Task"
+        attribute, attribute, imagename
+             : "Task.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+END
+
+SimpleClass IStarSoftGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Softgoal"
+        attribute, attribute, imagename
+             : "Softgoal.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+END
+
+SimpleClass IStarResourceElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Resource"
+        attribute, attribute, imagename
+             : "Resource.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+END
+
+SimpleClass IstarUseCaseStartingElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "use-case-starting-point"
+        attribute, attribute, imagename
+             : "use-case-starting-point.gif"
+        attribute, attribute, imagesize
+            width : 40
+        attribute, attribute, imagesize
+            height : 40
+END
+
+SimpleClass IstarUseCaseEndingElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "use-case-ending-point"
+        attribute, attribute, imagename
+             : "use-case-ending-point.gif"
+        attribute, attribute, imagesize
+            width : 10
+        attribute, attribute, imagesize
+            height : 40
+END
+
+SimpleClass IStarIntentionalElement
+    IN IStarClass, OMEElementClass, OMEVisibleClass
+    ISA IStarElement
+    WITH
+        attribute
+            parent : IStarActorElement
+        attribute, imagesize, attribute
+            width : 80
+        attribute, imagesize, attribute
+            height : 50
+END
+
+SimpleClass IStarElement
+    IN IStarClass
+    ISA OMEElement
+    WITH
+        attribute
+            name : String
+END
+
+SimpleClass IStarDependencyLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "Dependency link"
+        attribute, attribute, imagename
+             : "Dependency.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+END
+
+SimpleClass IStarDecompositionLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarTaskElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Decomposition link"
+        attribute, attribute, imagename
+             : "Decomposition.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+END
+
+SimpleClass IStarContributionLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarSoftGoalElement
+        attribute
+            from : OMEElement
+        attribute, attribute, name
+             : "Contribution link"
+        attribute, attribute, imagename
+             : "Contribution.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+END
+
+SimpleClass IStarMeansEndsLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarGoalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Means-ends link"
+        attribute, attribute, imagename
+             : "Means-Ends.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+END
+
+SimpleClass IStarISALink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarActorElement
+        attribute
+            from : IStarActorElement
+        attribute, attribute, name
+             : "ISA"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "ISA"
+END
+
+SimpleClass IStarINSLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarActorElement
+        attribute
+            from : IStarActorElement
+        attribute, attribute, name
+             : "INS"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "INS"
+END
+
+SimpleClass IStarPlaysLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarRoleElement
+        attribute
+            from : IStarAgentElement
+        attribute, attribute, name
+             : "Plays"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "PLAYS"
+END
+
+SimpleClass IStarOccupiesLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarPositionElement
+        attribute
+            from : IStarAgentElement
+        attribute, attribute, name
+             : "Occupies"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "OCCUPIES"
+END
+
+SimpleClass IStarCoversLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarRoleElement
+        attribute
+            from : IStarPositionElement
+        attribute, attribute, name
+             : "Covers"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "COVERS"
+END
+
+SimpleClass IStarPartsLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarActorElement
+        attribute
+            from : IStarActorElement
+        attribute, attribute, name
+             : "Is-Part-of"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "Is-Part-of"
+END
+
+SimpleClass IStarTemporalLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarIntentionalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Prior-to"
+        attribute, attribute, imagename
+             : "prior-to.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, stroke
+             : "widened"
+END
+
+SimpleClass IStarOrTemporalLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarIntentionalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "T_OR"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, stroke
+             : "widened"
+        attribute, attribute, defaultname
+             : "Or"
+END
+
+SimpleClass IStarAndTemporalLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarIntentionalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "T_And"
+        attribute, attribute, imagename
+             : "Decomposition.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, stroke
+             : "widened"
+        attribute, attribute, defaultname
+             : "T_And"
+END
+
+SimpleClass IStarFailTemporalLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarIntentionalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Failure"
+        attribute, attribute, imagename
+             : "Fail.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, stroke
+             : "widened"
+END
+
+SimpleClass IStarSharedTemporalLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarIntentionalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Shared"
+        attribute, attribute, imagename
+             : "Shared.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, stroke
+             : "widened"
+END
+
+SimpleClass IStarLink
+    IN IStarLinkClass, OMEVisibleClass
+    ISA OMELink
+    WITH
+        attribute
+            name : String
+        attribute, imagesize, attribute
+            height : 20
+        attribute, imagesize, attribute
+            width : 20
+END
+
+SimpleClass OMEGrowableElement
+    IN OMEGrowableElementClass
+    ISA OMEElement
+    WITH
+        attribute
+            children : OMEElement
+END
+
+SimpleClass OMEElement
+    IN OMEElementClass
+    ISA OMEObject
+    WITH
+        attribute
+            parent : OMEElement
+END
+
+SimpleClass OMELink
+    IN OMELinkClass
+    ISA OMEObject
+    WITH
+        attribute
+            to : OMEObject
+        attribute
+            from : OMEObject
+END
+
+SimpleClass OMEObject
+    IN OMEObjectClass
+    WITH
+        attribute
+            name : String
+        attribute
+            links : OMELink
+        attribute, OMEValueAttributes
+            comment : String
+END
+
+SimpleClass SerializedView
+    WITH
+        attribute
+            view_objects : Token
+END
+
+SimpleClass SerializedObject
+    WITH
+        attribute
+            type : String
+END
+
+MetaClass IStarLinkClass
+    ISA IStarClass, OMELinkClass
+END
+
+MetaClass IStarActorElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarIntentionalElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarElementClass
+    ISA IStarClass, OMEElementClass
+END
+
+MetaClass IStarClass
+    ISA OMEObjectClass
+END
+
+MetaClass OMEInstantiableClass
+    ISA OMEClass, OMEVisibleClass
+    WITH
+        attribute
+            autogui : Integer
+END
+
+MetaClass OMEVisibleClass
+    ISA OMEClass
+    WITH
+        attribute
+            imagename : String
+        attribute
+            imagesize : Integer
+        attribute
+            name : String
+END
+
+MetaClass OMEGrowableElementClass
+    ISA OMEObjectClass, OMEElementClass
+END
+
+MetaClass OMEElementClass
+    ISA OMEObjectClass
+END
+
+MetaClass OMELinkClass
+    ISA OMEObjectClass
+    WITH
+        attribute
+            stroke : String
+END
+
+MetaClass OMEObjectClass
+    ISA OMEClass
+    WITH
+        attribute
+            OMEAttributes : OMEAttributeMetaClass
+        attribute
+            defaultname : String
+        attribute
+            OMEValueAttributes : SClass
+END
+
+MetaClass OMEClass
+END
+
+MetaClass OMEAttributeClass
+    WITH
+        attribute
+            name : String
+        attribute
+            imagename : String
+        attribute
+            imagesize : Integer
+        attribute
+            imageposition : Integer
+END
+
+MetaMetaClass OMEAttributeMetaClass
+END
+

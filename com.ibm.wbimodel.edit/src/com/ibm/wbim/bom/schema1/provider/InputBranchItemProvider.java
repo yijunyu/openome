@@ -81,8 +81,10 @@ public class InputBranchItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputBranch_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputBranch_name_feature", "_UI_InputBranch_type"),
-				 Schema1Package.eINSTANCE.getInputBranch_Name(),
+				 Schema1Package.Literals.INPUT_BRANCH__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -99,7 +101,7 @@ public class InputBranchItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInputBranch_Input());
+			childrenFeatures.add(Schema1Package.Literals.INPUT_BRANCH__INPUT);
 		}
 		return childrenFeatures;
 	}
@@ -111,7 +113,7 @@ public class InputBranchItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/InputBranch");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputBranch"));
 	}
 
 	/**
@@ -160,7 +162,7 @@ public class InputBranchItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInputBranch_Input(),
+				(Schema1Package.Literals.INPUT_BRANCH__INPUT,
 				 Schema1Factory.eINSTANCE.createInput()));
 	}
 

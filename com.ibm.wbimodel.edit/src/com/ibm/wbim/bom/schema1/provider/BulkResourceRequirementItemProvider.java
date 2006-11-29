@@ -83,8 +83,10 @@ public class BulkResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_BulkResourceRequirement_bulkResource_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BulkResourceRequirement_bulkResource_feature", "_UI_BulkResourceRequirement_type"),
-				 Schema1Package.eINSTANCE.getBulkResourceRequirement_BulkResource(),
+				 Schema1Package.Literals.BULK_RESOURCE_REQUIREMENT__BULK_RESOURCE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,8 +105,10 @@ public class BulkResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_BulkResourceRequirement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BulkResourceRequirement_name_feature", "_UI_BulkResourceRequirement_type"),
-				 Schema1Package.eINSTANCE.getBulkResourceRequirement_Name(),
+				 Schema1Package.Literals.BULK_RESOURCE_REQUIREMENT__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -123,8 +127,10 @@ public class BulkResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_BulkResourceRequirement_timeRequired_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BulkResourceRequirement_timeRequired_feature", "_UI_BulkResourceRequirement_type"),
-				 Schema1Package.eINSTANCE.getBulkResourceRequirement_TimeRequired(),
+				 Schema1Package.Literals.BULK_RESOURCE_REQUIREMENT__TIME_REQUIRED,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -141,7 +147,7 @@ public class BulkResourceRequirementItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResourceRequirement_ResourceQuantity());
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE_REQUIREMENT__RESOURCE_QUANTITY);
 		}
 		return childrenFeatures;
 	}
@@ -153,7 +159,7 @@ public class BulkResourceRequirementItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/BulkResourceRequirement");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BulkResourceRequirement"));
 	}
 
 	/**
@@ -204,7 +210,7 @@ public class BulkResourceRequirementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResourceRequirement_ResourceQuantity(),
+				(Schema1Package.Literals.BULK_RESOURCE_REQUIREMENT__RESOURCE_QUANTITY,
 				 Schema1Factory.eINSTANCE.createQuantity()));
 	}
 

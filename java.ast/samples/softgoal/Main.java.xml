@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:goalmodel="http://www.cs.toronto.edu/km/goalmodel">
+  <goalmodel:Goal name="NOP" type="AND">
+    <goal name="NOP" type="AND">
+      <goal name="NOP" type="AND">
+        <goal name="NOP"/>
+        <property name="annotation" value="if (instance == null)"/>
+      </goal>
+      <goal name="instance=new Main()"/>
+    </goal>
+  </goalmodel:Goal>
+  <goalmodel:Goal name="NOP" type="AND">
+    <goal name="addNativeJarsToClasspath()"/>
+    <goal name="setLibraryPath()"/>
+    <goal name="Main.getInstance().run(args)"/>
+  </goalmodel:Goal>
+  <goalmodel:Goal name="NOP" type="AND">
+    <goal name="NOP" type="AND">
+      <goal name="NOP"/>
+      <property name="annotation" value="if (OSInfo.isLinux())"/>
+    </goal>
+    <goal name="NOP" type="AND">
+      <goal name="NOP"/>
+      <property name="annotation" value="if (OSInfo.isWin32Platform())"/>
+    </goal>
+    <goal name="fieldSysPath.setAccessible(true)"/>
+    <goal name="NOP" type="AND">
+      <goal name="NOP"/>
+      <property name="annotation" value="if (fieldSysPath != null)"/>
+    </goal>
+  </goalmodel:Goal>
+  <goalmodel:Goal name="NOP" type="AND">
+    <goal name="NOP" type="AND">
+      <goal name="NOP"/>
+      <property name="annotation" value="if (OSInfo.isLinux())"/>
+    </goal>
+    <goal name="nativeDir=new File(&quot;native/linux/lib&quot;)"/>
+    <goal name="NOP" type="AND">
+      <goal name="NOP"/>
+      <property name="annotation" value="if (OSInfo.isWin32Platform())"/>
+    </goal>
+    <goal name="nativeDir=new File(&quot;native/win32/lib&quot;)"/>
+    <goal name="NOP" type="AND">
+      <goal name="NOP" type="AND">
+        <goal name="NOP" type="AND">
+          <goal name="ucp.setAccessible(true)"/>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="urlList.add(nativeJars[i].toURL())"/>
+            </goal>
+            <property name="annotation" value="for (i &lt; nativeJars.length)"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="urlList.add(currentURLs[i])"/>
+            </goal>
+            <property name="annotation" value="for (i &lt; currentURLs.length)"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="ColumbaLogger.createDefaultHandler()"/>
+              <property name="annotation" value="if (maintainability_logging)"/>
+            </goal>
+            <goal name="registerCommandLineArguments()"/>
+            <goal name="initial_configuration_with_selected_profile(profile)"/>
+            <goal name="NOP" type="AND">
+              <goal name="initialize_default_logging(args)"/>
+              <property name="annotation" value="if (maintainability_logging)"/>
+            </goal>
+            <goal name="SessionController.passToRunningSessionAndExit(args)"/>
+            <goal name="NOP" type="AND">
+              <goal name="enable_debugging_repaint_manager_for_swing_gui_access()"/>
+              <property name="annotation" value="if (maintainability_debugging)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="NOP" type="AND">
+                <goal name="frame=show_splash_screen()"/>
+              </goal>
+              <property name="annotation" value="if (usability_assured_progress)"/>
+            </goal>
+            <goal name="add_tray_icon_to_system_tray()"/>
+            <goal name="register_protocol_handler()"/>
+            <goal name="NOP" type="AND">
+              <goal name="load_user_customized_language_pack()"/>
+              <property name="annotation" value="if (usability_language_customization)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="load_available_plugins()"/>
+              <property name="annotation" value="if (extensibility)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="set_look_and_feel()"/>
+              <property name="annotation" value="if (usability_look_and_feel)"/>
+            </goal>
+            <goal name="init_font_configuration()"/>
+            <goal name="NOP" type="AND">
+              <goal name="set_application_wide_font()"/>
+              <property name="annotation" value="if (usability_font_configuration)"/>
+            </goal>
+            <goal name="restore_frame_of_last_session()"/>
+            <goal name="NOP" type="AND">
+              <goal name="hide_splash_screen(frame)"/>
+              <property name="annotation" value="if (usability_assured_progress)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="handle_command_line_arguments(handler)"/>
+              <property name="annotation" value="if (extensibility)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="post_startup_of_the_modules(handler)"/>
+              <property name="annotation" value="if (extensibility)"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="ColumbaTrayIcon.getInstance().addToSystemTray()"/>
+            </goal>
+            <goal name="NOP" type="AND">
+              <goal name="RepaintManager.setCurrentManager(new DebugRepaintManager())"/>
+            </goal>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="handler.postStartup()"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="NOP" type="AND">
+                <goal name="frame.setVisible(false)"/>
+              </goal>
+              <property name="annotation" value="if (frame != null)"/>
+            </goal>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="NOP" type="AND">
+                <goal name="FrameModel.getInstance().openStoredViews()"/>
+              </goal>
+              <property name="annotation" value="if (restoreLastSession)"/>
+            </goal>
+          </goal>
+          <goal name="NOP"/>
+          <goal name="NOP" type="AND">
+            <goal name="FontProperties.setFont()"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="new FontProperties()"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="ThemeSwitcher.setTheme()"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="PluginManager.getInstance().initPlugins()"/>
+          </goal>
+          <goal name="NOP" type="AND">
+            <goal name="BackgroundTaskManager.getInstance().register(task)"/>
+            <goal name="ShutdownManager.getShutdownManager().register(task)"/>
+            <goal name="NOP"/>
+            <goal name="handler=(ComponentPluginHandler)PluginManager.getInstance().getHandler(&quot;org.columba.core.component&quot;)"/>
+            <goal name="NOP" type="AND">
+              <goal name="e.printStackTrace()"/>
+            </goal>
+            <goal name="handler.init()"/>
+            <goal name="NOP" type="AND">
+              <goal name="GlobalResourceLoader.loadLanguage()"/>
+            </goal>
+          </goal>
+          <property name="annotation" value="if (nativeJars == null)"/>
+        </goal>
+        <goal name="NOP"/>
+        <goal name="NOP" type="AND">
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="frame=new StartUpFrame()"/>
+            </goal>
+            <property name="annotation" value="if (showSplashScreen)"/>
+          </goal>
+          <goal name="frame.setVisible(true)"/>
+          <goal name="NOP" type="AND">
+            <goal name="ColumbaLogger.createDefaultHandler()"/>
+            <goal name="ColumbaLogger.createDefaultFileHandler()"/>
+            <goal name="NOP" type="AND">
+              <goal name="NOP" type="AND">
+                <goal name="LOG.info(&quot;arg[&quot; + i + &quot;]=&quot;+ arg"/>
+              </goal>
+              <property name="annotation" value="for (i &lt; args.length)"/>
+            </goal>
+          </goal>
+        </goal>
+        <goal name="NOP" type="AND">
+          <goal name="new Config(profile.getLocation())"/>
+        </goal>
+        <goal name="NOP" type="AND">
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="NOP" type="AND">
+                <goal name="System.exit(0)"/>
+              </goal>
+              <property name="annotation" value="if (handleCoreCommandLineParameters(args))"/>
+            </goal>
+          </goal>
+        </goal>
+        <goal name="NOP" type="AND">
+          <goal name="NOP" type="AND">
+            <goal name="handler=(ComponentPluginHandler)PluginManager.getInstance().getHandler(&quot;org.columba.core.component&quot;)"/>
+          </goal>
+          <goal name="handler.registerCommandLineArguments()"/>
+          <goal name="NOP" type="AND">
+            <goal name="e.printStackTrace()"/>
+          </goal>
+        </goal>
+        <goal name="NOP" type="AND">
+          <goal name="NOP"/>
+        </goal>
+        <goal name="commandLine=parser.parse(args)"/>
+        <goal name="NOP" type="AND">
+          <goal name="System.err.println(&quot;Parsing failed.  Reason: &quot; + e.getMessage())"/>
+          <goal name="parser.printUsage()"/>
+          <goal name="NOP" type="AND">
+            <goal name="NOP" type="AND">
+              <goal name="parser.printUsage()"/>
+              <goal name="NOP" type="AND">
+                <goal name="NOP" type="AND">
+                  <goal name="NOP" type="AND">
+                    <goal name="NOP"/>
+                    <property name="annotation" value="if (commandLine.hasOption(&quot;profile&quot;))"/>
+                  </goal>
+                </goal>
+                <property name="annotation" value="if (commandLine.hasOption(&quot;version&quot;))"/>
+              </goal>
+            </goal>
+            <property name="annotation" value="if (commandLine.hasOption(&quot;help&quot;))"/>
+          </goal>
+        </goal>
+        <goal name="path=commandLine.getOptionValue(&quot;profile&quot;)"/>
+        <goal name="NOP" type="AND">
+          <goal name="NOP" type="AND">
+            <goal name="DEBUG=true"/>
+          </goal>
+          <property name="annotation" value="if (commandLine.hasOption(&quot;debug&quot;))"/>
+        </goal>
+        <goal name="ColumbaLogger.setDebugging(true)"/>
+        <goal name="NOP" type="AND">
+          <goal name="NOP"/>
+          <property name="annotation" value="if (commandLine.hasOption(&quot;nosplash&quot;))"/>
+        </goal>
+        <goal name="showSplashScreen=false"/>
+      </goal>
+    </goal>
+    <goal name="NOP"/>
+    <goal name="this.restoreLastSession=restoreLastSession"/>
+  </goalmodel:Goal>
+</xmi:XMI>

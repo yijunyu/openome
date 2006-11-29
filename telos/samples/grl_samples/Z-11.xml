@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grl-spec SYSTEM "GRL.dtd">
+<grl-spec>
+  <element-definitions>
+    <element>
+      <element element-id="SerializedViewObject_0_32"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_31"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_30"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_29"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_28"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_27"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_26"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_25"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_24"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_23"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_22"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_21"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_20"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_19"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_18"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_17"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_16"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_15"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_14"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_13"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_12"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_11"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_10"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_9"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_8"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_7"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_6"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_5"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_4"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_3"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_2"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_1"/>
+    </element>
+    <element>
+      <element element-id="SerializedViewObject_0_0"/>
+    </element>
+    <element>
+      <element element-id="Link_18"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Element_16"
+               name="POS Software"/>
+    </element>
+    <element>
+      <element element-id="Link_14"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_13"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_12"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_11"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_10"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_9"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_8"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_7"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_6"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_5"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_4"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_3"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_2"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_1"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Link_0"
+               name=""/>
+    </element>
+    <element>
+      <element element-id="Element_15"
+               name="Ease of Learning"/>
+    </element>
+    <element>
+      <element element-id="Element_14"
+               name="Scalability"/>
+    </element>
+    <element>
+      <element element-id="Element_13"
+               name="Interoperability"/>
+    </element>
+    <element>
+      <element element-id="Element_12"
+               name="Flexibility"/>
+    </element>
+    <element>
+      <element element-id="Element_11"
+               name="Supportiveness"/>
+    </element>
+    <element>
+      <element element-id="Element_10"
+               name="User Friendly"/>
+    </element>
+    <element>
+      <element element-id="Element_9"
+               name="Usability"/>
+    </element>
+    <element>
+      <element element-id="Element_8"
+               name="Good System Management"/>
+    </element>
+    <element>
+      <element element-id="Element_7"
+               name="Maximize CPU Capacity"/>
+    </element>
+    <element>
+      <element element-id="Element_6"
+               name="Maximize Memory capcity"/>
+    </element>
+    <element>
+      <element element-id="Element_5"
+               name="Maximum System Capacity"/>
+    </element>
+    <element>
+      <element element-id="Element_4"
+               name="Maximum DB Capacity"/>
+    </element>
+    <element>
+      <element element-id="Element_3"
+               name="Reliability"/>
+    </element>
+    <element>
+      <element element-id="Element_2"
+               name="Responsiveness"/>
+    </element>
+    <element>
+      <element element-id="Element_1"
+               name="Throughput"/>
+    </element>
+    <element>
+      <element element-id="Element_0"
+               name="Performance"/>
+    </element>
+    <element>
+      <element element-id="SerializedView_0"/>
+    </element>
+  </element-definitions>
+
+  <goal-model>
+    <goal-model goal-model-id="C:\lin\ome-release\ome\projects\grl samples\\Z-11.xml"/>
+  <model-constructors>
+    <actors>
+    </actors>
+    <intentional-elements>
+      <intentional-element>
+      <softgoal>
+        <softgoal softgoal-id="Element_15"
+                  softgoal-name="Ease of Learning"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_14"
+                  softgoal-name="Scalability"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_13"
+                  softgoal-name="Interoperability"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_12"
+                  softgoal-name="Flexibility"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_11"
+                  softgoal-name="Supportiveness"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_10"
+                  softgoal-name="User Friendly"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_9"
+                  softgoal-name="Usability"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_8"
+                  softgoal-name="Good System Management"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_7"
+                  softgoal-name="Maximize CPU Capacity"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_6"
+                  softgoal-name="Maximize Memory capcity"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_5"
+                  softgoal-name="Maximum System Capacity"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_4"
+                  softgoal-name="Maximum DB Capacity"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_3"
+                  softgoal-name="Reliability"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_2"
+                  softgoal-name="Responsiveness"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_1"
+                  softgoal-name="Throughput"/>
+      </softgoal>
+      <softgoal>
+        <softgoal softgoal-id="Element_0"
+                  softgoal-name="Performance"/>
+      </softgoal>
+      </intentional-element>
+    </intentional-elements>
+    <intentional-relationships>
+      <intentional-relationship>
+        <correlation>
+          <correlation correlation-id="Link_14"/>
+          <correlatee>Element_13</correlatee>
+          <correlator>Element_8</correlator>
+          <correlation-type>GRLHelpContributionLabel</correlation-type>>
+        </correlation>
+        <correlation>
+          <correlation correlation-id="Link_13"/>
+          <correlatee>Element_11</correlatee>
+          <correlator>Element_8</correlator>
+          <correlation-type>GRLSomePositiveContributionLabel</correlation-type>>
+        </correlation>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_12"/>
+          <contributee>Element_0</contributee>
+          <contributor>Element_3</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_11"/>
+          <contributee>Element_0</contributee>
+          <contributor>Element_2</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_10"/>
+          <contributee>Element_0</contributee>
+          <contributor>Element_1</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_9"/>
+          <contributee>Element_1</contributee>
+          <contributor>Element_5</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_8"/>
+          <contributee>Element_1</contributee>
+          <contributor>Element_4</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_7"/>
+          <contributee>Element_5</contributee>
+          <contributor>Element_8</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_6"/>
+          <contributee>Element_5</contributee>
+          <contributor>Element_7</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_5"/>
+          <contributee>Element_5</contributee>
+          <contributor>Element_6</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_4"/>
+          <contributee>Element_9</contributee>
+          <contributor>Element_15</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_3"/>
+          <contributee>Element_9</contributee>
+          <contributor>Element_11</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_2"/>
+          <contributee>Element_9</contributee>
+          <contributor>Element_10</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_1"/>
+          <contributee>Element_12</contributee>
+          <contributor>Element_14</contributor>
+        </andcontribution>
+        <andcontribution>
+          <andcontribution andcontribution-id="Link_0"/>
+          <contributee>Element_12</contributee>
+          <contributor>Element_13</contributor>
+        </andcontribution>
+      </intentional-relationship>
+    </intentional-relationships>
+  </model-constructors>
+  </goal-model>
+</grl-spec>

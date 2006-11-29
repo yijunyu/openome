@@ -14,6 +14,7 @@ import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.dependency;
 import edu.toronto.cs.goalmodel.goal;
+import edu.toronto.cs.goalmodel.linkAnnotation;
 import edu.toronto.cs.goalmodel.property;
 import edu.toronto.cs.goalmodel.topic;
 
@@ -25,7 +26,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -62,6 +62,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getMode <em>Mode</em>}</li>
+ *   <li>{@link edu.toronto.cs.goalmodel.impl.goalImpl#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -319,6 +320,16 @@ public class goalImpl extends EObjectImpl implements goal {
 	protected ModeType mode = MODE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected linkAnnotation annotation = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -333,7 +344,7 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return GoalmodelPackage.eINSTANCE.getgoal();
+		return GoalmodelPackage.Literals.GOAL;
 	}
 
 	/**
@@ -385,7 +396,17 @@ public class goalImpl extends EObjectImpl implements goal {
 	 */
 	public goal getParent() {
 		if (eContainerFeatureID != GoalmodelPackage.GOAL__PARENT) return null;
-		return (goal)eContainer;
+		return (goal)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(goal newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, GoalmodelPackage.GOAL__PARENT, msgs);
+		return msgs;
 	}
 
 	/**
@@ -394,15 +415,15 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * @generated
 	 */
 	public void setParent(goal newParent) {
-		if (newParent != eContainer || (eContainerFeatureID != GoalmodelPackage.GOAL__PARENT && newParent != null)) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID != GoalmodelPackage.GOAL__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (eContainer != null)
+			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParent != null)
 				msgs = ((InternalEObject)newParent).eInverseAdd(this, GoalmodelPackage.GOAL__GOAL, goal.class, msgs);
-			msgs = eBasicSetContainer((InternalEObject)newParent, GoalmodelPackage.GOAL__PARENT, msgs);
+			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
@@ -602,7 +623,17 @@ public class goalImpl extends EObjectImpl implements goal {
 	 */
 	public actor getActor() {
 		if (eContainerFeatureID != GoalmodelPackage.GOAL__ACTOR) return null;
-		return (actor)eContainer;
+		return (actor)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetActor(actor newActor, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newActor, GoalmodelPackage.GOAL__ACTOR, msgs);
+		return msgs;
 	}
 
 	/**
@@ -611,15 +642,15 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * @generated
 	 */
 	public void setActor(actor newActor) {
-		if (newActor != eContainer || (eContainerFeatureID != GoalmodelPackage.GOAL__ACTOR && newActor != null)) {
+		if (newActor != eInternalContainer() || (eContainerFeatureID != GoalmodelPackage.GOAL__ACTOR && newActor != null)) {
 			if (EcoreUtil.isAncestor(this, newActor))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (eContainer != null)
+			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newActor != null)
 				msgs = ((InternalEObject)newActor).eInverseAdd(this, GoalmodelPackage.ACTOR__GOALS, actor.class, msgs);
-			msgs = eBasicSetContainer((InternalEObject)newActor, GoalmodelPackage.GOAL__ACTOR, msgs);
+			msgs = basicSetActor(newActor, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
@@ -676,30 +707,8 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
-		if (featureID >= 0) {
-			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
-				case GoalmodelPackage.GOAL__PARENT:
-					if (eContainer != null)
-						msgs = eBasicRemoveFromContainer(msgs);
-					return eBasicSetContainer(otherEnd, GoalmodelPackage.GOAL__PARENT, msgs);
-				case GoalmodelPackage.GOAL__GOAL:
-					return ((InternalEList)getGoal()).basicAdd(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__ACTOR:
-					if (eContainer != null)
-						msgs = eBasicRemoveFromContainer(msgs);
-					return eBasicSetContainer(otherEnd, GoalmodelPackage.GOAL__ACTOR, msgs);
-				case GoalmodelPackage.GOAL__DEPENDENCY_FROM:
-					return ((InternalEList)getDependencyFrom()).basicAdd(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__DEPENDENCY_TO:
-					return ((InternalEList)getDependencyTo()).basicAdd(otherEnd, msgs);
-				default:
-					return eDynamicInverseAdd(otherEnd, featureID, baseClass, msgs);
-			}
-		}
-		if (eContainer != null)
-			msgs = eBasicRemoveFromContainer(msgs);
-		return eBasicSetContainer(otherEnd, featureID, msgs);
+	public linkAnnotation getAnnotation() {
+		return annotation;
 	}
 
 	/**
@@ -707,32 +716,14 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
-		if (featureID >= 0) {
-			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
-				case GoalmodelPackage.GOAL__PARENT:
-					return eBasicSetContainer(null, GoalmodelPackage.GOAL__PARENT, msgs);
-				case GoalmodelPackage.GOAL__GOAL:
-					return ((InternalEList)getGoal()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__RULE:
-					return ((InternalEList)getRule()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__INPUT:
-					return ((InternalEList)getInput()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__OUTPUT:
-					return ((InternalEList)getOutput()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__PROPERTY:
-					return ((InternalEList)getProperty()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__ACTOR:
-					return eBasicSetContainer(null, GoalmodelPackage.GOAL__ACTOR, msgs);
-				case GoalmodelPackage.GOAL__DEPENDENCY_FROM:
-					return ((InternalEList)getDependencyFrom()).basicRemove(otherEnd, msgs);
-				case GoalmodelPackage.GOAL__DEPENDENCY_TO:
-					return ((InternalEList)getDependencyTo()).basicRemove(otherEnd, msgs);
-				default:
-					return eDynamicInverseRemove(otherEnd, featureID, baseClass, msgs);
-			}
+	public NotificationChain basicSetAnnotation(linkAnnotation newAnnotation, NotificationChain msgs) {
+		linkAnnotation oldAnnotation = annotation;
+		annotation = newAnnotation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoalmodelPackage.GOAL__ANNOTATION, oldAnnotation, newAnnotation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return eBasicSetContainer(null, featureID, msgs);
+		return msgs;
 	}
 
 	/**
@@ -740,18 +731,18 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eBasicRemoveFromContainer(NotificationChain msgs) {
-		if (eContainerFeatureID >= 0) {
-			switch (eContainerFeatureID) {
-				case GoalmodelPackage.GOAL__PARENT:
-					return eContainer.eInverseRemove(this, GoalmodelPackage.GOAL__GOAL, goal.class, msgs);
-				case GoalmodelPackage.GOAL__ACTOR:
-					return eContainer.eInverseRemove(this, GoalmodelPackage.ACTOR__GOALS, actor.class, msgs);
-				default:
-					return eDynamicBasicRemoveFromContainer(msgs);
-			}
+	public void setAnnotation(linkAnnotation newAnnotation) {
+		if (newAnnotation != annotation) {
+			NotificationChain msgs = null;
+			if (annotation != null)
+				msgs = ((InternalEObject)annotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoalmodelPackage.GOAL__ANNOTATION, null, msgs);
+			if (newAnnotation != null)
+				msgs = ((InternalEObject)newAnnotation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoalmodelPackage.GOAL__ANNOTATION, null, msgs);
+			msgs = basicSetAnnotation(newAnnotation, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return eContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - eContainerFeatureID, null, msgs);
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.GOAL__ANNOTATION, newAnnotation, newAnnotation));
 	}
 
 	/**
@@ -759,8 +750,79 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GoalmodelPackage.GOAL__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((goal)otherEnd, msgs);
+			case GoalmodelPackage.GOAL__GOAL:
+				return ((InternalEList)getGoal()).basicAdd(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__ACTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetActor((actor)otherEnd, msgs);
+			case GoalmodelPackage.GOAL__DEPENDENCY_FROM:
+				return ((InternalEList)getDependencyFrom()).basicAdd(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
+				return ((InternalEList)getDependencyTo()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GoalmodelPackage.GOAL__PARENT:
+				return basicSetParent(null, msgs);
+			case GoalmodelPackage.GOAL__GOAL:
+				return ((InternalEList)getGoal()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__RULE:
+				return ((InternalEList)getRule()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__INPUT:
+				return ((InternalEList)getInput()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__OUTPUT:
+				return ((InternalEList)getOutput()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__PROPERTY:
+				return ((InternalEList)getProperty()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__ACTOR:
+				return basicSetActor(null, msgs);
+			case GoalmodelPackage.GOAL__DEPENDENCY_FROM:
+				return ((InternalEList)getDependencyFrom()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__DEPENDENCY_TO:
+				return ((InternalEList)getDependencyTo()).basicRemove(otherEnd, msgs);
+			case GoalmodelPackage.GOAL__ANNOTATION:
+				return basicSetAnnotation(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case GoalmodelPackage.GOAL__PARENT:
+				return eInternalContainer().eInverseRemove(this, GoalmodelPackage.GOAL__GOAL, goal.class, msgs);
+			case GoalmodelPackage.GOAL__ACTOR:
+				return eInternalContainer().eInverseRemove(this, GoalmodelPackage.ACTOR__GOALS, actor.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case GoalmodelPackage.GOAL__NAME:
 				return getName();
 			case GoalmodelPackage.GOAL__TYPE:
@@ -797,8 +859,10 @@ public class goalImpl extends EObjectImpl implements goal {
 				return getDependencyTo();
 			case GoalmodelPackage.GOAL__MODE:
 				return getMode();
+			case GoalmodelPackage.GOAL__ANNOTATION:
+				return getAnnotation();
 		}
-		return eDynamicGet(eFeature, resolve);
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -806,8 +870,8 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eSet(EStructuralFeature eFeature, Object newValue) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case GoalmodelPackage.GOAL__NAME:
 				setName((String)newValue);
 				return;
@@ -869,8 +933,11 @@ public class goalImpl extends EObjectImpl implements goal {
 			case GoalmodelPackage.GOAL__MODE:
 				setMode((ModeType)newValue);
 				return;
+			case GoalmodelPackage.GOAL__ANNOTATION:
+				setAnnotation((linkAnnotation)newValue);
+				return;
 		}
-		eDynamicSet(eFeature, newValue);
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -878,8 +945,8 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eUnset(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.GOAL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -934,8 +1001,11 @@ public class goalImpl extends EObjectImpl implements goal {
 			case GoalmodelPackage.GOAL__MODE:
 				setMode(MODE_EDEFAULT);
 				return;
+			case GoalmodelPackage.GOAL__ANNOTATION:
+				setAnnotation((linkAnnotation)null);
+				return;
 		}
-		eDynamicUnset(eFeature);
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -943,8 +1013,8 @@ public class goalImpl extends EObjectImpl implements goal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eIsSet(EStructuralFeature eFeature) {
-		switch (eDerivedStructuralFeatureID(eFeature)) {
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case GoalmodelPackage.GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalmodelPackage.GOAL__TYPE:
@@ -981,8 +1051,10 @@ public class goalImpl extends EObjectImpl implements goal {
 				return dependencyTo != null && !dependencyTo.isEmpty();
 			case GoalmodelPackage.GOAL__MODE:
 				return mode != MODE_EDEFAULT;
+			case GoalmodelPackage.GOAL__ANNOTATION:
+				return annotation != null;
 		}
-		return eDynamicIsSet(eFeature);
+		return super.eIsSet(featureID);
 	}
 
 	/**

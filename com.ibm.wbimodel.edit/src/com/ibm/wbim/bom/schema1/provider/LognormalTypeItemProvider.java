@@ -81,8 +81,10 @@ public class LognormalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LognormalType_mean_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LognormalType_mean_feature", "_UI_LognormalType_type"),
-				 Schema1Package.eINSTANCE.getLognormalType_Mean(),
+				 Schema1Package.Literals.LOGNORMAL_TYPE__MEAN,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class LognormalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LognormalType_standardDeviation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LognormalType_standardDeviation_feature", "_UI_LognormalType_type"),
-				 Schema1Package.eINSTANCE.getLognormalType_StandardDeviation(),
+				 Schema1Package.Literals.LOGNORMAL_TYPE__STANDARD_DEVIATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class LognormalTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/LognormalType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LognormalType"));
 	}
 
 	/**

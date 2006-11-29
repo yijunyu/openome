@@ -1,5 +1,0 @@
-.cvsignore
-bin
-@dot
-*.jar
-build.xml

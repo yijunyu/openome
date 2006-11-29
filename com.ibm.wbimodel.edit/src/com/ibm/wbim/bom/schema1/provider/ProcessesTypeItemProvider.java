@@ -76,7 +76,7 @@ public class ProcessesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getProcessesType_Process());
+			childrenFeatures.add(Schema1Package.Literals.PROCESSES_TYPE__PROCESS);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class ProcessesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ProcessesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessesType"));
 	}
 
 	/**
@@ -131,17 +131,17 @@ public class ProcessesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessesType_Process(),
+				(Schema1Package.Literals.PROCESSES_TYPE__PROCESS,
 				 Schema1Factory.eINSTANCE.createProcess()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessesType_Process(),
+				(Schema1Package.Literals.PROCESSES_TYPE__PROCESS,
 				 Schema1Factory.eINSTANCE.createForLoop()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessesType_Process(),
+				(Schema1Package.Literals.PROCESSES_TYPE__PROCESS,
 				 Schema1Factory.eINSTANCE.createLoop()));
 	}
 

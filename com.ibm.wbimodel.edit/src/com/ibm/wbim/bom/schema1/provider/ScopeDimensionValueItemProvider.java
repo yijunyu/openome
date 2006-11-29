@@ -81,8 +81,10 @@ public class ScopeDimensionValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ScopeDimensionValue_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ScopeDimensionValue_value_feature", "_UI_ScopeDimensionValue_type"),
-				 Schema1Package.eINSTANCE.getScopeDimensionValue_Value(),
+				 Schema1Package.Literals.SCOPE_DIMENSION_VALUE__VALUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class ScopeDimensionValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ScopeDimensionValue_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ScopeDimensionValue_name_feature", "_UI_ScopeDimensionValue_type"),
-				 Schema1Package.eINSTANCE.getScopeDimensionValue_Name(),
+				 Schema1Package.Literals.SCOPE_DIMENSION_VALUE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class ScopeDimensionValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ScopeDimensionValue");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ScopeDimensionValue"));
 	}
 
 	/**

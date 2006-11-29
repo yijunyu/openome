@@ -79,8 +79,10 @@ public class CallToTaskTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CallToTaskType_task_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallToTaskType_task_feature", "_UI_CallToTaskType_type"),
-				 Schema1Package.eINSTANCE.getCallToTaskType_Task(),
+				 Schema1Package.Literals.CALL_TO_TASK_TYPE__TASK,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -93,7 +95,7 @@ public class CallToTaskTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/CallToTaskType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallToTaskType"));
 	}
 
 	/**

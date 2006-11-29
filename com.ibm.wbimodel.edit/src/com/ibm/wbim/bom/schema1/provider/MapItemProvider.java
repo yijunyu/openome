@@ -69,7 +69,7 @@ public class MapItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Map");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Map"));
 	}
 
 	/**
@@ -119,8 +119,8 @@ public class MapItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
-			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition();
+			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
+			childFeature == Schema1Package.Literals.TASK__POSTCONDITION;
 
 		if (qualify) {
 			return getString

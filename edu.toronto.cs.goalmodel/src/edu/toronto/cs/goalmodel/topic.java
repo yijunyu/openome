@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface topic extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface topic extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#gettopic_Name()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getName();

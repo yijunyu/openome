@@ -80,8 +80,10 @@ public class OutputCriterionRefItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputCriterionRef_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterionRef_name_feature", "_UI_OutputCriterionRef_type"),
-				 Schema1Package.eINSTANCE.getOutputCriterionRef_Name(),
+				 Schema1Package.Literals.OUTPUT_CRITERION_REF__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class OutputCriterionRefItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/OutputCriterionRef");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputCriterionRef"));
 	}
 
 	/**

@@ -84,8 +84,10 @@ public class OutputRepositoryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputRepositoryValue_atBeginning_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValue_atBeginning_feature", "_UI_OutputRepositoryValue_type"),
-				 Schema1Package.eINSTANCE.getOutputRepositoryValue_AtBeginning(),
+				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__AT_BEGINNING,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class OutputRepositoryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputRepositoryValue_isInsert_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValue_isInsert_feature", "_UI_OutputRepositoryValue_type"),
-				 Schema1Package.eINSTANCE.getOutputRepositoryValue_IsInsert(),
+				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__IS_INSERT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,8 +126,8 @@ public class OutputRepositoryValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputRepositoryValue_LocalRepository());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputRepositoryValue_GlobalRepository());
+			childrenFeatures.add(Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__LOCAL_REPOSITORY);
+			childrenFeatures.add(Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__GLOBAL_REPOSITORY);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +151,7 @@ public class OutputRepositoryValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/OutputRepositoryValue");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputRepositoryValue"));
 	}
 
 	/**
@@ -196,12 +200,12 @@ public class OutputRepositoryValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOutputRepositoryValue_LocalRepository(),
+				(Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__LOCAL_REPOSITORY,
 				 Schema1Factory.eINSTANCE.createLocalRepositoryRef()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOutputRepositoryValue_GlobalRepository(),
+				(Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__GLOBAL_REPOSITORY,
 				 Schema1Factory.eINSTANCE.createGlobalRepositoryRef()));
 	}
 

@@ -85,8 +85,10 @@ public class BulkResourceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_BulkResource_isConsumable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BulkResource_isConsumable_feature", "_UI_BulkResource_type"),
-				 Schema1Package.eINSTANCE.getBulkResource_IsConsumable(),
+				 Schema1Package.Literals.BULK_RESOURCE__IS_CONSUMABLE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +105,10 @@ public class BulkResourceItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResource_AvailableQuantity());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResource_Availability());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResource_Qualification());
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE);
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE__AVAILABLE_QUANTITY);
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE__AVAILABILITY);
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCE__QUALIFICATION);
 		}
 		return childrenFeatures;
 	}
@@ -130,7 +132,7 @@ public class BulkResourceItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/BulkResource");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BulkResource"));
 	}
 
 	/**
@@ -182,66 +184,66 @@ public class BulkResourceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_OneTimeCost(),
+					(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createOneTimeCost())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_OneTimeCost(),
+					(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerQuantity())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_OneTimeCost(),
+					(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerQuantityAndTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_OneTimeCost(),
+					(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_CostPerQuantity(),
+					(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY,
 					 Schema1Factory.eINSTANCE.createCostPerQuantity())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_CostPerQuantity(),
+					(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY,
 					 Schema1Factory.eINSTANCE.createCostPerQuantityAndTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_BulkResourceCostType(),
+				(Schema1Package.Literals.BULK_RESOURCE__BULK_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getBulkResource_CostPerQuantityAndTimeUnit(),
+					(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY_AND_TIME_UNIT,
 					 Schema1Factory.eINSTANCE.createCostPerQuantityAndTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_AvailableQuantity(),
+				(Schema1Package.Literals.BULK_RESOURCE__AVAILABLE_QUANTITY,
 				 Schema1Factory.eINSTANCE.createQuantity()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_Availability(),
+				(Schema1Package.Literals.BULK_RESOURCE__AVAILABILITY,
 				 Schema1Factory.eINSTANCE.createAvailability()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResource_Qualification(),
+				(Schema1Package.Literals.BULK_RESOURCE__QUALIFICATION,
 				 Schema1Factory.eINSTANCE.createQualification()));
 	}
 
@@ -262,9 +264,9 @@ public class BulkResourceItemProvider
 		}
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getBulkResource_OneTimeCost() ||
-			childFeature == Schema1Package.eINSTANCE.getBulkResource_CostPerQuantity() ||
-			childFeature == Schema1Package.eINSTANCE.getBulkResource_CostPerQuantityAndTimeUnit();
+			childFeature == Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST ||
+			childFeature == Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY ||
+			childFeature == Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY_AND_TIME_UNIT;
 
 		if (qualify) {
 			return getString

@@ -80,8 +80,10 @@ public class EntryPointTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EntryPointType_inputCriterion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EntryPointType_inputCriterion_feature", "_UI_EntryPointType_type"),
-				 Schema1Package.eINSTANCE.getEntryPointType_InputCriterion(),
+				 Schema1Package.Literals.ENTRY_POINT_TYPE__INPUT_CRITERION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class EntryPointTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/EntryPointType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntryPointType"));
 	}
 
 	/**

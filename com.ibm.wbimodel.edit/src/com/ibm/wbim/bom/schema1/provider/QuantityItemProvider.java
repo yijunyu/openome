@@ -81,8 +81,10 @@ public class QuantityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Quantity_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_value_feature", "_UI_Quantity_type"),
-				 Schema1Package.eINSTANCE.getQuantity_Value(),
+				 Schema1Package.Literals.QUANTITY__VALUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class QuantityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Quantity_unit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_unit_feature", "_UI_Quantity_type"),
-				 Schema1Package.eINSTANCE.getQuantity_Unit(),
+				 Schema1Package.Literals.QUANTITY__UNIT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class QuantityItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Quantity");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Quantity"));
 	}
 
 	/**

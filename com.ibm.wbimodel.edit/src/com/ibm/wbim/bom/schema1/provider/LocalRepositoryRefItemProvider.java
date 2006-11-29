@@ -80,8 +80,10 @@ public class LocalRepositoryRefItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepositoryRef_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepositoryRef_name_feature", "_UI_LocalRepositoryRef_type"),
-				 Schema1Package.eINSTANCE.getLocalRepositoryRef_Name(),
+				 Schema1Package.Literals.LOCAL_REPOSITORY_REF__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class LocalRepositoryRefItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/LocalRepositoryRef");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalRepositoryRef"));
 	}
 
 	/**

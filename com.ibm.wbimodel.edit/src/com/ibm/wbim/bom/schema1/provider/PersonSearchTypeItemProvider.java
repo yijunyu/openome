@@ -98,8 +98,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_userId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_userId_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_UserId(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__USER_ID,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -118,8 +120,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_profile_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_profile_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Profile(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__PROFILE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -138,8 +142,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_lastName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_lastName_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_LastName(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__LAST_NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -158,8 +164,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_firstName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_firstName_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_FirstName(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__FIRST_NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -178,8 +186,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_middleName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_middleName_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_MiddleName(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__MIDDLE_NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -198,8 +208,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_eMail_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_eMail_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_EMail(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__EMAIL,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -218,8 +230,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_company_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_company_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Company(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__COMPANY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -238,8 +252,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_displayName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_displayName_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_DisplayName(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__DISPLAY_NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -258,8 +274,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_secretary_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_secretary_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Secretary(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__SECRETARY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -278,8 +296,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_assistant_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_assistant_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Assistant(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__ASSISTANT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -298,8 +318,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_manager_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_manager_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Manager(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__MANAGER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -318,8 +340,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_department_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_department_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Department(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__DEPARTMENT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -338,8 +362,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_employeeId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_employeeId_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_EmployeeId(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__EMPLOYEE_ID,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -358,8 +384,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_taxPayerId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_taxPayerId_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_TaxPayerId(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__TAX_PAYER_ID,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -378,8 +406,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_phone_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_phone_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Phone(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__PHONE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -398,8 +428,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_fax_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_fax_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Fax(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__FAX,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -418,8 +450,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_gender_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_gender_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_Gender(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__GENDER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -438,8 +472,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_timeZone_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_timeZone_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_TimeZone(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__TIME_ZONE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -458,8 +494,10 @@ public class PersonSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonSearchType_preferredLanguage_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonSearchType_preferredLanguage_feature", "_UI_PersonSearchType_type"),
-				 Schema1Package.eINSTANCE.getPersonSearchType_PreferredLanguage(),
+				 Schema1Package.Literals.PERSON_SEARCH_TYPE__PREFERRED_LANGUAGE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -472,7 +510,7 @@ public class PersonSearchTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/PersonSearchType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PersonSearchType"));
 	}
 
 	/**

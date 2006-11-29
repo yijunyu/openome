@@ -79,8 +79,10 @@ public class CallToProcessTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CallToProcessType_process_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallToProcessType_process_feature", "_UI_CallToProcessType_type"),
-				 Schema1Package.eINSTANCE.getCallToProcessType_Process(),
+				 Schema1Package.Literals.CALL_TO_PROCESS_TYPE__PROCESS,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -93,7 +95,7 @@ public class CallToProcessTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/CallToProcessType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallToProcessType"));
 	}
 
 	/**

@@ -84,8 +84,10 @@ public class AttributeValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_literalValue_feature", "_UI_AttributeValue_type"),
-				 Schema1Package.eINSTANCE.getAttributeValue_LiteralValue(),
+				 Schema1Package.Literals.ATTRIBUTE_VALUE__LITERAL_VALUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class AttributeValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AttributeValue_attribute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_attribute_feature", "_UI_AttributeValue_type"),
-				 Schema1Package.eINSTANCE.getAttributeValue_Attribute(),
+				 Schema1Package.Literals.ATTRIBUTE_VALUE__ATTRIBUTE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,7 +126,7 @@ public class AttributeValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getAttributeValue_Group());
+			childrenFeatures.add(Schema1Package.Literals.ATTRIBUTE_VALUE__GROUP);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +138,7 @@ public class AttributeValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/AttributeValue");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AttributeValue"));
 	}
 
 	/**
@@ -184,30 +188,30 @@ public class AttributeValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getAttributeValue_Group(),
+				(Schema1Package.Literals.ATTRIBUTE_VALUE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getAttributeValue_LiteralValue(),
+					(Schema1Package.Literals.ATTRIBUTE_VALUE__LITERAL_VALUE,
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getAttributeValue_Group(),
+				(Schema1Package.Literals.ATTRIBUTE_VALUE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getAttributeValue_ExpressionValue(),
+					(Schema1Package.Literals.ATTRIBUTE_VALUE__EXPRESSION_VALUE,
 					 Schema1Factory.eINSTANCE.createExpression())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getAttributeValue_Group(),
+				(Schema1Package.Literals.ATTRIBUTE_VALUE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getAttributeValue_PublicInstance(),
+					(Schema1Package.Literals.ATTRIBUTE_VALUE__PUBLIC_INSTANCE,
 					 Schema1Factory.eINSTANCE.createPublicInstance())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getAttributeValue_Group(),
+				(Schema1Package.Literals.ATTRIBUTE_VALUE__GROUP,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getAttributeValue_PrivateInstance(),
+					(Schema1Package.Literals.ATTRIBUTE_VALUE__PRIVATE_INSTANCE,
 					 Schema1Factory.eINSTANCE.createPrivateInstance())));
 	}
 

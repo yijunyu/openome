@@ -81,8 +81,10 @@ public class AdditionalOutputTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AdditionalOutputType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AdditionalOutputType_name_feature", "_UI_AdditionalOutputType_type"),
-				 Schema1Package.eINSTANCE.getAdditionalOutputType_Name(),
+				 Schema1Package.Literals.ADDITIONAL_OUTPUT_TYPE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -99,7 +101,7 @@ public class AdditionalOutputTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getAdditionalOutputType_OutputCriterion());
+			childrenFeatures.add(Schema1Package.Literals.ADDITIONAL_OUTPUT_TYPE__OUTPUT_CRITERION);
 		}
 		return childrenFeatures;
 	}
@@ -111,7 +113,7 @@ public class AdditionalOutputTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/AdditionalOutputType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AdditionalOutputType"));
 	}
 
 	/**
@@ -160,7 +162,7 @@ public class AdditionalOutputTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getAdditionalOutputType_OutputCriterion(),
+				(Schema1Package.Literals.ADDITIONAL_OUTPUT_TYPE__OUTPUT_CRITERION,
 				 Schema1Factory.eINSTANCE.createOutputCriterionRef()));
 	}
 

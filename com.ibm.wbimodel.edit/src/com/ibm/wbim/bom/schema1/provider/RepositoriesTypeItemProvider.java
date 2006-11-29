@@ -76,7 +76,7 @@ public class RepositoriesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRepositoriesType_Repository());
+			childrenFeatures.add(Schema1Package.Literals.REPOSITORIES_TYPE__REPOSITORY);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class RepositoriesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/RepositoriesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoriesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class RepositoriesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRepositoriesType_Repository(),
+				(Schema1Package.Literals.REPOSITORIES_TYPE__REPOSITORY,
 				 Schema1Factory.eINSTANCE.createRepository()));
 	}
 

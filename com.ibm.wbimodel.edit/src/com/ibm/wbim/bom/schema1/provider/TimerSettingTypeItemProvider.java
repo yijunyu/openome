@@ -78,10 +78,10 @@ public class TimerSettingTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimerSettingType_BasedOnTimetable());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimerSettingType_ConstantTime());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimerSettingType_LastActivationTimePlus());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimerSettingType_TimerExpression());
+			childrenFeatures.add(Schema1Package.Literals.TIMER_SETTING_TYPE__BASED_ON_TIMETABLE);
+			childrenFeatures.add(Schema1Package.Literals.TIMER_SETTING_TYPE__CONSTANT_TIME);
+			childrenFeatures.add(Schema1Package.Literals.TIMER_SETTING_TYPE__LAST_ACTIVATION_TIME_PLUS);
+			childrenFeatures.add(Schema1Package.Literals.TIMER_SETTING_TYPE__TIMER_EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -105,7 +105,7 @@ public class TimerSettingTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/TimerSettingType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimerSettingType"));
 	}
 
 	/**
@@ -151,22 +151,22 @@ public class TimerSettingTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimerSettingType_BasedOnTimetable(),
+				(Schema1Package.Literals.TIMER_SETTING_TYPE__BASED_ON_TIMETABLE,
 				 Schema1Factory.eINSTANCE.createBasedOnTimetableType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimerSettingType_ConstantTime(),
+				(Schema1Package.Literals.TIMER_SETTING_TYPE__CONSTANT_TIME,
 				 Schema1Factory.eINSTANCE.createConstantTimeType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimerSettingType_LastActivationTimePlus(),
+				(Schema1Package.Literals.TIMER_SETTING_TYPE__LAST_ACTIVATION_TIME_PLUS,
 				 Schema1Factory.eINSTANCE.createLastActivationTimePlusType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimerSettingType_TimerExpression(),
+				(Schema1Package.Literals.TIMER_SETTING_TYPE__TIMER_EXPRESSION,
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 

@@ -76,7 +76,7 @@ public class RolesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRolesType_Role());
+			childrenFeatures.add(Schema1Package.Literals.ROLES_TYPE__ROLE);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class RolesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/RolesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RolesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class RolesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRolesType_Role(),
+				(Schema1Package.Literals.ROLES_TYPE__ROLE,
 				 Schema1Factory.eINSTANCE.createRole()));
 	}
 
