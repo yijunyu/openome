@@ -81,10 +81,8 @@ public class ManagerOfEmployeeByIDTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ManagerOfEmployeeByIDType_staff_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ManagerOfEmployeeByIDType_staff_feature", "_UI_ManagerOfEmployeeByIDType_type"),
-				 Schema1Package.Literals.MANAGER_OF_EMPLOYEE_BY_ID_TYPE__STAFF,
+				 Schema1Package.eINSTANCE.getManagerOfEmployeeByIDType_Staff(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class ManagerOfEmployeeByIDTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ManagerOfEmployeeByIDType_domain_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ManagerOfEmployeeByIDType_domain_feature", "_UI_ManagerOfEmployeeByIDType_type"),
-				 Schema1Package.Literals.MANAGER_OF_EMPLOYEE_BY_ID_TYPE__DOMAIN,
+				 Schema1Package.eINSTANCE.getManagerOfEmployeeByIDType_Domain(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class ManagerOfEmployeeByIDTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ManagerOfEmployeeByIDType"));
+		return getResourceLocator().getImage("full/obj16/ManagerOfEmployeeByIDType");
 	}
 
 	/**

@@ -76,7 +76,7 @@ public class LocationDefinitionTemplatesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.LOCATION_DEFINITION_TEMPLATES_TYPE__LOCATION_DEFINITION_TEMPLATE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getLocationDefinitionTemplatesType_LocationDefinitionTemplate());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class LocationDefinitionTemplatesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocationDefinitionTemplatesType"));
+		return getResourceLocator().getImage("full/obj16/LocationDefinitionTemplatesType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class LocationDefinitionTemplatesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.LOCATION_DEFINITION_TEMPLATES_TYPE__LOCATION_DEFINITION_TEMPLATE,
+				(Schema1Package.eINSTANCE.getLocationDefinitionTemplatesType_LocationDefinitionTemplate(),
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

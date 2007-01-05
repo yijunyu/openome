@@ -78,12 +78,12 @@ public class OrganizationModelItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_DEFINITION_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_DEFINITIONS);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_UNITS);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATION_DEFINITION_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATION_DEFINITIONS);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATIONS);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationDefinitionTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationDefinitions());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationUnits());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_LocationDefinitionTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_LocationDefinitions());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationModel_Locations());
 		}
 		return childrenFeatures;
 	}
@@ -107,7 +107,7 @@ public class OrganizationModelItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OrganizationModel"));
+		return getResourceLocator().getImage("full/obj16/OrganizationModel");
 	}
 
 	/**
@@ -155,32 +155,32 @@ public class OrganizationModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_DEFINITION_TEMPLATES,
+				(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationDefinitionTemplates(),
 				 Schema1Factory.eINSTANCE.createOrganizationDefinitionTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_DEFINITIONS,
+				(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationDefinitions(),
 				 Schema1Factory.eINSTANCE.createOrganizationDefinitionsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__ORGANIZATION_UNITS,
+				(Schema1Package.eINSTANCE.getOrganizationModel_OrganizationUnits(),
 				 Schema1Factory.eINSTANCE.createOrganizationUnitsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATION_DEFINITION_TEMPLATES,
+				(Schema1Package.eINSTANCE.getOrganizationModel_LocationDefinitionTemplates(),
 				 Schema1Factory.eINSTANCE.createLocationDefinitionTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATION_DEFINITIONS,
+				(Schema1Package.eINSTANCE.getOrganizationModel_LocationDefinitions(),
 				 Schema1Factory.eINSTANCE.createLocationDefinitionsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_MODEL__LOCATIONS,
+				(Schema1Package.eINSTANCE.getOrganizationModel_Locations(),
 				 Schema1Factory.eINSTANCE.createLocationsType()));
 	}
 

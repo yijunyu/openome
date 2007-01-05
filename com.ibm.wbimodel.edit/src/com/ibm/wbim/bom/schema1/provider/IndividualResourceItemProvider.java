@@ -80,9 +80,9 @@ public class IndividualResourceItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE);
-			childrenFeatures.add(Schema1Package.Literals.INDIVIDUAL_RESOURCE__AVAILABILITY);
-			childrenFeatures.add(Schema1Package.Literals.INDIVIDUAL_RESOURCE__QUALIFICATION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getIndividualResource_Availability());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getIndividualResource_Qualification());
 		}
 		return childrenFeatures;
 	}
@@ -106,7 +106,7 @@ public class IndividualResourceItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IndividualResource"));
+		return getResourceLocator().getImage("full/obj16/IndividualResource");
 	}
 
 	/**
@@ -154,47 +154,47 @@ public class IndividualResourceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE,
+				(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST,
+					(Schema1Package.eINSTANCE.getIndividualResource_OneTimeCost(),
 					 Schema1Factory.eINSTANCE.createOneTimeCost())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE,
+				(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST,
+					(Schema1Package.eINSTANCE.getIndividualResource_OneTimeCost(),
 					 Schema1Factory.eINSTANCE.createCostPerQuantity())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE,
+				(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST,
+					(Schema1Package.eINSTANCE.getIndividualResource_OneTimeCost(),
 					 Schema1Factory.eINSTANCE.createCostPerQuantityAndTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE,
+				(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST,
+					(Schema1Package.eINSTANCE.getIndividualResource_OneTimeCost(),
 					 Schema1Factory.eINSTANCE.createCostPerTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__INDIVIDUAL_RESOURCE_COST_TYPE,
+				(Schema1Package.eINSTANCE.getIndividualResource_IndividualResourceCostType(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.INDIVIDUAL_RESOURCE__COST_PER_TIME_UNIT,
+					(Schema1Package.eINSTANCE.getIndividualResource_CostPerTimeUnit(),
 					 Schema1Factory.eINSTANCE.createCostPerTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__AVAILABILITY,
+				(Schema1Package.eINSTANCE.getIndividualResource_Availability(),
 				 Schema1Factory.eINSTANCE.createAvailability()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE__QUALIFICATION,
+				(Schema1Package.eINSTANCE.getIndividualResource_Qualification(),
 				 Schema1Factory.eINSTANCE.createQualification()));
 	}
 
@@ -215,8 +215,8 @@ public class IndividualResourceItemProvider
 		}
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST ||
-			childFeature == Schema1Package.Literals.INDIVIDUAL_RESOURCE__COST_PER_TIME_UNIT;
+			childFeature == Schema1Package.eINSTANCE.getIndividualResource_OneTimeCost() ||
+			childFeature == Schema1Package.eINSTANCE.getIndividualResource_CostPerTimeUnit();
 
 		if (qualify) {
 			return getString

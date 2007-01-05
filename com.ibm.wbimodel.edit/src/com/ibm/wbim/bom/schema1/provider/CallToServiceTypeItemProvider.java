@@ -79,10 +79,8 @@ public class CallToServiceTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CallToServiceType_service_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallToServiceType_service_feature", "_UI_CallToServiceType_type"),
-				 Schema1Package.Literals.CALL_TO_SERVICE_TYPE__SERVICE,
+				 Schema1Package.eINSTANCE.getCallToServiceType_Service(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -95,7 +93,7 @@ public class CallToServiceTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallToServiceType"));
+		return getResourceLocator().getImage("full/obj16/CallToServiceType");
 	}
 
 	/**

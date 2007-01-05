@@ -80,10 +80,8 @@ public class LocationTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocationType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_name_feature", "_UI_LocationType_type"),
-				 Schema1Package.Literals.LOCATION_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getLocationType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class LocationTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocationType"));
+		return getResourceLocator().getImage("full/obj16/LocationType");
 	}
 
 	/**

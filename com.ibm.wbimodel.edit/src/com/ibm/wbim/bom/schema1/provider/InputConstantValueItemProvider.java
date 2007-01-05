@@ -81,10 +81,8 @@ public class InputConstantValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputConstantValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputConstantValue_literalValue_feature", "_UI_InputConstantValue_type"),
-				 Schema1Package.Literals.INPUT_CONSTANT_VALUE__LITERAL_VALUE,
+				 Schema1Package.eINSTANCE.getInputConstantValue_LiteralValue(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class InputConstantValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_CONSTANT_VALUE__PUBLIC_INSTANCE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputConstantValue_PublicInstance());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class InputConstantValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputConstantValue"));
+		return getResourceLocator().getImage("full/obj16/InputConstantValue");
 	}
 
 	/**
@@ -159,7 +157,7 @@ public class InputConstantValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_CONSTANT_VALUE__PUBLIC_INSTANCE,
+				(Schema1Package.eINSTANCE.getInputConstantValue_PublicInstance(),
 				 Schema1Factory.eINSTANCE.createPublicInstance()));
 	}
 

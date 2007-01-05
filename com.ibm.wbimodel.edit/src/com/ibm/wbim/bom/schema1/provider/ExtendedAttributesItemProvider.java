@@ -76,7 +76,7 @@ public class ExtendedAttributesItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.EXTENDED_ATTRIBUTES__EXTENDED_ATTRIBUTE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getExtendedAttributes_ExtendedAttribute());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class ExtendedAttributesItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtendedAttributes"));
+		return getResourceLocator().getImage("full/obj16/ExtendedAttributes");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class ExtendedAttributesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.EXTENDED_ATTRIBUTES__EXTENDED_ATTRIBUTE,
+				(Schema1Package.eINSTANCE.getExtendedAttributes_ExtendedAttribute(),
 				 Schema1Factory.eINSTANCE.createExtendedAttributeType()));
 	}
 

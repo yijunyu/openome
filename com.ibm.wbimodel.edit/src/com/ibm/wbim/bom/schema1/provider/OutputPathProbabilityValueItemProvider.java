@@ -80,10 +80,8 @@ public class OutputPathProbabilityValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputPathProbabilityValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputPathProbabilityValue_literalValue_feature", "_UI_OutputPathProbabilityValue_type"),
-				 Schema1Package.Literals.OUTPUT_PATH_PROBABILITY_VALUE__LITERAL_VALUE,
+				 Schema1Package.eINSTANCE.getOutputPathProbabilityValue_LiteralValue(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class OutputPathProbabilityValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputPathProbabilityValue"));
+		return getResourceLocator().getImage("full/obj16/OutputPathProbabilityValue");
 	}
 
 	/**

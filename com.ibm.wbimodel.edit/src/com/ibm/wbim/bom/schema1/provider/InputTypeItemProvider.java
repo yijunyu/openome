@@ -80,10 +80,8 @@ public class InputTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputType_name_feature", "_UI_InputType_type"),
-				 Schema1Package.Literals.INPUT_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getInputType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class InputTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputType"));
+		return getResourceLocator().getImage("full/obj16/InputType");
 	}
 
 	/**

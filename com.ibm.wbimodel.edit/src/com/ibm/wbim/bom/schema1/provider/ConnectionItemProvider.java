@@ -84,10 +84,8 @@ public class ConnectionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Connection_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Connection_description_feature", "_UI_Connection_type"),
-				 Schema1Package.Literals.CONNECTION__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getConnection_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class ConnectionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Connection_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Connection_name_feature", "_UI_Connection_type"),
-				 Schema1Package.Literals.CONNECTION__NAME,
+				 Schema1Package.eINSTANCE.getConnection_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,8 +122,8 @@ public class ConnectionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.CONNECTION__SOURCE);
-			childrenFeatures.add(Schema1Package.Literals.CONNECTION__TARGET);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getConnection_Source());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getConnection_Target());
 		}
 		return childrenFeatures;
 	}
@@ -151,7 +147,7 @@ public class ConnectionItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Connection"));
+		return getResourceLocator().getImage("full/obj16/Connection");
 	}
 
 	/**
@@ -202,12 +198,12 @@ public class ConnectionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CONNECTION__SOURCE,
+				(Schema1Package.eINSTANCE.getConnection_Source(),
 				 Schema1Factory.eINSTANCE.createSourceType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CONNECTION__TARGET,
+				(Schema1Package.eINSTANCE.getConnection_Target(),
 				 Schema1Factory.eINSTANCE.createTargetType()));
 	}
 

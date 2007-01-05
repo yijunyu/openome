@@ -62,7 +62,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>One Time Cost</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_OneTimeCost()
-	 * @model type="com.ibm.wbim.bom.schema1.OneTimeCost" containment="true" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.OneTimeCost" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='oneTimeCost' namespace='##targetNamespace' group='#BulkResourceCostType:5'"
 	 * @generated
 	 */
@@ -79,7 +79,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cost Per Quantity</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_CostPerQuantity()
-	 * @model type="com.ibm.wbim.bom.schema1.CostPerQuantity" containment="true" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.CostPerQuantity" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='costPerQuantity' namespace='##targetNamespace' group='#BulkResourceCostType:5'"
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cost Per Quantity And Time Unit</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_CostPerQuantityAndTimeUnit()
-	 * @model type="com.ibm.wbim.bom.schema1.CostPerQuantityAndTimeUnit" containment="true" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.CostPerQuantityAndTimeUnit" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='costPerQuantityAndTimeUnit' namespace='##targetNamespace' group='#BulkResourceCostType:5'"
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * @return the value of the '<em>Available Quantity</em>' containment reference.
 	 * @see #setAvailableQuantity(Quantity)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_AvailableQuantity()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='availableQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -140,7 +140,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Availability</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_Availability()
-	 * @model type="com.ibm.wbim.bom.schema1.Availability" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Availability" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='availability' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -157,7 +157,7 @@ public interface BulkResource extends ComplexDataTypeInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Qualification</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResource_Qualification()
-	 * @model type="com.ibm.wbim.bom.schema1.Qualification" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Qualification" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='qualification' namespace='##targetNamespace'"
 	 * @generated
 	 */

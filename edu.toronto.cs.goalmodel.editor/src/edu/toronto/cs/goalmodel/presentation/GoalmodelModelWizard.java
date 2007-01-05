@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id$
+ * $Id: GoalmodelModelWizard.java,v 1.1 2005/10/30 17:12:26 yijunsf Exp $
  */
 package edu.toronto.cs.goalmodel.presentation;
 

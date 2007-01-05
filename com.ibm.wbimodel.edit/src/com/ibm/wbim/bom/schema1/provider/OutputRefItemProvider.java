@@ -80,10 +80,8 @@ public class OutputRefItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputRef_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRef_name_feature", "_UI_OutputRef_type"),
-				 Schema1Package.Literals.OUTPUT_REF__NAME,
+				 Schema1Package.eINSTANCE.getOutputRef_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class OutputRefItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputRef"));
+		return getResourceLocator().getImage("full/obj16/OutputRef");
 	}
 
 	/**

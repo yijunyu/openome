@@ -90,7 +90,7 @@ public final class ModeType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ModeType HARD_LITERAL = new ModeType(HARD, "HARD", "HARD");
+	public static final ModeType HARD_LITERAL = new ModeType(HARD, "HARD");
 
 	/**
 	 * The '<em><b>SOFT</b></em>' literal object.
@@ -100,7 +100,7 @@ public final class ModeType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ModeType SOFT_LITERAL = new ModeType(SOFT, "SOFT", "SOFT");
+	public static final ModeType SOFT_LITERAL = new ModeType(SOFT, "SOFT");
 
 	/**
 	 * The '<em><b>TASK</b></em>' literal object.
@@ -110,7 +110,7 @@ public final class ModeType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ModeType TASK_LITERAL = new ModeType(TASK, "TASK", "TASK");
+	public static final ModeType TASK_LITERAL = new ModeType(TASK, "TASK");
 
 	/**
 	 * The '<em><b>RESOURCE</b></em>' literal object.
@@ -120,7 +120,7 @@ public final class ModeType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ModeType RESOURCE_LITERAL = new ModeType(RESOURCE, "RESOURCE", "RESOURCE");
+	public static final ModeType RESOURCE_LITERAL = new ModeType(RESOURCE, "RESOURCE");
 
 	/**
 	 * An array of all the '<em><b>Mode Type</b></em>' enumerators.
@@ -145,31 +145,15 @@ public final class ModeType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Mode Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static ModeType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ModeType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * Returns the '<em><b>Mode Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ModeType getByName(String name) {
+	public static ModeType get(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ModeType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if (result.toString().equals(name)) {
 				return result;
 			}
 		}
@@ -177,7 +161,7 @@ public final class ModeType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Mode Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Mode Type</b></em>' literal with the specified value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -198,8 +182,8 @@ public final class ModeType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ModeType(int value, String name, String literal) {
-		super(value, name, literal);
+	private ModeType(int value, String name) {
+		super(value, name);
 	}
 
 } //ModeType

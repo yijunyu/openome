@@ -83,10 +83,8 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RecurringTimeIntervalType_startTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_startTime_feature", "_UI_RecurringTimeIntervalType_type"),
-				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__START_TIME,
+				 Schema1Package.eINSTANCE.getRecurringTimeIntervalType_StartTime(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,10 +103,8 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RecurringTimeIntervalType_duration_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_duration_feature", "_UI_RecurringTimeIntervalType_type"),
-				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__DURATION,
+				 Schema1Package.eINSTANCE.getRecurringTimeIntervalType_Duration(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -127,10 +123,8 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RecurringTimeIntervalType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_name_feature", "_UI_RecurringTimeIntervalType_type"),
-				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getRecurringTimeIntervalType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -147,7 +141,7 @@ public class RecurringTimeIntervalTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__START_DAY_OF_WEEK);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getRecurringTimeIntervalType_StartDayOfWeek());
 		}
 		return childrenFeatures;
 	}
@@ -159,7 +153,7 @@ public class RecurringTimeIntervalTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RecurringTimeIntervalType"));
+		return getResourceLocator().getImage("full/obj16/RecurringTimeIntervalType");
 	}
 
 	/**
@@ -210,7 +204,7 @@ public class RecurringTimeIntervalTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__START_DAY_OF_WEEK,
+				(Schema1Package.eINSTANCE.getRecurringTimeIntervalType_StartDayOfWeek(),
 				 Schema1Factory.eINSTANCE.createStartDayOfWeekType()));
 	}
 

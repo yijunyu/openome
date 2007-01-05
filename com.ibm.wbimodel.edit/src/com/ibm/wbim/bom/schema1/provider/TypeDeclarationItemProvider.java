@@ -81,10 +81,8 @@ public class TypeDeclarationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TypeDeclaration_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TypeDeclaration_name_feature", "_UI_TypeDeclaration_type"),
-				 Schema1Package.Literals.TYPE_DECLARATION__NAME,
+				 Schema1Package.eINSTANCE.getTypeDeclaration_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class TypeDeclarationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.TYPE_DECLARATION__COMPLEX_DATA_TYPE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTypeDeclaration_ComplexDataType());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class TypeDeclarationItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeDeclaration"));
+		return getResourceLocator().getImage("full/obj16/TypeDeclaration");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class TypeDeclarationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TYPE_DECLARATION__COMPLEX_DATA_TYPE,
+				(Schema1Package.eINSTANCE.getTypeDeclaration_ComplexDataType(),
 				 Schema1Factory.eINSTANCE.createComplexDataType()));
 	}
 

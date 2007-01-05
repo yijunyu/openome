@@ -81,10 +81,8 @@ public class StopNodeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StopNodeType_associatedOutputCriterion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StopNodeType_associatedOutputCriterion_feature", "_UI_StopNodeType_type"),
-				 Schema1Package.Literals.STOP_NODE_TYPE__ASSOCIATED_OUTPUT_CRITERION,
+				 Schema1Package.eINSTANCE.getStopNodeType_AssociatedOutputCriterion(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class StopNodeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StopNodeType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StopNodeType_name_feature", "_UI_StopNodeType_type"),
-				 Schema1Package.Literals.STOP_NODE_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getStopNodeType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class StopNodeTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StopNodeType"));
+		return getResourceLocator().getImage("full/obj16/StopNodeType");
 	}
 
 	/**

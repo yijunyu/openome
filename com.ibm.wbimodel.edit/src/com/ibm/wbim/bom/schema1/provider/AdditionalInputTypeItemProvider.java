@@ -81,10 +81,8 @@ public class AdditionalInputTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AdditionalInputType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AdditionalInputType_name_feature", "_UI_AdditionalInputType_type"),
-				 Schema1Package.Literals.ADDITIONAL_INPUT_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getAdditionalInputType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class AdditionalInputTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ADDITIONAL_INPUT_TYPE__INPUT_CRITERION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getAdditionalInputType_InputCriterion());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class AdditionalInputTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AdditionalInputType"));
+		return getResourceLocator().getImage("full/obj16/AdditionalInputType");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class AdditionalInputTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ADDITIONAL_INPUT_TYPE__INPUT_CRITERION,
+				(Schema1Package.eINSTANCE.getAdditionalInputType_InputCriterion(),
 				 Schema1Factory.eINSTANCE.createInputCriterionRef()));
 	}
 

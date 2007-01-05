@@ -2,13 +2,11 @@
  * <copyright>
  * </copyright>
  *
- * $Id$
+ * $Id: GoalEditorPlugin.java,v 1.1 2005/10/30 17:12:26 yijunsf Exp $
  */
 package edu.toronto.cs.goalmodel.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
-
-import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -75,7 +73,7 @@ public final class GoalEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipseUIPlugin {
+	public static class Implementation extends EclipsePlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->

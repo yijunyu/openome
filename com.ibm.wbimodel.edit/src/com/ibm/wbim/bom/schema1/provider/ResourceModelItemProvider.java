@@ -78,14 +78,14 @@ public class ResourceModelItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCE_DEFINITION_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCE_DEFINITIONS);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCE_DEFINITION_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCE_DEFINITIONS);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCES);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCES);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__ROLES);
-			childrenFeatures.add(Schema1Package.Literals.RESOURCE_MODEL__TIMETABLES);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_IndividualResourceDefinitionTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_IndividualResourceDefinitions());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_BulkResourceDefinitionTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_BulkResourceDefinitions());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_IndividualResources());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_BulkResources());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_Roles());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getResourceModel_Timetables());
 		}
 		return childrenFeatures;
 	}
@@ -109,7 +109,7 @@ public class ResourceModelItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceModel"));
+		return getResourceLocator().getImage("full/obj16/ResourceModel");
 	}
 
 	/**
@@ -159,42 +159,42 @@ public class ResourceModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCE_DEFINITION_TEMPLATES,
+				(Schema1Package.eINSTANCE.getResourceModel_IndividualResourceDefinitionTemplates(),
 				 Schema1Factory.eINSTANCE.createIndividualResourceDefinitionTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCE_DEFINITIONS,
+				(Schema1Package.eINSTANCE.getResourceModel_IndividualResourceDefinitions(),
 				 Schema1Factory.eINSTANCE.createIndividualResourceDefinitionsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCE_DEFINITION_TEMPLATES,
+				(Schema1Package.eINSTANCE.getResourceModel_BulkResourceDefinitionTemplates(),
 				 Schema1Factory.eINSTANCE.createBulkResourceDefinitionTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCE_DEFINITIONS,
+				(Schema1Package.eINSTANCE.getResourceModel_BulkResourceDefinitions(),
 				 Schema1Factory.eINSTANCE.createBulkResourceDefinitionsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__INDIVIDUAL_RESOURCES,
+				(Schema1Package.eINSTANCE.getResourceModel_IndividualResources(),
 				 Schema1Factory.eINSTANCE.createIndividualResourcesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__BULK_RESOURCES,
+				(Schema1Package.eINSTANCE.getResourceModel_BulkResources(),
 				 Schema1Factory.eINSTANCE.createBulkResourcesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__ROLES,
+				(Schema1Package.eINSTANCE.getResourceModel_Roles(),
 				 Schema1Factory.eINSTANCE.createRolesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.RESOURCE_MODEL__TIMETABLES,
+				(Schema1Package.eINSTANCE.getResourceModel_Timetables(),
 				 Schema1Factory.eINSTANCE.createTimetablesType()));
 	}
 

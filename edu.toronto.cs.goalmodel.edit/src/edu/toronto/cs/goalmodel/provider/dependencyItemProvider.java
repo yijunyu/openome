@@ -65,7 +65,6 @@ public class dependencyItemProvider
 			addDependencyFromPropertyDescriptor(object);
 			addDependencyToPropertyDescriptor(object);
 			addTrustPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,10 +82,8 @@ public class dependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_dependency_dependencyFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_dependencyFrom_feature", "_UI_dependency_type"),
-				 GoalmodelPackage.Literals.DEPENDENCY__DEPENDENCY_FROM,
+				 GoalmodelPackage.eINSTANCE.getdependency_DependencyFrom(),
 				 true,
-				 false,
-				 false,
 				 null,
 				 null,
 				 null));
@@ -105,10 +102,8 @@ public class dependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_dependency_dependencyTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_dependencyTo_feature", "_UI_dependency_type"),
-				 GoalmodelPackage.Literals.DEPENDENCY__DEPENDENCY_TO,
+				 GoalmodelPackage.eINSTANCE.getdependency_DependencyTo(),
 				 true,
-				 false,
-				 false,
 				 null,
 				 null,
 				 null));
@@ -127,33 +122,9 @@ public class dependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_dependency_trust_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_trust_feature", "_UI_dependency_type"),
-				 GoalmodelPackage.Literals.DEPENDENCY__TRUST,
+				 GoalmodelPackage.eINSTANCE.getdependency_Trust(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_dependency_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_dependency_label_feature", "_UI_dependency_type"),
-				 GoalmodelPackage.Literals.DEPENDENCY__LABEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -165,7 +136,7 @@ public class dependencyItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/dependency"));
+		return getResourceLocator().getImage("full/obj16/dependency");
 	}
 
 	/**
@@ -191,7 +162,6 @@ public class dependencyItemProvider
 
 		switch (notification.getFeatureID(dependency.class)) {
 			case GoalmodelPackage.DEPENDENCY__TRUST:
-			case GoalmodelPackage.DEPENDENCY__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

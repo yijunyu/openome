@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id$
+ * $Id: GoalmodelActionBarContributor.java,v 1.1 2005/10/30 17:12:26 yijunsf Exp $
  */
 package edu.toronto.cs.goalmodel.presentation;
 
@@ -15,7 +15,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 
-import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -151,10 +150,8 @@ public class GoalmodelActionBarContributor
 	 * @generated
 	 */
 	public GoalmodelActionBarContributor() {
-		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
-		controlAction = new ControlAction();
 	}
 
 	/**
@@ -384,11 +381,11 @@ public class GoalmodelActionBarContributor
 
 		submenuManager = new MenuManager(GoalEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("additions", submenuManager);
 
 		submenuManager = new MenuManager(GoalEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("additions", submenuManager);
 	}
 
 	/**
@@ -405,16 +402,6 @@ public class GoalmodelActionBarContributor
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
-	}
-
-	/**
-	 * This ensures that a delete action will clean up all references to deleted objects.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected boolean removeAllReferencesOnDelete() {
-		return true;
 	}
 
 }

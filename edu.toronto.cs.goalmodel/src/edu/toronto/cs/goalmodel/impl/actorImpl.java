@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -121,7 +122,7 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return GoalmodelPackage.Literals.ACTOR;
+		return GoalmodelPackage.eINSTANCE.getactor();
 	}
 
 	/**
@@ -152,17 +153,7 @@ public class actorImpl extends EObjectImpl implements actor {
 	 */
 	public actor getSuper() {
 		if (eContainerFeatureID != GoalmodelPackage.ACTOR__SUPER) return null;
-		return (actor)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSuper(actor newSuper, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newSuper, GoalmodelPackage.ACTOR__SUPER, msgs);
-		return msgs;
+		return (actor)eContainer;
 	}
 
 	/**
@@ -171,15 +162,15 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * @generated
 	 */
 	public void setSuper(actor newSuper) {
-		if (newSuper != eInternalContainer() || (eContainerFeatureID != GoalmodelPackage.ACTOR__SUPER && newSuper != null)) {
+		if (newSuper != eContainer || (eContainerFeatureID != GoalmodelPackage.ACTOR__SUPER && newSuper != null)) {
 			if (EcoreUtil.isAncestor(this, newSuper))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
+			if (eContainer != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSuper != null)
 				msgs = ((InternalEObject)newSuper).eInverseAdd(this, GoalmodelPackage.ACTOR__SUB, actor.class, msgs);
-			msgs = basicSetSuper(newSuper, msgs);
+			msgs = eBasicSetContainer((InternalEObject)newSuper, GoalmodelPackage.ACTOR__SUPER, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
@@ -236,18 +227,24 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case GoalmodelPackage.ACTOR__SUPER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSuper((actor)otherEnd, msgs);
-			case GoalmodelPackage.ACTOR__SUB:
-				return ((InternalEList)getSub()).basicAdd(otherEnd, msgs);
-			case GoalmodelPackage.ACTOR__GOALS:
-				return ((InternalEList)getGoals()).basicAdd(otherEnd, msgs);
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
+		if (featureID >= 0) {
+			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
+				case GoalmodelPackage.ACTOR__SUPER:
+					if (eContainer != null)
+						msgs = eBasicRemoveFromContainer(msgs);
+					return eBasicSetContainer(otherEnd, GoalmodelPackage.ACTOR__SUPER, msgs);
+				case GoalmodelPackage.ACTOR__SUB:
+					return ((InternalEList)getSub()).basicAdd(otherEnd, msgs);
+				case GoalmodelPackage.ACTOR__GOALS:
+					return ((InternalEList)getGoals()).basicAdd(otherEnd, msgs);
+				default:
+					return eDynamicInverseAdd(otherEnd, featureID, baseClass, msgs);
+			}
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		if (eContainer != null)
+			msgs = eBasicRemoveFromContainer(msgs);
+		return eBasicSetContainer(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -255,16 +252,20 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case GoalmodelPackage.ACTOR__SUPER:
-				return basicSetSuper(null, msgs);
-			case GoalmodelPackage.ACTOR__SUB:
-				return ((InternalEList)getSub()).basicRemove(otherEnd, msgs);
-			case GoalmodelPackage.ACTOR__GOALS:
-				return ((InternalEList)getGoals()).basicRemove(otherEnd, msgs);
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, Class baseClass, NotificationChain msgs) {
+		if (featureID >= 0) {
+			switch (eDerivedStructuralFeatureID(featureID, baseClass)) {
+				case GoalmodelPackage.ACTOR__SUPER:
+					return eBasicSetContainer(null, GoalmodelPackage.ACTOR__SUPER, msgs);
+				case GoalmodelPackage.ACTOR__SUB:
+					return ((InternalEList)getSub()).basicRemove(otherEnd, msgs);
+				case GoalmodelPackage.ACTOR__GOALS:
+					return ((InternalEList)getGoals()).basicRemove(otherEnd, msgs);
+				default:
+					return eDynamicInverseRemove(otherEnd, featureID, baseClass, msgs);
+			}
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return eBasicSetContainer(null, featureID, msgs);
 	}
 
 	/**
@@ -272,12 +273,16 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case GoalmodelPackage.ACTOR__SUPER:
-				return eInternalContainer().eInverseRemove(this, GoalmodelPackage.ACTOR__SUB, actor.class, msgs);
+	public NotificationChain eBasicRemoveFromContainer(NotificationChain msgs) {
+		if (eContainerFeatureID >= 0) {
+			switch (eContainerFeatureID) {
+				case GoalmodelPackage.ACTOR__SUPER:
+					return eContainer.eInverseRemove(this, GoalmodelPackage.ACTOR__SUB, actor.class, msgs);
+				default:
+					return eDynamicBasicRemoveFromContainer(msgs);
+			}
 		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+		return eContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - eContainerFeatureID, null, msgs);
 	}
 
 	/**
@@ -285,8 +290,8 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.ACTOR__NAME:
 				return getName();
 			case GoalmodelPackage.ACTOR__SUPER:
@@ -298,7 +303,7 @@ public class actorImpl extends EObjectImpl implements actor {
 			case GoalmodelPackage.ACTOR__GOALS:
 				return getGoals();
 		}
-		return super.eGet(featureID, resolve, coreType);
+		return eDynamicGet(eFeature, resolve);
 	}
 
 	/**
@@ -306,8 +311,8 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(EStructuralFeature eFeature, Object newValue) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.ACTOR__NAME:
 				setName((String)newValue);
 				return;
@@ -326,7 +331,7 @@ public class actorImpl extends EObjectImpl implements actor {
 				getGoals().addAll((Collection)newValue);
 				return;
 		}
-		super.eSet(featureID, newValue);
+		eDynamicSet(eFeature, newValue);
 	}
 
 	/**
@@ -334,8 +339,8 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(EStructuralFeature eFeature) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.ACTOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -352,7 +357,7 @@ public class actorImpl extends EObjectImpl implements actor {
 				getGoals().clear();
 				return;
 		}
-		super.eUnset(featureID);
+		eDynamicUnset(eFeature);
 	}
 
 	/**
@@ -360,8 +365,8 @@ public class actorImpl extends EObjectImpl implements actor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(EStructuralFeature eFeature) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.ACTOR__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalmodelPackage.ACTOR__SUPER:
@@ -373,7 +378,7 @@ public class actorImpl extends EObjectImpl implements actor {
 			case GoalmodelPackage.ACTOR__GOALS:
 				return goals != null && !goals.isEmpty();
 		}
-		return super.eIsSet(featureID);
+		return eDynamicIsSet(eFeature);
 	}
 
 	/**

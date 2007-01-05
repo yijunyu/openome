@@ -39,7 +39,7 @@ public interface AdditionalOutputType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Criterion</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAdditionalOutputType_OutputCriterion()
-	 * @model type="com.ibm.wbim.bom.schema1.OutputCriterionRef" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.OutputCriterionRef" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='outputCriterion' namespace='##targetNamespace'"
 	 * @generated
 	 */

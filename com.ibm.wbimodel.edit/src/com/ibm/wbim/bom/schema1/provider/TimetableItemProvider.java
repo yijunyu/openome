@@ -87,10 +87,8 @@ public class TimetableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Timetable_documentation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_documentation_feature", "_UI_Timetable_type"),
-				 Schema1Package.Literals.TIMETABLE__DOCUMENTATION,
+				 Schema1Package.eINSTANCE.getTimetable_Documentation(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -109,10 +107,8 @@ public class TimetableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Timetable_beginingOn_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_beginingOn_feature", "_UI_Timetable_type"),
-				 Schema1Package.Literals.TIMETABLE__BEGINING_ON,
+				 Schema1Package.eINSTANCE.getTimetable_BeginingOn(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -131,10 +127,8 @@ public class TimetableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Timetable_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_name_feature", "_UI_Timetable_type"),
-				 Schema1Package.Literals.TIMETABLE__NAME,
+				 Schema1Package.eINSTANCE.getTimetable_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -153,10 +147,8 @@ public class TimetableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Timetable_numberOfTimesToRepeat_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_numberOfTimesToRepeat_feature", "_UI_Timetable_type"),
-				 Schema1Package.Literals.TIMETABLE__NUMBER_OF_TIMES_TO_REPEAT,
+				 Schema1Package.eINSTANCE.getTimetable_NumberOfTimesToRepeat(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -175,10 +167,8 @@ public class TimetableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Timetable_repetitionPeriod_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_repetitionPeriod_feature", "_UI_Timetable_type"),
-				 Schema1Package.Literals.TIMETABLE__REPETITION_PERIOD,
+				 Schema1Package.eINSTANCE.getTimetable_RepetitionPeriod(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -195,9 +185,9 @@ public class TimetableItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.TIMETABLE__RECURRING_TIME_INTERVAL);
-			childrenFeatures.add(Schema1Package.Literals.TIMETABLE__EXEMPTION_PERIOD);
-			childrenFeatures.add(Schema1Package.Literals.TIMETABLE__EXTENDED_ATTRIBUTES);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTimetable_RecurringTimeInterval());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTimetable_ExemptionPeriod());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTimetable_ExtendedAttributes());
 		}
 		return childrenFeatures;
 	}
@@ -221,7 +211,7 @@ public class TimetableItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Timetable"));
+		return getResourceLocator().getImage("full/obj16/Timetable");
 	}
 
 	/**
@@ -276,17 +266,17 @@ public class TimetableItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TIMETABLE__RECURRING_TIME_INTERVAL,
+				(Schema1Package.eINSTANCE.getTimetable_RecurringTimeInterval(),
 				 Schema1Factory.eINSTANCE.createRecurringTimeIntervalType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TIMETABLE__EXEMPTION_PERIOD,
+				(Schema1Package.eINSTANCE.getTimetable_ExemptionPeriod(),
 				 Schema1Factory.eINSTANCE.createExemptionPeriodType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TIMETABLE__EXTENDED_ATTRIBUTES,
+				(Schema1Package.eINSTANCE.getTimetable_ExtendedAttributes(),
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+  name="%pluginName"
+  id="com.omondo.xerces"
+  version="2.7.0"  
+  provider-name="Omondo &#169;">
+  
+	<runtime>
+		<library name="xml-apis-2.7.0.jar">
+			<export name="*"/>
+		</library>
+		<library name="xercesImpl-2.7.0.jar">
+			<export name="*"/>
+		</library>
+		<library name="resolver-2.7.0.jar">
+			<export name="*"/>
+		</library>		
+	</runtime>
+
+</plugin>
+

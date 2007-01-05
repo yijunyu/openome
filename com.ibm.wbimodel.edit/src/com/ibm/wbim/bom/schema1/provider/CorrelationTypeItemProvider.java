@@ -83,10 +83,8 @@ public class CorrelationTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CorrelationType_multipleInstancesSatisfyCondition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationType_multipleInstancesSatisfyCondition_feature", "_UI_CorrelationType_type"),
-				 Schema1Package.Literals.CORRELATION_TYPE__MULTIPLE_INSTANCES_SATISFY_CONDITION,
+				 Schema1Package.eINSTANCE.getCorrelationType_MultipleInstancesSatisfyCondition(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,10 +103,8 @@ public class CorrelationTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CorrelationType_noInstancesSatisfyCondition_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationType_noInstancesSatisfyCondition_feature", "_UI_CorrelationType_type"),
-				 Schema1Package.Literals.CORRELATION_TYPE__NO_INSTANCES_SATISFY_CONDITION,
+				 Schema1Package.eINSTANCE.getCorrelationType_NoInstancesSatisfyCondition(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -125,7 +121,7 @@ public class CorrelationTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.CORRELATION_TYPE__PREDICATE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCorrelationType_Predicate());
 		}
 		return childrenFeatures;
 	}
@@ -137,7 +133,7 @@ public class CorrelationTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CorrelationType"));
+		return getResourceLocator().getImage("full/obj16/CorrelationType");
 	}
 
 	/**
@@ -188,7 +184,7 @@ public class CorrelationTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CORRELATION_TYPE__PREDICATE,
+				(Schema1Package.eINSTANCE.getCorrelationType_Predicate(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 

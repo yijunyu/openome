@@ -84,10 +84,8 @@ public class ModelTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ModelType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelType_name_feature", "_UI_ModelType_type"),
-				 Schema1Package.Literals.MODEL_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getModelType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class ModelTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ModelType_schemaVersion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelType_schemaVersion_feature", "_UI_ModelType_type"),
-				 Schema1Package.Literals.MODEL_TYPE__SCHEMA_VERSION,
+				 Schema1Package.eINSTANCE.getModelType_SchemaVersion(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,11 +122,11 @@ public class ModelTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.MODEL_TYPE__CATALOGS);
-			childrenFeatures.add(Schema1Package.Literals.MODEL_TYPE__DATA_MODEL);
-			childrenFeatures.add(Schema1Package.Literals.MODEL_TYPE__RESOURCE_MODEL);
-			childrenFeatures.add(Schema1Package.Literals.MODEL_TYPE__ORGANIZATION_MODEL);
-			childrenFeatures.add(Schema1Package.Literals.MODEL_TYPE__PROCESS_MODEL);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getModelType_Catalogs());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getModelType_DataModel());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getModelType_ResourceModel());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getModelType_OrganizationModel());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getModelType_ProcessModel());
 		}
 		return childrenFeatures;
 	}
@@ -154,7 +150,7 @@ public class ModelTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModelType"));
+		return getResourceLocator().getImage("full/obj16/ModelType");
 	}
 
 	/**
@@ -208,27 +204,27 @@ public class ModelTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MODEL_TYPE__CATALOGS,
+				(Schema1Package.eINSTANCE.getModelType_Catalogs(),
 				 Schema1Factory.eINSTANCE.createCatalogsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MODEL_TYPE__DATA_MODEL,
+				(Schema1Package.eINSTANCE.getModelType_DataModel(),
 				 Schema1Factory.eINSTANCE.createDataModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MODEL_TYPE__RESOURCE_MODEL,
+				(Schema1Package.eINSTANCE.getModelType_ResourceModel(),
 				 Schema1Factory.eINSTANCE.createResourceModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MODEL_TYPE__ORGANIZATION_MODEL,
+				(Schema1Package.eINSTANCE.getModelType_OrganizationModel(),
 				 Schema1Factory.eINSTANCE.createOrganizationModel()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MODEL_TYPE__PROCESS_MODEL,
+				(Schema1Package.eINSTANCE.getModelType_ProcessModel(),
 				 Schema1Factory.eINSTANCE.createProcessModel()));
 	}
 

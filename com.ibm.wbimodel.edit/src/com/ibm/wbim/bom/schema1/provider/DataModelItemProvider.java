@@ -78,11 +78,11 @@ public class DataModelItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEM_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEMS);
-			childrenFeatures.add(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEM_INSTANCES);
-			childrenFeatures.add(Schema1Package.Literals.DATA_MODEL__NOTIFICATION_TEMPLATES);
-			childrenFeatures.add(Schema1Package.Literals.DATA_MODEL__NOTIFICATIONS);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDataModel_BusinessItemTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDataModel_BusinessItems());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDataModel_BusinessItemInstances());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDataModel_NotificationTemplates());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDataModel_Notifications());
 		}
 		return childrenFeatures;
 	}
@@ -106,7 +106,7 @@ public class DataModelItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataModel"));
+		return getResourceLocator().getImage("full/obj16/DataModel");
 	}
 
 	/**
@@ -153,27 +153,27 @@ public class DataModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEM_TEMPLATES,
+				(Schema1Package.eINSTANCE.getDataModel_BusinessItemTemplates(),
 				 Schema1Factory.eINSTANCE.createBusinessItemTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEMS,
+				(Schema1Package.eINSTANCE.getDataModel_BusinessItems(),
 				 Schema1Factory.eINSTANCE.createBusinessItemsType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DATA_MODEL__BUSINESS_ITEM_INSTANCES,
+				(Schema1Package.eINSTANCE.getDataModel_BusinessItemInstances(),
 				 Schema1Factory.eINSTANCE.createBusinessItemInstancesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DATA_MODEL__NOTIFICATION_TEMPLATES,
+				(Schema1Package.eINSTANCE.getDataModel_NotificationTemplates(),
 				 Schema1Factory.eINSTANCE.createNotificationTemplatesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DATA_MODEL__NOTIFICATIONS,
+				(Schema1Package.eINSTANCE.getDataModel_Notifications(),
 				 Schema1Factory.eINSTANCE.createNotificationsType()));
 	}
 

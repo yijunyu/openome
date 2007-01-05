@@ -76,7 +76,7 @@ public class OutputPathOperationalDataItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.OUTPUT_PATH_OPERATIONAL_DATA__PROBABILITY);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputPathOperationalData_Probability());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class OutputPathOperationalDataItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputPathOperationalData"));
+		return getResourceLocator().getImage("full/obj16/OutputPathOperationalData");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class OutputPathOperationalDataItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.OUTPUT_PATH_OPERATIONAL_DATA__PROBABILITY,
+				(Schema1Package.eINSTANCE.getOutputPathOperationalData_Probability(),
 				 Schema1Factory.eINSTANCE.createOutputPathProbabilityValue()));
 	}
 

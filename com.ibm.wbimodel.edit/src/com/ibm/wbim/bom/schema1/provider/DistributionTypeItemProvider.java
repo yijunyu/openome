@@ -78,14 +78,14 @@ public class DistributionTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__EXPONENTIAL);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__GAMMA);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__LOGNORMAL);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__NORMAL);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__POISSON);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__RANDOM_LIST);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__UNIFORM);
-			childrenFeatures.add(Schema1Package.Literals.DISTRIBUTION_TYPE__WEIGHTED_LIST);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Exponential());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Gamma());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Lognormal());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Normal());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Poisson());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_RandomList());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_Uniform());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDistributionType_WeightedList());
 		}
 		return childrenFeatures;
 	}
@@ -109,7 +109,7 @@ public class DistributionTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DistributionType"));
+		return getResourceLocator().getImage("full/obj16/DistributionType");
 	}
 
 	/**
@@ -159,42 +159,42 @@ public class DistributionTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__EXPONENTIAL,
+				(Schema1Package.eINSTANCE.getDistributionType_Exponential(),
 				 Schema1Factory.eINSTANCE.createExponentialType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__GAMMA,
+				(Schema1Package.eINSTANCE.getDistributionType_Gamma(),
 				 Schema1Factory.eINSTANCE.createGammaType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__LOGNORMAL,
+				(Schema1Package.eINSTANCE.getDistributionType_Lognormal(),
 				 Schema1Factory.eINSTANCE.createLognormalType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__NORMAL,
+				(Schema1Package.eINSTANCE.getDistributionType_Normal(),
 				 Schema1Factory.eINSTANCE.createNormalType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__POISSON,
+				(Schema1Package.eINSTANCE.getDistributionType_Poisson(),
 				 Schema1Factory.eINSTANCE.createPoissonType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__RANDOM_LIST,
+				(Schema1Package.eINSTANCE.getDistributionType_RandomList(),
 				 Schema1Factory.eINSTANCE.createRandomListType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__UNIFORM,
+				(Schema1Package.eINSTANCE.getDistributionType_Uniform(),
 				 Schema1Factory.eINSTANCE.createUniformType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DISTRIBUTION_TYPE__WEIGHTED_LIST,
+				(Schema1Package.eINSTANCE.getDistributionType_WeightedList(),
 				 Schema1Factory.eINSTANCE.createWeightedListType()));
 	}
 

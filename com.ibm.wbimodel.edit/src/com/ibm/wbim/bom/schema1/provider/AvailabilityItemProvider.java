@@ -80,10 +80,8 @@ public class AvailabilityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Availability_timetable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Availability_timetable_feature", "_UI_Availability_type"),
-				 Schema1Package.Literals.AVAILABILITY__TIMETABLE,
+				 Schema1Package.eINSTANCE.getAvailability_Timetable(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class AvailabilityItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Availability"));
+		return getResourceLocator().getImage("full/obj16/Availability");
 	}
 
 	/**

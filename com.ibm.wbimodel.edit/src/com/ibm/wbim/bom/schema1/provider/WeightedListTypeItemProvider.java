@@ -76,7 +76,7 @@ public class WeightedListTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.WEIGHTED_LIST_TYPE__VALUE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getWeightedListType_Value());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class WeightedListTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/WeightedListType"));
+		return getResourceLocator().getImage("full/obj16/WeightedListType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class WeightedListTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.WEIGHTED_LIST_TYPE__VALUE,
+				(Schema1Package.eINSTANCE.getWeightedListType_Value(),
 				 Schema1Factory.eINSTANCE.createValueType()));
 	}
 

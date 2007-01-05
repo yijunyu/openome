@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<edu.toronto.cs.goalmodel:goal xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.goalmodel="http:///edu/toronto/cs/goalmodel.ecore" name="a" type="LEAF">
+  <goal name="b" type="AND">
+    <goal name="d1"/>
+    <goal name="d2"/>
+  </goal>
+  <goal name="c" type="AND">
+    <goal name="d2#1" type="AND"/>
+    <goal name="c1" type="AND"/>
+  </goal>
+</edu.toronto.cs.goalmodel:goal>

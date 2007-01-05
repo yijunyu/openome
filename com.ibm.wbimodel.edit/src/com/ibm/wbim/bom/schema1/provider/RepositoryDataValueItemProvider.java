@@ -83,10 +83,8 @@ public class RepositoryDataValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RepositoryDataValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataValue_literalValue_feature", "_UI_RepositoryDataValue_type"),
-				 Schema1Package.Literals.REPOSITORY_DATA_VALUE__LITERAL_VALUE,
+				 Schema1Package.eINSTANCE.getRepositoryDataValue_LiteralValue(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,7 +101,7 @@ public class RepositoryDataValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.REPOSITORY_DATA_VALUE__GROUP);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getRepositoryDataValue_Group());
 		}
 		return childrenFeatures;
 	}
@@ -115,7 +113,7 @@ public class RepositoryDataValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoryDataValue"));
+		return getResourceLocator().getImage("full/obj16/RepositoryDataValue");
 	}
 
 	/**
@@ -161,30 +159,30 @@ public class RepositoryDataValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.REPOSITORY_DATA_VALUE__GROUP,
+				(Schema1Package.eINSTANCE.getRepositoryDataValue_Group(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.REPOSITORY_DATA_VALUE__LITERAL_VALUE,
+					(Schema1Package.eINSTANCE.getRepositoryDataValue_LiteralValue(),
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.REPOSITORY_DATA_VALUE__GROUP,
+				(Schema1Package.eINSTANCE.getRepositoryDataValue_Group(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.REPOSITORY_DATA_VALUE__EXPRESSION_VALUE,
+					(Schema1Package.eINSTANCE.getRepositoryDataValue_ExpressionValue(),
 					 Schema1Factory.eINSTANCE.createExpression())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.REPOSITORY_DATA_VALUE__GROUP,
+				(Schema1Package.eINSTANCE.getRepositoryDataValue_Group(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PUBLIC_INSTANCE,
+					(Schema1Package.eINSTANCE.getRepositoryDataValue_PublicInstance(),
 					 Schema1Factory.eINSTANCE.createPublicInstance())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.REPOSITORY_DATA_VALUE__GROUP,
+				(Schema1Package.eINSTANCE.getRepositoryDataValue_Group(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PRIVATE_INSTANCE,
+					(Schema1Package.eINSTANCE.getRepositoryDataValue_PrivateInstance(),
 					 Schema1Factory.eINSTANCE.createPrivateInstance())));
 	}
 

@@ -78,8 +78,8 @@ public class InputsItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INPUTS__INPUT);
-			childrenFeatures.add(Schema1Package.Literals.INPUTS__INPUT_CRITERION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputs_Input());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputs_InputCriterion());
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +103,7 @@ public class InputsItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Inputs"));
+		return getResourceLocator().getImage("full/obj16/Inputs");
 	}
 
 	/**
@@ -147,12 +147,12 @@ public class InputsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUTS__INPUT,
+				(Schema1Package.eINSTANCE.getInputs_Input(),
 				 Schema1Factory.eINSTANCE.createInput()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUTS__INPUT_CRITERION,
+				(Schema1Package.eINSTANCE.getInputs_InputCriterion(),
 				 Schema1Factory.eINSTANCE.createInputCriterion()));
 	}
 

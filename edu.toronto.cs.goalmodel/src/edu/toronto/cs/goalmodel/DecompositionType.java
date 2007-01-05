@@ -75,7 +75,7 @@ public final class DecompositionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final DecompositionType OR_LITERAL = new DecompositionType(OR, "OR", "OR");
+	public static final DecompositionType OR_LITERAL = new DecompositionType(OR, "OR");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal object.
@@ -85,7 +85,7 @@ public final class DecompositionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final DecompositionType AND_LITERAL = new DecompositionType(AND, "AND", "AND");
+	public static final DecompositionType AND_LITERAL = new DecompositionType(AND, "AND");
 
 	/**
 	 * The '<em><b>LEAF</b></em>' literal object.
@@ -95,7 +95,7 @@ public final class DecompositionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final DecompositionType LEAF_LITERAL = new DecompositionType(LEAF, "LEAF", "LEAF");
+	public static final DecompositionType LEAF_LITERAL = new DecompositionType(LEAF, "LEAF");
 
 	/**
 	 * An array of all the '<em><b>Decomposition Type</b></em>' enumerators.
@@ -119,31 +119,15 @@ public final class DecompositionType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Decomposition Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static DecompositionType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			DecompositionType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * Returns the '<em><b>Decomposition Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DecompositionType getByName(String name) {
+	public static DecompositionType get(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			DecompositionType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if (result.toString().equals(name)) {
 				return result;
 			}
 		}
@@ -151,7 +135,7 @@ public final class DecompositionType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Decomposition Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Decomposition Type</b></em>' literal with the specified value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -171,8 +155,8 @@ public final class DecompositionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private DecompositionType(int value, String name, String literal) {
-		super(value, name, literal);
+	private DecompositionType(int value, String name) {
+		super(value, name);
 	}
 
 } //DecompositionType

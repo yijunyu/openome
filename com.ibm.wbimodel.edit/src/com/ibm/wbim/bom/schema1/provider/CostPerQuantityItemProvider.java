@@ -79,10 +79,8 @@ public class CostPerQuantityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CostPerQuantity_unit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostPerQuantity_unit_feature", "_UI_CostPerQuantity_type"),
-				 Schema1Package.Literals.COST_PER_QUANTITY__UNIT,
+				 Schema1Package.eINSTANCE.getCostPerQuantity_Unit(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -95,7 +93,7 @@ public class CostPerQuantityItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CostPerQuantity"));
+		return getResourceLocator().getImage("full/obj16/CostPerQuantity");
 	}
 
 	/**

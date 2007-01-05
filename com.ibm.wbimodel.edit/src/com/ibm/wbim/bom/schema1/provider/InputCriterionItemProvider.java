@@ -83,10 +83,8 @@ public class InputCriterionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputCriterion_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputCriterion_name_feature", "_UI_InputCriterion_type"),
-				 Schema1Package.Literals.INPUT_CRITERION__NAME,
+				 Schema1Package.eINSTANCE.getInputCriterion_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,9 +101,9 @@ public class InputCriterionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_CRITERION__INPUT);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_CRITERION__CONSTRAINT);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_CRITERION__CORRELATION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputCriterion_Input());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputCriterion_Constraint());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputCriterion_Correlation());
 		}
 		return childrenFeatures;
 	}
@@ -129,7 +127,7 @@ public class InputCriterionItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputCriterion"));
+		return getResourceLocator().getImage("full/obj16/InputCriterion");
 	}
 
 	/**
@@ -180,17 +178,17 @@ public class InputCriterionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_CRITERION__INPUT,
+				(Schema1Package.eINSTANCE.getInputCriterion_Input(),
 				 Schema1Factory.eINSTANCE.createInputType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_CRITERION__CONSTRAINT,
+				(Schema1Package.eINSTANCE.getInputCriterion_Constraint(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_CRITERION__CORRELATION,
+				(Schema1Package.eINSTANCE.getInputCriterion_Correlation(),
 				 Schema1Factory.eINSTANCE.createCorrelationType()));
 	}
 

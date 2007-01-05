@@ -81,10 +81,8 @@ public class StartNodeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartNodeType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartNodeType_name_feature", "_UI_StartNodeType_type"),
-				 Schema1Package.Literals.START_NODE_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getStartNodeType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class StartNodeTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.START_NODE_TYPE__ENTRY_POINT);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getStartNodeType_EntryPoint());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class StartNodeTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StartNodeType"));
+		return getResourceLocator().getImage("full/obj16/StartNodeType");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class StartNodeTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.START_NODE_TYPE__ENTRY_POINT,
+				(Schema1Package.eINSTANCE.getStartNodeType_EntryPoint(),
 				 Schema1Factory.eINSTANCE.createEntryPointType()));
 	}
 

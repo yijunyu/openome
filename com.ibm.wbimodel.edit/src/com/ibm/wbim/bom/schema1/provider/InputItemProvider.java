@@ -88,10 +88,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_associatedData_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_associatedData_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__ASSOCIATED_DATA,
+				 Schema1Package.eINSTANCE.getInput_AssociatedData(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -110,10 +108,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_isOrdered_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isOrdered_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__IS_ORDERED,
+				 Schema1Package.eINSTANCE.getInput_IsOrdered(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -132,10 +128,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_isUnique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isUnique_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__IS_UNIQUE,
+				 Schema1Package.eINSTANCE.getInput_IsUnique(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -154,10 +148,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_maximum_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__MAXIMUM,
+				 Schema1Package.eINSTANCE.getInput_Maximum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -176,10 +168,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_minimum_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__MINIMUM,
+				 Schema1Package.eINSTANCE.getInput_Minimum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -198,10 +188,8 @@ public class InputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Input_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_name_feature", "_UI_Input_type"),
-				 Schema1Package.Literals.INPUT__NAME,
+				 Schema1Package.eINSTANCE.getInput_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -218,8 +206,8 @@ public class InputItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INPUT__CONSTANT_VALUE);
-			childrenFeatures.add(Schema1Package.Literals.INPUT__REPOSITORY_VALUE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInput_ConstantValue());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInput_RepositoryValue());
 		}
 		return childrenFeatures;
 	}
@@ -243,7 +231,7 @@ public class InputItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Input"));
+		return getResourceLocator().getImage("full/obj16/Input");
 	}
 
 	/**
@@ -298,12 +286,12 @@ public class InputItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT__CONSTANT_VALUE,
+				(Schema1Package.eINSTANCE.getInput_ConstantValue(),
 				 Schema1Factory.eINSTANCE.createInputConstantValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT__REPOSITORY_VALUE,
+				(Schema1Package.eINSTANCE.getInput_RepositoryValue(),
 				 Schema1Factory.eINSTANCE.createInputRepositoryValue()));
 	}
 

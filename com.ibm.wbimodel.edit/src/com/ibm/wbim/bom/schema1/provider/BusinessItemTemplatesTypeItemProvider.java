@@ -76,7 +76,7 @@ public class BusinessItemTemplatesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.BUSINESS_ITEM_TEMPLATES_TYPE__BUSINESS_ITEM_TEMPLATE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getBusinessItemTemplatesType_BusinessItemTemplate());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class BusinessItemTemplatesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BusinessItemTemplatesType"));
+		return getResourceLocator().getImage("full/obj16/BusinessItemTemplatesType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class BusinessItemTemplatesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.BUSINESS_ITEM_TEMPLATES_TYPE__BUSINESS_ITEM_TEMPLATE,
+				(Schema1Package.eINSTANCE.getBusinessItemTemplatesType_BusinessItemTemplate(),
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

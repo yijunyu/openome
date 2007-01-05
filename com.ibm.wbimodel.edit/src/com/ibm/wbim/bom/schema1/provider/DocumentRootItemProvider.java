@@ -80,7 +80,7 @@ public class DocumentRootItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.DOCUMENT_ROOT__MIXED);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDocumentRoot_Mixed());
 		}
 		return childrenFeatures;
 	}
@@ -92,7 +92,7 @@ public class DocumentRootItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot"));
+		return getResourceLocator().getImage("full/obj16/DocumentRoot");
 	}
 
 	/**
@@ -135,23 +135,23 @@ public class DocumentRootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DOCUMENT_ROOT__MIXED,
+				(Schema1Package.eINSTANCE.getDocumentRoot_Mixed(),
 				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Comment(),
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DOCUMENT_ROOT__MIXED,
+				(Schema1Package.eINSTANCE.getDocumentRoot_Mixed(),
 				 FeatureMapUtil.createEntry
-					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					(XMLTypePackage.eINSTANCE.getXMLTypeDocumentRoot_Text(),
 					 "")));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DOCUMENT_ROOT__MIXED,
+				(Schema1Package.eINSTANCE.getDocumentRoot_Mixed(),
 				 FeatureMapUtil.createEntry
-					(Schema1Package.Literals.DOCUMENT_ROOT__MODEL,
+					(Schema1Package.eINSTANCE.getDocumentRoot_Model(),
 					 Schema1Factory.eINSTANCE.createModelType())));
 	}
 

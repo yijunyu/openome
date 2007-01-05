@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.goalmodel.dependency#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.dependency#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.dependency#getTrust <em>Trust</em>}</li>
- *   <li>{@link edu.toronto.cs.goalmodel.dependency#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,31 +108,5 @@ public interface dependency extends EObject {
 	 * @generated
 	 */
 	void setTrust(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getdependency_Label()
-	 * @model
-	 * @generated
-	 */
-	String getLabel();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.goalmodel.dependency#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(String value);
 
 } // dependency

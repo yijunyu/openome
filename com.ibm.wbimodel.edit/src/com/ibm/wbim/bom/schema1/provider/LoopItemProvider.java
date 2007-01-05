@@ -80,10 +80,8 @@ public class LoopItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Loop_isConditionTestedFirst_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Loop_isConditionTestedFirst_feature", "_UI_Loop_type"),
-				 Schema1Package.Literals.LOOP__IS_CONDITION_TESTED_FIRST,
+				 Schema1Package.eINSTANCE.getLoop_IsConditionTestedFirst(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -100,7 +98,7 @@ public class LoopItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.LOOP__LOOP_CONDITION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getLoop_LoopCondition());
 		}
 		return childrenFeatures;
 	}
@@ -112,7 +110,7 @@ public class LoopItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Loop"));
+		return getResourceLocator().getImage("full/obj16/Loop");
 	}
 
 	/**
@@ -161,7 +159,7 @@ public class LoopItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.LOOP__LOOP_CONDITION,
+				(Schema1Package.eINSTANCE.getLoop_LoopCondition(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 
@@ -176,9 +174,9 @@ public class LoopItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.PROCESS__PRECONDITION ||
-			childFeature == Schema1Package.Literals.PROCESS__POSTCONDITION ||
-			childFeature == Schema1Package.Literals.LOOP__LOOP_CONDITION;
+			childFeature == Schema1Package.eINSTANCE.getProcess_Precondition() ||
+			childFeature == Schema1Package.eINSTANCE.getProcess_Postcondition() ||
+			childFeature == Schema1Package.eINSTANCE.getLoop_LoopCondition();
 
 		if (qualify) {
 			return getString

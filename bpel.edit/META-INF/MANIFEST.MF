@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: bpel.edit; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: org.xmlsoap.schemas.ws._2003._03.business.process.provider.BPEL4WSEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.xmlsoap.schemas.ws._2003._03.business.process.provider,
+ org.xmlsoap.schemas.wsdl.provider
+Require-Bundle: org.eclipse.core.runtime,
+ bpel;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Eclipse-AutoStart: true

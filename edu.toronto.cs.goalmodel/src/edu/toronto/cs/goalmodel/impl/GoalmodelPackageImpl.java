@@ -17,8 +17,6 @@ import edu.toronto.cs.goalmodel.actor;
 import edu.toronto.cs.goalmodel.contribution;
 import edu.toronto.cs.goalmodel.dependency;
 import edu.toronto.cs.goalmodel.goal;
-import edu.toronto.cs.goalmodel.linkAnnotation;
-import edu.toronto.cs.goalmodel.linkAnnotationType;
 import edu.toronto.cs.goalmodel.property;
 import edu.toronto.cs.goalmodel.topic;
 
@@ -84,13 +82,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass linkAnnotationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum actorTypeEEnum = null;
 
 	/**
@@ -120,13 +111,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * @generated
 	 */
 	private EEnum modeTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum linkAnnotationTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -318,15 +302,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getdependency_Label() {
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getgoal() {
 		return goalEClass;
 	}
@@ -498,15 +473,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getgoal_Annotation() {
-		return (EReference)goalEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getproperty() {
 		return propertyEClass;
 	}
@@ -561,33 +527,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getlinkAnnotation() {
-		return linkAnnotationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getlinkAnnotation_Type() {
-		return (EAttribute)linkAnnotationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getlinkAnnotation_Details() {
-		return (EAttribute)linkAnnotationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getActorType() {
 		return actorTypeEEnum;
 	}
@@ -633,15 +572,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getlinkAnnotationType() {
-		return linkAnnotationTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GoalmodelFactory getGoalmodelFactory() {
 		return (GoalmodelFactory)getEFactoryInstance();
 	}
@@ -680,7 +610,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_FROM);
 		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_TO);
 		createEAttribute(dependencyEClass, DEPENDENCY__TRUST);
-		createEAttribute(dependencyEClass, DEPENDENCY__LABEL);
 
 		goalEClass = createEClass(GOAL);
 		createEAttribute(goalEClass, GOAL__NAME);
@@ -701,7 +630,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEReference(goalEClass, GOAL__DEPENDENCY_FROM);
 		createEReference(goalEClass, GOAL__DEPENDENCY_TO);
 		createEAttribute(goalEClass, GOAL__MODE);
-		createEReference(goalEClass, GOAL__ANNOTATION);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -711,17 +639,12 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		createEAttribute(topicEClass, TOPIC__NAME);
 		createEAttribute(topicEClass, TOPIC__TYPE);
 
-		linkAnnotationEClass = createEClass(LINK_ANNOTATION);
-		createEAttribute(linkAnnotationEClass, LINK_ANNOTATION__TYPE);
-		createEAttribute(linkAnnotationEClass, LINK_ANNOTATION__DETAILS);
-
 		// Create enums
 		actorTypeEEnum = createEEnum(ACTOR_TYPE);
 		contributionTypeEEnum = createEEnum(CONTRIBUTION_TYPE);
 		decompositionTypeEEnum = createEEnum(DECOMPOSITION_TYPE);
 		labelTypeEEnum = createEEnum(LABEL_TYPE);
 		modeTypeEEnum = createEEnum(MODE_TYPE);
-		linkAnnotationTypeEEnum = createEEnum(LINK_ANNOTATION_TYPE);
 	}
 
 	/**
@@ -765,7 +688,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		initEReference(getdependency_DependencyFrom(), this.getgoal(), this.getgoal_DependencyTo(), "dependencyFrom", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getdependency_DependencyTo(), this.getgoal(), this.getgoal_DependencyFrom(), "dependencyTo", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getdependency_Trust(), ecorePackage.getEFloat(), "trust", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getdependency_Label(), ecorePackage.getEString(), "label", null, 0, 1, dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goalEClass, goal.class, "goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getgoal_Name(), ecorePackage.getEString(), "name", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -786,19 +708,14 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		initEReference(getgoal_DependencyFrom(), this.getdependency(), this.getdependency_DependencyTo(), "dependencyFrom", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getgoal_DependencyTo(), this.getdependency(), this.getdependency_DependencyFrom(), "dependencyTo", null, 0, -1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getgoal_Mode(), this.getModeType(), "mode", "HARD", 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getgoal_Annotation(), this.getlinkAnnotation(), null, "annotation", null, 0, 1, goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, property.class, "property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getproperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getproperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(topicEClass, topic.class, "topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(gettopic_Name(), ecorePackage.getEString(), "name", "", 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(gettopic_Name(), ecorePackage.getEString(), "name", null, 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(gettopic_Type(), ecorePackage.getEString(), "type", "String", 0, 1, topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(linkAnnotationEClass, linkAnnotation.class, "linkAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getlinkAnnotation_Type(), this.getlinkAnnotationType(), "type", null, 0, 1, linkAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getlinkAnnotation_Details(), ecorePackage.getEString(), "details", "", 0, 1, linkAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(actorTypeEEnum, ActorType.class, "ActorType");
@@ -831,12 +748,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		addEEnumLiteral(modeTypeEEnum, ModeType.SOFT_LITERAL);
 		addEEnumLiteral(modeTypeEEnum, ModeType.TASK_LITERAL);
 		addEEnumLiteral(modeTypeEEnum, ModeType.RESOURCE_LITERAL);
-
-		initEEnum(linkAnnotationTypeEEnum, linkAnnotationType.class, "linkAnnotationType");
-		addEEnumLiteral(linkAnnotationTypeEEnum, linkAnnotationType.NONE_LITERAL);
-		addEEnumLiteral(linkAnnotationTypeEEnum, linkAnnotationType.CONDITION_LITERAL);
-		addEEnumLiteral(linkAnnotationTypeEEnum, linkAnnotationType.WHILE_LITERAL);
-		addEEnumLiteral(linkAnnotationTypeEEnum, linkAnnotationType.GUARD_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

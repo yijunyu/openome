@@ -84,10 +84,8 @@ public class GroupMembersTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupMembersType_group_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupMembersType_group_feature", "_UI_GroupMembersType_type"),
-				 Schema1Package.Literals.GROUP_MEMBERS_TYPE__GROUP,
+				 Schema1Package.eINSTANCE.getGroupMembersType_Group(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class GroupMembersTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupMembersType_domain_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupMembersType_domain_feature", "_UI_GroupMembersType_type"),
-				 Schema1Package.Literals.GROUP_MEMBERS_TYPE__DOMAIN,
+				 Schema1Package.eINSTANCE.getGroupMembersType_Domain(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -128,10 +124,8 @@ public class GroupMembersTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupMembersType_includeSubgroups_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupMembersType_includeSubgroups_feature", "_UI_GroupMembersType_type"),
-				 Schema1Package.Literals.GROUP_MEMBERS_TYPE__INCLUDE_SUBGROUPS,
+				 Schema1Package.eINSTANCE.getGroupMembersType_IncludeSubgroups(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -150,10 +144,8 @@ public class GroupMembersTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupMembersType_alternativeName1_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupMembersType_alternativeName1_feature", "_UI_GroupMembersType_type"),
-				 Schema1Package.Literals.GROUP_MEMBERS_TYPE__ALTERNATIVE_NAME1,
+				 Schema1Package.eINSTANCE.getGroupMembersType_AlternativeName1(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -172,10 +164,8 @@ public class GroupMembersTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupMembersType_alternativeName2_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupMembersType_alternativeName2_feature", "_UI_GroupMembersType_type"),
-				 Schema1Package.Literals.GROUP_MEMBERS_TYPE__ALTERNATIVE_NAME2,
+				 Schema1Package.eINSTANCE.getGroupMembersType_AlternativeName2(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -188,7 +178,7 @@ public class GroupMembersTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GroupMembersType"));
+		return getResourceLocator().getImage("full/obj16/GroupMembersType");
 	}
 
 	/**

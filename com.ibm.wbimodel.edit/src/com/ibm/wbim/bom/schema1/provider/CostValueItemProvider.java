@@ -82,10 +82,8 @@ public class CostValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CostValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostValue_literalValue_feature", "_UI_CostValue_type"),
-				 Schema1Package.Literals.COST_VALUE__LITERAL_VALUE,
+				 Schema1Package.eINSTANCE.getCostValue_LiteralValue(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,10 +102,8 @@ public class CostValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CostValue_currency_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostValue_currency_feature", "_UI_CostValue_type"),
-				 Schema1Package.Literals.COST_VALUE__CURRENCY,
+				 Schema1Package.eINSTANCE.getCostValue_Currency(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -124,7 +120,7 @@ public class CostValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.COST_VALUE__DISTRIBUTION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCostValue_Distribution());
 		}
 		return childrenFeatures;
 	}
@@ -136,7 +132,7 @@ public class CostValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CostValue"));
+		return getResourceLocator().getImage("full/obj16/CostValue");
 	}
 
 	/**
@@ -184,7 +180,7 @@ public class CostValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_VALUE__DISTRIBUTION,
+				(Schema1Package.eINSTANCE.getCostValue_Distribution(),
 				 Schema1Factory.eINSTANCE.createDistributionType()));
 	}
 

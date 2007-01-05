@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.ibm.com/wbim/bomSchema1.0" elementFormDefault="qualified" version="1.0" xmlns="http://www.ibm.com/wbim/bomSchema1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="BasicDataType">
+		<xsd:annotation>
+			<xsd:documentation>Modeler predefined basic types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Boolean"/>
+			<xsd:enumeration value="Byte"/>
+			<xsd:enumeration value="Date"/>
+			<xsd:enumeration value="DateTime"/>
+			<xsd:enumeration value="Double"/>
+			<xsd:enumeration value="Duration"/>
+			<xsd:enumeration value="Float"/>
+			<xsd:enumeration value="Integer"/>
+			<xsd:enumeration value="Long"/>
+			<xsd:enumeration value="Short"/>
+			<xsd:enumeration value="String"/>
+			<xsd:enumeration value="Time"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Currency">
+		<xsd:annotation>
+			<xsd:documentation>Modeler supported currencies</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="AED"/>
+			<xsd:enumeration value="ALL"/>
+			<xsd:enumeration value="ARS"/>
+			<xsd:enumeration value="AUD"/>
+			<xsd:enumeration value="BAM"/>
+			<xsd:enumeration value="BGL"/>
+			<xsd:enumeration value="BHD"/>
+			<xsd:enumeration value="BOB"/>
+			<xsd:enumeration value="BRL"/>
+			<xsd:enumeration value="BSD"/>
+			<xsd:enumeration value="BYB"/>
+			<xsd:enumeration value="CAD"/>
+			<xsd:enumeration value="CHF"/>
+			<xsd:enumeration value="CLP"/>
+			<xsd:enumeration value="CNY"/>
+			<xsd:enumeration value="COP"/>
+			<xsd:enumeration value="CRC"/>
+			<xsd:enumeration value="CZK"/>
+			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="DOP"/>
+			<xsd:enumeration value="DZD"/>
+			<xsd:enumeration value="EEK"/>
+			<xsd:enumeration value="EGP"/>
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="GBP"/>
+			<xsd:enumeration value="HKD"/>
+			<xsd:enumeration value="HNL"/>
+			<xsd:enumeration value="HRK"/>
+			<xsd:enumeration value="HUF"/>
+			<xsd:enumeration value="IDR"/>
+			<xsd:enumeration value="ILS"/>
+			<xsd:enumeration value="INR"/>
+			<xsd:enumeration value="ISK"/>
+			<xsd:enumeration value="JOD"/>
+			<xsd:enumeration value="JPY"/>
+			<xsd:enumeration value="KRW"/>
+			<xsd:enumeration value="KWD"/>
+			<xsd:enumeration value="KZT"/>
+			<xsd:enumeration value="LBP"/>
+			<xsd:enumeration value="LKR"/>
+			<xsd:enumeration value="LTL"/>
+			<xsd:enumeration value="LVL"/>
+			<xsd:enumeration value="MAD"/>
+			<xsd:enumeration value="MKD"/>
+			<xsd:enumeration value="MXN"/>
+			<xsd:enumeration value="MYR"/>
+			<xsd:enumeration value="NIO"/>
+			<xsd:enumeration value="NOK"/>
+			<xsd:enumeration value="NTD"/>
+			<xsd:enumeration value="NZD"/>
+			<xsd:enumeration value="OMR"/>
+			<xsd:enumeration value="PAB"/>
+			<xsd:enumeration value="PEN"/>
+			<xsd:enumeration value="PHP"/>
+			<xsd:enumeration value="PKR"/>
+			<xsd:enumeration value="PLN"/>
+			<xsd:enumeration value="PYG"/>
+			<xsd:enumeration value="QAR"/>
+			<xsd:enumeration value="ROL"/>
+			<xsd:enumeration value="RUR"/>
+			<xsd:enumeration value="SAR"/>
+			<xsd:enumeration value="SEK"/>
+			<xsd:enumeration value="SGD"/>
+			<xsd:enumeration value="SIT"/>
+			<xsd:enumeration value="SKK"/>
+			<xsd:enumeration value="SVC"/>
+			<xsd:enumeration value="THB"/>
+			<xsd:enumeration value="TND"/>
+			<xsd:enumeration value="TRL"/>
+			<xsd:enumeration value="TTD"/>
+			<xsd:enumeration value="UAH"/>
+			<xsd:enumeration value="USD"/>
+			<xsd:enumeration value="UYP"/>
+			<xsd:enumeration value="VEB"/>
+			<xsd:enumeration value="XAF"/>
+			<xsd:enumeration value="XPF"/>
+			<xsd:enumeration value="YER"/>
+			<xsd:enumeration value="YUN"/>
+			<xsd:enumeration value="ZAR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DayOfWeek">
+		<xsd:annotation>
+			<xsd:documentation>Modeler predefined day of week</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Monday"/>
+			<xsd:enumeration value="Tuesday"/>
+			<xsd:enumeration value="Wednesday"/>
+			<xsd:enumeration value="Thursday"/>
+			<xsd:enumeration value="Friday"/>
+			<xsd:enumeration value="Saturday"/>
+			<xsd:enumeration value="Sunday"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TimeUnit">
+		<xsd:annotation>
+			<xsd:documentation>Modeler predefined time unit</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Year"/>
+			<xsd:enumeration value="Month"/>
+			<xsd:enumeration value="Day"/>
+			<xsd:enumeration value="Hour"/>
+			<xsd:enumeration value="Minute"/>
+			<xsd:enumeration value="Second"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Unit">
+		<xsd:annotation>
+			<xsd:documentation>Modeler supported unit of measure</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="acre"/>
+			<xsd:enumeration value="centimeter"/>
+			<xsd:enumeration value="foot"/>
+			<xsd:enumeration value="gallon (UK)"/>
+			<xsd:enumeration value="gallon (US)"/>
+			<xsd:enumeration value="gram"/>
+			<xsd:enumeration value="hectare"/>
+			<xsd:enumeration value="inch"/>
+			<xsd:enumeration value="kilogram"/>
+			<xsd:enumeration value="kilometer"/>
+			<xsd:enumeration value="liter"/>
+			<xsd:enumeration value="meter"/>
+			<xsd:enumeration value="mile"/>
+			<xsd:enumeration value="ounce"/>
+			<xsd:enumeration value="pint (UK)"/>
+			<xsd:enumeration value="pint (US)"/>
+			<xsd:enumeration value="pound"/>
+			<xsd:enumeration value="unit"/>
+			<xsd:enumeration value="yard"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PredefinedResourceType">
+		<xsd:annotation>
+			<xsd:documentation>Modeler predefined resource types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Person template"/>
+			<xsd:enumeration value="Resource template"/>
+			<xsd:enumeration value="Staff template"/>
+			<xsd:enumeration value="Communication Service"/>
+			<xsd:enumeration value="Equipment"/>
+			<xsd:enumeration value="Facility"/>
+			<xsd:enumeration value="General Service"/>
+			<xsd:enumeration value="Machine"/>
+			<xsd:enumeration value="Person"/>
+			<xsd:enumeration value="Staff"/>
+			<xsd:enumeration value="Tool"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PredefinedOrganizationType">
+		<xsd:annotation>
+			<xsd:documentation>Modeler predefined organization types</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Organization template"/>
+			<xsd:enumeration value="Organization"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

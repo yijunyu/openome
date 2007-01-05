@@ -78,8 +78,8 @@ public class OrganizationsItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATIONS__ORGANIZATION_UNIT);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATIONS__LOCATION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizations_OrganizationUnit());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizations_Location());
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +103,7 @@ public class OrganizationsItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Organizations"));
+		return getResourceLocator().getImage("full/obj16/Organizations");
 	}
 
 	/**
@@ -147,12 +147,12 @@ public class OrganizationsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATIONS__ORGANIZATION_UNIT,
+				(Schema1Package.eINSTANCE.getOrganizations_OrganizationUnit(),
 				 Schema1Factory.eINSTANCE.createOrganizationUnitType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATIONS__LOCATION,
+				(Schema1Package.eINSTANCE.getOrganizations_Location(),
 				 Schema1Factory.eINSTANCE.createLocationType()));
 	}
 

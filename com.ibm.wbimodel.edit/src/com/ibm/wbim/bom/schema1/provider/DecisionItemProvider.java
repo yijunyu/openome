@@ -86,10 +86,8 @@ public class DecisionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Decision_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_description_feature", "_UI_Decision_type"),
-				 Schema1Package.Literals.DECISION__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getDecision_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,10 +106,8 @@ public class DecisionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Decision_isInclusive_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_isInclusive_feature", "_UI_Decision_type"),
-				 Schema1Package.Literals.DECISION__IS_INCLUSIVE,
+				 Schema1Package.eINSTANCE.getDecision_IsInclusive(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -130,10 +126,8 @@ public class DecisionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Decision_isSimpleDecision_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_isSimpleDecision_feature", "_UI_Decision_type"),
-				 Schema1Package.Literals.DECISION__IS_SIMPLE_DECISION,
+				 Schema1Package.eINSTANCE.getDecision_IsSimpleDecision(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -152,10 +146,8 @@ public class DecisionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Decision_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_name_feature", "_UI_Decision_type"),
-				 Schema1Package.Literals.DECISION__NAME,
+				 Schema1Package.eINSTANCE.getDecision_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -172,8 +164,8 @@ public class DecisionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.DECISION__INPUT_BRANCH);
-			childrenFeatures.add(Schema1Package.Literals.DECISION__OUTPUT_BRANCH);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDecision_InputBranch());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getDecision_OutputBranch());
 		}
 		return childrenFeatures;
 	}
@@ -197,7 +189,7 @@ public class DecisionItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Decision"));
+		return getResourceLocator().getImage("full/obj16/Decision");
 	}
 
 	/**
@@ -250,12 +242,12 @@ public class DecisionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DECISION__INPUT_BRANCH,
+				(Schema1Package.eINSTANCE.getDecision_InputBranch(),
 				 Schema1Factory.eINSTANCE.createInputBranch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.DECISION__OUTPUT_BRANCH,
+				(Schema1Package.eINSTANCE.getDecision_OutputBranch(),
 				 Schema1Factory.eINSTANCE.createOutputBranchType()));
 	}
 

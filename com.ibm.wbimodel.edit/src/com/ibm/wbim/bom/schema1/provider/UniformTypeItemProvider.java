@@ -81,10 +81,8 @@ public class UniformTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_UniformType_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UniformType_maximum_feature", "_UI_UniformType_type"),
-				 Schema1Package.Literals.UNIFORM_TYPE__MAXIMUM,
+				 Schema1Package.eINSTANCE.getUniformType_Maximum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class UniformTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_UniformType_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UniformType_minimum_feature", "_UI_UniformType_type"),
-				 Schema1Package.Literals.UNIFORM_TYPE__MINIMUM,
+				 Schema1Package.eINSTANCE.getUniformType_Minimum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class UniformTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UniformType"));
+		return getResourceLocator().getImage("full/obj16/UniformType");
 	}
 
 	/**

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="edu.toronto.cs.ome.eclipse.feature"
+      label="edu.toronto.cs.ome.eclipse.feature"
+      version="0.0.15"
+      provider-name="Unversity of Toronto">
+   <install-handler/>
+
+   <description url="http://www.cs.toronto.edu/km/openome">
+      This product provides OME as an plugin for Eclipse.
+   </description>
+
+   <copyright url="http://www.cs.toronto.edu/km/openome">
+      Copyright (c) 2004, 2005, 2006 University of Toronto
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      OpenOME is provided by University of Toronto: 
+http://www.cs.toronto.edu/km/openome.
+It is a open-source software under the license Eclipse Public
+License (EPL) 1.0.
+The 3rd party components are included under the following licenses:
+Components       Providers      Licenses
+---------------- ----------------------------- --------------------------------
+Eclipse EMF   eclipse.org/emf     EPL
+Stanford Protege protege.stanford.edu   Mozilla Public License (MPL)
+AT&amp;T Graphviz  graphviz.org     Common Public License (CPL)
+AT&amp;T Grappa   research.att.com/~john/grappa CPL
+PNG     sixlegs.com         Lesser GNU Public License (LGPL)
+Apache Batik  xml.apache.org/batik   Apache License
+Trento GR-tool      unitn.it      LGPL
+SAT4J          sat4j.org      LGPL
+   </license>
+
+   <url>
+      <update label="OpenOME update site" url="http://www.cs.toronto.edu/km/openome/update"/>
+      <discovery label="OpenOME Update Site" url="http://www.cs.toronto.edu/km/openome"/>
+   </url>
+
+   <includes
+         id="org.eclipse.emf"
+         version="2.1.2"
+         search-location="both"/>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.emf"/>
+   </requires>
+
+   <plugin
+         id="com.omondo.xerces"
+         download-size="0"
+         install-size="0"
+         version="2.7.0"/>
+
+   <plugin
+         id="edu.toronto.cs.goalmodel"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.toronto.cs.goalmodel.edit"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.toronto.cs.goalmodel.editor"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.toronto.cs.ome.eclipse"
+         download-size="0"
+         install-size="0"
+         version="0.0.15"/>
+
+   <plugin
+         id="org.apache.batik"
+         download-size="0"
+         install-size="0"
+         version="1.5.5"/>
+
+   <plugin
+         id="att.grappa"
+         download-size="0"
+         install-size="0"
+         version="1.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.keypoint.png"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.stanford.smi.protege"
+         download-size="0"
+         install-size="0"
+         version="3.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.toronto.cs.ome.jtelos"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="edu.toronto.cs.q7"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.unitn.goal_analysis"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.sat4j"
+         download-size="0"
+         install-size="0"
+         version="1.5.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.wbimodel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

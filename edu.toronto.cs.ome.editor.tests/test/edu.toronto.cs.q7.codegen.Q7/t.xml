@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="&lt;A&gt;::g">
+  <rule op="OR"/>
+  <goal name="&lt;A&gt;::g1">
+   <rule op="" to="&lt;B&gt;" />
+  </goal>
+  <goal name="&lt;A&gt;::g2">
+   <rule op="" to="&lt;C&gt;" />
+  </goal>
+ </goal>
+</model>

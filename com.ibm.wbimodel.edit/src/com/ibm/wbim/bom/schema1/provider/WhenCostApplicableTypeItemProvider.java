@@ -80,10 +80,8 @@ public class WhenCostApplicableTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_WhenCostApplicableType_timetable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_WhenCostApplicableType_timetable_feature", "_UI_WhenCostApplicableType_type"),
-				 Schema1Package.Literals.WHEN_COST_APPLICABLE_TYPE__TIMETABLE,
+				 Schema1Package.eINSTANCE.getWhenCostApplicableType_Timetable(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class WhenCostApplicableTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/WhenCostApplicableType"));
+		return getResourceLocator().getImage("full/obj16/WhenCostApplicableType");
 	}
 
 	/**

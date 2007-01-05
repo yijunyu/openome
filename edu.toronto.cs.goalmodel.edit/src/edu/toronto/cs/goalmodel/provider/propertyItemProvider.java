@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id$
+ * $Id: propertyItemProvider.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
  */
 package edu.toronto.cs.goalmodel.provider;
 
@@ -81,10 +81,8 @@ public class propertyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_property_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_property_name_feature", "_UI_property_type"),
-				 GoalmodelPackage.Literals.PROPERTY__NAME,
+				 GoalmodelPackage.eINSTANCE.getproperty_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class propertyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_property_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_property_value_feature", "_UI_property_type"),
-				 GoalmodelPackage.Literals.PROPERTY__VALUE,
+				 GoalmodelPackage.eINSTANCE.getproperty_Value(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class propertyItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/property"));
+		return getResourceLocator().getImage("full/obj16/property");
 	}
 
 	/**

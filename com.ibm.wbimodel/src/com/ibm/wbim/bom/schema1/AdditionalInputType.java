@@ -39,7 +39,7 @@ public interface AdditionalInputType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input Criterion</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAdditionalInputType_InputCriterion()
-	 * @model type="com.ibm.wbim.bom.schema1.InputCriterionRef" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.InputCriterionRef" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='inputCriterion' namespace='##targetNamespace'"
 	 * @generated
 	 */

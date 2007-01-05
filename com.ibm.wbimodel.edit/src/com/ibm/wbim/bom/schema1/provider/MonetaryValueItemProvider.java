@@ -81,10 +81,8 @@ public class MonetaryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MonetaryValue_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MonetaryValue_value_feature", "_UI_MonetaryValue_type"),
-				 Schema1Package.Literals.MONETARY_VALUE__VALUE,
+				 Schema1Package.eINSTANCE.getMonetaryValue_Value(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class MonetaryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MonetaryValue_currency_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MonetaryValue_currency_feature", "_UI_MonetaryValue_type"),
-				 Schema1Package.Literals.MONETARY_VALUE__CURRENCY,
+				 Schema1Package.eINSTANCE.getMonetaryValue_Currency(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class MonetaryValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MonetaryValue"));
+		return getResourceLocator().getImage("full/obj16/MonetaryValue");
 	}
 
 	/**

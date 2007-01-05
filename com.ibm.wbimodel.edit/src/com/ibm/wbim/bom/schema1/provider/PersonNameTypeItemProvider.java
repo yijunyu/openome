@@ -82,10 +82,8 @@ public class PersonNameTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonNameType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonNameType_name_feature", "_UI_PersonNameType_type"),
-				 Schema1Package.Literals.PERSON_NAME_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getPersonNameType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,10 +102,8 @@ public class PersonNameTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonNameType_alternativeName1_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonNameType_alternativeName1_feature", "_UI_PersonNameType_type"),
-				 Schema1Package.Literals.PERSON_NAME_TYPE__ALTERNATIVE_NAME1,
+				 Schema1Package.eINSTANCE.getPersonNameType_AlternativeName1(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,10 +122,8 @@ public class PersonNameTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PersonNameType_alternativeName2_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersonNameType_alternativeName2_feature", "_UI_PersonNameType_type"),
-				 Schema1Package.Literals.PERSON_NAME_TYPE__ALTERNATIVE_NAME2,
+				 Schema1Package.eINSTANCE.getPersonNameType_AlternativeName2(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -142,7 +136,7 @@ public class PersonNameTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PersonNameType"));
+		return getResourceLocator().getImage("full/obj16/PersonNameType");
 	}
 
 	/**

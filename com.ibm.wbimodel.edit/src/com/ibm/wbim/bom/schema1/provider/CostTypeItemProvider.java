@@ -78,9 +78,9 @@ public class CostTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.COST_TYPE__EXECUTION_COST);
-			childrenFeatures.add(Schema1Package.Literals.COST_TYPE__STARTUP_COST);
-			childrenFeatures.add(Schema1Package.Literals.COST_TYPE__RESOURCE_WAITING_COST);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCostType_ExecutionCost());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCostType_StartupCost());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCostType_ResourceWaitingCost());
 		}
 		return childrenFeatures;
 	}
@@ -104,7 +104,7 @@ public class CostTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CostType"));
+		return getResourceLocator().getImage("full/obj16/CostType");
 	}
 
 	/**
@@ -149,27 +149,27 @@ public class CostTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_TYPE__EXECUTION_COST,
+				(Schema1Package.eINSTANCE.getCostType_ExecutionCost(),
 				 Schema1Factory.eINSTANCE.createCostValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_TYPE__EXECUTION_COST,
+				(Schema1Package.eINSTANCE.getCostType_ExecutionCost(),
 				 Schema1Factory.eINSTANCE.createCostPerTimeUnitValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_TYPE__STARTUP_COST,
+				(Schema1Package.eINSTANCE.getCostType_StartupCost(),
 				 Schema1Factory.eINSTANCE.createCostValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_TYPE__STARTUP_COST,
+				(Schema1Package.eINSTANCE.getCostType_StartupCost(),
 				 Schema1Factory.eINSTANCE.createCostPerTimeUnitValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.COST_TYPE__RESOURCE_WAITING_COST,
+				(Schema1Package.eINSTANCE.getCostType_ResourceWaitingCost(),
 				 Schema1Factory.eINSTANCE.createCostPerTimeUnitValue()));
 	}
 
@@ -184,9 +184,9 @@ public class CostTypeItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.COST_TYPE__EXECUTION_COST ||
-			childFeature == Schema1Package.Literals.COST_TYPE__STARTUP_COST ||
-			childFeature == Schema1Package.Literals.COST_TYPE__RESOURCE_WAITING_COST;
+			childFeature == Schema1Package.eINSTANCE.getCostType_ExecutionCost() ||
+			childFeature == Schema1Package.eINSTANCE.getCostType_StartupCost() ||
+			childFeature == Schema1Package.eINSTANCE.getCostType_ResourceWaitingCost();
 
 		if (qualify) {
 			return getString

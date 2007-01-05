@@ -85,10 +85,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_description_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getLocalRepository_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -107,10 +105,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_capacity_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_capacity_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__CAPACITY,
+				 Schema1Package.eINSTANCE.getLocalRepository_Capacity(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -129,10 +125,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_isOrdered_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_isOrdered_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__IS_ORDERED,
+				 Schema1Package.eINSTANCE.getLocalRepository_IsOrdered(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -151,10 +145,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_isUnique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_isUnique_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__IS_UNIQUE,
+				 Schema1Package.eINSTANCE.getLocalRepository_IsUnique(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -173,10 +165,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_name_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__NAME,
+				 Schema1Package.eINSTANCE.getLocalRepository_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -195,10 +185,8 @@ public class LocalRepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LocalRepository_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_type_feature", "_UI_LocalRepository_type"),
-				 Schema1Package.Literals.LOCAL_REPOSITORY__TYPE,
+				 Schema1Package.eINSTANCE.getLocalRepository_Type(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -211,7 +199,7 @@ public class LocalRepositoryItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalRepository"));
+		return getResourceLocator().getImage("full/obj16/LocalRepository");
 	}
 
 	/**

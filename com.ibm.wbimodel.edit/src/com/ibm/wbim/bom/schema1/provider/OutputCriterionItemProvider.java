@@ -84,10 +84,8 @@ public class OutputCriterionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputCriterion_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterion_name_feature", "_UI_OutputCriterion_type"),
-				 Schema1Package.Literals.OUTPUT_CRITERION__NAME,
+				 Schema1Package.eINSTANCE.getOutputCriterion_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class OutputCriterionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputCriterion_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterion_type_feature", "_UI_OutputCriterion_type"),
-				 Schema1Package.Literals.OUTPUT_CRITERION__TYPE,
+				 Schema1Package.eINSTANCE.getOutputCriterion_Type(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,8 +122,8 @@ public class OutputCriterionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.OUTPUT_CRITERION__OUTPUT);
-			childrenFeatures.add(Schema1Package.Literals.OUTPUT_CRITERION__RELATED_INPUT_CRITERIA);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputCriterion_Output());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputCriterion_RelatedInputCriteria());
 		}
 		return childrenFeatures;
 	}
@@ -151,7 +147,7 @@ public class OutputCriterionItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputCriterion"));
+		return getResourceLocator().getImage("full/obj16/OutputCriterion");
 	}
 
 	/**
@@ -202,12 +198,12 @@ public class OutputCriterionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.OUTPUT_CRITERION__OUTPUT,
+				(Schema1Package.eINSTANCE.getOutputCriterion_Output(),
 				 Schema1Factory.eINSTANCE.createOutputRef()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.OUTPUT_CRITERION__RELATED_INPUT_CRITERIA,
+				(Schema1Package.eINSTANCE.getOutputCriterion_RelatedInputCriteria(),
 				 Schema1Factory.eINSTANCE.createRelatedInputCriteriaType()));
 	}
 

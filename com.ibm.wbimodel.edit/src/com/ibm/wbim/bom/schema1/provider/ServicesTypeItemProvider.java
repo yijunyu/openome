@@ -76,7 +76,7 @@ public class ServicesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.SERVICES_TYPE__SERVICE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getServicesType_Service());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class ServicesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServicesType"));
+		return getResourceLocator().getImage("full/obj16/ServicesType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class ServicesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.SERVICES_TYPE__SERVICE,
+				(Schema1Package.eINSTANCE.getServicesType_Service(),
 				 Schema1Factory.eINSTANCE.createService()));
 	}
 

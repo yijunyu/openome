@@ -80,10 +80,8 @@ public class PoissonTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PoissonType_mean_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PoissonType_mean_feature", "_UI_PoissonType_type"),
-				 Schema1Package.Literals.POISSON_TYPE__MEAN,
+				 Schema1Package.eINSTANCE.getPoissonType_Mean(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class PoissonTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PoissonType"));
+		return getResourceLocator().getImage("full/obj16/PoissonType");
 	}
 
 	/**

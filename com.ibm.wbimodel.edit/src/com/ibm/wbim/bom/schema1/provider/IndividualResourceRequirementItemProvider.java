@@ -82,10 +82,8 @@ public class IndividualResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_IndividualResourceRequirement_individualResource_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_individualResource_feature", "_UI_IndividualResourceRequirement_type"),
-				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__INDIVIDUAL_RESOURCE,
+				 Schema1Package.eINSTANCE.getIndividualResourceRequirement_IndividualResource(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,10 +102,8 @@ public class IndividualResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_IndividualResourceRequirement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_name_feature", "_UI_IndividualResourceRequirement_type"),
-				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__NAME,
+				 Schema1Package.eINSTANCE.getIndividualResourceRequirement_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,10 +122,8 @@ public class IndividualResourceRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_IndividualResourceRequirement_timeRequired_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_timeRequired_feature", "_UI_IndividualResourceRequirement_type"),
-				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__TIME_REQUIRED,
+				 Schema1Package.eINSTANCE.getIndividualResourceRequirement_TimeRequired(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -142,7 +136,7 @@ public class IndividualResourceRequirementItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IndividualResourceRequirement"));
+		return getResourceLocator().getImage("full/obj16/IndividualResourceRequirement");
 	}
 
 	/**

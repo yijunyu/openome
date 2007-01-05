@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getDependencyFrom <em>Dependency From</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.goalmodel.goal#getMode <em>Mode</em>}</li>
- *   <li>{@link edu.toronto.cs.goalmodel.goal#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,7 +43,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface goal extends EObject {
+public interface goal extends EObject{
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -141,7 +140,7 @@ public interface goal extends EObject {
 	 * @return the value of the '<em>Goal</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Goal()
 	 * @see edu.toronto.cs.goalmodel.goal#getParent
-	 * @model type="edu.toronto.cs.goalmodel.goal" opposite="parent" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.goal" opposite="parent" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getGoal();
@@ -186,7 +185,7 @@ public interface goal extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rule</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Rule()
-	 * @model type="edu.toronto.cs.goalmodel.contribution" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.contribution" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getRule();
@@ -256,7 +255,7 @@ public interface goal extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Input()
-	 * @model type="edu.toronto.cs.goalmodel.topic" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.topic" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getInput();
@@ -272,7 +271,7 @@ public interface goal extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Output()
-	 * @model type="edu.toronto.cs.goalmodel.topic" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.topic" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getOutput();
@@ -369,7 +368,7 @@ public interface goal extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Property()
-	 * @model type="edu.toronto.cs.goalmodel.property" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.property" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getProperty();
@@ -467,31 +466,5 @@ public interface goal extends EObject {
 	 * @generated
 	 */
 	void setMode(ModeType value);
-
-	/**
-	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Annotation</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotation</em>' containment reference.
-	 * @see #setAnnotation(linkAnnotation)
-	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getgoal_Annotation()
-	 * @model containment="true"
-	 * @generated
-	 */
-	linkAnnotation getAnnotation();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.goalmodel.goal#getAnnotation <em>Annotation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotation</em>' containment reference.
-	 * @see #getAnnotation()
-	 * @generated
-	 */
-	void setAnnotation(linkAnnotation value);
 
 } // goal

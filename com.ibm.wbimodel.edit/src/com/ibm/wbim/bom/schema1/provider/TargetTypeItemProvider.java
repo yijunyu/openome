@@ -81,10 +81,8 @@ public class TargetTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TargetType_contactPoint_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TargetType_contactPoint_feature", "_UI_TargetType_type"),
-				 Schema1Package.Literals.TARGET_TYPE__CONTACT_POINT,
+				 Schema1Package.eINSTANCE.getTargetType_ContactPoint(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class TargetTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TargetType_node_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TargetType_node_feature", "_UI_TargetType_type"),
-				 Schema1Package.Literals.TARGET_TYPE__NODE,
+				 Schema1Package.eINSTANCE.getTargetType_Node(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class TargetTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TargetType"));
+		return getResourceLocator().getImage("full/obj16/TargetType");
 	}
 
 	/**

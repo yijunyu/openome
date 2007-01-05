@@ -78,13 +78,13 @@ public class CriteriaTemplateItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__MANAGER_OF_EMPLOYEE);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__MANAGER_OF_EMPLOYEE_BY_ID);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__PERSON_SEARCH);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__PERSON_NAME);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__GROUP_MEMBERS);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__GROUP_SEARCH);
-			childrenFeatures.add(Schema1Package.Literals.CRITERIA_TEMPLATE__ORGANIZATION_MANAGER);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_ManagerOfEmployee());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_ManagerOfEmployeeByID());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_PersonSearch());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_PersonName());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_GroupMembers());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_GroupSearch());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getCriteriaTemplate_OrganizationManager());
 		}
 		return childrenFeatures;
 	}
@@ -108,7 +108,7 @@ public class CriteriaTemplateItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CriteriaTemplate"));
+		return getResourceLocator().getImage("full/obj16/CriteriaTemplate");
 	}
 
 	/**
@@ -157,37 +157,37 @@ public class CriteriaTemplateItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__MANAGER_OF_EMPLOYEE,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_ManagerOfEmployee(),
 				 Schema1Factory.eINSTANCE.createManagerOfEmployeeType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__MANAGER_OF_EMPLOYEE_BY_ID,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_ManagerOfEmployeeByID(),
 				 Schema1Factory.eINSTANCE.createManagerOfEmployeeByIDType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__PERSON_SEARCH,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_PersonSearch(),
 				 Schema1Factory.eINSTANCE.createPersonSearchType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__PERSON_NAME,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_PersonName(),
 				 Schema1Factory.eINSTANCE.createPersonNameType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__GROUP_MEMBERS,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_GroupMembers(),
 				 Schema1Factory.eINSTANCE.createGroupMembersType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__GROUP_SEARCH,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_GroupSearch(),
 				 Schema1Factory.eINSTANCE.createGroupSearchType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.CRITERIA_TEMPLATE__ORGANIZATION_MANAGER,
+				(Schema1Package.eINSTANCE.getCriteriaTemplate_OrganizationManager(),
 				 Schema1Factory.eINSTANCE.createOrganizationManagerType()));
 	}
 

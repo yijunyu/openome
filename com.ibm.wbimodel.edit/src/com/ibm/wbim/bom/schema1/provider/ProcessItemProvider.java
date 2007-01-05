@@ -83,10 +83,8 @@ public class ProcessItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Process_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Process_description_feature", "_UI_Process_type"),
-				 Schema1Package.Literals.PROCESS__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getProcess_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,10 +103,8 @@ public class ProcessItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Process_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Process_name_feature", "_UI_Process_type"),
-				 Schema1Package.Literals.PROCESS__NAME,
+				 Schema1Package.eINSTANCE.getProcess_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -125,14 +121,14 @@ public class ProcessItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__INPUTS);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__OUTPUTS);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__PRECONDITION);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__POSTCONDITION);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__ORGANIZATIONS);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__OPERATIONAL_DATA);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__FLOW_CONTENT);
-			childrenFeatures.add(Schema1Package.Literals.PROCESS__EXTENDED_ATTRIBUTES);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_Inputs());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_Outputs());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_Precondition());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_Postcondition());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_Organizations());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_OperationalData());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_FlowContent());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getProcess_ExtendedAttributes());
 		}
 		return childrenFeatures;
 	}
@@ -156,7 +152,7 @@ public class ProcessItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Process"));
+		return getResourceLocator().getImage("full/obj16/Process");
 	}
 
 	/**
@@ -213,42 +209,42 @@ public class ProcessItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__INPUTS,
+				(Schema1Package.eINSTANCE.getProcess_Inputs(),
 				 Schema1Factory.eINSTANCE.createInputs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__OUTPUTS,
+				(Schema1Package.eINSTANCE.getProcess_Outputs(),
 				 Schema1Factory.eINSTANCE.createOutputs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__PRECONDITION,
+				(Schema1Package.eINSTANCE.getProcess_Precondition(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__POSTCONDITION,
+				(Schema1Package.eINSTANCE.getProcess_Postcondition(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__ORGANIZATIONS,
+				(Schema1Package.eINSTANCE.getProcess_Organizations(),
 				 Schema1Factory.eINSTANCE.createOrganizations()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__OPERATIONAL_DATA,
+				(Schema1Package.eINSTANCE.getProcess_OperationalData(),
 				 Schema1Factory.eINSTANCE.createOperationalData()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__FLOW_CONTENT,
+				(Schema1Package.eINSTANCE.getProcess_FlowContent(),
 				 Schema1Factory.eINSTANCE.createFlowContentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.PROCESS__EXTENDED_ATTRIBUTES,
+				(Schema1Package.eINSTANCE.getProcess_ExtendedAttributes(),
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 
@@ -263,8 +259,8 @@ public class ProcessItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.PROCESS__PRECONDITION ||
-			childFeature == Schema1Package.Literals.PROCESS__POSTCONDITION;
+			childFeature == Schema1Package.eINSTANCE.getProcess_Precondition() ||
+			childFeature == Schema1Package.eINSTANCE.getProcess_Postcondition();
 
 		if (qualify) {
 			return getString

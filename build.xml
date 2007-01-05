@@ -1,0 +1,16 @@
+<!-- Delegating build script, used by cruisecontrol. 
+     Note that the basedir is set to the checked out project -->
+<project name="openome-sdk" default="test" 
+        basedir="edu.toronto.cs.ome.eclipse.update">
+    <property name="eclipse" value="/h/27/yijun/IDE/sdk/3.1.2/eclipse"/>
+    <taskdef name="eclipse.idReplacer" 
+	classname="org.eclipse.pde.internal.build.tasks.IdReplaceTask" 
+	classpath="${eclipse}/plugins/org.eclipse.pde.build_3.1.2/lib/pdebuild-ant.jar"/>
+    <target name="build">
+        <ant antfile="build.xml" target="main" />
+    </target>
+    <target name="test" depends="build">
+        <mkdir dir="../testing/results"/>
+	<exec dir="../testing" executable="/h/27/yijun/Workspaces/cruise/projects/openome-sdk/testing/test.sh"/>
+    </target>
+</project>

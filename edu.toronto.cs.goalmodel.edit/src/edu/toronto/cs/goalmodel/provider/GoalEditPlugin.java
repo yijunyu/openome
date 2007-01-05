@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id$
+ * $Id: GoalEditPlugin.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
  */
 package edu.toronto.cs.goalmodel.provider;
 

@@ -81,10 +81,8 @@ public class AnnotationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Annotation_annotationText_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Annotation_annotationText_feature", "_UI_Annotation_type"),
-				 Schema1Package.Literals.ANNOTATION__ANNOTATION_TEXT,
+				 Schema1Package.eINSTANCE.getAnnotation_AnnotationText(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class AnnotationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ANNOTATION__ANNOTATED_NODE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getAnnotation_AnnotatedNode());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class AnnotationItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Annotation"));
+		return getResourceLocator().getImage("full/obj16/Annotation");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class AnnotationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ANNOTATION__ANNOTATED_NODE,
+				(Schema1Package.eINSTANCE.getAnnotation_AnnotatedNode(),
 				 Schema1Factory.eINSTANCE.createAnnotatedNodeType()));
 	}
 

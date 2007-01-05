@@ -81,10 +81,8 @@ public class GammaTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GammaType_mean_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GammaType_mean_feature", "_UI_GammaType_type"),
-				 Schema1Package.Literals.GAMMA_TYPE__MEAN,
+				 Schema1Package.eINSTANCE.getGammaType_Mean(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class GammaTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GammaType_standardDeviation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GammaType_standardDeviation_feature", "_UI_GammaType_type"),
-				 Schema1Package.Literals.GAMMA_TYPE__STANDARD_DEVIATION,
+				 Schema1Package.eINSTANCE.getGammaType_StandardDeviation(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class GammaTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GammaType"));
+		return getResourceLocator().getImage("full/obj16/GammaType");
 	}
 
 	/**

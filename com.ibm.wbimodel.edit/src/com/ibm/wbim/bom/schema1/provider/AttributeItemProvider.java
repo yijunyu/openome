@@ -91,10 +91,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_description_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getAttribute_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -113,10 +111,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_isOrdered_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isOrdered_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__IS_ORDERED,
+				 Schema1Package.eINSTANCE.getAttribute_IsOrdered(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -135,10 +131,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_isReadOnly_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isReadOnly_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__IS_READ_ONLY,
+				 Schema1Package.eINSTANCE.getAttribute_IsReadOnly(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -157,10 +151,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_isStatic_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isStatic_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__IS_STATIC,
+				 Schema1Package.eINSTANCE.getAttribute_IsStatic(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -179,10 +171,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_isUnique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isUnique_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__IS_UNIQUE,
+				 Schema1Package.eINSTANCE.getAttribute_IsUnique(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -201,10 +191,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_maximum_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__MAXIMUM,
+				 Schema1Package.eINSTANCE.getAttribute_Maximum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -223,10 +211,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_minimum_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__MINIMUM,
+				 Schema1Package.eINSTANCE.getAttribute_Minimum(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -245,10 +231,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__NAME,
+				 Schema1Package.eINSTANCE.getAttribute_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -267,10 +251,8 @@ public class AttributeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Attribute_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-				 Schema1Package.Literals.ATTRIBUTE__TYPE,
+				 Schema1Package.eINSTANCE.getAttribute_Type(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -287,8 +269,8 @@ public class AttributeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ATTRIBUTE__RULE);
-			childrenFeatures.add(Schema1Package.Literals.ATTRIBUTE__DEFAULT_VALUE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getAttribute_Rule());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getAttribute_DefaultValue());
 		}
 		return childrenFeatures;
 	}
@@ -312,7 +294,7 @@ public class AttributeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Attribute"));
+		return getResourceLocator().getImage("full/obj16/Attribute");
 	}
 
 	/**
@@ -370,12 +352,12 @@ public class AttributeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ATTRIBUTE__RULE,
+				(Schema1Package.eINSTANCE.getAttribute_Rule(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ATTRIBUTE__DEFAULT_VALUE,
+				(Schema1Package.eINSTANCE.getAttribute_DefaultValue(),
 				 Schema1Factory.eINSTANCE.createDefaultValue()));
 	}
 

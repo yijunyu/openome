@@ -80,10 +80,8 @@ public class OrganizationManagerTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OrganizationManagerType_organization_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OrganizationManagerType_organization_feature", "_UI_OrganizationManagerType_type"),
-				 Schema1Package.Literals.ORGANIZATION_MANAGER_TYPE__ORGANIZATION,
+				 Schema1Package.eINSTANCE.getOrganizationManagerType_Organization(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class OrganizationManagerTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OrganizationManagerType"));
+		return getResourceLocator().getImage("full/obj16/OrganizationManagerType");
 	}
 
 	/**

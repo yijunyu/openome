@@ -84,10 +84,8 @@ public class RoleRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RoleRequirement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_name_feature", "_UI_RoleRequirement_type"),
-				 Schema1Package.Literals.ROLE_REQUIREMENT__NAME,
+				 Schema1Package.eINSTANCE.getRoleRequirement_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class RoleRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RoleRequirement_role_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_role_feature", "_UI_RoleRequirement_type"),
-				 Schema1Package.Literals.ROLE_REQUIREMENT__ROLE,
+				 Schema1Package.eINSTANCE.getRoleRequirement_Role(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -128,10 +124,8 @@ public class RoleRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RoleRequirement_timeRequired_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_timeRequired_feature", "_UI_RoleRequirement_type"),
-				 Schema1Package.Literals.ROLE_REQUIREMENT__TIME_REQUIRED,
+				 Schema1Package.eINSTANCE.getRoleRequirement_TimeRequired(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -150,10 +144,8 @@ public class RoleRequirementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RoleRequirement_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_type_feature", "_UI_RoleRequirement_type"),
-				 Schema1Package.Literals.ROLE_REQUIREMENT__TYPE,
+				 Schema1Package.eINSTANCE.getRoleRequirement_Type(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -170,7 +162,7 @@ public class RoleRequirementItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ROLE_REQUIREMENT__RESOURCE_QUANTITY);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getRoleRequirement_ResourceQuantity());
 		}
 		return childrenFeatures;
 	}
@@ -182,7 +174,7 @@ public class RoleRequirementItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RoleRequirement"));
+		return getResourceLocator().getImage("full/obj16/RoleRequirement");
 	}
 
 	/**
@@ -234,7 +226,7 @@ public class RoleRequirementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ROLE_REQUIREMENT__RESOURCE_QUANTITY,
+				(Schema1Package.eINSTANCE.getRoleRequirement_ResourceQuantity(),
 				 Schema1Factory.eINSTANCE.createQuantity()));
 	}
 

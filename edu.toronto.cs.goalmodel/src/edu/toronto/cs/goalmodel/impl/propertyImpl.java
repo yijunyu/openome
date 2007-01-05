@@ -12,6 +12,7 @@ import edu.toronto.cs.goalmodel.property;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -86,7 +87,7 @@ public class propertyImpl extends EObjectImpl implements property {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return GoalmodelPackage.Literals.PROPERTY;
+		return GoalmodelPackage.eINSTANCE.getproperty();
 	}
 
 	/**
@@ -136,14 +137,14 @@ public class propertyImpl extends EObjectImpl implements property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+	public Object eGet(EStructuralFeature eFeature, boolean resolve) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.PROPERTY__NAME:
 				return getName();
 			case GoalmodelPackage.PROPERTY__VALUE:
 				return getValue();
 		}
-		return super.eGet(featureID, resolve, coreType);
+		return eDynamicGet(eFeature, resolve);
 	}
 
 	/**
@@ -151,8 +152,8 @@ public class propertyImpl extends EObjectImpl implements property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+	public void eSet(EStructuralFeature eFeature, Object newValue) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.PROPERTY__NAME:
 				setName((String)newValue);
 				return;
@@ -160,7 +161,7 @@ public class propertyImpl extends EObjectImpl implements property {
 				setValue((String)newValue);
 				return;
 		}
-		super.eSet(featureID, newValue);
+		eDynamicSet(eFeature, newValue);
 	}
 
 	/**
@@ -168,8 +169,8 @@ public class propertyImpl extends EObjectImpl implements property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eUnset(int featureID) {
-		switch (featureID) {
+	public void eUnset(EStructuralFeature eFeature) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.PROPERTY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -177,7 +178,7 @@ public class propertyImpl extends EObjectImpl implements property {
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
-		super.eUnset(featureID);
+		eDynamicUnset(eFeature);
 	}
 
 	/**
@@ -185,14 +186,14 @@ public class propertyImpl extends EObjectImpl implements property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+	public boolean eIsSet(EStructuralFeature eFeature) {
+		switch (eDerivedStructuralFeatureID(eFeature)) {
 			case GoalmodelPackage.PROPERTY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalmodelPackage.PROPERTY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
-		return super.eIsSet(featureID);
+		return eDynamicIsSet(eFeature);
 	}
 
 	/**

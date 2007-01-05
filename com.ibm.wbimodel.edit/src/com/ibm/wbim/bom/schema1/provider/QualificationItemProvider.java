@@ -81,10 +81,8 @@ public class QualificationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Qualification_role_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Qualification_role_feature", "_UI_Qualification_type"),
-				 Schema1Package.Literals.QUALIFICATION__ROLE,
+				 Schema1Package.eINSTANCE.getQualification_Role(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class QualificationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.QUALIFICATION__SCOPE_DIMENSION_VALUE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getQualification_ScopeDimensionValue());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class QualificationItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Qualification"));
+		return getResourceLocator().getImage("full/obj16/Qualification");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class QualificationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.QUALIFICATION__SCOPE_DIMENSION_VALUE,
+				(Schema1Package.eINSTANCE.getQualification_ScopeDimensionValue(),
 				 Schema1Factory.eINSTANCE.createScopeDimensionValue()));
 	}
 

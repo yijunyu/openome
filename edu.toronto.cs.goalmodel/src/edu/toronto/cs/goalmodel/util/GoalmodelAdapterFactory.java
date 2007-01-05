@@ -88,9 +88,6 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 			public Object casetopic(topic object) {
 				return createtopicAdapter();
 			}
-			public Object caselinkAnnotation(linkAnnotation object) {
-				return createlinkAnnotationAdapter();
-			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -190,20 +187,6 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createtopicAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.goalmodel.linkAnnotation <em>link Annotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.goalmodel.linkAnnotation
-	 * @generated
-	 */
-	public Adapter createlinkAnnotationAdapter() {
 		return null;
 	}
 

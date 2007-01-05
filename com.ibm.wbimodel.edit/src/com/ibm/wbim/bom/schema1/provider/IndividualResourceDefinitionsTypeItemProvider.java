@@ -76,7 +76,7 @@ public class IndividualResourceDefinitionsTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INDIVIDUAL_RESOURCE_DEFINITIONS_TYPE__INDIVIDUAL_RESOURCE_DEFINITION);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getIndividualResourceDefinitionsType_IndividualResourceDefinition());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class IndividualResourceDefinitionsTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IndividualResourceDefinitionsType"));
+		return getResourceLocator().getImage("full/obj16/IndividualResourceDefinitionsType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class IndividualResourceDefinitionsTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INDIVIDUAL_RESOURCE_DEFINITIONS_TYPE__INDIVIDUAL_RESOURCE_DEFINITION,
+				(Schema1Package.eINSTANCE.getIndividualResourceDefinitionsType_IndividualResourceDefinition(),
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

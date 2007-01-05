@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cs.toronto.edu/~yijun/requirements"  xmlns:req="http://www.cs.toronto.edu/~yijun/requirements">
+ <goal name="a"perf="2.0" value="-0.5">
+  <rule op="~ 0.3" to="&lt;c&gt;::b" />
+ </goal>
+</model>

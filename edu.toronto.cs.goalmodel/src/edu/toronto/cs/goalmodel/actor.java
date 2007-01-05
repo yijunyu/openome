@@ -98,7 +98,7 @@ public interface actor extends EObject {
 	 * @return the value of the '<em>Sub</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getactor_Sub()
 	 * @see edu.toronto.cs.goalmodel.actor#getSuper
-	 * @model type="edu.toronto.cs.goalmodel.actor" opposite="super" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.actor" opposite="super" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getSub();
@@ -145,7 +145,7 @@ public interface actor extends EObject {
 	 * @return the value of the '<em>Goals</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getactor_Goals()
 	 * @see edu.toronto.cs.goalmodel.goal#getActor
-	 * @model type="edu.toronto.cs.goalmodel.goal" opposite="actor" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.goal" opposite="actor" containment="true" resolveProxies="false"
 	 * @generated
 	 */
 	EList getGoals();

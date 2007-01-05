@@ -79,10 +79,8 @@ public class OutputRepositoryValueTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputRepositoryValueType_output_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValueType_output_feature", "_UI_OutputRepositoryValueType_type"),
-				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE_TYPE__OUTPUT,
+				 Schema1Package.eINSTANCE.getOutputRepositoryValueType_Output(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -95,7 +93,7 @@ public class OutputRepositoryValueTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputRepositoryValueType"));
+		return getResourceLocator().getImage("full/obj16/OutputRepositoryValueType");
 	}
 
 	/**

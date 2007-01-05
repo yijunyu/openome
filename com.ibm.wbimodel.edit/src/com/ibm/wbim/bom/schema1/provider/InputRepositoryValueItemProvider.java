@@ -84,10 +84,8 @@ public class InputRepositoryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputRepositoryValue_atBeginning_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputRepositoryValue_atBeginning_feature", "_UI_InputRepositoryValue_type"),
-				 Schema1Package.Literals.INPUT_REPOSITORY_VALUE__AT_BEGINNING,
+				 Schema1Package.eINSTANCE.getInputRepositoryValue_AtBeginning(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class InputRepositoryValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InputRepositoryValue_isRemove_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputRepositoryValue_isRemove_feature", "_UI_InputRepositoryValue_type"),
-				 Schema1Package.Literals.INPUT_REPOSITORY_VALUE__IS_REMOVE,
+				 Schema1Package.eINSTANCE.getInputRepositoryValue_IsRemove(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,8 +122,8 @@ public class InputRepositoryValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_REPOSITORY_VALUE__LOCAL_REPOSITORY);
-			childrenFeatures.add(Schema1Package.Literals.INPUT_REPOSITORY_VALUE__GLOBAL_REPOSITORY);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputRepositoryValue_LocalRepository());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getInputRepositoryValue_GlobalRepository());
 		}
 		return childrenFeatures;
 	}
@@ -151,7 +147,7 @@ public class InputRepositoryValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputRepositoryValue"));
+		return getResourceLocator().getImage("full/obj16/InputRepositoryValue");
 	}
 
 	/**
@@ -200,12 +196,12 @@ public class InputRepositoryValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_REPOSITORY_VALUE__LOCAL_REPOSITORY,
+				(Schema1Package.eINSTANCE.getInputRepositoryValue_LocalRepository(),
 				 Schema1Factory.eINSTANCE.createLocalRepositoryRef()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.INPUT_REPOSITORY_VALUE__GLOBAL_REPOSITORY,
+				(Schema1Package.eINSTANCE.getInputRepositoryValue_GlobalRepository(),
 				 Schema1Factory.eINSTANCE.createGlobalRepositoryRef()));
 	}
 

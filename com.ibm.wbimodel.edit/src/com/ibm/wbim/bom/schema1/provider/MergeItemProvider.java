@@ -84,10 +84,8 @@ public class MergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Merge_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Merge_description_feature", "_UI_Merge_type"),
-				 Schema1Package.Literals.MERGE__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getMerge_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class MergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Merge_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Merge_name_feature", "_UI_Merge_type"),
-				 Schema1Package.Literals.MERGE__NAME,
+				 Schema1Package.eINSTANCE.getMerge_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,8 +122,8 @@ public class MergeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.MERGE__INPUT_BRANCH);
-			childrenFeatures.add(Schema1Package.Literals.MERGE__OUTPUT_BRANCH);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getMerge_InputBranch());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getMerge_OutputBranch());
 		}
 		return childrenFeatures;
 	}
@@ -151,7 +147,7 @@ public class MergeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Merge"));
+		return getResourceLocator().getImage("full/obj16/Merge");
 	}
 
 	/**
@@ -202,12 +198,12 @@ public class MergeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MERGE__INPUT_BRANCH,
+				(Schema1Package.eINSTANCE.getMerge_InputBranch(),
 				 Schema1Factory.eINSTANCE.createInputBranch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.MERGE__OUTPUT_BRANCH,
+				(Schema1Package.eINSTANCE.getMerge_OutputBranch(),
 				 Schema1Factory.eINSTANCE.createOutputBranch()));
 	}
 

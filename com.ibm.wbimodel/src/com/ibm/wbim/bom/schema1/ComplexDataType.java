@@ -69,7 +69,7 @@ public interface ComplexDataType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getComplexDataType_Attribute()
-	 * @model type="com.ibm.wbim.bom.schema1.Attribute" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Attribute" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='attribute' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -86,7 +86,7 @@ public interface ComplexDataType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rule</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getComplexDataType_Rule()
-	 * @model type="com.ibm.wbim.bom.schema1.Expression" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Expression" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -102,7 +102,7 @@ public interface ComplexDataType extends EObject {
 	 * @return the value of the '<em>Extended Attributes</em>' containment reference.
 	 * @see #setExtendedAttributes(ExtendedAttributes)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getComplexDataType_ExtendedAttributes()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='extendedAttributes' namespace='##targetNamespace'"
 	 * @generated
 	 */

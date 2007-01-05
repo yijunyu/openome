@@ -80,10 +80,8 @@ public class DistributionType1ItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionType1_timeUnit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionType1_timeUnit_feature", "_UI_DistributionType1_type"),
-				 Schema1Package.Literals.DISTRIBUTION_TYPE1__TIME_UNIT,
+				 Schema1Package.eINSTANCE.getDistributionType1_TimeUnit(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class DistributionType1ItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DistributionType1"));
+		return getResourceLocator().getImage("full/obj16/DistributionType1");
 	}
 
 	/**

@@ -81,10 +81,8 @@ public class OutputBranchItemProvider
 				 getResourceLocator(),
 				 getString("_UI_OutputBranch_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputBranch_name_feature", "_UI_OutputBranch_type"),
-				 Schema1Package.Literals.OUTPUT_BRANCH__NAME,
+				 Schema1Package.eINSTANCE.getOutputBranch_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,7 +99,7 @@ public class OutputBranchItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.OUTPUT_BRANCH__OUTPUT);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputBranch_Output());
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +111,7 @@ public class OutputBranchItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutputBranch"));
+		return getResourceLocator().getImage("full/obj16/OutputBranch");
 	}
 
 	/**
@@ -162,7 +160,7 @@ public class OutputBranchItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.OUTPUT_BRANCH__OUTPUT,
+				(Schema1Package.eINSTANCE.getOutputBranch_Output(),
 				 Schema1Factory.eINSTANCE.createControlActionOutputRef()));
 	}
 

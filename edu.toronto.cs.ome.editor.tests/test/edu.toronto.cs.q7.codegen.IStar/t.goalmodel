@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.goalmodel="http:///edu/toronto/cs/goalmodel.ecore">
+  <edu.toronto.cs.goalmodel:goal name="May Usability" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Usability" type="LEAF">
+    <rule target="/0"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Data" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Data" type="LEAF">
+    <rule target="/2"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Schedule Meeting" type="LEAF">
+    <goal name="Replan Dynamically">
+      <goal name="Plan Meeting Under Constraints" type="AND">
+        <goal name="Plan Meeting Manually">
+          <rule type="HURT" target="/31"/>
+        </goal>
+        <goal name="Plan Meeting Automatically">
+          <goal name="Number of Conflicts Optimized">
+            <rule target="/26"/>
+          </goal>
+          <goal name="Important Participant Biased">
+            <rule type="BREAK" target="/39"/>
+          </goal>
+          <goal name="Travel Cost Minimization Biased">
+            <rule target="/28"/>
+          </goal>
+          <rule target="/31"/>
+        </goal>
+      </goal>
+      <goal name="Gather Constraint Changes" type="AND"/>
+    </goal>
+    <goal name="Create Initial Meeting Plan">
+      <goal name="Have Updated Addresses of Participants" type="AND"/>
+      <goal name="Create Meeting Request from Anywhare" type="AND"/>
+      <goal name="Plan Meeting Under Constraints#1" type="AND"/>
+      <goal name="Gather Constraints" type="AND">
+        <goal name="Gather Participants Profiles [Status and Priority]" type="AND"/>
+        <goal name="Gather Date Range from Initiator" type="AND"/>
+        <goal name="Gather Constraints Information from Participants" type="AND">
+          <goal name="Gather Information from Participants" type="AND">
+            <goal name="Request-based">
+              <goal name="Send Reminder Message" type="AND">
+                <goal name="Set Reminder Policy" type="AND">
+                  <goal name="Intensive Reminding">
+                    <rule type="BREAK" target="/10"/>
+                    <rule target="/18"/>
+                  </goal>
+                  <goal name="Subtle Reminding">
+                    <rule type="HURT" target="/10"/>
+                  </goal>
+                  <goal name="No Reminding">
+                    <rule target="/10"/>
+                    <rule type="HURT" target="/18"/>
+                  </goal>
+                </goal>
+                <goal name="Send Reminder" type="AND">
+                  <goal name="Synchronously#1"/>
+                  <goal name="Semi-synchronously">
+                    <rule target="/22"/>
+                    <rule type="HURT" target="/10"/>
+                  </goal>
+                  <goal name="Asynchronously">
+                    <rule type="HURT" target="/18"/>
+                  </goal>
+                </goal>
+                <goal name="Prepare Message" type="AND"/>
+              </goal>
+              <goal name="Receive Response" type="AND">
+                <goal name="Get Preference Set" type="AND">
+                  <goal name="Simple Intervals">
+                    <rule type="HURT" target="/2"/>
+                    <rule target="/0"/>
+                  </goal>
+                  <goal name="Prioritized">
+                    <rule target="/2"/>
+                    <rule type="HURT" target="/0"/>
+                  </goal>
+                </goal>
+                <goal name="Get Exclusion Set" type="AND"/>
+                <goal name="Gather Equipment Constraints from Active Participants" type="AND"/>
+                <goal name="Gather Location Constraints from Important Participants" type="AND"/>
+              </goal>
+              <goal name="Broadcast Individual Constraints" type="AND">
+                <goal name="Do not">
+                  <rule target="/35"/>
+                  <rule type="HURT" target="/37"/>
+                </goal>
+                <goal name="Do">
+                  <rule target="/37"/>
+                  <rule target="/39"/>
+                  <rule type="HURT" target="/35"/>
+                  <rule target="/33"/>
+                </goal>
+              </goal>
+              <goal name="Communicate Request" type="AND">
+                <goal name="Send Message" type="AND">
+                  <goal name="Semi-synchronously#1"/>
+                  <goal name="Do not Send Message">
+                    <rule type="BREAK" target="/18"/>
+                  </goal>
+                  <goal name="Synchronously">
+                    <rule target="/18"/>
+                    <rule type="MAKE" target="/18"/>
+                    <rule type="BREAK" target="/10"/>
+                    <rule type="MAKE" target="/22"/>
+                  </goal>
+                  <goal name="Asynchronously#1"/>
+                </goal>
+                <goal name="Generate Message" type="AND">
+                  <goal name="Generate Text Request Message"/>
+                  <goal name="Generate Voice Request Message">
+                    <goal name="Record Message"/>
+                    <goal name="Generate From Text"/>
+                  </goal>
+                </goal>
+                <goal name="Prepare Request Message" type="AND">
+                  <goal name="Formal">
+                    <rule target="/24"/>
+                  </goal>
+                  <goal name="Informal"/>
+                </goal>
+              </goal>
+            </goal>
+            <goal name="Passive Collection">
+              <goal name="Users Maintain Exclusion List" type="AND"/>
+              <goal name="Get Exclusion Set Given the Location" type="AND"/>
+              <rule type="MAKE" target="/10"/>
+              <rule type="BREAK" target="/18"/>
+            </goal>
+          </goal>
+          <goal name="Gather Dependencies Among Dates and Locations" type="AND"/>
+        </goal>
+        <goal name="Gather Equipment and Location Constraints" type="AND">
+          <goal name="Repeat: Have Updated Database of Location and Equipment" type="AND"/>
+        </goal>
+      </goal>
+      <goal name="Process the Outcome of the Planning" type="AND">
+        <goal name="Inform Participants of the Meeting Date">
+          <goal name="Generate Announcement Message" type="AND"/>
+          <goal name="Send Message#1" type="AND"/>
+        </goal>
+        <goal name="Resolve Conflict"/>
+      </goal>
+      <goal name="Book Rooms and Equipments" type="AND"/>
+    </goal>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="scheduler" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Quick Scheduling Result Awareness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Reduce overhead of Scheduling the Meeting" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Usability" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Quick Constraint Processing" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Avoid Communication Disturbance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Schedule Effectiveness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Avoid Communication Disturbance" type="LEAF">
+    <rule target="/10"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Convenience of Date" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Equal Participant Fairness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Meeting Openness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Convenience of Location" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Formality" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Quick Constraint Processing" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Quick Constraint Processing" type="LEAF">
+    <rule target="/18"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Privacy" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Convenience of Data" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Quick Scheduling Result Awareness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Quick Scheduling Result Awareness" type="LEAF">
+    <rule target="/22"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Formality" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Formality" type="LEAF">
+    <rule target="/24"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Date" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Date" type="LEAF">
+    <rule target="/26"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Location" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Convenience of Location" type="LEAF">
+    <rule target="/28"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="Aspect Avoid Communication Disturbance" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Reduce overhead of Scheduling the Meeting" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Reduce overhead of Scheduling the Meeting" type="LEAF">
+    <rule target="/31"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Schedule Effectiveness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Schedule Effectiveness" type="LEAF">
+    <rule target="/33"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Privacy" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Privacy" type="LEAF">
+    <rule target="/35"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Meeting Openness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Meeting Openness" type="LEAF">
+    <rule target="/37"/>
+  </edu.toronto.cs.goalmodel:goal>
+  <edu.toronto.cs.goalmodel:goal name="May Equal Participant Fairness" type="LEAF"/>
+  <edu.toronto.cs.goalmodel:goal name="May Equal Participant Fairness" type="LEAF">
+    <rule target="/39"/>
+  </edu.toronto.cs.goalmodel:goal>
+</xmi:XMI>

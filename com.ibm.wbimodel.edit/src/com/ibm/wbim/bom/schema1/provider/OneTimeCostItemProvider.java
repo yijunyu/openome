@@ -78,8 +78,8 @@ public class OneTimeCostItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ONE_TIME_COST__COST_VALUE);
-			childrenFeatures.add(Schema1Package.Literals.ONE_TIME_COST__WHEN_COST_APPLICABLE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOneTimeCost_CostValue());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOneTimeCost_WhenCostApplicable());
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +103,7 @@ public class OneTimeCostItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OneTimeCost"));
+		return getResourceLocator().getImage("full/obj16/OneTimeCost");
 	}
 
 	/**
@@ -147,12 +147,12 @@ public class OneTimeCostItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ONE_TIME_COST__COST_VALUE,
+				(Schema1Package.eINSTANCE.getOneTimeCost_CostValue(),
 				 Schema1Factory.eINSTANCE.createMonetaryValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ONE_TIME_COST__WHEN_COST_APPLICABLE,
+				(Schema1Package.eINSTANCE.getOneTimeCost_WhenCostApplicable(),
 				 Schema1Factory.eINSTANCE.createWhenCostApplicableType()));
 	}
 

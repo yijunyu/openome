@@ -81,10 +81,8 @@ public class ValueTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ValueType_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_value_feature", "_UI_ValueType_type"),
-				 Schema1Package.Literals.VALUE_TYPE__VALUE,
+				 Schema1Package.eINSTANCE.getValueType_Value(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -103,10 +101,8 @@ public class ValueTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ValueType_probability_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_probability_feature", "_UI_ValueType_type"),
-				 Schema1Package.Literals.VALUE_TYPE__PROBABILITY,
+				 Schema1Package.eINSTANCE.getValueType_Probability(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -119,7 +115,7 @@ public class ValueTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueType"));
+		return getResourceLocator().getImage("full/obj16/ValueType");
 	}
 
 	/**

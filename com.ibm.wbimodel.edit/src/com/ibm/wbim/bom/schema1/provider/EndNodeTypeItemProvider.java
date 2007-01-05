@@ -80,10 +80,8 @@ public class EndNodeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_EndNodeType_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EndNodeType_name_feature", "_UI_EndNodeType_type"),
-				 Schema1Package.Literals.END_NODE_TYPE__NAME,
+				 Schema1Package.eINSTANCE.getEndNodeType_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -96,7 +94,7 @@ public class EndNodeTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EndNodeType"));
+		return getResourceLocator().getImage("full/obj16/EndNodeType");
 	}
 
 	/**

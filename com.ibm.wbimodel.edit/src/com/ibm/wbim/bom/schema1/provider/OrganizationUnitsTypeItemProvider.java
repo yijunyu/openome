@@ -76,7 +76,7 @@ public class OrganizationUnitsTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_UNITS_TYPE__ORGANIZATION_UNIT);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationUnitsType_OrganizationUnit());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class OrganizationUnitsTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OrganizationUnitsType"));
+		return getResourceLocator().getImage("full/obj16/OrganizationUnitsType");
 	}
 
 	/**
@@ -131,17 +131,17 @@ public class OrganizationUnitsTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_UNITS_TYPE__ORGANIZATION_UNIT,
+				(Schema1Package.eINSTANCE.getOrganizationUnitsType_OrganizationUnit(),
 				 Schema1Factory.eINSTANCE.createComplexDataTypeInstance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_UNITS_TYPE__ORGANIZATION_UNIT,
+				(Schema1Package.eINSTANCE.getOrganizationUnitsType_OrganizationUnit(),
 				 Schema1Factory.eINSTANCE.createBulkResource()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_UNITS_TYPE__ORGANIZATION_UNIT,
+				(Schema1Package.eINSTANCE.getOrganizationUnitsType_OrganizationUnit(),
 				 Schema1Factory.eINSTANCE.createIndividualResource()));
 	}
 

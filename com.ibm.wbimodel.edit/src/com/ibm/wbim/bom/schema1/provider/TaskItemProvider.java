@@ -84,10 +84,8 @@ public class TaskItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Task_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_description_feature", "_UI_Task_type"),
-				 Schema1Package.Literals.TASK__DESCRIPTION,
+				 Schema1Package.eINSTANCE.getTask_Description(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,10 +104,8 @@ public class TaskItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Task_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_name_feature", "_UI_Task_type"),
-				 Schema1Package.Literals.TASK__NAME,
+				 Schema1Package.eINSTANCE.getTask_Name(),
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,14 +122,14 @@ public class TaskItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.TASK__INPUTS);
-			childrenFeatures.add(Schema1Package.Literals.TASK__OUTPUTS);
-			childrenFeatures.add(Schema1Package.Literals.TASK__PRECONDITION);
-			childrenFeatures.add(Schema1Package.Literals.TASK__POSTCONDITION);
-			childrenFeatures.add(Schema1Package.Literals.TASK__RESOURCES);
-			childrenFeatures.add(Schema1Package.Literals.TASK__ORGANIZATIONS);
-			childrenFeatures.add(Schema1Package.Literals.TASK__OPERATIONAL_DATA);
-			childrenFeatures.add(Schema1Package.Literals.TASK__EXTENDED_ATTRIBUTES);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Inputs());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Outputs());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Precondition());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Postcondition());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Resources());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_Organizations());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_OperationalData());
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTask_ExtendedAttributes());
 		}
 		return childrenFeatures;
 	}
@@ -157,7 +153,7 @@ public class TaskItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Task"));
+		return getResourceLocator().getImage("full/obj16/Task");
 	}
 
 	/**
@@ -214,42 +210,42 @@ public class TaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__INPUTS,
+				(Schema1Package.eINSTANCE.getTask_Inputs(),
 				 Schema1Factory.eINSTANCE.createInputs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__OUTPUTS,
+				(Schema1Package.eINSTANCE.getTask_Outputs(),
 				 Schema1Factory.eINSTANCE.createOutputs()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__PRECONDITION,
+				(Schema1Package.eINSTANCE.getTask_Precondition(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__POSTCONDITION,
+				(Schema1Package.eINSTANCE.getTask_Postcondition(),
 				 Schema1Factory.eINSTANCE.createExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__RESOURCES,
+				(Schema1Package.eINSTANCE.getTask_Resources(),
 				 Schema1Factory.eINSTANCE.createResources()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__ORGANIZATIONS,
+				(Schema1Package.eINSTANCE.getTask_Organizations(),
 				 Schema1Factory.eINSTANCE.createOrganizations()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__OPERATIONAL_DATA,
+				(Schema1Package.eINSTANCE.getTask_OperationalData(),
 				 Schema1Factory.eINSTANCE.createOperationalData()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TASK__EXTENDED_ATTRIBUTES,
+				(Schema1Package.eINSTANCE.getTask_ExtendedAttributes(),
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 
@@ -264,8 +260,8 @@ public class TaskItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
-			childFeature == Schema1Package.Literals.TASK__POSTCONDITION;
+			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
+			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition();
 
 		if (qualify) {
 			return getString

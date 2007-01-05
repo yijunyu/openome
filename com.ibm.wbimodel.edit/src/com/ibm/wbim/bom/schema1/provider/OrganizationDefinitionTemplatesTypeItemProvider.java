@@ -76,7 +76,7 @@ public class OrganizationDefinitionTemplatesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.ORGANIZATION_DEFINITION_TEMPLATES_TYPE__ORGANIZATION_DEFINITION_TEMPLATE);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getOrganizationDefinitionTemplatesType_OrganizationDefinitionTemplate());
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class OrganizationDefinitionTemplatesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OrganizationDefinitionTemplatesType"));
+		return getResourceLocator().getImage("full/obj16/OrganizationDefinitionTemplatesType");
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class OrganizationDefinitionTemplatesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.ORGANIZATION_DEFINITION_TEMPLATES_TYPE__ORGANIZATION_DEFINITION_TEMPLATE,
+				(Schema1Package.eINSTANCE.getOrganizationDefinitionTemplatesType_OrganizationDefinitionTemplate(),
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

@@ -75,7 +75,7 @@ public class TimerItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.Literals.TIMER__TIMER_SETTING);
+			childrenFeatures.add(Schema1Package.eINSTANCE.getTimer_TimerSetting());
 		}
 		return childrenFeatures;
 	}
@@ -87,7 +87,7 @@ public class TimerItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Timer"));
+		return getResourceLocator().getImage("full/obj16/Timer");
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class TimerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.Literals.TIMER__TIMER_SETTING,
+				(Schema1Package.eINSTANCE.getTimer_TimerSetting(),
 				 Schema1Factory.eINSTANCE.createTimerSettingType()));
 	}
 
@@ -148,8 +148,8 @@ public class TimerItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
-			childFeature == Schema1Package.Literals.TASK__POSTCONDITION;
+			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
+			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition();
 
 		if (qualify) {
 			return getString

@@ -69,7 +69,7 @@ public interface ComplexDataTypeInstance extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Value</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getComplexDataTypeInstance_AttributeValue()
-	 * @model type="com.ibm.wbim.bom.schema1.AttributeValue" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.AttributeValue" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='attributeValue' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -85,7 +85,7 @@ public interface ComplexDataTypeInstance extends EObject {
 	 * @return the value of the '<em>Extended Attributes</em>' containment reference.
 	 * @see #setExtendedAttributes(ExtendedAttributes)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getComplexDataTypeInstance_ExtendedAttributes()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='extendedAttributes' namespace='##targetNamespace'"
 	 * @generated
 	 */
