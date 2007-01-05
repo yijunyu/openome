@@ -80,8 +80,10 @@ public class ExemptionPeriodTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ExemptionPeriodType_timetable_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExemptionPeriodType_timetable_feature", "_UI_ExemptionPeriodType_type"),
-				 Schema1Package.eINSTANCE.getExemptionPeriodType_Timetable(),
+				 Schema1Package.Literals.EXEMPTION_PERIOD_TYPE__TIMETABLE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class ExemptionPeriodTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ExemptionPeriodType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExemptionPeriodType"));
 	}
 
 	/**

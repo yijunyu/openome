@@ -81,8 +81,10 @@ public class LoopConditionTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LoopConditionType_counterIncrement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_counterIncrement_feature", "_UI_LoopConditionType_type"),
-				 Schema1Package.eINSTANCE.getLoopConditionType_CounterIncrement(),
+				 Schema1Package.Literals.LOOP_CONDITION_TYPE__COUNTER_INCREMENT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class LoopConditionTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LoopConditionType_finalCounter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_finalCounter_feature", "_UI_LoopConditionType_type"),
-				 Schema1Package.eINSTANCE.getLoopConditionType_FinalCounter(),
+				 Schema1Package.Literals.LOOP_CONDITION_TYPE__FINAL_COUNTER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -121,8 +125,10 @@ public class LoopConditionTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LoopConditionType_initialCounter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_initialCounter_feature", "_UI_LoopConditionType_type"),
-				 Schema1Package.eINSTANCE.getLoopConditionType_InitialCounter(),
+				 Schema1Package.Literals.LOOP_CONDITION_TYPE__INITIAL_COUNTER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -135,7 +141,7 @@ public class LoopConditionTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/LoopConditionType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopConditionType"));
 	}
 
 	/**

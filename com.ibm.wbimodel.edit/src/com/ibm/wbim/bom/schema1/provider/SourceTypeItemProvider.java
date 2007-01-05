@@ -81,8 +81,10 @@ public class SourceTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SourceType_contactPoint_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SourceType_contactPoint_feature", "_UI_SourceType_type"),
-				 Schema1Package.eINSTANCE.getSourceType_ContactPoint(),
+				 Schema1Package.Literals.SOURCE_TYPE__CONTACT_POINT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class SourceTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SourceType_node_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SourceType_node_feature", "_UI_SourceType_type"),
-				 Schema1Package.eINSTANCE.getSourceType_Node(),
+				 Schema1Package.Literals.SOURCE_TYPE__NODE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class SourceTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/SourceType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SourceType"));
 	}
 
 	/**

@@ -80,8 +80,10 @@ public class LastActivationTimePlusTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_LastActivationTimePlusType_duration_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LastActivationTimePlusType_duration_feature", "_UI_LastActivationTimePlusType_type"),
-				 Schema1Package.eINSTANCE.getLastActivationTimePlusType_Duration(),
+				 Schema1Package.Literals.LAST_ACTIVATION_TIME_PLUS_TYPE__DURATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class LastActivationTimePlusTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/LastActivationTimePlusType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LastActivationTimePlusType"));
 	}
 
 	/**

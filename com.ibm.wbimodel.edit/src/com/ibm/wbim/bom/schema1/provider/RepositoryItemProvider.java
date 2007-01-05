@@ -89,8 +89,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_description_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_Description(),
+				 Schema1Package.Literals.REPOSITORY__DESCRIPTION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -109,8 +111,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_capacity_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_capacity_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_Capacity(),
+				 Schema1Package.Literals.REPOSITORY__CAPACITY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -129,8 +133,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_isOrdered_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isOrdered_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_IsOrdered(),
+				 Schema1Package.Literals.REPOSITORY__IS_ORDERED,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -149,8 +155,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_isReadOnly_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isReadOnly_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_IsReadOnly(),
+				 Schema1Package.Literals.REPOSITORY__IS_READ_ONLY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -169,8 +177,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_isUnique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isUnique_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_IsUnique(),
+				 Schema1Package.Literals.REPOSITORY__IS_UNIQUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -189,8 +199,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_name_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_Name(),
+				 Schema1Package.Literals.REPOSITORY__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -209,8 +221,10 @@ public class RepositoryItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Repository_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_type_feature", "_UI_Repository_type"),
-				 Schema1Package.eINSTANCE.getRepository_Type(),
+				 Schema1Package.Literals.REPOSITORY__TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -227,8 +241,8 @@ public class RepositoryItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRepository_DefaultValues());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRepository_ComputedValues());
+			childrenFeatures.add(Schema1Package.Literals.REPOSITORY__DEFAULT_VALUES);
+			childrenFeatures.add(Schema1Package.Literals.REPOSITORY__COMPUTED_VALUES);
 		}
 		return childrenFeatures;
 	}
@@ -252,7 +266,7 @@ public class RepositoryItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Repository");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Repository"));
 	}
 
 	/**
@@ -308,12 +322,12 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRepository_DefaultValues(),
+				(Schema1Package.Literals.REPOSITORY__DEFAULT_VALUES,
 				 Schema1Factory.eINSTANCE.createRepositoryDataValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRepository_ComputedValues(),
+				(Schema1Package.Literals.REPOSITORY__COMPUTED_VALUES,
 				 Schema1Factory.eINSTANCE.createRepositoryDataValue()));
 	}
 
@@ -328,8 +342,8 @@ public class RepositoryItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getRepository_DefaultValues() ||
-			childFeature == Schema1Package.eINSTANCE.getRepository_ComputedValues();
+			childFeature == Schema1Package.Literals.REPOSITORY__DEFAULT_VALUES ||
+			childFeature == Schema1Package.Literals.REPOSITORY__COMPUTED_VALUES;
 
 		if (qualify) {
 			return getString

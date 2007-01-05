@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
- * $Id: GoalmodelItemProviderAdapterFactory.java,v 1.1 2005/10/30 17:12:48 yijunsf Exp $
+ * $Id$
  */
 package edu.toronto.cs.goalmodel.provider;
 
@@ -76,6 +76,28 @@ public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.actor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected actorItemProvider actorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.actor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createactorAdapter() {
+		if (actorItemProvider == null) {
+			actorItemProvider = new actorItemProvider(this);
+		}
+
+		return actorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.contribution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +117,28 @@ public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory
 		}
 
 		return contributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.dependency} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected dependencyItemProvider dependencyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.dependency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createdependencyAdapter() {
+		if (dependencyItemProvider == null) {
+			dependencyItemProvider = new dependencyItemProvider(this);
+		}
+
+		return dependencyItemProvider;
 	}
 
 	/**
@@ -164,47 +208,25 @@ public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.actor} instances.
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.linkAnnotation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected actorItemProvider actorItemProvider;
+	protected linkAnnotationItemProvider linkAnnotationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.actor}.
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.linkAnnotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createactorAdapter() {
-		if (actorItemProvider == null) {
-			actorItemProvider = new actorItemProvider(this);
+	public Adapter createlinkAnnotationAdapter() {
+		if (linkAnnotationItemProvider == null) {
+			linkAnnotationItemProvider = new linkAnnotationItemProvider(this);
 		}
 
-		return actorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.dependency} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected dependencyItemProvider dependencyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.dependency}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createdependencyAdapter() {
-		if (dependencyItemProvider == null) {
-			dependencyItemProvider = new dependencyItemProvider(this);
-		}
-
-		return dependencyItemProvider;
+		return linkAnnotationItemProvider;
 	}
 
 	/**
@@ -309,6 +331,7 @@ public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory
 		if (goalItemProvider != null) goalItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (topicItemProvider != null) topicItemProvider.dispose();
+		if (linkAnnotationItemProvider != null) linkAnnotationItemProvider.dispose();
 	}
 
 }

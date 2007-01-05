@@ -78,8 +78,8 @@ public class OutputsItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputs_Output());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOutputs_OutputCriterion());
+			childrenFeatures.add(Schema1Package.Literals.OUTPUTS__OUTPUT);
+			childrenFeatures.add(Schema1Package.Literals.OUTPUTS__OUTPUT_CRITERION);
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +103,7 @@ public class OutputsItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Outputs");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Outputs"));
 	}
 
 	/**
@@ -147,12 +147,12 @@ public class OutputsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOutputs_Output(),
+				(Schema1Package.Literals.OUTPUTS__OUTPUT,
 				 Schema1Factory.eINSTANCE.createOutput()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOutputs_OutputCriterion(),
+				(Schema1Package.Literals.OUTPUTS__OUTPUT_CRITERION,
 				 Schema1Factory.eINSTANCE.createOutputCriterion()));
 	}
 

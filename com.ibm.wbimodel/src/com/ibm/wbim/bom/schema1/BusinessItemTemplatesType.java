@@ -38,7 +38,7 @@ public interface BusinessItemTemplatesType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Business Item Template</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBusinessItemTemplatesType_BusinessItemTemplate()
-	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" resolveProxies="false" required="true"
+	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='businessItemTemplate' namespace='##targetNamespace'"
 	 * @generated
 	 */

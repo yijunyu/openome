@@ -76,7 +76,7 @@ public class NotificationTemplatesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getNotificationTemplatesType_NotificationTemplate());
+			childrenFeatures.add(Schema1Package.Literals.NOTIFICATION_TEMPLATES_TYPE__NOTIFICATION_TEMPLATE);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class NotificationTemplatesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/NotificationTemplatesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotificationTemplatesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class NotificationTemplatesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getNotificationTemplatesType_NotificationTemplate(),
+				(Schema1Package.Literals.NOTIFICATION_TEMPLATES_TYPE__NOTIFICATION_TEMPLATE,
 				 Schema1Factory.eINSTANCE.createTypeDeclaration()));
 	}
 

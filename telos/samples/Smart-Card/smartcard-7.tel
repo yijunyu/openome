@@ -1,0 +1,5045 @@
+Token SerializedViewObject_0_83
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1340
+        attribute
+            y : 22
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 119
+END
+
+Token SerializedViewObject_0_82
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1137
+        attribute
+            y : 28
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 118
+END
+
+Token SerializedViewObject_0_81
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1157
+        attribute
+            y : 559
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 114
+END
+
+Token SerializedViewObject_0_80
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 737
+        attribute
+            y : 615
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 112
+END
+
+Token SerializedViewObject_0_79
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 318
+        attribute
+            y : 493
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 107
+END
+
+Token SerializedViewObject_0_78
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -50
+        attribute
+            y : 602
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 106
+END
+
+Token SerializedViewObject_0_77
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 900
+        attribute
+            y : 9
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 104
+END
+
+Token SerializedViewObject_0_76
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 766
+        attribute
+            y : 5
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 103
+END
+
+Token SerializedViewObject_0_75
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -56
+        attribute
+            y : 32
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 100
+END
+
+Token SerializedViewObject_0_74
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 255
+        attribute
+            y : 16
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 99
+END
+
+Token SerializedViewObject_0_73
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1219
+        attribute
+            y : -147
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 117
+END
+
+Token SerializedViewObject_0_72
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1262
+        attribute
+            y : 449
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 113
+END
+
+Token SerializedViewObject_0_71
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 824
+        attribute
+            y : 481
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 111
+END
+
+Token SerializedViewObject_0_70
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 146
+        attribute
+            y : 381
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 105
+END
+
+Token SerializedViewObject_0_69
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 827
+        attribute
+            y : -148
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 102
+END
+
+Token SerializedViewObject_0_68
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 112
+        attribute
+            y : -128
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 1
+        attribute
+            ID : 98
+END
+
+Token SerializedViewObject_0_67
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 423
+        attribute
+            y : 664
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 148
+END
+
+Token SerializedViewObject_0_66
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 587
+        attribute
+            y : 396
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 147
+END
+
+Token SerializedViewObject_0_65
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 481
+        attribute
+            y : -191
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 146
+END
+
+Token SerializedViewObject_0_64
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1255
+        attribute
+            y : 35
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 120
+END
+
+Token SerializedViewObject_0_63
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1304
+        attribute
+            y : 518
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 116
+END
+
+Token SerializedViewObject_0_62
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 473
+        attribute
+            y : 433
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 110
+END
+
+Token SerializedViewObject_0_61
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 125
+        attribute
+            y : 618
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 109
+END
+
+Token SerializedViewObject_0_60
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 369
+        attribute
+            y : 57
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 101
+END
+
+Token SerializedViewObject_0_59
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 671
+        attribute
+            y : 773
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 79
+END
+
+Token SerializedViewObject_0_58
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 846
+        attribute
+            y : 67
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 71
+END
+
+Token SerializedViewObject_0_57
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1071
+        attribute
+            y : 7
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 61
+END
+
+Token SerializedViewObject_0_56
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1345
+        attribute
+            y : 686
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 58
+END
+
+Token SerializedViewObject_0_55
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1245
+        attribute
+            y : 683
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 56
+END
+
+Token SerializedViewObject_0_54
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 91
+        attribute
+            y : 784
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 48
+END
+
+Token SerializedViewObject_0_53
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -2
+        attribute
+            y : 788
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 47
+END
+
+Token SerializedViewObject_0_52
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -35
+        attribute
+            y : 119
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 37
+END
+
+Token SerializedViewObject_0_51
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 820
+        attribute
+            y : 74
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 35
+END
+
+Token SerializedViewObject_0_50
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -189
+        attribute
+            y : 863
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 150
+END
+
+Token SerializedViewObject_0_49
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1341
+        attribute
+            y : 598
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 115
+END
+
+Token SerializedViewObject_0_48
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 161
+        attribute
+            y : 713
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 108
+END
+
+Token SerializedViewObject_0_47
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 770
+        attribute
+            y : 956
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 82
+END
+
+Token SerializedViewObject_0_46
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 556
+        attribute
+            y : 972
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 81
+END
+
+Token SerializedViewObject_0_45
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 410
+        attribute
+            y : 530
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 80
+END
+
+Token SerializedViewObject_0_44
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 481
+        attribute
+            y : 536
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 77
+END
+
+Token SerializedViewObject_0_43
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1297
+        attribute
+            y : 108
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 75
+END
+
+Token SerializedViewObject_0_42
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 915
+        attribute
+            y : 172
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 73
+END
+
+Token SerializedViewObject_0_41
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 840
+        attribute
+            y : 174
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 72
+END
+
+Token SerializedViewObject_0_40
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 474
+        attribute
+            y : 216
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 69
+END
+
+Token SerializedViewObject_0_39
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 292
+        attribute
+            y : 191
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 66
+END
+
+Token SerializedViewObject_0_38
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 210
+        attribute
+            y : 110
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 65
+END
+
+Token SerializedViewObject_0_37
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 251
+        attribute
+            y : 153
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 64
+END
+
+Token SerializedViewObject_0_36
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 404
+        attribute
+            y : 162
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 63
+END
+
+Token SerializedViewObject_0_35
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1078
+        attribute
+            y : 95
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 60
+END
+
+Token SerializedViewObject_0_34
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1378
+        attribute
+            y : 767
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 59
+END
+
+Token SerializedViewObject_0_33
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1228
+        attribute
+            y : 763
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 57
+END
+
+Token SerializedViewObject_0_32
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1264
+        attribute
+            y : 599
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 55
+END
+
+Token SerializedViewObject_0_31
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 42
+        attribute
+            y : 961
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 54
+END
+
+Token SerializedViewObject_0_30
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 245
+        attribute
+            y : 928
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 53
+END
+
+Token SerializedViewObject_0_29
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 114
+        attribute
+            y : 934
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 52
+END
+
+Token SerializedViewObject_0_28
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 185
+        attribute
+            y : 968
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 51
+END
+
+Token SerializedViewObject_0_27
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -132
+        attribute
+            y : 914
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 50
+END
+
+Token SerializedViewObject_0_26
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -69
+        attribute
+            y : 959
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 49
+END
+
+Token SerializedViewObject_0_25
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 52
+        attribute
+            y : 722
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 46
+END
+
+Token SerializedViewObject_0_24
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -68
+        attribute
+            y : 209
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 40
+END
+
+Token SerializedViewObject_0_23
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 20
+        attribute
+            y : 186
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 39
+END
+
+Token SerializedViewObject_0_22
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 744
+        attribute
+            y : 170
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 36
+END
+
+Token SerializedViewObject_0_21
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 856
+        attribute
+            y : 158
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 34
+END
+
+Token SerializedViewObject_0_20
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : -273
+        attribute
+            y : 137
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 149
+END
+
+Token SerializedViewObject_0_19
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 438
+        attribute
+            y : -134
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 33
+END
+
+Token SerializedViewObject_0_18
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1057
+        attribute
+            y : 10
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 32
+END
+
+Token SerializedViewObject_0_17
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1185
+        attribute
+            y : 233
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 29
+END
+
+Token SerializedViewObject_0_16
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 978
+        attribute
+            y : 610
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 28
+END
+
+Token SerializedViewObject_0_15
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 896
+        attribute
+            y : 430
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 27
+END
+
+Token SerializedViewObject_0_14
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 999
+        attribute
+            y : -39
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 26
+END
+
+Token SerializedViewObject_0_13
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 255
+        attribute
+            y : 433
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 20
+END
+
+Token SerializedViewObject_0_12
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 360
+        attribute
+            y : 496
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 19
+END
+
+Token SerializedViewObject_0_11
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 731
+        attribute
+            y : 435
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 18
+END
+
+Token SerializedViewObject_0_10
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 785
+        attribute
+            y : 354
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 17
+END
+
+Token SerializedViewObject_0_9
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1167
+        attribute
+            y : 42
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 16
+END
+
+Token SerializedViewObject_0_8
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1104
+        attribute
+            y : -77
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 14
+END
+
+Token SerializedViewObject_0_7
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1317
+        attribute
+            y : 387
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 13
+END
+
+Token SerializedViewObject_0_6
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 1364
+        attribute
+            y : 469
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 12
+END
+
+Token SerializedViewObject_0_5
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 875
+        attribute
+            y : -185
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 11
+END
+
+Token SerializedViewObject_0_4
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 755
+        attribute
+            y : -188
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 10
+END
+
+Token SerializedViewObject_0_3
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 822
+        attribute
+            y : -285
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 9
+END
+
+Token SerializedViewObject_0_2
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 10
+        attribute
+            y : -175
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 8
+END
+
+Token SerializedViewObject_0_1
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 127
+        attribute
+            y : -181
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 7
+END
+
+Token SerializedViewObject_0_0
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 47
+        attribute
+            y : -275
+        attribute
+            scale : 1.0
+        attribute
+            expanded : 0
+        attribute
+            ID : 6
+END
+
+Token Link_377
+    IN HurtCorrelation
+    WITH
+        attribute, name
+             : "Hurt"
+        attribute, from
+            from : Element_66
+        attribute, to
+            to : Link_271
+END
+
+Token Link_300
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_80
+        attribute, to
+            to : Link_296
+END
+
+Token Link_299
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_77
+        attribute, to
+            to : Link_297
+END
+
+Token Link_297
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_299
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_39
+        attribute, to
+            to : Element_147
+END
+
+Token Link_296
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_300
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_40
+        attribute, to
+            to : Element_147
+END
+
+Token Link_294
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_105
+        attribute, to
+            to : Element_147
+END
+
+Token Link_292
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_82
+        attribute, to
+            to : Link_284
+END
+
+Token Link_291
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_81
+        attribute, to
+            to : Link_284
+END
+
+Token Link_290
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_82
+        attribute, to
+            to : Link_283
+END
+
+Token Link_289
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_81
+        attribute, to
+            to : Link_283
+END
+
+Token Link_288
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_82
+        attribute, to
+            to : Link_282
+END
+
+Token Link_287
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_81
+        attribute, to
+            to : Link_282
+END
+
+Token Link_286
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_82
+        attribute, to
+            to : Link_281
+END
+
+Token Link_285
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_81
+        attribute, to
+            to : Link_281
+END
+
+Token Link_284
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_292
+        attribute, links
+             : Link_291
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_54
+        attribute, to
+            to : Element_148
+END
+
+Token Link_283
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_290
+        attribute, links
+             : Link_289
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_52
+        attribute, to
+            to : Element_148
+END
+
+Token Link_282
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_288
+        attribute, links
+             : Link_287
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_51
+        attribute, to
+            to : Element_148
+END
+
+Token Link_281
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_286
+        attribute, links
+             : Link_285
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_53
+        attribute, to
+            to : Element_148
+END
+
+Token Link_280
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_18
+        attribute, to
+            to : Element_148
+END
+
+Token Link_278
+    IN HurtCorrelation
+    WITH
+        attribute, name
+             : "Hurt"
+        attribute, from
+            from : Element_65
+        attribute, to
+            to : Link_271
+END
+
+Token Link_277
+    IN HurtCorrelation
+    WITH
+        attribute, name
+             : "Hurt"
+        attribute, from
+            from : Element_64
+        attribute, to
+            to : Link_271
+END
+
+Token Link_275
+    IN SomeNegativeCorrelation
+    WITH
+        attribute, name
+             : "Some -"
+        attribute, from
+            from : Element_63
+        attribute, to
+            to : Link_273
+END
+
+Token Link_273
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_275
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_149
+END
+
+Token Link_272
+    IN BreakContribution
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_50
+        attribute, to
+            to : Element_149
+END
+
+Token Link_271
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_377
+        attribute, links
+             : Link_278
+        attribute, links
+             : Link_277
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_150
+        attribute, to
+            to : Element_149
+END
+
+Token Link_270
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_150
+        attribute, to
+            to : Element_47
+END
+
+Token Element_150
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_271
+        attribute, links
+             : Link_270
+        attribute, name
+             : "Steal Card Information"
+        attribute, parent
+             : Element_106
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Link_269
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_50
+        attribute, to
+            to : Element_47
+END
+
+Token Link_268
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_49
+        attribute, to
+            to : Element_47
+END
+
+Token Link_267
+    IN SomeNegativeCorrelation
+    WITH
+        attribute, name
+             : "Some -"
+        attribute, from
+            from : Element_69
+        attribute, to
+            to : Link_260
+END
+
+Token Link_260
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_267
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_36
+        attribute, to
+            to : Element_146
+END
+
+Token Link_259
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_7
+        attribute, to
+            to : Element_146
+END
+
+Token Link_258
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_8
+        attribute, to
+            to : Element_149
+END
+
+Token Element_149
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_273
+        attribute, links
+             : Link_272
+        attribute, links
+             : Link_271
+        attribute, links
+             : Link_258
+        attribute, name
+             : "Read Write Card Correctly"
+        attribute, label
+             : IStarDeniedElementLabel
+END
+
+Token Element_148
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_284
+        attribute, links
+             : Link_283
+        attribute, links
+             : Link_282
+        attribute, links
+             : Link_281
+        attribute, links
+             : Link_280
+        attribute, name
+             : "Transmit Correct Data"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_147
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_297
+        attribute, links
+             : Link_296
+        attribute, links
+             : Link_294
+        attribute, name
+             : "Card Be Legitimate"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_146
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_260
+        attribute, links
+             : Link_259
+        attribute, name
+             : "Card Be Usable"
+        attribute, label
+             : IStarWeaklySatisficedElementLabel
+END
+
+Token Link_237
+    IN BreakCorrelation
+    WITH
+        attribute, to
+            to : Link_236
+        attribute, from
+            from : Element_75
+        attribute, name
+             : "Break"
+END
+
+Token Link_236
+    IN BreakContribution
+    WITH
+        attribute, to
+            to : Element_29
+        attribute, from
+            from : Element_59
+        attribute, name
+             : "Break"
+        attribute, links
+             : Link_237
+END
+
+Token Link_175
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_72
+        attribute, to
+            to : Link_70
+END
+
+Token Link_174
+    IN BreakCorrelation
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_73
+        attribute, to
+            to : Link_70
+END
+
+Token Link_163
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_75
+        attribute, to
+            to : Element_120
+END
+
+Token Element_120
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_163
+        attribute, name
+             : "Defense"
+        attribute, parent
+             : Element_119
+END
+
+Token Link_162
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_117
+        attribute, to
+            to : Element_118
+END
+
+Token Link_161
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_117
+        attribute, to
+            to : Element_119
+END
+
+Token Element_119
+    IN IStarRoleElement
+    WITH
+        attribute, children
+             : Element_120
+        attribute, links
+             : Link_161
+        attribute, children
+             : Element_75
+        attribute, name
+             : "Card Manufacturer As Defender"
+END
+
+Token Element_118
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_162
+        attribute, children
+             : Element_60
+        attribute, children
+             : Element_61
+        attribute, name
+             : "Card Manufacturer As Attacker"
+END
+
+Token Element_117
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_162
+        attribute, links
+             : Link_161
+        attribute, children
+             : Element_14
+        attribute, children
+             : Element_32
+        attribute, children
+             : Element_16
+        attribute, name
+             : "Card Manufacturer"
+END
+
+Token Link_160
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_113
+        attribute, to
+            to : Element_114
+END
+
+Token Link_159
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_55
+        attribute, to
+            to : Element_116
+END
+
+Token Link_158
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_115
+        attribute, to
+            to : Element_116
+END
+
+Token Link_157
+    IN IStarDecompositionLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_58
+        attribute, to
+            to : Element_115
+END
+
+Token Element_116
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_159
+        attribute, links
+             : Link_158
+        attribute, name
+             : "Attack"
+        attribute, parent
+             : Element_114
+END
+
+Token Element_115
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_158
+        attribute, links
+             : Link_157
+        attribute, name
+             : "Attack Card Manufacturer"
+        attribute, parent
+             : Element_114
+END
+
+Token Element_114
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_160
+        attribute, children
+             : Element_55
+        attribute, children
+             : Element_116
+        attribute, children
+             : Element_115
+        attribute, children
+             : Element_59
+        attribute, children
+             : Element_57
+        attribute, children
+             : Element_58
+        attribute, children
+             : Element_56
+        attribute, name
+             : "Software Manufacturer As Attacker"
+END
+
+Token Element_113
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_160
+        attribute, children
+             : Element_13
+        attribute, children
+             : Element_12
+        attribute, name
+             : "Software Manufacturer"
+END
+
+Token Link_156
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_111
+        attribute, to
+            to : Element_112
+END
+
+Token Element_112
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_156
+        attribute, children
+             : Element_82
+        attribute, children
+             : Element_81
+        attribute, children
+             : Element_79
+        attribute, name
+             : "Data Owner As Defender"
+END
+
+Token Element_111
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_156
+        attribute, children
+             : Element_18
+        attribute, children
+             : Element_27
+        attribute, children
+             : Element_17
+        attribute, name
+             : "Data Owner"
+END
+
+Token Link_155
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_105
+        attribute, to
+            to : Element_106
+END
+
+Token Link_154
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_105
+        attribute, to
+            to : Element_107
+END
+
+Token Link_153
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_77
+        attribute, to
+            to : Element_110
+END
+
+Token Link_152
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_80
+        attribute, to
+            to : Element_110
+END
+
+Token Element_110
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_153
+        attribute, links
+             : Link_152
+        attribute, name
+             : "Defense"
+        attribute, parent
+             : Element_107
+END
+
+Token Link_151
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_108
+        attribute, to
+            to : Element_109
+END
+
+Token Link_150
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_46
+        attribute, to
+            to : Element_109
+END
+
+Token Link_149
+    IN IStarDecompositionLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_48
+        attribute, to
+            to : Element_108
+END
+
+Token Element_109
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_151
+        attribute, links
+             : Link_150
+        attribute, name
+             : "Attack"
+        attribute, parent
+             : Element_106
+END
+
+Token Element_108
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_151
+        attribute, links
+             : Link_149
+        attribute, name
+             : "Attack Data Owner"
+        attribute, parent
+             : Element_106
+END
+
+Token Element_107
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_154
+        attribute, children
+             : Element_110
+        attribute, children
+             : Element_77
+        attribute, children
+             : Element_80
+        attribute, name
+             : "Terminal Owner As Defender"
+END
+
+Token Element_106
+    IN IStarRoleElement
+    WITH
+        attribute, children
+             : Element_150
+        attribute, links
+             : Link_155
+        attribute, children
+             : Element_109
+        attribute, children
+             : Element_108
+        attribute, children
+             : Element_50
+        attribute, children
+             : Element_49
+        attribute, children
+             : Element_53
+        attribute, children
+             : Element_52
+        attribute, children
+             : Element_51
+        attribute, children
+             : Element_54
+        attribute, children
+             : Element_48
+        attribute, children
+             : Element_46
+        attribute, children
+             : Element_47
+        attribute, name
+             : "Terminal Owner As Attacker"
+END
+
+Token Element_105
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_294
+        attribute, links
+             : Link_155
+        attribute, links
+             : Link_154
+        attribute, children
+             : Element_19
+        attribute, children
+             : Element_20
+        attribute, name
+             : "Terminal Owner"
+END
+
+Token Link_148
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_102
+        attribute, to
+            to : Element_104
+END
+
+Token Link_147
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_102
+        attribute, to
+            to : Element_103
+END
+
+Token Element_104
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_148
+        attribute, children
+             : Element_73
+        attribute, children
+             : Element_72
+        attribute, children
+             : Element_71
+        attribute, name
+             : "Card Issuer As Defender"
+END
+
+Token Element_103
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_147
+        attribute, children
+             : Element_34
+        attribute, children
+             : Element_36
+        attribute, children
+             : Element_35
+        attribute, name
+             : "Card Issuer As Attacker"
+END
+
+Token Element_102
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_148
+        attribute, links
+             : Link_147
+        attribute, children
+             : Element_10
+        attribute, children
+             : Element_9
+        attribute, children
+             : Element_11
+        attribute, name
+             : "Card Issuer"
+END
+
+Token Link_146
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_66
+        attribute, to
+            to : Element_101
+END
+
+Token Link_145
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_65
+        attribute, to
+            to : Element_101
+END
+
+Token Link_144
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_69
+        attribute, to
+            to : Element_101
+END
+
+Token Link_143
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_64
+        attribute, to
+            to : Element_101
+END
+
+Token Link_142
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_63
+        attribute, to
+            to : Element_101
+END
+
+Token Element_101
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_146
+        attribute, links
+             : Link_145
+        attribute, links
+             : Link_144
+        attribute, links
+             : Link_143
+        attribute, links
+             : Link_142
+        attribute, name
+             : "Defense"
+        attribute, parent
+             : Element_99
+END
+
+Token Link_141
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_98
+        attribute, to
+            to : Element_99
+END
+
+Token Link_140
+    IN IStarCoversLink
+    WITH
+        attribute, name
+             : "COVERS"
+        attribute, from
+            from : Element_98
+        attribute, to
+            to : Element_100
+END
+
+Token Element_100
+    IN IStarRoleElement
+    WITH
+        attribute, links
+             : Link_140
+        attribute, children
+             : Element_40
+        attribute, children
+             : Element_39
+        attribute, children
+             : Element_37
+        attribute, name
+             : "Card Holder As Attacker"
+END
+
+Token Element_99
+    IN IStarRoleElement
+    WITH
+        attribute, children
+             : Element_101
+        attribute, links
+             : Link_141
+        attribute, children
+             : Element_69
+        attribute, children
+             : Element_66
+        attribute, children
+             : Element_65
+        attribute, children
+             : Element_64
+        attribute, children
+             : Element_63
+        attribute, name
+             : "Card Holder As Defender"
+END
+
+Token Element_98
+    IN IStarPositionElement
+    WITH
+        attribute, links
+             : Link_141
+        attribute, links
+             : Link_140
+        attribute, children
+             : Element_8
+        attribute, children
+             : Element_6
+        attribute, children
+             : Element_7
+        attribute, name
+             : "Card Holder"
+END
+
+Token Link_92
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_81
+        attribute, to
+            to : Element_79
+END
+
+Token Link_91
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_82
+        attribute, to
+            to : Element_79
+END
+
+Token Element_82
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_292
+        attribute, links
+             : Link_290
+        attribute, links
+             : Link_288
+        attribute, links
+             : Link_286
+        attribute, parent
+             : Element_112
+        attribute, links
+             : Link_91
+        attribute, name
+             : "Make Secure Connection Between Card and Back-Ends"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_81
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_291
+        attribute, links
+             : Link_289
+        attribute, links
+             : Link_287
+        attribute, links
+             : Link_285
+        attribute, parent
+             : Element_112
+        attribute, links
+             : Link_92
+        attribute, name
+             : "Use Monitors on the Back Ends"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_80
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_300
+        attribute, links
+             : Link_152
+        attribute, parent
+             : Element_107
+        attribute, name
+             : "Add Challenge/ Response Machanism"
+END
+
+Token Element_79
+    IN IStarGoalElement
+    WITH
+        attribute, parent
+             : Element_112
+        attribute, links
+             : Link_92
+        attribute, links
+             : Link_91
+        attribute, name
+             : "Defense"
+END
+
+Token Element_77
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_299
+        attribute, links
+             : Link_153
+        attribute, parent
+             : Element_107
+        attribute, name
+             : "check Card Manually"
+END
+
+Token Element_75
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_163
+        attribute, name
+             : "Ask Evaluation of Software Specialist"
+        attribute, parent
+             : Element_119
+        attribute, links
+             : Link_237
+END
+
+Token Link_84
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_73
+        attribute, to
+            to : Element_71
+END
+
+Token Link_83
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_72
+        attribute, to
+            to : Element_71
+END
+
+Token Element_73
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_174
+        attribute, parent
+             : Element_104
+        attribute, links
+             : Link_84
+        attribute, name
+             : "Use Simple Solution on Immaterial Card"
+END
+
+Token Element_72
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_175
+        attribute, parent
+             : Element_104
+        attribute, links
+             : Link_83
+        attribute, name
+             : "Use Verified Solution  on influencial Card"
+END
+
+Token Element_71
+    IN IStarGoalElement
+    WITH
+        attribute, parent
+             : Element_104
+        attribute, links
+             : Link_84
+        attribute, links
+             : Link_83
+        attribute, name
+             : "Defense"
+END
+
+Token Element_69
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_267
+        attribute, name
+             : "Buy Card from Issuer with good Reputation"
+        attribute, links
+             : Link_144
+        attribute, parent
+             : Element_99
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_66
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_377
+        attribute, links
+             : Link_146
+        attribute, parent
+             : Element_99
+        attribute, name
+             : "Limit Transaction Amount"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_65
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_278
+        attribute, links
+             : Link_145
+        attribute, parent
+             : Element_99
+        attribute, name
+             : "Limit Transaction Times"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_64
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_277
+        attribute, links
+             : Link_143
+        attribute, parent
+             : Element_99
+        attribute, name
+             : "Limit Transaction Duration"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_63
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_275
+        attribute, links
+             : Link_142
+        attribute, parent
+             : Element_99
+        attribute, name
+             : "Blind PIN on Screen"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Link_70
+    IN BreakContribution
+    WITH
+        attribute, links
+             : Link_175
+        attribute, links
+             : Link_174
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_60
+        attribute, to
+            to : Element_26
+END
+
+Token Link_69
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_60
+        attribute, to
+            to : Element_61
+END
+
+Token Element_61
+    IN IStarGoalElement
+    WITH
+        attribute, parent
+             : Element_118
+        attribute, links
+             : Link_69
+        attribute, name
+             : "Attack"
+END
+
+Token Element_60
+    IN IStarTaskElement
+    WITH
+        attribute, parent
+             : Element_118
+        attribute, links
+             : Link_70
+        attribute, links
+             : Link_69
+        attribute, name
+             : "Attack by using Unsecure solution"
+END
+
+Token Link_65
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_59
+        attribute, to
+            to : Element_58
+END
+
+Token Element_59
+    IN IStarTaskElement
+    WITH
+        attribute, parent
+             : Element_114
+        attribute, links
+             : Link_65
+        attribute, name
+             : "Provide Modifiable Software"
+        attribute, links
+             : Link_236
+END
+
+Token Element_58
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_157
+        attribute, parent
+             : Element_114
+        attribute, links
+             : Link_65
+        attribute, name
+             : "Attack Card manufacturer"
+END
+
+Token Link_63
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_57
+        attribute, to
+            to : Element_56
+END
+
+Token Link_62
+    IN IStarDecompositionLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_56
+        attribute, to
+            to : Element_55
+END
+
+Token Link_61
+    IN BreakContribution
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_57
+        attribute, to
+            to : Element_28
+END
+
+Token Element_57
+    IN IStarTaskElement
+    WITH
+        attribute, parent
+             : Element_114
+        attribute, links
+             : Link_63
+        attribute, links
+             : Link_61
+        attribute, name
+             : "Using Unreliabal OS"
+END
+
+Token Element_56
+    IN IStarGoalElement
+    WITH
+        attribute, parent
+             : Element_114
+        attribute, links
+             : Link_63
+        attribute, links
+             : Link_62
+        attribute, name
+             : "Attack Data Owner"
+END
+
+Token Element_55
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_159
+        attribute, parent
+             : Element_114
+        attribute, name
+             : "Attack Data Owner"
+        attribute, links
+             : Link_62
+END
+
+Token Link_60
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_53
+        attribute, to
+            to : Element_48
+END
+
+Token Link_59
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_52
+        attribute, to
+            to : Element_48
+END
+
+Token Link_58
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_51
+        attribute, to
+            to : Element_48
+END
+
+Token Link_57
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_54
+        attribute, to
+            to : Element_48
+END
+
+Token Element_54
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_284
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_57
+        attribute, name
+             : "Refuse to Record Transactions"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_53
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_281
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_60
+        attribute, name
+             : "Create Customer Services Difficulties"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_52
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_283
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_59
+        attribute, name
+             : "Fail To Complete Steps of Transactions"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_51
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_282
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_58
+        attribute, name
+             : "Send Falsified Records"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_50
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_272
+        attribute, links
+             : Link_269
+        attribute, name
+             : "Read Write Wrong amount"
+        attribute, parent
+             : Element_106
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Element_49
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_273
+        attribute, links
+             : Link_268
+        attribute, parent
+             : Element_106
+        attribute, name
+             : "Remember Account Number and Password"
+        attribute, label
+             : IStarSatisficedElementLabel
+END
+
+Token Link_51
+    IN IStarDecompositionLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_47
+        attribute, to
+            to : Element_46
+END
+
+Token Element_48
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_149
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_60
+        attribute, links
+             : Link_59
+        attribute, links
+             : Link_58
+        attribute, links
+             : Link_57
+        attribute, name
+             : "Cheat DataOwner"
+END
+
+Token Element_47
+    IN IStarGoalElement
+    WITH
+        attribute, links
+             : Link_270
+        attribute, links
+             : Link_269
+        attribute, links
+             : Link_268
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_51
+        attribute, name
+             : "Defraud CardHolder"
+END
+
+Token Element_46
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_150
+        attribute, name
+             : "Attack Card Holder"
+        attribute, parent
+             : Element_106
+        attribute, links
+             : Link_51
+END
+
+Token Link_42
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_40
+        attribute, to
+            to : Element_37
+END
+
+Token Link_41
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_39
+        attribute, to
+            to : Element_37
+END
+
+Token Element_40
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_296
+        attribute, parent
+             : Element_100
+        attribute, name
+             : "Use Stolen Card"
+        attribute, links
+             : Link_42
+END
+
+Token Element_39
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_297
+        attribute, parent
+             : Element_100
+        attribute, links
+             : Link_41
+        attribute, name
+             : "Modify Card"
+END
+
+Token Element_37
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : "Attack "
+        attribute, parent
+             : Element_100
+        attribute, links
+             : Link_42
+        attribute, links
+             : Link_41
+END
+
+Token Link_38
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_36
+        attribute, to
+            to : Element_35
+END
+
+Token Element_36
+    IN IStarTaskElement
+    WITH
+        attribute, links
+             : Link_260
+        attribute, parent
+             : Element_103
+        attribute, links
+             : Link_38
+        attribute, name
+             : "Sell Unusabale Card"
+END
+
+Token Link_37
+    IN IStarMeansEndsLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_34
+        attribute, to
+            to : Element_35
+END
+
+Token Element_35
+    IN IStarGoalElement
+    WITH
+        attribute, parent
+             : Element_103
+        attribute, links
+             : Link_38
+        attribute, links
+             : Link_37
+        attribute, name
+             : "Attack"
+END
+
+Token Link_36
+    IN BreakContribution
+    WITH
+        attribute, name
+             : "Break"
+        attribute, from
+            from : Element_34
+        attribute, to
+            to : Element_33
+END
+
+Token Element_34
+    IN IStarTaskElement
+    WITH
+        attribute, parent
+             : Element_103
+        attribute, links
+             : Link_37
+        attribute, links
+             : Link_36
+        attribute, name
+             : "Privacy Invasion"
+END
+
+Token Link_34
+    IN IStarDependencyLink
+    WITH
+        attribute, from
+            from : Element_7
+        attribute, to
+            to : Element_33
+        attribute, name
+             : ""
+END
+
+Token Element_33
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : "Privacy Be Protected"
+        attribute, links
+             : Link_36
+        attribute, links
+             : Link_34
+        attribute, label
+             : IStarWeaklyDeniedElementLabel
+END
+
+Token Link_28
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_32
+        attribute, to
+            to : Element_14
+END
+
+Token Element_32
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_117
+        attribute, links
+             : Link_28
+        attribute, name
+             : "Trust- worthiness [card Issuer]"
+END
+
+Token Link_26
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_16
+        attribute, to
+            to : Element_29
+END
+
+Token Element_29
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_26
+        attribute, name
+             : "Reliable Card Software"
+        attribute, links
+             : Link_236
+END
+
+Token Link_24
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_27
+        attribute, to
+            to : Element_28
+END
+
+Token Element_28
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_61
+        attribute, links
+             : Link_24
+        attribute, name
+             : "Reliable Management Software"
+END
+
+Token Link_23
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_27
+        attribute, to
+            to : Element_17
+END
+
+Token Link_22
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_18
+        attribute, to
+            to : Element_17
+END
+
+Token Element_27
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_111
+        attribute, links
+             : Link_24
+        attribute, links
+             : Link_23
+        attribute, name
+             : "Trust- worthiness [Software Manufacturer]"
+END
+
+Token Link_20
+    IN IStarDependencyLink
+    WITH
+        attribute, name
+             : ""
+        attribute, from
+            from : Element_11
+        attribute, to
+            to : Element_26
+END
+
+Token Element_26
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_70
+        attribute, links
+             : Link_20
+        attribute, name
+             : "Manufacture Reliable Card Solution"
+END
+
+Token Link_8
+    IN MakeContribution
+    WITH
+        attribute, name
+             : "Make"
+        attribute, from
+            from : Element_20
+        attribute, to
+            to : Element_19
+END
+
+Token Element_20
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_105
+        attribute, name
+             : "Trust- worthiness [Card holder]"
+        attribute, links
+             : Link_8
+END
+
+Token Element_19
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_105
+        attribute, links
+             : Link_8
+        attribute, name
+             : "Trust- worthiness"
+END
+
+Token Element_18
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_280
+        attribute, parent
+             : Element_111
+        attribute, links
+             : Link_22
+        attribute, name
+             : "Trust- worthiness [Terminal Owner]"
+END
+
+Token Element_17
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_111
+        attribute, links
+             : Link_23
+        attribute, links
+             : Link_22
+        attribute, name
+             : "Trust- worthiness"
+END
+
+Token Link_6
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_16
+        attribute, to
+            to : Element_14
+END
+
+Token Element_16
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_117
+        attribute, links
+             : Link_26
+        attribute, links
+             : Link_6
+        attribute, name
+             : "Trust- worthiness [software Manufacturer]"
+END
+
+Token Element_14
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_117
+        attribute, links
+             : Link_28
+        attribute, links
+             : Link_6
+        attribute, name
+             : "Trust- worthiness"
+END
+
+Token Link_4
+    IN MakeContribution
+    WITH
+        attribute, name
+             : "Make"
+        attribute, from
+            from : Element_13
+        attribute, to
+            to : Element_12
+END
+
+Token Element_13
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_113
+        attribute, name
+             : "Trust- worthiness [Card issuer]"
+        attribute, links
+             : Link_4
+END
+
+Token Element_12
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_113
+        attribute, links
+             : Link_4
+        attribute, name
+             : "Trust- worthiness"
+END
+
+Token Link_3
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_11
+        attribute, to
+            to : Element_9
+END
+
+Token Link_2
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_10
+        attribute, to
+            to : Element_9
+END
+
+Token Element_11
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_102
+        attribute, links
+             : Link_20
+        attribute, links
+             : Link_3
+        attribute, name
+             : "Trust- worthiness [Card Manufacturer]"
+END
+
+Token Element_10
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_102
+        attribute, name
+             : "Trust- worthiness [Data Owner]"
+        attribute, links
+             : Link_2
+END
+
+Token Element_9
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_102
+        attribute, links
+             : Link_3
+        attribute, links
+             : Link_2
+        attribute, name
+             : "Trust- worthiness"
+END
+
+Token Link_1
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_8
+        attribute, to
+            to : Element_6
+END
+
+Token Link_0
+    IN AndContribution
+    WITH
+        attribute, name
+             : "And"
+        attribute, from
+            from : Element_7
+        attribute, to
+            to : Element_6
+END
+
+Token Element_8
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_258
+        attribute, parent
+             : Element_98
+        attribute, links
+             : Link_1
+        attribute, name
+             : "Trust- worthiness [Terminal Owner]"
+        attribute, label
+             : IStarDeniedElementLabel
+END
+
+Token Element_7
+    IN IStarSoftGoalElement
+    WITH
+        attribute, links
+             : Link_259
+        attribute, parent
+             : Element_98
+        attribute, links
+             : Link_34
+        attribute, links
+             : Link_0
+        attribute, name
+             : "Trust- worthiness [Card Issuer]"
+        attribute, label
+             : IStarWeaklyDeniedElementLabel
+END
+
+Token Element_6
+    IN IStarSoftGoalElement
+    WITH
+        attribute, parent
+             : Element_98
+        attribute, links
+             : Link_1
+        attribute, links
+             : Link_0
+        attribute, name
+             : "Trust- Worthiness"
+        attribute, label
+             : IStarDeniedElementLabel
+END
+
+Token SerializedView_0
+    IN SerializedView
+    WITH
+        attribute, view_objects
+             : SerializedViewObject_0_0
+        attribute, view_objects
+             : SerializedViewObject_0_1
+        attribute, view_objects
+             : SerializedViewObject_0_2
+        attribute, view_objects
+             : SerializedViewObject_0_3
+        attribute, view_objects
+             : SerializedViewObject_0_4
+        attribute, view_objects
+             : SerializedViewObject_0_5
+        attribute, view_objects
+             : SerializedViewObject_0_6
+        attribute, view_objects
+             : SerializedViewObject_0_7
+        attribute, view_objects
+             : SerializedViewObject_0_8
+        attribute, view_objects
+             : SerializedViewObject_0_9
+        attribute, view_objects
+             : SerializedViewObject_0_10
+        attribute, view_objects
+             : SerializedViewObject_0_11
+        attribute, view_objects
+             : SerializedViewObject_0_12
+        attribute, view_objects
+             : SerializedViewObject_0_13
+        attribute, view_objects
+             : SerializedViewObject_0_14
+        attribute, view_objects
+             : SerializedViewObject_0_15
+        attribute, view_objects
+             : SerializedViewObject_0_16
+        attribute, view_objects
+             : SerializedViewObject_0_17
+        attribute, view_objects
+             : SerializedViewObject_0_18
+        attribute, view_objects
+             : SerializedViewObject_0_19
+        attribute, view_objects
+             : SerializedViewObject_0_20
+        attribute, view_objects
+             : SerializedViewObject_0_21
+        attribute, view_objects
+             : SerializedViewObject_0_22
+        attribute, view_objects
+             : SerializedViewObject_0_23
+        attribute, view_objects
+             : SerializedViewObject_0_24
+        attribute, view_objects
+             : SerializedViewObject_0_25
+        attribute, view_objects
+             : SerializedViewObject_0_26
+        attribute, view_objects
+             : SerializedViewObject_0_27
+        attribute, view_objects
+             : SerializedViewObject_0_28
+        attribute, view_objects
+             : SerializedViewObject_0_29
+        attribute, view_objects
+             : SerializedViewObject_0_30
+        attribute, view_objects
+             : SerializedViewObject_0_31
+        attribute, view_objects
+             : SerializedViewObject_0_32
+        attribute, view_objects
+             : SerializedViewObject_0_33
+        attribute, view_objects
+             : SerializedViewObject_0_34
+        attribute, view_objects
+             : SerializedViewObject_0_35
+        attribute, view_objects
+             : SerializedViewObject_0_36
+        attribute, view_objects
+             : SerializedViewObject_0_37
+        attribute, view_objects
+             : SerializedViewObject_0_38
+        attribute, view_objects
+             : SerializedViewObject_0_39
+        attribute, view_objects
+             : SerializedViewObject_0_40
+        attribute, view_objects
+             : SerializedViewObject_0_41
+        attribute, view_objects
+             : SerializedViewObject_0_42
+        attribute, view_objects
+             : SerializedViewObject_0_43
+        attribute, view_objects
+             : SerializedViewObject_0_44
+        attribute, view_objects
+             : SerializedViewObject_0_45
+        attribute, view_objects
+             : SerializedViewObject_0_46
+        attribute, view_objects
+             : SerializedViewObject_0_47
+        attribute, view_objects
+             : SerializedViewObject_0_48
+        attribute, view_objects
+             : SerializedViewObject_0_49
+        attribute, view_objects
+             : SerializedViewObject_0_50
+        attribute, view_objects
+             : SerializedViewObject_0_51
+        attribute, view_objects
+             : SerializedViewObject_0_52
+        attribute, view_objects
+             : SerializedViewObject_0_53
+        attribute, view_objects
+             : SerializedViewObject_0_54
+        attribute, view_objects
+             : SerializedViewObject_0_55
+        attribute, view_objects
+             : SerializedViewObject_0_56
+        attribute, view_objects
+             : SerializedViewObject_0_57
+        attribute, view_objects
+             : SerializedViewObject_0_58
+        attribute, view_objects
+             : SerializedViewObject_0_59
+        attribute, view_objects
+             : SerializedViewObject_0_60
+        attribute, view_objects
+             : SerializedViewObject_0_61
+        attribute, view_objects
+             : SerializedViewObject_0_62
+        attribute, view_objects
+             : SerializedViewObject_0_63
+        attribute, view_objects
+             : SerializedViewObject_0_64
+        attribute, view_objects
+             : SerializedViewObject_0_65
+        attribute, view_objects
+             : SerializedViewObject_0_66
+        attribute, view_objects
+             : SerializedViewObject_0_67
+        attribute, view_objects
+             : SerializedViewObject_0_68
+        attribute, view_objects
+             : SerializedViewObject_0_69
+        attribute, view_objects
+             : SerializedViewObject_0_70
+        attribute, view_objects
+             : SerializedViewObject_0_71
+        attribute, view_objects
+             : SerializedViewObject_0_72
+        attribute, view_objects
+             : SerializedViewObject_0_73
+        attribute, view_objects
+             : SerializedViewObject_0_74
+        attribute, view_objects
+             : SerializedViewObject_0_75
+        attribute, view_objects
+             : SerializedViewObject_0_76
+        attribute, view_objects
+             : SerializedViewObject_0_77
+        attribute, view_objects
+             : SerializedViewObject_0_78
+        attribute, view_objects
+             : SerializedViewObject_0_79
+        attribute, view_objects
+             : SerializedViewObject_0_80
+        attribute, view_objects
+             : SerializedViewObject_0_81
+        attribute, view_objects
+             : SerializedViewObject_0_82
+        attribute, view_objects
+             : SerializedViewObject_0_83
+END
+
+SimpleClass NFRSoftgoal
+    IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+    ISA NFRElement
+    WITH
+        attribute, name, attribute
+             : "NFRSoftgoal"
+        attribute, imagename, attribute
+             : "NFRSoftgoal.gif"
+        attribute, imagesize, attribute
+            width : 80
+        attribute, imagesize, attribute
+            height : 50
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+END
+
+SimpleClass NFRClaim
+    IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+    ISA NFRElement
+    WITH
+        attribute, name, attribute
+             : "Claim"
+        attribute, imagename, attribute
+             : "Claim.gif"
+        attribute, imagesize, attribute
+            width : 80
+        attribute, imagesize, attribute
+            height : 50
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+END
+
+SimpleClass NFROperationalization
+    IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+    ISA NFRElement
+    WITH
+        attribute, name, attribute
+             : "Operationalization"
+        attribute, imagename, attribute
+             : "Operationalization.gif"
+        attribute, imagesize, attribute
+            width : 80
+        attribute, imagesize, attribute
+            height : 50
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+END
+
+SimpleClass NFRElement
+    ISA OMEElement
+END
+
+SimpleClass BreakContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Break"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Break"
+END
+
+SimpleClass MakeContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Make"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Make"
+END
+
+SimpleClass OrContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Or"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "or"
+END
+
+SimpleClass AndContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "And"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "And"
+END
+
+SimpleClass EqualContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Equal"
+        attribute, attribute, imagename
+             : "DoubleArrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "="
+END
+
+SimpleClass HurtContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Hurt"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Hurt"
+END
+
+SimpleClass HelpContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Help"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Help"
+END
+
+SimpleClass UnknownContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Unknown"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Unknown"
+END
+
+SimpleClass SomePositiveContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Some +"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Some +"
+END
+
+SimpleClass SomeNegativeContribution
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, attribute, name
+             : "Some -"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Some -"
+END
+
+SimpleClass NFRSoftgoalContribution
+    IN OMEVisibleClass, OMELinkClass
+    ISA NFRLink
+    WITH
+        attribute, name, attribute
+             : "NFRSoftgoalContribution"
+        attribute, OMEAttributes
+            label : NFRContributionLabelClass
+END
+
+SimpleClass NFRDeniedContributionLabel
+    IN OMEVisibleClass, NFRContributionLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Denied Contribution"
+        attribute, imagename, attribute, imagename
+             : "Cross.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, attribute, imageposition
+            dx : 20
+        attribute, attribute, imageposition
+            dy : 10
+END
+
+SimpleClass NFRDeniedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Denied"
+        attribute, imagename, attribute, imagename
+             : "Cross.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, attribute, imageposition
+            dx : 55
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRWeaklyDeniedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Weakly Denied"
+        attribute, imagename, attribute, imagename
+             : "WeaklyDenied.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRUndecidedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Undecided"
+        attribute, imagename, attribute, imagename
+             : "Undecided.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRWeaklySatisficedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Weakly Satisficed"
+        attribute, imagename, attribute, imagename
+             : "WeaklySatisficed.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRSatisficedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Satisficed"
+        attribute, imagename, attribute, imagename
+             : "Check.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRConflictSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Conflict"
+        attribute, imagename, attribute, imagename
+             : "Conflict.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 55
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass NFRSoftgoalPriority
+    IN OMEVisibleClass, NFRSoftgoalPriorityClass
+    WITH
+        attribute, name, attribute, name
+             : "Priority Softgoal"
+        attribute, imagename, attribute, imagename
+             : "ExclamationPoint.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 30
+        attribute, imagesize, attribute, imagesize
+            height : 30
+        attribute, attribute, imageposition
+            dx : -45
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass BreakCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Break Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Break"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass MakeCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Make Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Make"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass HurtCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Hurt Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Hurt"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass HelpCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Help Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Help"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass UnknownCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Unknown Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Unknown"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass SomePositiveCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Some + Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Some +"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass SomeNegativeCorrelation
+    IN OMEInstantiableClass, OMELinkClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, attribute, name
+             : "Some - Correlation"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, defaultname
+             : "Some -"
+        attribute, stroke, attribute
+             : "dashed"
+END
+
+SimpleClass NFRSoftgoalCorrelation
+    IN OMEVisibleClass, OMELinkClass
+    ISA NFRLink
+    WITH
+        attribute, name, attribute
+             : "NFRSoftgoalCorrelation"
+END
+
+SimpleClass NFRLink
+    ISA OMELink
+END
+
+SimpleClass IStarRoleElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Role"
+        attribute, attribute, imagename
+             : "Role.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarPositionElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Position"
+        attribute, attribute, imagename
+             : "Position.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarAgentElement
+    IN IStarActorElementClass, OMEInstantiableClass
+    ISA IStarActorElement
+    WITH
+        attribute, attribute, name
+             : "Agent"
+        attribute, attribute, imagename
+             : "Agent.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarActorElement
+    IN IStarClass, IStarActorElementClass, OMEInstantiableClass
+    ISA IStarElement, OMEGrowableElement
+    WITH
+        attribute
+            children : IStarIntentionalElement
+        attribute, attribute, name
+             : "Actor"
+        attribute, attribute, imagename
+             : "Actor.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 80
+END
+
+SimpleClass IStarGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Goal"
+        attribute, attribute, imagename
+             : "Goal.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+        attribute, OMEAttributes
+            label : IStarElementLabelClass
+END
+
+SimpleClass IStarTaskElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Task"
+        attribute, attribute, imagename
+             : "Task.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+        attribute, OMEAttributes
+            label : IStarElementLabelClass
+END
+
+SimpleClass IStarSoftGoalElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Softgoal"
+        attribute, attribute, imagename
+             : "Softgoal.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+        attribute, OMEAttributes
+            label : IStarElementLabelClass
+END
+
+SimpleClass IStarResourceElement
+    IN IStarIntentionalElementClass, OMEInstantiableClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, attribute, name
+             : "Resource"
+        attribute, attribute, imagename
+             : "Resource.gif"
+        attribute, attribute, imagesize
+            width : 80
+        attribute, attribute, imagesize
+            height : 50
+        attribute, OMEAttributes
+            label : IStarElementLabelClass
+END
+
+SimpleClass IStarIntentionalElement
+    IN IStarClass, OMEElementClass, OMEVisibleClass
+    ISA IStarElement
+    WITH
+        attribute
+            parent : IStarActorElement
+        attribute, imagesize, attribute
+            width : 80
+        attribute, imagesize, attribute
+            height : 50
+END
+
+SimpleClass IStarElement
+    IN IStarClass
+    ISA OMEElement
+    WITH
+        attribute
+            name : String
+END
+
+SimpleClass IStarDependencyLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute, attribute, name
+             : "Dependency link"
+        attribute, attribute, imagename
+             : "Dependency.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarDecompositionLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarTaskElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Decomposition link"
+        attribute, attribute, imagename
+             : "Decomposition.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarContributionLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarSoftGoalElement
+        attribute
+            from : OMEElement
+        attribute, attribute, name
+             : "Contribution link"
+        attribute, attribute, imagename
+             : "Contribution.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarMeansEndsLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarGoalElement
+        attribute
+            from : IStarIntentionalElement
+        attribute, attribute, name
+             : "Means-ends link"
+        attribute, attribute, imagename
+             : "Means-Ends.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, OMEAttributes
+            label : IStarLinkLabelClass
+END
+
+SimpleClass IStarISALink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarActorElement
+        attribute
+            from : IStarActorElement
+        attribute, attribute, name
+             : "ISA"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "ISA"
+END
+
+SimpleClass IStarINSLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarActorElement
+        attribute
+            from : IStarActorElement
+        attribute, attribute, name
+             : "INS"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "INS"
+END
+
+SimpleClass IStarPlaysLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarRoleElement
+        attribute
+            from : IStarAgentElement
+        attribute, attribute, name
+             : "Plays"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "PLAYS"
+END
+
+SimpleClass IStarOccupiesLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarPositionElement
+        attribute
+            from : IStarAgentElement
+        attribute, attribute, name
+             : "Occupies"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "OCCUPIES"
+END
+
+SimpleClass IStarCoversLink
+    IN IStarLinkClass, OMEInstantiableClass
+    ISA IStarLink
+    WITH
+        attribute
+            to : IStarRoleElement
+        attribute
+            from : IStarPositionElement
+        attribute, attribute, name
+             : "Covers"
+        attribute, attribute, imagename
+             : "Arrow.gif"
+        attribute, attribute, imagesize
+            height : 20
+        attribute, attribute, imagesize
+            width : 20
+        attribute, attribute, defaultname
+             : "COVERS"
+END
+
+SimpleClass IStarLink
+    IN IStarLinkClass, OMEVisibleClass
+    ISA OMELink
+    WITH
+        attribute
+            name : String
+        attribute, imagesize, attribute
+            height : 20
+        attribute, imagesize, attribute
+            width : 20
+END
+
+SimpleClass IStarDeniedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Denied"
+        attribute, imagename, attribute, imagename
+             : "Cross.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 40
+        attribute, imagesize, attribute, imagesize
+            height : 40
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarWeaklyDeniedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Weakly Denied"
+        attribute, imagename, attribute, imagename
+             : "WeaklyDenied.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarUndecidedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Undecided"
+        attribute, imagename, attribute, imagename
+             : "Undecided.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarWeaklySatisficedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Weakly Satisficed"
+        attribute, imagename, attribute, imagename
+             : "WeaklySatisficed.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarSatisficedElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Satisficed"
+        attribute, imagename, attribute, imagename
+             : "Check.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 60
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarConflictElementLabel
+    IN OMEVisibleClass, IStarElementLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Conflict"
+        attribute, imagename, attribute, imagename
+             : "Conflict.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 50
+        attribute, imagesize, attribute, imagesize
+            height : 50
+        attribute, attribute, imageposition
+            dx : 55
+        attribute, attribute, imageposition
+            dy : 0
+END
+
+SimpleClass IStarSatisfiedLinkLabel
+    IN OMEVisibleClass, IStarLinkLabelClass
+    WITH
+        attribute, name, attribute, name
+             : "Satisficed"
+        attribute, imagename, attribute, imagename
+             : "Check.gif"
+        attribute, imagesize, attribute, imagesize
+            width : 20
+        attribute, imagesize, attribute, imagesize
+            height : 20
+        attribute, attribute, imageposition
+            dx : 20
+        attribute, attribute, imageposition
+            dy : 10
+END
+
+SimpleClass OMEGrowableElement
+    IN OMEGrowableElementClass
+    ISA OMEElement
+    WITH
+        attribute
+            children : OMEElement
+END
+
+SimpleClass OMEElement
+    IN OMEElementClass
+    ISA OMEObject
+    WITH
+        attribute
+            parent : OMEElement
+END
+
+SimpleClass OMELink
+    IN OMELinkClass
+    ISA OMEObject
+    WITH
+        attribute
+            to : OMEObject
+        attribute
+            from : OMEObject
+END
+
+SimpleClass OMEObject
+    IN OMEObjectClass
+    WITH
+        attribute
+            name : String
+        attribute
+            links : OMELink
+END
+
+SimpleClass SerializedView
+    WITH
+        attribute
+            view_objects : Token
+END
+
+SimpleClass SerializedObject
+    WITH
+        attribute
+            type : String
+END
+
+MetaClass NFRSoftgoalLabelClass
+    IN OMEVisibleMetaClass, OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass NFRContributionLabelClass
+    IN OMEVisibleMetaClass, OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass NFRSoftgoalPriorityClass
+    IN OMEVisibleMetaClass, OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarElementLabelClass
+    IN OMEVisibleMetaClass, OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarLinkLabelClass
+    IN OMEVisibleMetaClass, OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass IStarLinkClass
+    IN OMEVisibleMetaClass
+    ISA IStarClass, OMELinkClass
+    WITH
+        attribute, name, attribute
+             : "Links"
+        attribute, imagename, attribute
+             : "Contribution.gif"
+END
+
+MetaClass IStarActorElementClass
+    IN OMEVisibleMetaClass
+    ISA IStarElementClass
+    WITH
+        attribute, name, attribute
+             : "Actors"
+        attribute, imagename, attribute
+             : "Actor.gif"
+END
+
+MetaClass IStarIntentionalElementClass
+    IN OMEVisibleMetaClass
+    ISA IStarElementClass
+    WITH
+        attribute, name, attribute
+             : "Intentional Elements"
+        attribute, imagename, attribute
+             : "Task.gif"
+END
+
+MetaClass IStarElementClass
+    IN OMEVisibleMetaClass
+    ISA IStarClass, OMEElementClass
+    WITH
+        attribute, name, attribute
+             : "Elements"
+        attribute, imagename, attribute
+             : "Softgoal.gif"
+END
+
+MetaClass IStarClass
+    IN OMEVisibleMetaClass
+    ISA OMEObjectClass
+    WITH
+        attribute, name, attribute
+             : "IStar Objects"
+        attribute, imagename, attribute
+             : "Softgoal.gif"
+END
+
+MetaClass OMEInstantiableClass
+    ISA OMEClass, OMEVisibleClass
+END
+
+MetaClass OMEVisibleClass
+    ISA OMEClass
+    WITH
+        attribute
+            imagename : String
+        attribute
+            imagesize : Integer
+        attribute
+            name : String
+END
+
+MetaClass OMEGrowableElementClass
+    IN OMEVisibleMetaClass
+    ISA OMEObjectClass, OMEElementClass
+    WITH
+        attribute, name, attribute
+             : "Growable OME Elements"
+        attribute, imagename, attribute
+             : "Actor.gif"
+END
+
+MetaClass OMEElementClass
+    IN OMEVisibleMetaClass
+    ISA OMEObjectClass
+    WITH
+        attribute, name, attribute
+             : "OME Elements"
+        attribute, imagename, attribute
+             : "Softgoal.gif"
+END
+
+MetaClass OMELinkClass
+    IN OMEVisibleMetaClass
+    ISA OMEObjectClass
+    WITH
+        attribute, name, attribute
+             : "OME Links"
+        attribute, imagename, attribute
+             : "Contribution.gif"
+        attribute
+            stroke : String
+END
+
+MetaClass OMEObjectClass
+    ISA OMEClass
+    WITH
+        attribute
+            OMEAttributes : OMEAttributeMetaClass
+        attribute
+            defaultname : String
+END
+
+MetaClass OMEClass
+END
+
+MetaClass OMEAttributeClass
+    IN OMEVisibleMetaClass
+    WITH
+        attribute, name, attribute
+             : "OMEAttributeClass"
+        attribute, imagename, attribute
+             : "Check.gif"
+        attribute
+            name : String
+        attribute
+            imagename : String
+        attribute
+            imagesize : Integer
+        attribute
+            imageposition : Integer
+END
+
+MetaMetaClass OMEVisibleMetaClass
+    WITH
+        attribute
+            imagename : String
+        attribute
+            imagesize : Integer
+        attribute
+            name : String
+END
+
+MetaMetaClass OMEAttributeMetaClass
+END
+

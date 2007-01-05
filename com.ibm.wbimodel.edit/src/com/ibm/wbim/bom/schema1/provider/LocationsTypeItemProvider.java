@@ -76,7 +76,7 @@ public class LocationsTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getLocationsType_Location());
+			childrenFeatures.add(Schema1Package.Literals.LOCATIONS_TYPE__LOCATION);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class LocationsTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/LocationsType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocationsType"));
 	}
 
 	/**
@@ -131,17 +131,17 @@ public class LocationsTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getLocationsType_Location(),
+				(Schema1Package.Literals.LOCATIONS_TYPE__LOCATION,
 				 Schema1Factory.eINSTANCE.createComplexDataTypeInstance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getLocationsType_Location(),
+				(Schema1Package.Literals.LOCATIONS_TYPE__LOCATION,
 				 Schema1Factory.eINSTANCE.createBulkResource()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getLocationsType_Location(),
+				(Schema1Package.Literals.LOCATIONS_TYPE__LOCATION,
 				 Schema1Factory.eINSTANCE.createIndividualResource()));
 	}
 

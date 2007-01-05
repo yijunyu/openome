@@ -91,8 +91,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_groupId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_groupId_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_GroupId(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__GROUP_ID,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -111,8 +113,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_profile_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_profile_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_Profile(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__PROFILE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -131,8 +135,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_industryType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_industryType_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_IndustryType(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__INDUSTRY_TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -151,8 +157,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_businessType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_businessType_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_BusinessType(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__BUSINESS_TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -171,8 +179,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_geographicLocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_geographicLocation_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_GeographicLocation(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__GEOGRAPHIC_LOCATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -191,8 +201,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_affiliates_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_affiliates_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_Affiliates(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__AFFILIATES,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -211,8 +223,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_displayName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_displayName_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_DisplayName(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__DISPLAY_NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -231,8 +245,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_secretary_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_secretary_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_Secretary(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__SECRETARY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -251,8 +267,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_assistant_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_assistant_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_Assistant(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__ASSISTANT,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -271,8 +289,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_manager_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_manager_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_Manager(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__MANAGER,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -291,8 +311,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_businessCategory_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_businessCategory_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_BusinessCategory(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__BUSINESS_CATEGORY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -311,8 +333,10 @@ public class GroupSearchTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GroupSearchType_parentCompany_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_parentCompany_feature", "_UI_GroupSearchType_type"),
-				 Schema1Package.eINSTANCE.getGroupSearchType_ParentCompany(),
+				 Schema1Package.Literals.GROUP_SEARCH_TYPE__PARENT_COMPANY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -325,7 +349,7 @@ public class GroupSearchTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/GroupSearchType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GroupSearchType"));
 	}
 
 	/**

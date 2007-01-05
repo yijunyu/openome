@@ -76,7 +76,7 @@ public class RelatedInputCriteriaTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRelatedInputCriteriaType_InputCriterion());
+			childrenFeatures.add(Schema1Package.Literals.RELATED_INPUT_CRITERIA_TYPE__INPUT_CRITERION);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class RelatedInputCriteriaTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/RelatedInputCriteriaType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelatedInputCriteriaType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class RelatedInputCriteriaTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRelatedInputCriteriaType_InputCriterion(),
+				(Schema1Package.Literals.RELATED_INPUT_CRITERIA_TYPE__INPUT_CRITERION,
 				 Schema1Factory.eINSTANCE.createInputCriterionRef()));
 	}
 

@@ -80,8 +80,10 @@ public class NotificationReceiverItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NotificationReceiver_notification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationReceiver_notification_feature", "_UI_NotificationReceiver_type"),
-				 Schema1Package.eINSTANCE.getNotificationReceiver_Notification(),
+				 Schema1Package.Literals.NOTIFICATION_RECEIVER__NOTIFICATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -98,7 +100,7 @@ public class NotificationReceiverItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getNotificationReceiver_NotificationFilter());
+			childrenFeatures.add(Schema1Package.Literals.NOTIFICATION_RECEIVER__NOTIFICATION_FILTER);
 		}
 		return childrenFeatures;
 	}
@@ -110,7 +112,7 @@ public class NotificationReceiverItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/NotificationReceiver");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotificationReceiver"));
 	}
 
 	/**
@@ -159,7 +161,7 @@ public class NotificationReceiverItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getNotificationReceiver_NotificationFilter(),
+				(Schema1Package.Literals.NOTIFICATION_RECEIVER__NOTIFICATION_FILTER,
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 
@@ -174,9 +176,9 @@ public class NotificationReceiverItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getTask_Precondition() ||
-			childFeature == Schema1Package.eINSTANCE.getTask_Postcondition() ||
-			childFeature == Schema1Package.eINSTANCE.getNotificationReceiver_NotificationFilter();
+			childFeature == Schema1Package.Literals.TASK__PRECONDITION ||
+			childFeature == Schema1Package.Literals.TASK__POSTCONDITION ||
+			childFeature == Schema1Package.Literals.NOTIFICATION_RECEIVER__NOTIFICATION_FILTER;
 
 		if (qualify) {
 			return getString

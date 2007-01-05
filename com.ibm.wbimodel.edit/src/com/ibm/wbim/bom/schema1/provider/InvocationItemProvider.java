@@ -84,8 +84,10 @@ public class InvocationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Invocation_callSynchronously_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Invocation_callSynchronously_feature", "_UI_Invocation_type"),
-				 Schema1Package.eINSTANCE.getInvocation_CallSynchronously(),
+				 Schema1Package.Literals.INVOCATION__CALL_SYNCHRONOUSLY,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class InvocationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Invocation_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Invocation_name_feature", "_UI_Invocation_type"),
-				 Schema1Package.eINSTANCE.getInvocation_Name(),
+				 Schema1Package.Literals.INVOCATION__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,11 +126,11 @@ public class InvocationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInvocation_InputConstantValue());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInvocation_InputRepositoryValue());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInvocation_OutputRepositoryValue());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInvocation_AdditionalInput());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getInvocation_AdditionalOutput());
+			childrenFeatures.add(Schema1Package.Literals.INVOCATION__INPUT_CONSTANT_VALUE);
+			childrenFeatures.add(Schema1Package.Literals.INVOCATION__INPUT_REPOSITORY_VALUE);
+			childrenFeatures.add(Schema1Package.Literals.INVOCATION__OUTPUT_REPOSITORY_VALUE);
+			childrenFeatures.add(Schema1Package.Literals.INVOCATION__ADDITIONAL_INPUT);
+			childrenFeatures.add(Schema1Package.Literals.INVOCATION__ADDITIONAL_OUTPUT);
 		}
 		return childrenFeatures;
 	}
@@ -150,7 +154,7 @@ public class InvocationItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Invocation");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Invocation"));
 	}
 
 	/**
@@ -204,27 +208,27 @@ public class InvocationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInvocation_InputConstantValue(),
+				(Schema1Package.Literals.INVOCATION__INPUT_CONSTANT_VALUE,
 				 Schema1Factory.eINSTANCE.createInputConstantValueType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInvocation_InputRepositoryValue(),
+				(Schema1Package.Literals.INVOCATION__INPUT_REPOSITORY_VALUE,
 				 Schema1Factory.eINSTANCE.createInputRepositoryValueType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInvocation_OutputRepositoryValue(),
+				(Schema1Package.Literals.INVOCATION__OUTPUT_REPOSITORY_VALUE,
 				 Schema1Factory.eINSTANCE.createOutputRepositoryValueType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInvocation_AdditionalInput(),
+				(Schema1Package.Literals.INVOCATION__ADDITIONAL_INPUT,
 				 Schema1Factory.eINSTANCE.createAdditionalInputType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getInvocation_AdditionalOutput(),
+				(Schema1Package.Literals.INVOCATION__ADDITIONAL_OUTPUT,
 				 Schema1Factory.eINSTANCE.createAdditionalOutputType()));
 	}
 

@@ -38,7 +38,7 @@ public interface BulkResourceDefinitionTemplatesType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bulk Resource Definition Template</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResourceDefinitionTemplatesType_BulkResourceDefinitionTemplate()
-	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" resolveProxies="false" required="true"
+	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='bulkResourceDefinitionTemplate' namespace='##targetNamespace'"
 	 * @generated
 	 */

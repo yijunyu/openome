@@ -80,8 +80,10 @@ public class PublicInstanceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PublicInstance_instance_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PublicInstance_instance_feature", "_UI_PublicInstance_type"),
-				 Schema1Package.eINSTANCE.getPublicInstance_Instance(),
+				 Schema1Package.Literals.PUBLIC_INSTANCE__INSTANCE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class PublicInstanceItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/PublicInstance");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PublicInstance"));
 	}
 
 	/**

@@ -75,7 +75,7 @@ public class TaskIndividualResourceRequirementItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTaskIndividualResourceRequirement_Criteria());
+			childrenFeatures.add(Schema1Package.Literals.TASK_INDIVIDUAL_RESOURCE_REQUIREMENT__CRITERIA);
 		}
 		return childrenFeatures;
 	}
@@ -87,7 +87,7 @@ public class TaskIndividualResourceRequirementItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/TaskIndividualResourceRequirement");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskIndividualResourceRequirement"));
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class TaskIndividualResourceRequirementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTaskIndividualResourceRequirement_Criteria(),
+				(Schema1Package.Literals.TASK_INDIVIDUAL_RESOURCE_REQUIREMENT__CRITERIA,
 				 Schema1Factory.eINSTANCE.createCriteriaTemplate()));
 	}
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="core.example">
+      <example file="features/example.q7"/>
+   </extension>
+   <extension point="core.convertor">
+      <convertor id="Goalmodel to Featuremodel"
+            class="convertor.GoalModel_FeatureModel"
+            input="goalmodel" output="fmp" />            
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.goalmodel"
+            id="goalmodel">
+         <menu
+               label="Convert the Goal Model into"
+               path="additions"
+               id="menu2">
+            <separator
+                  name="group2">
+            </separator>
+         </menu>
+         <action
+               class="action.FeatureModel"
+               icon="icons/FeatureModel.gif"
+               id="FeatureModelAction"
+               label="Features"
+               menubarPath="menu2/group2"
+               tooltip="feature representation">
+         </action>
+      </objectContribution>      
+   </extension>
+</plugin>

@@ -213,7 +213,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType BOOLEAN_LITERAL = new BasicDataType(BOOLEAN, "Boolean");
+	public static final BasicDataType BOOLEAN_LITERAL = new BasicDataType(BOOLEAN, "Boolean", "Boolean");
 
 	/**
 	 * The '<em><b>Byte</b></em>' literal object.
@@ -223,7 +223,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType BYTE_LITERAL = new BasicDataType(BYTE, "Byte");
+	public static final BasicDataType BYTE_LITERAL = new BasicDataType(BYTE, "Byte", "Byte");
 
 	/**
 	 * The '<em><b>Date</b></em>' literal object.
@@ -233,7 +233,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType DATE_LITERAL = new BasicDataType(DATE, "Date");
+	public static final BasicDataType DATE_LITERAL = new BasicDataType(DATE, "Date", "Date");
 
 	/**
 	 * The '<em><b>Date Time</b></em>' literal object.
@@ -243,7 +243,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType DATE_TIME_LITERAL = new BasicDataType(DATE_TIME, "DateTime");
+	public static final BasicDataType DATE_TIME_LITERAL = new BasicDataType(DATE_TIME, "DateTime", "DateTime");
 
 	/**
 	 * The '<em><b>Double</b></em>' literal object.
@@ -253,7 +253,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType DOUBLE_LITERAL = new BasicDataType(DOUBLE, "Double");
+	public static final BasicDataType DOUBLE_LITERAL = new BasicDataType(DOUBLE, "Double", "Double");
 
 	/**
 	 * The '<em><b>Duration</b></em>' literal object.
@@ -263,7 +263,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType DURATION_LITERAL = new BasicDataType(DURATION, "Duration");
+	public static final BasicDataType DURATION_LITERAL = new BasicDataType(DURATION, "Duration", "Duration");
 
 	/**
 	 * The '<em><b>Float</b></em>' literal object.
@@ -273,7 +273,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType FLOAT_LITERAL = new BasicDataType(FLOAT, "Float");
+	public static final BasicDataType FLOAT_LITERAL = new BasicDataType(FLOAT, "Float", "Float");
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal object.
@@ -283,7 +283,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType INTEGER_LITERAL = new BasicDataType(INTEGER, "Integer");
+	public static final BasicDataType INTEGER_LITERAL = new BasicDataType(INTEGER, "Integer", "Integer");
 
 	/**
 	 * The '<em><b>Long</b></em>' literal object.
@@ -293,7 +293,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType LONG_LITERAL = new BasicDataType(LONG, "Long");
+	public static final BasicDataType LONG_LITERAL = new BasicDataType(LONG, "Long", "Long");
 
 	/**
 	 * The '<em><b>Short</b></em>' literal object.
@@ -303,7 +303,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType SHORT_LITERAL = new BasicDataType(SHORT, "Short");
+	public static final BasicDataType SHORT_LITERAL = new BasicDataType(SHORT, "Short", "Short");
 
 	/**
 	 * The '<em><b>String</b></em>' literal object.
@@ -313,7 +313,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType STRING_LITERAL = new BasicDataType(STRING, "String");
+	public static final BasicDataType STRING_LITERAL = new BasicDataType(STRING, "String", "String");
 
 	/**
 	 * The '<em><b>Time</b></em>' literal object.
@@ -323,7 +323,7 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final BasicDataType TIME_LITERAL = new BasicDataType(TIME, "Time");
+	public static final BasicDataType TIME_LITERAL = new BasicDataType(TIME, "Time", "Time");
 
 	/**
 	 * An array of all the '<em><b>Basic Data Type</b></em>' enumerators.
@@ -356,15 +356,15 @@ public final class BasicDataType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Basic Data Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Basic Data Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static BasicDataType get(String name) {
+	public static BasicDataType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			BasicDataType result = VALUES_ARRAY[i];
-			if (result.toString().equals(name)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -372,7 +372,23 @@ public final class BasicDataType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Basic Data Type</b></em>' literal with the specified value.
+	 * Returns the '<em><b>Basic Data Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static BasicDataType getByName(String name) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			BasicDataType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the '<em><b>Basic Data Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -401,8 +417,8 @@ public final class BasicDataType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private BasicDataType(int value, String name) {
-		super(value, name);
+	private BasicDataType(int value, String name, String literal) {
+		super(value, name, literal);
 	}
 
 } //BasicDataType

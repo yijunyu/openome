@@ -78,9 +78,9 @@ public class OperationalDataItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOperationalData_TimeEstimation());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOperationalData_Cost());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOperationalData_Revenue());
+			childrenFeatures.add(Schema1Package.Literals.OPERATIONAL_DATA__TIME_ESTIMATION);
+			childrenFeatures.add(Schema1Package.Literals.OPERATIONAL_DATA__COST);
+			childrenFeatures.add(Schema1Package.Literals.OPERATIONAL_DATA__REVENUE);
 		}
 		return childrenFeatures;
 	}
@@ -104,7 +104,7 @@ public class OperationalDataItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/OperationalData");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationalData"));
 	}
 
 	/**
@@ -149,22 +149,22 @@ public class OperationalDataItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOperationalData_TimeEstimation(),
+				(Schema1Package.Literals.OPERATIONAL_DATA__TIME_ESTIMATION,
 				 Schema1Factory.eINSTANCE.createTimeEstimationType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOperationalData_Cost(),
+				(Schema1Package.Literals.OPERATIONAL_DATA__COST,
 				 Schema1Factory.eINSTANCE.createCostType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOperationalData_Revenue(),
+				(Schema1Package.Literals.OPERATIONAL_DATA__REVENUE,
 				 Schema1Factory.eINSTANCE.createCostValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOperationalData_Revenue(),
+				(Schema1Package.Literals.OPERATIONAL_DATA__REVENUE,
 				 Schema1Factory.eINSTANCE.createCostPerTimeUnitValue()));
 	}
 

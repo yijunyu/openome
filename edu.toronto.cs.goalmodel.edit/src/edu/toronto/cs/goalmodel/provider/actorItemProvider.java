@@ -84,8 +84,10 @@ public class actorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_actor_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_actor_name_feature", "_UI_actor_type"),
-				 GoalmodelPackage.eINSTANCE.getactor_Name(),
+				 GoalmodelPackage.Literals.ACTOR__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class actorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_actor_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_actor_type_feature", "_UI_actor_type"),
-				 GoalmodelPackage.eINSTANCE.getactor_Type(),
+				 GoalmodelPackage.Literals.ACTOR__TYPE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,8 +126,8 @@ public class actorItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getactor_Sub());
-			childrenFeatures.add(GoalmodelPackage.eINSTANCE.getactor_Goals());
+			childrenFeatures.add(GoalmodelPackage.Literals.ACTOR__SUB);
+			childrenFeatures.add(GoalmodelPackage.Literals.ACTOR__GOALS);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +151,7 @@ public class actorItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/actor");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/actor"));
 	}
 
 	/**
@@ -198,12 +202,12 @@ public class actorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getactor_Sub(),
+				(GoalmodelPackage.Literals.ACTOR__SUB,
 				 GoalmodelFactory.eINSTANCE.createactor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GoalmodelPackage.eINSTANCE.getactor_Goals(),
+				(GoalmodelPackage.Literals.ACTOR__GOALS,
 				 GoalmodelFactory.eINSTANCE.creategoal()));
 	}
 

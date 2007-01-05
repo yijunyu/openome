@@ -79,7 +79,7 @@ public interface AttributeValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression Value</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAttributeValue_ExpressionValue()
-	 * @model type="com.ibm.wbim.bom.schema1.Expression" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Expression" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='expressionValue' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */
@@ -96,7 +96,7 @@ public interface AttributeValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Public Instance</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAttributeValue_PublicInstance()
-	 * @model type="com.ibm.wbim.bom.schema1.PublicInstance" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.PublicInstance" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='publicInstance' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */
@@ -113,7 +113,7 @@ public interface AttributeValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Private Instance</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAttributeValue_PrivateInstance()
-	 * @model type="com.ibm.wbim.bom.schema1.PrivateInstance" containment="true" resolveProxies="false" transient="true" volatile="true" derived="true"
+	 * @model type="com.ibm.wbim.bom.schema1.PrivateInstance" containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='privateInstance' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */

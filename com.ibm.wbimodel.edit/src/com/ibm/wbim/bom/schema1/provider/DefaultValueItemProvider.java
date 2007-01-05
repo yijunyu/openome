@@ -81,8 +81,10 @@ public class DefaultValueItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DefaultValue_literalValue_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DefaultValue_literalValue_feature", "_UI_DefaultValue_type"),
-				 Schema1Package.eINSTANCE.getDefaultValue_LiteralValue(),
+				 Schema1Package.Literals.DEFAULT_VALUE__LITERAL_VALUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -99,7 +101,7 @@ public class DefaultValueItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getDefaultValue_ExpressionValue());
+			childrenFeatures.add(Schema1Package.Literals.DEFAULT_VALUE__EXPRESSION_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -111,7 +113,7 @@ public class DefaultValueItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/DefaultValue");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DefaultValue"));
 	}
 
 	/**
@@ -160,7 +162,7 @@ public class DefaultValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getDefaultValue_ExpressionValue(),
+				(Schema1Package.Literals.DEFAULT_VALUE__EXPRESSION_VALUE,
 				 Schema1Factory.eINSTANCE.createExpression()));
 	}
 

@@ -76,7 +76,7 @@ public class TimetablesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimetablesType_Timetable());
+			childrenFeatures.add(Schema1Package.Literals.TIMETABLES_TYPE__TIMETABLE);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class TimetablesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/TimetablesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimetablesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class TimetablesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimetablesType_Timetable(),
+				(Schema1Package.Literals.TIMETABLES_TYPE__TIMETABLE,
 				 Schema1Factory.eINSTANCE.createTimetable()));
 	}
 

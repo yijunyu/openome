@@ -87,8 +87,10 @@ public class RoleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Role_documentation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Role_documentation_feature", "_UI_Role_type"),
-				 Schema1Package.eINSTANCE.getRole_Documentation(),
+				 Schema1Package.Literals.ROLE__DOCUMENTATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -107,8 +109,10 @@ public class RoleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Role_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Role_name_feature", "_UI_Role_type"),
-				 Schema1Package.eINSTANCE.getRole_Name(),
+				 Schema1Package.Literals.ROLE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -125,10 +129,10 @@ public class RoleItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRole_ScopeDimension());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRole_Availability());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getRole_ExtendedAttributes());
+			childrenFeatures.add(Schema1Package.Literals.ROLE__SCOPE_DIMENSION);
+			childrenFeatures.add(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE);
+			childrenFeatures.add(Schema1Package.Literals.ROLE__AVAILABILITY);
+			childrenFeatures.add(Schema1Package.Literals.ROLE__EXTENDED_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -152,7 +156,7 @@ public class RoleItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Role");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Role"));
 	}
 
 	/**
@@ -205,52 +209,52 @@ public class RoleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_ScopeDimension(),
+				(Schema1Package.Literals.ROLE__SCOPE_DIMENSION,
 				 Schema1Factory.eINSTANCE.createScopeDimensionType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType(),
+				(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getRole_OneTimeCost(),
+					(Schema1Package.Literals.ROLE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createOneTimeCost())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType(),
+				(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getRole_OneTimeCost(),
+					(Schema1Package.Literals.ROLE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerQuantity())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType(),
+				(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getRole_OneTimeCost(),
+					(Schema1Package.Literals.ROLE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerQuantityAndTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType(),
+				(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getRole_OneTimeCost(),
+					(Schema1Package.Literals.ROLE__ONE_TIME_COST,
 					 Schema1Factory.eINSTANCE.createCostPerTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_IndividualResourceCostType(),
+				(Schema1Package.Literals.ROLE__INDIVIDUAL_RESOURCE_COST_TYPE,
 				 FeatureMapUtil.createEntry
-					(Schema1Package.eINSTANCE.getRole_CostPerTimeUnit(),
+					(Schema1Package.Literals.ROLE__COST_PER_TIME_UNIT,
 					 Schema1Factory.eINSTANCE.createCostPerTimeUnit())));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_Availability(),
+				(Schema1Package.Literals.ROLE__AVAILABILITY,
 				 Schema1Factory.eINSTANCE.createAvailability()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getRole_ExtendedAttributes(),
+				(Schema1Package.Literals.ROLE__EXTENDED_ATTRIBUTES,
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 
@@ -271,8 +275,8 @@ public class RoleItemProvider
 		}
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getRole_OneTimeCost() ||
-			childFeature == Schema1Package.eINSTANCE.getRole_CostPerTimeUnit();
+			childFeature == Schema1Package.Literals.ROLE__ONE_TIME_COST ||
+			childFeature == Schema1Package.Literals.ROLE__COST_PER_TIME_UNIT;
 
 		if (qualify) {
 			return getString

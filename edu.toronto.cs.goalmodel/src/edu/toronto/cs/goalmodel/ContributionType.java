@@ -90,7 +90,7 @@ public final class ContributionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ContributionType HELP_LITERAL = new ContributionType(HELP, "HELP");
+	public static final ContributionType HELP_LITERAL = new ContributionType(HELP, "HELP", "HELP");
 
 	/**
 	 * The '<em><b>HURT</b></em>' literal object.
@@ -100,7 +100,7 @@ public final class ContributionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ContributionType HURT_LITERAL = new ContributionType(HURT, "HURT");
+	public static final ContributionType HURT_LITERAL = new ContributionType(HURT, "HURT", "HURT");
 
 	/**
 	 * The '<em><b>MAKE</b></em>' literal object.
@@ -110,7 +110,7 @@ public final class ContributionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ContributionType MAKE_LITERAL = new ContributionType(MAKE, "MAKE");
+	public static final ContributionType MAKE_LITERAL = new ContributionType(MAKE, "MAKE", "MAKE");
 
 	/**
 	 * The '<em><b>BREAK</b></em>' literal object.
@@ -120,7 +120,7 @@ public final class ContributionType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ContributionType BREAK_LITERAL = new ContributionType(BREAK, "BREAK");
+	public static final ContributionType BREAK_LITERAL = new ContributionType(BREAK, "BREAK", "BREAK");
 
 	/**
 	 * An array of all the '<em><b>Contribution Type</b></em>' enumerators.
@@ -145,15 +145,15 @@ public final class ContributionType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Contribution Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Contribution Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ContributionType get(String name) {
+	public static ContributionType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ContributionType result = VALUES_ARRAY[i];
-			if (result.toString().equals(name)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -161,7 +161,23 @@ public final class ContributionType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Contribution Type</b></em>' literal with the specified value.
+	 * Returns the '<em><b>Contribution Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static ContributionType getByName(String name) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ContributionType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the '<em><b>Contribution Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -182,8 +198,8 @@ public final class ContributionType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ContributionType(int value, String name) {
-		super(value, name);
+	private ContributionType(int value, String name, String literal) {
+		super(value, name, literal);
 	}
 
 } //ContributionType

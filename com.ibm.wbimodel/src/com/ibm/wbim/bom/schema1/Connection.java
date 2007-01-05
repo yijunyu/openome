@@ -66,7 +66,7 @@ public interface Connection extends EObject {
 	 * @return the value of the '<em>Source</em>' containment reference.
 	 * @see #setSource(SourceType)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getConnection_Source()
-	 * @model containment="true" resolveProxies="false" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='source' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -93,7 +93,7 @@ public interface Connection extends EObject {
 	 * @return the value of the '<em>Target</em>' containment reference.
 	 * @see #setTarget(TargetType)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getConnection_Target()
-	 * @model containment="true" resolveProxies="false" required="true"
+	 * @model containment="true" required="true"
 	 *        extendedMetaData="kind='element' name='target' namespace='##targetNamespace'"
 	 * @generated
 	 */

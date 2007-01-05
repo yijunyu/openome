@@ -85,8 +85,10 @@ public class ComplexDataTypeInstanceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComplexDataTypeInstance_documentation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_documentation_feature", "_UI_ComplexDataTypeInstance_type"),
-				 Schema1Package.eINSTANCE.getComplexDataTypeInstance_Documentation(),
+				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__DOCUMENTATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +107,10 @@ public class ComplexDataTypeInstanceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComplexDataTypeInstance_instanceOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_instanceOf_feature", "_UI_ComplexDataTypeInstance_type"),
-				 Schema1Package.eINSTANCE.getComplexDataTypeInstance_InstanceOf(),
+				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__INSTANCE_OF,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -125,8 +129,10 @@ public class ComplexDataTypeInstanceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComplexDataTypeInstance_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_name_feature", "_UI_ComplexDataTypeInstance_type"),
-				 Schema1Package.eINSTANCE.getComplexDataTypeInstance_Name(),
+				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -143,8 +149,8 @@ public class ComplexDataTypeInstanceItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getComplexDataTypeInstance_AttributeValue());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getComplexDataTypeInstance_ExtendedAttributes());
+			childrenFeatures.add(Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__ATTRIBUTE_VALUE);
+			childrenFeatures.add(Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__EXTENDED_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -168,7 +174,7 @@ public class ComplexDataTypeInstanceItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ComplexDataTypeInstance");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexDataTypeInstance"));
 	}
 
 	/**
@@ -220,12 +226,12 @@ public class ComplexDataTypeInstanceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getComplexDataTypeInstance_AttributeValue(),
+				(Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__ATTRIBUTE_VALUE,
 				 Schema1Factory.eINSTANCE.createAttributeValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getComplexDataTypeInstance_ExtendedAttributes(),
+				(Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__EXTENDED_ATTRIBUTES,
 				 Schema1Factory.eINSTANCE.createExtendedAttributes()));
 	}
 

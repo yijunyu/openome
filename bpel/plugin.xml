@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.0"?>
-
-<!--
- <copyright>
- </copyright>
-
- $Id$
--->
-
+<?eclipse version="3.2"?>
 <plugin>
-
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://schemas.xmlsoap.org/ws/2003/03/business-process/" 
-       class = "org.xmlsoap.schemas.ws._2003._03.business.process.ProcessPackage"
-       genModel = "model/BPEL4WS.genmodel" /> 
-  </extension>
-
-  <extension point="org.eclipse.emf.ecore.extension_parser">
-    <parser 
-       type="process" 
-       class="org.xmlsoap.schemas.ws._2003._03.business.process.util.ProcessResourceFactoryImpl" />
-  </extension>
-
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://schemas.xmlsoap.org/wsdl/" 
-       class = "org.xmlsoap.schemas.wsdl.WsdlPackage"
-       genModel = "model/BPEL4WS.genmodel" /> 
-  </extension>
-
-  <extension point="org.eclipse.emf.ecore.extension_parser">
-    <parser 
-       type="wsdl" 
-       class="org.xmlsoap.schemas.wsdl.util.WsdlResourceFactoryImpl" />
-  </extension>
-
+   <extension point="core.example">
+      <example file="bpel/componenx_istar.q7"/>
+   </extension>
+   <extension point="core.convertor">
+      <convertor id="goalmodelToBpel" class="convertor.GoalModel_BPEL"
+            input="goalmodel" output="bpel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.goalmodel"
+            id="contribution2">
+         <menu
+               label="Convert the Goal Model into"
+               path="additions"
+               id="menu2">
+            <separator
+                  name="group2">
+            </separator>
+         </menu>
+         <action
+               class="bpel.action.BPEL"
+               icon="icons/bpel.gif"
+               id="BPEL"
+               label="BPEL"
+               menubarPath="menu2/group2"
+               tooltip="BPEL process model">
+         </action>
+      </objectContribution>      
+   </extension>
 </plugin>
-

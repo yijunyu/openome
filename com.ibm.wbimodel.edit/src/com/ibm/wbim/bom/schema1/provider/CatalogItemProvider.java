@@ -82,8 +82,10 @@ public class CatalogItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Catalog_id_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Catalog_id_feature", "_UI_Catalog_type"),
-				 Schema1Package.eINSTANCE.getCatalog_Id(),
+				 Schema1Package.Literals.CATALOG__ID,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -102,8 +104,10 @@ public class CatalogItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Catalog_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Catalog_name_feature", "_UI_Catalog_type"),
-				 Schema1Package.eINSTANCE.getCatalog_Name(),
+				 Schema1Package.Literals.CATALOG__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -120,7 +124,7 @@ public class CatalogItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getCatalog_Catalog());
+			childrenFeatures.add(Schema1Package.Literals.CATALOG__CATALOG);
 		}
 		return childrenFeatures;
 	}
@@ -132,7 +136,7 @@ public class CatalogItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Catalog");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Catalog"));
 	}
 
 	/**
@@ -182,7 +186,7 @@ public class CatalogItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getCatalog_Catalog(),
+				(Schema1Package.Literals.CATALOG__CATALOG,
 				 Schema1Factory.eINSTANCE.createCatalog()));
 	}
 

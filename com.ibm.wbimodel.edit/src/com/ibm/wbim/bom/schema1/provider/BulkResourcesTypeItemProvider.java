@@ -76,7 +76,7 @@ public class BulkResourcesTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getBulkResourcesType_BulkResource());
+			childrenFeatures.add(Schema1Package.Literals.BULK_RESOURCES_TYPE__BULK_RESOURCE);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class BulkResourcesTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/BulkResourcesType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BulkResourcesType"));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class BulkResourcesTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getBulkResourcesType_BulkResource(),
+				(Schema1Package.Literals.BULK_RESOURCES_TYPE__BULK_RESOURCE,
 				 Schema1Factory.eINSTANCE.createBulkResource()));
 	}
 

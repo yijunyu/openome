@@ -80,8 +80,10 @@ public class ConstantTimeTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ConstantTimeType_time_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ConstantTimeType_time_feature", "_UI_ConstantTimeType_type"),
-				 Schema1Package.eINSTANCE.getConstantTimeType_Time(),
+				 Schema1Package.Literals.CONSTANT_TIME_TYPE__TIME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class ConstantTimeTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ConstantTimeType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantTimeType"));
 	}
 
 	/**

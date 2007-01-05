@@ -75,7 +75,7 @@ public interface Attribute extends EObject {
 	 * @return the value of the '<em>Rule</em>' containment reference.
 	 * @see #setRule(Expression)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAttribute_Rule()
-	 * @model containment="true" resolveProxies="false"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='rule' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -102,7 +102,7 @@ public interface Attribute extends EObject {
 	 * @return the value of the '<em>Default Value</em>' containment reference.
 	 * @see #setDefaultValue(DefaultValue)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAttribute_DefaultValue()
-	 * @model containment="true" resolveProxies="false"
+	 * @model containment="true"
 	 *        extendedMetaData="kind='element' name='defaultValue' namespace='##targetNamespace'"
 	 * @generated
 	 */

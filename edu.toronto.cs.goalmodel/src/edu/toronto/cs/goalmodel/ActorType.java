@@ -90,7 +90,7 @@ public final class ActorType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ActorType ACTOR_LITERAL = new ActorType(ACTOR, "ACTOR");
+	public static final ActorType ACTOR_LITERAL = new ActorType(ACTOR, "ACTOR", "ACTOR");
 
 	/**
 	 * The '<em><b>AGENT</b></em>' literal object.
@@ -100,7 +100,7 @@ public final class ActorType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ActorType AGENT_LITERAL = new ActorType(AGENT, "AGENT");
+	public static final ActorType AGENT_LITERAL = new ActorType(AGENT, "AGENT", "AGENT");
 
 	/**
 	 * The '<em><b>ROLE</b></em>' literal object.
@@ -110,7 +110,7 @@ public final class ActorType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ActorType ROLE_LITERAL = new ActorType(ROLE, "ROLE");
+	public static final ActorType ROLE_LITERAL = new ActorType(ROLE, "ROLE", "ROLE");
 
 	/**
 	 * The '<em><b>POSITION</b></em>' literal object.
@@ -120,7 +120,7 @@ public final class ActorType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final ActorType POSITION_LITERAL = new ActorType(POSITION, "POSITION");
+	public static final ActorType POSITION_LITERAL = new ActorType(POSITION, "POSITION", "POSITION");
 
 	/**
 	 * An array of all the '<em><b>Actor Type</b></em>' enumerators.
@@ -145,15 +145,15 @@ public final class ActorType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Actor Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Actor Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ActorType get(String name) {
+	public static ActorType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ActorType result = VALUES_ARRAY[i];
-			if (result.toString().equals(name)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -161,7 +161,23 @@ public final class ActorType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Actor Type</b></em>' literal with the specified value.
+	 * Returns the '<em><b>Actor Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static ActorType getByName(String name) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ActorType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the '<em><b>Actor Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -182,8 +198,8 @@ public final class ActorType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ActorType(int value, String name) {
-		super(value, name);
+	private ActorType(int value, String name, String literal) {
+		super(value, name, literal);
 	}
 
 } //ActorType

@@ -78,8 +78,8 @@ public class TimeEstimationTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimeEstimationType_ProcessingTime());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTimeEstimationType_MaxResourceWaitingTime());
+			childrenFeatures.add(Schema1Package.Literals.TIME_ESTIMATION_TYPE__PROCESSING_TIME);
+			childrenFeatures.add(Schema1Package.Literals.TIME_ESTIMATION_TYPE__MAX_RESOURCE_WAITING_TIME);
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +103,7 @@ public class TimeEstimationTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/TimeEstimationType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimeEstimationType"));
 	}
 
 	/**
@@ -147,12 +147,12 @@ public class TimeEstimationTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimeEstimationType_ProcessingTime(),
+				(Schema1Package.Literals.TIME_ESTIMATION_TYPE__PROCESSING_TIME,
 				 Schema1Factory.eINSTANCE.createTimeValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTimeEstimationType_MaxResourceWaitingTime(),
+				(Schema1Package.Literals.TIME_ESTIMATION_TYPE__MAX_RESOURCE_WAITING_TIME,
 				 Schema1Factory.eINSTANCE.createTimeValue()));
 	}
 
@@ -167,8 +167,8 @@ public class TimeEstimationTypeItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getTimeEstimationType_ProcessingTime() ||
-			childFeature == Schema1Package.eINSTANCE.getTimeEstimationType_MaxResourceWaitingTime();
+			childFeature == Schema1Package.Literals.TIME_ESTIMATION_TYPE__PROCESSING_TIME ||
+			childFeature == Schema1Package.Literals.TIME_ESTIMATION_TYPE__MAX_RESOURCE_WAITING_TIME;
 
 		if (qualify) {
 			return getString

@@ -81,8 +81,10 @@ public class PrivateInstanceItemProvider
 				 getResourceLocator(),
 				 getString("_UI_PrivateInstance_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PrivateInstance_name_feature", "_UI_PrivateInstance_type"),
-				 Schema1Package.eINSTANCE.getPrivateInstance_Name(),
+				 Schema1Package.Literals.PRIVATE_INSTANCE__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -99,7 +101,7 @@ public class PrivateInstanceItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getPrivateInstance_AttributeValue());
+			childrenFeatures.add(Schema1Package.Literals.PRIVATE_INSTANCE__ATTRIBUTE_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -111,7 +113,7 @@ public class PrivateInstanceItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/PrivateInstance");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrivateInstance"));
 	}
 
 	/**
@@ -160,7 +162,7 @@ public class PrivateInstanceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getPrivateInstance_AttributeValue(),
+				(Schema1Package.Literals.PRIVATE_INSTANCE__ATTRIBUTE_VALUE,
 				 Schema1Factory.eINSTANCE.createAttributeValue()));
 	}
 

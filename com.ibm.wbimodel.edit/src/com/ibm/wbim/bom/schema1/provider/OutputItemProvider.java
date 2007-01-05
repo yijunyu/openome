@@ -86,8 +86,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_associatedData_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_associatedData_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_AssociatedData(),
+				 Schema1Package.Literals.OUTPUT__ASSOCIATED_DATA,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,8 +108,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_isOrdered_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_isOrdered_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_IsOrdered(),
+				 Schema1Package.Literals.OUTPUT__IS_ORDERED,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -126,8 +130,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_isUnique_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_isUnique_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_IsUnique(),
+				 Schema1Package.Literals.OUTPUT__IS_UNIQUE,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -146,8 +152,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_maximum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_maximum_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_Maximum(),
+				 Schema1Package.Literals.OUTPUT__MAXIMUM,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -166,8 +174,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_minimum_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_minimum_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_Minimum(),
+				 Schema1Package.Literals.OUTPUT__MINIMUM,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -186,8 +196,10 @@ public class OutputItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Output_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_name_feature", "_UI_Output_type"),
-				 Schema1Package.eINSTANCE.getOutput_Name(),
+				 Schema1Package.Literals.OUTPUT__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -204,7 +216,7 @@ public class OutputItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getOutput_RepositoryValue());
+			childrenFeatures.add(Schema1Package.Literals.OUTPUT__REPOSITORY_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -216,7 +228,7 @@ public class OutputItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Output");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Output"));
 	}
 
 	/**
@@ -270,7 +282,7 @@ public class OutputItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getOutput_RepositoryValue(),
+				(Schema1Package.Literals.OUTPUT__REPOSITORY_VALUE,
 				 Schema1Factory.eINSTANCE.createOutputRepositoryValue()));
 	}
 

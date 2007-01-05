@@ -81,8 +81,10 @@ public class NormalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NormalType_mean_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NormalType_mean_feature", "_UI_NormalType_type"),
-				 Schema1Package.eINSTANCE.getNormalType_Mean(),
+				 Schema1Package.Literals.NORMAL_TYPE__MEAN,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -101,8 +103,10 @@ public class NormalTypeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_NormalType_standardDeviation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NormalType_standardDeviation_feature", "_UI_NormalType_type"),
-				 Schema1Package.eINSTANCE.getNormalType_StandardDeviation(),
+				 Schema1Package.Literals.NORMAL_TYPE__STANDARD_DEVIATION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,7 +119,7 @@ public class NormalTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/NormalType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NormalType"));
 	}
 
 	/**

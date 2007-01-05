@@ -78,10 +78,10 @@ public class ProcessModelItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getProcessModel_Processes());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getProcessModel_Tasks());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getProcessModel_Repositories());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getProcessModel_Services());
+			childrenFeatures.add(Schema1Package.Literals.PROCESS_MODEL__PROCESSES);
+			childrenFeatures.add(Schema1Package.Literals.PROCESS_MODEL__TASKS);
+			childrenFeatures.add(Schema1Package.Literals.PROCESS_MODEL__REPOSITORIES);
+			childrenFeatures.add(Schema1Package.Literals.PROCESS_MODEL__SERVICES);
 		}
 		return childrenFeatures;
 	}
@@ -105,7 +105,7 @@ public class ProcessModelItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ProcessModel");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessModel"));
 	}
 
 	/**
@@ -151,22 +151,22 @@ public class ProcessModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessModel_Processes(),
+				(Schema1Package.Literals.PROCESS_MODEL__PROCESSES,
 				 Schema1Factory.eINSTANCE.createProcessesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessModel_Tasks(),
+				(Schema1Package.Literals.PROCESS_MODEL__TASKS,
 				 Schema1Factory.eINSTANCE.createTasksType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessModel_Repositories(),
+				(Schema1Package.Literals.PROCESS_MODEL__REPOSITORIES,
 				 Schema1Factory.eINSTANCE.createRepositoriesType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getProcessModel_Services(),
+				(Schema1Package.Literals.PROCESS_MODEL__SERVICES,
 				 Schema1Factory.eINSTANCE.createServicesType()));
 	}
 

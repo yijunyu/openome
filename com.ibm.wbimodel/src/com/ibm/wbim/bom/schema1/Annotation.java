@@ -66,7 +66,7 @@ public interface Annotation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Annotated Node</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getAnnotation_AnnotatedNode()
-	 * @model type="com.ibm.wbim.bom.schema1.AnnotatedNodeType" containment="true" resolveProxies="false"
+	 * @model type="com.ibm.wbim.bom.schema1.AnnotatedNodeType" containment="true"
 	 *        extendedMetaData="kind='element' name='annotatedNode' namespace='##targetNamespace'"
 	 * @generated
 	 */

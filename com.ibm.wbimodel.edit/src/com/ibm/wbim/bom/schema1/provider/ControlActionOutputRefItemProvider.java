@@ -81,8 +81,10 @@ public class ControlActionOutputRefItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ControlActionOutputRef_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ControlActionOutputRef_name_feature", "_UI_ControlActionOutputRef_type"),
-				 Schema1Package.eINSTANCE.getControlActionOutputRef_Name(),
+				 Schema1Package.Literals.CONTROL_ACTION_OUTPUT_REF__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -99,7 +101,7 @@ public class ControlActionOutputRefItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getControlActionOutputRef_RepositoryValue());
+			childrenFeatures.add(Schema1Package.Literals.CONTROL_ACTION_OUTPUT_REF__REPOSITORY_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -111,7 +113,7 @@ public class ControlActionOutputRefItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ControlActionOutputRef");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControlActionOutputRef"));
 	}
 
 	/**
@@ -160,7 +162,7 @@ public class ControlActionOutputRefItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getControlActionOutputRef_RepositoryValue(),
+				(Schema1Package.Literals.CONTROL_ACTION_OUTPUT_REF__REPOSITORY_VALUE,
 				 Schema1Factory.eINSTANCE.createOutputRepositoryValue()));
 	}
 

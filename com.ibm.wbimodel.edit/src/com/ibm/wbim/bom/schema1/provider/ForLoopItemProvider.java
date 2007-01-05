@@ -75,7 +75,7 @@ public class ForLoopItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getForLoop_LoopCondition());
+			childrenFeatures.add(Schema1Package.Literals.FOR_LOOP__LOOP_CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -87,7 +87,7 @@ public class ForLoopItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/ForLoop");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ForLoop"));
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class ForLoopItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getForLoop_LoopCondition(),
+				(Schema1Package.Literals.FOR_LOOP__LOOP_CONDITION,
 				 Schema1Factory.eINSTANCE.createLoopConditionType()));
 	}
 
@@ -148,8 +148,8 @@ public class ForLoopItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == Schema1Package.eINSTANCE.getProcess_Precondition() ||
-			childFeature == Schema1Package.eINSTANCE.getProcess_Postcondition();
+			childFeature == Schema1Package.Literals.PROCESS__PRECONDITION ||
+			childFeature == Schema1Package.Literals.PROCESS__POSTCONDITION;
 
 		if (qualify) {
 			return getString

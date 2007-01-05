@@ -84,8 +84,10 @@ public class ForkItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Fork_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Fork_description_feature", "_UI_Fork_type"),
-				 Schema1Package.eINSTANCE.getFork_Description(),
+				 Schema1Package.Literals.FORK__DESCRIPTION,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +106,10 @@ public class ForkItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Fork_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Fork_name_feature", "_UI_Fork_type"),
-				 Schema1Package.eINSTANCE.getFork_Name(),
+				 Schema1Package.Literals.FORK__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -122,8 +126,8 @@ public class ForkItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getFork_InputBranch());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getFork_OutputBranch());
+			childrenFeatures.add(Schema1Package.Literals.FORK__INPUT_BRANCH);
+			childrenFeatures.add(Schema1Package.Literals.FORK__OUTPUT_BRANCH);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +151,7 @@ public class ForkItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Fork");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Fork"));
 	}
 
 	/**
@@ -198,12 +202,12 @@ public class ForkItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFork_InputBranch(),
+				(Schema1Package.Literals.FORK__INPUT_BRANCH,
 				 Schema1Factory.eINSTANCE.createInputBranch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getFork_OutputBranch(),
+				(Schema1Package.Literals.FORK__OUTPUT_BRANCH,
 				 Schema1Factory.eINSTANCE.createOutputBranch()));
 	}
 

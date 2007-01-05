@@ -120,7 +120,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType SATISFIED_LITERAL = new LabelType(SATISFIED, "Satisfied");
+	public static final LabelType SATISFIED_LITERAL = new LabelType(SATISFIED, "Satisfied", "Satisfied");
 
 	/**
 	 * The '<em><b>Denied</b></em>' literal object.
@@ -130,7 +130,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType DENIED_LITERAL = new LabelType(DENIED, "Denied");
+	public static final LabelType DENIED_LITERAL = new LabelType(DENIED, "Denied", "Denied");
 
 	/**
 	 * The '<em><b>Partially Satisfied</b></em>' literal object.
@@ -140,7 +140,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType PARTIALLY_SATISFIED_LITERAL = new LabelType(PARTIALLY_SATISFIED, "PartiallySatisfied");
+	public static final LabelType PARTIALLY_SATISFIED_LITERAL = new LabelType(PARTIALLY_SATISFIED, "PartiallySatisfied", "PartiallySatisfied");
 
 	/**
 	 * The '<em><b>Partially Denied</b></em>' literal object.
@@ -150,7 +150,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType PARTIALLY_DENIED_LITERAL = new LabelType(PARTIALLY_DENIED, "PartiallyDenied");
+	public static final LabelType PARTIALLY_DENIED_LITERAL = new LabelType(PARTIALLY_DENIED, "PartiallyDenied", "PartiallyDenied");
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal object.
@@ -160,7 +160,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType UNKNOWN_LITERAL = new LabelType(UNKNOWN, "Unknown");
+	public static final LabelType UNKNOWN_LITERAL = new LabelType(UNKNOWN, "Unknown", "Unknown");
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal object.
@@ -170,7 +170,7 @@ public final class LabelType extends AbstractEnumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final LabelType CONFLICT_LITERAL = new LabelType(CONFLICT, "Conflict");
+	public static final LabelType CONFLICT_LITERAL = new LabelType(CONFLICT, "Conflict", "Conflict");
 
 	/**
 	 * An array of all the '<em><b>Label Type</b></em>' enumerators.
@@ -197,15 +197,15 @@ public final class LabelType extends AbstractEnumerator {
 	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Label Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Label Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static LabelType get(String name) {
+	public static LabelType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			LabelType result = VALUES_ARRAY[i];
-			if (result.toString().equals(name)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -213,7 +213,23 @@ public final class LabelType extends AbstractEnumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Label Type</b></em>' literal with the specified value.
+	 * Returns the '<em><b>Label Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static LabelType getByName(String name) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			LabelType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the '<em><b>Label Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -236,8 +252,8 @@ public final class LabelType extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private LabelType(int value, String name) {
-		super(value, name);
+	private LabelType(int value, String name, String literal) {
+		super(value, name, literal);
 	}
 
 } //LabelType

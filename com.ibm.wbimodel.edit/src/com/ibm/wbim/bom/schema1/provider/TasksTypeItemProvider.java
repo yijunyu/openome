@@ -76,7 +76,7 @@ public class TasksTypeItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getTasksType_Task());
+			childrenFeatures.add(Schema1Package.Literals.TASKS_TYPE__TASK);
 		}
 		return childrenFeatures;
 	}
@@ -88,7 +88,7 @@ public class TasksTypeItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/TasksType");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TasksType"));
 	}
 
 	/**
@@ -131,37 +131,37 @@ public class TasksTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createMap()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createNotificationBroadcaster()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createNotificationReceiver()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createObserver()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createService()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getTasksType_Task(),
+				(Schema1Package.Literals.TASKS_TYPE__TASK,
 				 Schema1Factory.eINSTANCE.createTimer()));
 	}
 

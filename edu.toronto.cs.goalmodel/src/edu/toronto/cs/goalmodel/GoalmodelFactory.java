@@ -23,7 +23,7 @@ public interface GoalmodelFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	GoalmodelFactory eINSTANCE = new edu.toronto.cs.goalmodel.impl.GoalmodelFactoryImpl();
+	GoalmodelFactory eINSTANCE = edu.toronto.cs.goalmodel.impl.GoalmodelFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>actor</em>'.
@@ -78,6 +78,15 @@ public interface GoalmodelFactory extends EFactory {
 	 * @generated
 	 */
 	topic createtopic();
+
+	/**
+	 * Returns a new object of class '<em>link Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>link Annotation</em>'.
+	 * @generated
+	 */
+	linkAnnotation createlinkAnnotation();
 
 	/**
 	 * Returns the package supported by this factory.

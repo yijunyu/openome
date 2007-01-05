@@ -78,9 +78,9 @@ public class ResourcesItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Schema1Package.eINSTANCE.getResources_RoleRequirement());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getResources_IndividualResourceRequirement());
-			childrenFeatures.add(Schema1Package.eINSTANCE.getResources_BulkResourceRequirement());
+			childrenFeatures.add(Schema1Package.Literals.RESOURCES__ROLE_REQUIREMENT);
+			childrenFeatures.add(Schema1Package.Literals.RESOURCES__INDIVIDUAL_RESOURCE_REQUIREMENT);
+			childrenFeatures.add(Schema1Package.Literals.RESOURCES__BULK_RESOURCE_REQUIREMENT);
 		}
 		return childrenFeatures;
 	}
@@ -104,7 +104,7 @@ public class ResourcesItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/Resources");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Resources"));
 	}
 
 	/**
@@ -149,17 +149,17 @@ public class ResourcesItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getResources_RoleRequirement(),
+				(Schema1Package.Literals.RESOURCES__ROLE_REQUIREMENT,
 				 Schema1Factory.eINSTANCE.createRoleRequirement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getResources_IndividualResourceRequirement(),
+				(Schema1Package.Literals.RESOURCES__INDIVIDUAL_RESOURCE_REQUIREMENT,
 				 Schema1Factory.eINSTANCE.createTaskIndividualResourceRequirement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Schema1Package.eINSTANCE.getResources_BulkResourceRequirement(),
+				(Schema1Package.Literals.RESOURCES__BULK_RESOURCE_REQUIREMENT,
 				 Schema1Factory.eINSTANCE.createBulkResourceRequirement()));
 	}
 

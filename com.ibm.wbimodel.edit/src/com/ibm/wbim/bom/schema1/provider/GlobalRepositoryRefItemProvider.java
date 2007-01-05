@@ -80,8 +80,10 @@ public class GlobalRepositoryRefItemProvider
 				 getResourceLocator(),
 				 getString("_UI_GlobalRepositoryRef_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalRepositoryRef_name_feature", "_UI_GlobalRepositoryRef_type"),
-				 Schema1Package.eINSTANCE.getGlobalRepositoryRef_Name(),
+				 Schema1Package.Literals.GLOBAL_REPOSITORY_REF__NAME,
 				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -94,7 +96,7 @@ public class GlobalRepositoryRefItemProvider
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return getResourceLocator().getImage("full/obj16/GlobalRepositoryRef");
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalRepositoryRef"));
 	}
 
 	/**
