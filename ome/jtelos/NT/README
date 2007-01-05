@@ -1,0 +1,5 @@
+Telos requires the creation of a directory named DB-FILES in the directory that
+Telos is being executed in. Telos will create a file named telos-system.db in the
+directory in which it is run that will hold information about the KBs created
+during a Telos session. In subsequent sessions Telos will look for the file
+telos-system.db in the current directory.

@@ -1,0 +1,24 @@
+CVS Tag Name		Description
+============		===========
+
+ome3v054		First tag in a long time.  This isn't inteded
+			to be a stable release.  This release marks the
+			repository prior to Linda's experiementation
+			with the i* and NFR plugins.
+
+ome3v055		Development version (i.e. with debugging output
+			turned on) of the release with that name.  This
+			release featured Linda's modification to NFR
+			analysis, Tyronne's Project Manajer front end,
+			and a "drag box" selection tool that was known
+			to have at least one bug during the release.
+
+ome3v056		This version has a fix for the bug in the
+			selection drag box.  Also implements the
+			"autogui" feature, that allows framework
+			developers to test new framework designs quickly,
+			with out worrying about GUI issues.
+
+ome3v057		Simplified ome.tel (OMEFramework).  Bug fix in
+			istar.tel (i* framework).  "Comment" feature for
+			more powerful frameworks.

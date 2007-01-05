@@ -1,0 +1,386 @@
+##
+#    Istar modelling framework.
+##
+
+MetaClass IStarClass
+	ISA OMEObjectClass
+END
+
+
+# we want to be able to create 'links'
+MetaClass IStarLinkClass
+	ISA IStarClass, OMELinkClass
+END
+
+# elements is another class of istar object.
+MetaClass IStarElementClass
+	ISA IStarClass, OMEElementClass
+END
+
+# actors are a kind of element
+MetaClass IStarActorElementClass
+	ISA IStarElementClass
+END
+
+# intentional elements are another heading that we want to list under.
+MetaClass IStarIntentionalElementClass
+	ISA IStarElementClass
+END
+
+
+###
+# Elements:
+# We want to be fairly unrestrictive.
+# Towards that end we have been flatter in inheritance,
+# than we could have been. In particular we do not distinguish
+# between those intentional elements that are within actors, and those
+# that are not. Presumably, those that are not do not have an actor.
+###
+
+SimpleClass IStarElement
+	IN IStarClass
+	ISA OMEElement
+    WITH    
+	attribute
+	    name : String		    
+END
+
+SimpleClass IStarActorElement 
+	IN IStarClass, IStarActorElementClass, OMEInstantiableClass
+	ISA IStarElement, OMEGrowableElement
+    WITH
+	attribute
+	    children : IStarIntentionalElement	    	    
+	name
+	    : "Actor"
+	imagename
+	    : "Actor.gif"
+	imagesize
+	    width : 80;
+	    height : 80	    
+END
+
+SimpleClass IStarIntentionalElement
+	IN IStarClass, OMEElementClass, OMEVisibleClass
+	ISA IStarElement
+    WITH
+	attribute
+	    parent : IStarActorElement
+	imagesize
+	    width : 80;
+	    height : 50
+END
+    
+# the 8 individual element types:
+
+# actors:
+ 
+# 3 actors here, actually, since the first is IStarActorElement :)
+
+SimpleClass IStarRoleElement
+	IN IStarActorElementClass, OMEInstantiableClass
+	ISA IStarActorElement
+    WITH
+	name
+	    : "Role"
+	imagename
+	    : "Role.gif"
+	imagesize
+	    width : 80;
+	    height : 80	    
+
+END
+
+SimpleClass IStarPositionElement
+	IN IStarActorElementClass, OMEInstantiableClass
+	ISA IStarActorElement
+    WITH
+	name
+	    : "Position"
+	imagename
+	    : "Position.gif"
+	imagesize
+	    width : 80;
+	    height : 80	    
+END
+
+SimpleClass IStarAgentElement
+	IN IStarActorElementClass, OMEInstantiableClass
+	ISA IStarActorElement
+    WITH
+	name
+	    : "Agent"
+	imagename
+	    : "Agent.gif"
+	imagesize
+	    width : 80;
+	    height : 80	    
+END
+
+# Intentional Elements:
+
+SimpleClass IStarGoalElement
+	IN IStarIntentionalElementClass, OMEInstantiableClass
+	ISA IStarIntentionalElement
+    WITH
+	name
+	    : "Goal"
+	imagename
+	    : "Goal.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+END
+
+SimpleClass IStarTaskElement
+	IN IStarIntentionalElementClass, OMEInstantiableClass
+	ISA IStarIntentionalElement
+    WITH
+	name 
+	    : "Task"
+	imagename
+	    : "Task.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+END
+
+SimpleClass IStarSoftGoalElement
+	IN IStarIntentionalElementClass, OMEInstantiableClass
+	ISA IStarIntentionalElement
+    WITH
+	name
+	    : "Softgoal"
+	imagename
+	    : "Softgoal.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+END
+
+SimpleClass IStarResourceElement
+	IN IStarIntentionalElementClass, OMEInstantiableClass
+	ISA IStarIntentionalElement
+    WITH
+	name
+	    : "Resource"
+	imagename
+	    : "Resource.gif"	
+	imagesize
+	    width : 80;
+	    height : 50
+END
+
+
+
+###
+# Links:
+###
+
+
+SimpleClass IStarLink
+	IN IStarLinkClass, OMEVisibleClass
+	ISA OMELink
+    WITH    
+	attribute
+	    name : String		    
+	imagesize
+	    height : 20;
+	    width : 20
+END
+
+# the various types of links:
+#
+#  Right now the ends of the links are tossed into the 'links' category,
+# rather than into the special purpose fields that each of the link classes
+# have. Thus checking cannot really take place. I have not thought of a
+# scaleable way to allow users to add new types, and also to allow them to 
+
+SimpleClass IStarDependencyLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH
+	name
+	    : "Dependency link"
+	imagename
+	    : "Dependency.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+END
+
+# Decomposition link.
+#   Within IStar, only Tasks may be decomposed:
+
+SimpleClass IStarDecompositionLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH
+	attribute
+	    to : IStarTaskElement;
+	    from : IStarIntentionalElement
+	name
+	    : "Decomposition link"
+	imagename
+	    : "Decomposition.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+END
+
+# contributions:
+#    From intentional elements to softgoals. I believe all
+#    intentional elements, including other softgoals, may conribute
+#    to a softgoal.
+SimpleClass IStarContributionLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarSoftGoalElement;
+	    from : OMEElement
+	name
+	    : "Contribution link"
+	imagename
+	    : "Contribution.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+END
+
+# Means ends:
+#    Means ends links, from means to ends, ie: from intentional elements to
+#    goals.
+#
+SimpleClass IStarMeansEndsLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH
+	attribute
+	    to : IStarGoalElement;
+	    from : IStarIntentionalElement
+	name 
+	    : "Means-ends link" 
+	imagename
+	    : "Means-Ends.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+END
+
+# isa link:
+#   hmm. This one seems to be only be used between actors, and other actors.
+#  it might be interesting to have other types of object be classified using
+# isa  and ins, but for now we'll just restrict them to actors. jo's rationale:
+# the isa and ins relationships will tend to leave the bounds of an actors's
+# guts alot, and this will clutter the graph. If one wants to extend it, then
+# just make them between IStarElements.
+
+SimpleClass IStarISALink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarActorElement;
+	    from : IStarActorElement
+	name
+	    : "ISA"
+	imagename
+	    : "Arrow.gif" 
+	imagesize
+	    height : 20;
+	    width : 20
+	defaultname
+	    : "ISA"
+END
+
+# INS link:
+#  Here we are more unrestrive, specifically we do not enforce anything about
+#  the actual classes instantiated, or their specialization. We have instead
+#  treated these characteristics as mere links. Additional symantic checking
+#  was thought to be too restrictive for most users of the tool. In addition
+#  to implement specialization and instantiation as telos instantion and telos
+#  specialiazation would have significantly complicated things. It is
+#  certainly doable, however, as the IStar framework only really uses one
+#  level of instantiation, so ActorClass would have been a metaclass, Doctor,
+#  a Class, and Dr. Fred, a token. Specialization would have been no big deal
+#  except in the case of multiple inheritance. Anyway, this is what we are
+#  using now:
+
+SimpleClass IStarINSLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarActorElement;
+	    from : IStarActorElement
+	name
+	    : "INS"
+	imagename
+	    : "Arrow.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+	defaultname
+	    : "INS"
+END
+
+
+# actor refinement links:
+#  nothing surprising here.
+
+SimpleClass IStarPlaysLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarRoleElement;
+	    from : IStarAgentElement
+	name
+	    : "Plays"
+	imagename
+	    : "Arrow.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+	defaultname
+	    : "PLAYS"
+END
+	
+SimpleClass IStarOccupiesLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarPositionElement;
+	    from : IStarAgentElement
+	name
+	    : "Occupies"
+	imagename
+	    : "Arrow.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+	defaultname
+	    : "OCCUPIES"
+END
+
+SimpleClass IStarCoversLink
+	IN  IStarLinkClass, OMEInstantiableClass
+	ISA IStarLink
+    WITH    
+	attribute
+	    to : IStarRoleElement;
+	    from : IStarPositionElement
+	    
+	name
+	    : "Covers"
+	imagename
+	    : "Arrow.gif"
+	imagesize
+	    height : 20;
+	    width : 20
+	defaultname
+	    : "COVERS"
+
+END

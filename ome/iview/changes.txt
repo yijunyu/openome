@@ -1,0 +1,441 @@
+There were numerous updates, here are only the more important things.
+---------------------------------------------------------------------------------
+
+Version 2.98
+- The memory bug with the Filter Factory is fixed !
+---------------------------------------------------------------------------------
+
+Version 2.97
+- Support for the Photoshop Filter-Factory. Thanks to Michael Johannhanwahr :-)
+  IrfanView's menu: 'Image->Effects->Filter Factory', Hotkey: K
+  Supported are FF (*.8BF) filters. You can find more than 1500 (!!!) such 
+  filters at the web site of Steve Fisher: 
+  http://www.netins.net/showcase/wolf359/adobepc.htm
+- New edit option: Add text to image (into the selection)
+- New: Capability to extract icons from (most) 32-bit EXE/DLL files
+- Saving file as TGA (uncompressed)
+- New menu item: 'View->Random file in directory', Hotkey: CTRL+M
+- New menu item: 'View->No Zoom', Hotkey: CTRL+H
+- New advanced batch option: 'Use aspect ratio' for resize
+- New option: 'Use flat toolbar' in Properties->Others
+- Some minor bugs fixed (animated cursors etc.)
+- I have a brand new homepage, designed by Gismo :-)
+---------------------------------------------------------------------------------
+
+Version 2.95
+- Improved batch conversion ! (Button: Advanced Options) :-)
+- Improved print capabilities (preview)
+- Playing audio CDs in background (Menu: Options or File->Open)
+- New option: Color balance (change RGB intensity)
+- New effect: 3D Button 
+- The toolbar is now flat
+- New shell options in: properties->extensions->advanced (SendTo, View with ...)
+- New options in the 'Decrease color depth'-Dialog (Custom number of colors)
+- New options in Properties->GIF: Show transparency in single images
+- New viewing option: Show filename transparent: y/n (in Properties->Viewing)
+- Some command line problems are fixed ;-)
+- Exit fullscreen mode with: left mouse click in the left/right upper corner
+- New hotkey: C (for Options->Capture)
+- New hotkey: CTRL+A (for File->Acquire)
+---------------------------------------------------------------------------------
+
+Version 2.92
+- Read support for G3 FAX files (the extension MUST BE *.g3 or *.G3 !!)
+- New effect: Pixelize
+- New effect: Fine Rotation
+- New menu item: Image->Effects->Setup (set parameters for effects)
+- All effects are now available for selections too :-) (selection or full image)
+- New fullscreen option: view images with the normal size (in properties)
+- New menu item: Loop video/music (menu: options)
+- New slideshow option: Random after mouse/keyboard input
+- Improved cropping (undo is now possible) ;-)
+- The 'Extract AVI Frames'-Bug under WinNT is fixed
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.90
+- Improved resampling !!! Better results than Photoshop ;-)
+- New effects: Sharpen, Blur, Oil paint, Emboss, Edge detection, Median, Explosion
+- Support for LWF files (LuRaWave format, Wavelet compression)
+  (Note: IrfanView can't save images larger than 640 x 480 pixels as LWF ! ->
+   For large images use the 'LuraWave Studio' from WWW.LURATECH.COM)
+- Support for ASCII PBM/PGM/PPM files (reading)
+- Support for AIF sound files (MS Active Movie is required !)
+- The Slideshow timer can be now less than one second
+- Improved support for WMF/EMF (Batch conversion is now possible)
+- Saving file as EMF (Enhanced windows metafile)
+- New option: 'Fit images to the whole screen in the fullscreen mode' (Viewing)
+- New scrolling possibilty: with the right mouse button (press and move)
+---------------------------------------------------------------------------------
+
+Version 2.85
+- Support for EPS files (Encapsulated PostScript, TIFF preview only)
+- Support for CLP files (Windows Clipboard file)
+- Support for CAM files (Casio digital camera file, with JPG)
+- The 'Capture' feature is available :-)
+- New feature: Extract all AVI frames ! (options->extract all frames)
+- Display mouse coordinates (single mouse click/move)
+- New option: Hide mouse cursor in fullscreen and slideshow mode
+- New hotkey: CTRL-W (start slideshow with files from current directory)
+- New hotkey: Shift+G (for Gamma correction)
+- Better compatibility with Win98 (registry)
+---------------------------------------------------------------------------------
+
+Version 2.83
+- The slideshow bug on some systems is fixed
+- New options: (in the 'Properties' dialog):
+- New option: Delete to Recycle Bin
+- New option: Jump to the next file after deleting
+- New option: Ask to overwrite file for 'Save' and 'Save as'
+- New option: Don't notify if the end/begin of the directory is reached
+- New hotkey: Ctrl+Y for Crop
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.82
+- New menu item: About->Thanks :-)
+- Support for DCX files (multiple PCX)
+- Support for windows cursor files (*.CUR)
+- Support for animated windows cursor files (*.ANI)
+- New menu item: Save (Hotkey: Ctrl+S) - save current file in the same folder
+- New option: Extract all frames (for ANIs and animated GIFs)
+- New slideshow option: Sort (files by name, date etc.) :-)
+- New command line option: '/c=filename' (convert input file to 'filename')
+  Example: i_view32 c:\test.bmp /c=c:\giftest.gif
+  => Convert file: 'c:\test.bmp' to 'c:\giftest.gif' without GUI :-)
+  (Note: supported are all IrfanView read/save formats except: AVI,MOV,MPG,
+   WAV,MID,WMF,EMF)
+- New option: video size (for AVI, MOV and MPG)
+  Set the video size for all videos :-)
+- New hotkey: D (for edit->delete: remove image from the memory/screen)
+- New options in 'Properties->Viewing':
+  a) View all files in directory (enable/disable moving with space/backspace)
+  b) Set the zoom step (deafult: 10 %)
+- Moving with <- and -> in WAV, AVI, MPG, MOV, MID
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.80
+- New !!! The toolbar is now available :-)
+- Support for MPEG/MOV files (MS Active Movie is required !)
+- Support for Adobe Photoshop files (*.PSD)
+- Support for Corel PhotoPaint 6.0 files (*.CPT) ... this is a TIFF ;-)
+- New edit options: CUT/CROP (select a portion of image with the left mouse button)
+  Now you can cut or copy portions of an image :-)
+- New: The ONE-Step UNDO option is available (see next line)
+- New option in 'Properties->Others': "Use UNDO option" (deafult is OFF to save memory)
+  Undo is available for following changes: 
+  Resize/Resample, Increase/Decrease color depth, Convert to grayscale,
+  Negative, Brightness, Contrast, Gamma correction, Cut
+- New options in 'Properties->Extensions' (Set Icon, Other extensions)
+- New option in 'Properties->Others': "Create desktop link for IrfanView32"
+- The zoom step is now always 10 % (10 % till 1000 %)
+---------------------------------------------------------------------------------
+
+Version 2.68
+- Choosing between 5 copy/move directories (ask for copy/move must be ON)
+- Some print bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.66
+- Some BMP bugs are fixed (RLE 4)
+- Some IFF bugs are fixed (HAM 6)
+- Some RAS bugs are fixed (support for compressed SunRAS)
+- Support for 40-BPP images
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.65
+- Scan support (TWAIN)
+- New menu option: Sort directory files (by name/date/size/extension)
+- Some IFF bugs are fixed
+- The bug with some long names is fixed
+- New menu item: Minimize (to task bar), Hotkey: M (BOSS-Key ;-)
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.63
+- New 'View' menu item: 'Multipage TIFF' (next/previous page etc.)
+- New GIF save option: 'Save Interlaced'
+- Some GIF bugs are fixed
+- The german version of IrfanView is available :-)
+---------------------------------------------------------------------------------
+
+Version 2.60
+- New feature: Batch Conversion :-)
+  Note: IrfanView32 can't convert WMF/EMF to ANY (format) in batch mode !
+- New menu item: Increase color depth (to 4, 8, 24 BPP)
+- New menu item: Decrease color depth (to 1, 4, 8  BPP)
+- New menu item: Resample image (Smooth), better than 'Resize', but slower
+- New option in 'Properties->Other': "Use 'Smooth' for Fit To Desktop ..."
+- New slideshow option: 'Add All' :-)
+- New options in the 'Resize' dialog
+---------------------------------------------------------------------------------
+
+Version 2.55
+- Improved GIF-Animation :-)
+- Support for sound files: WAV, MID and RMI :-)
+- Enabled Zooming/Scrolling in the fullscreen mode
+- The bug with some 24-BPP IFF-Files is fixed
+- The bug with some 24-BPP TARGA-Files is fixed 
+- New command line option: '/slideshow=txtname.txt'
+  Example: i_view32.exe /slideshow=c:\mypics.txt
+  Note: The file 'c:\mypics.txt' contains, in each line, a name of the image,
+        including the full path !
+---------------------------------------------------------------------------------
+
+Version 2.52
+- Save options are now in the Save dialog 
+- Preview support for Windows Metafiles 
+- Preview support for AVIs (Video for Windows) 
+- New option: 'Gamma Correction'
+- New: 'Best fit to desktop' is now "on" or "off"
+- New feature in the 'Resize' dialog: 'Preserve aspect ratio'
+- Improved 'Brightness' and 'Contrast'
+- Support for 64-BPP PNGs
+- Save large images as ICO (more than 128 x 128 pixels)
+- Remember the last slideshow file list
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.50
+- Saving file as ICO (The maximum size for an ICON is: 128 x 128 pixels)
+- Support for uncompressed PCXs (read)
+- New option: 'Convert to 2 Colors' (black/white)
+- New option: 'Clear MRUDs' (in 'Properties->Other Options')
+- New option: 'Rename File' (Hotkey: F6)
+- New slideshow option: 'Random display' 
+- New print option: 'Vertical - Best Fit'
+- New option: 'Swap colors' (RGB->RBG, RGB->BGR, RGB->BRG, RGB->GRB, RBG->GBR)
+- Improved 'Set as wallpaper' (centered/tiled/restore)
+- Improved AVI playing 
+- Some ICO bugs are fixed (black/white ICONs etc.)
+- The registry-bug with some extensions is fixed (ICO, BMP)
+---------------------------------------------------------------------------------
+
+Version 2.40
+- Support for TIFFs with the JPEG compression (read/write)
+- The bug with some LZW-TIFFs is fixed (incorrect colors)
+- Support for TIFFs with separated color channels (read)
+- Support for YCbCr-TIFFs (read)
+---------------------------------------------------------------------------------
+
+Version 2.37
+- Brightness/Contrast dialog: CANCEL-button is available
+- New option: 'Edit palette' (display and change image palette)
+- New options in 'Properties->GIF', choose transparent GIF color (palette index)
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.35
+- Support for PBM/PGM/PPM file formats (binary only)
+- Support for Amiga IFF/LBM format 
+- Save GIFs with transparent (background) color (=black)
+- The 'minimize bug' is now fixed ;-)
+- New menu item: 'MRUDs' = 'most recently used directories' (Menu: 'File')
+  (IrfanView can remember the last 5 viewing directories)
+- New option: 'Remember last window position' in 'properties->others'
+---------------------------------------------------------------------------------
+
+Version 2.32
+- Play animated GIFs in normal window ! (no fullscreen more :-)
+- Improved GIF-Saving (save as 1 and 4 bits-per-pixel)
+- Saving file as PCX
+- Support for CMYK TIFFs
+- Enabled copy/move files in the fullscreen mode (F8/F7)
+- Remember the last viewing/saving directory
+- Remember the last window position
+- New options for slideshow: load/save slideshow, pause (press 'Pause')
+- New option: 'Always on Top'
+---------------------------------------------------------------------------------
+
+Version 2.30
+- PREVIEW option ('File->Open'), doesn't work with WMF/EMF and AVI !
+- Support for multiple Icons (1,4,8,16,24 and 32 bits-per-pixel)
+- The bug with 'Properties' under WinNT 4.0 Service-Pack-2 is fixed 
+- New options for slideshow (see 'slideshow')
+---------------------------------------------------------------------------------
+
+Version 2.27
+- New feature: SLIDESHOW :-)
+  How to use? You can add files to the slideshow list with:
+  - Drag & Drop (select one or more files ...)
+  - Select one or more files and press the 'ADD' button
+  - Double click on the filename
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.25
+- New features: converting to greyscale, negative, brightness and contrast
+- Bugs with some BMPs are fixed (new decompression routine :-)
+- New menu item: 'Refresh directory' -> update of directory indexes (hotkey: 'U')
+- New option in 'Properties->MultipleGIF': "None" (for no animation)
+- New hotkey: 'Shift+R' for "Reopen"
+- Double click on left mouse button -> Fullscreen
+- Click on left mouse button -> load previous image (in fullscreen mode only !)
+- Click on right mouse button -> load next image (in fullscreen mode only !)
+- New registration price: 10 USD or 15,- DEM   ;-)
+---------------------------------------------------------------------------------
+
+Version 2.22
+- Support for some special JPEGs (Adobe ...) 
+- improved rotating left/right for black/white and 16-color images 
+- improved Drag&Drop (IrfanView changes immediately to the target directory :-)
+- The option: 'Always fit to desktop for big images' is available again :-) 
+- Bugs with some GIFs and PCXs are fixed 
+- The animated-GIF dialog moved to 'Properties->Multiple GIF' :-) 
+- Jump to the first/last file (after reaching last/first image in directory, 
+  IrfanView jumps to the first/last image in directory) 
+- New option: 'Ask to rename if incorrect extension' (in 'Other options') 
+- Some minor bugs fixed
+---------------------------------------------------------------------------------
+
+Version 2.20
+- The BIGGEST IrfanView Bug is fixed !!! :-) (now you can resize images to any 
+  size you wish without deformations and cache contents inserted in the picture)
+- Support for 16-bpp (BitsPerPixel) BMPs/DIBs and 16-bpp TIFs (read only)
+- Better horizontal flip for black/white images
+- The option: 'Always fit to desktop for big images' is not more available
+- The IrfanView-Code was again optimized :) => the EXE file is smaller
+- And I have a new home page :-)
+---------------------------------------------------------------------------------
+
+Version 2.18
+- The bug with corrupted GIFs is fixed 
+- Support for Multipage-TIFFs with more than 256 pages (pictures)
+- New options in "Properties->extensions": 'Select all' and 'Clear all'
+- Support for (*.SUN) extension (=RAS, Sun Raster Images)
+- Modifikations in About-Box
+---------------------------------------------------------------------------------
+
+Version 2.17
+- Multipage-TIFF support ! (One of the first viewers with multipage TIFF support)
+- Support for 'Exif'-JPEGs
+- New option in "Properties->Copy/Move/Save": default 'save as' directory
+- Rename-question for files with incorrect extension
+- The Multiple-GIF timer is now much better  :)
+- Some minor bugs fixed (very large GIFs, 'paste->save as')
+---------------------------------------------------------------------------------
+
+Version 2.15
+- Multiple (animated) GIF Support ! IrfanView is the first graphic viewer 
+  WORLDWIDE with Multiple GIF support. (One known bug: with some specially 
+  transparency combinations)
+  Much fun :) 
+- New menu: Convert to 256 colors (for true color images only)
+- Some WMF bugs are fixed (with old (Win 3.x) WMFs)
+- Now: "Save as" with lower case names
+- And you can copy my E-Mail address from "About-Box" :)
+---------------------------------------------------------------------------------
+
+Version 2.12
+- The GIF-Decompression is now totally rewritten ! I hope without bugs :)
+- Windows metafiles support (WMF=Windows Metafile and EMF=Enhanced Metafile)
+- Command line support for AVIs (Fullscreen for AVI is not available)
+- Some minor bugs fixed (startbar, extensions etc.)
+---------------------------------------------------------------------------------
+
+Version 2.10
+- Print support
+- "Always fit to desktop" was changed to "Always fit to desktop for big images"
+- Some minor bugs fixed (GIFs, rotate under WinNT, overlapping)
+- NEW ! Command line options: /one, /fs, /bf, /pos=(x,y), /title=text :
+  /one        - force "only one instance"
+  /fs         - force Full Screen
+  /bf         - force Best Fit
+  /title=text - set window title
+  /pos=(x,y)  - move the window to x,y
+Notes:
+- Only lower case options are supported:
+Examples: 
+   i_view32 test.bmp /BF                 = incorrect
+   i_view32 test.bmp /bf /title=My PIC   = correct
+---------------------------------------------------------------------------------
+
+Version 2.07
+- AVI support (video for windows)
+- Jump to first/last file in the directory (CTRL+F,CTRL+L)
+- New option: always fit to desktop (properties->other options)
+- Finally: "Save as", non-extension support
+- Read support for extensions: *.jpeg, *.tiff
+- Correct displaying of all Photo-CD files (rotate)
+- Copy/move/delete windows
+- Copying/moving: Replace question if the file exists (replace of read-only files)
+- More hotkeys (rotate, flip, properties, image info etc.)
+- Some minor bugs fixed (GIF,RAS)
+---------------------------------------------------------------------------------
+
+Version 2.05
+- Edit options (Copy/Paste/Delete/Clear Clipboard)
+- New in "Properties->Other options": allow Only 1 instance of IrfanView32
+- Read-Header function is implemented, warning if incorrect extension
+- Some fast-directory-view bugs fixed (like: last image)
+---------------------------------------------------------------------------------
+
+Version 2.00 
+- Progressive JPEG support (read/save) 
+- Alphabetical sorting of images in directory 
+- Some minor bugs fixed 
+---------------------------------------------------------------------------------
+
+Version 1.99 
+- New fast directory view ! This part is now totally rewritten; 
+  no more lost files and uncomplete lists. Files are shown in the 
+  order how they stay in FAT, that means unsorted. Coming in next release: 
+  sorting files in alphabetical order. 
+- Fixed bugs with some ICOs, and compressed BMPs 
+---------------------------------------------------------------------------------
+
+Version 1.98a
+- Fixed bug with 256-colour-ICO
+- Fixed bugs with fit-to-desktop and resize
+- New menu outfit
+- Zoom percentage shown in title bar
+- Positioning window somewhere else than top left corner (biggest known bug: 
+  IrfanView still can NOT correctly resize images whose dimensions exceed actual 
+  screen resolution; if you do not want to cut edges of your image, void saving 
+  in this situation)
+---------------------------------------------------------------------------------
+
+Version 1.98
+- Viewing ICO 
+- Zooming in and out 
+  (known bug: zooming in large images works till now only up to 500 %)
+- Resize image
+---------------------------------------------------------------------------------
+
+Version 1.97
+- Viewing RAS
+- Fixed some bugs with fast directory view and GIF
+---------------------------------------------------------------------------------
+
+Version 1.95
+- Viewing TGA
+- Image flip/rotate
+- Image copy/move to another directory
+- New tab-dialogs (Menu: Options->Properties)
+- IrfanView32 doesn't support Win32s any more
+---------------------------------------------------------------------------------
+
+Version 1.90
+- Viewing Photo CD
+- "Fast directory view" (jump to next image in the current directory with space,
+   to previous with backspace)
+- Set image as wallpaper
+---------------------------------------------------------------------------------
+
+Version 1.85
+- Windows 95-dialogs (open/save file)
+- Viewing 2 bits per pixel PNG
+- Saving file as TIFF
+---------------------------------------------------------------------------------
+
+Version 1.80
+- Viewing PCX and RLE
+- Viewing grayscale TIFF
+- Fixed some bugs with GIF
+---------------------------------------------------------------------------------
+
+Version 1.70
+- Viewing TIFFs (uncompressed, LZW, packbits, Huffmann, fax group 3, fax group 4)
+---------------------------------------------------------------------------------

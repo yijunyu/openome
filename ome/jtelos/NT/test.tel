@@ -1,0 +1,39 @@
+
+
+
+SimpleClass Person
+    WITH
+	attribute
+	    bird: Fowl
+	    
+END
+
+SimpleClass Fowl
+END
+
+SimpleClass Hawk
+    ISA Fowl
+END
+
+SimpleClass Dove
+    ISA Fowl
+END
+
+SimpleClass Republican
+    ISA Person
+    WITH
+	attribute
+	    bird : Hawk
+END
+
+SimpleClass Quaker
+    ISA Person
+    WITH
+	attribute
+	    bird : Dove
+END
+
+SimpleClass Nixon
+    ISA Republican, Quaker
+END
+

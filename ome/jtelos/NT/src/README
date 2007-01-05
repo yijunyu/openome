@@ -1,0 +1,252 @@
+Instructions on how to use TELL/UNTELL/RETELL
+---------------------------------------------
+
+TELL
+----
+
+The commands for executing a TELL transaction are the following:
+
+1. From inside the telos shell simply type "tell". The user will be
+   prompted for the name of the file containing the TELL transaction.
+
+2. From the command line, the command is: 
+
+      telos tell <KBname> <filename>
+
+   where "KBname" is the KB the TELL definitions in the file
+   "filename" will be loaded.
+
+3. From TMB, TELLing is included among the "command" methods. The TELL
+   command expects a second argument which is the name of the file
+   containing the TELL transaction.
+
+TELL transaction files look exactly like the files used by a "load"
+command. Indeed, TELLing and loading a transaction file into an empty
+kb have the exact same result. The difference between TELL and "load"
+is as follows: a TELL can be used to *add* properties to any individual
+already present in the KB (all semantics are checked), whereas it is
+an error to "load" an individual that has is already in the kb.
+
+For example, suppose we have the following individual in the kb:
+
+  Token John
+    in Person
+    with
+      name 
+        : "John"
+  end
+
+If we "load" the following transaction file, we get an error. In
+particular, "load" will try to create a token individual named John
+but fail since the kb already contains an individual named John:
+
+  Token John
+    with
+      age
+        : 21
+  end
+
+If, on the other hand, we TELL the afore-mentioned transaction file,
+there are no errors (assuming that Person has an attribute with label
+"age" and value "Integer"), and the individual John becomes:
+
+  Token John
+    in Person
+    with
+      name
+        : "John"
+      age
+        : 21
+  end
+
+So basically, a TELL transaction processes each definition in the TELL
+transaction file as follows: If there is an individual matching the
+definition (the individual must be on the same level as the
+definition: if an individual is found in the kb with the same name as
+the definition, but with a different level, then we have an error),
+then the relations in the definition are appended to the individual in
+the kb (provided semantic constraints are obeyed). If, on the other
+hand, there is no individual in the kb matching the definition, then a
+new individual is created according to the definition as would have
+been done if the definition was "loaded" instead of TELLed.
+
+
+
+UNTELL
+------
+
+The commands for executing an UNTELL transaction are the following:
+
+1. From inside the telos shell simply type "untell". The user will be
+   prompted for the name of the file containing the UNTELL definitions.
+
+2. From the command line, the command is: 
+
+      telos untell <KBname> <filename>
+
+   where "KBname" is the KB the UNTELL definitions in the file
+   "filename" will be processed.
+
+3. From TMB, UNTELLing is included among the "command" methods. The UNTELL
+   command expects a second argument which is the name of the
+   transaction file containing the UNTELL definitions. There are two
+   versions of the UNTELL command: untell, and untell-recursive. 
+   "untell" will produce an error if a class with instances is
+   specified to be UNTELLed; "untell-recursive", on the other hand,
+   fully UNTELLs (i.e., deletes) all instances of any classes that
+   have been specified to be UNTELLed.
+
+The UNTELL definitions file is similar to the TELL/load definitions
+file. The definitions are in the following form:
+
+  <class-or-token> <identifier>
+    in <identifier>
+    isa <identifier>
+    with
+      <category>
+        <label> : <value>
+  end
+
+The "in", "isa" and "with" clauses can, of course, contain multiple
+entries. The "in", "isa" and "with" clauses are optional. These
+clauses specify that certain relations are to be deleted from the
+individual (of course the UNTELL routine checks to see that these are
+indeed relations for the individual before proceeding). If none of
+these clauses is present, the UNTELL is interpreted as a request to
+terminate all relationships of the object *and* to remove the object
+from the kb.
+
+For example, suppose we had the following individual in the kb:
+
+  Token John
+    in Person
+    with
+      name
+        : "John"
+  end
+
+If we UNTELLed the following file containing this sole definition:
+
+  Token John
+    with
+      name
+        : "John"
+  end
+
+then, the token John would be altered to become:
+
+  Token John
+    in Person
+  end
+
+If, on the other hand, we UNTELLed the following file containing this
+alternate definition: 
+
+  Token John
+    in Person
+  end
+
+then the token John would be completely eliminated from the kb. 
+
+Note that when an individual is completely eliminated from the kb,
+then all attributes referencing the individual, as well as all
+instances of those attributes are deleted.
+
+Note also that a class cannot be UNTELLed unless it has no
+instances. However, a class can be specified to be UNTELLed in an
+UNTELL transaction *if* the same transaction specifies that all the
+classes instances are to be fully UNTELLed. If in fact a transaction
+specifies that a class with instances that won't be fully UNTELLed is
+to be UNTELLed, then the UNTELL will not proceed. However, if one is
+executing the UNTELL from the command line or from the telos shell,
+then the user is given the option to proceed with a "recursive"
+UNTELL. In a "recursive" UNTELL, all instances of all classes
+specified to be UNTELLed in the UNTELL transaction file are fully
+UNTELLed. When running through TMB, this option is not
+available. However, a special TMB command, "untell-recursive", is
+provided which executes a recursive UNTELL using the specified UNTELL
+transaction file.
+
+
+
+RETELL
+------
+
+The commands for executing a RETELL transaction are the following:
+
+1. From inside the telos shell simply type "retell". The user will be
+   prompted for the name of a file containing definitions that the
+   user wishes to remove (i.e, UNTELL), and then will be prompted for
+   the name of a file containing definitions to replace the removed 
+   definitions (i.e., definitions to TELL).
+
+2. From the command line, the command is: 
+
+      telos retell <KBname> <untell filename> <tell filename>
+
+   where "KBname" specified the KB, "untell filename" is the name of a
+   file containing definitions that are to be removed (i.e, UNTELL),
+   and "tell filename" is the name of a file containing definitions to
+   replace the removed definitions (i.e., definitions to TELL).
+
+3. From TMB, RETELLing is included among the "command" methods. The RETELL
+   command expects second and third arguments which are respectively
+   the name of a file containing definitions that are to be removed
+   (i.e, UNTELL), and the name of a file containing definitions to
+   replace the removed definitions (i.e., definitions to TELL).
+
+The "untell" and "tell" transaction files for the RETELL follow the
+same syntax as described above for UNTELL and TELL transaction files
+respectively. 
+
+The difference between doing a RETELL and doing an UNTELL followed by
+a TELL is small, but significant. In a RETELL, semantics are only
+checked after both the UNTELL and TELL parts of the RETELL are done;
+however, if one does the UNTELL and TELL seperately, then semantics
+are checked after the UNTELL is done and after the TELL is done. This
+could mean that the RETELL is successful, but the seperate UNTELL and
+TELL fail. For instance, one might want to change what classes a token
+is in. The way this is done is that the ancestors are all removed from
+the token and then replaced by new ancestors. If this is done in two
+stages with an UNTELL and a TELL instead of one stage with a RETELL,
+then the UNTELL will almost certainly fail if the token has any
+attributes (the attributes will be left with no categories after
+deleting all the ancestors.
+
+As in an UNTELL, a class can not be RETELLed if it has any
+instances. If one is using the command line or telos shell, however,
+and a class with instances is requested to be RETELLed, then the user
+will be given the option of doing a "recursive" RETELL where all the
+instances of all the classes requested to be RETELLed are first
+deleted before the RETELL is executed.
+
+Here is a sample RETELL: Suppose we have the following token:
+
+  Token John
+    in Person
+    with
+      name
+        : "John"
+  end
+
+Suppose we want to change John's name to be Johnny. Then executing a
+RETELL with the following "untell" and "tell" files will change the
+token's name field: 
+
+  Untell file:
+  -----------
+
+  Token John
+    with
+      name
+        : "John"
+  end
+
+  Tell file:
+  ---------- 
+
+  Token John
+    with
+      name
+        : "Johnny"
+  end

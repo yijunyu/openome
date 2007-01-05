@@ -1,0 +1,511 @@
+
+
+
+
+
+
+MetaClass NFRSoftgoalLabelClass
+	IN OMEAttributeMetaClass
+	ISA OMEAttributeClass
+END
+
+MetaClass NFRContributionLabelClass
+	IN OMEAttributeMetaClass
+	ISA OMEAttributeClass
+END
+
+MetaClass NFRSoftgoalPriorityClass
+	IN OMEAttributeMetaClass
+	ISA OMEAttributeClass
+END
+
+SimpleClass NFRElement 
+	ISA OMEElement
+END
+
+SimpleClass NFRLink
+	ISA OMELink
+END
+
+
+
+
+SimpleClass NFRSoftgoal
+	IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+	ISA NFRElement
+    WITH
+	name  
+	    : "NFRSoftgoal"
+	imagename 
+	    : "NFRSoftgoal.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+	OMEAttributes
+	    label : NFRSoftgoalLabelClass;
+	    priority : NFRSoftgoalPriorityClass	
+END
+
+SimpleClass NFRClaim
+	IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+	ISA NFRElement
+    WITH
+	name
+	    : "Claim"
+	imagename
+	    : "Claim.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+	OMEAttributes
+	    label : NFRSoftgoalLabelClass;
+	    priority : NFRSoftgoalPriorityClass	
+END
+
+SimpleClass NFROperationalization
+	IN OMEVisibleClass, OMEElementClass, OMEInstantiableClass
+	ISA NFRElement
+    WITH
+	name
+	    : "Operationalization"
+	imagename
+	    : "Operationalization.gif"
+	imagesize
+	    width : 80;
+	    height : 50
+	OMEAttributes
+	    label : NFRSoftgoalLabelClass;
+	    priority : NFRSoftgoalPriorityClass	
+END
+
+
+SimpleClass NFRSoftgoalContribution
+	IN OMEVisibleClass, OMELinkClass
+	ISA NFRLink
+    WITH
+	name
+	    : "NFRSoftgoalContribution"
+	OMEAttributes
+	    label : NFRContributionLabelClass
+END
+
+SimpleClass BreakContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "Break"
+	imagename
+	    :   "Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Break"
+	
+END
+
+SimpleClass MakeContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "Make"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Make"
+
+END
+
+
+SimpleClass OrContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "Or"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"or"
+	
+END
+
+SimpleClass AndContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "And"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"and"
+	
+END
+SimpleClass EqualContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "Equal"
+	imagename
+	    :	"DoubleArrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"="
+	
+END
+
+SimpleClass HurtContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :   "Hurt"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Hurt"
+	
+END
+
+SimpleClass HelpContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :	"Help"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Help"
+	
+END
+
+SimpleClass UnknownContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :	"Unknown"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Unknown"
+	
+END
+
+SimpleClass SomePositiveContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :	"Some +"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Some +"
+	
+END
+
+SimpleClass SomeNegativeContribution
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalContribution
+    WITH
+	name 
+	    :	"Some -"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Some -"
+	
+END
+	
+
+
+SimpleClass NFRDeniedContributionLabel
+    IN OMEVisibleClass, NFRContributionLabelClass
+    WITH
+	name
+	    :	"Denied Contribution"
+	imagename
+	    :	"Cross.gif"
+	imagesize
+	    width   :	20;
+	    height  :   20
+	imageposition
+	    dx	:   20;
+	    dy	:   10
+END
+
+SimpleClass NFRDeniedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    :	"Denied"
+	imagename
+	    :	"Cross.gif"
+	imagesize
+	    width   :	50;
+	    height  :   50
+	imageposition
+	    dx	:   60;
+	    dy	:   0
+END
+
+SimpleClass NFRWeaklyDeniedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    :	"Weakly Denied"
+	imagename
+	    :	"WeaklyDenied.gif"
+	imagesize
+	    width   :	50;
+	    height  :   50
+	imageposition
+	    dx	:   60;
+	    dy	:   0
+END
+
+SimpleClass NFRUndecidedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    :	"Undecided"
+	imagename
+	    :	"Undecided.gif"
+	imagesize
+	    width   :	50;
+	    height  :   50
+	imageposition
+	    dx	:   60;
+	    dy	:   0
+END
+
+SimpleClass NFRWeaklySatisficedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    :	"Weakly Satisficed"
+	imagename
+	    :	"WeaklySatisficed.gif"
+	imagesize
+	    width   :	50;
+	    height  :   50
+	imageposition
+	    dx	:   60;
+	    dy	:   0
+END
+
+SimpleClass NFRSatisficedSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    : "Satisficed"
+	imagename
+	    :	"Check.gif"
+	imagesize
+	    width : 50;
+	    height : 50
+	imageposition
+	    dx	:   60;
+	    dy	:   -0
+END
+
+SimpleClass NFRConflictSoftgoalLabel
+    IN OMEVisibleClass, NFRSoftgoalLabelClass
+    WITH
+	name
+	    :	"Conflict"
+	imagename
+	    :	"Conflict.gif"
+	imagesize
+	    width   :	50;
+	    height  :   50
+	imageposition
+	    dx	:   55;
+	    dy	:   0
+END
+
+SimpleClass NFRSoftgoalPriority
+    IN OMEVisibleClass, NFRSoftgoalPriorityClass
+    WITH
+	name
+	    :	"Priority Softgoal"
+	imagename
+	    :	"ExclamationPoint.gif"
+	imagesize
+	    width   :	30;
+	    height  :   30
+	imageposition
+	    dx	:   -45;
+	    dy	:   0
+END
+
+
+
+SimpleClass NFRSoftgoalCorrelation
+	IN OMEVisibleClass, OMELinkClass
+	ISA NFRLink
+    WITH
+	name
+	    : "NFRSoftgoalCorrelation"
+#	OMEAttributes
+#	    label : NFRCorrelationLabelClass
+END
+
+SimpleClass BreakCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :   "Break Correlation"
+	imagename
+	    :   "Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Break"
+	stroke
+	    :	"dashed"
+	
+END
+
+SimpleClass MakeCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :   "Make Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Make"
+	stroke
+	    :	"dashed"
+
+END
+
+
+SimpleClass HurtCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :   "Hurt Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Hurt"
+	stroke
+	    :	"dashed"
+	
+END
+
+SimpleClass HelpCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :	"Help Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Help"
+	stroke
+	    :	"dashed"
+	
+END
+
+SimpleClass UnknownCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :	"Unknown Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Unknown"
+	stroke
+	    :	"dashed"
+	
+END
+
+SimpleClass SomePositiveCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation
+    WITH
+	name 
+	    :	"Some + Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Some +"
+	stroke
+	    :	"dashed"
+	
+END
+
+SimpleClass SomeNegativeCorrelation
+	IN OMEInstantiableClass, OMELinkClass
+	ISA NFRSoftgoalCorrelation 
+    WITH
+	name 
+	    :	"Some - Correlation"
+	imagename
+	    :	"Arrow.gif"
+	imagesize
+	    width : 20;
+	    height : 20
+	defaultname
+	    :	"Some -"
+	stroke
+	    :	"dashed"
+	
+END

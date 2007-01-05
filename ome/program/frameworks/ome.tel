@@ -1,0 +1,174 @@
+##
+# OME.tel  --  The OME "Meta-Framework"
+#
+# The classes that derive from the OME classes, are those that are
+#   meant to be instantiated by the OME tool. The tool iterates over the
+#   instances of the OME classes to find what is legal to create. 
+##
+
+
+# Root of the "OMEAttribute" hierarchy.  Used for "reference attributes".
+#
+# OMEAttributes are special class-level objects in the framework that objects
+# in the model can "point to" to indicate some sense of state.
+#
+# These attributes differ from value attributes in that their target is not a
+# String or an Integer, but rather a class in the framework.  This is a good
+# way to restrict the values of an attribute, and to graphically represent the
+# attribute.  The NFR framework makes use of this hierarchy in its
+# implementation of "Softgoal Labels".
+MetaMetaClass OMEAttributeMetaClass
+END
+
+#####################################################################
+# Visible classes become categories within the OME menu tree, while their
+# instances become leaves. The children of a class are the subcategories, and
+# if there are instances of multiple inheritance of visible parent classes
+# then the child classes will show up multiple times: once under each of the
+# parents' trees. Only the Meta-level heirarchy is walked, the classes
+# themselves are only checked for instantiability before being listed during
+# the walk.
+#####################################################################
+
+
+# Visible classes
+MetaClass OMEVisibleClass
+	ISA OMEClass
+    WITH
+	attribute
+	    imagename : String;
+	    imagesize : Integer;    // an optional different size for the image
+	    name : String
+END
+
+# Instantiable classes
+MetaClass OMEInstantiableClass 
+	ISA OMEClass, OMEVisibleClass
+    WITH
+	attribute
+	    autogui : Integer
+END
+
+MetaClass OMEClass
+END
+
+
+
+####################################################################
+# OME supports three main types of object: the element, the growable element,
+# and the link.	
+####################################################################
+
+MetaClass OMEObjectClass
+	ISA OMEClass
+    WITH
+	attribute
+	    # The target of an OMEAttribute must be of OMEAttributeClass.
+	    OMEAttributes : OMEAttributeMetaClass;
+	    
+	    # if this is set then we use it, otherwise we use type_index
+	    defaultname : String;
+
+	    # These we provide arbitary value attribute support.
+	    OMEValueAttributes : SimpleClass
+END
+
+MetaClass OMEElementClass
+	ISA OMEObjectClass
+END
+
+MetaClass OMEGrowableElementClass
+	ISA OMEObjectClass, OMEElementClass
+END
+
+MetaClass OMELinkClass
+	ISA OMEObjectClass
+   WITH
+	attribute
+	    stroke : String
+END
+
+MetaClass OMEAttributeClass
+    WITH
+	attribute
+	    name : String;
+	    imagename : String;
+	    
+# must be width and height.
+	    imagesize : Integer;  
+	    
+# relative to position of centre of source: dx and dy
+	    imageposition : Integer 
+END
+
+
+####################################################################
+# Roots of the SimpleClass heirarchy
+#  notice that these classes are not inherently instantiable.
+##
+# All instantiable classes should be:
+#  1: instances of a metaclass derived from OMEVisibleClass (so the class's
+#	type will be listed in menus.)
+#  2: instances of OMEInstantiableClass (so the class will be listed under
+#	it's type.)
+#  3: a descendant of OMEObject, or better yet one of its subclasses.
+####################################################################
+
+SimpleClass OMEObject	
+	IN OMEObjectClass
+    WITH
+	attribute
+	    name : String;
+	    links : OMELink;
+	    comment : String	    // Until we support arbitrary value
+				    // attributes.
+END
+
+SimpleClass OMEElement
+	IN OMEElementClass
+	ISA OMEObject
+    WITH
+	attribute
+	    parent : OMEElement
+END
+
+SimpleClass OMEGrowableElement
+	IN OMEGrowableElementClass
+	ISA OMEElement
+    WITH
+	attribute
+	    children : OMEElement
+END
+
+SimpleClass OMELink
+	IN OMELinkClass
+	ISA OMEObject
+    WITH
+	attribute
+	    to : OMEObject;
+	    from : OMEObject
+END
+
+
+
+######################
+# view serialization types
+#######################
+
+SimpleClass SerializedView 
+    WITH
+	attribute 
+	    view_objects : Token
+END
+
+SimpleClass SerializedObject
+    WITH
+	attribute
+	    type : String
+END
+
+
+
+	    
+
+
