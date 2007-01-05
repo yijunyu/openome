@@ -83,8 +83,6 @@ public class QuantityItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_value_feature", "_UI_Quantity_type"),
 				 Schema1Package.Literals.QUANTITY__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class QuantityItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_unit_feature", "_UI_Quantity_type"),
 				 Schema1Package.Literals.QUANTITY__UNIT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

@@ -82,8 +82,6 @@ public class PoissonTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_PoissonType_mean_feature", "_UI_PoissonType_type"),
 				 Schema1Package.Literals.POISSON_TYPE__MEAN,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));

@@ -83,8 +83,6 @@ public class LoopConditionTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_counterIncrement_feature", "_UI_LoopConditionType_type"),
 				 Schema1Package.Literals.LOOP_CONDITION_TYPE__COUNTER_INCREMENT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class LoopConditionTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_finalCounter_feature", "_UI_LoopConditionType_type"),
 				 Schema1Package.Literals.LOOP_CONDITION_TYPE__FINAL_COUNTER,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -127,8 +123,6 @@ public class LoopConditionTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LoopConditionType_initialCounter_feature", "_UI_LoopConditionType_type"),
 				 Schema1Package.Literals.LOOP_CONDITION_TYPE__INITIAL_COUNTER,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

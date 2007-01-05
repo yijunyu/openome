@@ -84,8 +84,6 @@ public class CostValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostValue_literalValue_feature", "_UI_CostValue_type"),
 				 Schema1Package.Literals.COST_VALUE__LITERAL_VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,8 +104,6 @@ public class CostValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostValue_currency_feature", "_UI_CostValue_type"),
 				 Schema1Package.Literals.COST_VALUE__CURRENCY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

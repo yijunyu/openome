@@ -2,9 +2,8 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.ibm.wbimodel/src"
-    modelPluginID="com.ibm.wbimodel" modelName="Wbimodeler" importerID="org.eclipse.xsd.ecore.importer">
-  <foreignModel>../../edu.toronto.cs.goalmodel/wbimodeler.xsd</foreignModel>
-  <foreignModel>../../edu.toronto.cs.goalmodel/types.xsd</foreignModel>
+    modelPluginID="com.ibm.wbimodel" modelName="Wbimodeler" importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>schema1.ecore</foreignModel>
   <genPackages prefix="Schema1" basePackage="com.ibm.wbim.bom" resource="XML" disposableProviderFactory="true"
       loadInitialization="true" ecorePackage="schema1.ecore#/">
     <genEnums ecoreEnum="schema1.ecore#//BasicDataType">

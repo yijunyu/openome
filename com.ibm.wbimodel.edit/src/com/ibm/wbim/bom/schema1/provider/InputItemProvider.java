@@ -90,8 +90,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_associatedData_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__ASSOCIATED_DATA,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -112,8 +110,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isOrdered_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__IS_ORDERED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -134,8 +130,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isUnique_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__IS_UNIQUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -156,8 +150,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_maximum_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__MAXIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -178,8 +170,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_minimum_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__MINIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -200,8 +190,6 @@ public class InputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_name_feature", "_UI_Input_type"),
 				 Schema1Package.Literals.INPUT__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

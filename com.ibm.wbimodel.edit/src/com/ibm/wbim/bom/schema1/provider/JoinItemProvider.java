@@ -86,8 +86,6 @@ public class JoinItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Join_description_feature", "_UI_Join_type"),
 				 Schema1Package.Literals.JOIN__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class JoinItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Join_name_feature", "_UI_Join_type"),
 				 Schema1Package.Literals.JOIN__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

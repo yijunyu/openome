@@ -85,8 +85,6 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_startTime_feature", "_UI_RecurringTimeIntervalType_type"),
 				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__START_TIME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -107,8 +105,6 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_duration_feature", "_UI_RecurringTimeIntervalType_type"),
 				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__DURATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -129,8 +125,6 @@ public class RecurringTimeIntervalTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecurringTimeIntervalType_name_feature", "_UI_RecurringTimeIntervalType_type"),
 				 Schema1Package.Literals.RECURRING_TIME_INTERVAL_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

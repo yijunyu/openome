@@ -83,8 +83,6 @@ public class PrivateInstanceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_PrivateInstance_name_feature", "_UI_PrivateInstance_type"),
 				 Schema1Package.Literals.PRIVATE_INSTANCE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

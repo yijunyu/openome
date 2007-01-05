@@ -82,8 +82,6 @@ public class LoopItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Loop_isConditionTestedFirst_feature", "_UI_Loop_type"),
 				 Schema1Package.Literals.LOOP__IS_CONDITION_TESTED_FIRST,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));

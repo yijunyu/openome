@@ -85,8 +85,6 @@ public class CorrelationTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationType_multipleInstancesSatisfyCondition_feature", "_UI_CorrelationType_type"),
 				 Schema1Package.Literals.CORRELATION_TYPE__MULTIPLE_INSTANCES_SATISFY_CONDITION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -107,8 +105,6 @@ public class CorrelationTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CorrelationType_noInstancesSatisfyCondition_feature", "_UI_CorrelationType_type"),
 				 Schema1Package.Literals.CORRELATION_TYPE__NO_INSTANCES_SATISFY_CONDITION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

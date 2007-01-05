@@ -82,8 +82,6 @@ public class OutputPathProbabilityValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputPathProbabilityValue_literalValue_feature", "_UI_OutputPathProbabilityValue_type"),
 				 Schema1Package.Literals.OUTPUT_PATH_PROBABILITY_VALUE__LITERAL_VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));

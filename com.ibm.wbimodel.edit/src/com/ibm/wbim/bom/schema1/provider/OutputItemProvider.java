@@ -88,8 +88,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_associatedData_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__ASSOCIATED_DATA,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -110,8 +108,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_isOrdered_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__IS_ORDERED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -132,8 +128,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_isUnique_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__IS_UNIQUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -154,8 +148,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_maximum_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__MAXIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -176,8 +168,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_minimum_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__MINIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -198,8 +188,6 @@ public class OutputItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Output_name_feature", "_UI_Output_type"),
 				 Schema1Package.Literals.OUTPUT__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

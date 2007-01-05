@@ -82,8 +82,6 @@ public class WhenCostApplicableTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_WhenCostApplicableType_timetable_feature", "_UI_WhenCostApplicableType_type"),
 				 Schema1Package.Literals.WHEN_COST_APPLICABLE_TYPE__TIMETABLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

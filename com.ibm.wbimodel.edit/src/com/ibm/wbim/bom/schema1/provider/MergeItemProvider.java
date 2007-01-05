@@ -86,8 +86,6 @@ public class MergeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Merge_description_feature", "_UI_Merge_type"),
 				 Schema1Package.Literals.MERGE__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class MergeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Merge_name_feature", "_UI_Merge_type"),
 				 Schema1Package.Literals.MERGE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

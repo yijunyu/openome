@@ -81,8 +81,6 @@ public class CostPerQuantityItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostPerQuantity_unit_feature", "_UI_CostPerQuantity_type"),
 				 Schema1Package.Literals.COST_PER_QUANTITY__UNIT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

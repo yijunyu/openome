@@ -83,8 +83,6 @@ public class AdditionalOutputTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AdditionalOutputType_name_feature", "_UI_AdditionalOutputType_type"),
 				 Schema1Package.Literals.ADDITIONAL_OUTPUT_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

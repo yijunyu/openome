@@ -7,5 +7,6 @@
 			<accessrule kind="accessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="/org.sat4j/sat4j.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

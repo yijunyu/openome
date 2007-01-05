@@ -87,8 +87,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_description_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -109,8 +107,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_capacity_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__CAPACITY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -131,8 +127,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_isOrdered_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__IS_ORDERED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -153,8 +147,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_isUnique_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__IS_UNIQUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -175,8 +167,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_name_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -197,8 +187,6 @@ public class LocalRepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepository_type_feature", "_UI_LocalRepository_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY__TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

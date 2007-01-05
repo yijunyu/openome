@@ -82,8 +82,6 @@ public class OrganizationManagerTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OrganizationManagerType_organization_feature", "_UI_OrganizationManagerType_type"),
 				 Schema1Package.Literals.ORGANIZATION_MANAGER_TYPE__ORGANIZATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

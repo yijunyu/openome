@@ -83,8 +83,6 @@ public class ScopeDimensionValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ScopeDimensionValue_value_feature", "_UI_ScopeDimensionValue_type"),
 				 Schema1Package.Literals.SCOPE_DIMENSION_VALUE__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class ScopeDimensionValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ScopeDimensionValue_name_feature", "_UI_ScopeDimensionValue_type"),
 				 Schema1Package.Literals.SCOPE_DIMENSION_VALUE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

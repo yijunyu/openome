@@ -83,8 +83,6 @@ public class AdditionalInputTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AdditionalInputType_name_feature", "_UI_AdditionalInputType_type"),
 				 Schema1Package.Literals.ADDITIONAL_INPUT_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

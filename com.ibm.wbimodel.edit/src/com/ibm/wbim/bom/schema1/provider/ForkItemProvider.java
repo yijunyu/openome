@@ -86,8 +86,6 @@ public class ForkItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Fork_description_feature", "_UI_Fork_type"),
 				 Schema1Package.Literals.FORK__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class ForkItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Fork_name_feature", "_UI_Fork_type"),
 				 Schema1Package.Literals.FORK__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

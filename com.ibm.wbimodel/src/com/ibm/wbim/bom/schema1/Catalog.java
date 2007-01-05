@@ -40,7 +40,7 @@ public interface Catalog extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Catalog</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCatalog_Catalog()
-	 * @model type="com.ibm.wbim.bom.schema1.Catalog" containment="true"
+	 * @model type="com.ibm.wbim.bom.schema1.Catalog" containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='catalog' namespace='##targetNamespace'"
 	 * @generated
 	 */

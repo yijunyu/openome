@@ -86,8 +86,6 @@ public class OutputCriterionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterion_name_feature", "_UI_OutputCriterion_type"),
 				 Schema1Package.Literals.OUTPUT_CRITERION__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class OutputCriterionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterion_type_feature", "_UI_OutputCriterion_type"),
 				 Schema1Package.Literals.OUTPUT_CRITERION__TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

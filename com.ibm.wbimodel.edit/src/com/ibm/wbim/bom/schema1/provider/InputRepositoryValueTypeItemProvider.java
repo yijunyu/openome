@@ -81,8 +81,6 @@ public class InputRepositoryValueTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputRepositoryValueType_input_feature", "_UI_InputRepositoryValueType_type"),
 				 Schema1Package.Literals.INPUT_REPOSITORY_VALUE_TYPE__INPUT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

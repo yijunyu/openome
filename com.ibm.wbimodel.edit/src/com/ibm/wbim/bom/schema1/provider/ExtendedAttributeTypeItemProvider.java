@@ -91,8 +91,6 @@ public class ExtendedAttributeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExtendedAttributeType_name_feature", "_UI_ExtendedAttributeType_type"),
 				 Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -113,8 +111,6 @@ public class ExtendedAttributeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExtendedAttributeType_value_feature", "_UI_ExtendedAttributeType_type"),
 				 Schema1Package.Literals.EXTENDED_ATTRIBUTE_TYPE__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

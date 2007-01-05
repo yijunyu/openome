@@ -88,8 +88,6 @@ public class DecisionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_description_feature", "_UI_Decision_type"),
 				 Schema1Package.Literals.DECISION__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -110,8 +108,6 @@ public class DecisionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_isInclusive_feature", "_UI_Decision_type"),
 				 Schema1Package.Literals.DECISION__IS_INCLUSIVE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -132,8 +128,6 @@ public class DecisionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_isSimpleDecision_feature", "_UI_Decision_type"),
 				 Schema1Package.Literals.DECISION__IS_SIMPLE_DECISION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -154,8 +148,6 @@ public class DecisionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Decision_name_feature", "_UI_Decision_type"),
 				 Schema1Package.Literals.DECISION__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

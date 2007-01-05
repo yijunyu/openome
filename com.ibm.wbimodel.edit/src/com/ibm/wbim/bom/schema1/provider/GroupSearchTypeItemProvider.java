@@ -93,8 +93,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_groupId_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__GROUP_ID,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,8 +113,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_profile_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__PROFILE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -137,8 +133,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_industryType_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__INDUSTRY_TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -159,8 +153,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_businessType_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__BUSINESS_TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -181,8 +173,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_geographicLocation_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__GEOGRAPHIC_LOCATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -203,8 +193,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_affiliates_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__AFFILIATES,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -225,8 +213,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_displayName_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__DISPLAY_NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -247,8 +233,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_secretary_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__SECRETARY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -269,8 +253,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_assistant_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__ASSISTANT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -291,8 +273,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_manager_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__MANAGER,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -313,8 +293,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_businessCategory_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__BUSINESS_CATEGORY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -335,8 +313,6 @@ public class GroupSearchTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GroupSearchType_parentCompany_feature", "_UI_GroupSearchType_type"),
 				 Schema1Package.Literals.GROUP_SEARCH_TYPE__PARENT_COMPANY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

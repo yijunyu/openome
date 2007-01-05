@@ -39,7 +39,7 @@ public interface BulkResourceRequirement extends EObject {
 	 * @return the value of the '<em>Resource Quantity</em>' containment reference.
 	 * @see #setResourceQuantity(Quantity)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBulkResourceRequirement_ResourceQuantity()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="false" required="true"
 	 *        extendedMetaData="kind='element' name='resourceQuantity' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -85,8 +85,6 @@ public class ProcessItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Process_description_feature", "_UI_Process_type"),
 				 Schema1Package.Literals.PROCESS__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -107,8 +105,6 @@ public class ProcessItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Process_name_feature", "_UI_Process_type"),
 				 Schema1Package.Literals.PROCESS__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

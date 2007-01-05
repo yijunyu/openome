@@ -81,8 +81,6 @@ public class OutputRepositoryValueTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValueType_output_feature", "_UI_OutputRepositoryValueType_type"),
 				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE_TYPE__OUTPUT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

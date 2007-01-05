@@ -86,8 +86,6 @@ public class InvocationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Invocation_callSynchronously_feature", "_UI_Invocation_type"),
 				 Schema1Package.Literals.INVOCATION__CALL_SYNCHRONOUSLY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class InvocationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Invocation_name_feature", "_UI_Invocation_type"),
 				 Schema1Package.Literals.INVOCATION__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

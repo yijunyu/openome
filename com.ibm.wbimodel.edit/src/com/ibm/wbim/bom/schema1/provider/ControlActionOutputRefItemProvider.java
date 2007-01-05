@@ -83,8 +83,6 @@ public class ControlActionOutputRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ControlActionOutputRef_name_feature", "_UI_ControlActionOutputRef_type"),
 				 Schema1Package.Literals.CONTROL_ACTION_OUTPUT_REF__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

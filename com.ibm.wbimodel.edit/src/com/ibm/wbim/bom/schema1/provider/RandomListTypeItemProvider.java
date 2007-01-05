@@ -82,8 +82,6 @@ public class RandomListTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RandomListType_value_feature", "_UI_RandomListType_type"),
 				 Schema1Package.Literals.RANDOM_LIST_TYPE__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));

@@ -82,8 +82,6 @@ public class LocationTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocationType_name_feature", "_UI_LocationType_type"),
 				 Schema1Package.Literals.LOCATION_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

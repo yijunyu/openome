@@ -86,8 +86,6 @@ public class ModelTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelType_name_feature", "_UI_ModelType_type"),
 				 Schema1Package.Literals.MODEL_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class ModelTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelType_schemaVersion_feature", "_UI_ModelType_type"),
 				 Schema1Package.Literals.MODEL_TYPE__SCHEMA_VERSION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

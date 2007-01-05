@@ -83,8 +83,6 @@ public class QualificationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Qualification_role_feature", "_UI_Qualification_type"),
 				 Schema1Package.Literals.QUALIFICATION__ROLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

@@ -83,8 +83,6 @@ public class TypeDeclarationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_TypeDeclaration_name_feature", "_UI_TypeDeclaration_type"),
 				 Schema1Package.Literals.TYPE_DECLARATION__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

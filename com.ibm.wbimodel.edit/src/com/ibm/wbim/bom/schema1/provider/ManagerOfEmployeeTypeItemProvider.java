@@ -83,8 +83,6 @@ public class ManagerOfEmployeeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ManagerOfEmployeeType_name_feature", "_UI_ManagerOfEmployeeType_type"),
 				 Schema1Package.Literals.MANAGER_OF_EMPLOYEE_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class ManagerOfEmployeeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ManagerOfEmployeeType_domain_feature", "_UI_ManagerOfEmployeeType_type"),
 				 Schema1Package.Literals.MANAGER_OF_EMPLOYEE_TYPE__DOMAIN,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

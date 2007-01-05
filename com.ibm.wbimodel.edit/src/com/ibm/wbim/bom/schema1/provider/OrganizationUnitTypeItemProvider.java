@@ -82,8 +82,6 @@ public class OrganizationUnitTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OrganizationUnitType_name_feature", "_UI_OrganizationUnitType_type"),
 				 Schema1Package.Literals.ORGANIZATION_UNIT_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

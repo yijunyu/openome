@@ -83,8 +83,6 @@ public class ValueTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_value_feature", "_UI_ValueType_type"),
 				 Schema1Package.Literals.VALUE_TYPE__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class ValueTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ValueType_probability_feature", "_UI_ValueType_type"),
 				 Schema1Package.Literals.VALUE_TYPE__PROBABILITY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));

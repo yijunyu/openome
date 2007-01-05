@@ -89,8 +89,6 @@ public class RoleItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Role_documentation_feature", "_UI_Role_type"),
 				 Schema1Package.Literals.ROLE__DOCUMENTATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -111,8 +109,6 @@ public class RoleItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Role_name_feature", "_UI_Role_type"),
 				 Schema1Package.Literals.ROLE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

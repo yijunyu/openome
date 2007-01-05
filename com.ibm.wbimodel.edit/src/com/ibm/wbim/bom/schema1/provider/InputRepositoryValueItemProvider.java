@@ -86,8 +86,6 @@ public class InputRepositoryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputRepositoryValue_atBeginning_feature", "_UI_InputRepositoryValue_type"),
 				 Schema1Package.Literals.INPUT_REPOSITORY_VALUE__AT_BEGINNING,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class InputRepositoryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputRepositoryValue_isRemove_feature", "_UI_InputRepositoryValue_type"),
 				 Schema1Package.Literals.INPUT_REPOSITORY_VALUE__IS_REMOVE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));

@@ -81,8 +81,6 @@ public class InputConstantValueTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputConstantValueType_input_feature", "_UI_InputConstantValueType_type"),
 				 Schema1Package.Literals.INPUT_CONSTANT_VALUE_TYPE__INPUT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

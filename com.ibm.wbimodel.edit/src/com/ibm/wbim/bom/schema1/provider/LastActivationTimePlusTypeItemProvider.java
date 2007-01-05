@@ -82,8 +82,6 @@ public class LastActivationTimePlusTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LastActivationTimePlusType_duration_feature", "_UI_LastActivationTimePlusType_type"),
 				 Schema1Package.Literals.LAST_ACTIVATION_TIME_PLUS_TYPE__DURATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

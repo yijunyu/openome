@@ -83,8 +83,6 @@ public class InputBranchItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputBranch_name_feature", "_UI_InputBranch_type"),
 				 Schema1Package.Literals.INPUT_BRANCH__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

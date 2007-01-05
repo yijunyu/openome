@@ -86,8 +86,6 @@ public class AttributeValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_literalValue_feature", "_UI_AttributeValue_type"),
 				 Schema1Package.Literals.ATTRIBUTE_VALUE__LITERAL_VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class AttributeValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeValue_attribute_feature", "_UI_AttributeValue_type"),
 				 Schema1Package.Literals.ATTRIBUTE_VALUE__ATTRIBUTE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

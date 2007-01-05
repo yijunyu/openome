@@ -82,8 +82,6 @@ public class BasedOnTimetableTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_BasedOnTimetableType_timetable_feature", "_UI_BasedOnTimetableType_type"),
 				 Schema1Package.Literals.BASED_ON_TIMETABLE_TYPE__TIMETABLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

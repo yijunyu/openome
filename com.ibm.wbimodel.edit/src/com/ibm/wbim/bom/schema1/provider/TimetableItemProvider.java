@@ -89,8 +89,6 @@ public class TimetableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_documentation_feature", "_UI_Timetable_type"),
 				 Schema1Package.Literals.TIMETABLE__DOCUMENTATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -111,8 +109,6 @@ public class TimetableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_beginingOn_feature", "_UI_Timetable_type"),
 				 Schema1Package.Literals.TIMETABLE__BEGINING_ON,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -133,8 +129,6 @@ public class TimetableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_name_feature", "_UI_Timetable_type"),
 				 Schema1Package.Literals.TIMETABLE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -155,8 +149,6 @@ public class TimetableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_numberOfTimesToRepeat_feature", "_UI_Timetable_type"),
 				 Schema1Package.Literals.TIMETABLE__NUMBER_OF_TIMES_TO_REPEAT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -177,8 +169,6 @@ public class TimetableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Timetable_repetitionPeriod_feature", "_UI_Timetable_type"),
 				 Schema1Package.Literals.TIMETABLE__REPETITION_PERIOD,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

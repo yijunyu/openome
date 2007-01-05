@@ -82,8 +82,6 @@ public class OutputRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRef_name_feature", "_UI_OutputRef_type"),
 				 Schema1Package.Literals.OUTPUT_REF__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

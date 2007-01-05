@@ -85,8 +85,6 @@ public class RepositoryDataValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryDataValue_literalValue_feature", "_UI_RepositoryDataValue_type"),
 				 Schema1Package.Literals.REPOSITORY_DATA_VALUE__LITERAL_VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

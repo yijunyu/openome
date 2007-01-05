@@ -84,8 +84,6 @@ public class IndividualResourceRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_individualResource_feature", "_UI_IndividualResourceRequirement_type"),
 				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__INDIVIDUAL_RESOURCE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -106,8 +104,6 @@ public class IndividualResourceRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_name_feature", "_UI_IndividualResourceRequirement_type"),
 				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -128,8 +124,6 @@ public class IndividualResourceRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_IndividualResourceRequirement_timeRequired_feature", "_UI_IndividualResourceRequirement_type"),
 				 Schema1Package.Literals.INDIVIDUAL_RESOURCE_REQUIREMENT__TIME_REQUIRED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

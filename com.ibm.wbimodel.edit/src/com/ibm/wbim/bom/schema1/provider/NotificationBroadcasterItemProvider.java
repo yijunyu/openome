@@ -82,8 +82,6 @@ public class NotificationBroadcasterItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationBroadcaster_notification_feature", "_UI_NotificationBroadcaster_type"),
 				 Schema1Package.Literals.NOTIFICATION_BROADCASTER__NOTIFICATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -104,8 +102,6 @@ public class NotificationBroadcasterItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NotificationBroadcaster_scope_feature", "_UI_NotificationBroadcaster_type"),
 				 Schema1Package.Literals.NOTIFICATION_BROADCASTER__SCOPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

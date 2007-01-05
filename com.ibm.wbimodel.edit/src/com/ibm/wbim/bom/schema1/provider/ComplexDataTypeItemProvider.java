@@ -86,8 +86,6 @@ public class ComplexDataTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataType_documentation_feature", "_UI_ComplexDataType_type"),
 				 Schema1Package.Literals.COMPLEX_DATA_TYPE__DOCUMENTATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class ComplexDataTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataType_parentTemplate_feature", "_UI_ComplexDataType_type"),
 				 Schema1Package.Literals.COMPLEX_DATA_TYPE__PARENT_TEMPLATE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

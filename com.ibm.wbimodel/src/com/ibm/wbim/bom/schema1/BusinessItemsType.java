@@ -38,7 +38,7 @@ public interface BusinessItemsType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Business Item</em>' containment reference list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getBusinessItemsType_BusinessItem()
-	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" required="true"
+	 * @model type="com.ibm.wbim.bom.schema1.TypeDeclaration" containment="true" resolveProxies="false" required="true"
 	 *        extendedMetaData="kind='element' name='businessItem' namespace='##targetNamespace'"
 	 * @generated
 	 */

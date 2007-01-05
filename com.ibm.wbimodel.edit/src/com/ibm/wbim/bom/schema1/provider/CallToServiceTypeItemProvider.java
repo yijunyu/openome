@@ -81,8 +81,6 @@ public class CallToServiceTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallToServiceType_service_feature", "_UI_CallToServiceType_type"),
 				 Schema1Package.Literals.CALL_TO_SERVICE_TYPE__SERVICE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

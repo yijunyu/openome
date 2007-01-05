@@ -82,8 +82,6 @@ public class ExemptionPeriodTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExemptionPeriodType_timetable_feature", "_UI_ExemptionPeriodType_type"),
 				 Schema1Package.Literals.EXEMPTION_PERIOD_TYPE__TIMETABLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

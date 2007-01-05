@@ -87,8 +87,6 @@ public class ComplexDataTypeInstanceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_documentation_feature", "_UI_ComplexDataTypeInstance_type"),
 				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__DOCUMENTATION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -109,8 +107,6 @@ public class ComplexDataTypeInstanceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_instanceOf_feature", "_UI_ComplexDataTypeInstance_type"),
 				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__INSTANCE_OF,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -131,8 +127,6 @@ public class ComplexDataTypeInstanceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexDataTypeInstance_name_feature", "_UI_ComplexDataTypeInstance_type"),
 				 Schema1Package.Literals.COMPLEX_DATA_TYPE_INSTANCE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

@@ -82,8 +82,6 @@ public class EndNodeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EndNodeType_name_feature", "_UI_EndNodeType_type"),
 				 Schema1Package.Literals.END_NODE_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

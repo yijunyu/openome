@@ -82,8 +82,6 @@ public class EntryPointTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EntryPointType_inputCriterion_feature", "_UI_EntryPointType_type"),
 				 Schema1Package.Literals.ENTRY_POINT_TYPE__INPUT_CRITERION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

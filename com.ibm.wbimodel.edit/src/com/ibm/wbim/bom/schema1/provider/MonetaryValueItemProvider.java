@@ -83,8 +83,6 @@ public class MonetaryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_MonetaryValue_value_feature", "_UI_MonetaryValue_type"),
 				 Schema1Package.Literals.MONETARY_VALUE__VALUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class MonetaryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_MonetaryValue_currency_feature", "_UI_MonetaryValue_type"),
 				 Schema1Package.Literals.MONETARY_VALUE__CURRENCY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

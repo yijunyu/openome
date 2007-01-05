@@ -82,8 +82,6 @@ public class DistributionType1ItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionType1_timeUnit_feature", "_UI_DistributionType1_type"),
 				 Schema1Package.Literals.DISTRIBUTION_TYPE1__TIME_UNIT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

@@ -82,8 +82,6 @@ public class ConstantTimeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ConstantTimeType_time_feature", "_UI_ConstantTimeType_type"),
 				 Schema1Package.Literals.CONSTANT_TIME_TYPE__TIME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

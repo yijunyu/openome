@@ -151,7 +151,6 @@ public class Schema1ActionBarContributor
 	 * @generated
 	 */
 	public Schema1ActionBarContributor() {
-		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
 		controlAction = new ControlAction();
@@ -384,11 +383,11 @@ public class Schema1ActionBarContributor
 
 		submenuManager = new MenuManager(WbimodelerEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("additions", submenuManager);
 
 		submenuManager = new MenuManager(WbimodelerEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("additions", submenuManager);
 	}
 
 	/**

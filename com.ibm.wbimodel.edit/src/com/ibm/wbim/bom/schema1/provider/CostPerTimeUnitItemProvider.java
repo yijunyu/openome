@@ -81,8 +81,6 @@ public class CostPerTimeUnitItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CostPerTimeUnit_timeUnit_feature", "_UI_CostPerTimeUnit_type"),
 				 Schema1Package.Literals.COST_PER_TIME_UNIT__TIME_UNIT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

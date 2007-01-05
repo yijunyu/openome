@@ -82,8 +82,6 @@ public class AnnotatedNodeTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotatedNodeType_name_feature", "_UI_AnnotatedNodeType_type"),
 				 Schema1Package.Literals.ANNOTATED_NODE_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

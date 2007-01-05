@@ -82,8 +82,6 @@ public class ObserverItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Observer_isObserveContinuously_feature", "_UI_Observer_type"),
 				 Schema1Package.Literals.OBSERVER__IS_OBSERVE_CONTINUOUSLY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));

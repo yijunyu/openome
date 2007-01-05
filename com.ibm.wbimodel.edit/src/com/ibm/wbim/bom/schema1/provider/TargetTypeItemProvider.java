@@ -83,8 +83,6 @@ public class TargetTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_TargetType_contactPoint_feature", "_UI_TargetType_type"),
 				 Schema1Package.Literals.TARGET_TYPE__CONTACT_POINT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -105,8 +103,6 @@ public class TargetTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_TargetType_node_feature", "_UI_TargetType_type"),
 				 Schema1Package.Literals.TARGET_TYPE__NODE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

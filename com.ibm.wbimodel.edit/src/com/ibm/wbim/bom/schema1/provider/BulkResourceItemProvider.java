@@ -87,8 +87,6 @@ public class BulkResourceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_BulkResource_isConsumable_feature", "_UI_BulkResource_type"),
 				 Schema1Package.Literals.BULK_RESOURCE__IS_CONSUMABLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));

@@ -82,8 +82,6 @@ public class InputTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputType_name_feature", "_UI_InputType_type"),
 				 Schema1Package.Literals.INPUT_TYPE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

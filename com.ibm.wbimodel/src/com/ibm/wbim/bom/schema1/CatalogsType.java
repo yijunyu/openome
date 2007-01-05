@@ -39,7 +39,7 @@ public interface CatalogsType extends EObject {
 	 * @return the value of the '<em>Data Catalogs</em>' containment reference.
 	 * @see #setDataCatalogs(Catalogs)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCatalogsType_DataCatalogs()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='dataCatalogs' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -66,7 +66,7 @@ public interface CatalogsType extends EObject {
 	 * @return the value of the '<em>Resource Catalogs</em>' containment reference.
 	 * @see #setResourceCatalogs(Catalogs)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCatalogsType_ResourceCatalogs()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='resourceCatalogs' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -93,7 +93,7 @@ public interface CatalogsType extends EObject {
 	 * @return the value of the '<em>Organization Catalogs</em>' containment reference.
 	 * @see #setOrganizationCatalogs(Catalogs)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCatalogsType_OrganizationCatalogs()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='organizationCatalogs' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -120,7 +120,7 @@ public interface CatalogsType extends EObject {
 	 * @return the value of the '<em>Process Catalogs</em>' containment reference.
 	 * @see #setProcessCatalogs(Catalogs)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCatalogsType_ProcessCatalogs()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="false"
 	 *        extendedMetaData="kind='element' name='processCatalogs' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -82,8 +82,6 @@ public class LocalRepositoryRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalRepositoryRef_name_feature", "_UI_LocalRepositoryRef_type"),
 				 Schema1Package.Literals.LOCAL_REPOSITORY_REF__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

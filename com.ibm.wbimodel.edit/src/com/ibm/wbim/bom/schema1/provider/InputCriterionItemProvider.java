@@ -85,8 +85,6 @@ public class InputCriterionItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_InputCriterion_name_feature", "_UI_InputCriterion_type"),
 				 Schema1Package.Literals.INPUT_CRITERION__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

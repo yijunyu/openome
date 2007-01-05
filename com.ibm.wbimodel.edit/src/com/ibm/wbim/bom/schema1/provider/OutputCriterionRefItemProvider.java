@@ -82,8 +82,6 @@ public class OutputCriterionRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputCriterionRef_name_feature", "_UI_OutputCriterionRef_type"),
 				 Schema1Package.Literals.OUTPUT_CRITERION_REF__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

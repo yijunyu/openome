@@ -82,8 +82,6 @@ public class GlobalRepositoryRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalRepositoryRef_name_feature", "_UI_GlobalRepositoryRef_type"),
 				 Schema1Package.Literals.GLOBAL_REPOSITORY_REF__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

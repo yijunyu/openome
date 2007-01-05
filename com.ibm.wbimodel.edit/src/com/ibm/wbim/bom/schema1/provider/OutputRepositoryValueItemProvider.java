@@ -86,8 +86,6 @@ public class OutputRepositoryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValue_atBeginning_feature", "_UI_OutputRepositoryValue_type"),
 				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__AT_BEGINNING,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class OutputRepositoryValueItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_OutputRepositoryValue_isInsert_feature", "_UI_OutputRepositoryValue_type"),
 				 Schema1Package.Literals.OUTPUT_REPOSITORY_VALUE__IS_INSERT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));

@@ -81,8 +81,6 @@ public class CallToTaskTypeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallToTaskType_task_feature", "_UI_CallToTaskType_type"),
 				 Schema1Package.Literals.CALL_TO_TASK_TYPE__TASK,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

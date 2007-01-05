@@ -93,8 +93,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_description_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -115,8 +113,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isOrdered_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__IS_ORDERED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -137,8 +133,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isReadOnly_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__IS_READ_ONLY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -159,8 +153,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isStatic_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__IS_STATIC,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -181,8 +173,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isUnique_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__IS_UNIQUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -203,8 +193,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_maximum_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__MAXIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -225,8 +213,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_minimum_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__MINIMUM,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -247,8 +233,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -269,8 +253,6 @@ public class AttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
 				 Schema1Package.Literals.ATTRIBUTE__TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

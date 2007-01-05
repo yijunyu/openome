@@ -83,8 +83,6 @@ public class AnnotationItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Annotation_annotationText_feature", "_UI_Annotation_type"),
 				 Schema1Package.Literals.ANNOTATION__ANNOTATION_TEXT,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

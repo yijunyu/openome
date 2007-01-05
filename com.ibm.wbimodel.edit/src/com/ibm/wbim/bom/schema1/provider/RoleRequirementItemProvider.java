@@ -86,8 +86,6 @@ public class RoleRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_name_feature", "_UI_RoleRequirement_type"),
 				 Schema1Package.Literals.ROLE_REQUIREMENT__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -108,8 +106,6 @@ public class RoleRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_role_feature", "_UI_RoleRequirement_type"),
 				 Schema1Package.Literals.ROLE_REQUIREMENT__ROLE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -130,8 +126,6 @@ public class RoleRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_timeRequired_feature", "_UI_RoleRequirement_type"),
 				 Schema1Package.Literals.ROLE_REQUIREMENT__TIME_REQUIRED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -152,8 +146,6 @@ public class RoleRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_RoleRequirement_type_feature", "_UI_RoleRequirement_type"),
 				 Schema1Package.Literals.ROLE_REQUIREMENT__TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));

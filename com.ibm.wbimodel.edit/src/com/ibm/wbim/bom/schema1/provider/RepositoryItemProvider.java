@@ -91,8 +91,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_description_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__DESCRIPTION,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -113,8 +111,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_capacity_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__CAPACITY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -135,8 +131,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isOrdered_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__IS_ORDERED,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -157,8 +151,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isReadOnly_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__IS_READ_ONLY,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -179,8 +171,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_isUnique_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__IS_UNIQUE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
@@ -201,8 +191,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_name_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__NAME,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
@@ -223,8 +211,6 @@ public class RepositoryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_type_feature", "_UI_Repository_type"),
 				 Schema1Package.Literals.REPOSITORY__TYPE,
 				 true,
-				 false,
-				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
