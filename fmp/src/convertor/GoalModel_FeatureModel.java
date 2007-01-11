@@ -74,7 +74,7 @@ public class GoalModel_FeatureModel extends GoalModelLoader {
 	public void simpleOutputGoal(goal curGoal) {
 		String goalName = curGoal.getName();
 		if (curGoal==null) return;
-		if (curGoal.getMode()!=ModeType.HARD_LITERAL) {
+		if (curGoal.getMode()!=ModeType.HARD_LITERAL && curGoal.getMode()!=ModeType.TASK_LITERAL  ) {
 			// TODO: softgoal 
 			return;
 		}
