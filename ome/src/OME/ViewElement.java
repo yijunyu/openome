@@ -26,12 +26,11 @@ public interface ViewElement extends OMEElement, ViewObject {
     /** Returns true iff the element is expanded in the view. */
     public boolean isExpanded();
 
-    /** Moves the element to a given point in the view.  (Olny makes sensein a
-     * Graphic View). */
- 
+     
     public boolean isHidden();
 
-  
+    /** Moves the element to a given point in the view.  (Only makes sense in a
+     * Graphic View). */
     public void moveTo(Point p);
 
     /** Moves the element to a position in the view relative to its current

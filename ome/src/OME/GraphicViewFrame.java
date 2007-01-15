@@ -33,26 +33,26 @@ import javax.swing.UIManager;
  *  @see ScrollingPanel
  *  @see OME
  */
-class GraphicViewFrame extends JFrame /*implements WindowListner*/{
+class GraphicViewFrame extends JFrame {
  
 // single view:
-    ScrollingPanel scrollpanel;
+    protected ScrollingPanel scrollpanel;
 
     
 //    JDesktopPane mainpanel = new JDesktopPane();
 //    JPanel mainpanel1 = new JPanel();
-    JMenuBar menuBar;
-    JPanel toolbarpanel;
-    Collection toolbars;
-    GraphicViewCanvas gvc;
+    protected JMenuBar menuBar;
+    protected JPanel toolbarpanel;
+    protected Collection toolbars;
+    protected GraphicViewCanvas gvc;
 //    JInternalFrame [] upperpanel= new JInternalFrame[10];
 //    JSplitPane splitPane, splitPane1;
 //    int index = 0;
     GraphicViewStatusBar statusBar;
     // This stores the absolute path of the model opened up in this Frame.
-    String path;
+    protected String path;
     //This stores the absolute path of the .png files.
-    String exportpath;
+    protected String exportpath;
 //    private Collection plugins;
  
     
@@ -60,7 +60,7 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
     
     /** The status bar that sits at the bottom of the GraphicViewFrame.
      */
-    class GraphicViewStatusBar extends JPanel {
+    protected class GraphicViewStatusBar extends JPanel {
 	
 	JLabel label;
 	
@@ -88,8 +88,15 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
 	    // Use a space, otherwise the status bar will shrink.
 	    label.setText(" ");
 	}
+
     }
     
+
+    public GraphicViewFrame() {
+	super();
+    }
+
+
     /** Constructs the frame window.
      *
      *  @param gv    in the case of opening an existing graph view, gv would be
@@ -98,6 +105,7 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
      *  @param size  the size of gv. If gv is null, size should be 0.
      *  @param ome   the main window object.
      */
+
 //    GraphicViewFrame(int size, ViewManager gvm, OME ome, String path) {
     GraphicViewFrame(int size, GraphicView gv, OME ome, String title) {
 	super();
@@ -116,10 +124,10 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
 	setTitle(path);
 	
 	setContentPane(mainpanel);
-		
+	
 	menuBar = createMenuBar();
 	setJMenuBar(menuBar);
-
+	
 	mainpanel.setLayout(new BorderLayout());
 	mainpanel.putClientProperty("JDesktopPane.dragMode", "outline");
 
@@ -168,15 +176,16 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
 
 	menuBar = createMenuBar();
 	mainpanel.setLayout(new BorderLayout());
-	mainpanel.add(menuBar,BorderLayout.NORTH);	
+	mainpanel.add(menuBar,BorderLayout.NORTH);
 	JPanel upperpanel = new JPanel();
 	upperpanel.setLayout(new BorderLayout());
 	
-	// Set up the place for toolbars to go.
+	    // Set up the place for toolbars to go.
 	toolbarpanel = new JPanel();
 	toolbars = new Vector();
 	toolbarpanel.setLayout(new BoxLayout(toolbarpanel,BoxLayout.Y_AXIS));
-	upperpanel.add(toolbarpanel, BorderLayout.NORTH);		
+	upperpanel.add(toolbarpanel, BorderLayout.NORTH);
+			
 	
 	gvc = new GraphicViewCanvas(menuBar, gv, ome, this);
     	scrollpanel = new ScrollingPanel(gv, this, gvc);
@@ -351,9 +360,11 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
 		JOptionPane.YES_NO_CANCEL_OPTION,
 		JOptionPane.QUESTION_MESSAGE, null, options,
 		options[1]);
+
+		    
 	// Setting to the default option to options[1] doesn't work.
 	// Rather frustrating...
-    
+    	
 	switch (option) {
 	    case JOptionPane.YES_OPTION: 
 	    {
@@ -493,7 +504,7 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
   */
       
     /** The windows event listener for <code> GraphicViewFrame </code>. */
-    class GVFWindowListener extends WindowAdapter {
+    protected class GVFWindowListener extends WindowAdapter {
 
 	private PluginMethod method;
 	
@@ -519,7 +530,7 @@ class GraphicViewFrame extends JFrame /*implements WindowListner*/{
 
     /** The component listener ensures that the toolbars are reset when the
      *  window is resized. */
-    private class GVFComponentAdapter extends ComponentAdapter {
+    protected class GVFComponentAdapter extends ComponentAdapter {
 	
 	// Check if changes have been made to the view (model?), and
 	// prompt the user to save.  Then close the window.

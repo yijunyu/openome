@@ -1,6 +1,4 @@
 package OME;
-
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -27,6 +25,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+/** @version May, 2003 
+  */
 /** This class implements the NFR Evaluation procedure described in section
  *  3.3 of the NFR book. */
 public class NFRPropogator {
@@ -36,8 +36,8 @@ public class NFRPropogator {
     private Map evaluationcatalogue;	// This should really be statically
 					// defined.
 
-    private LinkedList weakbag;
-    private LinkedList nonweakbag;
+    private LinkedList weakbag;         // The collection of weak impacts
+    private LinkedList nonweakbag;      // The collection of non-weak impacts
     
     // The contribution label type: denied.
     // A contribution can either be denied, or not denied.  If it is not
@@ -62,8 +62,6 @@ public class NFRPropogator {
     private Object somepluslink;
     private Object makelink;
     private Object equalslink;
-//    private Object andlink;
-//    private Object orlink;
     private Object singleconttypes[];
 
     // The Correlation types;
@@ -91,7 +89,7 @@ public class NFRPropogator {
 	this.view = view;
 	
 	if (evaluationcatalogue == null) {
-	    // Construct evaluation catalogue (Table 3.2)
+	    // Construct evaluation catalogue (Table 3.2 on NFR book)
 	    evaluationcatalogue = new HashMap();
 
 	    // NOTE:  method convertCorrelationType relies on singleconttypes
@@ -107,8 +105,6 @@ public class NFRPropogator {
 	    somepluslink = fw.getType("NFR Some +");
 	    makelink = fw.getType("NFR Make");
 	    equalslink = fw.getType("NFR Equal");
-//	    andlink = fw.getType("NFR And");
-//	    orlink = fw.getType("NFR Or");
 
 	    Object singleconttypesarray[] = {breaklink, someminuslink,
 		hurtlink, unknownlink, helplink, somepluslink, makelink,
@@ -151,8 +147,6 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(denied,somepluslink),weakminus);
 	    evaluationcatalogue.put(new Pair(denied,makelink),denied);
 	    evaluationcatalogue.put(new Pair(denied,equalslink),denied);
-//	    evaluationcatalogue.put(new Pair(denied,andlink),denied);
-//	    evaluationcatalogue.put(new Pair(denied,orlink),undecided);
 	    
 	    // Conflict Row
 	    evaluationcatalogue.put(new Pair(conflict,breaklink),conflict);
@@ -163,9 +157,6 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(conflict,somepluslink),conflict);
 	    evaluationcatalogue.put(new Pair(conflict,makelink),conflict);
 	    evaluationcatalogue.put(new Pair(conflict,equalslink),conflict);
-//	    evaluationcatalogue.put(new Pair(conflict,andlink),conflict);
-//	    evaluationcatalogue.put(new Pair(conflict,orlink),conflict);
-
 
 	    // Undecided Row
 	    evaluationcatalogue.put(new Pair(undecided,breaklink),undecided);
@@ -176,8 +167,6 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(undecided,somepluslink),undecided);
 	    evaluationcatalogue.put(new Pair(undecided,makelink),undecided);
 	    evaluationcatalogue.put(new Pair(undecided,equalslink),undecided);
-//	    evaluationcatalogue.put(new Pair(undecided,andlink),undecided);
-//	    evaluationcatalogue.put(new Pair(undecided,orlink),undecided);
 	    
 	    // Satisficed Row
 	    evaluationcatalogue.put(new Pair(satisficed,breaklink),denied);
@@ -188,9 +177,7 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(satisficed,somepluslink),weakplus);
 	    evaluationcatalogue.put(new Pair(satisficed,makelink),satisficed);
 	    evaluationcatalogue.put(new Pair(satisficed,equalslink),satisficed);
-//	    evaluationcatalogue.put(new Pair(satisficed,andlink),undecided);
-//	    evaluationcatalogue.put(new Pair(satisficed,orlink),satisficed);
-	    
+
 	    // We also need to consider weaker inputs.
 
 	    // WeakSatisficed Row
@@ -202,9 +189,7 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(weakplus,somepluslink),weakplus);
 	    evaluationcatalogue.put(new Pair(weakplus,makelink),weakplus);
 	    evaluationcatalogue.put(new Pair(weakplus,equalslink),weakplus);
-//	    evaluationcatalogue.put(new Pair(weakplus,andlink),undecided);
-//	    evaluationcatalogue.put(new Pair(weakplus,orlink),weakplus);	    
-
+  
 	    // WeakDenied Row
 	    evaluationcatalogue.put(new Pair(weakminus,breaklink),weakplus);
 	    evaluationcatalogue.put(new Pair(weakminus,someminuslink),weakplus);
@@ -214,8 +199,6 @@ public class NFRPropogator {
 	    evaluationcatalogue.put(new Pair(weakminus,somepluslink),weakminus);
 	    evaluationcatalogue.put(new Pair(weakminus,makelink),weakminus);
 	    evaluationcatalogue.put(new Pair(weakminus,equalslink),weakminus);
-//	    evaluationcatalogue.put(new Pair(weakminus,orlink),undecided);
-//	    evaluationcatalogue.put(new Pair(weakminus,andlink),weakminus); 
 	}
 
 	if (label2value == null) {
@@ -253,14 +236,14 @@ public class NFRPropogator {
 	}
 
 	// And do the initial startup.
-	ModelObject current = (ModelObject)dequeue(queue, isinqueue);
+	ModelObject current = (ModelObject)dequeue(queue, isinqueue); //Here current is the parent
 	if (current != null) {
 	    nfrp=new NFRPropogator(current,view);
 	}
 
 	while (current != null) {
 	    Object oldlabel = getLabel(current);
-	    if (nfrp.resolve()) {
+	    if (nfrp.resolve()) {  //Here, mo for the nfrp is "current"
 		// if current's label changed as a result of the evaluation,
 		// then his impact on his parents may have changed, and they
 		// should be added to the queue.
@@ -352,17 +335,14 @@ public class NFRPropogator {
 	//Modified by Linda to treat "and" nodes and "or" nodes seperately.
 	i = andoffspring.iterator(); 
 	
-	//i = getOffspring();
-	
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
 	    ModelObject off = (ModelObject)p.first;
 	    ModelLink link = (ModelLink)p.second;
 	    D.o("2. the pair is: offspring--"+off.getName() +" link-- "+link.getName());
 	    ModelAttribute label = off.getAttribute("label");
-	    //if ((label == null || label.getTarget() == null) &&
-	    //    !isDeniedLink(link)) 
-	    if (label == null || label.getTarget() == null){
+	     
+	    if (label == null || label.getTarget() == null){  //one AndOffspring unlabelled
 		return continuepropogation;
 	    }
 	}
@@ -377,7 +357,8 @@ public class NFRPropogator {
 	if (orimpact != null) {
 	    bag.add(getOrImpact(oroffspring));
 	}
-	// And the single contributions.
+
+	// Add the single contributions.
 	i = singleoffspring.iterator();
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
@@ -407,32 +388,17 @@ public class NFRPropogator {
 	    }
 	}
 	
+
 	// Show dialog that enables user to select a label for mo. 
 	JDialog bagdialog = new
 	    bagDialog(weakbag.iterator(),nonweakbag.iterator());
 	view.showDialog(bagdialog);
 
 	return continuepropogation;
-	/*
-	if (continuepropogation) {
-	    // Find mo's parents.
-	    ModelObject parent;
-	    i = modelobject.getLinks();
-	    while (i.hasNext()) {
-		ModelLink ml = (ModelLink)i.next();
-		if (ml.getFrom() == modelobject) {
-		    parent = (ModelObject)ml.getTo();
-		    NFRPropogator p = 
-			    new NFRPropogator(parent,view);
-		    p.evaluate();
-		}
-	    }
-	}
-	*/
     }
 
-    /** Returns true if the ModelLink containted in the second field of the
-     *  Pair is not denied. No other checking is performed. */
+    /** Returns true if the ModelLink contained in the second field of the
+     *  Pair is denied. No other checking is performed. */
     private boolean isDeniedLink(ModelLink ml) {
 	ModelAttribute ma = ml.getAttribute("label");
 	if (ma != null) {
@@ -467,11 +433,13 @@ public class NFRPropogator {
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
 	    Object currtype = getLabel((ModelObject)p.first);
+
 	    Integer currtypevalue;
 	    if(currtype!=null){
 		currtypevalue = (Integer)label2value.get(currtype);
-	    } else {
+	    } else { //unlabelled OrOffspring as "undecided"
 		currtypevalue = new Integer(1); //Linda add this line
+                currtype = undecided; //Yue add
 	    }
 	    if (maxtype==null) {
 		maxtype=currtype;
@@ -491,7 +459,9 @@ public class NFRPropogator {
 
     
     /** Determines the individual impact made from a set of offspring with an
-     * "and" contribution. */
+      * "and" contribution. 
+      * Precondition: all the andoffsprings in the collection are labelled
+      */
     private Impact getAndImpact(Collection andoffspring) {
 	Object mintype = null;
 	Integer mintypevalue = new Integer(MIN_LABEL_VALUE);
@@ -499,6 +469,7 @@ public class NFRPropogator {
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
 	    Object currtype = getLabel((ModelObject)p.first);
+            // currtype != null
 	    Integer currtypevalue = (Integer)label2value.get(currtype);
 	    if (mintype==null) {
 		mintype=currtype;
@@ -529,7 +500,7 @@ public class NFRPropogator {
 	    modelobject.getModel().getFramework().getType("NFR And");
     }
 
-    /** Returns true iff ml is one the NFRCorrelation links.*/
+    /** Returns true iff ml is one of the NFRCorrelation links.*/
     private boolean isNFRCorrelation(ModelLink ml) {
 	Object type = ml.getType();
 	for (int i = 0; i<correlationtypes.length; i++) {
@@ -544,8 +515,7 @@ public class NFRPropogator {
 	for (int i = 0; i<singleconttypes.length; i++) {
 	    if (type == singleconttypes[i]) return true;
 	}
-	//return false;
-
+	
 	//We want the propogator to see correlation links as being the same as
 	//their contribution counterparts.
 	return isNFRCorrelation(ml);
@@ -612,7 +582,7 @@ public class NFRPropogator {
 	continuepropogation = b;
     }
 
-    /** Sets mo's label to type. */
+    /** Sets mo's label to target. */
     private void setLabel(Object target) {
 	ModelAttribute ma = modelobject.getAttribute("label");
 	if (ma.getTarget()!=target) {
@@ -652,7 +622,7 @@ public class NFRPropogator {
 	Iterator i = bag.iterator();
 	while (i.hasNext()) {
 	    Impact im = (Impact)i.next();
-	    if (Math.abs(minval) >
+            if (Math.abs(minval) >
 		    ((Integer)label2value.get(im.getType())).intValue()) {
 //		minimpacts.clear();
 		minimpacts.add(im);
@@ -663,11 +633,12 @@ public class NFRPropogator {
 	    }
 	}
 	
-	// Now we check to see if all of our minimum impacts ar ethe same.
+	// Now we check to see if all of our minimum impacts are the same.
 	// If not we have a conflict.
 	i = minimpacts.iterator();
 	Object type=null;
 	while (i.hasNext()) {
+
 	    Impact im = (Impact)i.next();
 	    if (type == null) {
 		type = im.getType();
@@ -916,7 +887,9 @@ public class NFRPropogator {
 	    LinkedList wholebag = new LinkedList();
 	    wholebag.addAll(weakbag);
 	    wholebag.addAll(nonweakbag);
+            
 	    Object rectype = getRecommendedLabel(wholebag);
+            D.o("Rectype is" + rectype);
 
 	    // Make our panel.
 	    JPanel recpanel = new JPanel();

@@ -9,6 +9,8 @@ package OME;
 
 import java.util.Iterator;
 
+import jtelos.Attribute;
+
 
 /** ModelAttributes represent reference-type attributes on ModelObjects. An
   * attribute maps a name to a target (separate distinct object) within the kb.
@@ -38,5 +40,5 @@ public interface ModelAttribute {
       * iterator if such a construction is not feasible. 
       */
     public Iterator getPossibleTargets();
-    
+    public Attribute getAttribute();
 }

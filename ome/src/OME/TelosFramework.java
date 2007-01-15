@@ -67,7 +67,7 @@ class TelosFramework implements OMEFramework, TelosFunctionality {
 	Iterator i = getAllTypes();
 	while (i.hasNext()) {
 	    Proposition type = (Proposition)i.next();
-	    if (getName(type).equals(name)) {
+	    if (getName(type).equalsIgnoreCase(name)) {//revised in Jul, 03
 		return type;
 	    }
 	}
@@ -166,10 +166,13 @@ class TelosFramework implements OMEFramework, TelosFunctionality {
 	    
 		Proposition t = (Proposition)type;
 		Proposition a[] = t.attributes(IMAGE_NAME,NOLABEL);
+	        if (a.length==0) return null;
+
 		String filename = IMAGEPATH;
 		filename += ((TelosString)a[0].to()).stringValue();
+		if (filename.equals("images/none.gif")) return null;  //Jun, 03
 		image = imagetable.putImage(filename, type);	    	    
-
+	
 	    
 		// set up the scaling for the image. If we have any default sizes to
 		// work with, then store it in types2dimensions.

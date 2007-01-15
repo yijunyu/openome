@@ -2,9 +2,16 @@
 package jtelos.example;
 
 
-import jtelos.*;
-
 import java.util.Vector;
+
+import jtelos.Attribute;
+import jtelos.AttributeNotFoundException;
+import jtelos.ImmutableBuiltInException;
+import jtelos.Individual;
+import jtelos.InstancesExistException;
+import jtelos.KB;
+import jtelos.StaticHelper;
+import jtelos.TelosMethodNotImplementedException;
 
 public class exIndividual extends exTelosObject implements Individual {
 

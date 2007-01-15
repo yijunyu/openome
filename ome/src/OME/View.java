@@ -108,6 +108,9 @@ public interface View {
 
     /** Returns the ViewObjects that are highlighted*/
     public Collection getHighlightedObjects();
+
+    /** Returns the ViewObjects that are evaluated as starting nodes*/
+    public Collection getEvaluatedStarters();
     
     /** Returns the selected elements. */
     public Collection getSelectedElements();

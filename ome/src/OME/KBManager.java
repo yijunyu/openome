@@ -26,7 +26,8 @@ class KBManager {
 	File d = new File(".");
 	File f = File.createTempFile("tmpkb",".kbs",d);
 	f.deleteOnExit();
-	
+D.o("kbcount = " + kbcount);
+D.o("kb name: " + f.getName());
 	KB kb = new cppKB("kb_"+kbcount++, f.getName());
 	kbs2filenames.put(kb,f.getName());
 	

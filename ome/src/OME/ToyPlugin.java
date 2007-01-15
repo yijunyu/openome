@@ -1,5 +1,4 @@
 package OME;
-
 /** This is a toy example of plugin for learning purposes. */
 
 import java.awt.Image;

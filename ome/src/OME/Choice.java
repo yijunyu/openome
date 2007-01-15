@@ -9,6 +9,8 @@ package OME;
   * @author:  Michael Higginson
   * Date:    June 1999
   */
+
+
 public class Choice {
 
     private boolean enabled = true;
@@ -17,6 +19,7 @@ public class Choice {
     String name;
     String description;
     Object choiceobject;
+  
 
     /** Creates a Choice.*/
     public Choice() {}
@@ -96,6 +99,8 @@ public class Choice {
 	return name;
     }
     
+    
+
     /** Sets the description of this Choice. (checkboxChooser does not currently
       * use this).
       *

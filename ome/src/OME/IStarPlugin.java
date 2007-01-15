@@ -1,5 +1,4 @@
 package OME;
-
 import java.awt.Image;
 import java.awt.Point;
 import java.io.File;
@@ -11,6 +10,8 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
+/** @version May, 2003 (clean-up comments)
+  */
 /** The IStar plugin.  This plugin will perform IStar analyses, and add
  *  modelling shortcuts to the toolbar.
  */
@@ -25,6 +26,7 @@ public class IStarPlugin implements OMEPlugin {
 			   "i* Means-ends link",
 			  "i* ISA", "i* INS", "i* Plays","i* Occupies", "i* Covers", 
 			  "i* Is-Part-of"};	
+
     static String[] elementnames = {"i* Actor", "i* Agent", "i* Role", "i* Position",
 			"i* Resource", "i* Task", "i* Goal", "i* Softgoal"};
 
@@ -43,7 +45,7 @@ public class IStarPlugin implements OMEPlugin {
 	return (model.getFramework().getType("i* Position") != null);
     }
     
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed on the OME toolbar. */
     public Collection getToolbarMethods(View view) {
 
@@ -73,7 +75,7 @@ public class IStarPlugin implements OMEPlugin {
 	return v;
     }
 
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed on the OME menubar. 
      */
     public Collection getMenubarMethods (View v) {
@@ -87,7 +89,7 @@ public class IStarPlugin implements OMEPlugin {
 	return Collections.singleton(istaroptions);
     }
 
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed in the OME popup-menu (when the user clicks the right mouse
      *  button). 
      */
@@ -95,6 +97,9 @@ public class IStarPlugin implements OMEPlugin {
 	D.o("Getting i* popup methods");
 	LinkedList ll = new LinkedList();
 	
+	ll.add(new SetLabelSubmenu(view));
+	ll.add(new PopupMenuSeparatorMethod(view));
+
 	MenuMethod em = new MenuMethod("Create Istar Element");
 	em.setSubmenu(getElementMethods(view));
 	
@@ -160,6 +165,13 @@ public class IStarPlugin implements OMEPlugin {
     }
     
 
+    ////////////////////////////////////////////////////////////////////////
+    //									  //
+    //	    METHODS							  //
+    //									  //
+    ////////////////////////////////////////////////////////////////////////
+
+    /** The method to create a group of link options. */
     private class CreateLinkGroupMethod extends CreateLinkMethod {
 
 	String[] typenames;
@@ -230,7 +242,94 @@ public class IStarPlugin implements OMEPlugin {
     
     }
 
-    
+    /** Displays a submenu of the possible labels for the intentional element.  */
+    private class SetLabelSubmenu extends AbstractPluginMethod {
+	private View view;
+	
+	public SetLabelSubmenu(View view) {
+	    this.view = view;
+	}
+
+	public String getName() {
+	    return "Set Label";
+	}
+
+	public boolean isEnabled(ViewContext con) {
+	    ViewObject vo = con.associatedObject();
+	    if (vo != null) {
+		if (vo instanceof ViewElement) {
+		    
+		    if (vo.getModelObject().getAttribute("label") != null) {
+			return true;
+		    }
+		}
+	    }
+	    return false;
+	}
+
+	public Collection getSubmenu(ViewContext ovc) {
+	    ViewObject vo = ovc.associatedObject();
+	    if (vo != null) {
+		ModelObject mo = vo.getModelObject();
+
+		LinkedList list = new LinkedList();
+		ModelAttribute att = mo.getAttribute("label");
+		D.o("label attribute is " + att);
+		if (att != null) {
+		    Iterator i = att.getPossibleTargets();
+		    while (i.hasNext() ) {
+			list.add(new SetLabel(view,vo,att,i.next()));
+		    }
+		}
+		return list;
+		
+	    }
+	    return null;
+	}
+    }
+
+    /** Sets the Label of the element. We will generalize this as soon as we
+     * have another example of the need. Perhaps I* dependencies will need
+     * attributes.
+     */
+    private class SetLabel extends AbstractPluginMethod {
+	private View view;
+	private ViewObject vo;
+	private PluginParameter nextp;
+	private ModelAttribute att;
+	private Object target;
+	
+	public SetLabel(View view, ViewObject vo, ModelAttribute att,
+		Object target) {
+	    this.view = view;	    
+	    this.vo = vo;
+	    this.att = att;
+	    this.target = target;
+	}
+
+	public void invoke() {
+	    // set the label.
+	    att.setTarget(target);
+
+	    // and initiate the analysis if autopropogate is switched on.
+	    /*if (shouldAutoPropogate()) {
+		IStarPropogator p = new IStarPropogator(vo.getModelObject(),view);
+		p.evaluate();
+	    }*/
+	}
+	
+	public String getName() {
+	    return model.getFramework().getName(target);
+	}
+
+	public Image getImage() {
+	    return model.getFramework().getImage(target);
+	}	
+    }
+
+
+    /** The method to do Plausible Analysis */
+    // Not really implemented?
     private class allPlausibleAnalysis extends AbstractPluginMethod{
 
 	private Image isonimage;
@@ -256,12 +355,14 @@ public class IStarPlugin implements OMEPlugin {
 	public void invoke(){
 	    setDoAllPlausibleAnalysis(!shouldDoAllPlausibleAnalysis());
 	    if (shouldDoAllPlausibleAnalysis()){
-	    setDoDependencyAnalysis(false);
-	    setDoRationaleAnalysis(false);
+	        setDoDependencyAnalysis(false);
+	        setDoRationaleAnalysis(false);
 	    }
 	}
     }
  
+    /** The method to do dependency analysis. */
+    // ?Not really implemented
     private class dependencyAnalysis extends AbstractPluginMethod{
 
 	private Image isonimage;
@@ -290,9 +391,11 @@ public class IStarPlugin implements OMEPlugin {
 		setDoAllPlausibleAnalysis(false);
 	    }
 	}
-    }
+     }
     
-      private class rationaleAnalysis extends AbstractPluginMethod{
+     /** The method to do rationale analysis. */
+     // ? Not really implemented
+     private class rationaleAnalysis extends AbstractPluginMethod{
 
 	private Image isonimage;
 
@@ -323,12 +426,7 @@ public class IStarPlugin implements OMEPlugin {
     }
   
     
-    ////////////////////////////////////////////////////////////////////////
-    //									  //
-    //	    METHODS							  //
-    //									  //
-    ////////////////////////////////////////////////////////////////////////
-
+    /** The method to create dependum-dependency link. */
     private class CreateDependency extends AbstractPluginMethod {
 
 	View view;

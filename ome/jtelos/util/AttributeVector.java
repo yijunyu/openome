@@ -1,8 +1,6 @@
 
 package jtelos.util;
 
-import java.util.*;
-
 import jtelos.Attribute;
 
 public class AttributeVector {

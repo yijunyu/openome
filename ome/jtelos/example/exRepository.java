@@ -2,12 +2,19 @@
 package jtelos.example;
 
 
-import jtelos.*;
-import jtelos.util.RuntimeEncapsulatorException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
-import java.util.*;
-import java.io.*;
-import java.lang.reflect.Constructor;
+import jtelos.KB;
+import jtelos.Repository;
+import jtelos.StaticHelper;
+import jtelos.util.RuntimeEncapsulatorException;
 
 public class exRepository implements Repository {
 

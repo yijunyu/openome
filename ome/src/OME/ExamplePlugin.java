@@ -1,6 +1,5 @@
 package OME;
-
- /* This is a plugin to be used with the "Example Framework" (example1.tel).
+/* This is a plugin to be used with the "Example Framework" (example1.tel).
   * The example framework and this plugin are discuessed in the OME Power-user
   * Tutorial.
   *
@@ -79,7 +78,7 @@ public class ExamplePlugin implements OMEPlugin {
 	MenuMethod ABoptions = new MenuMethod("AB Options");
 	ABoptions.addItem(new Blah2(v));
 	
-	return Collections.singleton(ABoptions);
+	return Collections.singleton(ABoptions); 
     
     }
 
@@ -244,7 +243,7 @@ public class ExamplePlugin implements OMEPlugin {
 
 	    // It is customary to prompt the user to change the name of
 	    // elements when they are created.
-//cai	    view.promptRename(childB);
+	  //  view.promptRename(childB);
             view.promptRename(childA);
 	    // Finally, we need to return the method to a "dormant" state.
 	    // (see cancelled)

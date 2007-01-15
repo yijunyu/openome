@@ -1,7 +1,6 @@
 
 package jtelos.util;
 
-import java.util.*;
 
 public class ParamString {
   

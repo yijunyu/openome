@@ -149,6 +149,7 @@ class TelosModel extends OMEModel implements TelosFunctionality {
 	D.o("TelosModel created");
     }
 
+    /** Returns the number of views in kb */
     public int getViewNumbers(KB kb) {
 	int i = 0;
 
@@ -299,6 +300,7 @@ class TelosModel extends OMEModel implements TelosFunctionality {
 	Iterator ii = framework.getAllInstantiable();
 	while(ii.hasNext()) {
 	    Proposition type = (Proposition)ii.next();
+	    D.o("in telosmodel type: " + type);
 	    D.o("reconciling "+framework.getName(type));
 	    Proposition eltype = kb.individual(OME_ELEMENT);
 	    Proposition lntype = kb.individual(OME_LINK);

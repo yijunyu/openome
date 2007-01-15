@@ -2,14 +2,20 @@
 package jtelos.apps;
 
 
-import java.io.*;
-import java.util.*;
-import java.lang.reflect.*;
-import javax.servlet.http.*;
-import javax.servlet.*;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
 
-import jtelos.*;
-import jtelos.util.*;
+import jtelos.Individual;
+import jtelos.IndividualNotInKBException;
+import jtelos.KB;
+import jtelos.Levels;
+import jtelos.Repository;
+import jtelos.StaticHelper;
+import jtelos.TelosObject;
+import jtelos.util.MalformedQueryStringException;
+import jtelos.util.Parameter;
+import jtelos.util.QueryString;
+import jtelos.util.RuntimeEncapsulatorException;
 
 /** This processes queries and generates HTML to represent the
  * contents of jtelos-compliant KB's. It can be run with the

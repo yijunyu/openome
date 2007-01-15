@@ -92,41 +92,42 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     
 
-    private JPopupMenuPlus popupmenu;
+    protected JPopupMenuPlus popupmenu;
 
-    private Map index2type;
-
-    
-
-    private JMenuBar menuBar;
-
-//    private JToolBar toolBar;
-
-    private GraphicView view;
-
-    private GraphicViewFrame gframe;
-
-    private OME ome;
+    protected Map index2type;
 
     
 
-    private String m_sCurrFile = "";
+    protected JMenuBar menuBar;
 
-    private String m_sCurrDir = "";
+    //protected JToolBar toolBar;
+
+    protected GraphicView view;
+
+    protected GraphicViewFrame gframe;
+
+    protected OME ome;
 
     
 
-    private Point clickedp;		    // Used only for mouse drags. 
+    protected String m_sCurrFile = "";
 
-    private boolean antialias = true;	    // How we draw our link lines.
+    protected String m_sCurrDir = "";
 
-    private boolean wasdragging = false;    // A module variable used in a
+    
+
+    protected Point clickedp;		    // Used only for mouse drags. 
+
+    protected boolean antialias = true;	    // How we draw our link lines.
+
+    protected boolean wasdragging = false;    // A module variable used in a
 
 					    // optimization.
+    //protected boolean slideshow;
+    
+    protected boolean boxclosed = false;
 
-    private boolean boxclosed = false;
-
-    private SelectionBox selectionbox;	    // If the user is in the midst of
+    protected SelectionBox selectionbox;	    // If the user is in the midst of
 
     // a group selection using a 'selection box`, this variable will be
 
@@ -154,43 +155,43 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 
 
-    private Collection plugins;
+    protected Collection plugins;
 
 
 
     // MODES
 
-    private static final int NORMAL_MODE = 0;
+    protected static final int NORMAL_MODE = 0;
 
-    private static final int GET_PARAMETER = 1;
+    protected static final int GET_PARAMETER = 1;
 
-    private static final int LINK_TYPE = 1;
+    protected static final int LINK_TYPE = 1;
 
-    private static final int ELEMENT_TYPE = 0;
+    protected static final int ELEMENT_TYPE = 0;
 
-    private int mode;
+    protected int mode;
 
-    private GVCParameterCollector pcollector;
+    protected GVCParameterCollector pcollector;
 
     
 
     /** Takes care of parameter collecting for methods.*/
 
-    private class GVCParameterCollector {
+    protected class GVCParameterCollector {
 
     
 
 	GraphicViewCanvas gvc;
 
-	private PluginMethod method = null;
+	protected PluginMethod method = null;
 
-	private Class classType;
+	protected Class classType;
 
-	private Vector v;
+	protected Vector v;
 
-	private JToggleButton button = null;
+	protected JToggleButton button = null;
 
-	private ViewContext context;
+	protected ViewContext context;
 
 	
 
@@ -278,7 +279,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	/** Prepare the application to acquire the desired parameter. */
 
-	private void getParameter(PluginParameter p) {
+	protected void getParameter(PluginParameter p) {
 
 	    classType = p.getType();
 
@@ -354,7 +355,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	 *  handles the next parameter asked for by our method. */
 
-	private void reportParameter() {
+	protected void reportParameter() {
 
 	    method.passParameter(v);
 
@@ -518,7 +519,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	 */
 
-	private void resetPC() {
+	protected void resetPC() {
 
 //	    D.o("Resetting parameter collector.");
 
@@ -540,7 +541,9 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     }
 
-    
+    public GraphicViewCanvas() {
+	super();
+    }
 
     /** Constructs the canvas.
 
@@ -562,7 +565,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     public GraphicViewCanvas(JMenuBar menuBar, GraphicView gview, OME ome,
 
-	GraphicViewFrame gframe /* multiple view,  int state*/) {
+	GraphicViewFrame gframe) {
 
 
 
@@ -602,13 +605,13 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	this.menuBar = menuBar;
 
-//	this.toolBar = toolBar;
+	//toolBar = new JToolBar();
 
 	view = gview;
 
 	pcollector = new GVCParameterCollector(this);
 
-	
+		
 
 	// setup the GraphicView.
 
@@ -646,23 +649,16 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	// method into the GVFrame.
 
-	hookupSaveMethod();
+	if (menuBar != null)	hookupSaveMethod();
 
 	
-
 	index2type = new HashMap();
 
 	popupmenu = null; // setPopupMenu();
 
-//	if ( state <= 1 ) {
+	setMenuBar();
 
-	    setMenuBar();
-
-	    setToolBar();
-
-//	}
-
-
+	setToolBar();
 
 	D.o("Created GraphicViewCanvas");
 
@@ -685,13 +681,14 @@ class GraphicViewCanvas extends JPanel implements Printable {
 	    if (p instanceof OMEDefaultPlugin) {
 
 		gframe.setWindowListener(
+
 			((OMEDefaultPlugin)p).getSaveMethod(view));
 
-/*multiple_view
-		gframe.setInternalFrameAdapter(
+/* multiple view		gframe.setInternalFrameAdapter(
+
 			((OMEDefaultPlugin)p).getSaveMethod(view));
-*/
-		return;
+
+*/		return;
 
 	    }
 
@@ -717,7 +714,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private void populateMenu(JMenuPlus menu, PluginMethod menumethod, Point p) {
+    protected void populateMenu(JMenuPlus menu, PluginMethod menumethod, Point p) {
 
 	D.o("Populating Menu");
 
@@ -759,10 +756,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 		    // Normal case.  Hook up the button.
 
 		    JMenuItem jmi = makeMenuItem(method, p, ovc);
-
-		    menu.add(jmi);
-
-	    
+		    if (jmi!=null) menu.add(jmi);
 		}
 
 	    }
@@ -783,33 +777,34 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private JMenuItem makeMenuItem(PluginMethod method, Point p, ViewContext 
+    protected JMenuItem makeMenuItem(PluginMethod method, Point p, ViewContext 
 
 	    ovc) {
 
 	
 
 	//JMenuItem jmi = new JMenuItem(method.getName());
-
-	JMenuItem jmi = new JMenuItem();
-
-	jmi.setEnabled(method.isEnabled(ovc));
-
-	jmi.setText(method.getName());
-
 	Image im = method.getImage();
 
-	if (im != null) {
+	if (im == null && ((method instanceof CreateElementMethod) ||
+				(method instanceof CreateLinkMethod))) {
+	    return null;
+	} else {
 
 	    ImageIcon ic = iconifyImage(im);
 
+	    JMenuItem jmi = new JMenuItem();
 	    jmi.setIcon(ic);
 
-	}
+	    jmi.setEnabled(method.isEnabled(ovc));
 
-	jmi.addActionListener(new GVCActionAdapter(method, p, this));
+	    jmi.setText(method.getName());
 
-	return jmi;
+	
+	    jmi.addActionListener(new GVCActionAdapter(method, p, this));
+
+	    return jmi;
+	} 
 
     }
 
@@ -817,7 +812,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Scales image and converts ito an ImageIcon. */
 
-    private ImageIcon iconifyImage(Image im) {
+    protected ImageIcon iconifyImage(Image im) {
 
 	if (im!=null) {
 
@@ -923,7 +918,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 			JMenuItem jmi = makeMenuItem(method, p, ovc);
 
-			popupmenu.add(jmi);
+			if (jmi!=null) popupmenu.add(jmi);
 
 			//jmi.setEnabled(method.isEnabled(ovc));
 
@@ -965,19 +960,25 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	Collection c = new Vector();
 
+	//MenuMethod slideoptions = new MenuMethod("Slide Options");
+	//slideoptions.addItem(new HideMenuMethod(view));
+
 	while (plugit.hasNext()) {
 
 	    Collection methods = 
 
 		    ((OMEPlugin)plugit.next()).getMenubarMethods(view);
 
+	    
+
 	    if (methods != null) {
 
 		c.addAll(methods);
 
 	    }
-
+	    
 	}
+	//if (slideshow) c.add(slideoptions);
 
 	Iterator i = c.iterator();
 
@@ -1030,7 +1031,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
     }
 
     
-
+    
 
 
 
@@ -1072,10 +1073,9 @@ class GraphicViewCanvas extends JPanel implements Printable {
 	    //We're going to add a new toolbar...
 
 	    PluginMethod barmethod = (PluginMethod)i.next();
+	    JToolBar toolBar = new JToolBar();
 
-	    JToolBar newbar = new JToolBar();
-
-	    newbar.setName(barmethod.getName());
+	    toolBar.setName(barmethod.getName());
 
 	    Iterator ii;
 
@@ -1101,35 +1101,36 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 		Image im = method.getImage();
 
-		ImageIcon ic = iconifyImage(im);
+		if (im!=null) {
+		    ImageIcon ic = iconifyImage(im);
 
-		// Add button
+		    // Add button
 
-		JToggleButton jb = new JToggleButton(method.getName(),ic);
+		    JToggleButton jb = new JToggleButton(method.getName(),ic);
 
-		jb.setRequestFocusEnabled(false);
+		    jb.setRequestFocusEnabled(false);
 
-		jb.setMargin(new Insets(1,1,1,1));
+		    jb.setMargin(new Insets(1,1,1,1));
 
-		jb.setToolTipText(method.getName());
+		    jb.setToolTipText(method.getName());
 
-		jb.setFont(new Font("SansSerif",Font.PLAIN,9));
+		    jb.setFont(new Font("SansSerif",Font.PLAIN,9));
 
-		jb.setVerticalTextPosition(jb.BOTTOM);
+		    jb.setVerticalTextPosition(jb.BOTTOM);
 
-		jb.setHorizontalTextPosition(jb.CENTER);
+		    jb.setHorizontalTextPosition(jb.CENTER);
 
-		jb.addActionListener(new GVCActionAdapter(method, jb, this));
+		    jb.addActionListener(new GVCActionAdapter(method, jb, this));
 
-		newbar.add(jb);
+	          toolBar.add(jb);
 
-//		toolBar.add(jb); // everything goes on the same bar, for now.
-
+//		    toolBar.add(jb); // everything goes on the same bar, for now.
+		}
 	    }
 
 
 
-	    gframe.addToolBar(newbar);
+	    gframe.addToolBar(toolBar);
 
 //	    toolBar.addSeparator();
 
@@ -1139,9 +1140,9 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 
 
-    /** Returns the private member, view.
+    /** Returns the protected member, view.
 
-     *  @return Private member view, the <code> GraphicView </code> object.
+     *  @return protected member view, the <code> GraphicView </code> object.
 
      */
 
@@ -1479,11 +1480,11 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 
 
-    private static final float dash[] = {10.0f,5.0f,5.0f,5.0f};
+    protected static final float dash[] = {10.0f,5.0f,5.0f,5.0f};
 
     /** Returns a dashed stroke. */
 
-    private Stroke getDashedStroke() {
+    protected Stroke getDashedStroke() {
 
 	return new BasicStroke(3.0f, BasicStroke.CAP_BUTT,
 
@@ -1577,7 +1578,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 
 
-    private void drawAttributes(Graphics2D g, GraphicViewObject gvo) {
+    protected void drawAttributes(Graphics2D g, GraphicViewObject gvo) {
 
 	Iterator i = gvo.getAttributes();
 
@@ -1605,7 +1606,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Draws an object's text, with each line cetnred over it's text bounds. */
 
-    private void drawText(Graphics2D g, GraphicViewObject go, int type) {
+    protected void drawText(Graphics2D g, GraphicViewObject go, int type) {
 
     	//g.setFont(go.getFont());
 
@@ -1669,7 +1670,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private void drawLinks(Graphics2D g, GraphicViewLink gl) {
+    protected void drawLinks(Graphics2D g, GraphicViewLink gl) {
 
 	GraphicViewObject from = (GraphicViewObject)gl.getFrom();
 
@@ -1787,7 +1788,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      * of not antialiasing while moving. */
 
-    private void setAntialiasing(Graphics2D g) {
+    protected void setAntialiasing(Graphics2D g) {
 
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 
@@ -1797,7 +1798,89 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     }
 
-  
+    
+    /** Draws a dashed rectangle outline for evaluation notations.
+     *  (by Yue Sun in August, 2003)
+     *  @param g	the <code> Graphics </code> to draw on.
+     *  @param x, y	the coordinates of the outlined rectangle (top left)
+     *  @param width	the width of the outlined rectangle
+     *  @param height	the height of the outlined rectangle
+     */
+
+    protected void drawOutline(Graphics2D g, int x, int y, int width, int height) {
+
+	float dash_seg = (float)(2*(width+height)/40);
+	g.setColor(Color.black);
+	float[] dashArray = new float[40];
+	for (int i=0; i<40; i++) {
+	    dashArray[i] = dash_seg;
+	}		
+	g.setStroke(new BasicStroke((float)1.0, BasicStroke.CAP_SQUARE,
+			BasicStroke.JOIN_MITER, (float)10.0, dashArray, (float)0.0));
+	g.drawRect(x, y, width, height);  
+    }
+
+
+    /** Draws an evaluation starting notation whose value is from user input.
+     *  (by Yue Sun in August, 2003)
+     *  @param g	the <code> Graphics </code> to draw on.
+     *  @param go	the object to be drawn.
+     */
+
+    protected void drawEvaStarter(Graphics2D g, GraphicViewObject go) {
+
+	int width = go.getSelectableBounds().width+4;
+	int height = go.getSelectableBounds().height+2;
+	int x = go.getSelectableBounds().x-2;
+	int y = go.getSelectableBounds().y-1;
+
+	g.fillRect(x, y, width, height);
+	drawOutline(g, x, y, width, height);
+    }
+
+
+    /** Draws an evaluation node whose value is propogated from other diagram.
+     *  (by Yue Sun in August, 2003)
+     *  @param g	the <code> Graphics </code> to draw on.
+     *  @param go	the object to be drawn.
+     */
+
+    protected void drawEvaImporter(Graphics2D g, GraphicViewObject go) {
+	int width = go.getSelectableBounds().width+4;
+	int height = go.getSelectableBounds().height+2;
+	int x = go.getSelectableBounds().x-2;
+	int y = go.getSelectableBounds().y-1;
+		
+	//draw the slanted pattern
+	int x1 = x;
+	int y1 = y;
+	int x2 = x;
+	int y2 = y;
+	int variance = 8;
+	
+	g.setStroke(new BasicStroke((float)2.5));
+
+	while (true) {
+	    x1+=variance;
+	    y2+=variance;
+		    
+	    if (y2 > y+height) {
+		y2 = y + height;
+		x2 += variance;
+		if (x2 == x+width) break;
+	    }
+	    if (x1 > x+width) {
+		x1 = x + width;
+		y1 += variance;
+		if (y1 == y+height) break;
+	    }
+	    g.drawLine(x1, y1, x2, y2);
+	}
+
+	drawOutline(g, x, y, width, height);
+    }
+
+
 
     /** draws all expanded, visible and not hidden objects. Called by Paint,
 
@@ -1807,7 +1890,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private void draw(Graphics2D g) {
+    protected void draw(Graphics2D g) {
 
 	
 
@@ -1838,9 +1921,6 @@ class GraphicViewCanvas extends JPanel implements Printable {
 	}   
 
 
-
-	
-
 	// Highlighted objects.
 
 	g.setColor(Color.magenta);
@@ -1869,17 +1949,48 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
 	}
 
-	g.setColor(Color.blue);
+	// Evaluated objects as starters.(Aug, 2003)
 
+	g.setColor(Color.orange);
+
+	e = view.getEvaluatedStarters().iterator();
 	
+	while (e.hasNext()) {
+
+	    go = (GraphicViewObject)e.next();
+	
+	    if (! go.isHidden() ) {
+		drawEvaStarter(g, go);
+		g.setColor(Color.orange);
+	    }
+
+	}
+
+	// Evaluated objects from other diagrams.(Aug, 2003)
+
+	g.setColor(Color.orange);
+
+	e = view.getEvaluatedImporters().iterator();
+
+	while (e.hasNext()) {
+
+	    go = (GraphicViewObject)e.next();
+
+	    if (! go.isHidden() ) {
+
+		drawEvaImporter(g, go);
+		g.setColor(Color.orange);
+	    }
+
+	}
+
+	g.setColor(Color.blue);
 
 	// Draw links
 
 	e = view.getVisibleLinks().iterator();
 
 	while(e.hasNext()) {
-
-	    
 
 	    gl = (GraphicViewLink)e.next();
 
@@ -2011,7 +2122,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private synchronized Image printing(Rectangle bounds) {
+    protected synchronized Image printing(Rectangle bounds) {
 
 	try {		    
 
@@ -2581,7 +2692,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private synchronized void closeRenameBox(JTextField tf) {
+    protected synchronized void closeRenameBox(JTextField tf) {
 
 	try{
 
@@ -2663,7 +2774,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private synchronized void closeResizeBox(JTextField tf) {
+    protected synchronized void closeResizeBox(JTextField tf) {
 
 	if (boxclosed==false) {
 
@@ -2687,7 +2798,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private void setClickedP(Point p) {
+    protected void setClickedP(Point p) {
 
 	clickedp = p;
 
@@ -2699,7 +2810,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Recovers the clicked point. */
 
-    private Point getClickedP() {
+    protected Point getClickedP() {
 
 	return clickedp;
 
@@ -2709,7 +2820,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Sets the input mode for the GVC */
 
-    private void setMode(int mode, String message) {
+    protected void setMode(int mode, String message) {
 
 	switch (mode) {
 
@@ -2733,7 +2844,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Go into NORMAL_MODE */
 
-    private void setNormalMode(String message) {
+    protected void setNormalMode(String message) {
 
 	mode = NORMAL_MODE;
 
@@ -2751,7 +2862,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Go into GET_PARAMETER mode */
 
-    private void setGPMode(String message) {	
+    protected void setGPMode(String message) {	
 
 	D.o("Setting mode GET_PARAMTER mode.");
 
@@ -2769,7 +2880,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Returns our mode. */
 
-    private int getMode() {
+    protected int getMode() {
 
 	return mode;
 
@@ -2779,7 +2890,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** Returns our GVCParameterCollector */
 
-    private GVCParameterCollector getParameterCollector() {
+    protected GVCParameterCollector getParameterCollector() {
 
 	return pcollector;
 
@@ -2880,7 +2991,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** The keyboard listener for <code> GraphicViewCanvas </code>. */
 
-    private class GVCKeyAdapter extends KeyAdapter {
+    protected class GVCKeyAdapter extends KeyAdapter {
 
 
 
@@ -2940,11 +3051,11 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** The mouse event listener for <code> GraphicViewCanvas </code>. */
 
-    private class GVCMouseAdapter extends MouseAdapter {
+    protected class GVCMouseAdapter extends MouseAdapter {
 
 
 
-	private int initialmode;
+	protected int initialmode;
 
 	
 
@@ -3154,7 +3265,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** The mouse motion listener for <code> GraphicViewCanvas </code>. */
 
-    private class GVCMouseMotionAdapter extends MouseMotionAdapter {
+    protected class GVCMouseMotionAdapter extends MouseMotionAdapter {
 
 
 
@@ -3330,7 +3441,7 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** This menu listener repopulates a menu when it is opened. */
 
-    private class MenuBarMenuListener implements MenuListener {
+    protected class MenuBarMenuListener implements MenuListener {
 
 	
 
@@ -3372,15 +3483,15 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** The action listener used for Menu(bar) and Toolbar buttons. */
 
-    private class GVCActionAdapter implements ActionListener {
+    protected class GVCActionAdapter implements ActionListener {
 
-	private PluginMethod method;
+	protected PluginMethod method;
 
-	private GraphicViewCanvas gvc;
+	protected GraphicViewCanvas gvc;
 
-	private Point p = null;
+	protected Point p = null;
 
-	private JToggleButton togglebutton = null;
+	protected JToggleButton togglebutton = null;
 
 
 
@@ -3492,9 +3603,9 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** The component listener for the <code> GraphicViewCanvas </code>. */
 
-    private class GVCComponentAdapter extends ComponentAdapter {
+    protected class GVCComponentAdapter extends ComponentAdapter {
 
-	private PluginMethod method;
+	protected PluginMethod method;
 
 
 
@@ -3562,15 +3673,15 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      * hits enter. */
 
-    private class RenameBoxKeyAdapter extends KeyAdapter {
+    protected class RenameBoxKeyAdapter extends KeyAdapter {
 
 
 
-	private GraphicViewObject gve;
+	protected GraphicViewObject gve;
 
-	private JTextField tf;
+	protected JTextField tf;
 
-	private GraphicViewCanvas gvc;
+	protected GraphicViewCanvas gvc;
 
 	
 
@@ -3638,15 +3749,15 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      * focus. */
 
-    private class RenameBoxFocusAdapter extends FocusAdapter {
+    protected class RenameBoxFocusAdapter extends FocusAdapter {
 
 
 
-	private GraphicViewObject gvo;
+	protected GraphicViewObject gvo;
 
-	private JTextField tf;
+	protected JTextField tf;
 
-	private GraphicViewCanvas gvc;
+	protected GraphicViewCanvas gvc;
 
 	 
 
@@ -3716,15 +3827,15 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     /** So's we can catch the Enter to close. */
 
-    private class ResizeBoxKeyAdapter extends KeyAdapter {
+    protected class ResizeBoxKeyAdapter extends KeyAdapter {
 
 	
 
-      private GraphicViewObject gve;
+      protected GraphicViewObject gve;
 
-	private JTextField tf;
+	protected JTextField tf;
 
-	private GraphicViewCanvas gvc;
+	protected GraphicViewCanvas gvc;
 
 
 
@@ -3808,19 +3919,17 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
     }
 
-
-
-    
+       
 
     /** So we can close when we lose focus. */
 
-    private class ResizeBoxFocusAdapter extends FocusAdapter {
+    protected class ResizeBoxFocusAdapter extends FocusAdapter {
 
-	private GraphicViewObject gve;
+	protected GraphicViewObject gve;
 
-	private JTextField tf;
+	protected JTextField tf;
 
-	private GraphicViewCanvas gvc;
+	protected GraphicViewCanvas gvc;
 
 	 
 
@@ -3962,11 +4071,11 @@ class GraphicViewCanvas extends JPanel implements Printable {
 
      */
 
-    private class SelectionBox {
+    protected class SelectionBox {
 
-	private Point start_corner;	    // Where we started
+	protected Point start_corner;	    // Where we started
 
-	private Point active_corner;	    // Other corner (location of mouse 
+	protected Point active_corner;	    // Other corner (location of mouse 
 
 					    // pointer)
 

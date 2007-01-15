@@ -67,4 +67,18 @@ public interface ViewObject extends OMEObject {
 
    /** Returns true iff this object is currently highlighted */
    public boolean isHighlighted();
+
+   /** Returns true iff this object is evaluated as a starting node*/
+   public boolean isEvaStarter();
+
+   /** Sets whether this object is evaluated as a starting node*/
+   public void setEvaStarter(boolean evaStarter);
+
+   /** Returns true iff this object is evaluated and imported from other diagrams */
+    public boolean isEvaImporter();
+
+   /** Sets whether this object is evaluated and imported */
+    public void setEvaImporter(boolean evaImporter);
+
+   
 }

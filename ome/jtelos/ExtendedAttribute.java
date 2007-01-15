@@ -2,7 +2,6 @@
 package jtelos;
 
 
-import jtelos.Attribute;
 
 public interface ExtendedAttribute extends Attribute {
 

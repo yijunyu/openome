@@ -1,5 +1,4 @@
 package OME;
-
 import java.awt.Image;
 import java.io.File;
 import java.util.Collection;
@@ -10,30 +9,49 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
+/** @version Jul, 2003 */
+
 /** The GRL plugin.  This plugin will perform GRL analyses, and add
  *  modelling shortcuts to the toolbar.
  */
 
 public class GRLPlugin implements OMEPlugin {
     
-    // the names of the I-Star links
+    // the names of the GRL contribution links, revised on May, 2003
     static String[] contributionlinknames =
-			{"GRL Or", "GRL And"};
+			{"GRL Or Contribution", "GRL And Contribution", 
+			 "GRL Make Contribution", "GRL Help Contribution", 
+			 "GRL SomePositive Contribution", "GRL Equal Contribution", 
+			 "GRL Unknown Contribution", "GRL SomeNegative Contribution", 
+			 "GRL Hurt Contribution", "GRL Break Contribution"};
 
-    static String[] linknames = {"GRL Dependency link", "GRL Decomposition link",
-			  "GRL Means-ends link", "GRL Correlation Link",
-			    "GRL Attribute link"};	
+    // the names of the GRL correlation links, added on May, 2003
+    static String[] correlationlinknames =
+			{"GRL Make Correlation", "GRL Help Correlation", 
+			 "GRL SomePositive Correlation", "GRL Equal Correlation", 
+			 "GRL Unknown Correlation", "GRL SomeNegative Correlation", 
+			 "GRL Hurt Correlation", "GRL Break Correlation"};
 
-    static String[] elementnames = {"GRL Actor", "GRL Resource", "GRL Task", 
+    // GRL link names, revised on May, 2003
+    static String[] linknames = {"GRL Dependency Link", "GRL Decomposition Link",
+			  "GRL Means-ends Link", "GRL Contribution Link", 
+			  "GRL Correlation Link","GRL ISA Link", "GRL INS Link",
+			  "GRL Plays Link", "GRL Occupies Link", "GRL Covers Link",
+			  "GRL PartOf Link", "GRL Attribute Link"};	
+
+    static String[] elementnames = {"GRL Actor", "GRL Agent", "GRL Role", 
+			    "GRL Position", "GRL Resource", "GRL Task", 
 			    "GRL Goal", "GRL Softgoal", "GRL Belief",
 			    "GRL Non-Intentional Element"};
 
     OMEModel model;
-    private boolean parameterize_value_attributes = false;
+    private boolean autopropogate = true;
+    private boolean parameterize_value_attributes = false; 
     private boolean parameterize_non_intentionals = false;
     
     private static String IMAGE_DIR = "images";
     
+    /** Constructor */
     public GRLPlugin(OMEModel m) {
 	model = m;
     }
@@ -43,13 +61,13 @@ public class GRLPlugin implements OMEPlugin {
 	return (model.getFramework().getType("GRL Belief") != null);
     }
     
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed on the OME toolbar. */
     public Collection getToolbarMethods(View view) {
 
 	Vector v = new Vector();
 	
-	// Need to be able to create i* links and elements.
+	// Need to be able to create GRL links and elements.
 	MenuMethod em = new MenuMethod("Create GRL Element");
 	em.setSubmenu(getElementMethods(view));
 	v.add(em);
@@ -58,51 +76,61 @@ public class GRLPlugin implements OMEPlugin {
 	lm.setSubmenu(getLinkMethods(view));
 	v.add(lm);
 	
-	MenuMethod mm = new MenuMethod("Create GRL Contribution Link");
-	mm.addItem(new CreateLinkGroupMethod(view, "Contribution Link", 
-		    contributionlinknames, false));
-	v.add(mm);
+	//MenuMethod mm = new MenuMethod("Create GRL Contribution Link"); 
+	//mm.addItem(new CreateLinkGroupMethod(view, "Contribution Link", 
+	//	    contributionlinknames, false));
+	//v.add(mm);
 	return v;
     }
 
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed on the OME menubar. 
      */
     public Collection getMenubarMethods (View v) {
 	MenuMethod grloptions = new MenuMethod("GRL Options");
-	
+	grloptions.addItem(new TogglePropMethod());
 	grloptions.addItem(new parameterize_value_attributes(v));
 	grloptions.addItem(new parameterize_non_intentionals(v));
     
 	return Collections.singleton(grloptions);
     }
 
-    /** Returns a collection  of our <code>Method</code>s that are to be
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
      *  placed in the OME popup-menu (when the user clicks the right mouse
      *  button). 
      */
     public Collection getPopupMethods(View view) {
-	D.o("Getting i* popup methods");
+	D.o("Getting GRL popup methods");
 	LinkedList ll = new LinkedList();
-	
+
+        //adjusted by Yue in summer 2003
 	MenuMethod em = new MenuMethod("Create GRL Element");
 	em.setSubmenu(getElementMethods(view));
 	
 	MenuMethod lm = new MenuMethod("Create GRL Link");
 	lm.setSubmenu(getLinkMethods(view));
 	
-	MenuMethod grllinks = new MenuMethod("Create GRL Link");
-	grllinks.addItem(new CreateLinkGroupMethod(view, "GRL Contribution Link", 
-		    contributionlinknames, false));
-	ll.add(grllinks);
+	//MenuMethod grllinks = new MenuMethod("Create GRL Link");
+	//grllinks.addItem(new CreateLinkGroupMethod(view, "GRL Contribution Link", 
+		//    contributionlinknames, false));
+	//ll.add(grllinks);
 	
-	ll.add(new RemoveGRLAttributeSubmenu(view));
-	ll.add(new AddGRLAttributeSubmenu(view));
-	
+	//ll.add(new RemoveGRLAttributeSubmenu(view));
+	//ll.add(new AddGRLAttributeSubmenu(view));
+	//ll.add(new SetLabelSubmenu(v));
+
+	MenuMethod evaMethod = new MenuMethod("Evaluation Options");
+	evaMethod.setSubmenu(getEvaMethods(view));
+	ll.add(evaMethod);
+	ll.add(new PopupMenuSeparatorMethod(view));
+
+	ll.add(new hideAllSoftgoalsMethod(view));  // added on June, 2003
+	ll.add(new hideSoftgoalChildrenMethod(view));  // added on June, 2003
+	ll.add(new PopupMenuSeparatorMethod(view));
+
 	ll.add(new showAttributeMethod(view));
 	ll.add(new parameterizeValueMethod(view));
 	ll.add(new parameterizeNonIntentionalMethod(view));
-	ll.add(new unparameterizeMethod(view));
 	
 	ll.add(new PopupMenuSeparatorMethod(view));
 	ll.add(em);
@@ -111,31 +139,51 @@ public class GRLPlugin implements OMEPlugin {
     }
 
 
-    /** Return a collection of element creation methods for the i* element
+    /** Return a collection of element creation methods for the GRL element
       * types. */
     private Collection getElementMethods(View view) {
 	Vector elementmethods = new Vector(elementnames.length);
 	for (int i=0; i<elementnames.length; i++) {
 	    Object type = model.getFramework().getType(elementnames[i]);
-	    PluginMethod method = new
-		CreateElementMethod(type,elementnames[i],view);
-	    elementmethods.add(method);
+	    PluginMethod method = new CreateElementMethod(type,elementnames[i],view);
+            elementmethods.add(method);
 	}
 	return elementmethods;
     }
     
-    /** Return a collection of link creation methods for the i* link types. */
+    /** Return a collection of link creation methods for the GRL link types. */
     private Collection getLinkMethods(View view) {
 	Vector linkmethods = new Vector(linknames.length);
 	for (int i=0; i<linknames.length; i++) {
 	    Object type = model.getFramework().getType(linknames[i]);
-	    PluginMethod method = new
-		CreateLinkMethod(type,linknames[i],view);
+	    PluginMethod method;
+	    if (i == 3) { //"contribution link"
+		method = new CreateLinkGroupMethod(view, "GRL Contribution Link", 
+		    contributionlinknames, false);
+            } else if (i == 4) { //correlation link
+		method = new CreateLinkGroupMethod(view, "GRL Correlation Link", 
+		    correlationlinknames, true);
+            } else {
+                method = new CreateLinkMethod(type,linknames[i],view);
+            }
 	    linkmethods.add(method);
 	}
 	return linkmethods;
     }
     
+
+    /** Return a collection of evaluation option methods (Aug, 03)*/
+    private Collection getEvaMethods(View view) {
+	Vector evaMethods = new Vector();
+	evaMethods.add(new SetLabelSubmenu(view));
+	evaMethods.add(new SetEvaStarterMethod(view));      
+	evaMethods.add(new RemoveStartingMethod(view));
+	evaMethods.add(new HighlightEvaImporterMethod(view));      
+	evaMethods.add(new UnhighlightEvaImporterMethod(view));
+	
+	return evaMethods;
+    }
+
     private boolean shouldParameterize_value_attributes(){
 	return parameterize_value_attributes;
     }
@@ -151,7 +199,16 @@ public class GRLPlugin implements OMEPlugin {
     private void setParameterize_non_intentionals(boolean b){
 	parameterize_non_intentionals = b;
     }
+
+    private void setShouldAutoPropogate(boolean b) {
+	autopropogate = b;
+    }
+
+    private boolean shouldAutoPropogate() {
+	return autopropogate;
+    }
     
+    /** The method to create group of links */
     private class CreateLinkGroupMethod extends CreateLinkMethod {
 
 	String[] typenames;
@@ -168,7 +225,6 @@ public class GRLPlugin implements OMEPlugin {
 	    // We need some type to use for our picture.
 	    Object picturetype =
 		model.getFramework().getType(typenames[0]);
-
 	    Image im = view.getImage(picturetype);
 	    if (dashed) {
 		image = view.getImageTable().drawDashedHLine(im);
@@ -181,32 +237,32 @@ public class GRLPlugin implements OMEPlugin {
 	// out the type.
 	public void invoke() {
 	    // Create the choices
-	    Vector v = new Vector(typenames.length);
-	    for (int i=0; i<typenames.length; i++) {
+	    Vector choices = new Vector(typenames.length);
+            for (int i=0; i<typenames.length; i++) {
 		Choice c = new Choice();
 		String name = typenames[i];
 		c.setName(name);
 		c.setChoiceObject(model.getFramework().getType(name));
-		v.add(c);
+		choices.add(c);
 	    }
 	    // Show the dialogue to get the type.
 	    RadioButtonChooser rbc = new RadioButtonChooser(null,
-		    "Select " +typename+ " Type", true, v);
+		    "Select " +typename+ " Type", true, choices);
 	    if (rbc.showDialog() == RadioButtonChooser.CONTINUE) {
 		// set type
-		Iterator i = v.iterator();
+		Iterator i = choices.iterator();
 		while (i.hasNext()) {
 		    Choice c = (Choice)i.next();
 		    if (c.chosen()) {
 			type = c.choiceObject();
-		    }
+                    }
 		}
 		// and go
 		if (type != null) {
 		    String strokename =
 			model.getFramework().getStrokeString(type);
 		    super.invoke();
-		}
+            }
 	    } else {
 		// Users wants to bail out.
 		// Do nothing.
@@ -222,6 +278,288 @@ public class GRLPlugin implements OMEPlugin {
 	}
     
    }
+
+    /** Toggles the Auto-propogation property. */
+    private class TogglePropMethod extends AbstractPluginMethod{
+    
+	private Image isonimage;
+
+	public TogglePropMethod() {
+	    // Get our little checkmark image
+	    ImageIcon ii = new ImageIcon(IMAGE_DIR+File.separatorChar+
+		    "check.gif");
+	    
+	    isonimage = ii.getImage();
+	}
+	
+	public String getName() {
+	    return "Auto-Propogation";
+	}
+
+	public Image getImage() {
+	    if (shouldAutoPropogate()) {
+		return isonimage;
+	    } else {
+		return null;
+	    }
+	}
+
+	public void invoke() {
+	    // toggle the Autopropogate
+	    setShouldAutoPropogate(!shouldAutoPropogate());
+	}
+    }
+
+    /** The method to set an element as a starting node for evaluation */
+    private class SetEvaStarterMethod extends ObjectMethod {
+	public SetEvaStarterMethod(View v) {
+	    super(v);
+	    name = "Set as a Starting Node for Evaluation";
+	    instruction = "Choose the element to be set as a starting node";
+	}
+
+	protected void operate(ViewObject vo) {
+	    vo.setEvaStarter(true);
+	}	
+    }
+
+    /** The method to remove a starting notation for evaluation */
+    private class RemoveStartingMethod extends ObjectMethod {
+	
+	public RemoveStartingMethod(View v) {
+	    super(v);
+	    name = "Remove a Starting Notation";
+	    instruction = "Choose the element to remove its starting notation";
+	}
+
+	protected void operate(ViewObject vo) {
+	    vo.setEvaStarter(false);
+	}
+    
+	protected boolean isSuitable(ViewObject vo) {
+	    if (vo.isEvaStarter()) return true;
+	    return false;
+	}
+    }
+
+
+    /** The method to highlight an evaluated element that is imported from 
+      * other diagram(s) */
+    private class HighlightEvaImporterMethod extends ObjectMethod {
+	public HighlightEvaImporterMethod(View v) {
+	    super(v);
+	    name = "Highlight an Element with Imported Eva-value";
+	    instruction = "Choose the element to be highlighted";
+	}
+
+	protected void operate(ViewObject vo) {
+	    vo.setEvaImporter(true);
+	}
+	
+    }
+
+    /** The method to unhighlight an element with imported eva-value */
+    private class UnhighlightEvaImporterMethod extends ObjectMethod {
+	
+	public UnhighlightEvaImporterMethod(View v) {
+	    super(v);
+	    name = "Remove Imported Eva-value Notation";
+	    instruction = "Choose the element";
+	}
+
+	protected void operate(ViewObject vo) {
+	    vo.setEvaImporter(false);
+	}
+    
+	protected boolean isSuitable(ViewObject vo) {
+	    if (vo.isEvaImporter()) return true;
+	    return false;
+	}
+    }
+
+
+    /** Displays a submenu of the possible evaluation labels for the element.  */
+    private class SetLabelSubmenu extends AbstractPluginMethod {
+	private View view;
+	//private ViewElement ve = null;
+
+	public SetLabelSubmenu(View view) {
+	    this.view = view;
+	}
+
+	public String getName() {
+	    return "Set Evaluation Label";
+	}
+
+	public boolean isEnabled(ViewContext con) {
+	    ViewObject vo = con.associatedObject();
+	    if (vo != null) {
+		if (vo instanceof ViewElement) {
+		    
+		    if (vo.getModelObject().getAttribute("label") != null) {
+			return true;
+		    }
+		}
+	    }
+	    return false;
+	}
+
+	public Collection getSubmenu(ViewContext ovc) {
+	    ViewObject vo = ovc.associatedObject();
+	    if (vo != null) {
+		ModelObject mo = vo.getModelObject();
+
+		LinkedList list = new LinkedList();
+		ModelAttribute att = mo.getAttribute("label");
+		D.o("label attribute is " + att);
+		if (att != null) {
+		    Iterator i = att.getPossibleTargets();
+		    while (i.hasNext() ) {
+			list.add(new SetLabel(view,vo,att,i.next()));
+		    }
+		}
+		return list;
+		
+	    }
+	    return null;
+	}
+    }
+
+    /** Sets the Label of the element. We will generalize this as soon as we
+     * have another example of the need. Perhaps I* dependencies will need
+     * attributes.
+     */
+    private class SetLabel extends AbstractPluginMethod {
+	private View view;
+	private ViewObject vo;
+	private PluginParameter nextp;
+	private ModelAttribute att;
+	private Object target;
+	
+	public SetLabel(View view, ViewObject vo, ModelAttribute att,
+		Object target) {
+	    this.view = view;	    
+	    this.vo = vo;
+	    this.att = att;
+	    this.target = target;
+	}
+
+	public void invoke() {
+	    // set the label.
+	    att.setTarget(target);
+
+	    // and initiate the analysis if autopropogate is switched on.
+	    if (shouldAutoPropogate()) {
+		GRLPropogator p = new GRLPropogator(vo.getModelObject(),view);
+		p.evaluate();
+	    }
+	}
+	
+	public String getName() {
+	    return model.getFramework().getName(target);
+	}
+
+	public Image getImage() {
+	    return model.getFramework().getImage(target);
+	}	
+    }
+
+   /** The method to hide all the softgoals. (June, 2003) */
+   private class hideAllSoftgoalsMethod extends AbstractPluginMethod {
+	private View view;
+
+	public hideAllSoftgoalsMethod(View view) {
+	    this.view = view;
+	}
+
+	public String getName() {
+	    return "Hide All Softgoals";
+	}
+
+	// We don't need any parameters.
+	    
+	public void invoke() {
+	    Iterator i = getAllSoftgoals();
+	    while (i.hasNext()) {
+		((ViewObject)i.next()).setHidden(true);
+	    }
+	}
+
+	public boolean isEnabled(ViewContext con) {
+	    Iterator i;
+	    i = getAllSoftgoals();
+	    while (i.hasNext()) {
+		if (!((ViewObject)i.next()).isHidden()) return true;
+	    }
+	    return false;
+	}
+
+	private Iterator getAllSoftgoals() {
+	    LinkedList softgoals = new LinkedList();
+	    Iterator elements = view.getAllElements().iterator();
+	    ModelObject mo;
+
+	    while (elements.hasNext()) {
+		ViewObject vo = (ViewObject)elements.next();
+		Object type = vo.getModelObject().getType();
+		if ((model.getFramework().getName(type)).equals("GRL Softgoal")) {
+		    softgoals.add(vo);
+		}
+	    }
+	    return softgoals.iterator();
+	}
+   }
+	    
+
+   /** The method to hide all the softgoal children for a selected Actor parent. 
+     * (on June, 2003) */
+   private class hideSoftgoalChildrenMethod extends ObjectMethod {
+
+	public hideSoftgoalChildrenMethod(View view) {
+	    super(view);
+	    name = "Hide Softgoals for an Actor";
+	    instruction = "Select an actor";
+	}
+
+	protected boolean isSuitable(ViewObject vo) {
+	    if (vo instanceof ViewElement) {
+		Object type = vo.getModelObject().getType();
+		Iterator softgoals = getSoftgoalChildren((ViewElement)vo);
+	        if ((model.getFramework().getName(type)).equals("GRL Actor")) { 
+		    while (softgoals.hasNext()) {
+			if (!((ViewObject)softgoals.next()).isHidden()) {
+		    	    return true;
+			}
+		    }
+		}
+	    }
+	    return false;
+	}
+
+	protected void operate(ViewObject vo) {
+	    Iterator softgoals = getSoftgoalChildren((ViewElement)vo);
+	    while (softgoals.hasNext()) {
+		((ViewObject)softgoals.next()).setHidden(true);
+	    }
+	}
+
+	
+	private Iterator getSoftgoalChildren(ViewElement ve) {
+	    LinkedList softgoals = new LinkedList();
+	    if (ve.isExpanded()) {
+		Iterator i = ve.getChildren().iterator();
+		while (i.hasNext()) {
+		    ViewObject child = (ViewObject)i.next();
+		    Object type = child.getModelObject().getType();
+		    if ((model.getFramework().getName(type)).equals("GRL Softgoal")) {
+		        softgoals.add(child);
+		    }
+		}
+	    }
+	    return softgoals.iterator();
+	}
+   }
+
 
    private class showAttributeMethod extends ObjectMethod {
 
@@ -276,6 +614,7 @@ public class GRLPlugin implements OMEPlugin {
 	    view.showDialog(attributeDialog);
 	}
     }
+
     private class parameterizeValueMethod extends ObjectMethod {
 	
 	public parameterizeValueMethod(View v) {
@@ -309,23 +648,6 @@ public class GRLPlugin implements OMEPlugin {
 	protected void operate(ViewObject vo) {
 	    promptUnparameterization(vo);
 	    promptParameterization(vo,2);
-	}
-    }	
-    
-    private class unparameterizeMethod extends ObjectMethod {
-	
-	public unparameterizeMethod(View v) {
-	    super(v);
-	    name = "Unparameterize";
-	    instruction = "Hide All Parameters";
-	}
-	
-	protected boolean isSuitable(ViewObject vo) {
-	    return true;
-	}
-
-	protected void operate(ViewObject vo) {
-	    promptUnparameterization(vo);
 	}
     }	
 

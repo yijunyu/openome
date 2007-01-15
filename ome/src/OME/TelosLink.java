@@ -8,6 +8,7 @@
 package OME;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import jtelos.Attribute;
 import jtelos.Individual;
@@ -49,7 +50,7 @@ class TelosLink extends TelosObject implements ModelLink {
     public void setType(Object newtype) throws Exception {
 	Proposition newtypes[] = {(Proposition)newtype};
 	Proposition oldtype[] = {type};
-	
+		    
 	if (newtype != type) {
 	    // we set our ancestor:
 	    D.o("Changing type");
@@ -73,37 +74,100 @@ class TelosLink extends TelosObject implements ModelLink {
 		// save the relevant info
 		categories[count]=oldatts[count].categories();
 		labels[count]=oldatts[count].label();
-		targets[count]=oldatts[count].to();		
+		targets[count]=oldatts[count].to();	
+
 		// get rid of the attribute.
 		individual.removeDirectAttr(oldatts[count]);
 	    }	    	    
-	    
 	    // change the type.
 	    individual.removeDirectAncestor(type);
 	    try {
 		individual.addDirectAncestors(newtypes);
 	    } catch (Exception e) {
+		D.o("add ancestors: " + e.toString());  
 		individual.addDirectAncestors(oldtype);
 		newtype=type;
 		throw e;
 	    } finally {
-		// replace the attributes |(
+		// replace the attributes, revised and complemented on Jun, 03
+		Attribute newatts[] = new Attribute[attr_count];
+		boolean flag;
 		for(count=0;count<attr_count;count++) {
+		    flag = false;
 		    try {
-			kb.newAttribute(individual, categories[count], 
-				labels[count], targets[count]);
-		    } catch (Exception e) { 
-			// print out the incompatibilities but otherwise ignore
-			// them. Off to the floor with you all...
-			D.o(e.toString()); 
+		        for (int i=0; i<categories[count].length; i++) {
+			    if (categories[count][i].equals("type")) {
+				// update the new target for OMEAttr "type" 
+				flag = true;
+				Proposition parentatt[] =
+					((Proposition)newtype).attributes(OME_ATTSCAT, TYPE);
+	    			if (parentatt.length != 0) {
+				    Proposition possibletargets[] =
+		    			((Proposition)parentatt[0].to()).allInstances();
+				    newatts[count] = kb.newAttribute(individual, categories[count], 
+							labels[count], (PropositionOrPrimitive)possibletargets[0]);
+				    //D.o("new attr telos name: " + newatts[count].telosName());
+				}
+			    } else if (categories[count][i].equals("name")) {  
+				// update the new target for "name" 
+				flag = true;
+				Proposition parentatt[] =
+					((Proposition)newtype).attributes(DEFAULT_NAME, NOLABEL);
+	    			TelosString newname;
+				if (parentatt.length != 0) {
+				    newname = (TelosString)parentatt[0].to();
+				} else {
+				    newname = new TelosString("");
+				}
+				newatts[count] = kb.newAttribute(individual, categories[count], 
+						labels[count], (PropositionOrPrimitive)newname);
+		            	//D.o("new attr telos name: " + newatts[count].telosName());
+			    }
+                  	} 
+              	  	if (!flag) { //update other attributes
+			    newatts[count] = kb.newAttribute(individual, categories[count], 
+					labels[count], targets[count]);
+			    //D.o("new attr telos name: " + newatts[count].telosName());
+			}
+		  } catch (Exception e) { 
+		        // recover to old type if there are any imcompatabilities
+                  	D.o("here: the 2nd catch: " + e);
+			for (int j =0; j<count; j++) {
+			    if (newatts[j] != null) {
+				individual.removeDirectAttr(newatts[j]);
+				//D.o( j + ": removed attrs before removing newtype ancestor");
+			    }
+			}
+			individual.removeDirectAncestor((Proposition)newtype);
+			individual.addDirectAncestors(oldtype);
+			for(count=0;count<attr_count;count++) {
+			    newatts[count] = kb.newAttribute(individual, categories[count], 
+			    labels[count], targets[count]);
+			    //D.o("attr come back: " + newatts[count].telosName());
+			}
+			resetModelAttrType();    
+     	   		throw e;			
 		    }
-		}
+            	}
 	    }    
+            
 	    // we remove our previous instantiation. We *must* have one.
 	    this.type=(Proposition)newtype;
+            resetModelAttrType();
 	}
     }
  
+    /** Clear my model attributes and reset my OMEAttribute "type" if any. (Jun, 03)*/ 
+    private void resetModelAttrType() {
+	clearModelAttr();
+	D.o("old model attrs cleared");
+	ModelAttribute ma = getAttribute("type");
+	if (ma != null) {
+	    Iterator i = ma.getPossibleTargets();
+	    ma.setTarget(i.next());
+	    //D.o("ma: " + ma.getName() + " and its target: " + ma.getTarget());    
+     	}
+    }
 
     /** Returns a collection of OMELinks which correspond to the links of this
      *  Telos link. Any and all of the link's links are returned. */
@@ -136,7 +200,7 @@ class TelosLink extends TelosObject implements ModelLink {
 	D.o("TelosLink.setID called erroniously!");
     }
     
-
+	    
     /** Returns the destination of this Telos link. If this link has no
      * destination set, it returns null.*/
     public OMEObject getTo() {
@@ -216,6 +280,7 @@ class TelosLink extends TelosObject implements ModelLink {
 	try {
 	    Proposition p = kb.newAttribute(individual,
 		    FROMCAT, FROM, ((TelosObject)o).getIndividual());
+D.o("after kb.newAttri");
 	    //o.getLinks().add(this);
 	    o.addLink(this);
 	    D.o("TelosLink "+id+" FROM set to Telos..." +
@@ -229,6 +294,9 @@ class TelosLink extends TelosObject implements ModelLink {
 	}
     }
     
+    public Individual getIndividual() {
+	return individual;
+    }
 
     /* methods specific to TelosLink: */
     
@@ -266,6 +334,8 @@ class TelosLink extends TelosObject implements ModelLink {
 		n = new TelosString("");
 	    }
 	    Attribute name = kb.newAttribute(individual, NAMECAT, NOLABEL, n);
+
+	       
 	} catch (TelosException e) {
 	    // reverse our telos-side actions.
 	    if(individual!=null) {

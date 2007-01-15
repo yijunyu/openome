@@ -122,7 +122,8 @@ class ModelManager {
 		kb.fileTELL(s);
 	    }
 	}
-	
+	System.out.println("before telosframework");
+
 	TelosFramework tfw = new TelosFramework(kb);
 	OMEModel model = new TelosModel(kb, tfw, this, ome);
 	ViewManager vm = model.getViewManager();

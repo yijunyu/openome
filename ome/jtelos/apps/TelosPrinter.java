@@ -2,7 +2,17 @@
 package jtelos.apps;
 
 
-import jtelos.*;
+import jtelos.Attribute;
+import jtelos.AttributeClass;
+import jtelos.Individual;
+import jtelos.IndividualOrLiteral;
+import jtelos.KB;
+import jtelos.Levels;
+import jtelos.Omegaclass;
+import jtelos.OmegaclassOrAttributeClass;
+import jtelos.PrimitiveLiteral;
+import jtelos.StaticHelper;
+import jtelos.TelosObject;
 
 public class TelosPrinter implements Levels {
 

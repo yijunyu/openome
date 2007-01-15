@@ -116,7 +116,7 @@ class TelosViewSerializer implements ViewSerializer, TelosFunctionality {
 	    D.a(telosobj);
 	    // get type of object from type field
 	    TelosString tclassname = (TelosString)
-		    telosobj.directAttributes(TYPE,NOLABEL)[FIRST].to();
+		    telosobj.directAttributes(TYPECAT,NOLABEL)[FIRST].to();
 	    D.a(tclassname);
 	    String classname = tclassname.stringValue();
 	    try {
@@ -188,7 +188,7 @@ class TelosViewSerializer implements ViewSerializer, TelosFunctionality {
 	
 	Proposition ancestors[] = {kb.individual(SERIALIZED_OBJECT)};
 	i.addDirectAncestors(ancestors);
-	kb.newAttribute(i, TYPE, NOLABEL, new TelosString(objectclassname));
+	kb.newAttribute(i, TYPECAT, NOLABEL, new TelosString(objectclassname));
 		
 	Field fields[] = o.getClass().getFields(); 
 	PropositionOrPrimitive p = null;

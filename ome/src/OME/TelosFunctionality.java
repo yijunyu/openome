@@ -22,7 +22,7 @@ interface TelosFunctionality {
     public static final String IMAGE_NAME[] = {"imagename"};
     public static final String IMAGE_SIZE[] = {"imagesize"};
     public static final String VIEW_OBJECTS[] = {"view_objects"};
-    public static final String TYPE[] = {"type"};
+    public static final String TYPECAT[] = {"type"};
     public static final String TOCAT[] = {"to"};
     public static final String FROMCAT[] = {"from"};
     public static final String PARENTCAT[] = {"parent"};
@@ -45,6 +45,7 @@ interface TelosFunctionality {
     public static final String IMAGE_HEIGHT_LABEL="height";
     public static final String IMAGE_X_LABEL="dx";
     public static final String IMAGE_Y_LABEL="dy";
+    public static final String TYPE="type";  // add on Jun, 2003 for GRL 
     
     // metaclasses:
     public static final String OME_VISIBLE_CLASS="OMEVisibleClass";

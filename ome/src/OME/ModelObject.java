@@ -35,7 +35,10 @@ public interface ModelObject extends OMEObject {
     /** Returns an iterator over the objects attributes. */
     public Iterator getAttributes();
 
-    
+    /** Clear the model attributes for this object. (added in Jun, 2003) */
+    public void clearModelAttr();
+
+
     /** Returns the value attribute with the given name. The attribute can
       * then be manipulated through the OMEValueAttribute interface. 
       *

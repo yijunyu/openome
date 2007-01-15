@@ -2,10 +2,10 @@
 package jtelos.example;
 
 
-import jtelos.*;
-import jtelos.util.ArrayCaster;
-
-import java.util.*;
+import jtelos.Attribute;
+import jtelos.Individual;
+import jtelos.IndividualOrLiteral;
+import jtelos.StaticHelper;
 
 public class exAttribute extends exTelosObject implements Attribute {
 

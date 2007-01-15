@@ -1,8 +1,4 @@
-/**
-  * File Updated by LIN LIU SEP 15, 2001
-  */
-
-package OME;
+ package OME;
 
 import java.awt.BorderLayout;
 import java.awt.FileDialog;
@@ -53,6 +49,7 @@ class ProjectManager extends JPanel {
     private HashMap hashmap = new HashMap();
 
     private ModelManager modelmanager;
+    private ShowManager showmanager;
 
     // The toolbar used to store the buttons
     JToolBar toolbar;
@@ -74,6 +71,9 @@ class ProjectManager extends JPanel {
     AbstractAction selectkbaction;
     AbstractAction editkbaction;
     AbstractAction catalogkbaction;
+    AbstractAction setupshowaction;    // set up a slide show (Jun, 03)
+    AbstractAction playshowaction;     // play a slide show (jun, 03)
+
     
     // A collection of the menus available
     Collection availablemenus = new Vector();
@@ -85,6 +85,7 @@ class ProjectManager extends JPanel {
 	this.ome = ome;
 	loadedprojects = new Vector();	
 	modelmanager = new ModelManager(ome);
+	showmanager = new ShowManager(ome, modelmanager);
 
 	setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 	
@@ -108,10 +109,8 @@ class ProjectManager extends JPanel {
 	// create the menus and actions
 	initMenusAndActions();
 
-
 	add(toolbar,BorderLayout.WEST);	
 	add(projectpanel,BorderLayout.CENTER);
-
     }
 
     
@@ -140,6 +139,11 @@ class ProjectManager extends JPanel {
 	modelmenu.setMnemonic('M');
 	availablemenus.add(modelmenu);
 	
+        // create the Slide Show menu
+	JMenuPlus slidemenu = new JMenuPlus("Slide Show");
+	slidemenu.setMnemonic('S');
+	availablemenus.add(slidemenu);
+
 	JMenuPlus kbmenu = new JMenuPlus("Knowledge Base");
 	kbmenu.setMnemonic('K');
 	availablemenus.add(kbmenu);	
@@ -174,6 +178,13 @@ class ProjectManager extends JPanel {
 	closeprojaction = new CloseProjectAction();
 	closeprojaction.setEnabled(false);
 	addAction(closeprojaction, projectmenu, "Removes project from view");
+
+	setupshowaction = new SetupShowAction();
+	setupshowaction.setEnabled(false);
+	slidemenu.add(setupshowaction);
+      
+	playshowaction = new PlayShowAction();
+	slidemenu.add(playshowaction);
 
 	newmodelaction = new NewModelAction();
 	addAction(newmodelaction, modelmenu, "Creates a new model");
@@ -231,21 +242,25 @@ class ProjectManager extends JPanel {
 	    if (node != rootnode) { 
 		if (node.getType() == PROJECT){
 		    closeprojaction.setEnabled(true);
+		    setupshowaction.setEnabled(true);
 		    showmodelaction.setEnabled(false);
 		    deletemodelaction.setEnabled(false);
-                    deleteprojaction.setEnabled(true);
+                deleteprojaction.setEnabled(true);
 		} else if (node.getType() == MODEL) {
 		    closeprojaction.setEnabled(false);
 		    deleteprojaction.setEnabled(false);
+		    setupshowaction.setEnabled(false);
 		    showmodelaction.setEnabled(true);
 		    deletemodelaction.setEnabled(true);
 		}
 	    } else {
 		closeprojaction.setEnabled(false);
-                deleteprojaction.setEnabled(false);
-
+            deleteprojaction.setEnabled(false);
+		setupshowaction.setEnabled(false);
 	    }
-	} 
+	} else {
+	    setupshowaction.setEnabled(false);
+	}
     }
 
     
@@ -259,9 +274,6 @@ class ProjectManager extends JPanel {
 	    GraphicView gv = (GraphicView)vm.getViewByIndex(0);
 
 	    new GraphicViewFrame(ome.DEFAULT_WIDTH, gv, ome, mpath);
-//multiple view
-//	    new GraphicViewFrame(ome.DEFAULT_WIDTH, vm, ome, mpath);
-
 	} catch (Exception e) {
 	    D.o(e);
 	}   
@@ -552,7 +564,8 @@ class ProjectManager extends JPanel {
 		    // and remove project from the collection of loaded projects
 		    loadedprojects.remove(pnode.getAbsolutePath());
                   }
-  	         D.o(pnode.getAbsolutePath());
+  	          D.o(pnode.getAbsolutePath());
+		    updateActionStatus();
 	      }
            }
         }
@@ -575,12 +588,83 @@ class ProjectManager extends JPanel {
 		    // and remove project from the collection of loaded projects
 		    loadedprojects.remove(pnode.getAbsolutePath());
 		    D.o(pnode.getAbsolutePath());
+		    updateActionStatus();
 		}
 	    }	 
 	}
     }
 
+    private class SetupShowAction extends AbstractAction {
+	
+	public SetupShowAction() {
+	    super("Set Up Show");
+	}
+
+	public void actionPerformed (ActionEvent e) {
+	    Collection availablemodels;
+	    TreePath tp = projecttree.getSelectionPath();
+	    if (tp != null) {
+		ProjectNode pnode = (ProjectNode)(tp.getLastPathComponent());
+		if (pnode != rootnode){
+		    availablemodels = pnode.getModels();
+		    showmanager.setupShow(pnode.getAbsolutePath(), availablemodels);
+		}
+	    } 
+	}
+    }
     
+    private class PlayShowAction extends AbstractAction {
+	public PlayShowAction() {
+	    super("Play Show");
+	}
+
+	public void actionPerformed (ActionEvent e) {
+	    Collection c = new Vector();
+	    String showname;
+	    Iterator availableshows = showmanager.getAvailableShows();
+	    if (!availableshows.hasNext()) {
+	    	JOptionPane.showMessageDialog( ome, 
+			"No shows have been set up.", 
+			"No available shows", JOptionPane.ERROR_MESSAGE);  	    
+	        return;
+	    }
+
+	    // create a dialog of available shows to be played	
+	    JPanel mainpanel = new JPanel(new BorderLayout());
+	    mainpanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+	    JPanel labelpanel = new JPanel();
+	    labelpanel.add (new JLabel("Select a show to be played"));
+
+	    JPanel showpanel = new JPanel(new GridLayout(0,1));
+	    
+	    while (availableshows.hasNext()) {
+		String item = (String)availableshows.next();
+		String choice = item.substring(0, item.length()-4);
+	    	JCheckBox cb = new JCheckBox(choice);
+	    	showpanel.add(cb);
+	    	c.add(cb);	    
+	    }
+	    mainpanel.add(labelpanel, BorderLayout.NORTH);
+	    mainpanel.add(showpanel, BorderLayout.CENTER);
+	    ContinueCancelDialog dialog = new ContinueCancelDialog(ome, 
+		"Select a show to be played", mainpanel);
+
+	    // display dialog and determine which show is selected
+	    if (dialog.showDialog() == ContinueCancelDialog.CONTINUE) {
+	    	Iterator j = c.iterator();
+	    	while (j.hasNext()) {
+		    JCheckBox cb  = (JCheckBox)j.next();
+		    if (cb.isSelected()) {
+		    	showname = cb.getText() + ".txt";
+			showmanager.playShow(showname);
+		    }
+	        }
+	    }	
+	    
+	}
+    }
+
+
     /** The action to open a new model. */
     public class NewModelAction extends AbstractAction {
 	public NewModelAction() {
@@ -608,6 +692,8 @@ class ProjectManager extends JPanel {
 
 		// get the name of the new model
 		String mname = modelinfo.getModelName();
+
+                
 
 //cai,if mname="",dialog repeat
 	
@@ -654,10 +740,8 @@ class ProjectManager extends JPanel {
 		ViewManager vm = modelmanager.getViewManager(model);
 
 		GraphicView gv = (GraphicView)vm.getViewByIndex(0);
-//single view
 		new GraphicViewFrame(ome.DEFAULT_WIDTH,gv,ome,mpath);
-//multiple view
-//		new GraphicViewFrame(ome.DEFAULT_WIDTH, vm, ome, mpath);
+
 		// save the newly created model
 		model.save(mpath);
 		
@@ -681,6 +765,7 @@ class ProjectManager extends JPanel {
 	    ProjectNode node = (ProjectNode)
 		projecttree.getLastSelectedPathComponent();
 	    if (node.getType() == MODEL) {
+D.o("modelname: " + node.getAbsolutePath());
 		openModel(node.getAbsolutePath());
 	    }  
 	}
@@ -787,9 +872,6 @@ class ProjectManager extends JPanel {
 	}
 
 	public void actionPerformed(ActionEvent e){
-		new ModuleInUseDlg(ome, false, ome.getAvailableModule(), 
-				ome.getSelectedModule(),
-				ome.getConceptMethodTree());
 	}
     }
 
@@ -800,7 +882,6 @@ class ProjectManager extends JPanel {
 	}
 
 	public void actionPerformed(ActionEvent e){
-		new ModuleEditor(ome);	
 	}
     }	
 
@@ -811,8 +892,6 @@ class ProjectManager extends JPanel {
 	}
 
 	public void actionPerformed(ActionEvent e){
-	    (new ConceptAndMethodCatalogDlg(ome, false, ome, ome.getConceptMethodTree())).
-		setVisible(true);
 	}
     }		
 	    
@@ -880,8 +959,7 @@ class ProjectManager extends JPanel {
 		} 
 	    }
 	}   
-    }
-    
+    }   
 }
 
 

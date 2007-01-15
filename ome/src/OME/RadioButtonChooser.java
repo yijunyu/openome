@@ -31,7 +31,7 @@ public class RadioButtonChooser extends CheckboxChooser {
 	  * RadioButtonChooser.	  
 	  */
     public RadioButtonChooser(JFrame owner, String title, boolean modal,
-	    Collection choices) {
+	    Collection choices) {  
 	super(owner, title, modal);
 	constructDialogue(getChoicePanel(choices));
     }
@@ -46,8 +46,8 @@ public class RadioButtonChooser extends CheckboxChooser {
 	while (i.hasNext()) {
 	    Choice c = (Choice)i.next();
 	    D.o("Adding choice: "+c.name());
-	    JRadioButton rb = new JRadioButton(c.name(), c.chosen());
-	    bg.add(rb);
+            JRadioButton rb = new JRadioButton(c.name(), c.chosen());
+            bg.add(rb);
 	    rb.setEnabled(!c.mandatory());
 	    rb.addItemListener(new CheckboxChoiceListener(c));
 	    choicepanel.add(rb);

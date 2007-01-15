@@ -2,9 +2,6 @@
 package jtelos;
 
 
-import jtelos.util.Singleton;
-
-import java.util.Vector;
 
 /**  The following methods in the interface <code>KB</code> need to be
  * implemented in any implementation of the API. They return unique

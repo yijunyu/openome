@@ -2,7 +2,6 @@
 package jtelos;
 
 
-import jtelos.util.RuntimeEncapsulatorException;
 
 /**  This interface models a Telos KB. A KB is a set of individuals
  * and attributes loaded and available for conducting

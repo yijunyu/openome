@@ -3,10 +3,10 @@ package OME;
 import java.awt.Image;
 import java.util.Collection;
 
-/** 
+/** @version May, 2003 (clean up)
+  *
   * This class is an adapter class that implements all the methods in the
-  * <code>PluginMethod</code> interface as no-op's and that also includes a 
-  * list of the supported parameter types as static fields. 
+  * <code>PluginMethod</code> interface as no-op's. 
   *
   * <P>This class exists as a convenience so that classes wishing to implement 
   * the PluginMethod interface can instead extend this class and override the 

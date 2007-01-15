@@ -2,8 +2,10 @@
 package jtelos.example;
 
 
-import jtelos.*;
-
+import jtelos.Attribute;
+import jtelos.AttributeClass;
+import jtelos.Individual;
+import jtelos.Omegaclass;
 import jtelos.util.AttributeVector;
 
 public class exAttributeClassBuiltIn extends exAttribute

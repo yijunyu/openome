@@ -15,8 +15,8 @@ public class SortTelosObjectVector {
 	v.insertElementAt(obj,findPoint(obj.telosName()));
   }  
 
-  public void addEnum(Enumeration enum) {
-	for(Enumeration e = enum;e.hasMoreElements();) 
+  public void addEnum(Enumeration enum1) {
+	for(Enumeration e = enum1;e.hasMoreElements();) 
 	  addElement((TelosObject) e.nextElement());
   }  
 

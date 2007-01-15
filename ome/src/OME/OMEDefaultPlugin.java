@@ -1,5 +1,6 @@
 package OME;
-   
+
+
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -20,10 +21,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-/** This is the standard OME interface plugin.  It creates and populates the
-  *  File and Edit menus, creates tool bars for basic editing, and simple
-  *  creation of all instantiable links and elements.  It also populates the
-  *  Popup (right mouse button) menu with similar methods.
+/** @version May, 2003 (revise AddAttributeSubmenu and some comments)
+  *
+  * This is the standard OME interface plugin.  It creates and populates the
+  * File, View, Window and Help menus, creates tool bars for basic editing, 
+  * and simple creation of all instantiable links and elements.  It also 
+  * populates the Popup (right mouse button) menu with similar methods.
   */
 class OMEDefaultPlugin implements OMEPlugin {
 
@@ -33,8 +36,9 @@ class OMEDefaultPlugin implements OMEPlugin {
     private boolean expandall = false;
     private boolean contractall = false;
     private static String IMAGE_DIR = "images";
-					    //for expandable elements?
+					    
 
+    /** Construct an OMEDefaultPlugin with OMEModel m */
     public OMEDefaultPlugin(OMEModel m) {
 	model = m;
 	use_expandable = expandableElementsPresent();
@@ -50,16 +54,18 @@ class OMEDefaultPlugin implements OMEPlugin {
 	return new SaveMethod(v);
     }
     
+    /** Returns a collection  of our <code>PluginMethod</code>s that are 
+      * to be placed on the OME toolbar. 
+      *
+      * @param v the view been provided 
+      */
     public Collection getToolbarMethods(View v) {
 	Vector toolbarMethods = new Vector();
 	
-	// Toolbar 1:  Has the convienient save button on it.
+	// Toolbar 1:  Has the convienient save and print buttons on it.
 	MenuMethod file_edit_toolbar = new MenuMethod("File/Edit");
 	file_edit_toolbar.addItem(new SaveMethod(v));
 	file_edit_toolbar.addItem(new PrintMethod(v));
-//	file_edit_toolbar.addItem(new CutMethod(v));
-//	file_edit_toolbar.addItem(new CopyMethod(v));
-//	file_edit_toolbar.addItem(new PasteMethod(v));
 
 	// Toolbar 2:  Methods for those instantiable types that have
 	// requested automatic interface generation.
@@ -95,30 +101,12 @@ class OMEDefaultPlugin implements OMEPlugin {
 	return toolbarMethods;
     }
     
-    private void setStraightenAll(boolean b) {
-	straightenall = b;
-    }
-
-    private boolean straightenAll() {
-	return straightenall;
-    }
     
-    private void setExpandAll(boolean b) {
-	expandall = b;
-    }
-
-    private boolean expandAll() {
-	return expandall;
-    }
-    
-    private void setContractAll(boolean b) {
-	contractall = b;
-    }
-
-    private boolean contractAll() {
-	return contractall;
-    }
-    
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
+      * placed on the OME menubar.  
+      *
+      * @param v the view been provided 
+      */
     public Collection getMenubarMethods(View v) {
 	Vector menubarMethods = new Vector();
 
@@ -127,14 +115,12 @@ class OMEDefaultPlugin implements OMEPlugin {
 	PluginMethod sm = new SaveMethod(v);
 	filemenu.addItem(sm);
 	filemenu.addItem(new SaveAsMethod(v));
-//cai 1.29.2001
+        //cai 1.29.2001
 	filemenu.addItem(new SaveAsSmlMethod(v));
 	filemenu.addItem(new SaveAsXmlMethod(v));
 
 	filemenu.addItem(new ExportMethod(v));
 	filemenu.addItem(new PrintMethod(v));
-//      filemenu.addItem(new ExportMethod(v,"Export","CB",false));
-//	filemenu.setSubmenu(new ExportMethod(v));
 	filemenu.addItem(new CloseMethod(v,sm));
 	
 	// Create View Menu
@@ -150,8 +136,6 @@ class OMEDefaultPlugin implements OMEPlugin {
 	viewmenu.addItem(new ResizeAllMethod(v));
 
 	MenuMethod windowmenu = new MenuMethod("Window");
-//	multiple view
-//	windowmenu.addItem(new CreateNewViewMethod(v));
 	windowmenu.addItem(new ArrangeAllMethod(v));
 	windowmenu.addItem(new SplitMethod(v));
 	windowmenu.addItem(new UnhideAllMethod(v));
@@ -168,6 +152,13 @@ class OMEDefaultPlugin implements OMEPlugin {
 	return menubarMethods;
     }
     
+    
+    /** Returns a collection  of our <code>PluginMethod</code>s that are to be
+      * placed in the OME popup-menu (when the user clicks the right mouse
+      * button).  
+      *
+      * @param v the view been provided 
+      */
     public Collection getPopupMethods(View v) {
 	D.o("Getting OMEDefault popup methods.");
 	
@@ -201,9 +192,43 @@ class OMEDefaultPlugin implements OMEPlugin {
 	ll.add(new ChangeLinkTypeMethod(v));	
 	ll.add(new PopupMenuSeparatorMethod(v));	
 	ll.add(new RemoveAttributeSubmenu(v));
-	ll.add(new AddAttributeSubmenu(v));
-	ll.add(new PopupMenuSeparatorMethod(v));	
+
+	//deleted this method in Aug, 2003 to reduce the duplicate in each framework
+	//ll.add(new AddAttributeSubmenu(v));
+	//ll.add(new PopupMenuSeparatorMethod(v));	
 	return ll;
+    }
+
+
+    /** Helper methods */
+    /** Set straightenall as b */
+    private void setStraightenAll(boolean b) {
+	straightenall = b;
+    }
+
+    /** Return straightenall */
+    private boolean straightenAll() {
+	return straightenall;
+    }
+    
+    /** Set expandall as b */
+    private void setExpandAll(boolean b) {
+	expandall = b;
+    }
+
+    /** Return expandall */
+    private boolean expandAll() {
+	return expandall;
+    }
+    
+    /** set contractall as b */
+    private void setContractAll(boolean b) {
+	contractall = b;
+    }
+
+    /** Return contractall */
+    private boolean contractAll() {
+	return contractall;
     }
 
     /** Returns a collection of Objects that represent the instantiable
@@ -270,7 +295,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 
     ////////////////////////////////////////////////////////////////////////
     //									  //
-    //	    METHODS							  //
+    //	    PLUGIN METHODS					          //
     //									  //
     ////////////////////////////////////////////////////////////////////////
     
@@ -295,6 +320,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
     
+    /** The method to select all the view objects */
     private class SelectAllMethod extends AbstractPluginMethod {
     
 	private View view;
@@ -370,46 +396,9 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    }
 	}
     } 
-/* multiple view
-    private class CreateNewViewMethod extends AbstractPluginMethod {
 
-	private View view;
-	
-	public CreateNewViewMethod(View view){
-	    this.view = view;    
-	}
-
-	public String getName(){
-	    return "New Window";
-	}
-
-	public void invoke(){
-	    //this inplementation is only for graphic view
-	    GraphicViewFrame gvf= ((GraphicView)view).getGraphicViewCanvas().getGraphicViewFrame();
-	    Object[] options = {"Graphic View",
-				"Tree View",
-				"Textual Description"};
-	    int n = JOptionPane.showOptionDialog(gvf,
-                                "Which kind of view would you like to create"
-				+ "in the new window?",
-				"View Type Chooser",
-				JOptionPane.YES_NO_CANCEL_OPTION,
-				JOptionPane.QUESTION_MESSAGE,
-				null,
-				options,
-				options[0]);
-	    
-	    ViewManager vm = view.getModel().getViewManager();
-	    int id = vm.createView(n);
-	    try {
-		gvf.createNewViewFrame(vm, vm.getOME(), n, id);
-	    } catch (Exception e) {
-	    	D.o(e);
-	    }
-	}
- }
-*/
-
+    
+    /** The method to "ArrangeAll", not implemented yet. */
     private class ArrangeAllMethod extends AbstractPluginMethod {
     
 	public ArrangeAllMethod (View view){
@@ -424,6 +413,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to "Split", not implemented yet. */
     private class SplitMethod extends AbstractPluginMethod {
 	public SplitMethod (View view) {
 	}
@@ -437,6 +427,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 	
+    /** The method "Help Contents", not implemented yet. */
     private class HelpContentMethod extends AbstractPluginMethod {
 	public HelpContentMethod () {
 	}
@@ -525,7 +516,8 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    }
 	}
     }
-      /** The method to "Save As A .sml File" the model and its views. */
+
+    /** The method to "Save As A .sml File" the model and its views. */
     private class SaveAsSmlMethod extends AbstractPluginMethod {
 
 	private View view;
@@ -555,7 +547,6 @@ class OMEDefaultPlugin implements OMEPlugin {
 		try {
 //Here is the place to insert a new method called saveassml....
 		    model.saveassml(completepath); //cai
-//		    model.save(completepath);
 		} catch (Exception e) {
 		    // Error saving model.
 		    D.a(e);
@@ -564,7 +555,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
     
-       /** The method to "Save As A .sml File" the model and its views. */
+    /** The method to "Save As A .sml File" the model and its views. */
     private class SaveAsXmlMethod extends AbstractPluginMethod {
 
 	private View view;
@@ -593,7 +584,6 @@ class OMEDefaultPlugin implements OMEPlugin {
 		D.o("To be Saved File is Named as " + completepath);
 		try {
 		    model.saveasxml(completepath); //cai,7.10,2001
-//		    model.save(completepath);
 		} catch (Exception e) {
 		    // Error saving model.
 		    D.a(e);
@@ -601,8 +591,10 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    }
 	}
     }
-    
-   private class StraightenAllMethod extends AbstractPluginMethod{
+   
+
+    /** The method used to straighten all the links in the view. */
+    private class StraightenAllMethod extends AbstractPluginMethod{
     
 	private Image isonimage;
 	View view;
@@ -641,7 +633,8 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
-   private class ExpandAllMethod extends AbstractPluginMethod{
+    /** The method used to expand all the expandable elements in the view */
+    private class ExpandAllMethod extends AbstractPluginMethod{
     
 	private Image isonimage;
 	View view;
@@ -681,7 +674,9 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    }
 	}
     }
-   private class ContractAllMethod extends AbstractPluginMethod{
+
+    /** The methods used to contract all the expanded elements in the view */
+    private class ContractAllMethod extends AbstractPluginMethod{
     
 	private Image isonimage;
 	View view;
@@ -722,7 +717,8 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
    
-   private class ResizeAllMethod extends AbstractPluginMethod{
+    /** The method used to resize all the elements in the view. */
+    private class ResizeAllMethod extends AbstractPluginMethod{
     
 	private View view;
 	private GraphicViewFrame gvf;
@@ -1074,6 +1070,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to straighten a link */
     private class StraightenMethod extends ObjectMethod {
     
 	public StraightenMethod(View v) {
@@ -1087,6 +1084,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
     
+    /** The method to highlight an element */
     private class HighlightMethod extends ObjectMethod {
     
 	public HighlightMethod(View v) {
@@ -1101,6 +1099,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	
     }
 
+    /** The method to highlight a highlighted element */
     private class UnhighlightMethod extends ObjectMethod {
 	
 	public UnhighlightMethod(View v) {
@@ -1114,6 +1113,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     
     }
+ 
     /** The method to resize an object. 
      */
     private class ResizeMethod extends ObjectMethod {
@@ -1178,10 +1178,10 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
-
+    /** The method to change the type of an element */
     private class ChangeElementTypeMethod extends AbstractPluginMethod {
 	
-	private ViewObject linkobject;
+	private ViewObject elementobject;
 	private View view;
 	private Object type;	
 	private Object oldtype;
@@ -1194,7 +1194,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    this.view = view;
 	}
 	
-	public String getName() {
+	public String getName() {   
 	    return "Change Element Type";
 	}
 
@@ -1202,19 +1202,19 @@ class OMEDefaultPlugin implements OMEPlugin {
 	    if (nextp == CONTEXT) {
 		ViewContext con = (ViewContext)c.iterator().next();
 		if (con.associatedObject() != null) {
-		    linkobject =con.associatedObject();
+		    elementobject =con.associatedObject();
 		    nextp = DONE;
 		} else {
 		    nextp = OBJECT;
 		}
 	    } else if (nextp == OBJECT) {
-		linkobject = (ViewObject)c.iterator().next();
+		elementobject = (ViewObject)c.iterator().next();
 		nextp = DONE;
 	    }
 	}
 
 	public PluginParameter nextParameter() {
-	    if (linkobject != null || nextp == DONE) {
+	    if (elementobject != null || nextp == DONE) {
 		return null;
 	    } else if (nextp == CONTEXT) {
 		return contextParameter();
@@ -1226,8 +1226,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 
 	public void invoke() {
 	    
-	    GraphicViewElement gve = (GraphicViewElement)linkobject;
-//	    GraphicViewObject gvo = (GraphicViewObject)linkobject;
+	    GraphicViewElement gve = (GraphicViewElement)elementobject;
 	    OMEFramework fw = view.getModel().getFramework();
 	    // Create the choices
 	    Iterator i = fw.getAllInstantiable();	    
@@ -1256,16 +1255,17 @@ class OMEDefaultPlugin implements OMEPlugin {
 		}
 		// and go
 		if (type != null) {
-		    oldtype = linkobject.getType(); 
+		    oldtype = elementobject.getType(); 
 		    try {
 			D.o("Old type is " + oldtype +" ; new type is " +type);
-			linkobject.setType(type);
+			elementobject.setType(type);
+			
 		    } catch (Exception e) {
 			// we had a problem setting new type
 			// so let's just go back to old type and quit.
-			
+			D.o("in default");
 			try {
-			    linkobject.setType(oldtype);
+			    //elementobject.setType(oldtype);
 			    JOptionPane.showMessageDialog(null, 
 				"Unable to change " + oldtype  
 				+ " to " + type + ".",
@@ -1292,19 +1292,18 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
 
 	public void cancelled() {
-	    linkobject = null;
+	    elementobject = null;
 	    nextp = CONTEXT;
 	}
 
 	public boolean isEnabled(ViewContext con) {
 	    ViewObject vo = con.associatedObject();
 	    return ((vo !=null) && (vo instanceof ViewElement));
-//	    return ((vo !=null));
 	}
 
 	private PluginParameter objectParameter() {
 	    return new PluginParameter(PluginParameter.CARDINALITY_ONE,
-		    "Select the link whose type should be changed", 
+		    "Select the element whose type should be changed", 
 		     PluginParameter.OMEObjectType);
 	}
 
@@ -1314,6 +1313,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to change the type of a link. */
     private class ChangeLinkTypeMethod extends AbstractPluginMethod {
 	
 	private ViewObject linkobject;
@@ -1362,24 +1362,27 @@ class OMEDefaultPlugin implements OMEPlugin {
 	public void invoke() {
 	    
 	    GraphicViewLink gvl = (GraphicViewLink)linkobject;
-//	    GraphicViewObject gvo = (GraphicViewObject)linkobject;
 	    OMEFramework fw = view.getModel().getFramework();
 	    // Create the choices
 	    Iterator i = fw.getAllInstantiable();	    
-	    Vector v = new Vector();	    
+	    Vector v = new Vector();	
+	       
 	    while (i.hasNext()) {
-		Choice c = new Choice();		
+		Choice c = new Choice();
 		Object objecttype = (Object) i.next();
+		
 		if (fw.isLink(objecttype)) {
 		    String name = fw.getName(objecttype);
 		    c.setName(name);
-		    c.setChoiceObject(fw.getType(name));
+		    c.setChoiceObject(fw.getType(name));	
 		    v.add(c);
 		}
 	    }
+	    
 	    // Show the dialogue to get the type.
 	    RadioButtonChooser rbc = new RadioButtonChooser(null,
 		    "Change Link Type To:", true, v);
+	    
 	    if (rbc.showDialog() == RadioButtonChooser.CONTINUE) {
 		Iterator it = v.iterator();
 		// get the choice
@@ -1395,12 +1398,14 @@ class OMEDefaultPlugin implements OMEPlugin {
 		    try {
 			D.o("Old type is " + oldtype +" ; new type is " +type);
 			linkobject.setType(type);
+			gvl.updateGVAttrs();  //added on Jun, 03
 		    } catch (Exception e) {
 			// we had a problem setting new type
 			// so let's just go back to old type and quit.
-			
+			D.o("in default  " + e);
 			try {
-			    linkobject.setType(oldtype);
+			    //linkobject.setType(oldtype);
+			    gvl.updateGVAttrs();
 			    JOptionPane.showMessageDialog(null, 
 				"Unable to change " + oldtype  
 				+ " to " + type + ".",
@@ -1415,8 +1420,11 @@ class OMEDefaultPlugin implements OMEPlugin {
 		// Users wants to bail out.
 		// Do nothing.
 	    }
-	    resetMethod();
 
+	    gvl.setName(gvl.getModelObject().getName());  //Jun, 03
+	    gvl.setStroke();                              //Jun, 03
+	    resetMethod();
+	    //D.o("finally after set type");
 	}
 
 	/** Set the type back to null, and do the rest of the method clean-up,
@@ -1434,7 +1442,6 @@ class OMEDefaultPlugin implements OMEPlugin {
 	public boolean isEnabled(ViewContext con) {
 	    ViewObject vo = con.associatedObject();
 	    return ((vo !=null) && (vo instanceof ViewLink ));
-//	    return ((vo !=null));
 	}
 
 	private PluginParameter objectParameter() {
@@ -1468,7 +1475,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
-   /** The method to print the view
+    /** The method to print the view
      */
     private class PrintMethod extends AbstractPluginMethod {
 	View view;
@@ -1548,6 +1555,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to make a submenu for Remove Attribute. */
     private class RemoveAttributeSubmenu extends AbstractPluginMethod {
 	View view;
 	public RemoveAttributeSubmenu(View view) {
@@ -1591,6 +1599,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
     
+    /** The method to remove attribute */
     private class RemoveAttribute extends AbstractPluginMethod {
 	ModelAttribute att;
 	
@@ -1611,6 +1620,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to make a submenu for AddAttribute. */
     private class AddAttributeSubmenu extends AbstractPluginMethod {
 	View view;
 	public AddAttributeSubmenu(View view) {
@@ -1638,8 +1648,11 @@ class OMEDefaultPlugin implements OMEPlugin {
 		Iterator i = mo.getAttributes();
 		while (i.hasNext()) {
 		    D.o(" Are we finding any attributes? yes...");
-		    ModelAttribute att = (ModelAttribute)i.next();		    
-		    list.add(new AddAttributeSubsubmenu(att, view));		    
+		    ModelAttribute att = (ModelAttribute)i.next();	
+		    // Yue: add for GRL
+		    if (! (att.getName()).equals("type")) {	    
+		        list.add(new AddAttributeSubsubmenu(att, view));	
+                    }	    
 		    //list.add(new
 		//	    AddAttribute(att,att.getPossibleTargets().next()));
 		}
@@ -1649,6 +1662,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to make a subsubmenu for AddAttributeSubmenu. */
     private class AddAttributeSubsubmenu extends AbstractPluginMethod {
 	ModelAttribute att;
 	View view;
@@ -1682,6 +1696,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
     }
 
+    /** The method to add attribute. */
     private class AddAttribute extends AbstractPluginMethod {
 	ModelAttribute att;
 	Object target;
@@ -1705,6 +1720,7 @@ class OMEDefaultPlugin implements OMEPlugin {
 	}
 	
 	public String getName() {
+D.o("The name of the target: " + model.getFramework().getName(target));
 	    return model.getFramework().getName(target);
 	}
 	

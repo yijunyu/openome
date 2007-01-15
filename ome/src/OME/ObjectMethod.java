@@ -2,7 +2,9 @@ package OME;
 
 import java.util.Collection;
 
-/** Many PluginMethods operate on ViewObjects.  They look for a ViewObject
+/** @version May, 2003 (clean-up)
+ *
+ *  Many PluginMethods operate on ViewObjects.  They look for a ViewObject
  *  from the context, and if they can't find one there, they will seek one 
  *  from the user as a parameter.  This class encapsulates that behaviour to
  *  save the plugin implementor from repeating the same code again and again.
@@ -16,8 +18,7 @@ import java.util.Collection;
 public abstract class ObjectMethod extends AbstractPluginMethod {
     
     protected View view;
-    //private ViewObject vo = null;	    // What this method operates on.
-    private ViewObject viewobjects[];
+    private ViewObject viewobjects[];	// What this method operates on.
     private int objects_collected;
 
     // String members name and instruction.  Set these in the subclass'
@@ -25,7 +26,7 @@ public abstract class ObjectMethod extends AbstractPluginMethod {
     //
     // name	    - the name of the method.
     // instruction  - presented to the user when asked to provide an object
-    //                paramter, instruction[i] presented when collecting the
+    //                paramter, instructions[i] presented when collecting the
     //                ith object.
     protected String name = null;
     protected String instruction = null;    // Used by one object methods.
@@ -33,9 +34,8 @@ public abstract class ObjectMethod extends AbstractPluginMethod {
 
     // These values are used so we know what state the method is in.
     private boolean gotContextP = false;
-    //private boolean gotObjectP = false;
-
-    /** When no n is supplied, the default is 1.*/
+   
+    /** When the number of objects needed is not given, the default is 1.*/
     public ObjectMethod(View view) {
 	this.view = view;
 	viewobjects = new ViewObject[1];
@@ -62,21 +62,8 @@ public abstract class ObjectMethod extends AbstractPluginMethod {
 	    return null;
 	}
     }
-    /*
-    public PluginParameter nextParameter() {
-	if (vo != null || (gotContextP&&gotObjectP)) {
-	    return null;
-	} else if (!gotContextP) {
-	    return contextParameter();
-	} else if (!gotObjectP) {
-	    return objectParameter();
-	}
-	// This case is an invalid state.
-	D.a(false);
-	return null;
-    }
-    */
 
+    
     /** Accept the parameter we just asked for.  Change our state
      * appropriately.
      */
@@ -101,37 +88,14 @@ public abstract class ObjectMethod extends AbstractPluginMethod {
 	// Otherwise, it was no good.  Please try again.
     }
     
-    /*
-    public void passParameter(Collection c) {
-	if (!gotContextP) {
-	    ViewContext con = (ViewContext)c.iterator().next();
-	    vo=con.associatedObject();
-	    if (vo!=null) {
-		if (!isSuitable(vo)) {
-		    vo = null;
-		}
-	    }
-	    gotContextP = true;
-	} else if (!gotObjectP) {
-	    vo = (ViewObject)c.iterator().next();
-	    if (isSuitable(vo)) {
-		gotObjectP = true;
-	    } else {
-		vo = null;
-	    }
-	} else {
-	    // We weren't expecting a paramter.  This is an error condition.
-	    D.a(false);
-	}
-    }*/
-
+    
     /** If the method is cancelled, we must return to the starting state. */
     final public void cancelled() {
 	resetState();
 	resetMethod();
     }
 
-    /** Override this method to perform any clean up that shoudl take place
+    /** Override this method to perform any clean up that should take place
      *  after an invocation of cancellation of the method. */
     protected void resetMethod() {}
 

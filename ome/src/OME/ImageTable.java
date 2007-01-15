@@ -252,6 +252,7 @@ public class ImageTable extends JComponent {
       * through.
       */
     public Image drawDashedHLine(Image im) {
+	if (im != null) {
 	    BufferedImage bi = new BufferedImage(getWidth(im), getHeight(im),
 		    BufferedImage.TYPE_INT_ARGB);
 	    Graphics2D g = (Graphics2D)bi.getGraphics();
@@ -262,5 +263,8 @@ public class ImageTable extends JComponent {
 	    g.setStroke(s);
 	    g.drawLine(0,getHeight(im)/2,getWidth(im),getHeight(im)/2);
 	    return bi;
+	} else {
+	    return null;
+	}
     }
 }

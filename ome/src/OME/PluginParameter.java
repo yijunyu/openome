@@ -1,7 +1,7 @@
 package OME;
 
 /** This class serves as a means of conveying information from the user to
-  * a <code>PluginMethod</code> before the latter is invoked. PluginParameters 
+  * a {@link PluginMethod} before the latter is invoked. PluginParameters 
   * are specifically used to convey the cardinality (how many pieces of 
   * information are being requested), the type (the type of information been
   * requested), and a helpful message that can be displayed to convey some

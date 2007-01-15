@@ -2,8 +2,11 @@
 package jtelos;
 
 
-import jtelos.util.*;
 import java.util.Vector;
+
+import jtelos.util.AttributeVector;
+import jtelos.util.RuntimeEncapsulatorException;
+import jtelos.util.SortTelosObjectVector;
 public class StaticHelper implements Levels {
 
 
@@ -132,7 +135,7 @@ public class StaticHelper implements Levels {
   /** If the boolean is false, throws a <code>RuntimeException</code>
    * with the message as its message. Otherwise does nothing.
    **/
-  public static void assert(boolean b, String message) {
+  public static void asserting(boolean b, String message) {
 	if(b) throw new RuntimeException(message);
   }  
 

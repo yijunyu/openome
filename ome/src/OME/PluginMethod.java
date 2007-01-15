@@ -4,7 +4,9 @@ import java.awt.Image;
 import java.util.Collection;
 
 
-/** This interface describes the methods that needed to be implemented by
+/** @version May, 2003 (change some comments)
+  *
+  * This interface describes the methods that needed to be implemented by
   * any plugin method in OME. These methods provide insight as to how plugin
   * methods work in OME. When a user initiates a PluginMethod, the parameter 
   * collecting phase (see <code>PluginParameter</code>) begins.  Parameters 
@@ -23,7 +25,7 @@ import java.util.Collection;
   * <code>PluginMethod</code> interface may find it more convenient to instead
   * extend this adapter class.
   *
-  * @see PluginMethod
+  * @see AbstractPluginMethod
   */
 public interface PluginMethod {
     

@@ -1,4 +1,4 @@
-/* TelosElement
+    /* TelosElement
  * 
  * Created October 1998 by Joseph Makuch.
  *
@@ -166,7 +166,8 @@ class TelosElement extends TelosObject implements ModelElement {
     public void setType(Object newtype) throws Exception {
 	Proposition newtypes[] = {(Proposition)newtype};
 	Proposition oldtype[] = {type};
-	
+	Object old_type = type;
+			
 	if (newtype != type) {
 	    // we set our ancestor:
 	    D.o("Changing type from "+framework.getName(type)+" to "
@@ -205,11 +206,12 @@ class TelosElement extends TelosObject implements ModelElement {
 		newtype=type;
 		throw e;
 	    } finally {
-		// replace the attributes |(
+		Attribute newatts[] = new Attribute[attr_count];
+		// replace the attributes 
 		for(count=0;count<attr_count;count++) {
 		    try {
-			kb.newAttribute(individual, categories[count],
-				labels[count], targets[count]);
+			newatts[count] = kb.newAttribute(individual, categories[count], 
+					labels[count], targets[count]);
 		    } catch (Exception e) { 
 			// print out the incompatibilities but otherwise ignore
 			// them. Off to the floor with you all...
@@ -217,12 +219,68 @@ class TelosElement extends TelosObject implements ModelElement {
 		    }
 		}
 	    
-		// we remove our previous instantiation. We *must* have one.
 		this.type=(Proposition)newtype;
+
+		//validate the links connected with me
+		//if the links with my new type are illegal, recover to old type.
+		
+		Iterator i = getLinks().iterator();
+		while (i.hasNext()) {
+		    boolean isFrom = false;
+		    boolean isTo = false;
+		    TelosLink link = (TelosLink)i.next();
+		    Individual link_ind = link.getIndividual();
+		    try {
+		        if (((TelosElement)link.getFrom()).equals(this)) {
+			    isFrom = true;
+			    Attribute from[] = link_ind.directAttributes(FROMCAT, FROM);
+			    if(from.length!=0) {
+	    			link_ind.removeDirectAttr(from[FIRST]);
+			        kb.newAttribute(link_ind,FROMCAT, FROM, 
+					((TelosObject)this).getIndividual());
+			    }	    				    						   
+			} else if (((TelosElement)link.getTo()).equals(this)) {
+			    isTo = true;
+			    Attribute to[] = link_ind.directAttributes(TOCAT, TO);
+			    if(to.length!=0) {
+	    			link_ind.removeDirectAttr(to[FIRST]);
+			        kb.newAttribute(link_ind, TOCAT, TO, 
+					((TelosObject)this).getIndividual());
+			    }
+			}
+		    } catch (Exception e) {//has an illegal link, come back to old type
+		    	D.o("in catch: " + e);
+		    	for (int j =0; j<count; j++) {
+			    individual.removeDirectAttr(newatts[j]);
+			    D.o( j + ": removed attrs before removing newtype ancestor");			    
+			    
+		    	}
+		    	individual.removeDirectAncestor((Proposition)newtype);
+		    	individual.addDirectAncestors(oldtype);
+		    	for(count=0;count<attr_count;count++) {
+		            newatts[count] = kb.newAttribute(individual, categories[count], 
+			    	labels[count], targets[count]);
+			    D.o("attr come back: " + newatts[count].telosName());
+		    	}
+		    	this.type=(Proposition)old_type;
+			if (isFrom) {
+			    kb.newAttribute(link_ind, FROMCAT, FROM, 
+					((TelosObject)this).getIndividual());
+			}
+			if (isTo) {
+			    kb.newAttribute(link_ind, TOCAT, TO, 
+					((TelosObject)this).getIndividual());
+			}
+			newtype=old_type;
+			D.o("reset back to old type");
+		    	throw e;
+		    }
+		}
 	    }
 	}
     }
     
+    	
     
     /** Returns the unique (within the context) integer id of this Telos element.
      * Since the name of an element is not guaranteed to be unique, we use 

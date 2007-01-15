@@ -61,6 +61,7 @@ abstract class GraphicViewObject implements ViewObject {
 		double scale = getScale();
 		Image im = view.getModel().getFramework().getImage(
 			ma.getTarget());
+	        if (im == null) return null;
 		// return scaled image.
 		return view.getImageTable().getScaling(im, scale);
 	    }
@@ -302,7 +303,19 @@ abstract class GraphicViewObject implements ViewObject {
 	
 	linksiteratorbuilder = new LinkedList();
     }
-   
+
+
+    /** Update graphic view attributes. (June, 2003) */
+    public void updateGVAttrs() {
+	attributes = new Vector();
+	Iterator i = getModelObject().getAttributes();
+	while (i.hasNext()) {
+	    ModelAttribute ma = (ModelAttribute)i.next();
+	    //D.o("Updating GVAtt for "+ma.getName());
+	    attributes.add(new GraphicViewAttribute(ma));
+	}
+    }  
+
     /** The rectangle wrapping our image. Perhaps later we cna have a polygon
      *  for this, so we can have more exciting shapes. */
     abstract public Rectangle getImageBounds();
@@ -364,6 +377,46 @@ abstract class GraphicViewObject implements ViewObject {
 	}
     }
     
+    /** Returns true iff this object is evaluated as a starting node */
+    public boolean isEvaStarter() {
+	return view.getEvaluatedStarters().contains(this);
+    }
+    
+    /** Sets whether this object is evaluated as a starting node */
+    public void setEvaStarter(boolean evaStarter) {
+	if (evaStarter) {
+	    if (!isEvaStarter()){
+		view.getEvaluatedStarters().add(this);
+	    }
+	}
+	else{
+	    // if element is selected, we deselect it, otherwise we do nothing. 
+	    if (isEvaStarter()) {		
+		view.getEvaluatedStarters().remove(this);
+	    }
+	}
+    }
+
+    /** Returns true iff this object is evaluated and imported from other diagrams */
+    public boolean isEvaImporter() {
+	return view.getEvaluatedImporters().contains(this);
+    }
+    
+    /** Sets whether this object is evaluated and imported */
+    public void setEvaImporter(boolean evaImporter) {
+	if (evaImporter) {
+	    if (!isEvaImporter()){
+		view.getEvaluatedImporters().add(this);
+	    }
+	}
+	else{
+	    // if element is selected, we deselect it, otherwise we do nothing. 
+	    if (isEvaImporter()) {		
+		view.getEvaluatedImporters().remove(this);
+	    }
+	}
+    }
+
     /** Returns an iterator of our attributes */
     protected Iterator getAttributes() {
 	return attributes.iterator();
@@ -405,7 +458,7 @@ abstract class GraphicViewObject implements ViewObject {
      *  @param name	the name to be assigned
      */
     public void setName(String newname) {
-	D.o("Setting name "+newname);
+	//D.o("Setting name "+newname);
 	try {
 	    getModelObject().setName(newname);
 	} catch (Exception e) {

@@ -1,6 +1,5 @@
 package OME;
 
-
 import java.awt.Image;
 import java.io.File;
 import java.util.Collection;
@@ -11,17 +10,13 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
-// old comment
-/** The NFR plugin.  The plugin will eventually perform some analyses, but at
- *  the moment allows for hiding all objects below a certain node in the goal
- *  tree.
- */
- 
-// new comment 
-/** This class serves as a plugin that adds all the functionality needed
-  * for the IStar framework. It currently contains methods for creating 
-  * IStar elements and links. It is hoped that in the future, this plugin
-  * will contain the code for performing IStar analyses.
+/** @version May, 2003 (clean-up and revise some comments)
+  */
+/** This class serves as a plugin that adds all the functionalities needed
+  * for the NFR framework. It currently contains methods for creating 
+  * NFR elements and links, hiding all objects below a certain node in
+  * the goal tree, showing the subtree only, and toggling auto-propogation. 
+  * It is hoped that in the future, this plugin perform more NFR analyses.
   */
 public class NFRPlugin implements OMEPlugin {
     
@@ -54,7 +49,7 @@ public class NFRPlugin implements OMEPlugin {
 	model = m;
     }
     
-    /** Returns a collection of NFR specific <code>Method</code>s that 
+    /** Returns a collection of NFR specific <code>PluginMethod</code>s that 
       * are to be placed on the OME toolbar. 
       */
     public Collection getToolbarMethods(View view) {
@@ -73,7 +68,7 @@ public class NFRPlugin implements OMEPlugin {
 	return v;
     }
     
-    /** Returns a collection of NFR specific <code>Method</code>s that 
+    /** Returns a collection of NFR specific <code>PluginMethod</code>s that 
       * are to be placed on the OME menubar. 
       */    
     public Collection getMenubarMethods(View v) {
@@ -83,23 +78,22 @@ public class NFRPlugin implements OMEPlugin {
 	return Collections.singleton(nfroptions);
     }
 
-   /** Returns a collection of NFR specific <code>Method</code>s that 
+   /** Returns a collection of NFR specific <code>PluginMethod</code>s that 
       * are to be placed in the OME popup-menu (when the user clicks the 
       * right mouse button). 
       */
     public Collection getPopupMethods(View v) {
 	LinkedList ll = new LinkedList();
-	
-	ll.add(new PopupMenuSeparatorMethod(v));		
-	ll.add(new HideSubtree(v));
-	ll.add(new HideAllButSubtree(v));
-	
-	ll.add(new PopupMenuSeparatorMethod(v));		
+
 	ll.add(new SetLabelSubmenu(v));
 	ll.add(new TogglePriority(v));
 	ll.add(new SetDeniedMethod(v));
-	
+	ll.add(new PopupMenuSeparatorMethod(v));
+		
+	ll.add(new HideSubtree(v));
+	ll.add(new HideAllButSubtree(v));	
 	ll.add(new PopupMenuSeparatorMethod(v));		
+	
 	MenuMethod els = new MenuMethod("Create NFR Element");
 	els.setSubmenu(getElementMethods(v));
 	ll.add(els);
@@ -272,15 +266,6 @@ public class NFRPlugin implements OMEPlugin {
 	public String getName() {
 	    return "Toggle Priority";
 	}
-
-	/*
-	public Image getImage() {
-	    if (isPriority(vo)) {
-		return model.getFramework.;
-	    } else {
-		return null;
-	    }
-	}*/
 
 	public boolean isEnabled(ViewContext con) {
 	    vo = con.associatedObject();

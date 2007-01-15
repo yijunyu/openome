@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 
-/** This class is a <code>PluginMethod</code> that is used to create an link
+/** @version May, 2003 (add another constructor)
+  *
+  * This class is a <code>PluginMethod</code> that is used to create an link
   * whose type is specified at construction time. This PluginMethod can be 
   * placed on a menu, toolbar or popupmenu.
   */
@@ -31,20 +33,48 @@ public class CreateLinkMethod extends AbstractPluginMethod {
       * made made to the model which are reflected in the view).
       */    
     public CreateLinkMethod(Object type, String typename, 
-	    View view) {
+	    View view) { 
+	this.type = type;
+	this.typename = typename;
+	this.view = view;
+	resetMethod();
+	
+	// Render our image now, once.
+	// Draw a line through the link head, to make it look like a link.
+	Image im = view.getImage(type);
+        image = view.getImageTable().drawHLine(im);
+    }
+
+    /** Constructs a <code>CreateLinkMethod</code> which can be used to
+      * create links with the specified type and typename in the specified
+      * view with a dashed line if dashed is true, and with a solid line 
+      * otherwise.
+      *
+      *	@param type the type of the object to be created
+      * @param typename the name to be associated with the created object
+      * @param view the view where this object will be created. Unfortunately
+      * in the present architecture, changes are made to the view which are
+      * then reflected in the model, instead of the reverse (where changes are
+      * made made to the model which are reflected in the view).
+      * @param dashed whether the image line of the link is dashed or not 
+      * (currently there are only these two kinds of link lines supported)
+      */  
+    public CreateLinkMethod(Object type, String typename, 
+	    View view, boolean dashed) { //Yue Sun at May, 2003)
 	this.type = type;
 	this.typename = typename;
 	this.view = view;
 
 	resetMethod();
-	/*
-	nextp = contextParameter();
-	expectingcontext = true;
-	*/
+	
 	// Render our image now, once.
 	// Draw a line through the link head, to make it look like a link.
 	Image im = view.getImage(type);
-	image = view.getImageTable().drawHLine(im);
+        if (dashed) { //Yue Sun
+            image = view.getImageTable().drawDashedHLine(im);
+        } else {
+	    image = view.getImageTable().drawHLine(im);
+        }
     }
 
     /** Creates a <code>CreateLinkMethod</code> which can be used to create
@@ -74,6 +104,7 @@ public class CreateLinkMethod extends AbstractPluginMethod {
     public String getName() {
 	return typename;
     }
+    
     
     /** Get the next parameter to be used when this method is invoked.
       *
@@ -129,6 +160,7 @@ public class CreateLinkMethod extends AbstractPluginMethod {
       * @see PluginMethod#invoke() invoke()
       */
     public void invoke() {
+        ViewLink newLink;   //Yue, May 2003
 	if (sources == null || dest == null) {
 	    //Somethings wrong, give up.
 	} else {
@@ -137,8 +169,9 @@ public class CreateLinkMethod extends AbstractPluginMethod {
 	    while (i.hasNext()) {
 		ViewObject vo = (ViewObject)i.next();
 		if (vo != dest) {
-		    view.createLink(type, 
-			    vo.getModelObject(), dest.getModelObject());
+		    newLink = view.createLink(type, 
+			      vo.getModelObject(), dest.getModelObject());
+		    
 		} else {
 		    //throw up a helpful `don't connect to self` message
 		    D.o("`don't connect to self`");
@@ -158,7 +191,7 @@ public class CreateLinkMethod extends AbstractPluginMethod {
 	resetMethod();
     }
 
-    /** This cleans-up the method, preparing it to be used a new. */    
+    /** This cleans-up the method, preparing it to be used as a new one. */    
     protected void resetMethod() {
 	nextp = contextParameter();
 	expectingcontext = true;

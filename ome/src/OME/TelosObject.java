@@ -222,11 +222,13 @@ abstract class TelosObject implements ModelObject, TelosFunctionality {
 	    if (atts.length != 0) {
 		// There can be only one! (Highlander) :) (might not be true
 		// forever...)
-		this.attribute = (Attribute)atts[0];		
+		this.attribute = (Attribute)atts[0];	
 	    }
 	}
 	
-
+	public Attribute getAttribute() {
+	    return attribute;
+        }
 	/** The Telos Category of the attribute. */
 	public String getName() {
 	    return name;
@@ -403,6 +405,12 @@ abstract class TelosObject implements ModelObject, TelosFunctionality {
 	return Arrays.asList(modelvalueattributes).iterator();
     }
     
+    //Jun, 2003
+    public void clearModelAttr() {
+	modelattributes = null;
+    }
+
+
     /** Returns the attribute with the given name. The attribute can then be
      * manipulated through the ModelAttribute interface. At the instance (Token)
      * level the attribute will be in the category 'name' and have no label.*/
@@ -426,9 +434,9 @@ abstract class TelosObject implements ModelObject, TelosFunctionality {
 	    modelattributes = new ModelAttribute[parentatt.length];
 	    if (parentatt.length != 0) {
 		for (int i=0;i<parentatt.length;i++) {
-		    D.o("adding att: "+parentatt[i].label());
+		    D.o("adding att: "+parentatt[i].label()+ " and its target: " + parentatt[i].to());
 		    modelattributes[i] = new TelosAttribute(parentatt[i].label());
-		
+                    
 		}
 	    }
 	}
@@ -439,6 +447,7 @@ abstract class TelosObject implements ModelObject, TelosFunctionality {
 	return individual;
     }
 
+    
     /** do some preparations. we should move the initialization for the
      * objects that we own into this constructor rather than those of the
      * subclasses (link, element) and for those objects that we cannot fully

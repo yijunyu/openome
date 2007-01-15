@@ -58,6 +58,8 @@ class GraphicView implements View {
     private Collection visibleelements;
     private Collection visiblelinks;
     private Collection highlighted;
+    private Collection evaluatedStarters;
+    private Collection evaluatedImporters;
     
     private Rectangle displaybounds;
     private Rectangle viewbounds;
@@ -84,6 +86,9 @@ class GraphicView implements View {
 	public int expanded;
 	public int hidden;
 	public int highlight;
+	public int evaStart;
+	public int evaImport;
+
 	public double end1x;
 	public double end1y;
 	public double start2x;
@@ -101,6 +106,8 @@ class GraphicView implements View {
 	    expanded = 1;
 	    hidden = 0;
 	    highlight = 0;
+	    evaStart = 0;
+	    evaImport = 0;
 	    objecttype = 1;
 	    end1x=0.0;
 	    end1y=0.0;
@@ -121,6 +128,8 @@ class GraphicView implements View {
 	    expanded = 1;
 	    hidden = 0;
 	    highlight =0;
+	    evaStart = 0;
+	    evaImport = 0;
 	}
     }
     
@@ -252,6 +261,17 @@ class GraphicView implements View {
      *  writeable.*/
     public Collection getHighlightedObjects() {
 	return highlighted;
+    }
+
+    /** Returns the ViewObjects that are evaluated as starters. (Aug, 2003)*/
+    public Collection getEvaluatedStarters() {
+	return evaluatedStarters;
+    }
+
+    /** Returns the evaluated ViewObjects that are imported from 
+      * other diagrams. (Aug, 2003)*/
+    public Collection getEvaluatedImporters() {
+	return evaluatedImporters;
     }
 
     /** Returns a collection of the selected elements within this graphic view. 
@@ -536,10 +556,18 @@ class GraphicView implements View {
 	try {
 	    gvl.setTo(gto);
 	    gvl.setFrom(gfrom);
-	    gvl.setName(gvl.getModelObject().getName());
+	    ModelObject mo = gvl.getModelObject();
+	    gvl.setName(mo.getName());
+	    ModelAttribute ma = mo.getAttribute("type");
+	    if (ma != null) {
+		Iterator targets = ma.getPossibleTargets();
+		ma.setTarget(targets.next());
+	    }
+            
 	} catch (Exception e) {
 	    // Same story as in createElement().
 	    // This link ain't legal, kill it.
+		D.o("in grahic view: " + e);
 	    D.o("Here's where we give up making the link");
 	    deleteLink(gvl);
 	    // Inform user
@@ -747,6 +775,18 @@ class GraphicView implements View {
 		gver.highlight = 0;
 	    }
 	    
+	    if (gve.isEvaStarter()) {
+		gver.evaStart = 1;
+	    } else {
+		gver.evaStart = 0;
+	    }
+	    
+	    if (gve.isEvaImporter()) {
+		gver.evaImport = 1;
+	    } else {
+		gver.evaImport = 0;
+	    }
+	    
 	    vs.serialize(gver);
 	}
 	
@@ -816,7 +856,7 @@ class GraphicView implements View {
 	Iterator i = vs.iterator();
 	while (i.hasNext()) {
 		gr = (GRecord) i.next();
-//		D.o("gr.ID: "+gr.ID +"++++++objecttype "+ gr.objecttype);
+		//D.o("gr.ID: "+gr.ID +"++++++objecttype "+ gr.objecttype);
 		
 		// dump ids2ves
 /*		Iterator i2 = ids2gves.values().iterator();
@@ -827,8 +867,10 @@ class GraphicView implements View {
 		if (gr.objecttype == 1) {
 //		    D.o("gr.x: "+gr.x +"  ++++++gr.y "+ gr.y + "scale is" +
 //			    gr.scale);
+
 		    GraphicViewElement gve = 
 			(GraphicViewElement)ids2gves.get(new Integer(gr.ID));
+		    
 		    if (gve==null)
 			D.o("Exception was here!!!!!!!!");
 		    else {
@@ -836,33 +878,43 @@ class GraphicView implements View {
 			gve.setScale(gr.scale);
 
 		    	    
-		// Restore expanded/contracted state.
-		    if (gve.isExpandable()) {
-			if (gr.expanded!=0) {
-			    gve.expand();
-			} else {
-			    gve.contract();
-			}
-		    }
+			// Restore expanded/contracted state.
+		    	if (gve.isExpandable()) {
+			    if (gr.expanded!=0) {
+			    	gve.expand();
+			    } else {
+			    	gve.contract();
+			    }
+		    	}
 
-		    if (gr.hidden == 1) {
-			D.o("Object " + gve.getName() + " is hidden+++++++++++++");
-			((ViewObject)gve).setHidden(true);
-		    }
+		    	if (gr.hidden == 1) {
+			    //D.o("Object " + gve.getName() + " is hidden+++++++++++++");
+			    ((ViewObject)gve).setHidden(true);
+		    	}
 
-		    if (gr.highlight == 1) {
-			D.o("Object " +gve.getName() + 
-				" is highlighted+++++++++++++++++++");
-			((ViewObject)gve).setHighlighted(true);
-		    }
+		    	if (gr.highlight == 1) {
+			    //D.o("Object " +gve.getName() + 
+				//" is highlighted+++++++++++++++++++");
+			    ((ViewObject)gve).setHighlighted(true);
+		    	}
+
+			if (gr.evaStart == 1) {
+			    ((ViewObject)gve).setEvaStarter(true);
+		    	}
+
+			if (gr.evaImport == 1) {
+			    ((ViewObject)gve).setEvaImporter(true);
+		    	}
 		    }
 		}
 		else if (gr.objecttype == 0) {
-//		    D.o("control1: "+gr.control1x +" , "+ gr.control1y);
-//		    D.o("end1&start2: "+gr.end1x +" , "+ gr.end1y);
-//		    D.o("control2: "+gr.control2x +" , "+ gr.control2y);
+		   // D.o("control1: "+gr.control1x +" , "+ gr.control1y);
+		   // D.o("end1&start2: "+gr.end1x +" , "+ gr.end1y);
+		    //D.o("control2: "+gr.control2x +" , "+ gr.control2y);
+
 		    GraphicViewLink gvl = 
 			(GraphicViewLink)ids2gvls.get(new Integer(gr.ID));
+
 		    gvl.getend1().setLocation(gr.end1x, gr.end1y);
 		    gvl.getstart2().setLocation(gr.start2x,gr.start2y);
 		    gvl.getcontrol2().setLocation(gr.control2x, gr.control2y);
@@ -877,6 +929,7 @@ class GraphicView implements View {
 		    gvl.getQuad2().setCurve(gvl.getstart2(),
 			    gvl.getcontrol2(), gvl.getend2());
 		    gvl.setScale(gr.scale);
+
 		}
 	}
 
@@ -912,6 +965,8 @@ class GraphicView implements View {
 	visiblelinks = new LinkedList();
 	it = framework.getImageTable();
 	highlighted = new LinkedList();
+	evaluatedStarters = new LinkedList();
+	evaluatedImporters = new LinkedList();
     
 	//defaultelement = new GraphicViewElement(model.createElement(),this);
 	//defaultlink = new GraphicViewLink(model.createLink(),this);
@@ -1445,16 +1500,17 @@ class GraphicView implements View {
 		    dr.add(getLinksBounds(gl));
 		}
 	    }
-	    // add the expanded bounds if it changed.
 		// Yijun: this is a performance bottleneck when the agent has a large number
 		//        of children
-//	    if (egve != null) {
-//		Rectangle npb = egve.getExpandedBounds();
-//		if (!npb.equals(opb)) {
-//		    dr.add(opb);
-//		    dr.add(npb);
-//		}
-//	    }	    
+		if (false)
+	    // add the expanded bounds if it changed.
+	    if (egve != null) {
+		Rectangle npb = egve.getExpandedBounds();
+		if (!npb.equals(opb)) {
+		    dr.add(opb);
+		    dr.add(npb);
+		}
+	    }	    
 	}
 	//setViewDirty();
 	markDirty(dr);

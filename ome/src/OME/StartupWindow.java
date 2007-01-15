@@ -51,7 +51,7 @@ public class StartupWindow extends JFrame {
 		label1.setForeground(Color.yellow);
 		FramePane.add(label1);
 
-		label2 = new java.awt.Label("Version 3.09",Label.CENTER);
+		label2 = new java.awt.Label("Version 3.12",Label.CENTER);
 		label2.setBounds(20,36,310,24);
 		label2.setFont(new Font("Dialog", Font.BOLD|Font.ITALIC, 14));
 		label2.setForeground(Color.yellow);

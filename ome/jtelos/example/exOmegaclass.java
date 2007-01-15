@@ -2,10 +2,12 @@
 package jtelos.example;
 
 
-import jtelos.util.Singleton;
-import jtelos.*;
-
-import java.util.Vector;
+import jtelos.Attribute;
+import jtelos.Individual;
+import jtelos.KB;
+import jtelos.Omegaclass;
+import jtelos.OmegaclassOrAttributeClass;
+import jtelos.StaticHelper;
 
 /** 
  * The following abstract subclasses need to be implemented in any

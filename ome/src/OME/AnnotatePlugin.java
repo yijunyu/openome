@@ -1,10 +1,9 @@
 package OME;
-
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Vector;
 
-/** The Annotate plugin.  Basically all we do is provide access to the
+/** The Annotate plugin.  Basically all we do is to provide access to the
  *  annotation objects.
  *
  *  A nice idea might be hide/unhide all annotation objects method
@@ -59,7 +58,6 @@ public class AnnotatePlugin implements OMEPlugin {
 	String alname = "Annotates";
 	Object atype = model.getFramework().getType(aname);
 	Object altype = model.getFramework().getType(alname);
-
 	v.add(new CreateElementMethod(atype,aname,view));
 	v.add(new CreateLinkMethod(altype,alname,view));
 	return v;

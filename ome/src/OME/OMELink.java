@@ -37,4 +37,6 @@ public interface OMELink extends OMEObject {
       * @param o the source we are setting for this <code>OMELink</code>.
       */
     public void setFrom(OMEObject o) throws Exception;
+
+    
 }

@@ -171,13 +171,9 @@ class GraphicViewElement extends GraphicViewObject implements ViewElement {
      *
      *  @param type	 the type to be assigned
      */
-    public void setType(Object type) {
-	try {
-	    getModelElement().setType(type);
-	} catch (Exception e) {
-	    D.a(e);
-	}
-	
+    public void setType(Object type) throws Exception {
+	getModelElement().setType(type);
+		
 	// change our image, and bounds:
 	image = view.getModel().getFramework().getImage(type);
 	// to correctly set the bounds...

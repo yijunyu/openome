@@ -2,7 +2,11 @@
 package jtelos.example;
 
 
-import jtelos.*;
+import jtelos.AttributeClass;
+import jtelos.Individual;
+import jtelos.KB;
+import jtelos.Omegaclass;
+import jtelos.TelosObject;
 
 public abstract class exTelosObject implements TelosObject {
 

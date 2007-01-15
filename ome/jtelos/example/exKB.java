@@ -2,13 +2,30 @@
 package jtelos.example;
 
 
-import java.util.*;
-import java.io.*;
-import java.lang.reflect.Constructor;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
-import jtelos.*;
-import jtelos.apps.*;
-import jtelos.util.RuntimeEncapsulatorException;
+import jtelos.Attribute;
+import jtelos.AttributeClass;
+import jtelos.AttributeNotInKBException;
+import jtelos.ChildrenExistException;
+import jtelos.ImmutableBuiltInException;
+import jtelos.Individual;
+import jtelos.IndividualNotInKBException;
+import jtelos.IndividualOrLiteral;
+import jtelos.InstancesExistException;
+import jtelos.KB;
+import jtelos.Modes;
+import jtelos.Omegaclass;
+import jtelos.ReferencedByAttributeException;
+import jtelos.Repository;
+import jtelos.StaticHelper;
+import jtelos.TelosMethodNotImplementedException;
+import jtelos.TelosObject;
+import jtelos.apps.Parser;
 
 /**
  * This class implements the <code>KB</code> interface 

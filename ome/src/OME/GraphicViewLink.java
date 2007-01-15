@@ -323,7 +323,7 @@ class GraphicViewLink extends GraphicViewObject implements ViewLink {
 	}
     }
     
-
+    
     /** Gets the model-side object we are proxying for */
     public ModelLink getModelLink() {
 	return (ModelLink)getModelObject();
@@ -352,9 +352,21 @@ class GraphicViewLink extends GraphicViewObject implements ViewLink {
      */
     public boolean isHidden() {
 	try {
-	return ((GraphicViewObject)getTo()).isHidden() ||
-		((GraphicViewObject)getFrom()).isHidden() || hidden;
+	GraphicViewObject to = (GraphicViewObject)getTo();
+	GraphicViewObject from = (GraphicViewObject)getFrom();
+        boolean toIsHidden = true;
+	boolean fromIsHidden = true;
+	if (to != null) {
+	    toIsHidden = to.isHidden();
+        }
+        if (from != null) {
+	    fromIsHidden = from.isHidden();
+        }
+	return toIsHidden || fromIsHidden || hidden;
+	/* return ((GraphicViewObject)getTo()).isHidden() ||
+		((GraphicViewObject)getFrom()).isHidden() || hidden; */
 	} catch (Exception f) {
+D.o("Here is the null pointer?");
 	    D.o(f);
 	}
 	return true;
@@ -560,7 +572,7 @@ class GraphicViewLink extends GraphicViewObject implements ViewLink {
    
     
     /** Sets our stroke */
-    private void setStroke() {
+    public void setStroke() {
 	String strokestring = 
 		view.getModel().getFramework().getStrokeString(getType());
 	if (strokestring.equals("dashed")) {

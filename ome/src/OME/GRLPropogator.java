@@ -27,8 +27,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-/** This class implements the IStar Evaluation procedure described Eric's
- * Thesis and Lin Liu's report on reasoning. */
+/** This class implements the GRL Evaluation procedure described Eric's
+ *  Thesis and Lin Liu's report on reasoning. 
+ */
+/** The first step implemented is to treat all nodes (intentiional elements)
+ *  as softgoals, means-ends as OR contribution, task-decomp as AND, and 
+ *  dependency as AND contribution but upstream.
+ */
 
 public class GRLPropogator {
     
@@ -63,10 +68,10 @@ public class GRLPropogator {
     private Object somepluslink;
     private Object makelink;
     private Object equalslink;
-    private Object orlink;
-    private Object andlink;
+    //private Object orlink;
+    //private Object andlink;
 
-    private Object contributionlink;
+    //private Object contributionlink;
     private Object means_endslink;
     private Object decomposelink;
     private Object dependencylink; 
@@ -107,45 +112,44 @@ public class GRLPropogator {
 	    // "same" order.
 	    
 	    OMEFramework fw = modelobject.getModel().getFramework();
-	    breaklink = fw.getType("GRL Break");
-	    someminuslink = fw.getType("GRL SomeNegative");
-	    hurtlink = fw.getType("GRL Hurt");
-	    unknownlink = fw.getType("GRL Unknown");
-	    helplink = fw.getType("GRL Help");
-	    somepluslink = fw.getType("GRL SomePositive");
-	    makelink = fw.getType("GRL Make");
-	    equalslink = fw.getType("GRL Equal");
-//
-	    orlink = fw.getType("GRL Or");
-	    andlink = fw.getType("GRL And");
-	    contributionlink = fw.getType("GRLContributionLink");
-	    means_endslink = fw.getType("GRL Means-ends link");
-	    decomposelink = fw.getType("GRL Decomposition link");
-	    dependencylink = fw.getType("GRL Dependency link");
+	    breaklink = fw.getType("GRL Break Contribution");
+	    someminuslink = fw.getType("GRL SomeNegative Contribution");
+	    hurtlink = fw.getType("GRL Hurt Contribution");
+	    unknownlink = fw.getType("GRL Unknown Contribution");
+	    helplink = fw.getType("GRL Help Contribution");
+	    somepluslink = fw.getType("GRL SomePositive Contribution");
+	    makelink = fw.getType("GRL Make Contribution");
+	    equalslink = fw.getType("GRL Equal Contribution");
+
+	    //orlink = fw.getType("GRL Or");
+	    //andlink = fw.getType("GRL And");
+	    //contributionlink = fw.getType("GRLContributionLink");
+	    means_endslink = fw.getType("GRL Means-ends Link");
+	    decomposelink = fw.getType("GRL Decomposition Link");
+	    dependencylink = fw.getType("GRL Dependency Link");
 	    
-//	    
+   
 	    Object singleconttypesarray[] = {breaklink, someminuslink,
 		hurtlink, unknownlink, helplink, somepluslink, makelink,
 		equalslink};
 	    singleconttypes = singleconttypesarray;
-
 	    
-/*	    
-	    breakcorr = fw.getType("Break Correlation");
-	    someminuscorr = fw.getType("Some - Correlation");
-	    hurtcorr = fw.getType("Hurt Correlation");
-	    unknowncorr = fw.getType("Unknown Correlation");
-	    helpcorr = fw.getType("Help Correlation");
-	    somepluscorr = fw.getType("Some + Correlation");
-	    makecorr = fw.getType("Make Correlation");
-	    equalscorr = fw.getType("Equal Correlation");
+
+	    breakcorr = fw.getType("GRL Break Correlation");
+	    someminuscorr = fw.getType("GRL SomeNegative Correlation");
+	    hurtcorr = fw.getType("GRL Hurt Correlation");
+	    unknowncorr = fw.getType("GRL Unknown Correlation");
+	    helpcorr = fw.getType("GRL Help Correlation");
+	    somepluscorr = fw.getType("GRL SomePositive Correlation");
+	    makecorr = fw.getType("GRL Make Correlation");
+	    equalscorr = fw.getType("GRL Equal Correlation");
 
 	    Object correlationtypesarray[] = {breakcorr, someminuscorr,
 		hurtcorr, unknowncorr, helpcorr, somepluscorr, makecorr,
 		equalscorr};
 	    correlationtypes = correlationtypesarray;
-*/
-	    correlationtypes = singleconttypesarray;
+
+	    //correlationtypes = singleconttypesarray;
 	    
 	    denied = fw.getType("GRL Denied");
 	    conflict = fw.getType("GRL Conflict");
@@ -169,8 +173,8 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(denied,somepluslink),weakminus);
 	    evaluationcatalogue.put(new Pair(denied,makelink),denied);
 	    evaluationcatalogue.put(new Pair(denied,equalslink),denied);
-	    evaluationcatalogue.put(new Pair(denied,means_endslink),denied);
-	    evaluationcatalogue.put(new Pair(denied,decomposelink),denied);
+//	    evaluationcatalogue.put(new Pair(denied,means_endslink),denied);
+//	    evaluationcatalogue.put(new Pair(denied,decomposelink),denied);
 //	    evaluationcatalogue.put(new Pair(denied,dependencylink),denied);
 	    
 	    // Conflict Row
@@ -182,8 +186,8 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(conflict,somepluslink),conflict);
 	    evaluationcatalogue.put(new Pair(conflict,makelink),conflict);
 	    evaluationcatalogue.put(new Pair(conflict,equalslink),conflict);
-	    evaluationcatalogue.put(new Pair(conflict,means_endslink),conflict);
-	    evaluationcatalogue.put(new Pair(conflict,decomposelink),conflict);
+//	    evaluationcatalogue.put(new Pair(conflict,means_endslink),conflict);
+//	    evaluationcatalogue.put(new Pair(conflict,decomposelink),conflict);
 //	    evaluationcatalogue.put(new Pair(conflict,dependencylink),conflict);
 
 	    // Undecided Row
@@ -195,10 +199,10 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(undecided,somepluslink),undecided);
 	    evaluationcatalogue.put(new Pair(undecided,makelink),undecided);
 	    evaluationcatalogue.put(new Pair(undecided,equalslink),undecided);
-	    evaluationcatalogue.put(new
-		    Pair(undecided,means_endslink),undecided);
-	    evaluationcatalogue.put(new
-		    Pair(undecided,decomposelink),undecided);
+//	    evaluationcatalogue.put(new
+//		    Pair(undecided,means_endslink),undecided);
+//	    evaluationcatalogue.put(new
+//		    Pair(undecided,decomposelink),undecided);
 //	    evaluationcatalogue.put(new
 //		    Pair(undecided,dependencylink),undecided);
 
@@ -211,10 +215,10 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(satisficed,somepluslink),weakplus);
 	    evaluationcatalogue.put(new Pair(satisficed,makelink),satisficed);
 	    evaluationcatalogue.put(new Pair(satisficed,equalslink),satisficed);
-	    evaluationcatalogue.put(new
-		    Pair(satisficed,means_endslink),satisficed);
-	    evaluationcatalogue.put(new
-		    Pair(satisficed,decomposelink),satisficed);
+//	    evaluationcatalogue.put(new
+//		    Pair(satisficed,means_endslink),satisficed);
+//	    evaluationcatalogue.put(new
+//		    Pair(satisficed,decomposelink),satisficed);
 //	    evaluationcatalogue.put(new
 //		    Pair(satisficed,dependencylink),satisficed);
 
@@ -229,10 +233,10 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(weakplus,somepluslink),weakplus);
 	    evaluationcatalogue.put(new Pair(weakplus,makelink),weakplus);
 	    evaluationcatalogue.put(new Pair(weakplus,equalslink),weakplus);
-	    evaluationcatalogue.put(new
-		    Pair(weakplus,means_endslink),weakplus);
-	    evaluationcatalogue.put(new
-		    Pair(weakplus,decomposelink),weakplus);
+//	    evaluationcatalogue.put(new
+//		    Pair(weakplus,means_endslink),weakplus);
+//	    evaluationcatalogue.put(new
+//		    Pair(weakplus,decomposelink),weakplus);
 //	    evaluationcatalogue.put(new
 //		    Pair(weakplus,dependencylink),weakplus);
 
@@ -245,10 +249,10 @@ public class GRLPropogator {
 	    evaluationcatalogue.put(new Pair(weakminus,somepluslink),weakminus);
 	    evaluationcatalogue.put(new Pair(weakminus,makelink),weakminus);
 	    evaluationcatalogue.put(new Pair(weakminus,equalslink),weakminus);
-	    evaluationcatalogue.put(new
-		    Pair(weakminus,means_endslink),weakminus);
-	    evaluationcatalogue.put(new
-		    Pair(weakminus,decomposelink),weakminus);
+//	    evaluationcatalogue.put(new
+//		    Pair(weakminus,means_endslink),weakminus);
+//	    evaluationcatalogue.put(new
+//		    Pair(weakminus,decomposelink),weakminus);
 //	    evaluationcatalogue.put(new
 //		    Pair(weakminus,dependencylink),weakminus);
 	}
@@ -275,7 +279,7 @@ public class GRLPropogator {
 	D.o("come in evaluate.LLLLLLLLLLLLL");
 	HashMap isinqueue = new HashMap();
 	LinkedList queue = new LinkedList();
-	GRLPropogator nfrp = this;
+	GRLPropogator grlp = this;
 	
 	// We start by adding our parents to the list of nodes to resolve.
 	Iterator parents = getParents(modelobject);
@@ -290,12 +294,12 @@ public class GRLPropogator {
 	// And do the initial startup.
 	ModelObject current = (ModelObject)dequeue(queue, isinqueue);
 	if (current != null) {
-	    nfrp=new GRLPropogator(current,view);
+	    grlp=new GRLPropogator(current,view);
 	}
 
 	while (current != null) {
 	    Object oldlabel = getLabel(current);
-	    if (nfrp.resolve()) {
+	    if (grlp.resolve()) {
 		// if current's label changed as a result of the evaluation,
 		// then his impact on his parents may have changed, and they
 		// should be added to the queue.
@@ -316,7 +320,7 @@ public class GRLPropogator {
 		// And we're done with current and ready to move on.
 		current = (ModelObject)dequeue(queue, isinqueue);
 		if (current != null) {
-		    nfrp=new GRLPropogator(current,view);
+		    grlp=new GRLPropogator(current,view);
 		}
 	    } else {
 		// User can't take it anymore.
@@ -366,20 +370,20 @@ public class GRLPropogator {
 	    D.o("Has offspring!!!");
 	    Pair p = (Pair)i.next();
 	    ModelLink ml = (ModelLink)p.second;
-	    D.o("G. the link is -- "+ml.getName() +" the offspring is --"+((ModelObject)p.first).getName());
+	    D.o("G. the link is -- "+ml.getType() +" the offspring is --"+((ModelObject)p.first).getName());
 	
 	    // Only paritition those offspring that are coming through
 	    // non-denied links.
 	    if (!isDeniedLink(ml)) {
-	    D.o("the link isn't labelled as denied!!! ");	
+	    	D.o("the link isn't labelled as denied!!! ");	
 		if (isGRLAndContribution(ml)) {
 		    D.o("Adding an and son!!!!!!!!!");
 		    andoffspring.add(p);	
 		} else if (isGRLOrContribution(ml)) {
 		    D.o("Adding an or son!!!!!!!!!");
 		    oroffspring.add(p);
-		}  else if (isGRLCorrelation(ml)) {
-		    D.o("Adding a correlated son!!!!!!!!!");
+		} else if (isGRLSingleContribution(ml)) {
+		    D.o("Adding a contribution or correlated son!!!!!!!!!");
 		    singleoffspring.add(p);
 		}
 	    }
@@ -398,7 +402,7 @@ public class GRLPropogator {
 	    Pair p = (Pair)i.next();
 	    ModelObject off = (ModelObject)p.first;
 	    ModelLink link = (ModelLink)p.second;
-	    D.o("0. the pair is: offspring--"+off.getName() +" link-- "+link.getName());
+	    D.o("0. the pair is: offspring--"+off.getName() +" link-- "+link.getType());
 	    ModelAttribute label = off.getAttribute("label");
 	    //if ((label == null || label.getTarget() == null) &&
 	    //    !isDeniedLink(link)) 
@@ -409,7 +413,7 @@ public class GRLPropogator {
 	
 	// Figure out `impact bag'.
 	Impact andimpact = getAndImpact(andoffspring);
-	if (andimpact != null) {
+	if (andimpact != null) {	    
 	    bag.add(getAndImpact(andoffspring));
 	}
 	
@@ -418,18 +422,27 @@ public class GRLPropogator {
 	    D.o("Has Or offspring!!!!!!!!!");
 	    bag.add(getOrImpact(oroffspring));
 	}
+
 	// And the single contributions.
 	i = singleoffspring.iterator();
 	while (i.hasNext()) {
-	    D.o("Has correlated offspring!!!!!!!!!!!!!");
+	    D.o("Has contribution or correlated offspring!!!!!!!!!!!!!");
 	    Pair p = (Pair)i.next();
 	    ModelObject off = (ModelObject)p.first;
 	    ModelLink link = (ModelLink)p.second;
-	    D.o("1. the pair is: offspring--"+off.getName() +" link-- "+link.getName());
+	    D.o("1. the pair is: offspring--"+off.getName() +" link-- "+link.getType());
 	    LinkedList source = new LinkedList();
 	    source.add(off);
+
 	    ModelAttribute label = off.getAttribute("label");
 	    if (label == null || label.getTarget() == null){
+		//add by Yue (as per Prof. Yu suggested - default value of 
+		//belief is satisficed)
+		if (off.getType() ==
+	    		modelobject.getModel().getFramework().getType("GRL Belief")) {
+		    bag.add(new Impact(satisficed,source));
+		}
+	    
 //		return continuepropogation;
 	    } else {
 		bag.add(new Impact(getIndividualImpact(off, link),source));
@@ -443,10 +456,10 @@ public class GRLPropogator {
 	while (bagit.hasNext()) {
 	    Impact impact = (Impact)bagit.next();
 	    if (isWeak(impact)) {
-		D.o("Weak impact " +impact.sourcedesc +" is added");
+		D.o("Weak impact " + impact.getSourceDescription() +" is added");
 		weakbag.add(impact);
 	    } else {
-		D.o("Non-Weak impact " +impact.sourcedesc +" is added");
+		D.o("Non-Weak impact " + impact.getSourceDescription() +" is added");
 		nonweakbag.add(impact);
 	    }
 	}
@@ -479,7 +492,7 @@ public class GRLPropogator {
      *  Pair is not denied. No other checking is performed. */
     private boolean isDeniedLink(ModelLink ml) {
 	ModelAttribute ma = ml.getAttribute("label");
-	D.o("link type is " +ma.getTarget()+"!!!!!!!");
+	//D.o("link type is " +ma.getTarget()+"!!!!!!!");
 	if (ma != null) {
 	    return ma.getTarget() == deniedcontribution;
 	}
@@ -487,16 +500,27 @@ public class GRLPropogator {
     }
 
     /** Finds the parents of a given model object, returns an iterator. */
+    /** Revised by Yue in Aug 2003 - dependency link. */
     private Iterator getParents(ModelObject mo) {
 	LinkedList ll = new LinkedList();
 	Iterator i = mo.getLinks().iterator();
 	while (i.hasNext()) {
 	    ModelLink ml = (ModelLink)i.next();
-	    if (ml.getFrom() == mo) {
-		ModelObject to = (ModelObject)ml.getTo();
-		// if GRL softgoal is what we should really be checking
-		if (to instanceof ModelElement) {
-		    ll.add(ml.getTo());
+	    if (isGRLDependency(ml)) {
+		if (ml.getTo() == mo) {
+		    ModelObject from = (ModelObject)ml.getFrom();
+		    // if GRL softgoal is what we should really be checking
+		    if (from instanceof ModelElement) {
+		    	ll.add(ml.getFrom());
+		    }
+		}
+	    } else {
+		if (ml.getFrom() == mo) {
+		    ModelObject to = (ModelObject)ml.getTo();
+		    // if GRL softgoal is what we should really be checking
+		    if (to instanceof ModelElement) {
+		    	ll.add(ml.getTo());
+		    }
 		}
 	    }
 	}
@@ -507,12 +531,16 @@ public class GRLPropogator {
      * "or" contribution. */
     private Impact getOrImpact(Collection oroffspring) {
 	Object maxtype = null;
+	ModelLink maxtype_link = null;   //add in Aug, 2003 to identify means-ends
 	Integer maxtypevalue = new Integer(MAX_LABEL_VALUE);
 	Iterator i = oroffspring.iterator();
+
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
 	    Object currtype=null;
-	    ModelObject off = (ModelObject)p.first;
+	    ModelLink currlink;  //add in Aug, 2003
+
+	    /*ModelObject off = (ModelObject)p.first;
 	    ModelLink link = (ModelLink)p.second;
 	    if (link.getType()==
 		modelobject.getModel().getFramework().getType("GRL Or")) 
@@ -521,32 +549,42 @@ public class GRLPropogator {
 		source.add(off);
 		ModelAttribute label = off.getAttribute("label");
 		if (label == null || label.getTarget() == null){
-//		return continuepropogation;
+//		    return continuepropogation;
 		} else {
 		    currtype = getIndividualImpact(off,link);
 		}
-	    } else {
-		currtype = getLabel((ModelObject)p.first);
-	    }
+	    } else {*/
+
+	    currtype = getLabel((ModelObject)p.first);
+	    currlink = (ModelLink)p.second;
+	    //}
 	    Integer currtypevalue;
 	    if(currtype!=null){
 	        currtypevalue = (Integer)label2value.get(currtype);
 	    } else {
 	        currtypevalue = new Integer(1); //Linda add this line
+		currtype = undecided; //Yue add
 	    }
 	    if (maxtype==null) {
 	        maxtype=currtype;
 	        maxtypevalue=currtypevalue;
+		maxtype_link = currlink;
 	    } else if (currtypevalue.compareTo(maxtypevalue) > 0) {
 	        maxtype=currtype;
 	        maxtypevalue=currtypevalue;
+		maxtype_link = currlink;
 	    }
 	}
 	if (maxtype == null) {
 	    return null;
 	}
 	Impact im = new Impact(maxtype,oroffspring);
-	im.setSourceDescription("Contribution from Or nodes");
+	if (maxtype_link.getType() ==
+	    modelobject.getModel().getFramework().getType("GRL Means-ends Link")) {
+	    im.setSourceDescription("Contribution from Means-ends nodes");
+	} else {
+	    im.setSourceDescription("Contribution from Or nodes");
+	}
 	return im;
     }
 
@@ -555,12 +593,17 @@ public class GRLPropogator {
      * "and" contribution. */
     private Impact getAndImpact(Collection andoffspring) {
 	Object mintype = null;
+	ModelLink mintype_link = null;  //add in Aug, 2003 to identify dep and decomp link
+
 	Integer mintypevalue = new Integer(MIN_LABEL_VALUE);
 	Iterator i = andoffspring.iterator();
+
 	while (i.hasNext()) {
 	    Pair p = (Pair)i.next();
 	    Object currtype=null;
-	    ModelObject off = (ModelObject)p.first;
+	    ModelLink currlink;  //add in Aug, 2003
+
+	    /*ModelObject off = (ModelObject)p.first;
 	    ModelLink link = (ModelLink)p.second;
 	    if (link.getType()==
 		modelobject.getModel().getFramework().getType("GRL And")) 
@@ -569,63 +612,85 @@ public class GRLPropogator {
 		source.add(off);
 		ModelAttribute label = off.getAttribute("label");
 		if (label == null || label.getTarget() == null){
-//		return continuepropogation;
+		    //return continuepropogation;
 		} else {
 		    currtype = getIndividualImpact(off,link);
 		}
-	    } else {
-		currtype = getLabel((ModelObject)p.first);
-	    }
+	    } else {*/
+
+	    currtype = getLabel((ModelObject)p.first);
+	    currlink = (ModelLink)p.second;
+	    //}
 
 	    Integer currtypevalue = (Integer)label2value.get(currtype);
 	    if (mintype==null) {
 		mintype=currtype;
 		mintypevalue=currtypevalue;
+		mintype_link = currlink;
 	    } else if (currtypevalue.compareTo(mintypevalue) < 0) {
 		mintype=currtype;
 		mintypevalue=currtypevalue;
+		mintype_link = currlink;
 	    }
 	}
 	if (mintype == null) {
 	    return null;
 	}
 	Impact im = new Impact(mintype,andoffspring);
-	im.setSourceDescription("Contribution from And nodes");
+	//add in Aug, 2003
+	if (isGRLDependency(mintype_link)) {
+	    im.setSourceDescription("Contribution from Dependency nodes");
+	} else if (mintype_link.getType() ==
+	    modelobject.getModel().getFramework().getType("GRL Decomposition Link")) {
+	    im.setSourceDescription("Contribution from Decomposition nodes");
+	} else {
+	    im.setSourceDescription("Contribution from And nodes");
+	}
 	return im;
     }
 
-    /** Returns true iff ml is an GRL Or contribution */
+    /** Returns true iff ml is a GRL dependency link (added by Yue in 08/2003) */
+    private boolean isGRLDependency(ModelLink ml) {
+	D.o(" The link is of type " +ml.getType() +" !!!!");
+	return (ml.getType() ==
+	    modelobject.getModel().getFramework().getType("GRL Dependency Link"));
+    }
+
+    
+    /** Returns true iff ml is a GRL Or contribution or a means-ends */
     private boolean isGRLOrContribution(ModelLink ml) {
 	D.o(" The link is of type " +ml.getType() +" !!!!");
 	return (ml.getType() ==
-	    modelobject.getModel().getFramework().getType("GRL Or"))||
+	    modelobject.getModel().getFramework().getType("GRL Or Contribution"))||
 		(ml.getType() ==
-	    modelobject.getModel().getFramework().getType("GRL Means-ends link"));
+	    modelobject.getModel().getFramework().getType("GRL Means-ends Link"));
     }
     
-    /** Returns true iff ml is an GRL And contribution */
+    /** Returns true iff ml is a GRL And contribution or a task-decomp link*/
     private boolean isGRLAndContribution(ModelLink ml) {
 	D.o(" The link is of type " +ml.getType() +" !!!!");
 	return (ml.getType() ==
-	    modelobject.getModel().getFramework().getType("GRL And")) ||
+	    modelobject.getModel().getFramework().getType("GRL And Contribution")) ||
 		(ml.getType() ==
-	    modelobject.getModel().getFramework().getType("GRL Decomposition link"));
+	    modelobject.getModel().getFramework().getType("GRL Decomposition Link"))||
+		(ml.getType() ==
+	    modelobject.getModel().getFramework().getType("GRL Dependency Link"));
     }
 
     /** Returns true iff ml is one the GRLCorrelation links.*/
     private boolean isGRLCorrelation(ModelLink ml) {
 	D.o(" The link is of type " +ml.getType() +" !!!!");
-	return ml.getType() ==
-	    modelobject.getModel().getFramework().getType("GRL Correlation Link");
-/*	Object type = ml.getType();
+//	return ml.getType() ==
+//	    modelobject.getModel().getFramework().getType("GRL Correlation Link");
+	Object type = ml.getType();
 	for (int i = 0; i<correlationtypes.length; i++) {
 	    if (type == correlationtypes[i]) return true;
 	}
 	return false;
-  */  }
+    }
     
     /** Returns true iff ml is one of the `single contribution types' of GRL.*/
-/*    private boolean isGRLSingleContribution(ModelLink ml) {
+    private boolean isGRLSingleContribution(ModelLink ml) {
 	Object type = ml.getType();
 	for (int i = 0; i<singleconttypes.length; i++) {
 	    if (type == singleconttypes[i]) return true;
@@ -636,7 +701,7 @@ public class GRLPropogator {
 	//their contribution counterparts.
 	return isGRLCorrelation(ml);
     }
-*/
+
     /** Returns the contribution link type that corresponds to the given
      *  correlation link type */
     private Object convertCorrelationType(Object type) {
@@ -649,7 +714,24 @@ public class GRLPropogator {
 
     /** This function essentially does the table look-up for Table 3.2 in the
      *  GRL book.  Assumes link is a SingleContribution type.*/
+    /** Revised in Aug, 2003 as per changes in framework description "GRL.tel" */
     private Object getIndividualImpact(ModelObject offspring, ModelLink
+	    link) {
+	Object conttype;
+	if ( isGRLCorrelation(link)) {
+	    conttype = convertCorrelationType(link.getType());	    
+	} else {
+	    conttype = link.getType();
+	}
+	D.o("offspring label is "+getLabel(offspring)+ " link type is "+conttype);
+	Object o = evaluationcatalogue.get(new
+		Pair(getLabel(offspring), conttype));
+	return o;
+    }
+
+    /** This function essentially does the table look-up for Table 3.2 in the
+     *  GRL book.  Assumes link is a SingleContribution type.*/
+    /*private Object getIndividualImpact(ModelObject offspring, ModelLink
 	    link) {
 	Object conttype;
 	if ( isGRLCorrelation(link)) {
@@ -677,7 +759,7 @@ public class GRLPropogator {
 	Object o = evaluationcatalogue.get(new
 		Pair(getLabel(offspring), conttype));
 	return o;
-    }
+    }*/
 
     /** Returns the target of the given object's softgoal label attribute */
     private Object getLabel(ModelObject mo) {
@@ -691,13 +773,19 @@ public class GRLPropogator {
 
     /** Returns an iterator of pairs (one for each offspring), where each pair
       * is:   (one of mo's offspring, the link from that offspring to mo). */
+    /** Revised by Yue in Aug 2003 - dependency link. */
     private Iterator getOffspring() {
 	LinkedList ll = new LinkedList();
 
 	Iterator i = modelobject.getLinks().iterator();
 	while (i.hasNext()) {
 	    ModelLink ml = (ModelLink)i.next();
-	    if ((ModelObject)ml.getTo() == modelobject) {
+	    if (isGRLDependency(ml)) {
+		if ((ModelObject)ml.getFrom() == modelobject) {
+		    Pair p = new Pair(ml.getTo(), ml);
+		    ll.add(p);
+		}
+	    } else if ((ModelObject)ml.getTo() == modelobject) {
 		Pair p = new Pair(ml.getFrom(), ml);
 		ll.add(p);
 	    }
@@ -753,27 +841,36 @@ public class GRLPropogator {
 	// we will need to review them later.
 	LinkedList minimpacts = new LinkedList();
 	int minval = MAX_LABEL_VALUE;
-
+	Impact depImpact = null;      //add by Yue
+		
 	//Add by Linda to compute a right recommended label.
 	minimpacts.clear();
 	Iterator i = bag.iterator();
 	while (i.hasNext()) {
 	    Impact im = (Impact)i.next();
-	    if (Math.abs(minval) >
-		    ((Integer)label2value.get(im.getType())).intValue()) {
-//		minimpacts.clear();
-		minimpacts.add(im);
-		minval = ((Integer)label2value.get(im.getType())).intValue();
-	    } else if (Math.abs(minval) <=
-		    ((Integer)label2value.get(im.getType())).intValue()) {
-		minimpacts.add(im);
+
+	    //if there is an impact from dep, not to add it into minimpacts
+            //and leave it for later process (Yue)
+	    if (im.getSourceDescription().equals("Contribution from Dependency nodes")) {
+		D.o("got an impact from dependency");
+		depImpact = im;
+	    } else {
+	    	if (Math.abs(minval) >
+		    	((Integer)label2value.get(im.getType())).intValue()) {		
+		    minimpacts.add(im);
+		    minval = ((Integer)label2value.get(im.getType())).intValue();
+	    	} else if (Math.abs(minval) <=
+		    	((Integer)label2value.get(im.getType())).intValue()) {
+		    minimpacts.add(im);
+		}
 	    }
 	}
 	
-	// Now we check to see if all of our minimum impacts ar ethe same.
+	// Now we check to see if all of our minimum impacts are the same.
 	// If not we have a conflict.
 	i = minimpacts.iterator();
 	Object type=null;
+	Object recLabel = null;
 	while (i.hasNext()) {
 	    Impact im = (Impact)i.next();
 	    if (type == null) {
@@ -782,16 +879,30 @@ public class GRLPropogator {
 		// This is a conflict.  The best we can do is recommend either
 		// "Conflict" or "Undecided".  I have decided to return
 		// Conflict if we disagree at the Denied/Satisficed level, and
-		// Unkown if we disagree at the Weak level.
+		// Unknown if we disagree at the Weak level.
 		if (type == weakplus || type == weakminus) {
-		    return undecided;
+		    recLabel = undecided;
+		    break;
 		} else {
-		    return conflict;
+		    recLabel = conflict;
+		    break;
 		}
 	    }
 	}
-	// If we didn't find a conflict, we can safely return the type.
-	return type;
+
+	// If we didn't find a conflict, we can safely use the type.
+	if (recLabel == null) recLabel = type;
+	
+	// now process the impact from dep link if any, take the min value between 
+	// it and final value from others (Yue: as per Aug 27, 2003 group meeting)
+	if (depImpact != null) {
+	    if (recLabel == null ||
+	    	(((Integer)label2value.get(depImpact.getType())).intValue() <
+			((Integer)label2value.get(recLabel)).intValue())) {
+	    	recLabel = depImpact.getType();
+	    }
+	}
+	return recLabel;
     }
 
 
@@ -809,11 +920,12 @@ public class GRLPropogator {
 	private LinkedList sources;
 	private String sourcedesc;
 
-	/** Consturcts an Impact of the given type from the given sources. */
-	public Impact(Object type, Collection sources) {
+	/** Consturcts an Impact of the given type from the given source. */
+	public Impact(Object type, Collection source) {
 	    this.type = type;
 	    this.sources = new LinkedList();
-	    this.sources.addAll(sources);
+	    this.sources.addAll(source);
+
 	}
 
 	/** A collection of the nodes that contributed this impact. */
@@ -1156,11 +1268,11 @@ public class GRLPropogator {
 	/** Returns an image for the given softgoal label of the specified
 	 *  height. */
 	private Image getLabelImage(Object type, int height) {
-	    D.o("type is " +type+"!!!!!!!!");
+	    //D.o("type is " +type+"!!!!!!!!");
 	    ImageTable it =
 		modelobject.getModel().getFramework().getImageTable();
 	    Image im = modelobject.getModel().getFramework().getImage(type);
-	    D.o( type +" 's Hight is " +height+" !!!!");
+	    //D.o( type +" 's Hight is " +height+" !!!!");
 	    return it.getSizing(im,0,height);
 	}
 

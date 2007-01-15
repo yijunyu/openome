@@ -2,11 +2,23 @@
 package jtelos.apps;
 
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.StreamTokenizer;
+import java.util.Vector;
 
-import jtelos.*;
-import jtelos.util.*;
+import jtelos.Attribute;
+import jtelos.Individual;
+import jtelos.IndividualNotInKBException;
+import jtelos.IndividualOrLiteral;
+import jtelos.KB;
+import jtelos.Levels;
+import jtelos.Real;
+import jtelos.StaticHelper;
+import jtelos.TelosInteger;
+import jtelos.TelosString;
+import jtelos.util.RuntimeEncapsulatorException;
 
 public class Parser implements Levels {
 

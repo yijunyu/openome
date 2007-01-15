@@ -9,13 +9,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.Iterator;
-import java.util.Vector;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.UIManager;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 /** Creates the main window, with the project manager.
  *  @author  Ying Shi
@@ -32,13 +30,6 @@ class OME extends JFrame {
     static final String projectdir = ".." + File.separator + "projects";
     private ProjectManager pm;
     static StartupWindow Swindow;
-    
-    public final String KBDirectory = "..\\modules\\";
-    public final String ModuleFileType = "tel";
-
-    private Vector AvailableModule;
-    private Vector SelectedModule;
-    private DefaultMutableTreeNode ConceptMethodTree;
 
     /** Run the program. */
     public static void main(String[] args) {
@@ -56,7 +47,7 @@ class OME extends JFrame {
     
     /** Constructs a new OME window */
     public OME() {		
-	super("Organization Modelling Environment 3.09");
+	super("Organization Modelling Environment 3.12");
 	
 	Swindow.ProgressEntry();
 
@@ -89,20 +80,9 @@ class OME extends JFrame {
 	Swindow.ProgressEntry();
 
 	setVisible(true);
-
-	// Load up all preset module
-  	AvailableModule = new Vector();
-	SelectedModule = new Vector();
-	ConceptMethodTree = new DefaultMutableTreeNode("Root");
-	
-
-	LoadKBModuleFromFile();
-	
-	Swindow.ProgressEntry();
 	
 	Swindow.setVisible(false);
-	
-  }
+    }
 
           
     /** Creates the menu for the main frame window. */
@@ -144,59 +124,6 @@ class OME extends JFrame {
 	public void windowClosing(WindowEvent e) { System.exit(0);}
     } 
     
-    private void LoadKBModuleFromFile() {
-	D.o("Loading KB module from File......");		
-	File f = new File(KBDirectory);
-	String[] FileList = f.list();
-
-	for (int i = 0; i < FileList.length; i++) {
-		String filename = FileList[i];
-		
-		if (filename.length() > 4) {
-		  	String Ext = filename.substring(filename.length()-ModuleFileType.length(),
-				filename.length());
-				
-				// Check if it is a module files, if so open it.
-			if (Ext.equals(ModuleFileType)) {
-			    D.o("Yes, it is module file type." + filename);				
-			    try {
-/*				FileInputStream in = new
-				    FileInputStream(KBDirectory+filename);
-				ObjectInputStream s = new ObjectInputStream(in);
-*/				
-						// create a Open a module.
-				KbModule OpenedModule = new KbModule();
-				D.o("Loading............");
-				OpenedModule.load(filename);
-//				OpenedModule.load(s);
-				D.o("Loaded.............");
-
-				// add to the List
-			        AvailableModule.addElement(OpenedModule);
-			        D.o("Module Added........");
-				
-			    } catch(Exception e) {
-				e.printStackTrace();
-				new MessageDlg(this, "Loading KB Error",
-					filename + " is not a valid OME KB Module");	
-			    }
-
-			}
-		}
-	}
-    }
-	
-		
-    public Vector getAvailableModule() {
-	return AvailableModule;
-    }
-    public Vector getSelectedModule() {
-	return SelectedModule;
-    }
-    public DefaultMutableTreeNode getConceptMethodTree() {
-	return ConceptMethodTree;
-    }
-
 
 }
 

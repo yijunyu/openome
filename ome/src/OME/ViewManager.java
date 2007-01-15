@@ -23,10 +23,8 @@ class ViewManager {
     int textual = 0;
     LinkedList viewtypes= new LinkedList();
     OME ome;
-    int in;
     
     public ViewManager(OMEModel model, OME ome, int n) {
-	this.in = n;
 	D.o("Creating ViewManager of " + n + " views." );
 	this.model = model;
 	views = new LinkedList();
@@ -68,8 +66,7 @@ class ViewManager {
 	    } break;
 	    case 1:
 	    {
-		views.add(new
-			TreeView(((GraphicView)getViewByIndex(0)).getGraphicViewCanvas()));
+//		views.add(new TreeView(model));
 		D.o("Tree View will be created.");
 		tree++;
 		high_id++;
