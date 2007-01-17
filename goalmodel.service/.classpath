@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v5.5"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="lib" path="lib/core_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/edu.toronto.cs.goalmodel_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/edu.toronto.cs.goalmodel.edit_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/edu.toronto.cs.goalmodel.editor_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/q7_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/sat4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/util_1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.emf.common_2.2.0.v200602241148.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.emf.ecore_2.2.0.v200606271057.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.emf.ecore.xmi_2.2.0.v200606271057.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.ui_3.2.0.I20060605-1400.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
