@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.goalmodel="http:///edu/toronto/cs/goalmodel.ecore">
+  <edu.toronto.cs.goalmodel:actor name="Aspect Usability">
+    <goals name="Usability" type="LEAF" label="Unknown" exclusive="false" sequential="false" mode="SOFT"/>
+  </edu.toronto.cs.goalmodel:actor>
+  <edu.toronto.cs.goalmodel:actor name="Aspect Minimalistic Approach">
+    <goals name="Minimalistic Approach" type="LEAF" label="Unknown" exclusive="false" sequential="false" mode="SOFT"/>
+  </edu.toronto.cs.goalmodel:actor>
+  <edu.toronto.cs.goalmodel:actor name="Aspect Don't Interfere">
+    <goals name="Don't Interfere" type="LEAF" label="Unknown" exclusive="false" sequential="false" mode="SOFT"/>
+  </edu.toronto.cs.goalmodel:actor>
+  <edu.toronto.cs.goalmodel:actor name="Aspect Write Great Software">
+    <goals name="Write Great Software" type="LEAF" label="Unknown" exclusive="false" sequential="false" mode="SOFT"/>
+  </edu.toronto.cs.goalmodel:actor>
+  <edu.toronto.cs.goalmodel:goal name="Support S/W Development Projects" type="AND" label="Unknown" exclusive="false" sequential="false">
+    <goal name="Support Established Dev. Projects" type="AND" label="Unknown" exclusive="false" sequential="false">
+      <goal name="Provide Access to SVN" type="LEAF" label="Unknown" exclusive="false" sequential="false">
+        <rule target="/2/@goals.0"/>
+      </goal>
+      <goal name="Web-based" type="LEAF" label="Unknown" exclusive="false" sequential="false">
+        <rule target="/1/@goals.0"/>
+      </goal>
+      <goal name="Issue Tracking" type="LEAF" label="Unknown" exclusive="false" sequential="false"/>
+    </goal>
+    <goal name="Overview Project" type="AND" label="Unknown" exclusive="false" sequential="false">
+      <goal name="Enhanced Wiki" type="AND" label="Unknown" exclusive="false" sequential="false">
+        <goal name="Allow Wiki Markup in Text Fields" type="LEAF" label="Unknown" exclusive="false" sequential="false"/>
+        <goal name="Link Bugs, Wiki, Source" type="LEAF" label="Unknown" exclusive="false" sequential="false">
+          <rule target="/0/@goals.0"/>
+        </goal>
+      </goal>
+      <goal name="Track Progress" label="Unknown" exclusive="false" sequential="false">
+        <goal name="Show Dev Events in Time" type="LEAF" label="Unknown" exclusive="false" sequential="false"/>
+        <goal name="Convenient Reporting Facilities" type="LEAF" label="Unknown" exclusive="false" sequential="false">
+          <rule target="/0/@goals.0"/>
+        </goal>
+      </goal>
+    </goal>
+    <rule target="/3/@goals.0"/>
+  </edu.toronto.cs.goalmodel:goal>
+</xmi:XMI>
