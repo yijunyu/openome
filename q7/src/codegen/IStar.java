@@ -832,6 +832,8 @@ public class IStar {
 		      string += "            width : 20\n";
 		      string += "        attribute, name, attribute\n";
 		      string += "             : \"i* Contribution link\"\n";
+		      string += "        attribute, stroke, attribute\n";
+		      string += "             : \"dashed\"\n";
 		      string += "END\n";
 		      string += "\n";
 		      string += "SimpleClass IStarLink\n";
@@ -1696,7 +1698,8 @@ public class IStar {
 						&& (ad.e.who!=null && (p.e.who.equals("*") || ad.e.who.equalsIgnoreCase(p.e.who))
 								|| ad.e.who == null && p.e.who.equals("*"))
 					    && ad.e.why!=null && (p.e.why.equals("*") || ad.e.why.equalsIgnoreCase(p.e.why))
-						&& (ad.e.what!=null && (p.e.what.equals("*") || ad.e.what.equalsIgnoreCase(p.e.what))
+						&& (ad.e.what!=null && (p.e.what.equals("*") || ad.e.what.equalsIgnoreCase(p.e.what)
+								||ad.e.what.contains(p.e.what + ",") || ad.e.what.contains("," + p.e.what))
 							    || ad.e.what == null && p.e.what.equals("*")))
 					{
 						// weaving when matched: create link from hg to sg

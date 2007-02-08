@@ -1,0 +1,151 @@
+digraph G {
+size="7.5, 10";
+6 [label="Usability [font]" ];
+43 [label="Security [system]" ];
+30 [label="Clearing [cart]" ];
+26 [label="Reporting [account]" ];
+45 [label="Usability [gui]" ];
+38 [label="Confidentiality [system]" ];
+15 [label="Managing [stock]" ];
+12 [label="Integrity [data]" ];
+44 [label="Usability [ui]" ];
+32 [label="Updating [product,stock]" ];
+20 [label="Informing [shop]" ];
+28 [label="Shopping [shop]" ];
+10 [label="Transaction [product]" ];
+4 [label="Managing [product]" ];
+19 [label="Info. flow Security [system]" ];
+1 [label="Front [shop]" ];
+36 [label="Login/Logout [account]" ];
+33 [label="Transaction [cart]" ];
+23 [label="Searching [stock]" ];
+18 [label="SSL [protocol]" ];
+9 [label="Usability [language]" ];
+21 [label="Searching [shop]" ];
+31 [label="Updating [account,product]" ];
+14 [label="Transaction [account]" ];
+3 [label="Managing [account]" ];
+37 [label="Password Protection [account]" ];
+29 [label="Checking Out [cart,product,account,stock]" ];
+25 [label="Reporting [stock]" ];
+7 [label="Customization [language]" ];
+16 [label="Page Layout [gui]" ];
+35 [label="Responsiveness [transaction]" ];
+11 [label="Database Table [transaction]" ];
+24 [label="Reporting [shop]" ];
+2 [label="Managing [shop]" ];
+27 [label="Reporting [product]" ];
+42 [label="Adding [item,cart]" ];
+17 [label="Usability [layout]" ];
+13 [label="Transaction [stock]" ];
+39 [label="Getting [account]" ];
+34 [label="Session Cookie [transaction]" ];
+8 [label="Customizing [English]" ];
+5 [label="Infobox [font]" ];
+41 [label="Selecting [item,cart]" ];
+40 [label="Preparing [cart,product]" ];
+22 [label="Navigating [stock]" ];
+8->9[label=Make];
+24->7[label=And];
+29->31[label=And];
+43->38[label=And];
+44->9[label=And];
+40->33[label=And];
+29->14[label=And];
+10->11[label=Or];
+13->11[label=Or];
+21->7[label=And];
+1->2[label=And];
+21->23[label=And];
+14->11[label=Or];
+34->35[label=Make];
+29->33[label=And];
+29->16[label=And];
+16->17[label=Make];
+21->16[label=And];
+5->6[label=Make];
+40->16[label=And];
+40->7[label=And];
+2->15[label=And];
+29->7[label=And];
+20->21[label=And];
+2->16[label=And];
+29->37[label=And];
+29->13[label=And];
+2->18[label=And];
+21->13[label=And];
+2->4[label=And];
+43->19[label=And];
+33->34[label=Or];
+2->13[label=And];
+24->5[label=And];
+37->38[label=Make];
+1->20[label=And];
+45->17[label=And];
+40->42[label=And];
+29->18[label=And];
+24->16[label=And];
+20->24[label=And];
+2->10[label=And];
+2->7[label=And];
+7->8[label=Or];
+24->10[label=And];
+24->25[label=And];
+24->27[label=And];
+45->6[label=And];
+24->13[label=And];
+44->45[label=And];
+1->28[label=And];
+28->39[label=And];
+2->3[label=And];
+28->29[label=And];
+21->5[label=And];
+2->5[label=And];
+29->32[label=And];
+18->19[label=Make];
+29->30[label=And];
+2->14[label=And];
+29->10[label=And];
+21->22[label=And];
+40->5[label=And];
+11->12[label=Make];
+24->14[label=And];
+24->26[label=And];
+40->41[label=And];
+28->40[label=And];
+29->36[label=And];
+29->5[label=And];
+{rank = same
+5 -> 7 -> 10 -> 13 -> 14 -> 16 -> 18 -> 30 -> 31 -> 32 -> 33 -> 36 -> 37[weight=1000, style="invis"];
+}
+{rank = same
+29 -> 39 -> 40[weight=1000, style="invis"];
+}
+{rank = same
+5 -> 7 -> 10 -> 13 -> 14 -> 16 -> 25 -> 26 -> 27[weight=1000, style="invis"];
+}
+{rank = same
+5 -> 7 -> 13 -> 16 -> 22 -> 23[weight=1000, style="invis"];
+}
+{rank = same
+21 -> 24[weight=1000, style="invis"];
+}
+{rank = same
+6 -> 17[weight=1000, style="invis"];
+}
+{rank = same
+9 -> 45[weight=1000, style="invis"];
+}
+{rank = same
+19 -> 38[weight=1000, style="invis"];
+}
+{rank = same
+3 -> 4 -> 5 -> 7 -> 10 -> 13 -> 14 -> 15 -> 16 -> 18[weight=1000, style="invis"];
+}
+{rank = same
+5 -> 7 -> 16 -> 33 -> 41 -> 42[weight=1000, style="invis"];
+}
+{rank = same
+2 -> 20 -> 28[weight=1000, style="invis"];
+}
+}

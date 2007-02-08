@@ -8,7 +8,8 @@ Bundle-Localization: plugin
 Require-Bundle: core,
  util,
  org.eclipse.ui,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ org.eclipse.emf
 Eclipse-LazyStart: true
 Export-Package: action,
  codegen,
