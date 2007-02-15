@@ -9,7 +9,11 @@ Require-Bundle: core,
  util,
  org.eclipse.ui,
  org.eclipse.core.resources,
- org.eclipse.emf
+ org.eclipse.emf,
+ org.eclipse.emf.ecore,
+ org.openarchitectureware.core.emftools,
+ q7.dsl,
+ org.openarchitectureware.xtext.core
 Eclipse-LazyStart: true
 Export-Package: action,
  codegen,

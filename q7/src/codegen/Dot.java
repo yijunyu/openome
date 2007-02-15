@@ -96,7 +96,7 @@ public class Dot extends IStar {
 					}
 				}
 				if (!already)
-					lst.add(new Integer(m));
+					lst.add((Comparable) new Integer(m));
 				s.put(from, lst);
 			}
 		}

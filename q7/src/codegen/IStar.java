@@ -1416,7 +1416,7 @@ public class IStar {
 		SortArrayList sorted_keys = new SortArrayList();
 		for (Enumeration<IStarElement> i = elements.elements(); i.hasMoreElements(); ) {
 			IStarElement p = i.nextElement();
-			sorted_keys.add(p);
+			sorted_keys.add((Comparable)p);
 		}
 		for (int i=0; i<sorted_keys.size(); i++) {
 			IStarElement e = (IStarElement) sorted_keys.get(i);
