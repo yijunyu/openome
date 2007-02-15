@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.1"?>
 
-<product name="OpenOME" id="core.openome" application="org.eclipse.ui.ide.workbench" useFeatures="false">
+<product name="Core" id="core.openome" application="org.eclipse.ui.ide.workbench" useFeatures="false">
 
    <aboutInfo>
       <image path="icons/eclipse_lg.gif"/>
