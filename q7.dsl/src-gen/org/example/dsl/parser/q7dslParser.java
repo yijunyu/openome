@@ -87,7 +87,7 @@ public q7dslParser(ParserSharedInputState state) {
 		EObject result=null;
 		
 		Token  a_who_0_0_0_0_0_0 = null;
-		int start =0, line=0; Object a_how=null;Object a_when=null;Object a_label=null;Object a_why=null;Object a_whom=null;Object a_howmuch=null;Object a_where=null;Object a_what=null;
+		int start =0, line=0; Object a_where=null;Object a_label=null;Object a_howmuch=null;Object a_how=null;Object a_whom=null;Object a_why=null;Object a_when=null;Object a_what=null;
 		
 		start = LT(1).getColumn()-1; line=LT(1).getLine();
 		{
@@ -284,7 +284,7 @@ public q7dslParser(ParserSharedInputState state) {
 		}
 		
 		}
-		result = factory.create("new Advice", "setHow(arg1)->setWhen(arg2)->setLabel(arg3)->setWhy(arg4)->setWhom(arg5)->setHowmuch(arg6)->setWhere(arg7)->setWho(arg8)->setWhat(arg9)",a_how,a_when,a_label,a_why,a_whom,a_howmuch,a_where,a_who_0_0_0_0_0_0!=null ? a_who_0_0_0_0_0_0.getText() : null,a_what);
+		result = factory.create("new Advice", "setWhere(arg1)->setLabel(arg2)->setHowmuch(arg3)->setHow(arg4)->setWhom(arg5)->setWho(arg6)->setWhy(arg7)->setWhen(arg8)->setWhat(arg9)",a_where,a_label,a_howmuch,a_how,a_whom,a_who_0_0_0_0_0_0!=null ? a_who_0_0_0_0_0_0.getText() : null,a_why,a_when,a_what);
 		Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 		return result;
 	}
@@ -334,7 +334,7 @@ public q7dslParser(ParserSharedInputState state) {
 		{
 			a_expr_0_3_0 = LT(1);
 			match(STRING);
-			result = factory.create("new When", "setExpr(arg1)",a_expr_0_0_0!=null ? a_expr_0_0_0.getText() : null);
+			result = factory.create("new When", "setExpr(arg1)",a_expr_0_2_0!=null ? a_expr_0_2_0.getText() : null);
 			Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 			break;
 		}
@@ -407,7 +407,7 @@ public q7dslParser(ParserSharedInputState state) {
 	public final EObject  ruleWhere() throws RecognitionException, TokenStreamException {
 		EObject result=null;
 		
-		int start =0, line=0; Object a_topics=null;Object a_op=null;Object a_name=null;
+		int start =0, line=0; Object a_op=null;Object a_topics=null;Object a_name=null;
 		
 		start = LT(1).getColumn()-1; line=LT(1).getLine();
 		a_op=ruleOp();
@@ -447,7 +447,7 @@ public q7dslParser(ParserSharedInputState state) {
 		}
 		}
 		}
-		result = factory.create("new Where", "setTopics(arg1)->setOp(arg2)->setName(arg3)",a_topics,a_op,a_name);
+		result = factory.create("new Where", "setOp(arg1)->setTopics(arg2)->setName(arg3)",a_op,a_topics,a_name);
 		Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 		return result;
 	}
@@ -455,7 +455,7 @@ public q7dslParser(ParserSharedInputState state) {
 	public final EObject  ruleHow() throws RecognitionException, TokenStreamException {
 		EObject result=null;
 		
-		int start =0, line=0; Object a_enrich=null;List advicesList = new ArrayList();Object a_advices=null;Object a_op=null;
+		int start =0, line=0; Object a_enrich=null;Object a_op=null;List advicesList = new ArrayList();Object a_advices=null;
 		
 		start = LT(1).getColumn()-1; line=LT(1).getLine();
 		a_op=ruleDecompositionType();
@@ -500,7 +500,7 @@ public q7dslParser(ParserSharedInputState state) {
 			_cnt26++;
 		} while (true);
 		}
-		result = factory.create("new How", "setEnrich(arg1)->advices.addAll(arg2)->setOp(arg3)",a_enrich,advicesList,a_op);
+		result = factory.create("new How", "setEnrich(arg1)->setOp(arg2)->advices.addAll(arg3)",a_enrich,a_op,advicesList);
 		Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 		return result;
 	}
@@ -508,7 +508,7 @@ public q7dslParser(ParserSharedInputState state) {
 	public final EObject  ruleLabel() throws RecognitionException, TokenStreamException {
 		EObject result=null;
 		
-		int start =0, line=0; Object a_den=null;Object a_sat=null;Object a_label=null;
+		int start =0, line=0; Object a_sat=null;Object a_label=null;Object a_den=null;
 		
 		switch ( LA(1)) {
 		case LITERAL_FS:
@@ -560,7 +560,7 @@ public q7dslParser(ParserSharedInputState state) {
 			}
 			}
 			}
-			result = factory.create("new Label", "setDen(arg1)->setSat(arg2)->setLabel(arg3)",a_den,a_sat,a_label);
+			result = factory.create("new Label", "setSat(arg1)->setLabel(arg2)->setDen(arg3)",a_sat,a_label,a_den);
 			Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 			break;
 		}
@@ -618,7 +618,7 @@ public q7dslParser(ParserSharedInputState state) {
 		{
 			a_name_0_1_0 = LT(1);
 			match(ID);
-			result = factory.create("new Actor", "setName(arg1)",a_name_0_0_0!=null ? a_name_0_0_0.getText() : null);
+			result = factory.create("new Actor", "setName(arg1)",a_name_0_1_0!=null ? a_name_0_1_0.getText() : null);
 			Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 			break;
 		}
@@ -811,7 +811,7 @@ public q7dslParser(ParserSharedInputState state) {
 	public final EObject  ruleHowMuch() throws RecognitionException, TokenStreamException {
 		EObject result=null;
 		
-		int start =0, line=0; Object a_who=null;Object a_what=null;Object a_strength=null;Object a_why=null;Object a_op=null;Object a_trust=null;
+		int start =0, line=0; Object a_why=null;Object a_who=null;Object a_op=null;Object a_what=null;Object a_trust=null;Object a_strength=null;
 		
 		switch ( LA(1)) {
 		case TOKENIIIIIIIIIIIII:
@@ -968,7 +968,7 @@ public q7dslParser(ParserSharedInputState state) {
 			}
 			}
 			}
-			result = factory.create("new HowMuch", "setWho(arg1)->setWhat(arg2)->setStrength(arg3)->setWhy(arg4)->setOp(arg5)->setTrust(arg6)",a_who,a_what,a_strength,a_why,a_op,a_trust);
+			result = factory.create("new HowMuch", "setWhy(arg1)->setWho(arg2)->setOp(arg3)->setWhat(arg4)->setTrust(arg5)->setStrength(arg6)",a_why,a_who,a_op,a_what,a_trust,a_strength);
 			Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 			break;
 		}
@@ -1018,7 +1018,7 @@ public q7dslParser(ParserSharedInputState state) {
 		}
 		}
 		}
-		result = factory.create("new FLOAT", "setDecimal(arg1)->setIntegral(arg2)",a_decimal_0_0_1_0_0_1!=null ? a_decimal_0_0_1_0_0_1.getText() : null,a_integral_0_0_0!=null ? a_integral_0_0_0.getText() : null);
+		result = factory.create("new FLOAT", "setIntegral(arg1)->setDecimal(arg2)",a_integral_0_0_0!=null ? a_integral_0_0_0.getText() : null,a_decimal_0_0_1_0_0_1!=null ? a_decimal_0_0_1_0_0_1.getText() : null);
 		Token __t = LT(0);if (__t==null) __t = LT(1);LocationTool.setLocation(result,start,__t.getColumn()+(__t.getText()!=null?__t.getText().length()-1:0),line);
 		return result;
 	}

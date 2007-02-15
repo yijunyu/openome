@@ -2,6 +2,7 @@ package org.example.dsl.parser;
 
 import java.io.Reader;
 
+import org.openarchitectureware.type.emf.EmfMetaModel;
 import org.openarchitectureware.xtext.parser.AbstractParserComponent;
 import org.openarchitectureware.xtext.parser.EcoreModelFactory;
 

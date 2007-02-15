@@ -4,16 +4,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="advices" upperBound="-1" eType="//Advice" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Advice">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="how" eType="//How" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="//When" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="//Label" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="why" eType="//Why" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="whom" eType="//Who" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="howmuch" eType="//HowMuchRules" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="where" eType="//Where" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="//Label" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="howmuch" eType="//HowMuchRules" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="how" eType="//How" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whom" eType="//Who" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="who">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="why" eType="//Why" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="//When" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="what" eType="//What" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Who">
@@ -43,36 +43,36 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Where">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="topics" eType="//What" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="//Op"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topics" eType="//What" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="//Why" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="How">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enrich" eType="//Enrichment"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="advices" upperBound="-1" eType="//Advice" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="//DecompositionType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="advices" upperBound="-1" eType="//Advice" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HowMuchRules">
     <eStructuralFeatures xsi:type="ecore:EReference" name="howmuch" upperBound="-1" eType="//HowMuch" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HowMuch">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="who" eType="//Who" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="what" eType="//What" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strength" eType="//FLOAT" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="why" eType="//Why" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="who" eType="//Who" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="//Op"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="what" eType="//What" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trust" eType="//FLOAT" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strength" eType="//FLOAT" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="den" eType="//FLOAT" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sat" eType="//FLOAT" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="//LabelEnumerator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="den" eType="//FLOAT" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FLOAT">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="integral">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="integral">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimal">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
