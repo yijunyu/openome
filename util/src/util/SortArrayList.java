@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class SortArrayList extends ArrayList<Object> {
 	private static final long serialVersionUID = 1L;
-	@SuppressWarnings("unchecked")
 	public void add(Comparable o) {
 		boolean inserted = false;
 		for (int i=0; i<size(); i++) {
