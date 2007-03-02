@@ -42,7 +42,7 @@ public class ConvertAction extends ExtensionReader implements IObjectActionDeleg
 			  System.out.println(classname);
 //			  Debug.DEBUG_LOADER = true;
 			  IConvertor cv = (IConvertor) convertor.createExecutableExtension("class");
-//			  Debug.DEBUG_LOADER = false;
+			  Debug.DEBUG_LOADER = false;
 		      cv.convert(args[0], args[1]);
 			} catch (ClassCastException x) {
 				x.printStackTrace();

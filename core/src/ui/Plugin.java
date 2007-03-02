@@ -24,7 +24,7 @@ public class Plugin extends AbstractUIPlugin implements IStartup {
     private static ResourceBundle resources;
     static {
         try {
-            resources = ResourceBundle.getBundle("OME", 
+            resources = ResourceBundle.getBundle("core", 
             		Locale.getDefault(),
             		Plugin.class.getClassLoader());
             for (Enumeration i = resources.getKeys(); i.hasMoreElements(); ) {

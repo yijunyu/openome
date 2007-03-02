@@ -13,18 +13,30 @@
       <actionSet label="Actions"
             visible="true"
             id="action.actionSet">
-         <menu id="menu" label="OpenOME">
-            <separator name="group"/>
+         <menu id="menu1" label="Developer">
+            <separator name="group1"/>
+         </menu>
+         <menu id="menu2" label="User">
+            <separator name="group2"/>
          </menu>
          <action
                class="action.CreateExamplesAction"
                icon="icons/example.gif"
                id="action1"
                label="Examples"
-               menubarPath="menu/group"
+               menubarPath="menu1/group"
                toolbarPath="group"
                tooltip="Create the Examples project">
          </action>
+         <action
+               class="action.ImportProjects"
+               icon="icons/build.gif"
+               id="action2"
+               label="Import Projects"
+               menubarPath="menu2/group"
+               toolbarPath="group"
+               tooltip="Import Projects">
+	 </action>
       </actionSet>
    </extension>
    <extension
@@ -35,41 +47,11 @@
       <page name="OpenOME"
             category="primary"
             class="ui.PrefPage"
-            id="edu.toronto.cs.ome.eclipse.preference">
+            id="preference">
       </page>
-   </extension>
-   <extension
-         id="edu.toronto.cs.ome.eclipse"
-         name="OpenOME"
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            name="OpenOME"
-            icon="icons/goal.gif"
-            class="ui.Perspective"
-            id="ui.perspective.openome">
-      </perspective>
    </extension>
    <extension point="org.eclipse.help.toc">
       <toc file="help.xml"/>
       <toc file="helpToc.xml" primary="true"/>
-   </extension>
-   <extension point="org.eclipse.core.runtime.applications"
-         id="OpenOME" name="OpenOME">
-      <application>
-         <run
-            class="ui.App">
-         </run>
-      </application>
-   </extension>
-   <extension
-         id="openome"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.ui.ide.workbench"
-            name="OME">
-         <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini"/>
-      </product>
    </extension>
 </plugin>

@@ -28,7 +28,7 @@ public class App implements IPlatformRunnable {
 		Display display = PlatformUI.createDisplay();
 		try {
 			int code = PlatformUI.createAndRunWorkbench(display,
-					new OpenOMEAdvisor());
+					new Advisor());
 			// exit the application with an appropriate return code
 			return code == PlatformUI.RETURN_RESTART
 					? EXIT_RESTART

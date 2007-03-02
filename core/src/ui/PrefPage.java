@@ -33,8 +33,7 @@ public class PrefPage extends PreferencePage implements IWorkbenchPreferencePage
 	}
 	public void init(IWorkbench workbench) {
 		setImageDescriptor(
-			AbstractUIPlugin.imageDescriptorFromPlugin(
-				"edu.toronto.cs.ome.eclipse", "icons/protege.gif"));
+			AbstractUIPlugin.imageDescriptorFromPlugin("core", "icons/protege.gif"));
 	}
 	protected void performApply() {
         storeValues();

@@ -15,7 +15,7 @@ package ui;
  * Readme example.
  */
 public interface IConstants {
-    public static final String PLUGIN_ID = "edu.toronto.cs"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "core"; //$NON-NLS-1$
 
     public static final String PREFIX = PLUGIN_ID + "."; //$NON-NLS-1$
 
