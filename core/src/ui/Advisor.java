@@ -14,7 +14,7 @@ import org.eclipse.ui.application.WorkbenchAdvisor;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class OpenOMEAdvisor extends WorkbenchAdvisor {
+public class Advisor extends WorkbenchAdvisor {
 
 	public static void main(String[] args) {
 	}
