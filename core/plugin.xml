@@ -9,6 +9,10 @@
    	id="example" 
    	name="Convertor Extension Point" 
    	schema="schema/example.exsd"/>
+   <extension-point 
+   	id="generator" 
+   	name="Generator Extension Point" 
+   	schema="schema/generator.exsd"/>
    <extension point="org.eclipse.ui.actionSets">
       <actionSet label="Actions"
             visible="true"
@@ -36,13 +40,18 @@
                menubarPath="menu2/group"
                toolbarPath="group"
                tooltip="Import Projects">
-	 </action>
+         </action>
+         <action
+               class="action.CleanProjects"
+               icon="icons/clean.gif"
+               id="action3"
+               label="Clean Projects"
+               menubarPath="menu2/group"
+               toolbarPath="group"
+               tooltip="Clean Projects">
+	 	</action>
       </actionSet>
    </extension>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup/>
-   </extension>     
    <extension point="org.eclipse.ui.preferencePages">
       <page name="OpenOME"
             category="primary"

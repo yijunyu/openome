@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="core">
+<schema targetNamespace="generator">
 <annotation>
       <appInfo>
-         <meta.schema plugin="core" id="convertor" name="Convertor Extension Point"/>
+         <meta.schema plugin="generator" id="generator" name="Generator Extension Point"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         Startup code generation 
       </documentation>
    </annotation>
 
    <element name="extension">
       <complexType>
          <sequence>
-            <element ref="convertor" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="generator" minOccurs="1" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -42,23 +42,9 @@
       </complexType>
    </element>
 
-   <element name="convertor">
+   <element name="generator">
       <complexType>
          <attribute name="id" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="input" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="output" type="string" use="required">
             <annotation>
                <documentation>
                   

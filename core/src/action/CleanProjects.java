@@ -24,7 +24,7 @@ import convertor.IGenerator;
  * @author Peter Friese
  * @since 03.11.2005
  */
-public class ImportProjects extends ExtensionReader implements IWorkbenchWindowActionDelegate
+public class CleanProjects extends ExtensionReader implements IWorkbenchWindowActionDelegate
 {
 	/**
 	 * Show the subdirectories of the directory
@@ -88,7 +88,7 @@ public class ImportProjects extends ExtensionReader implements IWorkbenchWindowA
 		  IGenerator cv = (IGenerator) generator.createExecutableExtension("class");
 		  Debug.DEBUG_LOADER = false;
 		  cv.cleanup();
-	      cv.generate();
+//	      cv.generate();
 		} catch (ClassCastException x) {
 			x.printStackTrace();
 		} catch (CoreException e) {
