@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Png Plug-in
+Bundle-SymbolicName: com.keypoint.png
+Bundle-Version: 1.0.0
+Bundle-ClassPath: png.jar
+Bundle-Vendor: keypoint.com
+Bundle-Localization: plugin
+Export-Package: com.keypoint,
+ com.sixlegs.image.png
