@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/goalmodel.feature_1.0.0.200703212032.jar" id="goalmodel.feature" version="1.0.0.200703212032"/>
+   <feature url="features/core.feature_1.0.0.200703212032.jar" id="core.feature" version="1.0.0.200703212032"/>
+   <feature url="features/q7.feature_1.0.0.200703212032.jar" id="q7.feature" version="1.0.0.200703212032"/>
+   <feature url="features/sat4j.feature_1.0.0.jar" id="sat4j.feature" version="1.0.0"/>
+   <feature url="features/q7.dsl.feature_1.0.0.200703212032.jar" id="q7.dsl.feature" version="1.0.0.200703212032"/>
+   <feature url="features/telos.feature_1.0.0.200703212032.jar" id="telos.feature" version="1.0.0.200703212032"/>
+   <feature url="features/fmp.feature_1.0.0.200703212032.jar" id="fmp.feature" version="1.0.0.200703212032"/>
+   <feature url="features/wbimodel.feature_1.0.0.200703212032.jar" id="wbimodel.feature" version="1.0.0.200703212032"/>
+   <feature url="features/bpel.feature_1.0.0.200703212032.jar" id="bpel.feature" version="1.0.0.200703212032"/>
+   <feature url="features/taom4e_0.3.0.jar" id="taom4e" version="0.3.0"/>
+</site>
