@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension point = "org.eclipse.wst.xml.core.catalogContributions">
+     <catalogContribution id="default">
+       <uri name="http://schemas.xmlsoap.org/wsdl/" uri="xsd/wsdl.xsd"/>
+       <uri name="http://schemas.xmlsoap.org/wsdl/soap/" uri="xsd/soap.xsd"/>
+       <uri name="http://schemas.xmlsoap.org/wsdl/http/" uri="xsd/http.xsd"/>       
+       <uri name="http://schemas.xmlsoap.org/wsdl/mime/" uri="xsd/wsdl-mime.xsd"/>      
+       <uri name="http://schemas.xmlsoap.org/soap/encoding/" uri="xsd/soapenc.xsd"/>
+     </catalogContribution>
+  </extension>
+
+</plugin>

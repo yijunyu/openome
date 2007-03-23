@@ -1,0 +1,30 @@
+
+  ============
+  1. COPYRIGHT
+  ============
+
+  This software  is licensed under the GNU Lesser General Public
+  License (LGPL in short).  File LGLP-2.1 contains a copy of the License.
+
+  The license of this software:
+  1) is "copyleft", that is, it requires that anyone who improves the
+  system has to make the improvements freely available;
+  2) permits to use the system in research and commercial applications, 
+  without restrictions.  
+
+  In brief, the LGPL license allows anyone to freely download, copy,
+  use, modify, and redistribute the software, proviso that any modification
+  and/or extension to the library is made publicly available under the
+  terms of LGPL.
+
+  The license also allows the usage of the software as part of a larger
+  software system *without* being obliged to distributing the whole
+  software under LGPL. Also in this case, the modification to the
+  software  (*not* to the larger software) should be made available
+  under LGPL. 
+
+  The precise terms and conditions for copying, distribution and
+  modification can be found in file LGPL-2.1. You can contact
+  <paolo.giorgini@dit.unitn.it> if you have any doubt or comment on the
+  license.
+

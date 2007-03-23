@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GoalModel Convertor Plug-in
+Bundle-SymbolicName: goalmodel;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Yijun Yu
+Bundle-Localization: plugin
+Require-Bundle: q7,
+ util,
+ org.sat4j,
+ core,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.core.resources,
+ edu.toronto.cs.goalmodel.editor,
+ org.eclipse.emf.codegen.ecore,
+ org.eclipse.gmf.codegen,
+ org.eclipse.platform,
+ org.eclipse.ui.intro
+Eclipse-LazyStart: true
+Export-Package: action,
+ codegen,
+ convertor,
+ parser,
+ service
+

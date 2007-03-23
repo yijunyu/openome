@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-Name: %PLUGIN_NAME
+Bundle-ClassPath: lib/qname.jar,lib/wsdl4j.jar
+Bundle-Vendor: %PLUGIN_PROVIDER
+Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
+Bundle-SymbolicName: org.wsdl4j; singleton:=true
+Eclipse-BuddyPolicy: registered
+Require-Bundle: org.apache.xerces;bundle-version="[2.8.0,2.9.0)"
+Export-Package: META-INF,com.ibm.wsdl,com.ibm.wsdl.extensions,com.ibm.
+ wsdl.extensions.http,com.ibm.wsdl.extensions.mime,com.ibm.wsdl.extens
+ ions.soap,com.ibm.wsdl.factory,com.ibm.wsdl.util,com.ibm.wsdl.util.xm
+ l,com.ibm.wsdl.xml,javax.wsdl,javax.wsdl.extensions,javax.wsdl.extens
+ ions.http,javax.wsdl.extensions.mime,javax.wsdl.extensions.soap,javax
+ .wsdl.factory,javax.wsdl.xml,javax.xml.namespace
+Bundle-Version: 1.4.0.v200607181917
+

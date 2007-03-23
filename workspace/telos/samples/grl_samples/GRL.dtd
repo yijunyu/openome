@@ -1,0 +1,194 @@
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v3.5 (http://www.xmlspy.com) by Daniel (aCompany) -->
+<!ELEMENT grl-spec (element-definitions?, goal-model)>
+<!ELEMENT element-definitions (element)*>
+<!ELEMENT element (model-type?, model-name?, external-type?, external-name?)>
+<!ATTLIST element
+element-id ID #REQUIRED
+name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT model-name EMPTY>
+<!ATTLIST model-name
+model-id ID #REQUIRED
+name CDATA #IMPLIED
+description CDATA #IMPLIED
+type IDREF #IMPLIED
+>
+<!ELEMENT model-type EMPTY>
+<!ATTLIST model-type
+id ID #REQUIRED
+name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT external-type EMPTY>
+<!ATTLIST external-type
+id ID #REQUIRED
+name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT external-name EMPTY>
+<!ATTLIST external-name
+id ID #REQUIRED
+name CDATA #IMPLIED
+description CDATA #IMPLIED
+type IDREF #IMPLIED
+>
+<!ELEMENT goal-model (model-constructors)>
+<!ATTLIST goal-model
+goal-model-id ID #REQUIRED
+goal-model-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT model-constructors (actors?, intentional-elements, intentional-relationships)>
+<!ELEMENT intentional-elements (intentional-element)+>
+<!ELEMENT intentional-element (goal | softgoal | task | resource | belief)>
+<!ELEMENT goal (attributes?, criticality?, evaluation-label?, actor-ref?)>
+<!ATTLIST goal
+goal-id ID #REQUIRED
+goal-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT criticality EMPTY>
+<!ATTLIST criticality
+criticality-type (open | critical) #REQUIRED
+>
+<!ELEMENT evaluation-label EMPTY>
+<!ATTLIST evaluation-label
+label-type (satisficed | denied | weakly-satisficed | weakly-denied | undecided | conflict) #REQUIRED
+>
+<!ELEMENT actor-ref EMPTY>
+<!ATTLIST actor-ref
+actor-id-ref IDREF #REQUIRED
+>
+<!ELEMENT attributes (attribute)*>
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute
+attribute-name CDATA #REQUIRED
+element-id-ref IDREF #REQUIRED
+>
+<!ELEMENT task (attributes?, criticality?, evaluation-label?, actor-ref?)>
+<!ATTLIST task
+task-id ID #REQUIRED
+task-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT resource (attributes?, criticality?, evaluation-label?, actor-ref?)>
+<!ATTLIST resource
+resource-id ID #REQUIRED
+resource-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT softgoal (attributes?, criticality?, evaluation-label?, actor-ref?)>
+<!ATTLIST softgoal
+softgoal-id ID #REQUIRED
+softgoal-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT belief (attributes?, actor-ref?)>
+<!ATTLIST belief
+belief-id ID #REQUIRED
+belief-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT intentional-relationships (intentional-relationship)+>
+<!ELEMENT intentional-relationship (means-ends | decomposition | andcontribution | orcontribution | correlation | dependency)>
+<!ELEMENT means-ends (means-element, end-element)>
+<!ATTLIST means-ends
+means-ends-id ID #REQUIRED
+>
+<!ELEMENT means-element (task-ref)>
+<!ELEMENT end-element (goal-ref | task-ref | resource-ref)>
+<!ELEMENT decomposition (decomposed-element, sub-element)>
+<!ATTLIST decomposition
+decomposition-id ID #REQUIRED
+>
+<!ELEMENT decomposed-element (task-ref | goal-ref)>
+<!ELEMENT sub-element (goal-ref | task-ref | resource-ref | softgoal-ref)>
+<!ELEMENT andcontribution (contributee, contributor, contribution-type)>
+<!ATTLIST andcontribution
+          andcontribution-id ID #REQUIRED
+>
+<!ELEMENT orcontribution (contributee, contributor, contribution-type)>
+<!ATTLIST orcontribution
+          orcontribution-id ID #REQUIRED
+>
+<!ELEMENT contributee (softgoal-ref | belief-ref | link-ref)>
+<!ELEMENT contributor (task-ref | softgoal-ref | belief-ref | link-ref)>
+<!ELEMENT contribution-type EMPTY>
+<!ATTLIST contribution-type
+          contri-type CDATA #REQUIRED
+>
+<!ELEMENT goal-ref EMPTY>
+<!ATTLIST goal-ref
+goal-id-ref IDREF #REQUIRED
+>
+<!ELEMENT softgoal-ref EMPTY>
+<!ATTLIST softgoal-ref
+softgoal-id-ref IDREF #REQUIRED
+>
+<!ELEMENT task-ref EMPTY>
+<!ATTLIST task-ref
+task-id-ref IDREF #REQUIRED
+>
+<!ELEMENT resource-ref EMPTY>
+<!ATTLIST resource-ref
+source-id-ref IDREF #REQUIRED
+>
+<!ELEMENT belief-ref EMPTY>
+<!ATTLIST belief-ref
+belief-id-ref IDREF #REQUIRED
+>
+<!ELEMENT link-ref (means-ends-ref | decomposition-ref | contribution-ref | correlation-ref | dependency-ref)>
+<!ELEMENT means-ends-ref EMPTY>
+<!ATTLIST means-ends-ref
+means-ends-id-ref IDREF #REQUIRED
+>
+<!ELEMENT decomposition-ref EMPTY>
+<!ATTLIST decomposition-ref
+decomposition-id-ref IDREF #REQUIRED
+>
+<!ELEMENT contribution-ref EMPTY>
+<!ATTLIST contribution-ref
+contribution-link-id-ref IDREF #REQUIRED
+>
+<!ELEMENT correlation-ref EMPTY>
+<!ATTLIST correlation-ref
+correlation-link-id-ref IDREF #REQUIRED
+>
+<!ELEMENT dependency-ref EMPTY>
+<!ATTLIST dependency-ref
+dependency-id-ref IDREF #REQUIRED
+>
+<!ELEMENT actors (actor)+>
+<!ELEMENT actor (attributes?)>
+<!ATTLIST actor
+actor-id ID #REQUIRED
+actor-name CDATA #IMPLIED
+description CDATA #IMPLIED
+>
+<!ELEMENT dependency (depender, dependee)>
+<!ATTLIST dependency
+dependency-id ID #REQUIRED
+>
+<!ELEMENT depender (goal-ref | softgoal-ref | task-ref | resource-ref)?>
+<!ATTLIST depender
+actor-id-ref IDREF #REQUIRED
+>
+<!ELEMENT dependee (goal-ref | softgoal-ref | task-ref | resource-ref)?>
+<!ATTLIST dependee
+actor-id-ref IDREF #REQUIRED
+>
+<!ELEMENT correlation (correlatee, correlator, correlation-type)>
+<!ATTLIST correlation
+correlation-id ID #REQUIRED
+>
+<!ELEMENT correlatee (softgoal-ref)>
+<!ELEMENT correlator (task-ref | softgoal-ref)>
+<!ELEMENT correlation-type EMPTY>
+<!ATTLIST correlation-type
+correlation-type (break | hurt | some-negative | unknown | some-positive | help | make | equal) #REQUIRED
+>
