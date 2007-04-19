@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="q7.feature"
+      label="Q7  Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.openarchitectureware.core.emftools"/>
+      <import plugin="org.openarchitectureware.core.expressions"/>
+      <import plugin="org.openarchitectureware.xtext.core"/>
+      <import plugin="org.openarchitectureware.xtext.editor"/>
+      <import plugin="org.openarchitectureware.base"/>
+      <import plugin="org.openarchitectureware.xtend.editor"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.openarchitectureware.core.workflow"/>
+      <import plugin="org.openarchitectureware.core.check"/>
+      <import plugin="org.openarchitectureware.core.libraries"/>
+      <import plugin="org.openarchitectureware.core.xpand2"/>
+      <import plugin="org.openarchitectureware.workflow"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.platform"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
+   </requires>
+
+   <plugin
+         id="q7"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="q7.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
