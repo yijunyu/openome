@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: molhado
+Bundle-SymbolicName: molhado; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: molhado.jar,
+ lib/log4j-1.2.5.jar
+Bundle-Activator: molhadoref.Activator
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.ui
+Export-Package: fluid,
+ fluid.ir,
+ fluid.tree,
+ fluid.util,
+ fluid.version,
+ molhadoref,
+ sc.document

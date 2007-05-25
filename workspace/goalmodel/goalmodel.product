@@ -75,6 +75,7 @@ requirements engineering.
       <plugin id="it.itc.sra.taom4e.model"/>
       <plugin id="it.itc.sra.taom4e.platform"/>
       <plugin id="it.unitn.goal_analysis"/>
+      <plugin id="molhado"/>
       <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.axis"/>
@@ -90,6 +91,7 @@ requirements engineering.
       <plugin id="org.eclipse.bpel.model"/>
       <plugin id="org.eclipse.bpel.ui"/>
       <plugin id="org.eclipse.compare"/>
+      <plugin id="org.eclipse.core.boot"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.expressions"/>

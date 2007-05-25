@@ -38,903 +38,830 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class GoalmodelItemProviderAdapterFactory extends GoalmodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
 {
-  /**
-   * This keeps track of the root adapter factory that delegates to this adapter factory.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ComposedAdapterFactory parentAdapterFactory;
 
-  /**
-   * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-  /**
-   * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected Collection supportedTypes = new ArrayList();
 
-  /**
-   * This constructs an instance.
-   * <!-- begin-user-doc -->
+	/**
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public GoalmodelItemProviderAdapterFactory()
-  {
-    supportedTypes.add(IEditingDomainItemProvider.class);
-    supportedTypes.add(IStructuredItemContentProvider.class);
-    supportedTypes.add(ITreeItemContentProvider.class);
-    supportedTypes.add(IItemLabelProvider.class);
-    supportedTypes.add(IItemPropertySource.class);		
-  }
+	 * @generated
+	 */
+  public GoalmodelItemProviderAdapterFactory() {
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);		
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Actor} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Actor} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ActorItemProvider actorItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Actor}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Actor}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createActorAdapter()
-  {
-    if (actorItemProvider == null)
-    {
-      actorItemProvider = new ActorItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createActorAdapter() {
+		if (actorItemProvider == null) {
+			actorItemProvider = new ActorItemProvider(this);
+		}
 
-    return actorItemProvider;
-  }
+		return actorItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Agent} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Agent} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AgentItemProvider agentItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Agent}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Agent}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createAgentAdapter()
-  {
-    if (agentItemProvider == null)
-    {
-      agentItemProvider = new AgentItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createAgentAdapter() {
+		if (agentItemProvider == null) {
+			agentItemProvider = new AgentItemProvider(this);
+		}
 
-    return agentItemProvider;
-  }
+		return agentItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.AndDecomposition} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.AndDecomposition} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AndDecompositionItemProvider andDecompositionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.AndDecomposition}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.AndDecomposition}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createAndDecompositionAdapter()
-  {
-    if (andDecompositionItemProvider == null)
-    {
-      andDecompositionItemProvider = new AndDecompositionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createAndDecompositionAdapter() {
+		if (andDecompositionItemProvider == null) {
+			andDecompositionItemProvider = new AndDecompositionItemProvider(this);
+		}
 
-    return andDecompositionItemProvider;
-  }
+		return andDecompositionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Aspect} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Aspect} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AspectItemProvider aspectItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Aspect}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Aspect}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createAspectAdapter()
-  {
-    if (aspectItemProvider == null)
-    {
-      aspectItemProvider = new AspectItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createAspectAdapter() {
+		if (aspectItemProvider == null) {
+			aspectItemProvider = new AspectItemProvider(this);
+		}
 
-    return aspectItemProvider;
-  }
+		return aspectItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.BreakContribution} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.BreakContribution} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected BreakContributionItemProvider breakContributionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.BreakContribution}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.BreakContribution}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createBreakContributionAdapter()
-  {
-    if (breakContributionItemProvider == null)
-    {
-      breakContributionItemProvider = new BreakContributionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createBreakContributionAdapter() {
+		if (breakContributionItemProvider == null) {
+			breakContributionItemProvider = new BreakContributionItemProvider(this);
+		}
 
-    return breakContributionItemProvider;
-  }
+		return breakContributionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.ConflictLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.ConflictLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ConflictLabelItemProvider conflictLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.ConflictLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.ConflictLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createConflictLabelAdapter()
-  {
-    if (conflictLabelItemProvider == null)
-    {
-      conflictLabelItemProvider = new ConflictLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createConflictLabelAdapter() {
+		if (conflictLabelItemProvider == null) {
+			conflictLabelItemProvider = new ConflictLabelItemProvider(this);
+		}
 
-    return conflictLabelItemProvider;
-  }
+		return conflictLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Contribution} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Contribution} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ContributionItemProvider contributionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Contribution}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Contribution}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createContributionAdapter()
-  {
-    if (contributionItemProvider == null)
-    {
-      contributionItemProvider = new ContributionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createContributionAdapter() {
+		if (contributionItemProvider == null) {
+			contributionItemProvider = new ContributionItemProvider(this);
+		}
 
-    return contributionItemProvider;
-  }
+		return contributionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Decomposition} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Decomposition} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DecompositionItemProvider decompositionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Decomposition}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Decomposition}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createDecompositionAdapter()
-  {
-    if (decompositionItemProvider == null)
-    {
-      decompositionItemProvider = new DecompositionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createDecompositionAdapter() {
+		if (decompositionItemProvider == null) {
+			decompositionItemProvider = new DecompositionItemProvider(this);
+		}
 
-    return decompositionItemProvider;
-  }
+		return decompositionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.DeniedLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.DeniedLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DeniedLabelItemProvider deniedLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.DeniedLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.DeniedLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createDeniedLabelAdapter()
-  {
-    if (deniedLabelItemProvider == null)
-    {
-      deniedLabelItemProvider = new DeniedLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createDeniedLabelAdapter() {
+		if (deniedLabelItemProvider == null) {
+			deniedLabelItemProvider = new DeniedLabelItemProvider(this);
+		}
 
-    return deniedLabelItemProvider;
-  }
+		return deniedLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Dependency} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Dependency} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected DependencyItemProvider dependencyItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Dependency}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Dependency}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createDependencyAdapter()
-  {
-    if (dependencyItemProvider == null)
-    {
-      dependencyItemProvider = new DependencyItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createDependencyAdapter() {
+		if (dependencyItemProvider == null) {
+			dependencyItemProvider = new DependencyItemProvider(this);
+		}
 
-    return dependencyItemProvider;
-  }
+		return dependencyItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Goal} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Goal} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected GoalItemProvider goalItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Goal}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Goal}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createGoalAdapter()
-  {
-    if (goalItemProvider == null)
-    {
-      goalItemProvider = new GoalItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createGoalAdapter() {
+		if (goalItemProvider == null) {
+			goalItemProvider = new GoalItemProvider(this);
+		}
 
-    return goalItemProvider;
-  }
+		return goalItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.HelpContribution} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.HelpContribution} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected HelpContributionItemProvider helpContributionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.HelpContribution}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.HelpContribution}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createHelpContributionAdapter()
-  {
-    if (helpContributionItemProvider == null)
-    {
-      helpContributionItemProvider = new HelpContributionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createHelpContributionAdapter() {
+		if (helpContributionItemProvider == null) {
+			helpContributionItemProvider = new HelpContributionItemProvider(this);
+		}
 
-    return helpContributionItemProvider;
-  }
+		return helpContributionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.HurtContribution} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.HurtContribution} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected HurtContributionItemProvider hurtContributionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.HurtContribution}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.HurtContribution}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createHurtContributionAdapter()
-  {
-    if (hurtContributionItemProvider == null)
-    {
-      hurtContributionItemProvider = new HurtContributionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createHurtContributionAdapter() {
+		if (hurtContributionItemProvider == null) {
+			hurtContributionItemProvider = new HurtContributionItemProvider(this);
+		}
 
-    return hurtContributionItemProvider;
-  }
+		return hurtContributionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Intention} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Intention} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected IntentionItemProvider intentionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Intention}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Intention}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createIntentionAdapter()
-  {
-    if (intentionItemProvider == null)
-    {
-      intentionItemProvider = new IntentionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createIntentionAdapter() {
+		if (intentionItemProvider == null) {
+			intentionItemProvider = new IntentionItemProvider(this);
+		}
 
-    return intentionItemProvider;
-  }
+		return intentionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.MakeContribution} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.MakeContribution} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected MakeContributionItemProvider makeContributionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.MakeContribution}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.MakeContribution}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createMakeContributionAdapter()
-  {
-    if (makeContributionItemProvider == null)
-    {
-      makeContributionItemProvider = new MakeContributionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createMakeContributionAdapter() {
+		if (makeContributionItemProvider == null) {
+			makeContributionItemProvider = new MakeContributionItemProvider(this);
+		}
 
-    return makeContributionItemProvider;
-  }
+		return makeContributionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Model} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Model} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ModelItemProvider modelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Model}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Model}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createModelAdapter()
-  {
-    if (modelItemProvider == null)
-    {
-      modelItemProvider = new ModelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createModelAdapter() {
+		if (modelItemProvider == null) {
+			modelItemProvider = new ModelItemProvider(this);
+		}
 
-    return modelItemProvider;
-  }
+		return modelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.OrDecomposition} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.OrDecomposition} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected OrDecompositionItemProvider orDecompositionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.OrDecomposition}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.OrDecomposition}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createOrDecompositionAdapter()
-  {
-    if (orDecompositionItemProvider == null)
-    {
-      orDecompositionItemProvider = new OrDecompositionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createOrDecompositionAdapter() {
+		if (orDecompositionItemProvider == null) {
+			orDecompositionItemProvider = new OrDecompositionItemProvider(this);
+		}
 
-    return orDecompositionItemProvider;
-  }
+		return orDecompositionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.PartiallyDeniedLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.PartiallyDeniedLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected PartiallyDeniedLabelItemProvider partiallyDeniedLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.PartiallyDeniedLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.PartiallyDeniedLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createPartiallyDeniedLabelAdapter()
-  {
-    if (partiallyDeniedLabelItemProvider == null)
-    {
-      partiallyDeniedLabelItemProvider = new PartiallyDeniedLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createPartiallyDeniedLabelAdapter() {
+		if (partiallyDeniedLabelItemProvider == null) {
+			partiallyDeniedLabelItemProvider = new PartiallyDeniedLabelItemProvider(this);
+		}
 
-    return partiallyDeniedLabelItemProvider;
-  }
+		return partiallyDeniedLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.PartiallySatisfiedLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.PartiallySatisfiedLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected PartiallySatisfiedLabelItemProvider partiallySatisfiedLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.PartiallySatisfiedLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.PartiallySatisfiedLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createPartiallySatisfiedLabelAdapter()
-  {
-    if (partiallySatisfiedLabelItemProvider == null)
-    {
-      partiallySatisfiedLabelItemProvider = new PartiallySatisfiedLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createPartiallySatisfiedLabelAdapter() {
+		if (partiallySatisfiedLabelItemProvider == null) {
+			partiallySatisfiedLabelItemProvider = new PartiallySatisfiedLabelItemProvider(this);
+		}
 
-    return partiallySatisfiedLabelItemProvider;
-  }
+		return partiallySatisfiedLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Position} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Position} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected PositionItemProvider positionItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Position}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Position}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createPositionAdapter()
-  {
-    if (positionItemProvider == null)
-    {
-      positionItemProvider = new PositionItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createPositionAdapter() {
+		if (positionItemProvider == null) {
+			positionItemProvider = new PositionItemProvider(this);
+		}
 
-    return positionItemProvider;
-  }
+		return positionItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Property} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Property} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected PropertyItemProvider propertyItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Property}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Property}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createPropertyAdapter()
-  {
-    if (propertyItemProvider == null)
-    {
-      propertyItemProvider = new PropertyItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createPropertyAdapter() {
+		if (propertyItemProvider == null) {
+			propertyItemProvider = new PropertyItemProvider(this);
+		}
 
-    return propertyItemProvider;
-  }
+		return propertyItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Resource} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Resource} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ResourceItemProvider resourceItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Resource}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Resource}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createResourceAdapter()
-  {
-    if (resourceItemProvider == null)
-    {
-      resourceItemProvider = new ResourceItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createResourceAdapter() {
+		if (resourceItemProvider == null) {
+			resourceItemProvider = new ResourceItemProvider(this);
+		}
 
-    return resourceItemProvider;
-  }
+		return resourceItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Role} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Role} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected RoleItemProvider roleItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Role}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Role}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createRoleAdapter()
-  {
-    if (roleItemProvider == null)
-    {
-      roleItemProvider = new RoleItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createRoleAdapter() {
+		if (roleItemProvider == null) {
+			roleItemProvider = new RoleItemProvider(this);
+		}
 
-    return roleItemProvider;
-  }
+		return roleItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.SatisfiedLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.SatisfiedLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SatisfiedLabelItemProvider satisfiedLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.SatisfiedLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.SatisfiedLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createSatisfiedLabelAdapter()
-  {
-    if (satisfiedLabelItemProvider == null)
-    {
-      satisfiedLabelItemProvider = new SatisfiedLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createSatisfiedLabelAdapter() {
+		if (satisfiedLabelItemProvider == null) {
+			satisfiedLabelItemProvider = new SatisfiedLabelItemProvider(this);
+		}
 
-    return satisfiedLabelItemProvider;
-  }
+		return satisfiedLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Softgoal} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Softgoal} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SoftgoalItemProvider softgoalItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Softgoal}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Softgoal}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createSoftgoalAdapter()
-  {
-    if (softgoalItemProvider == null)
-    {
-      softgoalItemProvider = new SoftgoalItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createSoftgoalAdapter() {
+		if (softgoalItemProvider == null) {
+			softgoalItemProvider = new SoftgoalItemProvider(this);
+		}
 
-    return softgoalItemProvider;
-  }
+		return softgoalItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Task} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Task} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TaskItemProvider taskItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Task}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Task}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createTaskAdapter()
-  {
-    if (taskItemProvider == null)
-    {
-      taskItemProvider = new TaskItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createTaskAdapter() {
+		if (taskItemProvider == null) {
+			taskItemProvider = new TaskItemProvider(this);
+		}
 
-    return taskItemProvider;
-  }
+		return taskItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Topic} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Topic} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TopicItemProvider topicItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Topic}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Topic}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createTopicAdapter()
-  {
-    if (topicItemProvider == null)
-    {
-      topicItemProvider = new TopicItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createTopicAdapter() {
+		if (topicItemProvider == null) {
+			topicItemProvider = new TopicItemProvider(this);
+		}
 
-    return topicItemProvider;
-  }
+		return topicItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.UnknownLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.UnknownLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected UnknownLabelItemProvider unknownLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.UnknownLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.UnknownLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createUnknownLabelAdapter()
-  {
-    if (unknownLabelItemProvider == null)
-    {
-      unknownLabelItemProvider = new UnknownLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createUnknownLabelAdapter() {
+		if (unknownLabelItemProvider == null) {
+			unknownLabelItemProvider = new UnknownLabelItemProvider(this);
+		}
 
-    return unknownLabelItemProvider;
-  }
+		return unknownLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.TruthLabel} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.TruthLabel} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected TruthLabelItemProvider truthLabelItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.TruthLabel}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.TruthLabel}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createTruthLabelAdapter()
-  {
-    if (truthLabelItemProvider == null)
-    {
-      truthLabelItemProvider = new TruthLabelItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createTruthLabelAdapter() {
+		if (truthLabelItemProvider == null) {
+			truthLabelItemProvider = new TruthLabelItemProvider(this);
+		}
 
-    return truthLabelItemProvider;
-  }
+		return truthLabelItemProvider;
+	}
 
-  /**
-   * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Container} instances.
-   * <!-- begin-user-doc -->
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.goalmodel.Container} instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ContainerItemProvider containerItemProvider;
 
-  /**
-   * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Container}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.goalmodel.Container}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter createContainerAdapter()
-  {
-    if (containerItemProvider == null)
-    {
-      containerItemProvider = new ContainerItemProvider(this);
-    }
+	 * @generated
+	 */
+  public Adapter createContainerAdapter() {
+		if (containerItemProvider == null) {
+			containerItemProvider = new ContainerItemProvider(this);
+		}
 
-    return containerItemProvider;
-  }
+		return containerItemProvider;
+	}
 
-  /**
-   * This returns the root adapter factory that contains this factory.
-   * <!-- begin-user-doc -->
+	/**
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public ComposeableAdapterFactory getRootAdapterFactory()
-  {
-    return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-  }
+	 * @generated
+	 */
+  public ComposeableAdapterFactory getRootAdapterFactory() {
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+	}
 
-  /**
-   * This sets the composed adapter factory that contains this factory.
-   * <!-- begin-user-doc -->
+	/**
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
-  {
-    this.parentAdapterFactory = parentAdapterFactory;
-  }
+	 * @generated
+	 */
+  public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
+	/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isFactoryForType(Object type)
-  {
-    return supportedTypes.contains(type) || super.isFactoryForType(type);
-  }
+	 * @generated
+	 */
+  public boolean isFactoryForType(Object type) {
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
-  /**
-   * This implementation substitutes the factory itself as the key for the adapter.
-   * <!-- begin-user-doc -->
+	/**
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Adapter adapt(Notifier notifier, Object type)
-  {
-    return super.adapt(notifier, this);
-  }
+	 * @generated
+	 */
+  public Adapter adapt(Notifier notifier, Object type) {
+		return super.adapt(notifier, this);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
+	/**
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public Object adapt(Object object, Object type)
-  {
-    if (isFactoryForType(type))
-    {
-      Object adapter = super.adapt(object, type);
-      if (!(type instanceof Class) || (((Class)type).isInstance(adapter)))
-      {
-        return adapter;
-      }
-    }
+	 * @generated
+	 */
+  public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-    return null;
-  }
+		return null;
+	}
 
-  /**
-   * This adds a listener.
-   * <!-- begin-user-doc -->
+	/**
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void addListener(INotifyChangedListener notifyChangedListener)
-  {
-    changeNotifier.addListener(notifyChangedListener);
-  }
+	 * @generated
+	 */
+  public void addListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
-  /**
-   * This removes a listener.
-   * <!-- begin-user-doc -->
+	/**
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void removeListener(INotifyChangedListener notifyChangedListener)
-  {
-    changeNotifier.removeListener(notifyChangedListener);
-  }
+	 * @generated
+	 */
+  public void removeListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
-  /**
-   * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-   * <!-- begin-user-doc -->
+	/**
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void fireNotifyChanged(Notification notification)
-  {
-    changeNotifier.fireNotifyChanged(notification);
+	 * @generated
+	 */
+  public void fireNotifyChanged(Notification notification) {
+		changeNotifier.fireNotifyChanged(notification);
 
-    if (parentAdapterFactory != null)
-    {
-      parentAdapterFactory.fireNotifyChanged(notification);
-    }
-  }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
-  /**
-   * This disposes all of the item providers created by this factory. 
-   * <!-- begin-user-doc -->
+	/**
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
-  public void dispose()
-  {
-    if (actorItemProvider != null) actorItemProvider.dispose();
-    if (agentItemProvider != null) agentItemProvider.dispose();
-    if (andDecompositionItemProvider != null) andDecompositionItemProvider.dispose();
-    if (aspectItemProvider != null) aspectItemProvider.dispose();
-    if (breakContributionItemProvider != null) breakContributionItemProvider.dispose();
-    if (conflictLabelItemProvider != null) conflictLabelItemProvider.dispose();
-    if (contributionItemProvider != null) contributionItemProvider.dispose();
-    if (decompositionItemProvider != null) decompositionItemProvider.dispose();
-    if (deniedLabelItemProvider != null) deniedLabelItemProvider.dispose();
-    if (dependencyItemProvider != null) dependencyItemProvider.dispose();
-    if (goalItemProvider != null) goalItemProvider.dispose();
-    if (helpContributionItemProvider != null) helpContributionItemProvider.dispose();
-    if (hurtContributionItemProvider != null) hurtContributionItemProvider.dispose();
-    if (intentionItemProvider != null) intentionItemProvider.dispose();
-    if (makeContributionItemProvider != null) makeContributionItemProvider.dispose();
-    if (modelItemProvider != null) modelItemProvider.dispose();
-    if (orDecompositionItemProvider != null) orDecompositionItemProvider.dispose();
-    if (partiallyDeniedLabelItemProvider != null) partiallyDeniedLabelItemProvider.dispose();
-    if (partiallySatisfiedLabelItemProvider != null) partiallySatisfiedLabelItemProvider.dispose();
-    if (positionItemProvider != null) positionItemProvider.dispose();
-    if (propertyItemProvider != null) propertyItemProvider.dispose();
-    if (resourceItemProvider != null) resourceItemProvider.dispose();
-    if (roleItemProvider != null) roleItemProvider.dispose();
-    if (satisfiedLabelItemProvider != null) satisfiedLabelItemProvider.dispose();
-    if (softgoalItemProvider != null) softgoalItemProvider.dispose();
-    if (taskItemProvider != null) taskItemProvider.dispose();
-    if (topicItemProvider != null) topicItemProvider.dispose();
-    if (unknownLabelItemProvider != null) unknownLabelItemProvider.dispose();
-    if (truthLabelItemProvider != null) truthLabelItemProvider.dispose();
-    if (containerItemProvider != null) containerItemProvider.dispose();
-  }
+	 * @generated
+	 */
+  public void dispose() {
+		if (actorItemProvider != null) actorItemProvider.dispose();
+		if (agentItemProvider != null) agentItemProvider.dispose();
+		if (andDecompositionItemProvider != null) andDecompositionItemProvider.dispose();
+		if (aspectItemProvider != null) aspectItemProvider.dispose();
+		if (breakContributionItemProvider != null) breakContributionItemProvider.dispose();
+		if (conflictLabelItemProvider != null) conflictLabelItemProvider.dispose();
+		if (contributionItemProvider != null) contributionItemProvider.dispose();
+		if (decompositionItemProvider != null) decompositionItemProvider.dispose();
+		if (deniedLabelItemProvider != null) deniedLabelItemProvider.dispose();
+		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
+		if (goalItemProvider != null) goalItemProvider.dispose();
+		if (helpContributionItemProvider != null) helpContributionItemProvider.dispose();
+		if (hurtContributionItemProvider != null) hurtContributionItemProvider.dispose();
+		if (intentionItemProvider != null) intentionItemProvider.dispose();
+		if (makeContributionItemProvider != null) makeContributionItemProvider.dispose();
+		if (modelItemProvider != null) modelItemProvider.dispose();
+		if (orDecompositionItemProvider != null) orDecompositionItemProvider.dispose();
+		if (partiallyDeniedLabelItemProvider != null) partiallyDeniedLabelItemProvider.dispose();
+		if (partiallySatisfiedLabelItemProvider != null) partiallySatisfiedLabelItemProvider.dispose();
+		if (positionItemProvider != null) positionItemProvider.dispose();
+		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (resourceItemProvider != null) resourceItemProvider.dispose();
+		if (roleItemProvider != null) roleItemProvider.dispose();
+		if (satisfiedLabelItemProvider != null) satisfiedLabelItemProvider.dispose();
+		if (softgoalItemProvider != null) softgoalItemProvider.dispose();
+		if (taskItemProvider != null) taskItemProvider.dispose();
+		if (topicItemProvider != null) topicItemProvider.dispose();
+		if (unknownLabelItemProvider != null) unknownLabelItemProvider.dispose();
+		if (truthLabelItemProvider != null) truthLabelItemProvider.dispose();
+		if (containerItemProvider != null) containerItemProvider.dispose();
+	}
 
 }

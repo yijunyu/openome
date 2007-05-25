@@ -13,5 +13,7 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.toronto.cs.goalmodel.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ molhado,
+ edu.toronto.cs.goalmodel.diagram
 Eclipse-LazyStart: true
