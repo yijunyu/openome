@@ -6,11 +6,7 @@ import java.util.Observer;
 import fluid.ir.IRNode;
 import fluid.ir.SlotAlreadyRegisteredException;
 import fluid.tree.SymmetricEdgeDigraph;
-import fluid.version.VersionedSlotInfo;
-
 import fluid.version.VersionedUnitSlotInfo;
-import fluid.tree.*;
-import fluid.ir.*;
 
 public class GoalModelChanged extends VersionedUnitSlotInfo implements Observer {
 

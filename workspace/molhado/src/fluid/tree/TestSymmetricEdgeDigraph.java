@@ -1,7 +1,11 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/tree/TestSymmetricEdgeDigraph.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.tree;
 
-import fluid.ir.*;
+import fluid.ir.IRNode;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotImmutableException;
 
 class TestSymmetricEdgeDigraph extends TestEdgeDigraph {
   public static void main(String args[]) {

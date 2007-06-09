@@ -1,16 +1,31 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\InterfaceDeclaration.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class InterfaceDeclaration extends JavaOperator implements TypeDeclInterface, FlowUnit 
+import fluid.control.Component;
+import fluid.control.ComponentSink;
+import fluid.control.ComponentSource;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.Sink;
+import fluid.control.Source;
+import fluid.control.Subcomponent;
+import fluid.control.SubcomponentAbruptExitPort;
+import fluid.control.SubcomponentEntryPort;
+import fluid.control.SubcomponentNormalExitPort;
+import fluid.ir.IRNode;
+import fluid.ir.SlotUndefinedException;
+import fluid.java.JavaComponentFactory;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Identifier;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+public class InterfaceDeclaration extends JavaOperator implements TypeDeclInterface, FlowUnit 
     { 
   protected InterfaceDeclaration() {}
 

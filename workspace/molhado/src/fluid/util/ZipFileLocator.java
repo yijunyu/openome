@@ -1,7 +1,16 @@
 // $Header: /usr/local/refactoring/molhadoRef/src/fluid/util/ZipFileLocator.java,v 1.1 2006/03/21 23:20:54 dig Exp $
 package fluid.util;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -120,9 +129,9 @@ public class ZipFileLocator implements FileLocator {
 
     // writing the names from the zipCache - randomized order
     PrintWriter w = new PrintWriter(floc.openFileWrite(index));
-    Enumeration enum = zipCache.keys();
-    while (enum.hasMoreElements()) {
-      String name = (String) enum.nextElement();
+    Enumeration en = zipCache.keys();
+    while (en.hasMoreElements()) {
+      String name = (String) en.nextElement();
       w.println(name);
     }
     w.close();

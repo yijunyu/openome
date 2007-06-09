@@ -2,16 +2,24 @@
 
 package sc.xml;
 
-import java.io.*;
-import java.util.*;
-
-import fluid.*;
-import fluid.ir.*;
-import fluid.parse.*;
-import fluid.tree.*;
-import fluid.util.StringFilter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StreamTokenizer;
+import java.io.Writer;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Vector;
 
 import sc.document.SCDocument;
+import fluid.FluidRuntimeException;
+import fluid.NotImplemented;
+import fluid.ir.IRNode;
+import fluid.ir.IRType;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotInfo;
+import fluid.parse.ParseException;
+import fluid.tree.Operator;
+import fluid.util.StringFilter;
 
 /**
  * To parse XML document to IRNode, and to dump IRNode in XML

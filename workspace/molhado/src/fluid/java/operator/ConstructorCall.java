@@ -1,16 +1,25 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\ConstructorCall.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;/** A very special form of call: legal only as the first statement
+import fluid.control.Abort;
+import fluid.control.AddLabel;
+import fluid.control.Component;
+import fluid.control.ComponentChoice;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.Merge;
+import fluid.control.Subcomponent;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.java.control.CallExceptionLabel;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Token;
+/** A very special form of call: legal only as the first statement
  * of a constructor.  The object must be "this" or "super".
  */
 public class ConstructorCall extends Statement implements Call 

@@ -4,7 +4,15 @@ package fluid.version;
 import java.util.Hashtable;
 
 import fluid.NotImplemented;
-import fluid.ir.*;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRNode;
+import fluid.ir.IRType;
+import fluid.ir.PlainIRNode;
+import fluid.ir.Slot;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
+import fluid.ir.Slots;
 
 /** SlotInfo for slots which must be computed and whose computed
  * values should be saved.

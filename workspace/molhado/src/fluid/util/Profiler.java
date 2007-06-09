@@ -1,7 +1,15 @@
 package fluid.util;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 class Stats {
   String method;
@@ -88,12 +96,12 @@ public class Profiler {
       
       line = prof.readLine();
     }
-    Enumeration enum = times.elements();
+    Enumeration en = times.elements();
     int totalTime = 0;
 
     try {
       while(true) {
-	Stats s = (Stats) enum.nextElement();
+	Stats s = (Stats) en.nextElement();
 	s.timeHere = (s.timeIn - s.timeOut);
 	s.timeIn = -1;          // to be recomputed below
 	totalTime += s.timeHere;
@@ -107,11 +115,11 @@ public class Profiler {
     computeCumulativeTime(us, 1);
 
     Vector topTimes = new Vector();
-    enum = times.elements();
+    en = times.elements();
 
     try {
       while(true) {
-	Stats s = (Stats) enum.nextElement();
+	Stats s = (Stats) en.nextElement();
 	insertIntoTopVector(topTimes, s);
       }
     }
@@ -155,11 +163,11 @@ public class Profiler {
     if (s.timeIn < 0) { // not visited yet
       s.timeIn = 0;
 
-      Enumeration enum = s.others.elements();
+      Enumeration en = s.others.elements();
       int total = 0;
       try {
 	while(true) {
-	  Call c = (Call) enum.nextElement();
+	  Call c = (Call) en.nextElement();
 	  total += computeCumulativeTime(c.callee, c.count);
 	}
       }

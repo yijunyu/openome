@@ -5,7 +5,15 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Vector;
 
-import fluid.ir.*;
+import fluid.ir.DefaultSlotStorage;
+import fluid.ir.IRCompound;
+import fluid.ir.IRCompoundType;
+import fluid.ir.IRInput;
+import fluid.ir.IROutput;
+import fluid.ir.IRType;
+import fluid.ir.Slot;
+import fluid.ir.SlotUndefinedException;
+import fluid.ir.SlotUnknownException;
 import fluid.util.IntegerTable;
 import fluid.util.ThreadGlobal;
 

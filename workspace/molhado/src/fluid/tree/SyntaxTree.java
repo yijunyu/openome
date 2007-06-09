@@ -1,7 +1,13 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/tree/SyntaxTree.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.tree;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
 
 /** A type of tree in which each tree has an operator which determines
  * the kinds of children which are legal.  In essence, this class

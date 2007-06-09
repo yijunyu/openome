@@ -5,10 +5,20 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Vector;
 
 import fluid.FluidError;
-import fluid.ir.*;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentKind;
+import fluid.ir.IRRegion;
 import fluid.tree.DepthFirstSearch;
 import fluid.util.FileLocator;
 import fluid.util.UniqueID;
@@ -220,9 +230,9 @@ public class Era extends IRPersistent {
    * (excluding the root).
    */
   public Enumeration elements() {
-    Enumeration enum = members.elements();
-    enum.nextElement(); // drop root
-    return enum;
+    Enumeration en = members.elements();
+    en.nextElement(); // drop root
+    return en;
   }
 
   /** Add the given persistent entity to the list of associated
@@ -300,8 +310,8 @@ public class Era extends IRPersistent {
     IRVersionType.writeVersion(root,out);
     out.debugEnd("root");
     out.debugBegin("versions");
-    for (Enumeration enum = elements(); enum.hasMoreElements();) {
-      Version v = (Version)enum.nextElement();
+    for (Enumeration en = elements(); en.hasMoreElements();) {
+      Version v = (Version)en.nextElement();
       out.debugBegin("item");
       if (isFringe(v)) out.writeByte(2); else out.writeByte(1);
       Version p = v.parent();
@@ -470,7 +480,7 @@ public class Era extends IRPersistent {
   public static void ensureLoaded() {
     EraShadowRegion.ensureLoaded();
     Version.ensureLoaded();
-    System.out.println("Era loaded");
+//    System.out.println("Era loaded");
   }
 
   private final IRRegion shadowRegion = new EraShadowRegion(this);

@@ -1,13 +1,25 @@
 package fluid.display.examples;
 
 import java.awt.Color;
-import java.io.*;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import fluid.display.*;
+import fluid.display.TextBean;
+import fluid.display.TextClickedEvent;
+import fluid.display.TextClickedListener;
+import fluid.display.TextCoord;
+import fluid.display.TextResizedEvent;
+import fluid.display.TextResizedListener;
+import fluid.display.TextStyle;
 
 public class SerializationTest
 implements TextClickedListener, TextResizedListener, Serializable

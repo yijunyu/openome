@@ -4,7 +4,7 @@
  */
 package sc.document;
 
-import fluid.ir.*;
+import fluid.ir.IRNode;
 
 /**
  * @author tien

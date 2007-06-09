@@ -1,16 +1,14 @@
 package sc.document;
 
+import fluid.FluidError;
 import fluid.ir.Bundle;
-import fluid.ir.IRNodeType;
-import fluid.ir.IRPersistentReferenceType;
+import fluid.ir.IRPersistent;
 import fluid.ir.IRStringType;
 import fluid.ir.SlotAlreadyRegisteredException;
 import fluid.ir.SlotInfo;
 import fluid.util.UniqueID;
-import fluid.ir.IRPersistent;
-import fluid.version.*;
-import fluid.ir.*;
-import fluid.FluidError;
+import fluid.version.VersionedSlotFactory;
+import fluid.version.VersionedUnitSlotInfo;
 /**
  * @author Tien
  *

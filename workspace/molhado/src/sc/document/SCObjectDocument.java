@@ -1,12 +1,18 @@
 package sc.document;
 
-import java.io.*;
-
-import fluid.ir.*;
-import fluid.version.*;
-import fluid.util.UniqueID;
+import java.io.DataInput;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 
 import sc.xml.IRDTD;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.PlainIRNode;
+import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.Version;
 
 /**
  * @author Tien

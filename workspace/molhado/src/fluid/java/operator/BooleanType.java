@@ -1,16 +1,18 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\BooleanType.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class BooleanType extends JavaOperator implements PrimitiveType, DripOperator { 
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+public class BooleanType extends JavaOperator implements PrimitiveType, DripOperator { 
   protected BooleanType() {}
 
   public static final BooleanType prototype = new BooleanType();

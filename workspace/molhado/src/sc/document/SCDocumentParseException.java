@@ -2,9 +2,6 @@
 
 package sc.document;
 
-import fluid.*;
-
-import sc.*;
 
 /**
  * SC Document Exception

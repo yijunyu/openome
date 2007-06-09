@@ -1,14 +1,29 @@
 package fluid.parse;
 
-import fluid.*;
-import fluid.util.*;
-import fluid.ir.*;
-import fluid.java.JavaGlobals;
-import fluid.version.*;
-import fluid.tree.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Enumeration;
 
-import java.util.*;
-import java.io.*;
+import fluid.FluidError;
+import fluid.ir.Bundle;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRRegion;
+import fluid.ir.IRStringType;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
+import fluid.java.JavaGlobals;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTree;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.util.FileLocator;
+import fluid.util.UniqueID;
+import fluid.version.TreeChanged;
+import fluid.version.VersionedSlotFactory;
 
 /** An IRNode being created by the parser.
  * We have extra methods to interface with the parser.

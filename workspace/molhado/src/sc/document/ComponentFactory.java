@@ -1,7 +1,7 @@
 package sc.document;
 
-import java.util.Hashtable;
 import java.io.DataInput;
+import java.util.Hashtable;
 
 import fluid.util.UniqueID;
 

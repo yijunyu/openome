@@ -4,7 +4,13 @@ package fluid.version;
 import java.io.IOException;
 import java.util.Enumeration;
 
-import fluid.ir.*;
+import fluid.ir.IRCompoundType;
+import fluid.ir.IRInput;
+import fluid.ir.IRLocation;
+import fluid.ir.IROutput;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.InsertionPoint;
 
 class VersionedSequence extends IRSequenceWrapper {
   // we don't synchronize on this field

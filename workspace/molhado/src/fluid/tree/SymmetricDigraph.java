@@ -3,7 +3,20 @@ package fluid.tree;
 
 import java.util.Enumeration;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceType;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.IRType;
+import fluid.ir.InsertionPoint;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotImmutableException;
+import fluid.ir.SlotInfo;
 import fluid.util.ThreadGlobal;
 
 /** Directed graphs that can be traversed in either direction.

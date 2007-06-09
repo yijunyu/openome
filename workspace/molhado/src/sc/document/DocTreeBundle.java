@@ -1,11 +1,13 @@
 package sc.document;
 
-import fluid.util.UniqueID;
-import fluid.tree.SyntaxTree;
 import fluid.FluidError;
-
-import fluid.version.*;
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.IRPersistent;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.tree.SyntaxTree;
+import fluid.util.UniqueID;
+import fluid.version.TreeChanged;
+import fluid.version.VersionedSlotFactory;
 
 /**
  * @author Tien N. Nguyen

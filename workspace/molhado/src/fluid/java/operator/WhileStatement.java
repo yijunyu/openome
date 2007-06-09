@@ -1,16 +1,27 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\WhileStatement.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class WhileStatement extends Statement implements DripOperator { 
+import fluid.control.Component;
+import fluid.control.ComponentFlow;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.LabelTest;
+import fluid.control.Merge;
+import fluid.control.Subcomponent;
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.java.control.AnchoredBreakLabel;
+import fluid.java.control.AnchoredContinueLabel;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+public class WhileStatement extends Statement implements DripOperator { 
   protected WhileStatement() {}
 
   public static final WhileStatement prototype = new WhileStatement();

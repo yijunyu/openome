@@ -3,7 +3,11 @@ package fluid.control;
 
 import java.util.Enumeration;
 
-import fluid.ir.*;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRSequenceException;
+import fluid.ir.InsertionPoint;
+import fluid.ir.SlotUndefinedException;
 import fluid.tree.DigraphMixin;
 import fluid.tree.EdgeDigraphConnections;
 import fluid.tree.StructureException;

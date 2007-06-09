@@ -4,7 +4,13 @@ package fluid.java;
 import java.util.HashSet;
 import java.util.Set;
 
-import fluid.unparse.*;
+import fluid.unparse.Breakpoint;
+import fluid.unparse.Glue;
+import fluid.unparse.IndepBP;
+import fluid.unparse.MandatoryBP;
+import fluid.unparse.NoToken;
+import fluid.unparse.Token;
+import fluid.unparse.UnitedBP;
 
 /** This class defines the interface for Java unparse styles,
  * and also provides a default implementation.  To add a new style, 

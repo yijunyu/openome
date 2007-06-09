@@ -2,9 +2,7 @@
 
 package sc.document;
 
-import fluid.*;
-
-import sc.*;
+import sc.SCRuntimeException;
 
 /**
  * SC Document Exception

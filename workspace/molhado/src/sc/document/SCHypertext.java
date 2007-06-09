@@ -1,15 +1,31 @@
 package sc.document;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataInput;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import fluid.version.*;
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.util.UniqueID;
-
 import fluid.FluidRuntimeException;
+import fluid.ir.Bundle;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.PlainIRNode;
+import fluid.ir.Slot;
+import fluid.ir.SlotInfo;
+import fluid.tree.SymmetricEdgeDigraph;
+import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.Version;
+import fluid.version.VersionedChunk;
+import fluid.version.VersionedRegion;
+import fluid.version.VersionedSlotFactory;
 
 // import fluid.ir.*;
 
@@ -126,10 +142,10 @@ public class SCHypertext extends Component {
 	 */
 	protected void saveRegion(fluid.util.FileLocator floc) {
 		if (region.isStored() == false) {
-			System.out.println("Saving REGION ...");
+//			System.out.println("Saving REGION ...");
 			try {
 				region.store(floc);
-				region.describe(System.out);				 
+//				region.describe(System.out);				 
 				DataOutputStream os = new DataOutputStream(
 						floc.openFileWrite(this.getID().toString() + ".region"));
 				PrintWriter w = new PrintWriter(os);
@@ -148,12 +164,12 @@ public class SCHypertext extends Component {
 			
 			loadRegion(floc);
 			    
-			System.out.println("Loading delta for HYPERTEXT GRAPH STRUCTURE ...");
+//			System.out.println("Loading delta for HYPERTEXT GRAPH STRUCTURE ...");
 			VersionedChunk vc = VersionedChunk.get(region,hypertextGraphBundle);
 			vc.getDelta(era).load(floc);
-			vc.describe(System.out);
+//			vc.describe(System.out);
 
-			System.out.println("Loading delta for HYPERTEXT NODE ATTRIBUTE ...");
+//			System.out.println("Loading delta for HYPERTEXT NODE ATTRIBUTE ...");
 			vc = VersionedChunk.get(region,hypertextAttrBundle);
 			vc.getDelta(era).load(floc);
 			vc.describe(System.out);
@@ -168,27 +184,27 @@ public class SCHypertext extends Component {
       
       saveRegion(floc);
       
-      System.out.println("Saving chunk delta for hypertextGraphBundle ...");
+//      System.out.println("Saving chunk delta for hypertextGraphBundle ...");
       VersionedChunk ch = VersionedChunk.get(region,hypertextGraphBundle);
       IRPersistent vcd = ch.getDelta(era);
       vcd.store(floc);
-      vcd.describe(System.out);
+//      vcd.describe(System.out);
       
-      System.out.println("Saving version CHUNK DELTA FOR HYPERTEXT NODE ATTRIBUTE ... ");
+//      System.out.println("Saving version CHUNK DELTA FOR HYPERTEXT NODE ATTRIBUTE ... ");
       ch = VersionedChunk.get(region,hypertextAttrBundle);
       vcd = ch.getDelta(era);
       vcd.store(floc);
-      vcd.describe(System.out);
+//      vcd.describe(System.out);
   }
 
   /** Load the snapshot of this component for the given version. */
   public void loadSnapshot(Version v, fluid.util.FileLocator floc) 
     throws IOException {
       loadRegion(floc);
-      System.out.println("Loading snapshot for HYPERTEXT GRAPH STRUCTURE ...");
+//      System.out.println("Loading snapshot for HYPERTEXT GRAPH STRUCTURE ...");
       VersionedChunk vc = VersionedChunk.get(region,hypertextGraphBundle);
       ((IRPersistent) vc.getSnapshot(v)).load(floc); 
-      vc.describe(System.out);
+//      vc.describe(System.out);
       
       System.out.println("Loading snapshot for HYPERTEXT NODE ATTRIBUTE ...");
       vc = VersionedChunk.get(region, hypertextAttrBundle);
@@ -206,17 +222,17 @@ public class SCHypertext extends Component {
   public void saveSnapshot(Version v, fluid.util.FileLocator floc) 
     throws IOException {
       saveRegion(floc);
-      System.out.println("Saving snapshot for hypertextGraphBundle ... ");
+//      System.out.println("Saving snapshot for hypertextGraphBundle ... ");
       VersionedChunk ch = VersionedChunk.get(region,hypertextGraphBundle);
       IRPersistent vcs = ch.getSnapshot(v);
       vcs.store(floc);
-      vcs.describe(System.out);
+//      vcs.describe(System.out);
       
-      System.out.println("Saving version snapshot FOR HYPERTEXT NODE ATTRIBUTE ... ");
+//      System.out.println("Saving version snapshot FOR HYPERTEXT NODE ATTRIBUTE ... ");
       ch = VersionedChunk.get(region,hypertextAttrBundle);      
       vcs = ch.getSnapshot(v);
       vcs.store(floc);
-      vcs.describe(System.out);
+//      vcs.describe(System.out);
   }
   
   /** Import/Export facilities from/to XLink database */

@@ -3,7 +3,14 @@ package fluid.java.template;
 
 import fluid.java.operator.FloatLiteral;
 import fluid.java.operator.IntLiteral;
-import fluid.template.*;
+import fluid.template.BooleanField;
+import fluid.template.Field;
+import fluid.template.FieldConsultant;
+import fluid.template.IntegerField;
+import fluid.template.PartialTemplate;
+import fluid.template.StringField;
+import fluid.template.StringVectorField;
+import fluid.template.TemplateEvent;
 import fluid.tree.Operator;
 import fluid.version.VersionTracker;
 

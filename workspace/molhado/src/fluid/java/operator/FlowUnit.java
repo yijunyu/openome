@@ -1,7 +1,8 @@
 package fluid.java.operator;
 
+import fluid.control.Sink;
+import fluid.control.Source;
 import fluid.ir.IRNode;
-import fluid.control.*;
 
 /** An IRNode that contains an intraprocedural flow-graph.
  * the source node and sink nodes can be computed.

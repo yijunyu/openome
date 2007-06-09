@@ -13,7 +13,12 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import fluid.display.*;
+import fluid.display.TextBean;
+import fluid.display.TextClickedEvent;
+import fluid.display.TextClickedListener;
+import fluid.display.TextResizedEvent;
+import fluid.display.TextResizedListener;
+import fluid.display.TextStyle;
 
 /* A simple class that reports the time it takes to style and paint 
  * a lot of Styled text.

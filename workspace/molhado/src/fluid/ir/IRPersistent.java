@@ -1,13 +1,34 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/ir/IRPersistent.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.ir;
 
-import java.io.*;
+import java.io.DataInput;
+import java.io.DataInputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
+import java.io.FilterInputStream;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintStream;
+import java.io.Serializable;
+import java.io.Writer;
 import java.util.Hashtable;
 import java.util.Vector;
 
 import fluid.FluidError;
 import fluid.FluidRuntimeException;
-import fluid.util.*;
+import fluid.util.FileLocator;
+import fluid.util.PathFileLocator;
+import fluid.util.QuickProperties;
+import fluid.util.Trace;
+import fluid.util.UniqueID;
+import fluid.util.ZipFileLocator;
 
 /** Persistent aspects of the internal representation of the ACT/Fluid project.
  * The contents have a "magic" number associated with it that distinguishes

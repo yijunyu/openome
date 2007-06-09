@@ -6,7 +6,13 @@ import java.io.DataOutput;
 import java.io.File;
 import java.io.IOException;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.IRChunk;
+import fluid.ir.IRInput;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentKind;
+import fluid.ir.IRRegion;
 import fluid.util.Hashtable2;
 
 /** A snapshot in "time" of the values a chunk */

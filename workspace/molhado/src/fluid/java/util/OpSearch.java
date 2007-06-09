@@ -4,7 +4,14 @@ package fluid.java.util;
 import fluid.ir.IRNode;
 import fluid.java.JavaGlobals;
 import fluid.java.JavaPromise;
-import fluid.java.operator.*;
+import fluid.java.operator.ClassBodyDeclaration;
+import fluid.java.operator.DoStatement;
+import fluid.java.operator.Expression;
+import fluid.java.operator.ForStatement;
+import fluid.java.operator.Statement;
+import fluid.java.operator.SwitchStatement;
+import fluid.java.operator.TypeDeclInterface;
+import fluid.java.operator.WhileStatement;
 import fluid.tree.Operator;
 
 // Used to search the parents of a node for a particular kind of parent

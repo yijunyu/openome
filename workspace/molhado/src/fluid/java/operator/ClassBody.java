@@ -1,16 +1,37 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\ClassBody.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class ClassBody extends OptClassBody implements DripOperator, FlowUnit 
+import fluid.control.Component;
+import fluid.control.ComponentSink;
+import fluid.control.ComponentSource;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.DynamicSplit;
+import fluid.control.Merge;
+import fluid.control.Never;
+import fluid.control.Sink;
+import fluid.control.Source;
+import fluid.control.Subcomponent;
+import fluid.control.SubcomponentAbruptExitPort;
+import fluid.control.SubcomponentEntryPort;
+import fluid.control.SubcomponentNormalExitPort;
+import fluid.control.VariableComponent;
+import fluid.control.VariableSubcomponent;
+import fluid.control.VariableSubcomponentControlEdge;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaComponentFactory;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Token;
+public class ClassBody extends OptClassBody implements DripOperator, FlowUnit 
     { 
   protected ClassBody() {}
 

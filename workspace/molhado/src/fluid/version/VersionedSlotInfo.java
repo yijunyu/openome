@@ -1,7 +1,15 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/version/VersionedSlotInfo.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.version;
 
-import fluid.ir.*;
+import fluid.ir.HashedSlots;
+import fluid.ir.IRNode;
+import fluid.ir.IRType;
+import fluid.ir.InfoStoredSlotInfo;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotImmutableException;
+import fluid.ir.SlotInfoSlot;
+import fluid.ir.SlotUndefinedException;
+import fluid.ir.SlotUnknownException;
 
 /** A specialization of InfoStoredSlotInfo for versioned slots.
  * This class takes into account some of the peculiarities of

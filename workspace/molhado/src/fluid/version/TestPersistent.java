@@ -1,11 +1,35 @@
 package fluid.version;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.Reader;
+import java.io.StreamTokenizer;
 import java.util.Enumeration;
 import java.util.Vector;
 
 import fluid.FluidRuntimeException;
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.ConstantSlotFactory;
+import fluid.ir.IRChunk;
+import fluid.ir.IRIntegerType;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRRegion;
+import fluid.ir.IRSequence;
+import fluid.ir.IRStringType;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotNotRegisteredException;
+import fluid.ir.SlotUndefinedException;
+import fluid.ir.SlotUnknownException;
 import fluid.tree.SymmetricEdgeDigraph;
 import fluid.tree.Tree;
 import fluid.util.FileLocator;
@@ -166,8 +190,8 @@ class TestPersistent {
       ex.printStackTrace();
     }
 
-    System.out.println("Created initial era");
-    era[0].describe(System.out);
+//    System.out.println("Created initial era");
+//    era[0].describe(System.out);
     if (debug) {
       System.out.println("Initial state:");
       describeState(complete, 0);
@@ -331,7 +355,7 @@ class TestPersistent {
     era[1].complete();
 
     System.out.println("Completed second era");
-    era[1].describe(System.out);
+//    era[1].describe(System.out);
 
     // Now a third era with very few changes:
     Version.setVersion(mutation2midway);
@@ -713,7 +737,7 @@ class TestPersistent {
     for (int i = 0; i < region.length; ++i) {
       for (int j = 0; j < bundle.length - 1; ++j) {
         IRChunk irc = VersionedChunk.get(region[i], bundle[j]);
-        irc.describe(System.out);
+//        irc.describe(System.out);
         if (irc instanceof VersionedStructure) {
           VersionedStructure vs = (VersionedStructure) irc;
           System.out.println("isDefined:");
@@ -747,13 +771,13 @@ class TestPersistent {
       Vector nodes = new Vector();
       nodes.addElement(null);
       for (int r = 0; r < region.length; ++r) {
-        Enumeration enum = region[r].allNodes(v);
-        while (enum.hasMoreElements()) {
-          nodes.addElement(enum.nextElement());
+        Enumeration en = region[r].allNodes(v);
+        while (en.hasMoreElements()) {
+          nodes.addElement(en.nextElement());
         }
       }
-      for (Enumeration enum = region[i].allNodes(v); enum.hasMoreElements();) {
-        IRNode node = (IRNode) enum.nextElement();
+      for (Enumeration en = region[i].allNodes(v); en.hasMoreElements();) {
+        IRNode node = (IRNode) en.nextElement();
         System.out.print(" " + pad2(nodes.indexOf(node)) + "  " + pad2(i));
         try {
           IRRegion owner = IRRegion.getOwner(node);
@@ -980,7 +1004,7 @@ class TestPersistent {
               UniqueID id = UniqueID.parseUniqueID(args[++i]);
               region[j] = VersionedRegion.loadVersionedRegion(id, floc);
               region[j].setName(Integer.toString(j));
-              region[j].describe(System.out);
+//              region[j].describe(System.out);
             }
           } else if (args[i].equals("--bundles")) {
             bundle = new Bundle[Integer.parseInt(args[++i])];
@@ -1003,7 +1027,7 @@ class TestPersistent {
             Bundle b = bundle[Integer.parseInt(args[++i])];
             Era e = era[Integer.parseInt(args[++i])];
             VersionedChunk vc = VersionedChunk.get(vr, b);
-            vc.getDelta(e).describe(System.out);
+//            vc.getDelta(e).describe(System.out);
             vc.getDelta(e).load(floc);
           } else if (args[i].equals("--snapshot")) {
             VersionedRegion vr = region[Integer.parseInt(args[++i])];
@@ -1135,8 +1159,8 @@ class TestPersistent {
     }
     for (int i = 0; i < era.length; ++i) {
       System.out.println("Structure during era " + era[i].getID());
-      for (Enumeration enum = era[i].elements(); enum.hasMoreElements();) {
-        Version v = (Version) enum.nextElement();
+      for (Enumeration en = era[i].elements(); en.hasMoreElements();) {
+        Version v = (Version) en.nextElement();
         System.out.println("For version #" + v.getEraOffset());
         describeState(v, 0);
         System.out.println();

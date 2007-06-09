@@ -1,16 +1,18 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\NoInitialization.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class NoInitialization extends OptInitialization 
+import fluid.control.Component;
+import fluid.control.ComponentFlow;
+import fluid.control.SimpleComponent;
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+public class NoInitialization extends OptInitialization 
     implements DripOperator 
     { 
   protected NoInitialization() {}

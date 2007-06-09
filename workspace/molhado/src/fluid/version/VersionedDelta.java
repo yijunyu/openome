@@ -7,7 +7,12 @@ import java.io.File;
 import java.io.IOException;
 
 import fluid.FluidError;
-import fluid.ir.*;
+import fluid.ir.IRChunk;
+import fluid.ir.IRChunkDelta;
+import fluid.ir.IRInput;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentKind;
 import fluid.util.FileLocator;
 import fluid.util.Hashtable2;
 

@@ -303,11 +303,11 @@ public class IREnumeratedType extends CachedType implements Comparator {
       n[i] = in.readUTF();
 
     try {
-      final IREnumeratedType enum = new IREnumeratedType(type, n, false);
+      final IREnumeratedType en = new IREnumeratedType(type, n, false);
       if (IREnumeratedType.typeExists(type)) {
         final IREnumeratedType existingType =
           IREnumeratedType.getEnumeration(type);
-        if (!existingType.equals(enum)) {
+        if (!existingType.equals(en)) {
           throw new IOException(
             "Found an enumeration named \""
               + type
@@ -316,8 +316,8 @@ public class IREnumeratedType extends CachedType implements Comparator {
           return existingType;
         }
       } else {
-        IREnumeratedType.defineEnumeration(type, enum);
-        return enum;
+        IREnumeratedType.defineEnumeration(type, en);
+        return en;
       }
     } catch (final EnumerationAlreadyDefinedException e) {
       // won't happen

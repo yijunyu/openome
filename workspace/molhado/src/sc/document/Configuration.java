@@ -1,23 +1,40 @@
 package sc.document;
 
-import java.io.*;
-import java.util.Hashtable;
-import java.util.Vector;
-import java.util.Enumeration;
-import java.util.StringTokenizer;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
-import javax.swing.JDialog;
-
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.version.*;
-import fluid.util.UniqueID;
-import fluid.util.FileLocator;
 import fluid.FluidRuntimeException;
+import fluid.ir.Bundle;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentReferenceType;
+import fluid.ir.IRRegion;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
+import fluid.tree.Tree;
 import fluid.util.Base64InputStream;
 import fluid.util.Base64OutputStream;
+import fluid.util.FileLocator;
 import fluid.util.Pair;
+import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.OverlappingEraException;
+import fluid.version.TreeChanged;
+import fluid.version.Version;
+import fluid.version.VersionedChunk;
+import fluid.version.VersionedRegion;
+import fluid.version.VersionedSlotFactory;
 
 public class Configuration {
 
@@ -63,7 +80,7 @@ public class Configuration {
 
 	static{
 		try {
-			System.out.println("START");
+//			System.out.println("START");
 			componentHierarchy = new Tree("Config.components",
 					VersionedSlotFactory.prototype);
 //			// TC
@@ -252,8 +269,8 @@ public class Configuration {
 		IRPersistent.setTraceIO(true);
 		VersionedChunk vc = VersionedChunk.get(components, configBundle);
 		vc.getDelta(era).load(floc);
-		System.out.println("Describing the versioned chunk");
-		vc.describe(System.out);
+//		System.out.println("Describing the versioned chunk");
+//		vc.describe(System.out);
 		IRPersistent.setTraceIO(false);
 	}
 
@@ -299,15 +316,15 @@ public class Configuration {
 		Version.setVersion(era.getVersion(offset));
 
 		// Enumeration enum = getComponents(era.getVersion(1));
-		Enumeration enum = components.allNodes(era.getVersion(offset));
-		while (enum.hasMoreElements()) {
-			IRNode node = (IRNode) enum.nextElement();
+		Enumeration en = components.allNodes(era.getVersion(offset));
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
 				comp.getDelta(era).load(floc);
 				comp.loadDelta(era, floc);
-				System.out.println("Loaded delta for component "
-						+ comp.getName(era.getVersion(offset)));
+//				System.out.println("Loaded delta for component "
+//						+ comp.getName(era.getVersion(offset)));
 			}
 			// else throw new IOException("Error in loading this
 			// configuration");
@@ -326,7 +343,7 @@ public class Configuration {
 		VersionedChunk ch = VersionedChunk.get(components, configBundle);
 		IRPersistent vcd = ch.getDelta(era);
 		vcd.store(floc);
-		vcd.describe(System.out);
+//		vcd.describe(System.out);
 		IRPersistent.setTraceIO(false);
 		// ?
 		// if (this.delta_loaded_eras.contains(era) == false)
@@ -340,16 +357,16 @@ public class Configuration {
 		// Enumeration enum = getComponents(era.getVersion(1));
 		// IRPersistent.setTraceIO(true);
 
-		Enumeration enum = getComponents(v);
-		while (enum.hasMoreElements()) {
-			IRNode node = (IRNode) enum.nextElement();
+		Enumeration en = getComponents(v);
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
-				System.out.println("SAVING DELTA for \"" + comp.getName(v)
-						+ "\" ... (Slots)");
+//				System.out.println("SAVING DELTA for \"" + comp.getName(v)
+//						+ "\" ... (Slots)");
 				comp.getDelta(era).store(floc);
-				System.out.println("SAVING DELTA for \"" + comp.getName(v)
-						+ "\" ...(Attrs)");
+//				System.out.println("SAVING DELTA for \"" + comp.getName(v)
+//						+ "\" ...(Attrs)");
 				comp.saveDelta(era, floc);
 			}
 			// else throw new IOException("Error in storing this
@@ -366,9 +383,9 @@ public class Configuration {
 			throws IOException {
 		// save deltas for components
 		// Enumeration enum = getComponents(era.getVersion(1));
-		Enumeration enum = components.allNodes(era);
-		while (enum.hasMoreElements()) {
-			IRNode node = (IRNode) enum.nextElement();
+		Enumeration en = components.allNodes(era);
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
 				System.out.println("SAVING DELTA for \""
@@ -390,13 +407,13 @@ public class Configuration {
 			throws IOException {
 		// loadRegion(floc); OUTSIDE
 		// VersionedChunk.ensureLoaded();
-		System.out.println("Loading snapshot  ...");
+//		System.out.println("Loading snapshot  ...");
 		VersionedChunk vc = VersionedChunk.get(components, configBundle);
 		((IRPersistent) vc.getSnapshot(v)).load(floc);
-		vc.describe(System.out);
-		Enumeration enum = getComponents(v);
-		while (enum.hasMoreElements()) {
-			IRNode node = (IRNode) enum.nextElement();
+//		vc.describe(System.out);
+		Enumeration en = getComponents(v);
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
 				comp.getSnapshot(v).load(floc);
@@ -412,14 +429,14 @@ public class Configuration {
 			throws IOException {
 		saveRegion(floc);
 		// Save the deltas for docTreeBundle
-		System.out.println("Saving snapshot  ... ");
+//		System.out.println("Saving snapshot  ... ");
 		VersionedChunk ch = VersionedChunk.get(components, configBundle);
 		IRPersistent vcs = ch.getSnapshot(v);
 		vcs.store(floc);
-		vcs.describe(System.out);
-		Enumeration enum = getComponents(v);
-		while (enum.hasMoreElements()) {
-			IRNode node = (IRNode) enum.nextElement();
+//		vcs.describe(System.out);
+		Enumeration en = getComponents(v);
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
 				comp.saveSnapshot(v, floc);
@@ -444,9 +461,9 @@ public class Configuration {
 		// 4. Write the index of the root node within the region
 		w.write(IRRegion.getOwnerIndex(root) + "\n");
 		// 5. Write version name mapping infos
-		Enumeration enum = name2eraoffsetTable.keys();
-		while (enum.hasMoreElements()) {
-			String vname = (String) enum.nextElement();
+		Enumeration en = name2eraoffsetTable.keys();
+		while (en.hasMoreElements()) {
+			String vname = (String) en.nextElement();
 			w.write(vname + ", ");
 			Pair pair = (Pair) name2eraoffsetTable.get(vname);
 			String eraname = (String) pair.first();
@@ -467,10 +484,10 @@ public class Configuration {
 		// 2. read versioned region's name, then load versioned region
 		String region_name = br.readLine();
 		VersionedRegion vr = loadRegionFromName(region_name, floc);
-		if (vr != null)
-			vr.describe(System.out);
-		else
-			throw new IOException("Versioned region is null !");
+//		if (vr != null)
+//			vr.describe(System.out);
+//		else
+//			throw new IOException("Versioned region is null !");
 		// 3. read in the region
 		StringReader sr = new StringReader(br.readLine());
 		Base64InputStream base64 = new Base64InputStream(sr);
@@ -503,10 +520,10 @@ public class Configuration {
 	 */
 	public void saveRegion(FileLocator floc) {
 		if (!components.isStored()) {
-			System.out.println("Saving REGION ...");
+//			System.out.println("Saving REGION ...");
 			try {
 				components.store(floc);
-				components.describe(System.out);
+//				components.describe(System.out);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -531,10 +548,10 @@ public class Configuration {
 
 	/** Return a list of unassigned versions */
 	public String[] unAssignedVersions() {
-		Enumeration enum = version2nameTable.keys();
+		Enumeration en = version2nameTable.keys();
 		ArrayList result = new ArrayList();
-		while (enum.hasMoreElements()) {
-			Version v = (Version) enum.nextElement();
+		while (en.hasMoreElements()) {
+			Version v = (Version) en.nextElement();
 			if (isInASavedEra(v) == false)
 				result.add((String) version2nameTable.get(v));
 		}
@@ -624,7 +641,7 @@ public class Configuration {
 		// find the root of this editing session
 		Version alpha = Version.getInitialVersion();
 		while (r != alpha) {
-			System.out.println("Examine " + version2nameTable.get(r));
+//			System.out.println("Examine " + version2nameTable.get(r));
 			if (r.getEra() != null)
 				break;
 			r = r.parent();
@@ -641,19 +658,19 @@ public class Configuration {
 			// e.complete();
 
 			// Save delta in this era
-			System.out.println("SAVING the DELTA for the new ERA");
+//			System.out.println("SAVING the DELTA for the new ERA");
 			saveDelta(e, floc);
 			saveComponentDelta(v, e, floc); // ? or
 			// saveComponentDeltaForEra(e,floc);
 
-			System.out.println("Saving ERA ...");
+//			System.out.println("Saving ERA ...");
 			e.store(floc);
-			e.describe(System.out);
+//			e.describe(System.out);
 
 			// update name2eraoffsetTable
 			updatename2eraoffsetTable(e, r, v);
 		} catch (OverlappingEraException ex) {
-			System.out.println("Overlapping eras!");
+			System.err.println("Overlapping eras!");
 			ex.printStackTrace();
 		}
 	}
@@ -740,7 +757,7 @@ public class Configuration {
 		// Era.ensureLoaded();
 		UniqueID id = UniqueID.parseUniqueID(era_name);
 		Era era = Era.loadEra(id, floc);
-		era.describe(System.out);
+//		era.describe(System.out);
 		return era;
 	}
 
@@ -755,8 +772,8 @@ public class Configuration {
 			loadDeltaForEras(parent_era, floc);
 		}
 		if (delta_loaded_eras.contains(era) == false) {
-			System.out.println("Loading versionedchunk delta for the era "
-					+ era.getID());
+//			System.out.println("Loading versionedchunk delta for the era "
+//					+ era.getID());
 			loadDelta(era, floc);
 			delta_loaded_eras.addElement(era);
 		}

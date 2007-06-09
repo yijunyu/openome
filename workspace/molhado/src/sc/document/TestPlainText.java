@@ -1,12 +1,18 @@
 package sc.document;
 
-import sc.xml.*;
-import fluid.ir.*;
-import fluid.version.*;
-import fluid.util.*;
-import fluid.tree.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import java.io.*;
+import sc.xml.NullDTD;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.tree.Tree;
+import fluid.util.FileLocator;
+import fluid.version.Version;
 
 /**
  * @author Tien
@@ -114,9 +120,9 @@ public class TestPlainText {
       
       System.out.println("List of components");
       System.out.println("==================");
-      java.util.Enumeration enum = tree.depthFirstSearch(rootnode);
-      while (enum.hasMoreElements()) {
-        IRNode node = (IRNode) enum.nextElement();
+      java.util.Enumeration en = tree.depthFirstSearch(rootnode);
+      while (en.hasMoreElements()) {
+        IRNode node = (IRNode) en.nextElement();
         Component comp = config.getComponent(node);
         System.out.print("+ \"" + comp.getName(v1) + "\"");
         System.out.println(" ( " + node + " ).");

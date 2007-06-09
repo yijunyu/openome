@@ -2,22 +2,33 @@
 
 package sc.document;
 
-import java.io.*;
+import java.io.DataInput;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.Writer;
 import java.util.Enumeration;
 import java.util.Iterator;
-
-import fluid.parse.ParseException;
-import fluid.ir.*;
-import fluid.version.*;
-import fluid.tree.*;
 
 import sc.xml.IRDTD;
 import sc.xml.NullDTD;
 import sc.xml.XMLParser;
 import sc.xml.XMLParserException;
-
-import fluid.util.UniqueID;
+import fluid.ir.Bundle;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotInfo;
+import fluid.parse.ParseException;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTree;
 import fluid.util.Pair;
+import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.Version;
+import fluid.version.VersionedChunk;
 
 /** SC XML Document
  * Author : Tien N. Nguyen
@@ -85,12 +96,12 @@ public class SCXmlDocument extends SCDocument {
     throws IOException {
     super.loadDelta(era,floc);
     
-    System.out.println("Loading delta for DOCUMENT TREE STRUCTURE ...");
+//    System.out.println("Loading delta for DOCUMENT TREE STRUCTURE ...");
     VersionedChunk vc = VersionedChunk.get(region,docTreeBundle);
     vc.getDelta(era).load(floc);
-    vc.describe(System.out);
+//    vc.describe(System.out);
     
-    System.out.println("Loading delta for DOCUMENT ATTRIBUTES ...");
+//    System.out.println("Loading delta for DOCUMENT ATTRIBUTES ...");
     vc = VersionedChunk.get(region,xmlAttrBundle);
     vc.getDelta(era).load(floc);
     vc.describe(System.out);
@@ -101,17 +112,17 @@ public class SCXmlDocument extends SCDocument {
     throws IOException {
     super.saveDelta(era,floc);
     
-    System.out.println("Saving chunk delta for docTreeBundle ...");
+//    System.out.println("Saving chunk delta for docTreeBundle ...");
     VersionedChunk ch = VersionedChunk.get(region,docTreeBundle);
     IRPersistent vcd = ch.getDelta(era);
     vcd.store(floc);
-    vcd.describe(System.out);
+//    vcd.describe(System.out);
     
-    System.out.println("Saving version CHUNK DELTA FOR DOCUMENT ATTRIBUTES ... ");
+//    System.out.println("Saving version CHUNK DELTA FOR DOCUMENT ATTRIBUTES ... ");
     ch = VersionedChunk.get(region,xmlAttrBundle);
     vcd = ch.getDelta(era);
     vcd.store(floc);
-    vcd.describe(System.out);
+//    vcd.describe(System.out);
   }
 
   /** Load the snapshot of this component for the given version. */
@@ -119,15 +130,15 @@ public class SCXmlDocument extends SCDocument {
     throws IOException {
     super.loadSnapshot(v,floc);
     
-    System.out.println("Loading snapshot for DOCUMENT TREE STRUCTURE ...");
+//    System.out.println("Loading snapshot for DOCUMENT TREE STRUCTURE ...");
     VersionedChunk vc = VersionedChunk.get(region,docTreeBundle);
     ((IRPersistent) vc.getSnapshot(v)).load(floc); 
-    vc.describe(System.out);
+//    vc.describe(System.out);
     
-    System.out.println("Loading snapshot for DOCUMENT ATTRIBUTES ...");
+//    System.out.println("Loading snapshot for DOCUMENT ATTRIBUTES ...");
     vc = VersionedChunk.get(region,xmlAttrBundle);
     ((IRPersistent) vc.getSnapshot(v)).load(floc);
-    vc.describe(System.out);
+//    vc.describe(System.out);
   }
   
   /** Store a snapshot of this component for the given version. */
@@ -135,17 +146,17 @@ public class SCXmlDocument extends SCDocument {
     throws IOException {
     super.saveSnapshot(v,floc);
     
-    System.out.println("Saving snapshot for docTreeBundle ... ");
+//    System.out.println("Saving snapshot for docTreeBundle ... ");
     VersionedChunk ch = VersionedChunk.get(region,docTreeBundle);
     IRPersistent vcs = ch.getSnapshot(v);
     vcs.store(floc);
-    vcs.describe(System.out);
+//    vcs.describe(System.out);
     
     ch = VersionedChunk.get(region,xmlAttrBundle);
-    System.out.println("Saving version snapshot FOR DOCUMENT ATTRIBUTES ... ");
+//    System.out.println("Saving version snapshot FOR DOCUMENT ATTRIBUTES ... ");
     vcs = ch.getSnapshot(v);
     vcs.store(floc);
-    vcs.describe(System.out);
+//    vcs.describe(System.out);
   }
   
   /** read (and parse) the document from given input stream

@@ -1,7 +1,13 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/version/Version.java,v 1.2 2006/06/01 18:44:26 dig Exp $ */
 package fluid.version;
 
-import java.io.*;
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -9,7 +15,15 @@ import java.util.Vector;
 
 import fluid.FluidError;
 import fluid.FluidRuntimeException;
-import fluid.ir.*;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentObserver;
+import fluid.ir.IRRegion;
+import fluid.ir.MarkedIRNode;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SimpleSlotInfo;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
 import fluid.tree.Tree;
 import fluid.tree.TreeInterface;
 import fluid.util.ThreadGlobal;
@@ -139,9 +153,9 @@ public class Version implements Serializable {
 				if (prior.cursors != null) {
 					cursors = prior.cursors;
 					prior.cursors = null;
-					for (Enumeration enum = cursors.elements(); enum
+					for (Enumeration en = cursors.elements(); en
 							.hasMoreElements();) {
-						VersionCursor vc = (VersionCursor) enum.nextElement();
+						VersionCursor vc = (VersionCursor) en.nextElement();
 						vc.moveCursor(this);
 					}
 				}

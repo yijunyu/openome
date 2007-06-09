@@ -1,7 +1,13 @@
 // $Header: /usr/local/refactoring/molhadoRef/src/fluid/history/HistoryUnparseStyle.java,v 1.1 2006/03/21 23:20:55 dig Exp $
 package fluid.history;
 
-import fluid.unparse.*;
+import fluid.unparse.Breakpoint;
+import fluid.unparse.Glue;
+import fluid.unparse.IndepBP;
+import fluid.unparse.MandatoryBP;
+import fluid.unparse.NoToken;
+import fluid.unparse.Token;
+import fluid.unparse.UnitedBP;
 
 /** This class defines the interface for History unparse styles,
  * and also provides a default implementation.  To add a new style, 

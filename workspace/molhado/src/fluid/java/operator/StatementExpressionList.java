@@ -1,16 +1,31 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\StatementExpressionList.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;/** Comma separated expressions used in for loops.
+import fluid.control.Component;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.Merge;
+import fluid.control.Never;
+import fluid.control.SubcomponentAbruptExitPort;
+import fluid.control.SubcomponentEntryPort;
+import fluid.control.SubcomponentFlow;
+import fluid.control.SubcomponentNormalExitPort;
+import fluid.control.VariableComponent;
+import fluid.control.VariableSubcomponent;
+import fluid.control.VariableSubcomponentControlEdge;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Token;
+/** Comma separated expressions used in for loops.
  * It permits an empty list.
  */
 public class StatementExpressionList extends JavaOperator implements ForInitInterface { 

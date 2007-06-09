@@ -3,9 +3,17 @@ package fluid.version;
 import java.io.IOException;
 
 import fluid.FluidError;
-import fluid.ir.*;
-import fluid.util.*;
+import fluid.ir.Bundle;
+import fluid.ir.IRChunk;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRRegion;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
 import fluid.tree.Digraph;
+import fluid.util.FileLocator;
+import fluid.util.PathFileLocator;
+import fluid.util.UniqueID;
 
 class TestSeq {
   static FileLocator fl = new PathFileLocator("test-seq");
@@ -59,7 +67,7 @@ class TestSeq {
     dig.initNode(n3);
     dig.addChild(n1,n2);
     e12.complete();
-    e12.describe(System.out);
+//    e12.describe(System.out);
 
     e13 = new Era(Version.getVersion());
     Version.setDefaultEra(e13);
@@ -67,7 +75,7 @@ class TestSeq {
     dig.appendChild(n1,n3);
     // dig.setChild(n1,0,n3);
     e13.complete();
-    e13.describe(System.out);
+//    e13.describe(System.out);
 
     e132 = new Era(Version.getVersion());
     Version.setDefaultEra(e132);
@@ -101,8 +109,8 @@ class TestSeq {
       dig.describeNode(n1,System.out);
       System.out.println();
       System.out.print("n1.children = {");
-      for (java.util.Enumeration enum = dig.children(n1); enum.hasMoreElements();) {
-	System.out.print(enum.nextElement()+ " ");
+      for (java.util.Enumeration en = dig.children(n1); en.hasMoreElements();) {
+	System.out.print(en.nextElement()+ " ");
       }
       System.out.println("}");
     }

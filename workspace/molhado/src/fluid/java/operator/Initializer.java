@@ -1,16 +1,13 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\Initializer.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
-
-import java.util.*;
-
-import java.util.Vector;/** The class of variable initializers (including all expressions).
+import fluid.control.Component;
+import fluid.control.ComponentFlow;
+import fluid.control.SequenceComponent;
+import fluid.control.SimpleComponent;
+import fluid.ir.IRNode;
+import fluid.java.JavaOperator;
+/** The class of variable initializers (including all expressions).
  * By default, any subexpressions are executed in order.
  * @see Expression
  */

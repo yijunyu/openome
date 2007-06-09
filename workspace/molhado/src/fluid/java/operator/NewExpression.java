@@ -1,16 +1,26 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\NewExpression.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class NewExpression extends AllocationExpression 
+import fluid.control.AddLabel;
+import fluid.control.Component;
+import fluid.control.ComponentChoice;
+import fluid.control.ComponentFlow;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.Merge;
+import fluid.control.Subcomponent;
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.java.control.CallExceptionLabel;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+public class NewExpression extends AllocationExpression 
     implements Call, DripOperator 
     { 
   protected NewExpression() {}

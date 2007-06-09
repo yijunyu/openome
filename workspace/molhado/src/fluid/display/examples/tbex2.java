@@ -12,7 +12,13 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import fluid.display.*;
+import fluid.display.TextBean;
+import fluid.display.TextClickedEvent;
+import fluid.display.TextClickedListener;
+import fluid.display.TextCoord;
+import fluid.display.TextResizedEvent;
+import fluid.display.TextResizedListener;
+import fluid.display.TextStyle;
 
 public class tbex2 extends JFrame implements TextClickedListener, TextResizedListener {
   private String[] formatText( String text, int lineWidth ) {

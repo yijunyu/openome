@@ -1,8 +1,11 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/parse/JJOperator.java,v 1.1 2006/03/21 23:20:55 dig Exp $ */
 package fluid.parse;
 
-import fluid.ir.*;
-import fluid.tree.*;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTree;
+import fluid.tree.SyntaxTreeInterface;
 
 /** Operators to be used with parseable syntax trees.
  * @see JJNode

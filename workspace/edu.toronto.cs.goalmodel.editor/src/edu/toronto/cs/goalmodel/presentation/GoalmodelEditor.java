@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,6 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -34,9 +36,12 @@ import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
@@ -62,6 +67,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -167,6 +173,9 @@ import fluid.version.Version;
 public class GoalmodelEditor extends MultiPageEditorPart implements
 		IEditingDomainProvider, ISelectionProvider, IMenuListener,
 		IViewerProvider, IGotoMarker {
+
+	private static final org.apache.log4j.Logger LOG =
+		    org.apache.log4j.Logger.getLogger("GoalmodelEditor");
 	/**
 	 * This keeps track of the editing domain that is used to track all changes
 	 * to the model. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -947,6 +956,23 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 		checkLatestVersion(modelFile);
 	}
 
+	
+	final static String MOLHADO_PLUGIN_NAME = "molhado";
+
+	public static String getPluginInstallPath() {		
+		URL url = FileLocator.find(
+				Platform.getBundle(MOLHADO_PLUGIN_NAME), 
+				new Path("repository"), 
+				null);
+		try {
+			url = FileLocator.resolve(url);
+			return url.getPath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}	
+	
 	/**
 	 * If the model is opened for the first time, it will be assigned version 0
 	 * and will be checked in and then checked out before the doSave operation.
@@ -961,14 +987,24 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 	 * 
 	 * @param model_name
 	 */
-	private void checkLatestVersion(IFileEditorInput modelFile) {
+	void checkLatestVersion(IFileEditorInput modelFile) {
+	    LOG.setLevel(Level.OFF);		
+	    org.apache.log4j.Logger.getLogger("IR").setLevel(Level.OFF);
+
+		String property = System.getProperty("fluid.ir.path");
+		if (property==null) {
+			String toString = getPluginInstallPath();
+			System.setProperty("fluid.ir.path", 
+					toString);
+			property = System.getProperty("fluid.ir.path");			
+		}		
 		String file_name = modelFile.getFile().getFullPath().toString();
 		String project_name = modelFile.getFile().getProject().getName();
 		String model_name = get_model_name(modelFile);
 		try {
 			int versionNumber = 0;
 			Configuration config = Configuration.loadASCII(new FileReader(
-					System.getProperty("fluid.ir.path") + "/" + project_name
+					property + "/" + project_name
 							+ ".cfg"), IRPersistent.fluidFileLocator);
 			java.util.Enumeration vs = config.getAllVersionNames();
 			while (vs.hasMoreElements()) {
@@ -1033,29 +1069,59 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 	/*
 	 * nodes will be populated
 	 */
+//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
+//			Model m, IRNode root, IRNode edgenode) {
+//		if (root == null)
+//			return;
+//		String name = gm.getGMNodeName(root);
+//		String prefix = name.substring(0, name.indexOf("_"));
+//		name = name.substring(name.indexOf("_") + 1);
+//		Intention g;
+//		if (!name.equals("VIRTUAL_ROOT")) {
+//			if (prefix.equals("HardGoal"))
+//				g = f.createGoal();
+//			else
+//				g = f.createSoftgoal();
+//			g.setName(name);
+//			m.getIntentions().add(g);
+//			nodes.put(name, g);
+//		}
+//		int numChildren = gm.graph.numChildren(root);
+//		for (int i = 0; i < numChildren; i++) {
+//			IRNode childedgenode = gm.graph.getChildEdge(root, i);
+//			IRNode childnode = gm.graph.getChild(root, i);
+//			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
+//		}
+//	}
+
 	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
 			Model m, IRNode root, IRNode edgenode) {
 		if (root == null)
 			return;
 		String name = gm.getGMNodeName(root);
 		String prefix = name.substring(0, name.indexOf("_"));
-		Intention g;
-		if (prefix.equals("HardGoal"))
-			g = f.createGoal();
-		else
-			g = f.createSoftgoal();
 		name = name.substring(name.indexOf("_") + 1);
-		g.setName(name);
-		m.getIntentions().add(g);
-		nodes.put(name, g);
-		int numChildren = gm.graph.numChildren(root);
-		for (int i = 0; i < numChildren; i++) {
-			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-			IRNode childnode = gm.graph.getChild(root, i);
-			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
-		}
-	}
+		Intention g;
+		if (name.equals("VIRTUAL_ROOT")) {
 
+			int numChildren = gm.graph.numChildren(root);
+			for (int i = 0; i < numChildren; i++) {
+				IRNode childedgenode = gm.graph.getChildEdge(root, i);
+				IRNode childnode = gm.graph.getChild(root, i);
+				name = gm.getGMNodeName(childnode);
+				prefix = name.substring(0, name.indexOf("_"));
+				name = name.substring(name.indexOf("_") + 1);				
+				if (prefix.equals("HardGoal"))
+					g = f.createGoal();
+				else
+					g = f.createSoftgoal();
+				g.setName(name);
+				m.getIntentions().add(g);								
+				nodes.put(name, g);
+			}
+		}		
+	}
+	
 	/**
 	 * nodes will be used
 	 * 
@@ -1069,10 +1135,14 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 			Model m, IRNode root, IRNode edgenode) {
 		if (root == null)
 			return;
+		// FIXME
 		String name = gm.getGMNodeName(root);
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
-		Intention g = nodes.get(name);
+		Intention g = null;
+		if (!name.equals("VIRTUAL_ROOT")) {
+			g = nodes.get(name);
+		}
 		int numChildren = gm.graph.numChildren(root);
 		for (int i = 0; i < numChildren; i++) {
 			IRNode childedgenode = gm.graph.getChildEdge(root, i);
@@ -1113,6 +1183,8 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 					d.setSource(g);
 					d.setTarget(gc);
 					m.getContributions().add(d);
+				} else /* VIRTUAL_EDGE */ {
+					// do nothing
 				}
 			}
 			traverseGMResourcesForEdges(gm, f, m, childnode, childedgenode);
@@ -1206,6 +1278,8 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 	private void buildGoalModel(GoalModel gm) {
 		Hashtable<String, IRNode> table = new Hashtable<String, IRNode>();
 		tables.put(gm, table);
+		IRNode root = gm.createAGoal("VIRTUAL_ROOT", true);
+		gm.setRoot(root);
 		// the first pass creates nodes
 		for (TreeIterator r = editingDomain.getResourceSet().getAllContents(); r
 				.hasNext();) {
@@ -1214,10 +1288,9 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 				Intention i = (Intention) o;
 				String name = i.getName();
 				IRNode g = gm.createAGoal(name, o instanceof Goal);
-				if (i.getParentDecompositions().size() == 0
-						&& o instanceof Goal) {
-					// root
-					gm.setRoot(g);
+				if (i.getParentDecompositions().size() == 0) {
+					IRNode e = gm.createEdge("virtual");
+					gm.connect(root, g, e);
 				}
 				// System.out.println(name + " " + g);
 				table.put(name, g);
@@ -1803,8 +1876,6 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 				.isSaveNeeded();
 	}
 
-	private static int versionNumber = 0;
-
 	Hashtable<String, Configuration> configurations = new Hashtable<String, Configuration>();
 
 	/**
@@ -1831,6 +1902,7 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 					String model_name = modelFile.getFile().getName().toString();
 					model_name = model_name.substring(0, model_name.indexOf(".goalmodel"));
 					checkout_last_version(config, model_name);
+					Version.bumpVersion(); // Tien: important after check out if one wants to modify the mirror 
 					String file_name = modelFile.getFile().getFullPath()
 							.toString();
 					GoalModel the_gm = find_the_gm(file_name, config);
@@ -1880,115 +1952,334 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 					if (c instanceof SetCommand) {
 						SetCommand sc = (SetCommand) c;
 						EStructuralFeature feature = sc.getFeature();
-						if (feature.getEType().getName().equals("EString")
-								&& sc.getOwner() instanceof Intention) {
-							Intention it = (Intention) sc.getOwner();
-							String v = (String) sc.getValue();
-							String old = (String) sc.getOldValue();
-							IRNode root = table.get(old);
-							if (root != null) {
-								// we assume the hard goals and softgoals are
-								// not using the same name
-								if (it instanceof Goal) {
-									gm.setHardGoalName(root, v);
-								} else if (it instanceof Softgoal) {
-									gm.setSoftGoalName(root, v);
-								}
-								table.put(v, root);
-								table.remove(old);
-							}
-						}
+						rename_an_object(gm, table, sc, feature);
 					} else if (c instanceof DeleteCommand) {
 						DeleteCommand dc = (DeleteCommand) c;
-						Collection objs = dc.getCollection();
-						for (Iterator it = objs.iterator(); it.hasNext(); ) {
-							Object o = it.next();
-							if (o instanceof Intention) {
-								Intention in = (Intention) o;
-								IRNode root = table.get(in.getName());
-								if (root!=null)
-									gm.getGraph().removeNode(root);
-								// enforce the containment semantics
-								Model model = get_model();
-								if (model != null) {
-									ArrayList nodes = remove_sub_tree_node(in, model);
-									ArrayList edges = remove_sub_tree_edge(in, model);
-									model.getDecompositions().removeAll(edges);
-									EList l = model.getContributions();
-									for (int j=0; j<l.size(); j++) {
-										Contribution d = (Contribution) l.get(j);
-										if (d.getSource()==in 
-										 || d.getTarget()==in
-										 || d.getSource()==null
-										 || d.getTarget()==null
-										 || d.getSource()!=null && nodes.contains(d.getSource())
-										 ||	d.getTarget()!=null && nodes.contains(d.getTarget()))
-											model.getContributions().remove(d);
-									}
-									model.getIntentions().removeAll(nodes);
-								}
-							} else if (o instanceof Decomposition) {
-								Decomposition in = (Decomposition) o;
-								if (in.getSource()==null || in.getTarget()==null) {
-									System.err.println("Warning: the link you deleted has empty end(s).");
-									continue;
-								}
-								String sname = in.getSource().getName();
-								String tname = in.getTarget().getName();								
-								IRNode source = table.get(sname);
-								IRNode target = table.get(tname);
-								IRNode edge = find_edge(gm, source, target);
-						        if (edge!=null)
-						        	gm.getGraph().disconnect(edge);
-							} else if (o instanceof Contribution) {
-								Contribution in = (Contribution) o;
-								if (in.getSource()==null || in.getTarget()==null) {
-									System.err.println("Warning: the link you deleted has empty end(s).");
-									continue;
-								}
-								String sname = in.getSource().getName();
-								String tname = in.getTarget().getName();								
-								IRNode source = table.get(sname);
-								IRNode target = table.get(tname);
-								IRNode edge = find_edge(gm, source, target);
-						        if (edge!=null)
-						        	gm.getGraph().disconnect(edge);
-							}
-						}
+						delete_an_object(gm, table, dc);
+					} else if (c instanceof CreateChildCommand) {
+						CreateChildCommand dc = (CreateChildCommand) c;
+						create_an_object(gm, table, dc);
 					} else if (c instanceof AddCommand) {
 						AddCommand dc = (AddCommand) c;
-						Collection objs = dc.getCollection();
-						for (Iterator it = objs.iterator(); it.hasNext(); ) {
-							Object o = it.next();
-							if (o instanceof Intention) {
-								Intention owner = (Intention) dc.getOwner();
-								Intention in = (Intention) o;								
-								IRNode parent = table.get(owner.getName());
-								IRNode root = table.get(in.getName());
-								if (parent!=null && root!=null) {
-									EList l = owner.getDecompositions();
-									for (int j=0; j<l.size(); j++) {
-										Decomposition decomp = (Decomposition) l.get(j);
-										if (decomp instanceof AndDecomposition) {
-											IRNode e;
-											if (decomp.getTarget() == in) {
-												e = gm.createEdge("AND");												
-											} else {
-												e = gm.createEdge("OR");
-											}
-											gm.connect(parent, root, e);
-											break;
-										}
-									}
-								}
-							}
-						}
+						add_an_object(gm, table, dc);
 					}
 					if (editingDomain.getCommandStack().canRedo()) {
 						editingDomain.getCommandStack().redo();						
 					}
 				}
 				editingDomain.getCommandStack().flush();
+			}
+
+			private void create_an_object(GoalModel gm, Hashtable<String, IRNode> table, CreateChildCommand dc) {
+				System.err.println("Create a child" + dc);
+			}
+
+			/**
+			 * FIXME: When a new link is created, the source field must be filled
+			 * in before the target field. Don't know why this behavior :(
+			 * @param gm
+			 * @param table
+			 * @param sc
+			 * @param feature
+			 */
+			private void rename_an_object(GoalModel gm, Hashtable<String, IRNode> table, SetCommand sc, EStructuralFeature feature) {
+				if (sc.getOwner() instanceof Intention
+					&& sc.getValue() instanceof String) {
+					Intention it = (Intention) sc.getOwner();
+					String v = (String) sc.getValue();
+					Object old = sc.getOldValue();
+					if (old instanceof String) {
+						IRNode root = table.get(old);
+						if (root != null) {
+							// we assume the hard goals and softgoals are
+							// not using the same name
+							if (it instanceof Goal) {
+								gm.setHardGoalName(root, v);
+							} else if (it instanceof Softgoal) {
+								gm.setSoftGoalName(root, v);
+							}
+							table.put(v, root);
+							table.remove(old);
+						}
+					} else {
+//						System.out.println("before creating the goal " + v + " size(table)=" + table.size());
+						IRNode g = table.get(v);
+						if (g==null) {
+							try {
+							g = gm.createAGoal(v, it instanceof Goal);
+							} catch (Exception x) {
+								x.printStackTrace();
+							}
+							table.put(v, g);
+							if (it.getParentDecompositions().size()==0) {
+//								System.out.println("after creating the goal " + v + " size(table)=" + table.size());
+								IRNode root = gm.getRoot();
+								gm.connect(root, g, gm.createEdge("virtual"));
+							}
+							if (it instanceof Goal) {
+								gm.setHardGoalName(g, v);
+							} else if (it instanceof Softgoal) {
+								gm.setSoftGoalName(g, v);
+							}							
+						}
+					}
+				} else if (sc.getOwner() instanceof Contribution && sc.getValue() instanceof Intention) {
+					Contribution it = (Contribution) sc.getOwner();
+					Intention v = (Intention) sc.getValue();
+					Object old = sc.getOldValue();
+					if (old instanceof Intention) { // modify edge
+						Intention in = (Intention) old;
+				    	IRNode s = table.get(in.getName());
+				    	IRNode t = table.get(v.getName());
+					    if (it.getSource() == in) {
+							int numChildren = gm.graph.numChildren(s);
+							for (int i = 0; i < numChildren; i++) {
+								IRNode childedgenode = gm.graph.getChildEdge(s, i);
+								IRNode childnode = gm.graph.getChild(s, i);
+								IRNode thechild = table.get(it.getTarget().getName());
+								if (childnode == thechild) {
+						    		gm.graph.disconnect(childedgenode);
+						    		gm.graph.connect(childedgenode, t, childnode);									
+									break;
+								}
+							}					    	
+					    } else if (it.getTarget() == in) {
+							int numParent = gm.graph.numParents(s);
+							for (int i = 0; i < numParent; i++) {
+								IRNode parentedge = gm.graph.getParentEdge(s, i);
+								IRNode parent = gm.graph.getParent(s, i);
+								IRNode theparent = table.get(it.getSource().getName());								
+								if (parent == theparent) {
+						    		gm.graph.disconnect(parentedge);
+						    		gm.graph.connect(parentedge, parent, t);									
+									break;
+								}
+							}					    						    	
+					    }
+					} else { // new edge
+						String label = getContributionLabel(it);
+						createEdge(gm, table, it, v, label);
+					}
+				} else if (sc.getOwner() instanceof Decomposition && sc.getValue() instanceof Intention) {
+					Decomposition it = (Decomposition) sc.getOwner();
+					Intention v = (Intention) sc.getValue();
+					Object old = sc.getOldValue();
+					if (old instanceof Intention) { // modify edge
+						Intention in = (Intention) old;
+				    	IRNode s = table.get(in.getName());
+				    	IRNode t = table.get(v.getName());
+					    if (it.getSource() == in) {
+							int numChildren = gm.graph.numChildren(s);
+							for (int i = 0; i < numChildren; i++) {
+								IRNode childedgenode = gm.graph.getChildEdge(s, i);
+								IRNode childnode = gm.graph.getChild(s, i);
+								IRNode thechild = table.get(it.getTarget().getName());
+								if (childnode == thechild) {
+						    		gm.graph.disconnect(childedgenode);
+						    		gm.graph.connect(childedgenode, t, childnode);									
+									break;
+								}
+							}					    	
+					    } else if (it.getTarget() == in) {
+							int numParent = gm.graph.numParents(s);
+							for (int i = 0; i < numParent; i++) {
+								IRNode parentedge = gm.graph.getParentEdge(s, i);
+								IRNode parent = gm.graph.getParent(s, i);
+								IRNode theparent = table.get(it.getSource().getName());								
+								if (parent == theparent) {
+						    		gm.graph.disconnect(parentedge);
+						    		gm.graph.connect(parentedge, parent, t);									
+									break;
+								}
+							}					    						    	
+					    }
+					} else { // new edge
+						String label = getDecompositionLabel(it); 
+						createEdge(gm, table, it, v, label);
+					}
+				}
+			}
+
+			private void createEdge(GoalModel gm, Hashtable<String, IRNode> table, Contribution it, Intention v, String label) {
+				String srcName = null, tgtName = null;
+				if (it.getSource()!=null)
+					srcName = it.getSource().getName();
+				if (it.getTarget()!=null)
+					tgtName = it.getTarget().getName();
+				IRNode s = null, t= null;
+				if (srcName!=null) {
+					s = table.get(srcName);
+					t = table.get(v.getName());
+				}
+				if (tgtName!=null) {
+					s = table.get(v.getName());
+					t = table.get(tgtName);
+				}
+				if (s!=null && t!=null) {
+					IRNode edge = gm.createEdge(label);						
+					gm.graph.connect(edge, s, t);
+				}
+			}
+
+			private String getContributionLabel(Contribution it) {
+				String label = "+";	// HELP
+				if ((it instanceof HurtContribution)) {
+					label = "-";
+				} else if ((it instanceof MakeContribution)) {
+					label = "++";
+				} else if ((it instanceof BreakContribution)) {
+					label = "--";
+				}
+				return label;
+			}
+
+			private void createEdge(GoalModel gm, Hashtable<String, IRNode> table, Decomposition it, Intention v, String label) {
+				String srcName = null, tgtName = null;
+				if (it.getSource()!=null)
+					srcName = it.getSource().getName();
+				if (it.getTarget()!=null)
+					tgtName = it.getTarget().getName();
+				IRNode s = null, t= null;
+				if (srcName!=null) {
+					s = table.get(srcName);
+					t = table.get(v.getName());
+				}
+				if (tgtName!=null) {
+					s = table.get(v.getName());
+					t = table.get(tgtName);
+				}
+				if (s!=null && t!=null) {
+					IRNode edge = gm.createEdge(label);						
+					gm.graph.connect(edge, s, t);
+				}
+			}
+
+			private String getDecompositionLabel(Decomposition it) {
+				String label = "AND";	// AND
+				if ((it instanceof AndDecomposition)) {
+					label = "OR";
+				}
+				return label;
+			}
+
+			private void delete_an_object(GoalModel gm, Hashtable<String, IRNode> table, DeleteCommand dc) {
+				Collection objs = dc.getCollection();
+				for (Iterator it = objs.iterator(); it.hasNext(); ) {
+					Object o = it.next();
+					if (o instanceof Intention) {
+						Intention in = (Intention) o;
+						IRNode root = table.get(in.getName());
+						if (root!=null)
+							gm.getGraph().removeNode(root);
+						// enforce the containment semantics
+						Model model = get_model();
+						if (model != null) {
+							ArrayList nodes = remove_sub_tree_node(in, model);
+							ArrayList edges = remove_sub_tree_edge(in, model);
+							model.getDecompositions().removeAll(edges);
+							EList l = model.getContributions();
+							for (int j=0; j<l.size(); j++) {
+								Contribution d = (Contribution) l.get(j);
+								if (d.getSource()==in 
+								 || d.getTarget()==in
+								 || d.getSource()==null
+								 || d.getTarget()==null
+								 || d.getSource()!=null && nodes.contains(d.getSource())
+								 ||	d.getTarget()!=null && nodes.contains(d.getTarget()))
+									model.getContributions().remove(d);
+							}
+							model.getIntentions().removeAll(nodes);
+						}
+					} else if (o instanceof Decomposition) {
+						Decomposition in = (Decomposition) o;
+						if (in.getSource()==null || in.getTarget()==null) {
+							System.err.println("Warning: the link you deleted has empty end(s).");
+							continue;
+						}
+						String sname = in.getSource().getName();
+						String tname = in.getTarget().getName();								
+						IRNode source = table.get(sname);
+						IRNode target = table.get(tname);
+						IRNode edge = find_edge(gm, source, target);
+				        if (edge!=null)
+				        	gm.getGraph().disconnect(edge);
+					} else if (o instanceof Contribution) {
+						Contribution in = (Contribution) o;
+						if (in.getSource()==null || in.getTarget()==null) {
+							System.err.println("Warning: the link you deleted has empty end(s).");
+							continue;
+						}
+						String sname = in.getSource().getName();
+						String tname = in.getTarget().getName();								
+						IRNode source = table.get(sname);
+						IRNode target = table.get(tname);
+						IRNode edge = find_edge(gm, source, target);
+				        if (edge!=null)
+				        	gm.getGraph().disconnect(edge);
+					}
+				}
+			}
+
+			private void add_an_object(GoalModel gm, Hashtable<String, IRNode> table, AddCommand ac) {
+				Collection objs = ac.getCollection();
+				for (Iterator it = objs.iterator(); it.hasNext(); ) {
+					Object o = it.next();
+					if (o instanceof Intention) {
+						Intention in = (Intention) o;								
+						IRNode root = gm.createAGoal(in.getName(), in instanceof Goal);
+						Intention owner = (Intention) in.getParentDecompositions().get(0);
+						if (owner!=null) {
+							IRNode parent = table.get(owner.getName());
+							EList l = owner.getDecompositions();
+							for (int j=0; j<l.size(); j++) {
+								Decomposition decomp = (Decomposition) l.get(j);
+								IRNode e;
+								if (decomp instanceof AndDecomposition) {
+									if (decomp.getTarget() == in) {
+										e = gm.createEdge("AND");												
+										gm.connect(parent, root, e);
+									} 
+								} else {
+									if (decomp.getTarget() == in) {
+										e = gm.createEdge("OR");												
+										gm.connect(parent, root, e);
+									} 									
+								}
+								break;
+							}
+						}
+					} else if (o instanceof Decomposition) {
+						Decomposition decomp = (Decomposition) o;								
+						Intention parent = decomp.getSource();
+						Intention child = decomp.getTarget();
+						IRNode p = table.get(parent.getName());
+						IRNode c = table.get(child.getName());
+						IRNode e;
+						if (decomp instanceof AndDecomposition ) {
+							e = gm.createEdge("AND");		
+						} else {
+							e = gm.createEdge("OR");												
+						}
+						gm.connect(p, c, e);
+					} else if (o instanceof Contribution ) {
+						Contribution contrib = (Contribution) o;								
+						Intention from = contrib.getSource();
+						Intention to = contrib.getTarget();
+						IRNode f = table.get(from.getName());
+						IRNode t = table.get(to.getName());
+						IRNode e;
+						if (contrib instanceof HelpContribution) {
+							e = gm.createEdge("+");		
+						} else if (contrib instanceof MakeContribution) {
+							e = gm.createEdge("++");												
+						} else if (contrib instanceof HurtContribution) {
+							e = gm.createEdge("-");												
+						} else { // if (contrib instanceof BreakContribution)
+							e = gm.createEdge("--");												
+						}
+						gm.connect(f, t, e);						
+					}
+				} 
 			}
 
 			/**

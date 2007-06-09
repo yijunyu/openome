@@ -3,7 +3,9 @@ package fluid.tree;
 
 import fluid.ir.IRLocation;
 import fluid.ir.IRNode;
+import fluid.ir.IRSequenceException;
 import fluid.ir.InsertionPoint;
+import fluid.ir.SlotUndefinedException;
 
 /** A form of graph in which edges have identity and may be attributed.
  * <P> Known bugs:

@@ -2,16 +2,22 @@
 
 package sc.xml;
 
+import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
-import java.util.HashSet;
-import java.util.Enumeration;
-
-import fluid.ir.*;
-import fluid.tree.*;
 
 import sc.document.DocTreeBundle;
 import sc.document.XmlAttrBundle;
+import fluid.ir.Bundle;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotInfo;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTree;
+import fluid.tree.SyntaxTreeInterface;
 
 /** A "DTD" that accepts anything whatsoever (structurally).
  *

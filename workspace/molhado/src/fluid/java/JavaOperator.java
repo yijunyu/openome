@@ -1,20 +1,23 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/java/JavaOperator.java,v 1.2 2006/06/19 17:28:20 kashif Exp $ */
 package fluid.java;
 
-import fluid.*;
-import fluid.util.*;
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.version.*;
-import fluid.parse.*;
-import fluid.unparse.Token;
-import fluid.unparse.*;
-import fluid.control.Component;
-//import fluid.parse.Ellipsis; 
-
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.Vector;
+
+import fluid.FluidError;
+import fluid.FluidRuntimeException;
+import fluid.control.Component;
+import fluid.ir.Bundle;
+import fluid.ir.IRNode;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotInfoWrapper;
+import fluid.ir.SlotNotRegisteredException;
+import fluid.parse.JJOperator;
+import fluid.unparse.Keyword;
+import fluid.unparse.OpenClose;
+import fluid.unparse.Token;
+import fluid.util.ImmutableHashOrderSet;
 
 /** The operator class for all operators used for Java IRNodes.
  * It contains a hashtable to map operator names to prototypes.

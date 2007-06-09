@@ -1,13 +1,12 @@
 package sc.document;
 
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
 
+import fluid.ir.IRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.tree.SymmetricEdgeDigraph;
 import fluid.version.VersionedUnitSlotInfo;
-
-import fluid.tree.*;
-
-import fluid.ir.*;
 
 /**
  * @author Tien

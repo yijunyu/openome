@@ -1,10 +1,12 @@
 package sc.document;
 
-import fluid.ir.*;
-import fluid.version.*;
-import fluid.tree.*;
 import fluid.FluidError;
+import fluid.ir.Bundle;
+import fluid.ir.IRPersistent;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.tree.SymmetricEdgeDigraph;
 import fluid.util.UniqueID;
+import fluid.version.VersionedSlotFactory;
 
 public class GoalModelGraphBundle {
 

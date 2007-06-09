@@ -178,10 +178,10 @@ public class IRChunk extends IRPersistent {
   protected void read(IRInput in) throws IOException {
     in.debugBegin("chunk name=" + this);
     readImports(in);
-    if (in.debug()) {
-      System.out.print("Partway through loading ");
-      this.describe(System.out);
-    }
+//    if (in.debug()) {
+//      System.out.print("Partway through loading ");
+//      this.describe(System.out);
+//    }
     readAttributeValues(in);
     in.debugEnd("chunk");
   }

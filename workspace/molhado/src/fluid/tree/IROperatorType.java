@@ -4,7 +4,11 @@ package fluid.tree;
 import java.io.IOException;
 import java.util.Comparator;
 
-import fluid.ir.*;
+import fluid.ir.CachedType;
+import fluid.ir.IRInput;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRType;
 
 /** The type of operators of tree nodes.
  * @see Operator

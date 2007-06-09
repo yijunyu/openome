@@ -5,6 +5,7 @@ import java.util.Enumeration;
 
 import fluid.ir.IRLocation;
 import fluid.ir.IRNode;
+import fluid.ir.IRSequenceException;
 
 /** Classes implementing this interface can be used
  * to traverse directed graphs made up of IRNodes.

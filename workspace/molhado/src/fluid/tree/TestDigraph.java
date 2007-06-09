@@ -1,6 +1,16 @@
 package fluid.tree;
 
-import fluid.ir.*;
+import fluid.ir.ConstantSlotFactory;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRSequenceException;
+import fluid.ir.InsertionPoint;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotImmutableException;
+import fluid.ir.SlotUndefinedException;
 import fluid.util.SimpleApp;
 
 public class TestDigraph extends SimpleApp {

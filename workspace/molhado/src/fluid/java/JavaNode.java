@@ -1,20 +1,39 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/java/JavaNode.java,v 1.1 2006/03/21 23:20:59 dig Exp $ */
 package fluid.java;
 
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Enumeration;
-import java.util.Vector;
 import java.util.StringTokenizer;
-import java.io.*;
+import java.util.Vector;
 
-import fluid.*;
-import fluid.util.*;
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.parse.*;
-import fluid.unparse.Token;
-import fluid.unparse.Keyword;
+import fluid.FluidError;
+import fluid.FluidRuntimeException;
+import fluid.ir.Bundle;
+import fluid.ir.ConstantSlotFactory;
+import fluid.ir.IRIntegerType;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRStringType;
+import fluid.ir.IRType;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
+import fluid.parse.JJNode;
+import fluid.tree.IROperatorType;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Combined;
+import fluid.unparse.Delim;
+import fluid.unparse.Glue;
 import fluid.unparse.Identifier;
-import fluid.unparse.*;
+import fluid.unparse.IndepBP;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+import fluid.unparse.UnitedBP;
+import fluid.util.UniqueID;
 
 /** The class used by the parser to build Java IR.
  * Not all nodes of Java IR (for example, IRNodes stored and then

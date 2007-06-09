@@ -8,7 +8,7 @@ public class Q7_GoalModel implements IConvertor {
 		Q7.main(new String[] {input});
 		try {
 			GoalModel cg = new GoalModel(Q7.a);
-			System.out.println("Intention model loaded");
+//			System.out.println("Intention model loaded");
 			cg.generateGoalModel(output);
 		} catch (Exception e ) {
 			e.printStackTrace();

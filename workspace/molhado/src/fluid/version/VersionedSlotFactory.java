@@ -3,7 +3,16 @@ package fluid.version;
 
 import java.util.Enumeration;
 
-import fluid.ir.*;
+import fluid.ir.EmptyIRSequence;
+import fluid.ir.IRArray;
+import fluid.ir.IRList;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRSequence;
+import fluid.ir.IRType;
+import fluid.ir.Slot;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
 
 /** The family of versioned (partially mutable) slots. */
 public class VersionedSlotFactory implements SlotFactory {

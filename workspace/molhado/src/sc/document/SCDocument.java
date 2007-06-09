@@ -2,17 +2,28 @@
 
 package sc.document;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.Hashtable;
 
-import fluid.ir.*;
-
-import fluid.FluidRuntimeException;
-
 import sc.xml.IRDTD;
-
-import fluid.version.*;
+import fluid.FluidRuntimeException;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IROutput;
+import fluid.ir.Slot;
 import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.Version;
+import fluid.version.VersionedRegion;
+import fluid.version.VersionedSlot;
+import fluid.version.VersionedSlotFactory;
 
 /**
  * SC Document
@@ -217,10 +228,10 @@ public abstract class SCDocument extends Component {
    */
   protected void saveRegion(fluid.util.FileLocator floc) {
     if (region.isStored() == false) {
-      System.out.println("Saving REGION ...");
+//      System.out.println("Saving REGION ...");
       try {
         region.store(floc);
-        region.describe(System.out);
+//        region.describe(System.out);
         // 
         DataOutputStream os = new DataOutputStream(
         		floc.openFileWrite(this.getID().toString() + ".region"));
@@ -310,7 +321,7 @@ public abstract class SCDocument extends Component {
   /** loadDelta */
   public void loadDelta(Era era, fluid.util.FileLocator floc) 
     throws IOException {
-    System.out.println("Loading REGION ... ");
+//    System.out.println("Loading REGION ... ");
     loadRegion(floc);
     /*System.out.println("Loading delta for DOCUMENT TREE STRUCTURE ...");
     VersionedChunk vc = VersionedChunk.get(region,docTreeBundle);

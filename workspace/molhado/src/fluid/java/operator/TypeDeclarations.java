@@ -1,16 +1,18 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\TypeDeclarations.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class TypeDeclarations extends JavaOperator implements DripOperator { 
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+public class TypeDeclarations extends JavaOperator implements DripOperator { 
   protected TypeDeclarations() {}
 
   public static final TypeDeclarations prototype = new TypeDeclarations();

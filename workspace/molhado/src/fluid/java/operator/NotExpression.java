@@ -1,16 +1,21 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\NotExpression.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class NotExpression extends UnopExpression { 
+import fluid.control.Component;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.NoOperation;
+import fluid.control.Subcomponent;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Token;
+public class NotExpression extends UnopExpression { 
   protected NotExpression() {}
 
   public static final NotExpression prototype = new NotExpression();

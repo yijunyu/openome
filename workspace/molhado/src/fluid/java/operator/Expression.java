@@ -1,16 +1,14 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\Expression.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
-
-import java.util.*;
-
-import java.util.Vector;/** The class of all Java expression operators.
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.unparse.Delim;
+import fluid.unparse.Token;
+/** The class of all Java expression operators.
  */
 public class Expression extends Initializer { 
   protected Expression() {}

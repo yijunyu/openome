@@ -6,7 +6,11 @@ import java.util.Hashtable;
 import java.util.NoSuchElementException;
 
 import fluid.FluidRuntimeException;
-import fluid.ir.*;
+import fluid.ir.IRInput;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.SlotInfo;
 import fluid.util.ImmutableHashOrderSet;
 
 /** Operators contain information about the node, essentially
@@ -141,15 +145,15 @@ public abstract class Operator implements Cloneable {
 
   /** Return an enumeration of nodes, each of which should be instantiated.
    */
-  public Enumeration instantiate(final Enumeration enum) {
-    return instantiate(tree(),enum);
+  public Enumeration instantiate(final Enumeration en) {
+    return instantiate(tree(),en);
   } 
   public Enumeration instantiate(final SyntaxTreeInterface tree,
-				 final Enumeration enum) {
+				 final Enumeration en) {
     return new Enumeration() {
-      public boolean hasMoreElements() { return enum.hasMoreElements(); }
+      public boolean hasMoreElements() { return en.hasMoreElements(); }
       public Object nextElement() throws NoSuchElementException {
-	return instantiate(tree, (IRNode)enum.nextElement());
+	return instantiate(tree, (IRNode)en.nextElement());
       }
     };
   }

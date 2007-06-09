@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import fluid.ir.IRLocation;
 import fluid.ir.IRNode;
 import fluid.ir.InsertionPoint;
+import fluid.ir.SlotImmutableException;
 
 public interface MutableDigraphInterface
 extends DigraphInterface

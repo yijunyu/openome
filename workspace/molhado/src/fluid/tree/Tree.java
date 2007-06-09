@@ -4,7 +4,22 @@ package fluid.tree;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRLocation;
+import fluid.ir.IRLocationType;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceException;
+import fluid.ir.IRSequenceType;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.IRType;
+import fluid.ir.InsertionPoint;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
 import fluid.util.SingletonEnumeration;
 
 /** This class contains methods for accessing (untyped) tree nodes.

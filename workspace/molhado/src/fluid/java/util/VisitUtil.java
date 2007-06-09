@@ -9,7 +9,18 @@ import fluid.ir.IRNode;
 import fluid.java.JavaGlobals;
 import fluid.java.JavaNode;
 import fluid.java.JavaPromise;
-import fluid.java.operator.*;
+import fluid.java.operator.AnonClassExpression;
+import fluid.java.operator.ClassBody;
+import fluid.java.operator.ClassDeclaration;
+import fluid.java.operator.CompilationUnit;
+import fluid.java.operator.DeclStatement;
+import fluid.java.operator.FieldDeclaration;
+import fluid.java.operator.InterfaceDeclaration;
+import fluid.java.operator.NamedPackageDeclaration;
+import fluid.java.operator.NestedClassDeclaration;
+import fluid.java.operator.NestedInterfaceDeclaration;
+import fluid.java.operator.ParameterDeclaration;
+import fluid.java.operator.UnnamedPackageDeclaration;
 import fluid.parse.JJNode;
 import fluid.tree.Operator;
 import fluid.util.SimpleEnumeration;
@@ -95,10 +106,10 @@ public class VisitUtil implements JavaGlobals {
     final IRNode body = VisitUtil.getClassBody(root);
 
     return new SimpleEnumeration() {
-      Enumeration enum = ClassBody.getDeclEnumeration(body);
+      Enumeration en = ClassBody.getDeclEnumeration(body);
       protected Object computeNextElement() {
-        while (enum.hasMoreElements()) {
-          IRNode n = (IRNode) enum.nextElement();
+        while (en.hasMoreElements()) {
+          IRNode n = (IRNode) en.nextElement();
           Operator op = JJNode.tree.getOperator(n);
 
           if ((op == NestedClassDeclaration.prototype)
@@ -112,9 +123,9 @@ public class VisitUtil implements JavaGlobals {
   }
 
   public static IRNode findInnerClass(IRNode root, String name) {
-    Enumeration enum = VisitUtil.getInnerClasses(root);
-    while (enum.hasMoreElements()) {
-      IRNode n = (IRNode) enum.nextElement();
+    Enumeration en = VisitUtil.getInnerClasses(root);
+    while (en.hasMoreElements()) {
+      IRNode n = (IRNode) en.nextElement();
       String inner = JJNode.getInfo(n);
       if (inner == name) {
         return n;

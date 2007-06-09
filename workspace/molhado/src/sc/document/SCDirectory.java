@@ -1,9 +1,11 @@
 package sc.document;
 
-import java.io.*;
+import java.io.DataInput;
+import java.io.IOException;
 
 import fluid.util.UniqueID;
-import fluid.version.*;
+import fluid.version.Era;
+import fluid.version.Version;
 /**
  * @author Tien N. Nguyen
  */

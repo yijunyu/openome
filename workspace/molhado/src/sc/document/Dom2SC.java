@@ -10,16 +10,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.DocumentType;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-// import org.w3c.dom.NodeList;
 
-// import org.xml.sax.SAXException;
-// import org.xml.sax.SAXParseException;
-
+import sc.xml.NullDTD;
 import fluid.ir.IRNode;
 import fluid.ir.PlainIRNode;
-import fluid.tree.Operator;
 import fluid.ir.SlotInfo;
-import sc.xml.*;
+import fluid.tree.Operator;
 
 /**
  * @author Tien

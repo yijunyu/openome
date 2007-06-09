@@ -1,16 +1,28 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\FieldRef.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;public class FieldRef extends PrimaryExpression implements DripOperator { 
+import fluid.control.AddLabel;
+import fluid.control.Component;
+import fluid.control.ComponentChoice;
+import fluid.control.ComponentFlow;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.control.Merge;
+import fluid.control.Subcomponent;
+import fluid.ir.IRNode;
+import fluid.ir.SlotUndefinedException;
+import fluid.java.DripOperator;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.java.control.PrimitiveExceptionLabel;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Identifier;
+import fluid.unparse.Token;
+public class FieldRef extends PrimaryExpression implements DripOperator { 
   protected FieldRef() {}
 
   public static final FieldRef prototype = new FieldRef();

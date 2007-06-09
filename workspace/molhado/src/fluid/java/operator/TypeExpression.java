@@ -1,16 +1,18 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\TypeExpression.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;/** A static reference to a type.
+import fluid.control.Component;
+import fluid.control.ComponentFlow;
+import fluid.control.ControlEdge;
+import fluid.control.ControlNode;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+/** A static reference to a type.
  * This expression is legal in only a few situations:
  * <ul>
  *    <li> As the object for method calls.

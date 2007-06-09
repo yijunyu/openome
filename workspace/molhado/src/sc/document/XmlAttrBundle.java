@@ -1,13 +1,15 @@
 package sc.document;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import fluid.ir.Bundle;
+import fluid.ir.IRPersistent;
 import fluid.ir.IRPersistentReferenceType;
+import fluid.ir.IRStringType;
 import fluid.ir.SlotInfo;
 import fluid.util.UniqueID;
-import fluid.ir.IRPersistent;
-import java.io.*;
-import fluid.version.*;
-import fluid.ir.*;
+import fluid.version.VersionedSlotFactory;
 
 /**
  * @author Tien N. Nguyen

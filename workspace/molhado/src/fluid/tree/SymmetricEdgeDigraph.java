@@ -4,7 +4,17 @@ package fluid.tree;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
-import fluid.ir.*;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceException;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.InsertionPoint;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
 
 /** Graphs with explicit edges which can be traversed in either direction.
  * <P> Known bugs:

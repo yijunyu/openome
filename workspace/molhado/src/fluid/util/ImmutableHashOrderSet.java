@@ -1,7 +1,14 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/util/ImmutableHashOrderSet.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.util;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.Vector;
 
 /** An implementation of sets with some provision for infinite sets
  * whose inverse is finite.  The sets are very general: they may

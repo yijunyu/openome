@@ -94,6 +94,6 @@ public class IRVersionType implements IRType {
   }
 
   public static void ensureLoaded() {
-    System.out.println("IRVersionType loaded");
+//    System.out.println("IRVersionType loaded");
   }
 }

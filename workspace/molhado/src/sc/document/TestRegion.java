@@ -2,9 +2,15 @@ package sc.document;
 
 import java.util.Enumeration;
 
-import fluid.tree.*;
-import fluid.version.*;
-import fluid.ir.*;
+import fluid.ir.IRNode;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.tree.Tree;
+import fluid.version.Era;
+import fluid.version.OverlappingEraException;
+import fluid.version.Version;
+import fluid.version.VersionedRegion;
+import fluid.version.VersionedSlotFactory;
 
 /**
  */
@@ -78,10 +84,10 @@ public class TestRegion {
     Version v3 = Version.getVersion();
     
     System.out.println("BEFORE NEW AN ERA");
-    Enumeration enum = region.allNodes(v3);
+    Enumeration en = region.allNodes(v3);
     int i = 0;
-    while (enum.hasMoreElements()) {
-      IRNode n = (IRNode) enum.nextElement();
+    while (en.hasMoreElements()) {
+      IRNode n = (IRNode) en.nextElement();
       System.out.println(i + 1 + ". ( " + n + " ).");
       i++;
     }
@@ -95,9 +101,9 @@ public class TestRegion {
     
     System.out.println("AFTER NEW AN ERA");
     i = 0;
-    enum = region.allNodes(v3);
-    while (enum.hasMoreElements()) {
-      IRNode n = (IRNode) enum.nextElement();
+    en = region.allNodes(v3);
+    while (en.hasMoreElements()) {
+      IRNode n = (IRNode) en.nextElement();
       System.out.println(i + 1 + ". ( " + n + " ).");
       i++;
     }

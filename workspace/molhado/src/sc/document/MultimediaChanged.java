@@ -1,10 +1,12 @@
 package sc.document;
 
-import java.util.Observer;
 import java.util.Observable;
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.version.*;
+import java.util.Observer;
+
+import fluid.ir.IRNode;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.tree.Tree;
+import fluid.version.VersionedUnitSlotInfo;
 
 public class MultimediaChanged
   extends VersionedUnitSlotInfo implements Observer {

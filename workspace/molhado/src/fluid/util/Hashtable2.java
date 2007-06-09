@@ -407,7 +407,7 @@ class TestHashtable2 {
   }
 
   static void test(Hashtable2 h, Object[] objects, int kind,
-		   Enumeration enum, ImmutableHashOrderSet set) {
+		   Enumeration en, ImmutableHashOrderSet set) {
     int n = objects.length;
     for (int i=0; i < n; ++i) {
       Object oi = objects[i];
@@ -430,8 +430,8 @@ class TestHashtable2 {
       }
     }
     ImmutableHashOrderSet s = ImmutableHashOrderSet.empty;
-    while (enum.hasMoreElements()) {
-      s = s.addElement(enum.nextElement());
+    while (en.hasMoreElements()) {
+      s = s.addElement(en.nextElement());
     }
     if (!s.equals(set)) {
       System.out.println("!! h." +

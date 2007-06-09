@@ -8,8 +8,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Hashtable;
 
-import org.eclipse.ui.internal.Model;
-
 import fluid.FluidRuntimeException;
 import fluid.ir.Bundle;
 import fluid.ir.IRInput;
@@ -149,10 +147,10 @@ public class GoalModel extends Component {
   	 */
   	protected void saveRegion(fluid.util.FileLocator floc) {
   		if (region.isStored() == false) {
-  			System.out.println("Saving REGION ...");
+//  			System.out.println("Saving REGION ...");
   			try {
   				region.store(floc);
-  				region.describe(System.out);				 
+//  				region.describe(System.out);				 
   				DataOutputStream os = new DataOutputStream(
   						floc.openFileWrite(this.getID().toString() + ".region"));
   				PrintWriter w = new PrintWriter(os);
@@ -171,12 +169,12 @@ public class GoalModel extends Component {
   			
   			loadRegion(floc);
   			    
-  			System.out.println("Loading delta for GOALMODEL GRAPH STRUCTURE ...");
+//  			System.out.println("Loading delta for GOALMODEL GRAPH STRUCTURE ...");
   			VersionedChunk vc = VersionedChunk.get(region,goalModelGraphBundle);
   			vc.getDelta(era).load(floc);
-  			vc.describe(System.out);
+//  			vc.describe(System.out);
 
-  			System.out.println("Loading delta for GOALMODEL NODE ATTRIBUTE ...");
+//  			System.out.println("Loading delta for GOALMODEL NODE ATTRIBUTE ...");
   			vc = VersionedChunk.get(region,goalModelAttrBundle);
   			vc.getDelta(era).load(floc);
   			vc.describe(System.out);
@@ -191,29 +189,29 @@ public class GoalModel extends Component {
         
         saveRegion(floc);
         
-        System.out.println("Saving chunk delta for goalModelGraphBundle ...");
+//        System.out.println("Saving chunk delta for goalModelGraphBundle ...");
         VersionedChunk ch = VersionedChunk.get(region,goalModelGraphBundle);
         IRPersistent vcd = ch.getDelta(era);
         vcd.store(floc);
-        vcd.describe(System.out);
+//        vcd.describe(System.out);
         
-        System.out.println("Saving version CHUNK DELTA FOR GM NODE ATTRIBUTE ... ");
+//        System.out.println("Saving version CHUNK DELTA FOR GM NODE ATTRIBUTE ... ");
         ch = VersionedChunk.get(region,goalModelAttrBundle);
         vcd = ch.getDelta(era);
         vcd.store(floc);
-        vcd.describe(System.out);
+//        vcd.describe(System.out);
     }
 
     /** Load the snapshot of this component for the given version. */
     public void loadSnapshot(Version v, fluid.util.FileLocator floc) 
       throws IOException {
         loadRegion(floc);
-        System.out.println("Loading snapshot for GM GRAPH STRUCTURE ...");
+//        System.out.println("Loading snapshot for GM GRAPH STRUCTURE ...");
         VersionedChunk vc = VersionedChunk.get(region,goalModelGraphBundle);
         ((IRPersistent) vc.getSnapshot(v)).load(floc); 
-        vc.describe(System.out);
+//        vc.describe(System.out);
         
-        System.out.println("Loading snapshot for GM NODE ATTRIBUTE ...");
+//        System.out.println("Loading snapshot for GM NODE ATTRIBUTE ...");
         vc = VersionedChunk.get(region, goalModelAttrBundle);
         ((IRPersistent) vc.getSnapshot(v)).load(floc);
         vc.describe(System.out);
@@ -229,17 +227,17 @@ public class GoalModel extends Component {
     public void saveSnapshot(Version v, fluid.util.FileLocator floc) 
       throws IOException {
         saveRegion(floc);
-        System.out.println("Saving snapshot for goalModelGraphBundle ... ");
+//        System.out.println("Saving snapshot for goalModelGraphBundle ... ");
         VersionedChunk ch = VersionedChunk.get(region,goalModelGraphBundle);
         IRPersistent vcs = ch.getSnapshot(v);
         vcs.store(floc);
-        vcs.describe(System.out);
+//        vcs.describe(System.out);
         
-        System.out.println("Saving version snapshot FOR GM NODE ATTRIBUTE ... ");
+//        System.out.println("Saving version snapshot FOR GM NODE ATTRIBUTE ... ");
         ch = VersionedChunk.get(region,goalModelAttrBundle);      
         vcs = ch.getSnapshot(v);
         vcs.store(floc);
-        vcs.describe(System.out);
+//        vcs.describe(System.out);
     }
     
     // Write/ReadContents and write/readChangedContents

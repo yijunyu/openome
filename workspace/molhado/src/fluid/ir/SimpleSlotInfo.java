@@ -3,7 +3,11 @@ package fluid.ir;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
 
 import fluid.util.ImmutableHashOrderSet;
 import fluid.util.ImmutableSet;

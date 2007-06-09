@@ -1,16 +1,20 @@
 // Generated from C:\eclipse\workspace\fluid\code\fluid\java\operator\Extensions.op.  Do *NOT* edit!
 package fluid.java.operator;
 
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.control.*;
-import fluid.unparse.*;
-import fluid.java.*;
-import fluid.java.control.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
-import java.util.*;
-
-import java.util.Vector;/** Extends clause for interfaces.
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.JavaUnparser;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTreeInterface;
+import fluid.unparse.Delim;
+import fluid.unparse.Keyword;
+import fluid.unparse.Token;
+/** Extends clause for interfaces.
  */
 public class Extensions extends JavaOperator { 
   protected Extensions() {}

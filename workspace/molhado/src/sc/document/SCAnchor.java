@@ -1,6 +1,6 @@
 package sc.document;
 
-import fluid.ir.*;
+import fluid.ir.IRNode;
 
 // import sc.document.*;
 

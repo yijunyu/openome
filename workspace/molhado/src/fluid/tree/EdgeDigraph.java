@@ -6,7 +6,21 @@ import java.util.NoSuchElementException;
 import java.util.Observable;
 import java.util.Observer;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRBooleanType;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceException;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.InsertionPoint;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
 
 /** A form of graph in which edges have identity and may be attributed.
  * <P> Known bugs:
@@ -30,7 +44,7 @@ public class EdgeDigraph extends DigraphMixin
     public IRLocation insertChildEdge(IRNode node, IRNode newChildEdge,
 				      InsertionPoint ip);
     public void removeChildEdge(IRNode node, IRNode oldChildEdge);
-    public Enumeration protect(Enumeration enum);
+    public Enumeration protect(Enumeration en);
     public void saveAttributes(Bundle b);
     public SlotInfo getAttribute(String name);
   }
@@ -738,8 +752,8 @@ public class EdgeDigraph extends DigraphMixin
       underlyingNodes.removeChild(node,oldChildEdge);
     }
 
-    public Enumeration protect(Enumeration enum) {
-      return slotFactory.newEnumeration(enum);
+    public Enumeration protect(Enumeration en) {
+      return slotFactory.newEnumeration(en);
     }
 
     public void saveAttributes(Bundle b) {
@@ -912,8 +926,8 @@ public class EdgeDigraph extends DigraphMixin
     public void removeChildEdge(IRNode node, IRNode oldChildEdge) {
       underlyingNodes.removeChild(node,oldChildEdge);
     }
-    public Enumeration protect(Enumeration enum) {
-      return enum;
+    public Enumeration protect(Enumeration en) {
+      return en;
     }
     public void saveAttributes(Bundle b) { }
 

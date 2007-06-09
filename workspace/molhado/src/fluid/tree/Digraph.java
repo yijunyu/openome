@@ -5,7 +5,23 @@ import java.io.PrintStream;
 import java.util.Enumeration;
 
 import fluid.FluidError;
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.ConstantSlotFactory;
+import fluid.ir.DerivedSlotInfo;
+import fluid.ir.IRLocation;
+import fluid.ir.IRNode;
+import fluid.ir.IRNodeType;
+import fluid.ir.IRSequence;
+import fluid.ir.IRSequenceType;
+import fluid.ir.IRSequenceWrapper;
+import fluid.ir.IRType;
+import fluid.ir.InsertionPoint;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotImmutableException;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotUndefinedException;
 
 /** A class with functions for creating and traversing directed graphs.
  * The slots of this class keep track of following nodes (children)
@@ -41,7 +57,7 @@ public class Digraph extends DigraphMixin implements MutableDigraphInterface {
     public void removeChild(IRNode parent, IRLocation loc);
     public void saveAttributes(Bundle b);
     public SlotInfo getAttribute(String name);
-    public Enumeration protect(Enumeration enum);
+    public Enumeration protect(Enumeration en);
   }
 
   protected Mutator createStoredMutator(SlotFactory sf) {

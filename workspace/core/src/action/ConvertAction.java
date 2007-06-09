@@ -39,7 +39,7 @@ public class ConvertAction extends ExtensionReader implements IObjectActionDeleg
 		String classname = convertor.getAttribute("class");
 		if (args[0].endsWith(input) && args[1].endsWith(output)) {
 			try {
-			  System.out.println(classname);
+//			  System.out.println(classname);
 //			  Debug.DEBUG_LOADER = true;
 			  IConvertor cv = (IConvertor) convertor.createExecutableExtension("class");
 			  Debug.DEBUG_LOADER = false;

@@ -2,12 +2,23 @@
 package fluid.version;
 
 import java.io.IOException;
-import java.util.Vector;
-// import java.io.*;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
+import java.util.Vector;
 
-import fluid.ir.*;
+import fluid.ir.DefaultSlotStorage;
+import fluid.ir.HashedSlots;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRType;
+import fluid.ir.IRUnitType;
+import fluid.ir.InfoStoredSlotInfo;
+import fluid.ir.Slot;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
+import fluid.ir.SlotInfoSlot;
 
 /** An attribute that contains no information, except changes.
  * It keeps track of times the attribute is given a new value,

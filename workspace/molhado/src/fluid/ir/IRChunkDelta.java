@@ -117,10 +117,10 @@ public class IRChunkDelta extends IRPersistent {
   protected void read(IRInput in) throws IOException {
     in.debugBegin("delta name=" + this);
     readImports(in);
-    if (in.debug()) {
-      System.out.print("Partway through loading ");
-      this.describe(System.out);
-    }
+//    if (in.debug()) {
+//      System.out.print("Partway through loading ");
+//      this.describe(System.out);
+//    }
     readChangedAttributes(in);
     in.debugEnd("delta");
   }

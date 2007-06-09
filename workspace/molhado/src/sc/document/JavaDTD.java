@@ -2,11 +2,12 @@
 
 package sc.document;
 
-import fluid.tree.*;
-import fluid.ir.*;
-import fluid.java.*;
-import fluid.java.operator.*;
-import sc.xml.*;
+import sc.xml.IRDTD;
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.java.JavaOperator;
+import fluid.java.operator.LoadOperator;
+import fluid.tree.Operator;
 
 /** The Java DTD used to describe Java ASTs in the XML world.
  */

@@ -1,12 +1,25 @@
 package sc.document;
 
-import fluid.version.*;
-import fluid.ir.*;
-import fluid.util.UniqueID;
-import fluid.FluidError;
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 
-import java.io.*;
+import fluid.FluidError;
+import fluid.ir.IRInput;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentKind;
+import fluid.ir.IRStringType;
+import fluid.ir.Slot;
 import fluid.util.Hashtable2;
+import fluid.util.UniqueID;
+import fluid.version.Era;
+import fluid.version.Version;
+import fluid.version.VersionedSlot;
+import fluid.version.VersionedSlotFactory;
+import fluid.version.VersionedStructure;
 
 /** A piece of versioned state that can be saved.
  * A component is namned and lives within a version

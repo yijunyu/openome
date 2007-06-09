@@ -17,11 +17,11 @@ extends AbstractRemovelessIterator
   /**
    * Create a new iterator wrapped around an
    * existing enumeration.
-   * @param enum The enumeration to wrap.
+   * @param en The enumeration to wrap.
    */
-  public EnumerationIterator( final Enumeration enum )
+  public EnumerationIterator( final Enumeration en )
   {
-    enumeration = enum;
+    enumeration = en;
   }
 
   public boolean hasNext()

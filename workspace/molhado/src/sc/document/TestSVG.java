@@ -1,11 +1,15 @@
 package sc.document;
 
-import fluid.ir.*;
-import fluid.version.*;
-import fluid.util.*;
-import fluid.tree.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import java.io.*;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.tree.Tree;
+import fluid.util.FileLocator;
+import fluid.version.Version;
 
 /**
  * @author Tien

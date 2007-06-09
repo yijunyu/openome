@@ -1,7 +1,11 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/version/VersionedStructureFactory.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.version;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.IRChunk;
+import fluid.ir.IRNode;
+import fluid.ir.IRRegion;
+import fluid.ir.SlotInfo;
 import fluid.util.Hashtable2;
 import fluid.util.ThreadGlobal;
 

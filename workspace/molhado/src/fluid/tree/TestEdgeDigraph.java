@@ -1,7 +1,15 @@
 /* $Header: /usr/local/refactoring/molhadoRef/src/fluid/tree/TestEdgeDigraph.java,v 1.1 2006/03/21 23:20:54 dig Exp $ */
 package fluid.tree;
 
-import fluid.ir.*;
+import fluid.ir.ConstantSlotFactory;
+import fluid.ir.IRNode;
+import fluid.ir.IRSequenceException;
+import fluid.ir.PlainIRNode;
+import fluid.ir.SimpleSlotFactory;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotFactory;
+import fluid.ir.SlotImmutableException;
+import fluid.ir.SlotUndefinedException;
 
 class TestEdgeDigraph {
   public static void main(String args[]) {

@@ -1,9 +1,12 @@
 package fluid.java.operator;
 
-import java.util.*;
-import fluid.ir.*;
-import fluid.tree.*;
-import fluid.java.*;
+import java.util.Enumeration;
+import java.util.Vector;
+
+import fluid.ir.IRNode;
+import fluid.java.JavaNode;
+import fluid.tree.Operator;
+import fluid.tree.SyntaxTree;
 
 /** This is a template class for peforming syntactic analysis of a 
   * Java parse tree.  The <tt>walkTree()</tt> method dispatches control 

@@ -2,15 +2,21 @@
 
 package sc.xml;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
-import fluid.*;
-import fluid.ir.*;
+import sc.document.MultimediaChanged;
+import fluid.FluidError;
+import fluid.ir.Bundle;
+import fluid.ir.IRNode;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRStringType;
+import fluid.ir.SlotAlreadyRegisteredException;
+import fluid.ir.SlotInfo;
 import fluid.java.JavaNode;
-import fluid.util.*;
-import fluid.version.*;
-
-import sc.document.*;
+import fluid.util.FileLocator;
+import fluid.util.UniqueID;
+import fluid.version.VersionedSlotFactory;
 
 public class MultimediaAttributes {
   private static Bundle multimediabundle;

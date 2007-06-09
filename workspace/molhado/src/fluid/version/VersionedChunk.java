@@ -7,7 +7,19 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Hashtable;
 
-import fluid.ir.*;
+import fluid.ir.Bundle;
+import fluid.ir.IRChunk;
+import fluid.ir.IRCompound;
+import fluid.ir.IRCompoundType;
+import fluid.ir.IRInput;
+import fluid.ir.IRNode;
+import fluid.ir.IROutput;
+import fluid.ir.IRPersistent;
+import fluid.ir.IRPersistentKind;
+import fluid.ir.IRRegion;
+import fluid.ir.IRType;
+import fluid.ir.PersistentSlotInfo;
+import fluid.ir.SlotInfo;
 import fluid.util.FileLocator;
 
 /** A chunk of IR including some versioned attributes.
