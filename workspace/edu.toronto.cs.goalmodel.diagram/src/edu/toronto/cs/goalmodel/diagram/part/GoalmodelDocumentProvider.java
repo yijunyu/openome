@@ -2,19 +2,23 @@ package edu.toronto.cs.goalmodel.diagram.part;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Level;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -26,13 +30,17 @@ import org.eclipse.core.resources.IStorage;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.MultiRule;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -40,7 +48,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
@@ -52,6 +59,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEdit
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
+import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
@@ -59,8 +67,15 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IStorageEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 
+import sc.document.Component;
+import sc.document.Configuration;
+import sc.document.GoalModel;
+import sc.document.SCDirectory;
 import edu.toronto.cs.goalmodel.AndDecomposition;
 import edu.toronto.cs.goalmodel.BreakContribution;
+import edu.toronto.cs.goalmodel.Contribution;
+import edu.toronto.cs.goalmodel.Decomposition;
+import edu.toronto.cs.goalmodel.Goal;
 import edu.toronto.cs.goalmodel.GoalmodelFactory;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
 import edu.toronto.cs.goalmodel.HelpContribution;
@@ -69,13 +84,10 @@ import edu.toronto.cs.goalmodel.Intention;
 import edu.toronto.cs.goalmodel.MakeContribution;
 import edu.toronto.cs.goalmodel.Model;
 import edu.toronto.cs.goalmodel.OrDecomposition;
+import edu.toronto.cs.goalmodel.Softgoal;
 import fluid.ir.IRNode;
 import fluid.ir.IRPersistent;
 import fluid.version.Version;
-
-import sc.document.Component;
-import sc.document.Configuration;
-import sc.document.GoalModel;
 
 /**
  * @generated
@@ -500,6 +512,167 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		addUnchangedElementListeners(info.getEditorInput(), info);
 		fireElementContentReplaced(info.getEditorInput());
 	}
+	final static String MOLHADO_PLUGIN_NAME = "molhado";
+	public static String getPluginInstallPath() {		
+		URL url = FileLocator.find(
+				Platform.getBundle(MOLHADO_PLUGIN_NAME), 
+				new Path("repository"), 
+				null);
+		try {
+			url = FileLocator.resolve(url);
+			return url.getPath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	private void buildGoalModel(GoalModel gm, Resource resource) {
+		Hashtable<Intention, IRNode> table = new Hashtable<Intention, IRNode>();
+		tables.put(gm, table);
+		IRNode root = gm.createAGoal("VIRTUAL_ROOT", true);
+		gm.setRoot(root);
+		// the first pass creates nodes
+		for (TreeIterator r = resource.getAllContents(); r
+				.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Intention) {
+				Intention i = (Intention) o;
+				String name = i.getName();
+				IRNode g = gm.createAGoal(name, o instanceof Goal);
+//				if (i.getParentDecompositions().size() == 0) {
+					IRNode e = gm.createEdge("virtual");
+					gm.connect(root, g, e);
+//				}
+				// System.out.println(name + " " + g);
+				table.put(i, g);
+			}
+		}
+		// the second pass creates edges
+		for (TreeIterator r = resource.getAllContents(); r
+				.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Contribution) {
+				Contribution i = (Contribution) o;
+				if (i.getSource()==null || i.getTarget()==null)
+					continue;
+				String source_name = i.getSource().getName();
+				String target_name = i.getTarget().getName();
+				String label = "";
+				if (o instanceof HelpContribution)
+					label = "+";
+				if (o instanceof MakeContribution)
+					label = "++";
+				if (o instanceof HurtContribution)
+					label = "-";
+				if (o instanceof BreakContribution)
+					label = "--";
+				IRNode e = gm.createEdge(label);
+				IRNode source = table.get(source_name);
+				IRNode target = table.get(target_name);
+				gm.connect(source, target, e);
+				// System.out.println(label);
+			}
+			if (o instanceof Decomposition) {
+				Decomposition i = (Decomposition) o;
+				if (i.getSource()==null || i.getTarget()==null)
+					continue;
+				String source_name = i.getSource().getName();
+				String target_name = i.getTarget().getName();
+				String label = "";
+				if (o instanceof AndDecomposition)
+					label = "AND";
+				if (o instanceof OrDecomposition)
+					label = "OR";
+				IRNode e = gm.createEdge(label);
+				IRNode source = table.get(source_name);
+				IRNode target = table.get(target_name);
+				gm.connect(source, target, e);
+				// System.out.println(label);
+			}
+		}
+	}
+	
+	private void checkInGoalModel(Configuration config, Resource resource) {
+		IRNode rootnode = config.getRoot();
+		fluid.tree.Tree tree = Configuration.getTree();
+		// Create a goal model
+		String file_name = get_model_name(resource);
+		GoalModel gm = new GoalModel();
+		gm.setName(file_name);
+		IRNode gm_node = config.newComponent(gm);
+		tree.appendChild(rootnode, gm_node);
+		buildGoalModel(gm, resource);
+		checkin_current_version(config, resource);
+		System.out.println(versions.get(file_name).intValue());
+	}
+	private SCDirectory connectToRepository(Resource resource) {
+		Configuration.ensureLoaded();
+		SCDirectory root = new SCDirectory();
+		String model_name = get_model_name(resource);
+		root.setName(model_name);
+		return root;
+	}
+
+
+		
+	/**
+	 * If the model is opened for the first time, it will be assigned version 0
+	 * and will be checked in and then checked out before the doSave operation.
+	 * Otherwise, the model is assigned a newer version and will then checked
+	 * out before the doSave operation.
+	 * 
+	 * Tien, I don't know if that's correct though: one must assume that the
+	 * model can be changed outside the editor! ). Alternatively we may
+	 * implement a checkout for an existing goal model Vn rather than parse it
+	 * from the EMF file, and such a goal model will be saved to override the v0
+	 * model, but it does not work yet :-(
+	 * 
+	 * @param model_name
+	 */
+	void checkLatestVersion(Resource resource) {
+	    org.apache.log4j.Logger.getLogger("IR").setLevel(Level.OFF);
+	    String model_name = get_model_name(resource);
+	    String project_name = model_name.substring(0, model_name.indexOf("/", 2));
+		String property = System.getProperty("fluid.ir.path");
+		if (property==null) {
+			String toString = getPluginInstallPath();
+			System.setProperty("fluid.ir.path", 
+					toString);
+			property = System.getProperty("fluid.ir.path");			
+		}		
+		try {
+			int versionNumber = 0;
+			Configuration config = Configuration.loadASCII(new FileReader(
+					property + project_name + ".cfg"), IRPersistent.fluidFileLocator);
+			java.util.Enumeration vs = config.getAllVersionNames();
+			while (vs.hasMoreElements()) {
+				String v1_name = (String) vs.nextElement();
+//				System.out.println(v1_name.substring(0, v1_name.lastIndexOf("-")));				
+				if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(
+						model_name)) {
+					versionNumber++;
+				}
+			}
+			update_version(model_name, versionNumber);
+			configurations.put(resource, config);
+		} catch (Exception e) {
+//			e.printStackTrace();
+			SCDirectory project_root = connectToRepository(resource);
+			Configuration config = new Configuration(project_name, project_root);
+			// create a new goal model and check it in
+//			checkInGoalModel(config, resource);
+			configurations.put(resource, config);
+			update_version(model_name, 0);
+		}
+	}
+	
+
+	private String get_model_name(Resource resource) {
+		String name = resource.getURI().toString();
+		name = name.substring(name.indexOf(":")+10);
+		name = name.substring(0, name.indexOf(".goalmodel"));	    		
+		return name;
+	}
 
 	/**
 	 * @generated NOT FIXME
@@ -526,10 +699,10 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					if (nextResource.isLoaded()
 							&& (!nextResource.isTrackingModification() || nextResource
 									.isModified())) {
-						if (nextResource instanceof XMIResourceImpl) {
+						if (!(nextResource instanceof GMFResource)) {
 							// FIXME YY: Checkin/Checkout To Molhado
 							CheckinCheckoutMolhado(nextResource);							
-							System.err.println(nextResource);							
+//							System.err.println(nextResource);							
 						}
 						nextResource.save(Collections.EMPTY_MAP);
 					}
@@ -557,10 +730,13 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		super.doSaveDocument(monitor, element, document, overwrite);
 	}
 
-	Hashtable<String, Configuration> configurations = new Hashtable<String, Configuration>();
+	Hashtable<Resource, Configuration> configurations = new Hashtable<Resource, Configuration>();
 	private Hashtable<String, Integer> versions = new Hashtable<String, Integer>();
-	Hashtable<GoalModel, Hashtable<String, IRNode>> tables = new Hashtable<GoalModel, Hashtable<String, IRNode>>();
+	Hashtable<GoalModel, Hashtable<Intention, IRNode>> tables = new Hashtable<GoalModel, Hashtable<Intention, IRNode>>();
 	Hashtable<String, Intention> nodes;
+//	Hashtable<Decomposition, IRNode> decompositions;
+//	Hashtable<Contribution, IRNode> contributions;
+	
 	
 	private void checkout_version(Configuration config, String v1_name) {
 		try {
@@ -575,14 +751,11 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	
 	private void checkout_last_version(Configuration config, String model_name) {
 		Integer last = versions.get(model_name);
-		if (last != null) {
+		if (last != null && last.intValue() > 0) {
 			String last_version = model_name + "-v" + last.intValue();
 			checkout_version(config, last_version);
-		} else {
-			System.err
-					.println("expecting to have an initial version number for the configuration "
-							+ config);
-		}
+			Version.bumpVersion(); // Tien: important after check out if one wants to modify the mirror 
+		} 
 	}
 	private GoalModel find_the_gm(String file_name, Configuration config) {
 		GoalModel the_gm = null;
@@ -603,29 +776,49 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 		return the_gm;
 	}
-	/**
-	 * We need to make sure after checkout, the mapping table between goal names
-	 * and goals in the GoalModel is updated
-	 * 
-	 * @param gm
-	 */
-	private void updateIndex(GoalModel gm, IRNode root) {
-		if (root == null)
-			return;
-		String name = gm.getGMNodeName(root);
-		name = name.substring(name.indexOf("_") + 1);
-		Hashtable<String, IRNode> table = tables.get(gm);
-		if (table == null) {
-			table = new Hashtable<String, IRNode>();
-			tables.put(gm, table);
-		}
-		table.put(name, root);
-		int numChildren = gm.graph.numChildren(root);
-		for (int i = 0; i < numChildren; i++) {
-			IRNode childnode = gm.graph.getChild(root, i);
-			updateIndex(gm, childnode);
+
+	private void setGoalModel(GoalModel the_gm, Configuration config) {
+		fluid.tree.Tree tree = Configuration.getTree();
+		IRNode rootnode = config.getRoot();
+		Enumeration en = tree.depthFirstSearch(rootnode);
+		while (en.hasMoreElements()) {
+			IRNode node = (IRNode) en.nextElement();
+			Component comp = config.getComponent(node);
+			if (comp instanceof GoalModel) {
+				GoalModel gm = (GoalModel) comp;
+				// System.out.println(gm.getName());
+				if (gm.getName().equals(the_gm.getName())) {
+					config.setComponent(node, the_gm);
+					break;
+				}
+			}
 		}
 	}
+	
+	
+//	/**
+//	 * We need to make sure after checkout, the mapping table between goal names
+//	 * and goals in the GoalModel is updated
+//	 * 
+//	 * @param gm
+//	 */
+//	private void updateIndex(GoalModel gm, IRNode root) {
+//		if (root == null)
+//			return;
+//		String name = gm.getGMNodeName(root);
+//		name = name.substring(name.indexOf("_") + 1);
+//		Hashtable<Intention, IRNode> table = tables.get(gm);
+//		if (table == null) {
+//			table = new Hashtable<Intention, IRNode>();
+//			tables.put(gm, table);
+//		}
+//		table.put(name, root);
+//		int numChildren = gm.graph.numChildren(root);
+//		for (int i = 0; i < numChildren; i++) {
+//			IRNode childnode = gm.graph.getChild(root, i);
+//			updateIndex(gm, childnode);
+//		}
+//	}
 	private void update_version(String model_name, int versionNumber) {
 		versions.put(model_name, new Integer(versionNumber));
 		// System.err.println(model_name + " = " + versionNumber);
@@ -643,25 +836,21 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		// System.err.println("Saving " + v1_name);
 	}
 	
-	private void checkin_current_version(Configuration config, String model_name) {
+	private void checkin_current_version(Configuration config, Resource resource) {
 		Version v1 = Version.getVersion();
 		Version.setVersion(v1);
 		try {
+			String model_name = get_model_name(resource);
 			incrementVersion(config, v1, model_name);
 			config.saveVersionByDelta(v1, IRPersistent.fluidFileLocator);
 			config.storeASCII(new PrintWriter(new BufferedWriter(
-					new FileWriter(System.getProperty("fluid.ir.path") + "/"
+					new FileWriter(System.getProperty("fluid.ir.path")
 							+ config.getName() + ".cfg"))));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private String get_model_name(IFileEditorInput modelFile) {
-		String model_name = modelFile.getFile().getName().toString();
-		model_name = model_name.substring(0, model_name.indexOf(".goalmodel"));
-		return model_name;
-	}
 	/**
 	 * Get the URI of the file.
 	 */
@@ -675,9 +864,35 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 
 	GoalmodelFactory f = e.getGoalmodelFactory();
 
-	/*
-	 * nodes will be populated
-	 */
+	
+//	/*
+//	 * nodes will be populated
+//	 */
+//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
+//			Model m, IRNode root, IRNode edgenode) {
+//		if (root == null)
+//			return;
+//		String name = gm.getGMNodeName(root);
+//		String prefix = name.substring(0, name.indexOf("_"));
+//		name = name.substring(name.indexOf("_") + 1);
+//		Intention g;
+//		if (!name.equals("VIRTUAL_ROOT")) {
+//			if (prefix.equals("HardGoal"))
+//				g = f.createGoal();
+//			else
+//				g = f.createSoftgoal();
+//			g.setName(name);
+//			m.getIntentions().add(g);
+//			nodes.put(name, g);
+//		}
+//		int numChildren = gm.graph.numChildren(root);
+//		for (int i = 0; i < numChildren; i++) {
+//			IRNode childedgenode = gm.graph.getChildEdge(root, i);
+//			IRNode childnode = gm.graph.getChild(root, i);
+//			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
+//		}
+//	}
+
 	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
 			Model m, IRNode root, IRNode edgenode) {
 		if (root == null)
@@ -686,23 +901,25 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		Intention g;
-		if (!name.equals("VIRTUAL_ROOT")) {
-			if (prefix.equals("HardGoal"))
-				g = f.createGoal();
-			else
-				g = f.createSoftgoal();
-			g.setName(name);
-			m.getIntentions().add(g);
-			nodes.put(name, g);
-		}
-		int numChildren = gm.graph.numChildren(root);
-		for (int i = 0; i < numChildren; i++) {
-			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-			IRNode childnode = gm.graph.getChild(root, i);
-			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
+		if (name.equals("VIRTUAL_ROOT")) {
+			int numChildren = gm.graph.numChildren(root);
+			for (int i = 0; i < numChildren; i++) {
+				IRNode childedgenode = gm.graph.getChildEdge(root, i);
+				IRNode childnode = gm.graph.getChild(root, i);
+				name = gm.getGMNodeName(childnode);
+				prefix = name.substring(0, name.indexOf("_"));
+				name = name.substring(name.indexOf("_") + 1);
+				if (prefix.equals("HardGoal"))
+					g = f.createGoal();
+				else
+					g = f.createSoftgoal();
+				g.setName(name);
+				m.getIntentions().add(g);
+				nodes.put(name, g);
+			}
 		}
 	}
-
+	
 	/**
 	 * nodes will be used
 	 * 
@@ -728,6 +945,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		for (int i = 0; i < numChildren; i++) {
 			IRNode childedgenode = gm.graph.getChildEdge(root, i);
 			IRNode childnode = gm.graph.getChild(root, i);
+			if (childnode==null) continue;
 			String namec = gm.getGMNodeName(childnode);
 			namec = namec.substring(namec.indexOf("_") + 1);
 			Intention gc = nodes.get(namec);
@@ -786,7 +1004,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			if (comp instanceof GoalModel) {
 				GoalModel gm = (GoalModel) comp;
 				String name = gm.getName();
-				name = name.substring(0, name.indexOf(".goalmodel"));
 				v1_name = v1_name.substring(v1_name.lastIndexOf("-") + 1);
 				String model_v1 = name + "-" + v1_name + ".goalmodel";
 				URI uri = fetchURI(model_v1);
@@ -824,34 +1041,407 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 	}
 
+	/**
+	 * We need to make sure after checkout, the mapping table between goal names
+	 * and goals in the GoalModel is updated
+	 * 
+	 * @param gm
+	 */
+	private void updateIndex(GoalModel gm, Resource resource) {
+		IRNode root = gm.getRoot();
+		Hashtable<Intention, IRNode> table = tables.get(gm);
+		if (table == null) {
+			table = new Hashtable<Intention, IRNode>();
+			tables.put(gm, table);
+		}
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Intention) {
+				Intention i = (Intention) o;
+				String name = i.getName();
+				IRNode g = gm.createAGoal(name, o instanceof Goal);
+				if (i.getParentDecompositions().size() == 0) {
+					IRNode e = gm.createEdge("virtual");
+					gm.connect(root, g, e);
+				}
+				table.put(i, g);
+			}
+		}
+	}
 
 	
 	private void CheckinCheckoutMolhado(Resource resource) {
-		// FIXME Auto-generated method stub
-		// check in the changes
 		try {
-//			IFileEditorInput modelFile = (IFileEditorInput) getEditorInput();
-//			String project_name = modelFile.getFile().getProject()
-//					.getName();
-			String model_name = resource.getURI().toFileString();
-			File file = new File(model_name);
-			String project_name = file.getParentFile().toString();
-			Configuration config = configurations.get(project_name);
-			model_name = model_name.substring(0, model_name.indexOf(".goalmodel"));
+			String model_name = get_model_name(resource);
+			checkLatestVersion(resource); // Algorithm 3
+			Configuration config = configurations.get(resource);
 			checkout_last_version(config, model_name);
-			String file_name = file.getAbsolutePath();
-			GoalModel the_gm = find_the_gm(file_name, config);
+			GoalModel the_gm = find_the_gm(model_name, config);
 			if (the_gm != null) {
-				updateIndex(the_gm, the_gm.getRoot());
-//				modify_edited_goal_model(the_gm);
+				//				updateIndex(the_gm, the_gm.getRoot());
+//				print_the_gm(the_gm);
+				modify_edited_goal_model(the_gm, resource);
+//				setGoalModel(gm, config);
+//				print_the_gm(the_gm);
+				checkin_current_version(config, resource);
+			} else {
+				checkInGoalModel(config, resource);
+				update_version(model_name, 1);				
 			}
-			checkin_current_version(config, model_name);
 			checkOutAllVersionsFromRepository(config, model_name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
 	}
+	private void print_the_gm(GoalModel gm) {		
+		Hashtable<Intention, IRNode> table = tables.get(gm);
+		IRNode root = gm.getRoot();
+		int numChildren = gm.graph.numChildren(root);
+		for (int i= 0; i < numChildren; i++) {
+			IRNode g = (IRNode) gm.graph.getChild(root, i);
+			if (g!=null) {
+				String name = get_goal_name(gm, g);
+				String type = get_goal_type(gm, g);
+				System.err.println(type + ": " + name);
+				print_the_gm(gm, g);
+			}
+		}
+		System.out.println("----------------");
+	}
+	private void print_the_gm(GoalModel gm, IRNode root) {
+		if (root == null) return;
+		Hashtable<Intention, IRNode> table = tables.get(gm);
+		int numChildren = gm.graph.numChildren(root);
+		for (int i= 0; i < numChildren; i++) {
+			IRNode g = (IRNode) gm.graph.getChild(root, i);
+			IRNode edge = (IRNode) gm.graph.getChildEdge(root, i);
+			String name = get_goal_name(gm, g);
+			String type = get_edge_type(gm, edge);
+			System.err.println(get_goal_name(gm, root) + "-" + type + "-> " + name);
+			print_the_gm(gm, g);
+		}
+	}
+	
+	
 
+	private void modify_edited_goal_model(GoalModel gm, Resource resource) {
+		Hashtable<Intention, IRNode> table = tables.get(gm);
+		if (table==null) {
+			table = new Hashtable<Intention, IRNode> ();
+			tables.put(gm, table);
+		}
+		HashSet<String> set = new HashSet<String>();
+		IRNode root = gm.getRoot();
+		// rename nodes
+		HashSet<IRNode> renamed = new HashSet<IRNode>();
+		HashSet<String> to_add = new HashSet<String>();
+		Hashtable<String, Boolean> to_add_type = new Hashtable<String, Boolean>();
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Intention) {
+				Intention i = (Intention) o;
+				// origin analysis first for renaming operation:
+				// YY: if the table is still inside memory, chances are the element is still live in memory
+				//     thus can be found by it's object id
+				boolean origin_found = false;
+				IRNode g = table.get(i);
+				if (g!=null) {
+					String name = get_goal_name(gm, g);
+					set.add(name);
+					if (!name.equals(i.getName())) {
+						if (i instanceof Goal)
+							gm.setHardGoalName(g, i.getName());
+						else if (i instanceof Softgoal) {
+							gm.setSoftGoalName(g, i.getName());
+						}		
+						renamed.add(g);
+						table.remove(name);
+						table.put(i, g);
+						continue;		
+					}
+				} else { 
+					String name = i.getName();
+					// fixing origin
+					int numChildren = gm.graph.numChildren(root);
+					Boolean found = false;
+					for (int j= 0; j < numChildren; j++) {
+						IRNode g1 = (IRNode) gm.graph.getChild(root, j);
+						String name1 = get_goal_name(gm, g1);
+						if (name.equals(name1)) {
+							found = true;
+							table.put(i, g1);
+							break;
+						}
+					}
+					if (!found) { // really new nodes 
+						to_add.add(name);
+						to_add_type.put(name, i instanceof Goal);						
+					}
+					set.add(name);
+				}
+			} 
+		}
+		System.err.println("renamed size= " + renamed.size());
+		System.err.println("added size= " + to_add.size());
+		for (String name: to_add) {
+			IRNode g = gm.createAGoal(name, to_add_type.get(name));
+			IRNode vedge = gm.createEdge("virtual");
+			gm.connect(root, g, vedge);
+//			System.err.println("added name: " + name);
+		}
+		// really old nodes removed from table
+		HashSet<IRNode> delete = new HashSet<IRNode>();
+//		System.err.println("renamed and added names: " + set.size());			
+//		for (String name: set) {
+//			System.err.println("name to compare: " + name);			
+//		}
+		int numChildren = gm.graph.numChildren(root);
+		for (int i= 0; i < numChildren; i++) {
+			IRNode g = (IRNode) gm.graph.getChild(root, i);
+			String name = get_goal_name(gm, g);
+//			System.err.println("compare name: " + name);
+			if (!set.contains(name)) {
+				delete.add(g);
+			}
+		}
+		System.err.println("deleted size= " + delete.size());
+		for (IRNode g: delete) {
+			gm.graph.removeNode(g);
+			table.remove(g);
+		}
+		// now add the edges
+		HashSet<IRNode> alledges = getAllEdges(gm, root);
+		System.err.println("all edges = " + alledges.size());
+		HashSet<IRNode> existing_edges = new HashSet<IRNode> ();
+		int count = 0;
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Contribution) {
+				Contribution c= (Contribution) o;
+				Intention s = c.getSource();
+				Intention t = c.getTarget();
+				IRNode n_s = table.get(s);
+				IRNode n_t = table.get(t);
+				if (n_s!=null && n_t!=null) {
+					boolean found = false;
+					numChildren = gm.graph.numChildren(n_s);
+					for (int j = 0; j < numChildren; j++) {
+						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
+						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+						String type = gm.getGMNodeName(edge);
+						if (node == n_t && 
+						   (  type.equals("+") && c instanceof HelpContribution
+						   || type.equals("++") && c instanceof MakeContribution
+						   || type.equals("-") && c instanceof HurtContribution
+						   || type.equals("--") && c instanceof BreakContribution)) 
+						{ // existing edge
+//							System.out.println("FOUND!");
+							found = true;
+							existing_edges.add(edge);
+							break;
+						}
+					}
+					if (!found) {
+						IRNode edge = insert_an_edge(gm, table, c, s, t);
+						if (edge!=null) {
+							existing_edges.add(edge);							
+						} else {
+							count ++;
+						}
+					}
+				} else {
+					IRNode edge = insert_an_edge(gm, table, c, s, t);
+					if (edge!=null) {
+						existing_edges.add(edge);							
+					} else {
+						count ++;
+					}
+				}
+			} else if (o instanceof Decomposition) {
+				Decomposition c= (Decomposition) o;
+				Intention s = c.getSource();
+				Intention t = c.getTarget();
+				IRNode n_s = table.get(s);
+				IRNode n_t = table.get(t);
+				if (n_s!=null && n_t!=null) {
+					boolean found = false;
+					numChildren = gm.graph.numChildren(n_s);
+					for (int j = 0; j < numChildren; j++) {
+						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
+						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+						String type = get_edge_type(gm, edge);
+						if (node == n_t && 
+						   (  type.equals("AND") && c instanceof AndDecomposition
+						   || type.equals("OR") && c instanceof OrDecomposition)) 
+						{ // existing edge
+							found = true;
+							existing_edges.add(edge);
+							break;
+						}
+					}
+					if (!found) {
+						IRNode edge = insert_an_edge(gm, table, c, s, t);
+						if (edge!=null) {
+							existing_edges.add(edge);							
+						} else {
+							count ++;
+						}
+					}
+				} else {
+					IRNode edge = insert_an_edge(gm, table, c, s, t);
+					if (edge!=null) {
+						existing_edges.add(edge);							
+					} else {
+						count ++;
+					}
+				}
+			}
+		}		
+		System.err.println("inserted edges = " + count);
+		count = 0;
+		for (IRNode e: alledges) {
+			if (!existing_edges.contains(e)) {
+				gm.graph.disconnect(e);
+				count++;
+			}
+		}
+		System.err.println("deleted edges = " + count);
+	}
+
+	private HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
+		int numChildren;
+		HashSet<IRNode> alledges = new HashSet<IRNode>();
+		numChildren = gm.graph.numChildren(root);
+		for (int j=0; j<numChildren; j++) {
+			IRNode g = gm.graph.getChild(root, j);
+			alledges.addAll(allEdges(gm, g));
+		}
+		return alledges;
+	}
+
+	private HashSet<IRNode> allEdges(GoalModel gm, IRNode root) {
+		HashSet<IRNode> set = new HashSet<IRNode>();
+		int numChildren = gm.graph.numChildren(root);
+		for (int j=0; j<numChildren; j++) {
+			IRNode e = gm.graph.getChildEdge(root, j);
+			set.add(e);
+			IRNode g = gm.graph.getChild(root, j);
+			set.addAll(allEdges(gm, g));
+		}
+		return set;
+	}
+
+	private String get_goal_name(GoalModel gm, IRNode g) {
+		if (g==null)
+			return null;
+		String name = gm.getGMNodeName(g);
+		String prefix = name.substring(0, name.indexOf("_"));
+		name = name.substring(name.indexOf("_") + 1);
+		return name;
+	}
+	private String get_goal_type(GoalModel gm, IRNode g) {
+		if (g==null)
+			return null;
+		String name = gm.getGMNodeName(g);
+		String prefix = name.substring(0, name.indexOf("_"));
+		return prefix;
+	}
+
+	private String get_edge_type(GoalModel gm, IRNode g) {
+		String name = gm.getGMNodeName(g);
+		String prefix = name.substring(name.indexOf("_")+1);
+		return prefix;
+	}
+//	private void insert_existing_edge(GoalModel gm, Hashtable<Intention, IRNode> table2, GoalModel gm2, Intention s, Intention t, String type) {
+//		IRNode new_s = table2.get(s);
+//		IRNode new_t = table2.get(t);
+//		IRNode new_e = gm.createEdge(type);
+//		gm2.graph.connect(new_e, new_s, new_t);
+//	}
+	private IRNode insert_an_edge(GoalModel gm, Hashtable<Intention, IRNode> table, Contribution c, Intention s, Intention t) {
+		String type = get_label_from_type(c);
+		IRNode edge = find_an_edge(gm, table, type, s, t);
+		if (edge==null) {
+			IRNode new_e = gm.createEdge(type);
+			if (table.get(s)!=null && table.get(t)!=null)
+				gm.graph.connect(new_e, table.get(s), table.get(t));
+		} 
+		return edge;
+	}
+
+	private String get_label_from_type(Contribution c) {
+		String type = "+";
+		if (c instanceof MakeContribution)
+			type = "++";
+		else if (c instanceof HurtContribution)
+			type = "-";
+		else if (c instanceof BreakContribution)
+			type = "--";
+		return type;
+	}
+
+	private IRNode insert_an_edge(GoalModel gm, 
+			Hashtable<Intention, IRNode> table, 
+			Decomposition c, 
+			Intention s, Intention t) {
+		String type = get_label_from_type(c);
+		IRNode edge = find_an_edge(gm, table, type, s, t);
+		if (edge==null) {
+			IRNode new_e = gm.createEdge(type);
+			if (table.get(s)!=null && table.get(t)!=null)
+				gm.graph.connect(new_e, table.get(s), table.get(t));
+		}
+		return edge;
+	}
+
+	private IRNode find_an_edge(GoalModel gm, Hashtable<Intention, IRNode> table, 
+			String type, Intention s, Intention t) {
+		IRNode edge = null;
+		IRNode new_s = table.get(s);
+		IRNode new_t = table.get(t);
+		if (new_s == null) {
+			IRNode root = gm.getRoot();
+			int n = gm.graph.numChildren(root);
+			for (int i=0; i<n; i++) {
+				IRNode g = gm.graph.getChild(root, i);
+				String name = get_goal_name(gm, g);
+				if (name.equals(s.getName())) {
+					table.put(s, g);
+					new_s = g;
+					break;
+				}
+				if (name.equals(t.getName())) {
+					table.put(t, g);
+					new_t = g;
+					break;
+				}
+			}			
+		}
+		if (new_s!=null && new_t!=null) {
+			int n = gm.graph.numChildren(new_s);
+			for (int i=0; i<n; i++) {
+				IRNode g = gm.graph.getChild(new_s, i);
+				IRNode e = gm.graph.getChildEdge(new_s, i);
+				String lbl = get_edge_type(gm, e);
+				if (g==new_t && type.equals(lbl)) {
+					edge = e;
+					break;
+				}
+			}
+		}
+		return edge;
+	}
+
+	private String get_label_from_type(Decomposition c) {
+		String type = "AND";
+		if (c instanceof OrDecomposition)
+			type = "OR";
+		return type;
+	}
+
+	private IRNode add_mapping_if_not_in_table(GoalModel gm, Hashtable<Intention, IRNode> table, Intention s, IRNode new_s) {
+		return new_s;
+	}
 	/**
 	 * @generated
 	 */
