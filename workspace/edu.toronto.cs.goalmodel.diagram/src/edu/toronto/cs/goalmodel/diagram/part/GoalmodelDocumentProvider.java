@@ -603,7 +603,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		tree.appendChild(rootnode, gm_node);
 		buildGoalModel(gm, resource);
 		checkin_current_version(config, resource);
-		System.out.println(versions.get(file_name).intValue());
+//		System.out.println(versions.get(file_name).intValue());
 	}
 	private SCDirectory connectToRepository(Resource resource) {
 		Configuration.ensureLoaded();
@@ -901,22 +901,19 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		Intention g;
-		if (name.equals("VIRTUAL_ROOT")) {
-			int numChildren = gm.graph.numChildren(root);
-			for (int i = 0; i < numChildren; i++) {
-				IRNode childedgenode = gm.graph.getChildEdge(root, i);
-				IRNode childnode = gm.graph.getChild(root, i);
-				name = gm.getGMNodeName(childnode);
-				prefix = name.substring(0, name.indexOf("_"));
-				name = name.substring(name.indexOf("_") + 1);
-				if (prefix.equals("HardGoal"))
-					g = f.createGoal();
-				else
-					g = f.createSoftgoal();
-				g.setName(name);
-				m.getIntentions().add(g);
-				nodes.put(name, g);
-			}
+		int numChildren = gm.graph.numChildren(root);
+		for (int i = 0; i < numChildren; i++) {
+			IRNode childnode = gm.graph.getChild(root, i);
+			name = gm.getGMNodeName(childnode);
+			prefix = name.substring(0, name.indexOf("_"));
+			name = name.substring(name.indexOf("_") + 1);
+			if (prefix.equals("HardGoal"))
+				g = f.createGoal();
+			else
+				g = f.createSoftgoal();
+			g.setName(name);
+			m.getIntentions().add(g);
+			nodes.put(name, g);
 		}
 	}
 	
@@ -929,65 +926,67 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	 * @param root
 	 * @param edgenode
 	 */
-	private void traverseGMResourcesForEdges(GoalModel gm, GoalmodelFactory f,
-			Model m, IRNode root, IRNode edgenode) {
-		if (root == null)
-			return;
-		// FIXME
-		String name = gm.getGMNodeName(root);
-		String prefix = name.substring(0, name.indexOf("_"));
-		name = name.substring(name.indexOf("_") + 1);
-		Intention g = null;
-		if (!name.equals("VIRTUAL_ROOT")) {
-			g = nodes.get(name);
-		}
-		int numChildren = gm.graph.numChildren(root);
-		for (int i = 0; i < numChildren; i++) {
-			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-			IRNode childnode = gm.graph.getChild(root, i);
-			if (childnode==null) continue;
-			String namec = gm.getGMNodeName(childnode);
-			namec = namec.substring(namec.indexOf("_") + 1);
-			Intention gc = nodes.get(namec);
-			if (childedgenode != null) {
-				String edgetype = gm.getGMNodeName(childedgenode);
-				String pre = edgetype.substring(edgetype.indexOf("_") + 1);
-				if (pre.equals("AND")) {
-					AndDecomposition d = f.createAndDecomposition();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getDecompositions().add(d);
-				} else if (pre.equals("OR")) {
-					OrDecomposition d = f.createOrDecomposition();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getDecompositions().add(d);
-				} else if (pre.equals("+")) {
-					HelpContribution d = f.createHelpContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
-				} else if (pre.equals("++")) {
-					MakeContribution d = f.createMakeContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
-				} else if (pre.equals("-")) {
-					HurtContribution d = f.createHurtContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
-				} else if (pre.equals("--")) {
-					BreakContribution d = f.createBreakContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
-				} else /* VIRTUAL_EDGE */ {
-					// do nothing
+	private int traverseGMResourcesForEdges(GoalModel gm, GoalmodelFactory f,
+			Model m, IRNode root) {
+		int count = 0;
+		int nNode = gm.graph.numChildren(root);		
+		for (int i = 0; i < nNode; i++) {
+			IRNode source = gm.graph.getChild(root, i);
+			String sourceName = gm.getGMNodeName(source);
+			sourceName = sourceName.substring(sourceName.indexOf("_") + 1);
+			Intention sourceGoal = nodes.get(sourceName);
+			if (sourceGoal==null) continue;
+			int nC = gm.graph.numChildren(source);
+			for (int j = 0; j< nC; j++) {
+				IRNode edge = gm.graph.getChildEdge(source, j);
+				IRNode target = gm.graph.getChild(source, j);
+				String targetName = gm.getGMNodeName(target);
+				targetName = targetName.substring(targetName.indexOf("_") + 1);
+				Intention targetGoal = nodes.get(targetName);
+				if (targetGoal!=null && edge != null) {
+					String edgetype = gm.getGMNodeName(edge);
+					String pre = edgetype.substring(edgetype.indexOf("_") + 1);
+					if (pre.equals("AND")) {
+						AndDecomposition d = f.createAndDecomposition();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getDecompositions().add(d);
+						count ++;
+					} else if (pre.equals("OR")) {
+						OrDecomposition d = f.createOrDecomposition();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getDecompositions().add(d);
+						count ++;
+					} else if (pre.equals("+")) {
+						HelpContribution d = f.createHelpContribution();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getContributions().add(d);
+						count ++;
+					} else if (pre.equals("++")) {
+						MakeContribution d = f.createMakeContribution();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getContributions().add(d);
+						count ++;
+					} else if (pre.equals("-")) {
+						HurtContribution d = f.createHurtContribution();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getContributions().add(d);
+						count ++;
+					} else if (pre.equals("--")) {
+						BreakContribution d = f.createBreakContribution();
+						d.setSource(sourceGoal);
+						d.setTarget(targetGoal);
+						m.getContributions().add(d);
+						count ++;
+					}
 				}
 			}
-			traverseGMResourcesForEdges(gm, f, m, childnode, childedgenode);
 		}
+		return count;
 	}
 
 	
@@ -1013,7 +1012,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					IRNode root = gm.getRoot();
 					nodes = new Hashtable<String, Intention>();
 					traverseGMResourcesForNodes(gm, f, m, root, null);
-					traverseGMResourcesForEdges(gm, f, m, root, null);
+					traverseGMResourcesForEdges(gm, f, m, root);
 					resource.getContents().add(m);
 					resource.save(Collections.EMPTY_MAP);
 					resource.unload();
@@ -1125,17 +1124,134 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	
 
 	private void modify_edited_goal_model(GoalModel gm, Resource resource) {
-		Hashtable<Intention, IRNode> table = tables.get(gm);
-		if (table==null) {
-			table = new Hashtable<Intention, IRNode> ();
-			tables.put(gm, table);
+		Hashtable<Intention, IRNode> table = get_mapping_table(gm);
+		IRNode root = mirror_intention_nodes(gm, resource, table);
+		mirror_links_to_edges(gm, resource, table, root);
+	}
+
+	private void mirror_links_to_edges(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table, IRNode root) {
+		HashSet<IRNode> alledges = getAllEdges(gm, root);
+		System.err.println("all edges = " + alledges.size());
+		HashSet<IRNode> existing_edges = new HashSet<IRNode> ();
+		int count = 0;
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
+			Object o = r.next();
+			if (o instanceof Contribution) {
+				Contribution c= (Contribution) o;
+				Intention s = c.getSource();
+				Intention t = c.getTarget();
+				IRNode n_s = table.get(s);
+				IRNode n_t = table.get(t);
+				if (n_s!=null && n_t!=null) {
+					boolean found = false;
+					int numChildren = gm.graph.numChildren(n_s);
+					for (int j = 0; j < numChildren; j++) {
+						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
+						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+						String type = gm.getGMNodeName(edge);
+						if (node == n_t && 
+						   (  type.equals("+") && c instanceof HelpContribution
+						   || type.equals("++") && c instanceof MakeContribution
+						   || type.equals("-") && c instanceof HurtContribution
+						   || type.equals("--") && c instanceof BreakContribution)) 
+						{ // existing edge
+//							System.out.println("FOUND!");
+							found = true;
+							existing_edges.add(edge);
+							break;
+						}
+					}
+					if (!found) {
+						IRNode edge = insert_an_edge(gm, table, c, s, t);
+						if (edge!=null) {
+							existing_edges.add(edge);							
+						} else {
+							count ++;
+						}
+					}
+				} else {
+					IRNode edge = insert_an_edge(gm, table, c, s, t);
+					if (edge!=null) {
+						existing_edges.add(edge);							
+					} else {
+						System.out.println("Not inserted edge: " + s.getName() + " " + t.getName());
+						count ++;
+					}
+				}
+			} else if (o instanceof Decomposition) {
+				Decomposition c= (Decomposition) o;
+				Intention s = c.getSource();
+				Intention t = c.getTarget();
+				IRNode n_s = table.get(s);
+				IRNode n_t = table.get(t);
+				if (n_s!=null && n_t!=null) {
+					boolean found = false;
+					int numChildren = gm.graph.numChildren(n_s);
+					for (int j = 0; j < numChildren; j++) {
+						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
+						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+						String type = get_edge_type(gm, edge);
+						if (node == n_t && 
+						   (  type.equals("AND") && c instanceof AndDecomposition
+						   || type.equals("OR") && c instanceof OrDecomposition)) 
+						{ // existing edge
+							found = true;
+							existing_edges.add(edge);
+							break;
+						}
+					}
+					if (!found) {
+						IRNode edge = insert_an_edge(gm, table, c, s, t);
+						if (edge!=null) {
+							existing_edges.add(edge);							
+						} else {
+							count ++;
+						}
+					}
+				} else {
+					IRNode edge = insert_an_edge(gm, table, c, s, t);
+					if (edge!=null) {
+						existing_edges.add(edge);							
+					} else {
+						count ++;
+					}
+				}
+			}
+		}		
+		System.err.println("inserted edges = " + count);
+		count = 0;
+		for (IRNode e: alledges) {
+			if (!existing_edges.contains(e)) {
+				gm.graph.disconnect(e);
+				count++;
+			}
 		}
+		System.err.println("deleted edges = " + count);
+	}
+
+	private IRNode mirror_intention_nodes(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table) {
 		HashSet<String> set = new HashSet<String>();
 		IRNode root = gm.getRoot();
 		// rename nodes
 		HashSet<IRNode> renamed = new HashSet<IRNode>();
 		HashSet<String> to_add = new HashSet<String>();
 		Hashtable<String, Boolean> to_add_type = new Hashtable<String, Boolean>();
+		rename_mirrored_nodes(gm, resource, table, set, root, renamed, to_add, to_add_type);
+		add_mirrored_nodes(gm, root, to_add, to_add_type);
+		delete_unmirrored_nodes(gm, table, set, root);
+		return root;
+	}
+
+	private Hashtable<Intention, IRNode> get_mapping_table(GoalModel gm) {
+		Hashtable<Intention, IRNode> table = tables.get(gm);
+		if (table==null) {
+			table = new Hashtable<Intention, IRNode> ();
+			tables.put(gm, table);
+		}
+		return table;
+	}
+
+	private void rename_mirrored_nodes(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table, HashSet<String> set, IRNode root, HashSet<IRNode> renamed, HashSet<String> to_add, Hashtable<String, Boolean> to_add_type) {
 		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Intention) {
@@ -1182,13 +1298,21 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			} 
 		}
 		System.err.println("renamed size= " + renamed.size());
+	}
+
+	private void add_mirrored_nodes(GoalModel gm, IRNode root, HashSet<String> to_add, Hashtable<String, Boolean> to_add_type) {
 		System.err.println("added size= " + to_add.size());
 		for (String name: to_add) {
-			IRNode g = gm.createAGoal(name, to_add_type.get(name));
+			Boolean is_hardgoal = to_add_type.get(name);
+			IRNode g = gm.createAGoal(name, is_hardgoal);
 			IRNode vedge = gm.createEdge("virtual");
 			gm.connect(root, g, vedge);
+			System.out.println("add " + (is_hardgoal?"Goal":"Softgoal") + ":" + name);
 //			System.err.println("added name: " + name);
 		}
+	}
+
+	private void delete_unmirrored_nodes(GoalModel gm, Hashtable<Intention, IRNode> table, HashSet<String> set, IRNode root) {
 		// really old nodes removed from table
 		HashSet<IRNode> delete = new HashSet<IRNode>();
 //		System.err.println("renamed and added names: " + set.size());			
@@ -1199,8 +1323,10 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		for (int i= 0; i < numChildren; i++) {
 			IRNode g = (IRNode) gm.graph.getChild(root, i);
 			String name = get_goal_name(gm, g);
+			String type = get_goal_type(gm, g);
 //			System.err.println("compare name: " + name);
 			if (!set.contains(name)) {
+				System.out.println("delete " + (type + ":" + name));
 				delete.add(g);
 			}
 		}
@@ -1209,103 +1335,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			gm.graph.removeNode(g);
 			table.remove(g);
 		}
-		// now add the edges
-		HashSet<IRNode> alledges = getAllEdges(gm, root);
-		System.err.println("all edges = " + alledges.size());
-		HashSet<IRNode> existing_edges = new HashSet<IRNode> ();
-		int count = 0;
-		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
-			Object o = r.next();
-			if (o instanceof Contribution) {
-				Contribution c= (Contribution) o;
-				Intention s = c.getSource();
-				Intention t = c.getTarget();
-				IRNode n_s = table.get(s);
-				IRNode n_t = table.get(t);
-				if (n_s!=null && n_t!=null) {
-					boolean found = false;
-					numChildren = gm.graph.numChildren(n_s);
-					for (int j = 0; j < numChildren; j++) {
-						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
-						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
-						String type = gm.getGMNodeName(edge);
-						if (node == n_t && 
-						   (  type.equals("+") && c instanceof HelpContribution
-						   || type.equals("++") && c instanceof MakeContribution
-						   || type.equals("-") && c instanceof HurtContribution
-						   || type.equals("--") && c instanceof BreakContribution)) 
-						{ // existing edge
-//							System.out.println("FOUND!");
-							found = true;
-							existing_edges.add(edge);
-							break;
-						}
-					}
-					if (!found) {
-						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge!=null) {
-							existing_edges.add(edge);							
-						} else {
-							count ++;
-						}
-					}
-				} else {
-					IRNode edge = insert_an_edge(gm, table, c, s, t);
-					if (edge!=null) {
-						existing_edges.add(edge);							
-					} else {
-						count ++;
-					}
-				}
-			} else if (o instanceof Decomposition) {
-				Decomposition c= (Decomposition) o;
-				Intention s = c.getSource();
-				Intention t = c.getTarget();
-				IRNode n_s = table.get(s);
-				IRNode n_t = table.get(t);
-				if (n_s!=null && n_t!=null) {
-					boolean found = false;
-					numChildren = gm.graph.numChildren(n_s);
-					for (int j = 0; j < numChildren; j++) {
-						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
-						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
-						String type = get_edge_type(gm, edge);
-						if (node == n_t && 
-						   (  type.equals("AND") && c instanceof AndDecomposition
-						   || type.equals("OR") && c instanceof OrDecomposition)) 
-						{ // existing edge
-							found = true;
-							existing_edges.add(edge);
-							break;
-						}
-					}
-					if (!found) {
-						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge!=null) {
-							existing_edges.add(edge);							
-						} else {
-							count ++;
-						}
-					}
-				} else {
-					IRNode edge = insert_an_edge(gm, table, c, s, t);
-					if (edge!=null) {
-						existing_edges.add(edge);							
-					} else {
-						count ++;
-					}
-				}
-			}
-		}		
-		System.err.println("inserted edges = " + count);
-		count = 0;
-		for (IRNode e: alledges) {
-			if (!existing_edges.contains(e)) {
-				gm.graph.disconnect(e);
-				count++;
-			}
-		}
-		System.err.println("deleted edges = " + count);
 	}
 
 	private HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
@@ -1363,8 +1392,10 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		IRNode edge = find_an_edge(gm, table, type, s, t);
 		if (edge==null) {
 			IRNode new_e = gm.createEdge(type);
-			if (table.get(s)!=null && table.get(t)!=null)
+			if (table.get(s)!=null && table.get(t)!=null) {
 				gm.graph.connect(new_e, table.get(s), table.get(t));
+				edge = new_e;
+			}
 		} 
 		return edge;
 	}
@@ -1388,8 +1419,11 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		IRNode edge = find_an_edge(gm, table, type, s, t);
 		if (edge==null) {
 			IRNode new_e = gm.createEdge(type);
-			if (table.get(s)!=null && table.get(t)!=null)
+			if (table.get(s)!=null && table.get(t)!=null) {
 				gm.graph.connect(new_e, table.get(s), table.get(t));
+//				System.out.println("+ edge: " + s.getName() + ", " + t.getName());
+				edge = new_e;
+			}
 		}
 		return edge;
 	}
@@ -1399,7 +1433,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		IRNode edge = null;
 		IRNode new_s = table.get(s);
 		IRNode new_t = table.get(t);
-		if (new_s == null) {
+		if (new_s == null || new_t ==null) {
 			IRNode root = gm.getRoot();
 			int n = gm.graph.numChildren(root);
 			for (int i=0; i<n; i++) {
@@ -1408,12 +1442,10 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 				if (name.equals(s.getName())) {
 					table.put(s, g);
 					new_s = g;
-					break;
 				}
 				if (name.equals(t.getName())) {
 					table.put(t, g);
 					new_t = g;
-					break;
 				}
 			}			
 		}
