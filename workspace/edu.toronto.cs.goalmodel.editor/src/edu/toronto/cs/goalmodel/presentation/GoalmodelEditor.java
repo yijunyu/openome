@@ -1069,31 +1069,6 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 	/*
 	 * nodes will be populated
 	 */
-//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
-//			Model m, IRNode root, IRNode edgenode) {
-//		if (root == null)
-//			return;
-//		String name = gm.getGMNodeName(root);
-//		String prefix = name.substring(0, name.indexOf("_"));
-//		name = name.substring(name.indexOf("_") + 1);
-//		Intention g;
-//		if (!name.equals("VIRTUAL_ROOT")) {
-//			if (prefix.equals("HardGoal"))
-//				g = f.createGoal();
-//			else
-//				g = f.createSoftgoal();
-//			g.setName(name);
-//			m.getIntentions().add(g);
-//			nodes.put(name, g);
-//		}
-//		int numChildren = gm.graph.numChildren(root);
-//		for (int i = 0; i < numChildren; i++) {
-//			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-//			IRNode childnode = gm.graph.getChild(root, i);
-//			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
-//		}
-//	}
-
 	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
 			Model m, IRNode root, IRNode edgenode) {
 		if (root == null)
@@ -1102,25 +1077,50 @@ public class GoalmodelEditor extends MultiPageEditorPart implements
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		Intention g;
-		if (name.equals("VIRTUAL_ROOT")) {
-
-			int numChildren = gm.graph.numChildren(root);
-			for (int i = 0; i < numChildren; i++) {
-				IRNode childedgenode = gm.graph.getChildEdge(root, i);
-				IRNode childnode = gm.graph.getChild(root, i);
-				name = gm.getGMNodeName(childnode);
-				prefix = name.substring(0, name.indexOf("_"));
-				name = name.substring(name.indexOf("_") + 1);				
-				if (prefix.equals("HardGoal"))
-					g = f.createGoal();
-				else
-					g = f.createSoftgoal();
-				g.setName(name);
-				m.getIntentions().add(g);								
-				nodes.put(name, g);
-			}
-		}		
+		if (!name.equals("VIRTUAL_ROOT")) {
+			if (prefix.equals("HardGoal"))
+				g = f.createGoal();
+			else
+				g = f.createSoftgoal();
+			g.setName(name);
+			m.getIntentions().add(g);
+			nodes.put(name, g);
+		}
+		int numChildren = gm.graph.numChildren(root);
+		for (int i = 0; i < numChildren; i++) {
+			IRNode childedgenode = gm.graph.getChildEdge(root, i);
+			IRNode childnode = gm.graph.getChild(root, i);
+			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
+		}
 	}
+
+//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
+//			Model m, IRNode root, IRNode edgenode) {
+//		if (root == null)
+//			return;
+//		String name = gm.getGMNodeName(root);
+//		String prefix = name.substring(0, name.indexOf("_"));
+//		name = name.substring(name.indexOf("_") + 1);
+//		Intention g;
+//		if (name.equals("VIRTUAL_ROOT")) {
+//
+//			int numChildren = gm.graph.numChildren(root);
+//			for (int i = 0; i < numChildren; i++) {
+//				IRNode childedgenode = gm.graph.getChildEdge(root, i);
+//				IRNode childnode = gm.graph.getChild(root, i);
+//				name = gm.getGMNodeName(childnode);
+//				prefix = name.substring(0, name.indexOf("_"));
+//				name = name.substring(name.indexOf("_") + 1);				
+//				if (prefix.equals("HardGoal"))
+//					g = f.createGoal();
+//				else
+//					g = f.createSoftgoal();
+//				g.setName(name);
+//				m.getIntentions().add(g);								
+//				nodes.put(name, g);
+//			}
+//		}		
+//	}
 	
 	/**
 	 * nodes will be used

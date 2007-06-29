@@ -301,7 +301,6 @@ public class GoalModel extends IStar {
 		}
 		if (Computing.propertyHolds("q7.codegen.creating_dependencies"))
 			create_dependencies();
-//		output_serialized_views_and_objects();
 		output_to_xmi(out_file);	
 	}
 
@@ -320,8 +319,6 @@ public class GoalModel extends IStar {
 		m.setName(out_file);
 		create_actor_elements(hm);
 		create_goal_elements(hm);
-//		set_decomposition_types(hm);
-//		propagate_actor_elements(hm);
 		create_relationships(hm);
 		try {
 			resource.getContents().add(m);
@@ -373,14 +370,17 @@ public class GoalModel extends IStar {
 		// sorting is necessary to maintain the ordering
 		// of the subgoals, though it is much less efficient
 		SortArrayList sorted_keys = new SortArrayList();
+		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
 		for (Enumeration<IStarElement> i = elements.elements(); i.hasMoreElements(); ) {
 			IStarElement p = i.nextElement();
-			sorted_keys.add((Object) p);
+			sorted_keys.add(p.id);
+			table.put(p.id, p);
 		}
 		for (int i=0; i<sorted_keys.size(); i++) {
-			IStarElement g1 = (IStarElement) sorted_keys.get(i);
+			IStarElement g1 = table.get((Integer) sorted_keys.get(i));
+//			System.err.println(g1.id + " " + g1.name);
 			for (int j=0; j<sorted_keys.size(); j++) {
-				IStarElement g2 = (IStarElement) sorted_keys.get(j);					
+				IStarElement g2 = table.get((Integer) sorted_keys.get(j));
 				for (Enumeration k = links.keys(); k.hasMoreElements();) {
 					IStarLink s = links.get(k.nextElement());
 					if (g1.id == s.from.id && g2.id == s.to.id) { 
@@ -425,14 +425,10 @@ public class GoalModel extends IStar {
 							c.setSource(y);
 							c.setTarget(x);
 							m.getContributions().add(c);
-//							resource.getContents().add(c);
 						} else {
 							Dependency c = f.createDependency();
 							c.setDependencyFrom(x);
 							c.setDependencyTo(y);
-//							x.getDependencyFrom().add(c);
-//							y.getDependencyTo().add(c);							
-//							resource.getContents().add(c);
 							m.getDependencies().add(c);
 						}
 					}
@@ -471,8 +467,15 @@ public class GoalModel extends IStar {
 	}
 	@SuppressWarnings("unchecked")
 	private void create_goal_elements(HashMap<Integer, EObject> hm) {
-		for (Enumeration<Advice> i = elements.keys(); i.hasMoreElements();) {
-			IStarElement g = elements.get(i.nextElement());
+		SortArrayList sorted_keys = new SortArrayList();
+		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
+		for (Enumeration<IStarElement> i = elements.elements(); i.hasMoreElements(); ) {
+			IStarElement p = i.nextElement();
+			sorted_keys.add(p.id);
+			table.put(p.id, p);
+		}		
+		for (int i=0; i<sorted_keys.size(); i++) {
+			IStarElement g = table.get((Integer) sorted_keys.get(i));
 			if (!g.isAgent && !g.isAspect && 
 					g.name!=null && !g.name.equals("")) {
 				Intention x = f.createIntention();
