@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * Modeler predefined day of week
  * <!-- end-model-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getDayOfWeek()
- * @model
+ * @model extendedMetaData="name='DayOfWeek'"
  * @generated
  */
 public final class DayOfWeek extends AbstractEnumerator {
@@ -273,7 +273,7 @@ public final class DayOfWeek extends AbstractEnumerator {
 			case SATURDAY: return SATURDAY_LITERAL;
 			case SUNDAY: return SUNDAY_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

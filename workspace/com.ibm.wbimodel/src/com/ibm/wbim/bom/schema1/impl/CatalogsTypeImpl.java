@@ -44,7 +44,7 @@ public class CatalogsTypeImpl extends EObjectImpl implements CatalogsType {
 	 * @generated
 	 * @ordered
 	 */
-	protected Catalogs dataCatalogs = null;
+	protected Catalogs dataCatalogs;
 
 	/**
 	 * The cached value of the '{@link #getResourceCatalogs() <em>Resource Catalogs</em>}' containment reference.
@@ -54,7 +54,7 @@ public class CatalogsTypeImpl extends EObjectImpl implements CatalogsType {
 	 * @generated
 	 * @ordered
 	 */
-	protected Catalogs resourceCatalogs = null;
+	protected Catalogs resourceCatalogs;
 
 	/**
 	 * The cached value of the '{@link #getOrganizationCatalogs() <em>Organization Catalogs</em>}' containment reference.
@@ -64,7 +64,7 @@ public class CatalogsTypeImpl extends EObjectImpl implements CatalogsType {
 	 * @generated
 	 * @ordered
 	 */
-	protected Catalogs organizationCatalogs = null;
+	protected Catalogs organizationCatalogs;
 
 	/**
 	 * The cached value of the '{@link #getProcessCatalogs() <em>Process Catalogs</em>}' containment reference.
@@ -74,7 +74,7 @@ public class CatalogsTypeImpl extends EObjectImpl implements CatalogsType {
 	 * @generated
 	 * @ordered
 	 */
-	protected Catalogs processCatalogs = null;
+	protected Catalogs processCatalogs;
 
 	/**
 	 * <!-- begin-user-doc -->

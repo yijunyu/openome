@@ -49,7 +49,7 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BusinessItemTemplatesType businessItemTemplates = null;
+	protected BusinessItemTemplatesType businessItemTemplates;
 
 	/**
 	 * The cached value of the '{@link #getBusinessItems() <em>Business Items</em>}' containment reference.
@@ -59,7 +59,7 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BusinessItemsType businessItems = null;
+	protected BusinessItemsType businessItems;
 
 	/**
 	 * The cached value of the '{@link #getBusinessItemInstances() <em>Business Item Instances</em>}' containment reference.
@@ -69,7 +69,7 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BusinessItemInstancesType businessItemInstances = null;
+	protected BusinessItemInstancesType businessItemInstances;
 
 	/**
 	 * The cached value of the '{@link #getNotificationTemplates() <em>Notification Templates</em>}' containment reference.
@@ -79,7 +79,7 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected NotificationTemplatesType notificationTemplates = null;
+	protected NotificationTemplatesType notificationTemplates;
 
 	/**
 	 * The cached value of the '{@link #getNotifications() <em>Notifications</em>}' containment reference.
@@ -89,7 +89,7 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected NotificationsType notifications = null;
+	protected NotificationsType notifications;
 
 	/**
 	 * <!-- begin-user-doc -->

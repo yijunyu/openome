@@ -46,7 +46,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList repository = null;
+	protected EList repository;
 
 	/**
 	 * <!-- begin-user-doc -->

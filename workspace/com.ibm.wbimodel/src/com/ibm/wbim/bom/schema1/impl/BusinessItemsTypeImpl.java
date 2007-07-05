@@ -46,7 +46,7 @@ public class BusinessItemsTypeImpl extends EObjectImpl implements BusinessItemsT
 	 * @generated
 	 * @ordered
 	 */
-	protected EList businessItem = null;
+	protected EList businessItem;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -51,7 +51,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected CatalogsType catalogs = null;
+	protected CatalogsType catalogs;
 
 	/**
 	 * The cached value of the '{@link #getDataModel() <em>Data Model</em>}' containment reference.
@@ -61,7 +61,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected DataModel dataModel = null;
+	protected DataModel dataModel;
 
 	/**
 	 * The cached value of the '{@link #getResourceModel() <em>Resource Model</em>}' containment reference.
@@ -71,7 +71,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceModel resourceModel = null;
+	protected ResourceModel resourceModel;
 
 	/**
 	 * The cached value of the '{@link #getOrganizationModel() <em>Organization Model</em>}' containment reference.
@@ -81,7 +81,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected OrganizationModel organizationModel = null;
+	protected OrganizationModel organizationModel;
 
 	/**
 	 * The cached value of the '{@link #getProcessModel() <em>Process Model</em>}' containment reference.
@@ -91,7 +91,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessModel processModel = null;
+	protected ProcessModel processModel;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -140,7 +140,7 @@ public class ModelTypeImpl extends EObjectImpl implements ModelType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean schemaVersionESet = false;
+	protected boolean schemaVersionESet;
 
 	/**
 	 * <!-- begin-user-doc -->

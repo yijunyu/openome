@@ -79,7 +79,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList scopeDimension = null;
+	protected EList scopeDimension;
 
 	/**
 	 * The cached value of the '{@link #getIndividualResourceCostType() <em>Individual Resource Cost Type</em>}' attribute list.
@@ -89,7 +89,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap individualResourceCostType = null;
+	protected FeatureMap individualResourceCostType;
 
 	/**
 	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference list.
@@ -99,7 +99,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList availability = null;
+	protected EList availability;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -109,7 +109,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -200,7 +200,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 */
 	public EList getOneTimeCost() {
-		return ((FeatureMap)getIndividualResourceCostType()).list(Schema1Package.Literals.ROLE__ONE_TIME_COST);
+		return getIndividualResourceCostType().list(Schema1Package.Literals.ROLE__ONE_TIME_COST);
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class RoleImpl extends EObjectImpl implements Role {
 	 * @generated
 	 */
 	public EList getCostPerTimeUnit() {
-		return ((FeatureMap)getIndividualResourceCostType()).list(Schema1Package.Literals.ROLE__COST_PER_TIME_UNIT);
+		return getIndividualResourceCostType().list(Schema1Package.Literals.ROLE__COST_PER_TIME_UNIT);
 	}
 
 	/**

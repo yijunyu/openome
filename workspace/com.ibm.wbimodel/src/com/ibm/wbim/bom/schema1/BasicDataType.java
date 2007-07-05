@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * Modeler predefined basic types
  * <!-- end-model-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getBasicDataType()
- * @model
+ * @model extendedMetaData="name='BasicDataType'"
  * @generated
  */
 public final class BasicDataType extends AbstractEnumerator {
@@ -408,7 +408,7 @@ public final class BasicDataType extends AbstractEnumerator {
 			case STRING: return STRING_LITERAL;
 			case TIME: return TIME_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

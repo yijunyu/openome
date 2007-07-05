@@ -48,7 +48,7 @@ public class InputsImpl extends EObjectImpl implements Inputs {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList input = null;
+	protected EList input;
 
 	/**
 	 * The cached value of the '{@link #getInputCriterion() <em>Input Criterion</em>}' containment reference list.
@@ -58,7 +58,7 @@ public class InputsImpl extends EObjectImpl implements Inputs {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputCriterion = null;
+	protected EList inputCriterion;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -46,7 +46,7 @@ public class TasksTypeImpl extends EObjectImpl implements TasksType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList task = null;
+	protected EList task;
 
 	/**
 	 * <!-- begin-user-doc -->

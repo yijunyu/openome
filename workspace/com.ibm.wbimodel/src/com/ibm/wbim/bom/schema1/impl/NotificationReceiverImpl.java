@@ -41,7 +41,7 @@ public class NotificationReceiverImpl extends TaskImpl implements NotificationRe
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression notificationFilter = null;
+	protected Expression notificationFilter;
 
 	/**
 	 * The default value of the '{@link #getNotification() <em>Notification</em>}' attribute.

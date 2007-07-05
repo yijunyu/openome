@@ -82,7 +82,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected Inputs inputs = null;
+	protected Inputs inputs;
 
 	/**
 	 * The cached value of the '{@link #getOutputs() <em>Outputs</em>}' containment reference.
@@ -92,7 +92,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected Outputs outputs = null;
+	protected Outputs outputs;
 
 	/**
 	 * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference list.
@@ -102,7 +102,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected EList precondition = null;
+	protected EList precondition;
 
 	/**
 	 * The cached value of the '{@link #getPostcondition() <em>Postcondition</em>}' containment reference list.
@@ -112,7 +112,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected EList postcondition = null;
+	protected EList postcondition;
 
 	/**
 	 * The cached value of the '{@link #getOrganizations() <em>Organizations</em>}' containment reference.
@@ -122,7 +122,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected Organizations organizations = null;
+	protected Organizations organizations;
 
 	/**
 	 * The cached value of the '{@link #getOperationalData() <em>Operational Data</em>}' containment reference.
@@ -132,7 +132,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected OperationalData operationalData = null;
+	protected OperationalData operationalData;
 
 	/**
 	 * The cached value of the '{@link #getFlowContent() <em>Flow Content</em>}' containment reference.
@@ -142,7 +142,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected FlowContentType flowContent = null;
+	protected FlowContentType flowContent;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -152,7 +152,7 @@ public class ProcessImpl extends EObjectImpl implements com.ibm.wbim.bom.schema1
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -9,6 +9,7 @@ package com.ibm.wbim.bom.schema1.impl;
 import com.ibm.wbim.bom.schema1.ConstantTimeType;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +39,7 @@ public class ConstantTimeTypeImpl extends EObjectImpl implements ConstantTimeTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object TIME_EDEFAULT = null;
+	protected static final XMLGregorianCalendar TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
@@ -48,7 +49,7 @@ public class ConstantTimeTypeImpl extends EObjectImpl implements ConstantTimeTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected Object time = TIME_EDEFAULT;
+	protected XMLGregorianCalendar time = TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +74,7 @@ public class ConstantTimeTypeImpl extends EObjectImpl implements ConstantTimeTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getTime() {
+	public XMLGregorianCalendar getTime() {
 		return time;
 	}
 
@@ -82,8 +83,8 @@ public class ConstantTimeTypeImpl extends EObjectImpl implements ConstantTimeTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTime(Object newTime) {
-		Object oldTime = time;
+	public void setTime(XMLGregorianCalendar newTime) {
+		XMLGregorianCalendar oldTime = time;
 		time = newTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.CONSTANT_TIME_TYPE__TIME, oldTime, time));
@@ -110,7 +111,7 @@ public class ConstantTimeTypeImpl extends EObjectImpl implements ConstantTimeTyp
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Schema1Package.CONSTANT_TIME_TYPE__TIME:
-				setTime((Object)newValue);
+				setTime((XMLGregorianCalendar)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

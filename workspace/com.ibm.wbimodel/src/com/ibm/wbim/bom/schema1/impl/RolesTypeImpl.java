@@ -46,7 +46,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList role = null;
+	protected EList role;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -71,7 +71,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected RepositoryDataValue defaultValues = null;
+	protected RepositoryDataValue defaultValues;
 
 	/**
 	 * The cached value of the '{@link #getComputedValues() <em>Computed Values</em>}' containment reference.
@@ -81,7 +81,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected RepositoryDataValue computedValues = null;
+	protected RepositoryDataValue computedValues;
 
 	/**
 	 * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
@@ -110,7 +110,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean capacityESet = false;
+	protected boolean capacityESet;
 
 	/**
 	 * The default value of the '{@link #isIsOrdered() <em>Is Ordered</em>}' attribute.
@@ -139,7 +139,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isOrderedESet = false;
+	protected boolean isOrderedESet;
 
 	/**
 	 * The default value of the '{@link #isIsReadOnly() <em>Is Read Only</em>}' attribute.
@@ -168,7 +168,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isReadOnlyESet = false;
+	protected boolean isReadOnlyESet;
 
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
@@ -197,7 +197,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isUniqueESet = false;
+	protected boolean isUniqueESet;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -246,7 +246,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean typeESet = false;
+	protected boolean typeESet;
 
 	/**
 	 * <!-- begin-user-doc -->

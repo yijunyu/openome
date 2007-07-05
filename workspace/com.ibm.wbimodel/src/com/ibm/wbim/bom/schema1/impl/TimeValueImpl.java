@@ -10,6 +10,7 @@ import com.ibm.wbim.bom.schema1.DistributionType1;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 import com.ibm.wbim.bom.schema1.TimeValue;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -42,7 +43,7 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object LITERAL_VALUE_EDEFAULT = null;
+	protected static final Duration LITERAL_VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLiteralValue() <em>Literal Value</em>}' attribute.
@@ -52,7 +53,7 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object literalValue = LITERAL_VALUE_EDEFAULT;
+	protected Duration literalValue = LITERAL_VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' containment reference.
@@ -62,7 +63,7 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected DistributionType1 distribution = null;
+	protected DistributionType1 distribution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,7 +88,7 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getLiteralValue() {
+	public Duration getLiteralValue() {
 		return literalValue;
 	}
 
@@ -96,8 +97,8 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLiteralValue(Object newLiteralValue) {
-		Object oldLiteralValue = literalValue;
+	public void setLiteralValue(Duration newLiteralValue) {
+		Duration oldLiteralValue = literalValue;
 		literalValue = newLiteralValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.TIME_VALUE__LITERAL_VALUE, oldLiteralValue, literalValue));
@@ -182,7 +183,7 @@ public class TimeValueImpl extends EObjectImpl implements TimeValue {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Schema1Package.TIME_VALUE__LITERAL_VALUE:
-				setLiteralValue((Object)newValue);
+				setLiteralValue((Duration)newValue);
 				return;
 			case Schema1Package.TIME_VALUE__DISTRIBUTION:
 				setDistribution((DistributionType1)newValue);

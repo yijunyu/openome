@@ -47,7 +47,7 @@ public class ProcessModelImpl extends EObjectImpl implements ProcessModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessesType processes = null;
+	protected ProcessesType processes;
 
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference.
@@ -57,7 +57,7 @@ public class ProcessModelImpl extends EObjectImpl implements ProcessModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected TasksType tasks = null;
+	protected TasksType tasks;
 
 	/**
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference.
@@ -67,7 +67,7 @@ public class ProcessModelImpl extends EObjectImpl implements ProcessModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected RepositoriesType repositories = null;
+	protected RepositoriesType repositories;
 
 	/**
 	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference.
@@ -77,7 +77,7 @@ public class ProcessModelImpl extends EObjectImpl implements ProcessModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected ServicesType services = null;
+	protected ServicesType services;
 
 	/**
 	 * <!-- begin-user-doc -->

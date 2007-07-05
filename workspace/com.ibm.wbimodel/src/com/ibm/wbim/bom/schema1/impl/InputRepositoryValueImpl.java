@@ -45,7 +45,7 @@ public class InputRepositoryValueImpl extends EObjectImpl implements InputReposi
 	 * @generated
 	 * @ordered
 	 */
-	protected LocalRepositoryRef localRepository = null;
+	protected LocalRepositoryRef localRepository;
 
 	/**
 	 * The cached value of the '{@link #getGlobalRepository() <em>Global Repository</em>}' containment reference.
@@ -55,7 +55,7 @@ public class InputRepositoryValueImpl extends EObjectImpl implements InputReposi
 	 * @generated
 	 * @ordered
 	 */
-	protected GlobalRepositoryRef globalRepository = null;
+	protected GlobalRepositoryRef globalRepository;
 
 	/**
 	 * The default value of the '{@link #isAtBeginning() <em>At Beginning</em>}' attribute.
@@ -84,7 +84,7 @@ public class InputRepositoryValueImpl extends EObjectImpl implements InputReposi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean atBeginningESet = false;
+	protected boolean atBeginningESet;
 
 	/**
 	 * The default value of the '{@link #isIsRemove() <em>Is Remove</em>}' attribute.
@@ -113,7 +113,7 @@ public class InputRepositoryValueImpl extends EObjectImpl implements InputReposi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isRemoveESet = false;
+	protected boolean isRemoveESet;
 
 	/**
 	 * <!-- begin-user-doc -->

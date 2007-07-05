@@ -51,7 +51,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected InputConstantValue constantValue = null;
+	protected InputConstantValue constantValue;
 
 	/**
 	 * The cached value of the '{@link #getRepositoryValue() <em>Repository Value</em>}' containment reference.
@@ -61,7 +61,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected InputRepositoryValue repositoryValue = null;
+	protected InputRepositoryValue repositoryValue;
 
 	/**
 	 * The default value of the '{@link #getAssociatedData() <em>Associated Data</em>}' attribute.
@@ -110,7 +110,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isOrderedESet = false;
+	protected boolean isOrderedESet;
 
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
@@ -139,7 +139,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isUniqueESet = false;
+	protected boolean isUniqueESet;
 
 	/**
 	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -168,7 +168,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean maximumESet = false;
+	protected boolean maximumESet;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -197,7 +197,7 @@ public class InputImpl extends EObjectImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean minimumESet = false;
+	protected boolean minimumESet;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -605,7 +605,7 @@ public class InputImpl extends EObjectImpl implements Input {
 				setRepositoryValue((InputRepositoryValue)newValue);
 				return;
 			case Schema1Package.INPUT__ASSOCIATED_DATA:
-				setAssociatedData((Object)newValue);
+				setAssociatedData(newValue);
 				return;
 			case Schema1Package.INPUT__IS_ORDERED:
 				setIsOrdered(((Boolean)newValue).booleanValue());

@@ -49,7 +49,7 @@ public class PrivateInstanceImpl extends EObjectImpl implements PrivateInstance 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attributeValue = null;
+	protected EList attributeValue;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

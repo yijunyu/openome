@@ -72,7 +72,7 @@ public class ForkImpl extends EObjectImpl implements Fork {
 	 * @generated
 	 * @ordered
 	 */
-	protected InputBranch inputBranch = null;
+	protected InputBranch inputBranch;
 
 	/**
 	 * The cached value of the '{@link #getOutputBranch() <em>Output Branch</em>}' containment reference list.
@@ -82,7 +82,7 @@ public class ForkImpl extends EObjectImpl implements Fork {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList outputBranch = null;
+	protected EList outputBranch;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

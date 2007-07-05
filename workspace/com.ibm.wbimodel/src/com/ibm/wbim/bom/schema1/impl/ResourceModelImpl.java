@@ -55,7 +55,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected IndividualResourceDefinitionTemplatesType individualResourceDefinitionTemplates = null;
+	protected IndividualResourceDefinitionTemplatesType individualResourceDefinitionTemplates;
 
 	/**
 	 * The cached value of the '{@link #getIndividualResourceDefinitions() <em>Individual Resource Definitions</em>}' containment reference.
@@ -65,7 +65,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected IndividualResourceDefinitionsType individualResourceDefinitions = null;
+	protected IndividualResourceDefinitionsType individualResourceDefinitions;
 
 	/**
 	 * The cached value of the '{@link #getBulkResourceDefinitionTemplates() <em>Bulk Resource Definition Templates</em>}' containment reference.
@@ -75,7 +75,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BulkResourceDefinitionTemplatesType bulkResourceDefinitionTemplates = null;
+	protected BulkResourceDefinitionTemplatesType bulkResourceDefinitionTemplates;
 
 	/**
 	 * The cached value of the '{@link #getBulkResourceDefinitions() <em>Bulk Resource Definitions</em>}' containment reference.
@@ -85,7 +85,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BulkResourceDefinitionsType bulkResourceDefinitions = null;
+	protected BulkResourceDefinitionsType bulkResourceDefinitions;
 
 	/**
 	 * The cached value of the '{@link #getIndividualResources() <em>Individual Resources</em>}' containment reference.
@@ -95,7 +95,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected IndividualResourcesType individualResources = null;
+	protected IndividualResourcesType individualResources;
 
 	/**
 	 * The cached value of the '{@link #getBulkResources() <em>Bulk Resources</em>}' containment reference.
@@ -105,7 +105,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected BulkResourcesType bulkResources = null;
+	protected BulkResourcesType bulkResources;
 
 	/**
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference.
@@ -115,7 +115,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected RolesType roles = null;
+	protected RolesType roles;
 
 	/**
 	 * The cached value of the '{@link #getTimetables() <em>Timetables</em>}' containment reference.
@@ -125,7 +125,7 @@ public class ResourceModelImpl extends EObjectImpl implements ResourceModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected TimetablesType timetables = null;
+	protected TimetablesType timetables;
 
 	/**
 	 * <!-- begin-user-doc -->

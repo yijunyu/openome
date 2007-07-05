@@ -49,7 +49,7 @@ public class CatalogImpl extends EObjectImpl implements Catalog {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList catalog = null;
+	protected EList catalog;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.

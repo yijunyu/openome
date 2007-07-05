@@ -49,7 +49,7 @@ public class AdditionalOutputTypeImpl extends EObjectImpl implements AdditionalO
 	 * @generated
 	 * @ordered
 	 */
-	protected EList outputCriterion = null;
+	protected EList outputCriterion;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

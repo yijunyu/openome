@@ -58,7 +58,7 @@ public class UniformTypeImpl extends EObjectImpl implements UniformType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean maximumESet = false;
+	protected boolean maximumESet;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -87,7 +87,7 @@ public class UniformTypeImpl extends EObjectImpl implements UniformType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean minimumESet = false;
+	protected boolean minimumESet;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -72,7 +72,7 @@ public class JoinImpl extends EObjectImpl implements Join {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputBranch = null;
+	protected EList inputBranch;
 
 	/**
 	 * The cached value of the '{@link #getOutputBranch() <em>Output Branch</em>}' containment reference.
@@ -82,7 +82,7 @@ public class JoinImpl extends EObjectImpl implements Join {
 	 * @generated
 	 * @ordered
 	 */
-	protected OutputBranch outputBranch = null;
+	protected OutputBranch outputBranch;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

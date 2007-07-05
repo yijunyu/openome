@@ -43,8 +43,8 @@ public final class WbimodelerEditorPlugin extends EMFPlugin {
 	 */
 	public WbimodelerEditorPlugin() {
 		super
-		  (new ResourceLocator [] {
-		   });
+			(new ResourceLocator [] {
+			});
 	}
 
 	/**
@@ -84,7 +84,7 @@ public final class WbimodelerEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

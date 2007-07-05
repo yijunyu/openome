@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -52,7 +53,7 @@ public class q7emf implements IConvertor {
 					new XMIResourceFactoryImpl());
 			resourceSet.getPackageRegistry().put(Q7dslPackage.eNS_URI, Q7dslPackage.eINSTANCE);
 			Resource resource = resourceSet.createResource(URI.createFileURI(output));
-			resource.getContents().add(o);
+			resource.getContents().add((EObject) o);
 			resource.save(Collections.EMPTY_MAP);
 			resource.unload();
 		} catch (FileNotFoundException e) {

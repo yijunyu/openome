@@ -51,7 +51,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected OrganizationDefinitionTemplatesType organizationDefinitionTemplates = null;
+	protected OrganizationDefinitionTemplatesType organizationDefinitionTemplates;
 
 	/**
 	 * The cached value of the '{@link #getOrganizationDefinitions() <em>Organization Definitions</em>}' containment reference.
@@ -61,7 +61,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected OrganizationDefinitionsType organizationDefinitions = null;
+	protected OrganizationDefinitionsType organizationDefinitions;
 
 	/**
 	 * The cached value of the '{@link #getOrganizationUnits() <em>Organization Units</em>}' containment reference.
@@ -71,7 +71,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected OrganizationUnitsType organizationUnits = null;
+	protected OrganizationUnitsType organizationUnits;
 
 	/**
 	 * The cached value of the '{@link #getLocationDefinitionTemplates() <em>Location Definition Templates</em>}' containment reference.
@@ -81,7 +81,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected LocationDefinitionTemplatesType locationDefinitionTemplates = null;
+	protected LocationDefinitionTemplatesType locationDefinitionTemplates;
 
 	/**
 	 * The cached value of the '{@link #getLocationDefinitions() <em>Location Definitions</em>}' containment reference.
@@ -91,7 +91,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected LocationDefinitionsType locationDefinitions = null;
+	protected LocationDefinitionsType locationDefinitions;
 
 	/**
 	 * The cached value of the '{@link #getLocations() <em>Locations</em>}' containment reference.
@@ -101,7 +101,7 @@ public class OrganizationModelImpl extends EObjectImpl implements OrganizationMo
 	 * @generated
 	 * @ordered
 	 */
-	protected LocationsType locations = null;
+	protected LocationsType locations;
 
 	/**
 	 * <!-- begin-user-doc -->

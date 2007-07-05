@@ -63,7 +63,7 @@ public class CostValueImpl extends EObjectImpl implements CostValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean literalValueESet = false;
+	protected boolean literalValueESet;
 
 	/**
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' containment reference.
@@ -73,7 +73,7 @@ public class CostValueImpl extends EObjectImpl implements CostValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected DistributionType distribution = null;
+	protected DistributionType distribution;
 
 	/**
 	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute.
@@ -102,7 +102,7 @@ public class CostValueImpl extends EObjectImpl implements CostValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean currencyESet = false;
+	protected boolean currencyESet;
 
 	/**
 	 * <!-- begin-user-doc -->

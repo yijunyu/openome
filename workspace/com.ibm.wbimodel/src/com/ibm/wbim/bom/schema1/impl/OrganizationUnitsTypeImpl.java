@@ -46,7 +46,7 @@ public class OrganizationUnitsTypeImpl extends EObjectImpl implements Organizati
 	 * @generated
 	 * @ordered
 	 */
-	protected EList organizationUnit = null;
+	protected EList organizationUnit;
 
 	/**
 	 * <!-- begin-user-doc -->

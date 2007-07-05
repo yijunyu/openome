@@ -53,7 +53,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected ManagerOfEmployeeType managerOfEmployee = null;
+	protected ManagerOfEmployeeType managerOfEmployee;
 
 	/**
 	 * The cached value of the '{@link #getManagerOfEmployeeByID() <em>Manager Of Employee By ID</em>}' containment reference.
@@ -63,7 +63,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected ManagerOfEmployeeByIDType managerOfEmployeeByID = null;
+	protected ManagerOfEmployeeByIDType managerOfEmployeeByID;
 
 	/**
 	 * The cached value of the '{@link #getPersonSearch() <em>Person Search</em>}' containment reference.
@@ -73,7 +73,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected PersonSearchType personSearch = null;
+	protected PersonSearchType personSearch;
 
 	/**
 	 * The cached value of the '{@link #getPersonName() <em>Person Name</em>}' containment reference.
@@ -83,7 +83,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected PersonNameType personName = null;
+	protected PersonNameType personName;
 
 	/**
 	 * The cached value of the '{@link #getGroupMembers() <em>Group Members</em>}' containment reference.
@@ -93,7 +93,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected GroupMembersType groupMembers = null;
+	protected GroupMembersType groupMembers;
 
 	/**
 	 * The cached value of the '{@link #getGroupSearch() <em>Group Search</em>}' containment reference.
@@ -103,7 +103,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected GroupSearchType groupSearch = null;
+	protected GroupSearchType groupSearch;
 
 	/**
 	 * The cached value of the '{@link #getOrganizationManager() <em>Organization Manager</em>}' containment reference.
@@ -113,7 +113,7 @@ public class CriteriaTemplateImpl extends EObjectImpl implements CriteriaTemplat
 	 * @generated
 	 * @ordered
 	 */
-	protected OrganizationManagerType organizationManager = null;
+	protected OrganizationManagerType organizationManager;
 
 	/**
 	 * <!-- begin-user-doc -->

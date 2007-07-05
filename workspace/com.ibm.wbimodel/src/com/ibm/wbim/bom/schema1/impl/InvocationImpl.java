@@ -58,7 +58,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputConstantValue = null;
+	protected EList inputConstantValue;
 
 	/**
 	 * The cached value of the '{@link #getInputRepositoryValue() <em>Input Repository Value</em>}' containment reference list.
@@ -68,7 +68,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputRepositoryValue = null;
+	protected EList inputRepositoryValue;
 
 	/**
 	 * The cached value of the '{@link #getOutputRepositoryValue() <em>Output Repository Value</em>}' containment reference list.
@@ -78,7 +78,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList outputRepositoryValue = null;
+	protected EList outputRepositoryValue;
 
 	/**
 	 * The cached value of the '{@link #getAdditionalInput() <em>Additional Input</em>}' containment reference list.
@@ -88,7 +88,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList additionalInput = null;
+	protected EList additionalInput;
 
 	/**
 	 * The cached value of the '{@link #getAdditionalOutput() <em>Additional Output</em>}' containment reference list.
@@ -98,7 +98,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList additionalOutput = null;
+	protected EList additionalOutput;
 
 	/**
 	 * The default value of the '{@link #isCallSynchronously() <em>Call Synchronously</em>}' attribute.
@@ -127,7 +127,7 @@ public class InvocationImpl extends EObjectImpl implements Invocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean callSynchronouslyESet = false;
+	protected boolean callSynchronouslyESet;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -6,6 +6,8 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -37,13 +39,13 @@ public interface RecurringTimeIntervalType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Time</em>' attribute.
-	 * @see #setStartTime(Object)
+	 * @see #setStartTime(XMLGregorianCalendar)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getRecurringTimeIntervalType_StartTime()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.DateTime"
 	 *        extendedMetaData="kind='element' name='startTime' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Object getStartTime();
+	XMLGregorianCalendar getStartTime();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.RecurringTimeIntervalType#getStartTime <em>Start Time</em>}' attribute.
@@ -53,7 +55,7 @@ public interface RecurringTimeIntervalType extends EObject {
 	 * @see #getStartTime()
 	 * @generated
 	 */
-	void setStartTime(Object value);
+	void setStartTime(XMLGregorianCalendar value);
 
 	/**
 	 * Returns the value of the '<em><b>Start Day Of Week</b></em>' containment reference.
@@ -91,13 +93,13 @@ public interface RecurringTimeIntervalType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Duration</em>' attribute.
-	 * @see #setDuration(Object)
+	 * @see #setDuration(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getRecurringTimeIntervalType_Duration()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='duration'"
 	 * @generated
 	 */
-	Object getDuration();
+	Duration getDuration();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.RecurringTimeIntervalType#getDuration <em>Duration</em>}' attribute.
@@ -107,7 +109,7 @@ public interface RecurringTimeIntervalType extends EObject {
 	 * @see #getDuration()
 	 * @generated
 	 */
-	void setDuration(Object value);
+	void setDuration(Duration value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

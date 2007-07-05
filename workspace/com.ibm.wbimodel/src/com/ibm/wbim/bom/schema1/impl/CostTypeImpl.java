@@ -44,7 +44,7 @@ public class CostTypeImpl extends EObjectImpl implements CostType {
 	 * @generated
 	 * @ordered
 	 */
-	protected CostValue executionCost = null;
+	protected CostValue executionCost;
 
 	/**
 	 * The cached value of the '{@link #getStartupCost() <em>Startup Cost</em>}' containment reference.
@@ -54,7 +54,7 @@ public class CostTypeImpl extends EObjectImpl implements CostType {
 	 * @generated
 	 * @ordered
 	 */
-	protected CostValue startupCost = null;
+	protected CostValue startupCost;
 
 	/**
 	 * The cached value of the '{@link #getResourceWaitingCost() <em>Resource Waiting Cost</em>}' containment reference.
@@ -64,7 +64,7 @@ public class CostTypeImpl extends EObjectImpl implements CostType {
 	 * @generated
 	 * @ordered
 	 */
-	protected CostPerTimeUnitValue resourceWaitingCost = null;
+	protected CostPerTimeUnitValue resourceWaitingCost;
 
 	/**
 	 * <!-- begin-user-doc -->

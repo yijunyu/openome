@@ -2255,7 +2255,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 		Object result = null;
 		RuntimeException exception = null;
 		try {
-			result = (Object)createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
+			result = createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2264,7 +2264,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (Object)createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
+			result = createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2290,6 +2290,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceValue)) {
@@ -2298,6 +2299,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
@@ -2309,7 +2311,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public BasicDataType createBasicDataTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return (BasicDataType)createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
+		return createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
 	}
 
 	/**
@@ -2327,7 +2329,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public Currency createCurrencyObjectFromString(EDataType eDataType, String initialValue) {
-		return (Currency)createCurrencyFromString(Schema1Package.Literals.CURRENCY, initialValue);
+		return createCurrencyFromString(Schema1Package.Literals.CURRENCY, initialValue);
 	}
 
 	/**
@@ -2345,7 +2347,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public DayOfWeek createDayOfWeekObjectFromString(EDataType eDataType, String initialValue) {
-		return (DayOfWeek)createDayOfWeekFromString(Schema1Package.Literals.DAY_OF_WEEK, initialValue);
+		return createDayOfWeekFromString(Schema1Package.Literals.DAY_OF_WEEK, initialValue);
 	}
 
 	/**
@@ -2385,7 +2387,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 		String result = null;
 		RuntimeException exception = null;
 		try {
-			result = (String)createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
+			result = createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2394,7 +2396,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (String)createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
+			result = createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2403,7 +2405,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (String)createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
+			result = createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2429,6 +2431,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(instanceValue)) {
@@ -2437,6 +2440,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceValue)) {
@@ -2445,6 +2449,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
@@ -2456,7 +2461,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public MultipleInstancesMatch createMultipleInstancesMatchObjectFromString(EDataType eDataType, String initialValue) {
-		return (MultipleInstancesMatch)createMultipleInstancesMatchFromString(Schema1Package.Literals.MULTIPLE_INSTANCES_MATCH, initialValue);
+		return createMultipleInstancesMatchFromString(Schema1Package.Literals.MULTIPLE_INSTANCES_MATCH, initialValue);
 	}
 
 	/**
@@ -2474,7 +2479,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public NoInstancesMatch createNoInstancesMatchObjectFromString(EDataType eDataType, String initialValue) {
-		return (NoInstancesMatch)createNoInstancesMatchFromString(Schema1Package.Literals.NO_INSTANCES_MATCH, initialValue);
+		return createNoInstancesMatchFromString(Schema1Package.Literals.NO_INSTANCES_MATCH, initialValue);
 	}
 
 	/**
@@ -2510,7 +2515,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public Double createNonNegativeDoubleObjectFromString(EDataType eDataType, String initialValue) {
-		return (Double)createNonNegativeDoubleFromString(Schema1Package.Literals.NON_NEGATIVE_DOUBLE, initialValue);
+		return createNonNegativeDoubleFromString(Schema1Package.Literals.NON_NEGATIVE_DOUBLE, initialValue);
 	}
 
 	/**
@@ -2532,7 +2537,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 		String result = null;
 		RuntimeException exception = null;
 		try {
-			result = (String)createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
+			result = createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2541,7 +2546,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (String)createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
+			result = createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2550,7 +2555,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (String)createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
+			result = createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2576,6 +2581,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(instanceValue)) {
@@ -2584,6 +2590,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceValue)) {
@@ -2592,6 +2599,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
@@ -2621,7 +2629,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public Double createPercentageValueObjectFromString(EDataType eDataType, String initialValue) {
-		return (Double)createPercentageValueFromString(Schema1Package.Literals.PERCENTAGE_VALUE, initialValue);
+		return createPercentageValueFromString(Schema1Package.Literals.PERCENTAGE_VALUE, initialValue);
 	}
 
 	/**
@@ -2675,7 +2683,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public TimeUnit createTimeUnitObjectFromString(EDataType eDataType, String initialValue) {
-		return (TimeUnit)createTimeUnitFromString(Schema1Package.Literals.TIME_UNIT, initialValue);
+		return createTimeUnitFromString(Schema1Package.Literals.TIME_UNIT, initialValue);
 	}
 
 	/**
@@ -2697,7 +2705,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 		Object result = null;
 		RuntimeException exception = null;
 		try {
-			result = (Object)createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
+			result = createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2706,7 +2714,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (Object)createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
+			result = createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2732,6 +2740,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceValue)) {
@@ -2740,6 +2749,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
@@ -2755,7 +2765,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 		Object result = null;
 		RuntimeException exception = null;
 		try {
-			result = (Object)createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
+			result = createBasicDataTypeFromString(Schema1Package.Literals.BASIC_DATA_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2764,7 +2774,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (Object)createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
+			result = createPredefinedResourceTypeFromString(Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2773,7 +2783,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (Object)createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
+			result = createPredefinedOrganizationTypeFromString(Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2782,7 +2792,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 			exception = e;
 		}
 		try {
-			result = (Object)createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
+			result = createElementNameFromString(Schema1Package.Literals.ELEMENT_NAME, initialValue);
 			if (result != null && Diagnostician.INSTANCE.validate(eDataType, result, null, null)) {
 				return result;
 			}
@@ -2808,6 +2818,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE.isInstance(instanceValue)) {
@@ -2816,6 +2827,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(instanceValue)) {
@@ -2824,6 +2836,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceValue)) {
@@ -2832,6 +2845,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 				if (value != null) return value;
 			}
 			catch (Exception e) {
+				// Keep trying other member types until all have failed.
 			}
 		}
 		throw new IllegalArgumentException("Invalid value: '"+instanceValue+"' for datatype :"+eDataType.getName());
@@ -2843,7 +2857,7 @@ public class Schema1FactoryImpl extends EFactoryImpl implements Schema1Factory {
 	 * @generated
 	 */
 	public TypeType1 createTypeTypeObjectFromString(EDataType eDataType, String initialValue) {
-		return (TypeType1)createTypeType1FromString(Schema1Package.Literals.TYPE_TYPE1, initialValue);
+		return createTypeType1FromString(Schema1Package.Literals.TYPE_TYPE1, initialValue);
 	}
 
 	/**

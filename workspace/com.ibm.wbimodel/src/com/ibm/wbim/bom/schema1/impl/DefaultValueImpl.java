@@ -62,7 +62,7 @@ public class DefaultValueImpl extends EObjectImpl implements DefaultValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression expressionValue = null;
+	protected Expression expressionValue;
 
 	/**
 	 * <!-- begin-user-doc -->

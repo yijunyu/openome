@@ -6,6 +6,7 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,13 +35,13 @@ public interface LastActivationTimePlusType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Duration</em>' attribute.
-	 * @see #setDuration(Object)
+	 * @see #setDuration(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getLastActivationTimePlusType_Duration()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='duration'"
 	 * @generated
 	 */
-	Object getDuration();
+	Duration getDuration();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.LastActivationTimePlusType#getDuration <em>Duration</em>}' attribute.
@@ -50,6 +51,6 @@ public interface LastActivationTimePlusType extends EObject {
 	 * @see #getDuration()
 	 * @generated
 	 */
-	void setDuration(Object value);
+	void setDuration(Duration value);
 
 } // LastActivationTimePlusType

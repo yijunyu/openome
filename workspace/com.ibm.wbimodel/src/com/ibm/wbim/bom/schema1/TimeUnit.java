@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * Modeler predefined time unit
  * <!-- end-model-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getTimeUnit()
- * @model
+ * @model extendedMetaData="name='TimeUnit'"
  * @generated
  */
 public final class TimeUnit extends AbstractEnumerator {
@@ -246,7 +246,7 @@ public final class TimeUnit extends AbstractEnumerator {
 			case MINUTE: return MINUTE_LITERAL;
 			case SECOND: return SECOND_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

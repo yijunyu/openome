@@ -47,7 +47,7 @@ public class TimerSettingTypeImpl extends EObjectImpl implements TimerSettingTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected BasedOnTimetableType basedOnTimetable = null;
+	protected BasedOnTimetableType basedOnTimetable;
 
 	/**
 	 * The cached value of the '{@link #getConstantTime() <em>Constant Time</em>}' containment reference.
@@ -57,7 +57,7 @@ public class TimerSettingTypeImpl extends EObjectImpl implements TimerSettingTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected ConstantTimeType constantTime = null;
+	protected ConstantTimeType constantTime;
 
 	/**
 	 * The cached value of the '{@link #getLastActivationTimePlus() <em>Last Activation Time Plus</em>}' containment reference.
@@ -67,7 +67,7 @@ public class TimerSettingTypeImpl extends EObjectImpl implements TimerSettingTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected LastActivationTimePlusType lastActivationTimePlus = null;
+	protected LastActivationTimePlusType lastActivationTimePlus;
 
 	/**
 	 * The cached value of the '{@link #getTimerExpression() <em>Timer Expression</em>}' containment reference.
@@ -77,7 +77,7 @@ public class TimerSettingTypeImpl extends EObjectImpl implements TimerSettingTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression timerExpression = null;
+	protected Expression timerExpression;
 
 	/**
 	 * <!-- begin-user-doc -->

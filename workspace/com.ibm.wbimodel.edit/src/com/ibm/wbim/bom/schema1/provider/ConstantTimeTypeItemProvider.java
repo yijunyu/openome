@@ -13,6 +13,7 @@ import com.ibm.wbim.bom.schema1.Schema1Package;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -106,7 +107,7 @@ public class ConstantTimeTypeItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		Object labelValue = ((ConstantTimeType)object).getTime();
+		XMLGregorianCalendar labelValue = ((ConstantTimeType)object).getTime();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ConstantTimeType_type") :
@@ -132,8 +133,8 @@ public class ConstantTimeTypeItemProvider
 	}
 
 	/**
-	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
-	 * describing all of the children that can be created under this object.
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

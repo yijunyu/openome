@@ -46,7 +46,7 @@ public class IndividualResourcesTypeImpl extends EObjectImpl implements Individu
 	 * @generated
 	 * @ordered
 	 */
-	protected EList individualResource = null;
+	protected EList individualResource;
 
 	/**
 	 * <!-- begin-user-doc -->

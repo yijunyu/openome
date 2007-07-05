@@ -40,7 +40,7 @@ public class TaskIndividualResourceRequirementImpl extends IndividualResourceReq
 	 * @generated
 	 * @ordered
 	 */
-	protected CriteriaTemplate criteria = null;
+	protected CriteriaTemplate criteria;
 
 	/**
 	 * <!-- begin-user-doc -->

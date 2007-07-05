@@ -57,7 +57,7 @@ public class CostPerTimeUnitValueImpl extends CostValueImpl implements CostPerTi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean timeUnitESet = false;
+	protected boolean timeUnitESet;
 
 	/**
 	 * <!-- begin-user-doc -->

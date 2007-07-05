@@ -42,7 +42,7 @@ public class OutputBranchTypeImpl extends OutputBranchImpl implements OutputBran
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression condition = null;
+	protected Expression condition;
 
 	/**
 	 * The cached value of the '{@link #getOperationalData() <em>Operational Data</em>}' containment reference.
@@ -52,7 +52,7 @@ public class OutputBranchTypeImpl extends OutputBranchImpl implements OutputBran
 	 * @generated
 	 * @ordered
 	 */
-	protected OutputPathOperationalData operationalData = null;
+	protected OutputPathOperationalData operationalData;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -49,7 +49,7 @@ public class OutputBranchImpl extends EObjectImpl implements OutputBranch {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList output = null;
+	protected EList output;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

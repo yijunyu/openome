@@ -12,6 +12,7 @@ import com.ibm.wbim.bom.schema1.StartDayOfWeekType;
 
 import java.math.BigInteger;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -62,7 +63,7 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean dayOfWeekESet = false;
+	protected boolean dayOfWeekESet;
 
 	/**
 	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -72,7 +73,7 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object START_TIME_EDEFAULT = null;
+	protected static final XMLGregorianCalendar START_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -82,7 +83,7 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 	 * @generated
 	 * @ordered
 	 */
-	protected Object startTime = START_TIME_EDEFAULT;
+	protected XMLGregorianCalendar startTime = START_TIME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getWeekNumber() <em>Week Number</em>}' attribute.
@@ -173,7 +174,7 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getStartTime() {
+	public XMLGregorianCalendar getStartTime() {
 		return startTime;
 	}
 
@@ -182,8 +183,8 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartTime(Object newStartTime) {
-		Object oldStartTime = startTime;
+	public void setStartTime(XMLGregorianCalendar newStartTime) {
+		XMLGregorianCalendar oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.START_DAY_OF_WEEK_TYPE__START_TIME, oldStartTime, startTime));
@@ -238,7 +239,7 @@ public class StartDayOfWeekTypeImpl extends EObjectImpl implements StartDayOfWee
 				setDayOfWeek((DayOfWeek)newValue);
 				return;
 			case Schema1Package.START_DAY_OF_WEEK_TYPE__START_TIME:
-				setStartTime((Object)newValue);
+				setStartTime((XMLGregorianCalendar)newValue);
 				return;
 			case Schema1Package.START_DAY_OF_WEEK_TYPE__WEEK_NUMBER:
 				setWeekNumber((BigInteger)newValue);

@@ -40,7 +40,7 @@ public class ForLoopImpl extends ProcessImpl implements ForLoop {
 	 * @generated
 	 * @ordered
 	 */
-	protected LoopConditionType loopCondition = null;
+	protected LoopConditionType loopCondition;
 
 	/**
 	 * <!-- begin-user-doc -->

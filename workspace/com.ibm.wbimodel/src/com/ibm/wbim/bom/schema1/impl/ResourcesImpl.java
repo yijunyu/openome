@@ -50,7 +50,7 @@ public class ResourcesImpl extends EObjectImpl implements Resources {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList roleRequirement = null;
+	protected EList roleRequirement;
 
 	/**
 	 * The cached value of the '{@link #getIndividualResourceRequirement() <em>Individual Resource Requirement</em>}' containment reference list.
@@ -60,7 +60,7 @@ public class ResourcesImpl extends EObjectImpl implements Resources {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList individualResourceRequirement = null;
+	protected EList individualResourceRequirement;
 
 	/**
 	 * The cached value of the '{@link #getBulkResourceRequirement() <em>Bulk Resource Requirement</em>}' containment reference list.
@@ -70,7 +70,7 @@ public class ResourcesImpl extends EObjectImpl implements Resources {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList bulkResourceRequirement = null;
+	protected EList bulkResourceRequirement;
 
 	/**
 	 * <!-- begin-user-doc -->

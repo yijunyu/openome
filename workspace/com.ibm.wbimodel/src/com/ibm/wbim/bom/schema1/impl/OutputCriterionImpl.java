@@ -53,7 +53,7 @@ public class OutputCriterionImpl extends EObjectImpl implements OutputCriterion 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList output = null;
+	protected EList output;
 
 	/**
 	 * The cached value of the '{@link #getRelatedInputCriteria() <em>Related Input Criteria</em>}' containment reference.
@@ -63,7 +63,7 @@ public class OutputCriterionImpl extends EObjectImpl implements OutputCriterion 
 	 * @generated
 	 * @ordered
 	 */
-	protected RelatedInputCriteriaType relatedInputCriteria = null;
+	protected RelatedInputCriteriaType relatedInputCriteria;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -112,7 +112,7 @@ public class OutputCriterionImpl extends EObjectImpl implements OutputCriterion 
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean typeESet = false;
+	protected boolean typeESet;
 
 	/**
 	 * <!-- begin-user-doc -->

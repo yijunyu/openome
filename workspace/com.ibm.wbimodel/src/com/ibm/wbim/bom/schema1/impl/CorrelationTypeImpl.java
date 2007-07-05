@@ -45,7 +45,7 @@ public class CorrelationTypeImpl extends EObjectImpl implements CorrelationType 
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression predicate = null;
+	protected Expression predicate;
 
 	/**
 	 * The default value of the '{@link #getMultipleInstancesSatisfyCondition() <em>Multiple Instances Satisfy Condition</em>}' attribute.
@@ -74,7 +74,7 @@ public class CorrelationTypeImpl extends EObjectImpl implements CorrelationType 
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean multipleInstancesSatisfyConditionESet = false;
+	protected boolean multipleInstancesSatisfyConditionESet;
 
 	/**
 	 * The default value of the '{@link #getNoInstancesSatisfyCondition() <em>No Instances Satisfy Condition</em>}' attribute.
@@ -103,7 +103,7 @@ public class CorrelationTypeImpl extends EObjectImpl implements CorrelationType 
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean noInstancesSatisfyConditionESet = false;
+	protected boolean noInstancesSatisfyConditionESet;
 
 	/**
 	 * <!-- begin-user-doc -->

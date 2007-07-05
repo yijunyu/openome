@@ -6,6 +6,7 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -119,13 +120,13 @@ public interface RoleRequirement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Required</em>' attribute.
-	 * @see #setTimeRequired(Object)
+	 * @see #setTimeRequired(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getRoleRequirement_TimeRequired()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='timeRequired'"
 	 * @generated
 	 */
-	Object getTimeRequired();
+	Duration getTimeRequired();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.RoleRequirement#getTimeRequired <em>Time Required</em>}' attribute.
@@ -135,7 +136,7 @@ public interface RoleRequirement extends EObject {
 	 * @see #getTimeRequired()
 	 * @generated
 	 */
-	void setTimeRequired(Object value);
+	void setTimeRequired(Duration value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

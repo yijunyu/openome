@@ -57,7 +57,7 @@ public class PoissonTypeImpl extends EObjectImpl implements PoissonType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean meanESet = false;
+	protected boolean meanESet;
 
 	/**
 	 * <!-- begin-user-doc -->

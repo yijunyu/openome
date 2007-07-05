@@ -74,7 +74,7 @@ public class ComplexDataTypeImpl extends EObjectImpl implements ComplexDataType 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attribute = null;
+	protected EList attribute;
 
 	/**
 	 * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference list.
@@ -84,7 +84,7 @@ public class ComplexDataTypeImpl extends EObjectImpl implements ComplexDataType 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList rule = null;
+	protected EList rule;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -94,7 +94,7 @@ public class ComplexDataTypeImpl extends EObjectImpl implements ComplexDataType 
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getParentTemplate() <em>Parent Template</em>}' attribute.

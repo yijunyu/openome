@@ -39,7 +39,7 @@ public interface InputConstantValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literal Value</em>' attribute list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getInputConstantValue_LiteralValue()
-	 * @model type="java.lang.String" unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 *        extendedMetaData="kind='element' name='literalValue' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -41,7 +41,7 @@ public class ObserverImpl extends TaskImpl implements Observer {
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression observationExpression = null;
+	protected Expression observationExpression;
 
 	/**
 	 * The default value of the '{@link #isIsObserveContinuously() <em>Is Observe Continuously</em>}' attribute.
@@ -70,7 +70,7 @@ public class ObserverImpl extends TaskImpl implements Observer {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isObserveContinuouslyESet = false;
+	protected boolean isObserveContinuouslyESet;
 
 	/**
 	 * <!-- begin-user-doc -->

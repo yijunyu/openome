@@ -258,7 +258,7 @@ public class Schema1Validator extends EObjectValidator {
 	}
 
 	/**
-	 * Calls <code>validateXXX</code> for the corresonding classifier of the model.
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2247,13 +2247,13 @@ public class Schema1Validator extends EObjectValidator {
 		if (diagnostics != null) {
 			BasicDiagnostic tempDiagnostics = new BasicDiagnostic();
 			if (Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE.isInstance(instanceOfType)) {
-				if (validatePredefinedResourceType((String)instanceOfType, tempDiagnostics, context)) return true;
+				if (validatePredefinedResourceType(instanceOfType, tempDiagnostics, context)) return true;
 			}
 			if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(instanceOfType)) {
-				if (validatePredefinedOrganizationType((String)instanceOfType, tempDiagnostics, context)) return true;
+				if (validatePredefinedOrganizationType(instanceOfType, tempDiagnostics, context)) return true;
 			}
 			if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceOfType)) {
-				if (validateElementName((String)instanceOfType, tempDiagnostics, context)) return true;
+				if (validateElementName(instanceOfType, tempDiagnostics, context)) return true;
 			}
 			List children = tempDiagnostics.getChildren();
 			for (int i = 0; i < children.size(); i++) {
@@ -2262,13 +2262,13 @@ public class Schema1Validator extends EObjectValidator {
 		}
 		else {
 			if (Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE.isInstance(instanceOfType)) {
-				if (validatePredefinedResourceType((String)instanceOfType, null, context)) return true;
+				if (validatePredefinedResourceType(instanceOfType, null, context)) return true;
 			}
 			if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(instanceOfType)) {
-				if (validatePredefinedOrganizationType((String)instanceOfType, null, context)) return true;
+				if (validatePredefinedOrganizationType(instanceOfType, null, context)) return true;
 			}
 			if (Schema1Package.Literals.ELEMENT_NAME.isInstance(instanceOfType)) {
-				if (validateElementName((String)instanceOfType, null, context)) return true;
+				if (validateElementName(instanceOfType, null, context)) return true;
 			}
 		}
 		return false;
@@ -2353,13 +2353,13 @@ public class Schema1Validator extends EObjectValidator {
 		if (diagnostics != null) {
 			BasicDiagnostic tempDiagnostics = new BasicDiagnostic();
 			if (Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE.isInstance(parentTemplateType)) {
-				if (validatePredefinedResourceType((String)parentTemplateType, tempDiagnostics, context)) return true;
+				if (validatePredefinedResourceType(parentTemplateType, tempDiagnostics, context)) return true;
 			}
 			if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(parentTemplateType)) {
-				if (validatePredefinedOrganizationType((String)parentTemplateType, tempDiagnostics, context)) return true;
+				if (validatePredefinedOrganizationType(parentTemplateType, tempDiagnostics, context)) return true;
 			}
 			if (Schema1Package.Literals.ELEMENT_NAME.isInstance(parentTemplateType)) {
-				if (validateElementName((String)parentTemplateType, tempDiagnostics, context)) return true;
+				if (validateElementName(parentTemplateType, tempDiagnostics, context)) return true;
 			}
 			List children = tempDiagnostics.getChildren();
 			for (int i = 0; i < children.size(); i++) {
@@ -2368,13 +2368,13 @@ public class Schema1Validator extends EObjectValidator {
 		}
 		else {
 			if (Schema1Package.Literals.PREDEFINED_RESOURCE_TYPE.isInstance(parentTemplateType)) {
-				if (validatePredefinedResourceType((String)parentTemplateType, null, context)) return true;
+				if (validatePredefinedResourceType(parentTemplateType, null, context)) return true;
 			}
 			if (Schema1Package.Literals.PREDEFINED_ORGANIZATION_TYPE.isInstance(parentTemplateType)) {
-				if (validatePredefinedOrganizationType((String)parentTemplateType, null, context)) return true;
+				if (validatePredefinedOrganizationType(parentTemplateType, null, context)) return true;
 			}
 			if (Schema1Package.Literals.ELEMENT_NAME.isInstance(parentTemplateType)) {
-				if (validateElementName((String)parentTemplateType, null, context)) return true;
+				if (validateElementName(parentTemplateType, null, context)) return true;
 			}
 		}
 		return false;

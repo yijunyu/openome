@@ -50,7 +50,7 @@ public class RepositoryDataValueImpl extends EObjectImpl implements RepositoryDa
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap group = null;
+	protected FeatureMap group;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,7 +88,7 @@ public class RepositoryDataValueImpl extends EObjectImpl implements RepositoryDa
 	 * @generated
 	 */
 	public EList getLiteralValue() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__LITERAL_VALUE);
+		return getGroup().list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__LITERAL_VALUE);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class RepositoryDataValueImpl extends EObjectImpl implements RepositoryDa
 	 * @generated
 	 */
 	public EList getExpressionValue() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__EXPRESSION_VALUE);
+		return getGroup().list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__EXPRESSION_VALUE);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class RepositoryDataValueImpl extends EObjectImpl implements RepositoryDa
 	 * @generated
 	 */
 	public EList getPublicInstance() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PUBLIC_INSTANCE);
+		return getGroup().list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PUBLIC_INSTANCE);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class RepositoryDataValueImpl extends EObjectImpl implements RepositoryDa
 	 * @generated
 	 */
 	public EList getPrivateInstance() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PRIVATE_INSTANCE);
+		return getGroup().list(Schema1Package.Literals.REPOSITORY_DATA_VALUE__PRIVATE_INSTANCE);
 	}
 
 	/**

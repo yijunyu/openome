@@ -16,6 +16,8 @@ import java.math.BigInteger;
 
 import java.util.Collection;
 
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -79,7 +81,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList recurringTimeInterval = null;
+	protected EList recurringTimeInterval;
 
 	/**
 	 * The cached value of the '{@link #getExemptionPeriod() <em>Exemption Period</em>}' containment reference list.
@@ -89,7 +91,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList exemptionPeriod = null;
+	protected EList exemptionPeriod;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -99,7 +101,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getBeginingOn() <em>Begining On</em>}' attribute.
@@ -109,7 +111,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object BEGINING_ON_EDEFAULT = null;
+	protected static final XMLGregorianCalendar BEGINING_ON_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBeginingOn() <em>Begining On</em>}' attribute.
@@ -119,7 +121,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object beginingOn = BEGINING_ON_EDEFAULT;
+	protected XMLGregorianCalendar beginingOn = BEGINING_ON_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -169,7 +171,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object REPETITION_PERIOD_EDEFAULT = null;
+	protected static final Duration REPETITION_PERIOD_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRepetitionPeriod() <em>Repetition Period</em>}' attribute.
@@ -179,7 +181,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object repetitionPeriod = REPETITION_PERIOD_EDEFAULT;
+	protected Duration repetitionPeriod = REPETITION_PERIOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,7 +294,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getBeginingOn() {
+	public XMLGregorianCalendar getBeginingOn() {
 		return beginingOn;
 	}
 
@@ -301,8 +303,8 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBeginingOn(Object newBeginingOn) {
-		Object oldBeginingOn = beginingOn;
+	public void setBeginingOn(XMLGregorianCalendar newBeginingOn) {
+		XMLGregorianCalendar oldBeginingOn = beginingOn;
 		beginingOn = newBeginingOn;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.TIMETABLE__BEGINING_ON, oldBeginingOn, beginingOn));
@@ -355,7 +357,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getRepetitionPeriod() {
+	public Duration getRepetitionPeriod() {
 		return repetitionPeriod;
 	}
 
@@ -364,8 +366,8 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepetitionPeriod(Object newRepetitionPeriod) {
-		Object oldRepetitionPeriod = repetitionPeriod;
+	public void setRepetitionPeriod(Duration newRepetitionPeriod) {
+		Duration oldRepetitionPeriod = repetitionPeriod;
 		repetitionPeriod = newRepetitionPeriod;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.TIMETABLE__REPETITION_PERIOD, oldRepetitionPeriod, repetitionPeriod));
@@ -437,7 +439,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 				setExtendedAttributes((ExtendedAttributes)newValue);
 				return;
 			case Schema1Package.TIMETABLE__BEGINING_ON:
-				setBeginingOn((Object)newValue);
+				setBeginingOn((XMLGregorianCalendar)newValue);
 				return;
 			case Schema1Package.TIMETABLE__NAME:
 				setName((String)newValue);
@@ -446,7 +448,7 @@ public class TimetableImpl extends EObjectImpl implements Timetable {
 				setNumberOfTimesToRepeat((BigInteger)newValue);
 				return;
 			case Schema1Package.TIMETABLE__REPETITION_PERIOD:
-				setRepetitionPeriod((Object)newValue);
+				setRepetitionPeriod((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

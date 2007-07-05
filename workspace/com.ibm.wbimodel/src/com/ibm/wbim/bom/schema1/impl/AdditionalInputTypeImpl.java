@@ -49,7 +49,7 @@ public class AdditionalInputTypeImpl extends EObjectImpl implements AdditionalIn
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputCriterion = null;
+	protected EList inputCriterion;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

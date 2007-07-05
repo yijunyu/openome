@@ -40,7 +40,7 @@ public class TimerImpl extends TaskImpl implements Timer {
 	 * @generated
 	 * @ordered
 	 */
-	protected TimerSettingType timerSetting = null;
+	protected TimerSettingType timerSetting;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -179,11 +179,13 @@ public class Schema1ModelWizard extends Wizard implements INewWizard {
 			initialObjectNames = new ArrayList();
 			for (Iterator elements = ExtendedMetaData.INSTANCE.getAllElements(ExtendedMetaData.INSTANCE.getDocumentRoot(schema1Package)).iterator(); elements.hasNext(); ) {
 				EStructuralFeature eStructuralFeature = (EStructuralFeature)elements.next();
-				EClassifier eClassifier = eStructuralFeature.getEType();
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eStructuralFeature.getName());
+				if (eStructuralFeature.isChangeable()) {
+					EClassifier eClassifier = eStructuralFeature.getEType();
+					if (eClassifier instanceof EClass) {
+						EClass eClass = (EClass)eClassifier;
+						if (!eClass.isAbstract()) {
+							initialObjectNames.add(eStructuralFeature.getName());
+						}
 					}
 				}
 			}
@@ -230,7 +232,7 @@ public class Schema1ModelWizard extends Wizard implements INewWizard {
 
 							// Get the URI of the model file.
 							//
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString());
+							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
 							// Create a resource for this file.
 							//
@@ -391,8 +393,7 @@ public class Schema1ModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;

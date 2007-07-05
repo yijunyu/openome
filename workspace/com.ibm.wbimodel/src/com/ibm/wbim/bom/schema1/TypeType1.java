@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getTypeType1()
- * @model
+ * @model extendedMetaData="name='type_._1_._type'"
  * @generated
  */
 public final class TypeType1 extends AbstractEnumerator {
@@ -162,7 +162,7 @@ public final class TypeType1 extends AbstractEnumerator {
 			case EXCEPTIONAL: return EXCEPTIONAL_LITERAL;
 			case STREAMING: return STREAMING_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

@@ -46,7 +46,7 @@ public class NotificationTemplatesTypeImpl extends EObjectImpl implements Notifi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList notificationTemplate = null;
+	protected EList notificationTemplate;
 
 	/**
 	 * <!-- begin-user-doc -->

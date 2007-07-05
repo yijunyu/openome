@@ -46,7 +46,7 @@ public class BulkResourceDefinitionTemplatesTypeImpl extends EObjectImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList bulkResourceDefinitionTemplate = null;
+	protected EList bulkResourceDefinitionTemplate;
 
 	/**
 	 * <!-- begin-user-doc -->

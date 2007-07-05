@@ -6,6 +6,7 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -90,13 +91,13 @@ public interface IndividualResourceRequirement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Required</em>' attribute.
-	 * @see #setTimeRequired(Object)
+	 * @see #setTimeRequired(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getIndividualResourceRequirement_TimeRequired()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='timeRequired'"
 	 * @generated
 	 */
-	Object getTimeRequired();
+	Duration getTimeRequired();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.IndividualResourceRequirement#getTimeRequired <em>Time Required</em>}' attribute.
@@ -106,6 +107,6 @@ public interface IndividualResourceRequirement extends EObject {
 	 * @see #getTimeRequired()
 	 * @generated
 	 */
-	void setTimeRequired(Object value);
+	void setTimeRequired(Duration value);
 
 } // IndividualResourceRequirement

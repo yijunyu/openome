@@ -49,7 +49,7 @@ public class StartNodeTypeImpl extends EObjectImpl implements StartNodeType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList entryPoint = null;
+	protected EList entryPoint;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

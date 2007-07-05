@@ -55,7 +55,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected ExponentialType exponential = null;
+	protected ExponentialType exponential;
 
 	/**
 	 * The cached value of the '{@link #getGamma() <em>Gamma</em>}' containment reference.
@@ -65,7 +65,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected GammaType gamma = null;
+	protected GammaType gamma;
 
 	/**
 	 * The cached value of the '{@link #getLognormal() <em>Lognormal</em>}' containment reference.
@@ -75,7 +75,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected LognormalType lognormal = null;
+	protected LognormalType lognormal;
 
 	/**
 	 * The cached value of the '{@link #getNormal() <em>Normal</em>}' containment reference.
@@ -85,7 +85,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected NormalType normal = null;
+	protected NormalType normal;
 
 	/**
 	 * The cached value of the '{@link #getPoisson() <em>Poisson</em>}' containment reference.
@@ -95,7 +95,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected PoissonType poisson = null;
+	protected PoissonType poisson;
 
 	/**
 	 * The cached value of the '{@link #getRandomList() <em>Random List</em>}' containment reference.
@@ -105,7 +105,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected RandomListType randomList = null;
+	protected RandomListType randomList;
 
 	/**
 	 * The cached value of the '{@link #getUniform() <em>Uniform</em>}' containment reference.
@@ -115,7 +115,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected UniformType uniform = null;
+	protected UniformType uniform;
 
 	/**
 	 * The cached value of the '{@link #getWeightedList() <em>Weighted List</em>}' containment reference.
@@ -125,7 +125,7 @@ public class DistributionTypeImpl extends EObjectImpl implements DistributionTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected WeightedListType weightedList = null;
+	protected WeightedListType weightedList;
 
 	/**
 	 * <!-- begin-user-doc -->

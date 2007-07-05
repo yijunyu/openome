@@ -53,7 +53,7 @@ public class InputCriterionImpl extends EObjectImpl implements InputCriterion {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList input = null;
+	protected EList input;
 
 	/**
 	 * The cached value of the '{@link #getConstraint() <em>Constraint</em>}' containment reference list.
@@ -63,7 +63,7 @@ public class InputCriterionImpl extends EObjectImpl implements InputCriterion {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList constraint = null;
+	protected EList constraint;
 
 	/**
 	 * The cached value of the '{@link #getCorrelation() <em>Correlation</em>}' containment reference.
@@ -73,7 +73,7 @@ public class InputCriterionImpl extends EObjectImpl implements InputCriterion {
 	 * @generated
 	 * @ordered
 	 */
-	protected CorrelationType correlation = null;
+	protected CorrelationType correlation;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

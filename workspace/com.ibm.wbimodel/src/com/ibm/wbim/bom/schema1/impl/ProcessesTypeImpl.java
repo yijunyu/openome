@@ -45,7 +45,7 @@ public class ProcessesTypeImpl extends EObjectImpl implements ProcessesType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList process = null;
+	protected EList process;
 
 	/**
 	 * <!-- begin-user-doc -->

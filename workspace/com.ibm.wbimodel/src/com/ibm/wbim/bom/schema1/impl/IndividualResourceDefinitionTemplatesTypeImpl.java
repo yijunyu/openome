@@ -46,7 +46,7 @@ public class IndividualResourceDefinitionTemplatesTypeImpl extends EObjectImpl i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList individualResourceDefinitionTemplate = null;
+	protected EList individualResourceDefinitionTemplate;
 
 	/**
 	 * <!-- begin-user-doc -->

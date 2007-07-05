@@ -8,6 +8,7 @@ package com.ibm.wbim.bom.schema1;
 
 import java.math.BigInteger;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -96,13 +97,13 @@ public interface StartDayOfWeekType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Time</em>' attribute.
-	 * @see #setStartTime(Object)
+	 * @see #setStartTime(XMLGregorianCalendar)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getStartDayOfWeekType_StartTime()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Time"
 	 *        extendedMetaData="kind='attribute' name='startTime'"
 	 * @generated
 	 */
-	Object getStartTime();
+	XMLGregorianCalendar getStartTime();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.StartDayOfWeekType#getStartTime <em>Start Time</em>}' attribute.
@@ -112,7 +113,7 @@ public interface StartDayOfWeekType extends EObject {
 	 * @see #getStartTime()
 	 * @generated
 	 */
-	void setStartTime(Object value);
+	void setStartTime(XMLGregorianCalendar value);
 
 	/**
 	 * Returns the value of the '<em><b>Week Number</b></em>' attribute.

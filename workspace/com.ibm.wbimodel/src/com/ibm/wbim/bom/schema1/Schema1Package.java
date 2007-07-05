@@ -15523,7 +15523,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Associated Data Type</em>'.
 	 * @see java.lang.Object
 	 * @model instanceClass="java.lang.Object"
-	 *        extendedMetaData="name='associatedData_._type' memberTypes='BasicDataType ElementName'" 
+	 *        extendedMetaData="name='associatedData_._type' memberTypes='BasicDataType ElementName'"
 	 * @generated
 	 */
 	EDataType getAssociatedDataType();
@@ -15535,7 +15535,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Basic Data Type Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.BasicDataType
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.BasicDataType"
-	 *        extendedMetaData="name='BasicDataType:Object' baseType='BasicDataType'" 
+	 *        extendedMetaData="name='BasicDataType:Object' baseType='BasicDataType'"
 	 * @generated
 	 */
 	EDataType getBasicDataTypeObject();
@@ -15547,7 +15547,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Currency Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.Currency
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.Currency"
-	 *        extendedMetaData="name='Currency:Object' baseType='Currency'" 
+	 *        extendedMetaData="name='Currency:Object' baseType='Currency'"
 	 * @generated
 	 */
 	EDataType getCurrencyObject();
@@ -15559,7 +15559,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Day Of Week Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.DayOfWeek
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.DayOfWeek"
-	 *        extendedMetaData="name='DayOfWeek:Object' baseType='DayOfWeek'" 
+	 *        extendedMetaData="name='DayOfWeek:Object' baseType='DayOfWeek'"
 	 * @generated
 	 */
 	EDataType getDayOfWeekObject();
@@ -15571,7 +15571,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Element Name</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='ElementName' baseType='http://www.eclipse.org/emf/2003/XMLType#string' pattern='.* .*##.*'" 
+	 *        extendedMetaData="name='ElementName' baseType='http://www.eclipse.org/emf/2003/XMLType#string' pattern='.* .*##.*'"
 	 * @generated
 	 */
 	EDataType getElementName();
@@ -15583,7 +15583,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Instance Of Type</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='instanceOf_._type' memberTypes='PredefinedResourceType PredefinedOrganizationType ElementName'" 
+	 *        extendedMetaData="name='instanceOf_._type' memberTypes='PredefinedResourceType PredefinedOrganizationType ElementName'"
 	 * @generated
 	 */
 	EDataType getInstanceOfType();
@@ -15595,7 +15595,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Multiple Instances Match Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.MultipleInstancesMatch
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.MultipleInstancesMatch"
-	 *        extendedMetaData="name='MultipleInstancesMatch:Object' baseType='MultipleInstancesMatch'" 
+	 *        extendedMetaData="name='MultipleInstancesMatch:Object' baseType='MultipleInstancesMatch'"
 	 * @generated
 	 */
 	EDataType getMultipleInstancesMatchObject();
@@ -15607,7 +15607,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>No Instances Match Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.NoInstancesMatch
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.NoInstancesMatch"
-	 *        extendedMetaData="name='NoInstancesMatch:Object' baseType='NoInstancesMatch'" 
+	 *        extendedMetaData="name='NoInstancesMatch:Object' baseType='NoInstancesMatch'"
 	 * @generated
 	 */
 	EDataType getNoInstancesMatchObject();
@@ -15618,7 +15618,7 @@ public interface Schema1Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Non Negative Double</em>'.
 	 * @model instanceClass="double"
-	 *        extendedMetaData="name='NonNegativeDouble' baseType='http://www.eclipse.org/emf/2003/XMLType#double' minInclusive='0'" 
+	 *        extendedMetaData="name='NonNegativeDouble' baseType='http://www.eclipse.org/emf/2003/XMLType#double' minInclusive='0'"
 	 * @generated
 	 */
 	EDataType getNonNegativeDouble();
@@ -15630,7 +15630,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Non Negative Double Object</em>'.
 	 * @see java.lang.Double
 	 * @model instanceClass="java.lang.Double"
-	 *        extendedMetaData="name='NonNegativeDouble:Object' baseType='NonNegativeDouble'" 
+	 *        extendedMetaData="name='NonNegativeDouble:Object' baseType='NonNegativeDouble'"
 	 * @generated
 	 */
 	EDataType getNonNegativeDoubleObject();
@@ -15642,7 +15642,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Parent Template Type</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='parentTemplate_._type' memberTypes='PredefinedResourceType PredefinedOrganizationType ElementName'" 
+	 *        extendedMetaData="name='parentTemplate_._type' memberTypes='PredefinedResourceType PredefinedOrganizationType ElementName'"
 	 * @generated
 	 */
 	EDataType getParentTemplateType();
@@ -15653,7 +15653,7 @@ public interface Schema1Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Percentage Value</em>'.
 	 * @model instanceClass="double"
-	 *        extendedMetaData="name='PercentageValue' baseType='http://www.eclipse.org/emf/2003/XMLType#double' minInclusive='0' maxInclusive='100'" 
+	 *        extendedMetaData="name='PercentageValue' baseType='http://www.eclipse.org/emf/2003/XMLType#double' minInclusive='0' maxInclusive='100'"
 	 * @generated
 	 */
 	EDataType getPercentageValue();
@@ -15665,7 +15665,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Percentage Value Object</em>'.
 	 * @see java.lang.Double
 	 * @model instanceClass="java.lang.Double"
-	 *        extendedMetaData="name='PercentageValue:Object' baseType='PercentageValue'" 
+	 *        extendedMetaData="name='PercentageValue:Object' baseType='PercentageValue'"
 	 * @generated
 	 */
 	EDataType getPercentageValueObject();
@@ -15677,7 +15677,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Predefined Organization Type</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='PredefinedOrganizationType' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='Organization%20template Organization'" 
+	 *        extendedMetaData="name='PredefinedOrganizationType' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='Organization%20template Organization'"
 	 * @generated
 	 */
 	EDataType getPredefinedOrganizationType();
@@ -15689,7 +15689,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Predefined Resource Type</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='PredefinedResourceType' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='Person%20template Resource%20template Staff%20template Communication%20Service Equipment Facility General%20Service Machine Person Staff Tool'" 
+	 *        extendedMetaData="name='PredefinedResourceType' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='Person%20template Resource%20template Staff%20template Communication%20Service Equipment Facility General%20Service Machine Person Staff Tool'"
 	 * @generated
 	 */
 	EDataType getPredefinedResourceType();
@@ -15701,7 +15701,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Time Unit Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.TimeUnit
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.TimeUnit"
-	 *        extendedMetaData="name='TimeUnit:Object' baseType='TimeUnit'" 
+	 *        extendedMetaData="name='TimeUnit:Object' baseType='TimeUnit'"
 	 * @generated
 	 */
 	EDataType getTimeUnitObject();
@@ -15713,7 +15713,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Type Type</em>'.
 	 * @see java.lang.Object
 	 * @model instanceClass="java.lang.Object"
-	 *        extendedMetaData="name='type_._type' memberTypes='BasicDataType ElementName'" 
+	 *        extendedMetaData="name='type_._type' memberTypes='BasicDataType ElementName'"
 	 * @generated
 	 */
 	EDataType getTypeType();
@@ -15725,7 +15725,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Type Type2</em>'.
 	 * @see java.lang.Object
 	 * @model instanceClass="java.lang.Object"
-	 *        extendedMetaData="name='type_._2_._type' memberTypes='BasicDataType PredefinedResourceType PredefinedOrganizationType ElementName'" 
+	 *        extendedMetaData="name='type_._2_._type' memberTypes='BasicDataType PredefinedResourceType PredefinedOrganizationType ElementName'"
 	 * @generated
 	 */
 	EDataType getTypeType2();
@@ -15737,7 +15737,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Type Type Object</em>'.
 	 * @see com.ibm.wbim.bom.schema1.TypeType1
 	 * @model instanceClass="com.ibm.wbim.bom.schema1.TypeType1"
-	 *        extendedMetaData="name='type_._1_._type:Object' baseType='type_._1_._type'" 
+	 *        extendedMetaData="name='type_._1_._type:Object' baseType='type_._1_._type'"
 	 * @generated
 	 */
 	EDataType getTypeTypeObject();
@@ -15749,7 +15749,7 @@ public interface Schema1Package extends EPackage {
 	 * @return the meta object for data type '<em>Unit</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='Unit' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='acre centimeter foot gallon%20(UK) gallon%20(US) gram hectare inch kilogram kilometer liter meter mile ounce pint%20(UK) pint%20(US) pound unit yard'" 
+	 *        extendedMetaData="name='Unit' baseType='http://www.eclipse.org/emf/2003/XMLType#string' enumeration='acre centimeter foot gallon%20(UK) gallon%20(US) gram hectare inch kilogram kilometer liter meter mile ounce pint%20(UK) pint%20(US) pound unit yard'"
 	 * @generated
 	 */
 	EDataType getUnit();

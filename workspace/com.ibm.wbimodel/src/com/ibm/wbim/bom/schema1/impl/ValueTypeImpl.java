@@ -58,7 +58,7 @@ public class ValueTypeImpl extends EObjectImpl implements ValueType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean valueESet = false;
+	protected boolean valueESet;
 
 	/**
 	 * The default value of the '{@link #getProbability() <em>Probability</em>}' attribute.
@@ -87,7 +87,7 @@ public class ValueTypeImpl extends EObjectImpl implements ValueType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean probabilityESet = false;
+	protected boolean probabilityESet;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -10,6 +10,8 @@ import com.ibm.wbim.bom.schema1.RecurringTimeIntervalType;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 import com.ibm.wbim.bom.schema1.StartDayOfWeekType;
 
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -44,7 +46,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object START_TIME_EDEFAULT = null;
+	protected static final XMLGregorianCalendar START_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -54,7 +56,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * @generated
 	 * @ordered
 	 */
-	protected Object startTime = START_TIME_EDEFAULT;
+	protected XMLGregorianCalendar startTime = START_TIME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getStartDayOfWeek() <em>Start Day Of Week</em>}' containment reference.
@@ -64,7 +66,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * @generated
 	 * @ordered
 	 */
-	protected StartDayOfWeekType startDayOfWeek = null;
+	protected StartDayOfWeekType startDayOfWeek;
 
 	/**
 	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
@@ -74,7 +76,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object DURATION_EDEFAULT = null;
+	protected static final Duration DURATION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
@@ -84,7 +86,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * @generated
 	 * @ordered
 	 */
-	protected Object duration = DURATION_EDEFAULT;
+	protected Duration duration = DURATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -129,7 +131,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getStartTime() {
+	public XMLGregorianCalendar getStartTime() {
 		return startTime;
 	}
 
@@ -138,8 +140,8 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartTime(Object newStartTime) {
-		Object oldStartTime = startTime;
+	public void setStartTime(XMLGregorianCalendar newStartTime) {
+		XMLGregorianCalendar oldStartTime = startTime;
 		startTime = newStartTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.RECURRING_TIME_INTERVAL_TYPE__START_TIME, oldStartTime, startTime));
@@ -193,7 +195,7 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getDuration() {
+	public Duration getDuration() {
 		return duration;
 	}
 
@@ -202,8 +204,8 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDuration(Object newDuration) {
-		Object oldDuration = duration;
+	public void setDuration(Duration newDuration) {
+		Duration oldDuration = duration;
 		duration = newDuration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.RECURRING_TIME_INTERVAL_TYPE__DURATION, oldDuration, duration));
@@ -270,13 +272,13 @@ public class RecurringTimeIntervalTypeImpl extends EObjectImpl implements Recurr
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Schema1Package.RECURRING_TIME_INTERVAL_TYPE__START_TIME:
-				setStartTime((Object)newValue);
+				setStartTime((XMLGregorianCalendar)newValue);
 				return;
 			case Schema1Package.RECURRING_TIME_INTERVAL_TYPE__START_DAY_OF_WEEK:
 				setStartDayOfWeek((StartDayOfWeekType)newValue);
 				return;
 			case Schema1Package.RECURRING_TIME_INTERVAL_TYPE__DURATION:
-				setDuration((Object)newValue);
+				setDuration((Duration)newValue);
 				return;
 			case Schema1Package.RECURRING_TIME_INTERVAL_TYPE__NAME:
 				setName((String)newValue);

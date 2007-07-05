@@ -59,7 +59,7 @@ public class MonetaryValueImpl extends EObjectImpl implements MonetaryValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean valueESet = false;
+	protected boolean valueESet;
 
 	/**
 	 * The default value of the '{@link #getCurrency() <em>Currency</em>}' attribute.
@@ -88,7 +88,7 @@ public class MonetaryValueImpl extends EObjectImpl implements MonetaryValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean currencyESet = false;
+	protected boolean currencyESet;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -41,7 +41,7 @@ public class LoopImpl extends ProcessImpl implements Loop {
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression loopCondition = null;
+	protected Expression loopCondition;
 
 	/**
 	 * The default value of the '{@link #isIsConditionTestedFirst() <em>Is Condition Tested First</em>}' attribute.
@@ -70,7 +70,7 @@ public class LoopImpl extends ProcessImpl implements Loop {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isConditionTestedFirstESet = false;
+	protected boolean isConditionTestedFirstESet;
 
 	/**
 	 * <!-- begin-user-doc -->

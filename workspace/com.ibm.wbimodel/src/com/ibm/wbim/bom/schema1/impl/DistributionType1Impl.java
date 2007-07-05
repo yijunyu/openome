@@ -57,7 +57,7 @@ public class DistributionType1Impl extends DistributionTypeImpl implements Distr
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean timeUnitESet = false;
+	protected boolean timeUnitESet;
 
 	/**
 	 * <!-- begin-user-doc -->

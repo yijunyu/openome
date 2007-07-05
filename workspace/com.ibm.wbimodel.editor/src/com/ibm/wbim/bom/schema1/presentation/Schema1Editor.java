@@ -152,6 +152,7 @@ import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
@@ -345,12 +346,16 @@ public class Schema1Editor
 				}
 			}
 			public void partBroughtToTop(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partClosed(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partDeactivated(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partOpened(IWorkbenchPart p) {
+				// Ignore.
 			}
 		};
 
@@ -409,7 +414,7 @@ public class Schema1Editor
 						case Resource.RESOURCE__ERRORS:
 						case Resource.RESOURCE__WARNINGS: {
 							Resource resource = (Resource)notification.getNotifier();
-							Diagnostic diagnostic = analyzeResourceProblems((Resource)notification.getNotifier(), null);
+							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
 							if (diagnostic.getSeverity() != Diagnostic.OK) {
 								resourceToDiagnosticMap.put(resource, diagnostic);
 							}
@@ -425,6 +430,7 @@ public class Schema1Editor
 										 }
 									 });
 							}
+							break;
 						}
 					}
 				}
@@ -670,15 +676,23 @@ public class Schema1Editor
 	 */
 	public Schema1Editor() {
 		super();
+		initializeEditingDomain();
+	}
 
+	/**
+	 * This sets up the editing domain for the model editor.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		List factories = new ArrayList();
-		factories.add(new ResourceItemProviderAdapterFactory());
-		factories.add(new Schema1ItemProviderAdapterFactory());
-		factories.add(new ReflectiveItemProviderAdapterFactory());
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-		adapterFactory = new ComposedAdapterFactory(factories);
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Schema1ItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
@@ -879,7 +893,7 @@ public class Schema1Editor
 		contextMenu.addMenuListener(this);
 		Menu menu= contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(contextMenu, viewer);
+		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
@@ -897,7 +911,7 @@ public class Schema1Editor
 		// Assumes that the input is a file object.
 		//
 		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString());;
+		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -918,7 +932,7 @@ public class Schema1Editor
 	}
 
 	/**
-	 * Returns a dignostic describing the errors and warnings listed in the resource
+	 * Returns a diagnostic describing the errors and warnings listed in the resource
 	 * and the specified exception (if any).
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -987,6 +1001,7 @@ public class Schema1Editor
 
 				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				selectionViewer.setInput(editingDomain.getResourceSet());
+				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
@@ -1153,7 +1168,12 @@ public class Schema1Editor
 				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
 			}
 
-			setActivePage(0);
+			getSite().getShell().getDisplay().asyncExec
+				(new Runnable() {
+					 public void run() {
+						 setActivePage(0);
+					 }
+				 });
 		}
 
 		// Ensures that this editor will only display the page's tab
@@ -1171,7 +1191,12 @@ public class Schema1Editor
 				}
 			 });
 
-		updateProblemIndication();
+		getSite().getShell().getDisplay().asyncExec
+			(new Runnable() {
+				 public void run() {
+					 updateProblemIndication();
+				 }
+			 });
 	}
 
 	/**
@@ -1274,9 +1299,7 @@ public class Schema1Editor
 					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
 					  // Select the root object in the view.
 					  //
-					  ArrayList selection = new ArrayList();
-					  selection.add(editingDomain.getResourceSet().getResources().get(0));
-					  contentOutlineViewer.setSelection(new StructuredSelection(selection), true);
+					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
@@ -1390,6 +1413,11 @@ public class Schema1Editor
 	 * @generated
 	 */
 	public void doSave(IProgressMonitor progressMonitor) {
+		// Save only resources that have actually changed.
+		//
+		final Map saveOptions = new HashMap();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation =
@@ -1405,7 +1433,7 @@ public class Schema1Editor
 						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								savedResources.add(resource);
-								resource.save(Collections.EMPTY_MAP);
+								resource.save(saveOptions);
 							}
 							catch (Exception exception) {
 								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
@@ -1437,7 +1465,7 @@ public class Schema1Editor
 	}
 
 	/**
-	 * This returns wether something has been persisted to the URI of the specified resource.
+	 * This returns whether something has been persisted to the URI of the specified resource.
 	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1453,6 +1481,7 @@ public class Schema1Editor
 			}
 		}
 		catch (IOException e) {
+			// Ignore
 		}
 		return result;
 	}
@@ -1474,13 +1503,13 @@ public class Schema1Editor
 	 * @generated
 	 */
 	public void doSaveAs() {
-		SaveAsDialog saveAsDialog= new SaveAsDialog(getSite().getShell());
+		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
-		IPath path= saveAsDialog.getResult();
+		IPath path = saveAsDialog.getResult();
 		if (path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString()), new FileEditorInput(file));
+				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
 			}
 		}
 	}

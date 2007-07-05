@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * Modeler supported currencies
  * <!-- end-model-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getCurrency()
- * @model
+ * @model extendedMetaData="name='Currency'"
  * @generated
  */
 public final class Currency extends AbstractEnumerator {
@@ -2217,7 +2217,7 @@ public final class Currency extends AbstractEnumerator {
 			case YUN: return YUN_LITERAL;
 			case ZAR: return ZAR_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

@@ -46,7 +46,7 @@ public class ExtendedAttributesImpl extends EObjectImpl implements ExtendedAttri
 	 * @generated
 	 * @ordered
 	 */
-	protected EList extendedAttribute = null;
+	protected EList extendedAttribute;
 
 	/**
 	 * <!-- begin-user-doc -->

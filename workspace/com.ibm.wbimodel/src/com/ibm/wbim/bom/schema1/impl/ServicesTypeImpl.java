@@ -46,7 +46,7 @@ public class ServicesTypeImpl extends EObjectImpl implements ServicesType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList service = null;
+	protected EList service;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getMultipleInstancesMatch()
- * @model
+ * @model extendedMetaData="name='MultipleInstancesMatch'"
  * @generated
  */
 public final class MultipleInstancesMatch extends AbstractEnumerator {
@@ -189,7 +189,7 @@ public final class MultipleInstancesMatch extends AbstractEnumerator {
 			case DELIVER_TO_ALL_INSTANCES: return DELIVER_TO_ALL_INSTANCES_LITERAL;
 			case DELIVER_TO_ANY_INSTANCE: return DELIVER_TO_ANY_INSTANCE_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

@@ -79,7 +79,7 @@ public class ScopeDimensionTypeImpl extends EObjectImpl implements ScopeDimensio
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean valueTypeESet = false;
+	protected boolean valueTypeESet;
 
 	/**
 	 * <!-- begin-user-doc -->

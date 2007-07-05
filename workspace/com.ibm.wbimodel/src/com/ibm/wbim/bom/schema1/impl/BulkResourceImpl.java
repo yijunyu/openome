@@ -58,7 +58,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap bulkResourceCostType = null;
+	protected FeatureMap bulkResourceCostType;
 
 	/**
 	 * The cached value of the '{@link #getAvailableQuantity() <em>Available Quantity</em>}' containment reference.
@@ -68,7 +68,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity availableQuantity = null;
+	protected Quantity availableQuantity;
 
 	/**
 	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference list.
@@ -78,7 +78,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 * @ordered
 	 */
-	protected EList availability = null;
+	protected EList availability;
 
 	/**
 	 * The cached value of the '{@link #getQualification() <em>Qualification</em>}' containment reference list.
@@ -88,7 +88,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 * @ordered
 	 */
-	protected EList qualification = null;
+	protected EList qualification;
 
 	/**
 	 * The default value of the '{@link #isIsConsumable() <em>Is Consumable</em>}' attribute.
@@ -117,7 +117,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isConsumableESet = false;
+	protected boolean isConsumableESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,7 +155,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 */
 	public EList getOneTimeCost() {
-		return ((FeatureMap)getBulkResourceCostType()).list(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST);
+		return getBulkResourceCostType().list(Schema1Package.Literals.BULK_RESOURCE__ONE_TIME_COST);
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 */
 	public EList getCostPerQuantity() {
-		return ((FeatureMap)getBulkResourceCostType()).list(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY);
+		return getBulkResourceCostType().list(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY);
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class BulkResourceImpl extends ComplexDataTypeInstanceImpl implements Bul
 	 * @generated
 	 */
 	public EList getCostPerQuantityAndTimeUnit() {
-		return ((FeatureMap)getBulkResourceCostType()).list(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY_AND_TIME_UNIT);
+		return getBulkResourceCostType().list(Schema1Package.Literals.BULK_RESOURCE__COST_PER_QUANTITY_AND_TIME_UNIT);
 	}
 
 	/**

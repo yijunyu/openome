@@ -48,7 +48,7 @@ public class InputConstantValueImpl extends EObjectImpl implements InputConstant
 	 * @generated
 	 * @ordered
 	 */
-	protected EList literalValue = null;
+	protected EList literalValue;
 
 	/**
 	 * The cached value of the '{@link #getPublicInstance() <em>Public Instance</em>}' containment reference list.
@@ -58,7 +58,7 @@ public class InputConstantValueImpl extends EObjectImpl implements InputConstant
 	 * @generated
 	 * @ordered
 	 */
-	protected EList publicInstance = null;
+	protected EList publicInstance;
 
 	/**
 	 * <!-- begin-user-doc -->

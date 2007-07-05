@@ -45,7 +45,7 @@ public class OutputRepositoryValueImpl extends EObjectImpl implements OutputRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected LocalRepositoryRef localRepository = null;
+	protected LocalRepositoryRef localRepository;
 
 	/**
 	 * The cached value of the '{@link #getGlobalRepository() <em>Global Repository</em>}' containment reference.
@@ -55,7 +55,7 @@ public class OutputRepositoryValueImpl extends EObjectImpl implements OutputRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected GlobalRepositoryRef globalRepository = null;
+	protected GlobalRepositoryRef globalRepository;
 
 	/**
 	 * The default value of the '{@link #isAtBeginning() <em>At Beginning</em>}' attribute.
@@ -84,7 +84,7 @@ public class OutputRepositoryValueImpl extends EObjectImpl implements OutputRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean atBeginningESet = false;
+	protected boolean atBeginningESet;
 
 	/**
 	 * The default value of the '{@link #isIsInsert() <em>Is Insert</em>}' attribute.
@@ -113,7 +113,7 @@ public class OutputRepositoryValueImpl extends EObjectImpl implements OutputRepo
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isInsertESet = false;
+	protected boolean isInsertESet;
 
 	/**
 	 * <!-- begin-user-doc -->

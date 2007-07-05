@@ -57,7 +57,7 @@ public class ExponentialTypeImpl extends EObjectImpl implements ExponentialType 
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean meanESet = false;
+	protected boolean meanESet;
 
 	/**
 	 * <!-- begin-user-doc -->

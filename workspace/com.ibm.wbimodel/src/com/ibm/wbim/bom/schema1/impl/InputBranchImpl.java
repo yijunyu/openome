@@ -49,7 +49,7 @@ public class InputBranchImpl extends EObjectImpl implements InputBranch {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList input = null;
+	protected EList input;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

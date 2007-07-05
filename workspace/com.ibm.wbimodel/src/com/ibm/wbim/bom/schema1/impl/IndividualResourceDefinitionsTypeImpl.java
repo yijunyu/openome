@@ -46,7 +46,7 @@ public class IndividualResourceDefinitionsTypeImpl extends EObjectImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected EList individualResourceDefinition = null;
+	protected EList individualResourceDefinition;
 
 	/**
 	 * <!-- begin-user-doc -->

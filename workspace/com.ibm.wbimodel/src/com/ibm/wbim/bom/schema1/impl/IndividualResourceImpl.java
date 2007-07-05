@@ -51,7 +51,7 @@ public class IndividualResourceImpl extends ComplexDataTypeInstanceImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap individualResourceCostType = null;
+	protected FeatureMap individualResourceCostType;
 
 	/**
 	 * The cached value of the '{@link #getAvailability() <em>Availability</em>}' containment reference list.
@@ -61,7 +61,7 @@ public class IndividualResourceImpl extends ComplexDataTypeInstanceImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList availability = null;
+	protected EList availability;
 
 	/**
 	 * The cached value of the '{@link #getQualification() <em>Qualification</em>}' containment reference list.
@@ -71,7 +71,7 @@ public class IndividualResourceImpl extends ComplexDataTypeInstanceImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList qualification = null;
+	protected EList qualification;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public class IndividualResourceImpl extends ComplexDataTypeInstanceImpl implemen
 	 * @generated
 	 */
 	public EList getOneTimeCost() {
-		return ((FeatureMap)getIndividualResourceCostType()).list(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST);
+		return getIndividualResourceCostType().list(Schema1Package.Literals.INDIVIDUAL_RESOURCE__ONE_TIME_COST);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class IndividualResourceImpl extends ComplexDataTypeInstanceImpl implemen
 	 * @generated
 	 */
 	public EList getCostPerTimeUnit() {
-		return ((FeatureMap)getIndividualResourceCostType()).list(Schema1Package.Literals.INDIVIDUAL_RESOURCE__COST_PER_TIME_UNIT);
+		return getIndividualResourceCostType().list(Schema1Package.Literals.INDIVIDUAL_RESOURCE__COST_PER_TIME_UNIT);
 	}
 
 	/**

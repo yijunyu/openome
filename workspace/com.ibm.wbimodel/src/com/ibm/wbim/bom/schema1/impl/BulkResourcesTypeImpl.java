@@ -46,7 +46,7 @@ public class BulkResourcesTypeImpl extends EObjectImpl implements BulkResourcesT
 	 * @generated
 	 * @ordered
 	 */
-	protected EList bulkResource = null;
+	protected EList bulkResource;
 
 	/**
 	 * <!-- begin-user-doc -->

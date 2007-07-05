@@ -68,7 +68,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap group = null;
+	protected FeatureMap group;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,7 +106,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getStartNode() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__START_NODE);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__START_NODE);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getStopNode() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__STOP_NODE);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__STOP_NODE);
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getEndNode() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__END_NODE);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__END_NODE);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getTask() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__TASK);
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getDecision() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__DECISION);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__DECISION);
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getMerge() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__MERGE);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__MERGE);
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getFork() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__FORK);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__FORK);
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getJoin() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__JOIN);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__JOIN);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getNotificationBroadcaster() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_BROADCASTER);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_BROADCASTER);
 	}
 
 	/**
@@ -187,7 +187,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getNotificationReceiver() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_RECEIVER);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__NOTIFICATION_RECEIVER);
 	}
 
 	/**
@@ -196,7 +196,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getObserver() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__OBSERVER);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__OBSERVER);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getTimer() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__TIMER);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__TIMER);
 	}
 
 	/**
@@ -214,7 +214,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getMap() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__MAP);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__MAP);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getLoop() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOOP);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOOP);
 	}
 
 	/**
@@ -232,7 +232,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getForLoop() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__FOR_LOOP);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__FOR_LOOP);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getProcess() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__PROCESS);
 	}
 
 	/**
@@ -250,7 +250,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getLocalRepository() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOCAL_REPOSITORY);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__LOCAL_REPOSITORY);
 	}
 
 	/**
@@ -259,7 +259,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getCallToProcess() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_PROCESS);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_PROCESS);
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getCallToTask() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_TASK);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_TASK);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getCallToService() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_SERVICE);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CALL_TO_SERVICE);
 	}
 
 	/**
@@ -286,7 +286,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getConnection() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CONNECTION);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__CONNECTION);
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class FlowContentTypeImpl extends EObjectImpl implements FlowContentType 
 	 * @generated
 	 */
 	public EList getAnnotation() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.FLOW_CONTENT_TYPE__ANNOTATION);
+		return getGroup().list(Schema1Package.Literals.FLOW_CONTENT_TYPE__ANNOTATION);
 	}
 
 	/**

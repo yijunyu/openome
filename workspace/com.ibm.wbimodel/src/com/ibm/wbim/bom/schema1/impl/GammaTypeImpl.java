@@ -58,7 +58,7 @@ public class GammaTypeImpl extends EObjectImpl implements GammaType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean meanESet = false;
+	protected boolean meanESet;
 
 	/**
 	 * The default value of the '{@link #getStandardDeviation() <em>Standard Deviation</em>}' attribute.
@@ -87,7 +87,7 @@ public class GammaTypeImpl extends EObjectImpl implements GammaType {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean standardDeviationESet = false;
+	protected boolean standardDeviationESet;
 
 	/**
 	 * <!-- begin-user-doc -->

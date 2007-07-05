@@ -9,6 +9,7 @@ package com.ibm.wbim.bom.schema1.impl;
 import com.ibm.wbim.bom.schema1.CostPerTimeUnit;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -37,7 +38,7 @@ public class CostPerTimeUnitImpl extends OneTimeCostImpl implements CostPerTimeU
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object TIME_UNIT_EDEFAULT = null;
+	protected static final Duration TIME_UNIT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTimeUnit() <em>Time Unit</em>}' attribute.
@@ -47,7 +48,7 @@ public class CostPerTimeUnitImpl extends OneTimeCostImpl implements CostPerTimeU
 	 * @generated
 	 * @ordered
 	 */
-	protected Object timeUnit = TIME_UNIT_EDEFAULT;
+	protected Duration timeUnit = TIME_UNIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,7 +73,7 @@ public class CostPerTimeUnitImpl extends OneTimeCostImpl implements CostPerTimeU
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getTimeUnit() {
+	public Duration getTimeUnit() {
 		return timeUnit;
 	}
 
@@ -81,8 +82,8 @@ public class CostPerTimeUnitImpl extends OneTimeCostImpl implements CostPerTimeU
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeUnit(Object newTimeUnit) {
-		Object oldTimeUnit = timeUnit;
+	public void setTimeUnit(Duration newTimeUnit) {
+		Duration oldTimeUnit = timeUnit;
 		timeUnit = newTimeUnit;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.COST_PER_TIME_UNIT__TIME_UNIT, oldTimeUnit, timeUnit));
@@ -109,7 +110,7 @@ public class CostPerTimeUnitImpl extends OneTimeCostImpl implements CostPerTimeU
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Schema1Package.COST_PER_TIME_UNIT__TIME_UNIT:
-				setTimeUnit((Object)newValue);
+				setTimeUnit((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

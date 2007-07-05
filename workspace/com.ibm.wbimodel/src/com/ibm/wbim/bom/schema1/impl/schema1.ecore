@@ -149,9 +149,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"
         defaultValueLiteral="1" unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Negative value == unlimited"/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="maximum"/>
@@ -267,9 +264,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BasicDataType">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler predefined basic types"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="BasicDataType"/>
     </eAnnotations>
@@ -637,9 +631,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -677,9 +668,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -911,9 +899,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CriteriaTemplate">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This is the resource search criteria for assigning task resources when the resource type is the &quot;Staff&quot; or &quot;Person&quot; predefined resource."/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="CriteriaTemplate"/>
       <details key="kind" value="elementOnly"/>
@@ -976,9 +961,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Currency">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler supported currencies"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Currency"/>
     </eAnnotations>
@@ -1115,9 +1097,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DayOfWeek">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler predefined day of week"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="DayOfWeek"/>
     </eAnnotations>
@@ -1158,9 +1137,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputBranch" lowerBound="2"
         upperBound="-1" eType="#//OutputBranchType" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The outputBranch lists the outputs that correspond to inputs in the same order as the inputs appear in the inputBranch."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="outputBranch"/>
@@ -1335,9 +1311,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ElementName" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The name of the global element may be prefixed by the catalog ID followed by ## to denote the name space for the element name."/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="ElementName"/>
       <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
@@ -1726,9 +1699,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputBranch" lowerBound="2"
         upperBound="-1" eType="#//OutputBranch" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The outputBranch lists the outputs that correspond to inputs in the same order as the inputs appear in the inputBranch."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="outputBranch"/>
@@ -1744,9 +1714,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForLoop" eSuperTypes="#//Process">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The For Loop must use the start node to connect the first element in the loop. The loop must not use the input to the loop to connect to this element. "/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="ForLoop"/>
       <details key="kind" value="elementOnly"/>
@@ -2069,9 +2036,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constantValue" eType="#//InputConstantValue"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Global processes, tasks, and services ignore constantValue as an input."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="constantValue"/>
@@ -2080,9 +2044,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryValue" eType="#//InputRepositoryValue"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This definition only applies to inputs that retrieve values from a repository."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="repositoryValue"/>
@@ -2115,9 +2076,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"
         defaultValueLiteral="1" unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Negative value == unlimited"/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="maximum"/>
@@ -2420,9 +2378,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputBranch" lowerBound="1"
         eType="#//OutputBranch" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The outputBranch lists the outputs that correspond to inputs in the same order as the inputs appear in the inputBranch."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="outputBranch"/>
@@ -2591,9 +2546,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Process">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The Do While Loops and While Loops must use the start node to connect the first element in the loop. The loop must not use the input to the loop to connect to this element. "/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Loop"/>
       <details key="kind" value="elementOnly"/>
@@ -2718,9 +2670,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputBranch" lowerBound="1"
         eType="#//OutputBranch" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The outputBranch lists the outputs that correspond to inputs in the same order as the inputs appear in the inputBranch."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="outputBranch"/>
@@ -2890,9 +2839,6 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The scope name has one of the following formats:  [catalog ID]##[global process name] or  [catalog ID]##[global process name]/[subprocess name]/...  &#xD;&#xA;For example, the notification broadcaster called Low Stock is in a subprocess called Check Inventory within a subprocess called Process Order within a process called Order Product. If the notification scope is to be Process Order, the scope name is [catlogId]##Order Product/Process Order. Note: this is a similar format to what the user sees in the scope entry of the notification broadcaster in its Attribute view except that the catalog ID prefixes the global process name."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="scope"/>
@@ -3175,9 +3121,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryValue" eType="#//OutputRepositoryValue"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This definition only applies to outputs that send values to a repository."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="repositoryValue"/>
@@ -3210,9 +3153,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"
         defaultValueLiteral="1" unsettable="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Negative value == unlimited"/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="maximum"/>
@@ -3656,9 +3596,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="PredefinedOrganizationType" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler predefined organization types"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="PredefinedOrganizationType"/>
       <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
@@ -3666,9 +3603,6 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="PredefinedResourceType" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler predefined resource types"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="PredefinedResourceType"/>
       <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
@@ -3767,9 +3701,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -3778,9 +3709,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//ElementName">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="For a local process, the name type is xsd:string."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>
@@ -3794,9 +3722,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="process" lowerBound="1"
         upperBound="-1" eType="#//Process" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="For a global process, its inputs and outputs must have associated data. In inputs for global processes, the constantValue element is ignored. In inputs and outputs for global processes, the repositoryValue element is ignored."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="process"/>
@@ -4261,9 +4186,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -4382,9 +4304,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
         upperBound="-1" eType="#//Service" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="For a global service, its inputs and outputs must have associated data. In inputs for global services, the constantValue element is ignored. In inputs and outputs for global services, the repositoryValue element is ignored."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="service"/>
@@ -4399,18 +4318,12 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPoint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unless the source is a start node or repository node, specify the output name of the source activity or the input name of the containing process. If the source is a start node or repository node, do not use this attribute."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="contactPoint"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" unique="false" eType="#//ElementName">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unless the source is an input of the containing process, specify the name of the source activity. If the source is an input of the containing process, do not use this attribute."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="node"/>
@@ -4492,18 +4405,12 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactPoint" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unless the target is an end node, stop node  or repository node, specify the input name of the target activity or the output name of the containing process. If the target is an end node, stop node or repository node, do not use this attribute"/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="contactPoint"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="node" unique="false" eType="#//ElementName">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unless the target is an output of the containing process, specify the name of the target activity. If the target is an output of the containing process, do not use this attribute."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="node"/>
@@ -4581,9 +4488,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -4592,9 +4496,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
         eType="#//ElementName">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="For a local task, the name type is xsd:string."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="name"/>
@@ -4608,9 +4509,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="criteria" eType="#//CriteriaTemplate"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Criteria only applies when the resource is the predefined &quot;Person&quot; or &quot;Staff&quot; type."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="criteria"/>
@@ -4625,9 +4523,6 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" upperBound="-1"
         eType="#//Task" containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="For a global task, its inputs and outputs must have associated data. In inputs for global tasks, the constantValue element is ignored. In inputs and outputs for global tasks, the repositoryValue element is ignored."/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="task"/>
@@ -4740,9 +4635,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extendedAttributes" eType="#//ExtendedAttributes"
         containment="true" resolveProxies="false">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This element is currently not processed. It can contain additional information about the element. "/>
-      </eAnnotations>
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="extendedAttributes"/>
@@ -4793,9 +4685,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler predefined time unit"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="TimeUnit"/>
     </eAnnotations>
@@ -4902,9 +4791,6 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Unit" instanceClassName="java.lang.String">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Modeler supported unit of measure"/>
-    </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Unit"/>
       <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>

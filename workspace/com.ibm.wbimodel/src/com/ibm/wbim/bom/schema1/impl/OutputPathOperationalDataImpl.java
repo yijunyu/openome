@@ -41,7 +41,7 @@ public class OutputPathOperationalDataImpl extends EObjectImpl implements Output
 	 * @generated
 	 * @ordered
 	 */
-	protected OutputPathProbabilityValue probability = null;
+	protected OutputPathProbabilityValue probability;
 
 	/**
 	 * <!-- begin-user-doc -->

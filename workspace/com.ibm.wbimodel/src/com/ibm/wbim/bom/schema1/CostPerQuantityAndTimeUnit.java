@@ -6,6 +6,8 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -33,13 +35,13 @@ public interface CostPerQuantityAndTimeUnit extends CostPerQuantity {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Unit</em>' attribute.
-	 * @see #setTimeUnit(Object)
+	 * @see #setTimeUnit(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getCostPerQuantityAndTimeUnit_TimeUnit()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='timeUnit'"
 	 * @generated
 	 */
-	Object getTimeUnit();
+	Duration getTimeUnit();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.CostPerQuantityAndTimeUnit#getTimeUnit <em>Time Unit</em>}' attribute.
@@ -49,6 +51,6 @@ public interface CostPerQuantityAndTimeUnit extends CostPerQuantity {
 	 * @see #getTimeUnit()
 	 * @generated
 	 */
-	void setTimeUnit(Object value);
+	void setTimeUnit(Duration value);
 
 } // CostPerQuantityAndTimeUnit

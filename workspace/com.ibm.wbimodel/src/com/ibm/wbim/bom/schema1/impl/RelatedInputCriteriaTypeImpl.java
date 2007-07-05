@@ -46,7 +46,7 @@ public class RelatedInputCriteriaTypeImpl extends EObjectImpl implements Related
 	 * @generated
 	 * @ordered
 	 */
-	protected EList inputCriterion = null;
+	protected EList inputCriterion;
 
 	/**
 	 * <!-- begin-user-doc -->

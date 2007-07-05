@@ -42,7 +42,7 @@ public class TypeDeclarationImpl extends EObjectImpl implements TypeDeclaration 
 	 * @generated
 	 * @ordered
 	 */
-	protected ComplexDataType complexDataType = null;
+	protected ComplexDataType complexDataType;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -74,7 +74,7 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * @generated
 	 * @ordered
 	 */
-	protected InputBranch inputBranch = null;
+	protected InputBranch inputBranch;
 
 	/**
 	 * The cached value of the '{@link #getOutputBranch() <em>Output Branch</em>}' containment reference list.
@@ -84,7 +84,7 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList outputBranch = null;
+	protected EList outputBranch;
 
 	/**
 	 * The default value of the '{@link #isIsInclusive() <em>Is Inclusive</em>}' attribute.
@@ -113,7 +113,7 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isInclusiveESet = false;
+	protected boolean isInclusiveESet;
 
 	/**
 	 * The default value of the '{@link #isIsSimpleDecision() <em>Is Simple Decision</em>}' attribute.
@@ -142,7 +142,7 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isSimpleDecisionESet = false;
+	protected boolean isSimpleDecisionESet;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -53,7 +53,7 @@ public class AttributeValueImpl extends EObjectImpl implements AttributeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected FeatureMap group = null;
+	protected FeatureMap group;
 
 	/**
 	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
@@ -111,7 +111,7 @@ public class AttributeValueImpl extends EObjectImpl implements AttributeValue {
 	 * @generated
 	 */
 	public EList getLiteralValue() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.ATTRIBUTE_VALUE__LITERAL_VALUE);
+		return getGroup().list(Schema1Package.Literals.ATTRIBUTE_VALUE__LITERAL_VALUE);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class AttributeValueImpl extends EObjectImpl implements AttributeValue {
 	 * @generated
 	 */
 	public EList getExpressionValue() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.ATTRIBUTE_VALUE__EXPRESSION_VALUE);
+		return getGroup().list(Schema1Package.Literals.ATTRIBUTE_VALUE__EXPRESSION_VALUE);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class AttributeValueImpl extends EObjectImpl implements AttributeValue {
 	 * @generated
 	 */
 	public EList getPublicInstance() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.ATTRIBUTE_VALUE__PUBLIC_INSTANCE);
+		return getGroup().list(Schema1Package.Literals.ATTRIBUTE_VALUE__PUBLIC_INSTANCE);
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class AttributeValueImpl extends EObjectImpl implements AttributeValue {
 	 * @generated
 	 */
 	public EList getPrivateInstance() {
-		return ((FeatureMap)getGroup()).list(Schema1Package.Literals.ATTRIBUTE_VALUE__PRIVATE_INSTANCE);
+		return getGroup().list(Schema1Package.Literals.ATTRIBUTE_VALUE__PRIVATE_INSTANCE);
 	}
 
 	/**

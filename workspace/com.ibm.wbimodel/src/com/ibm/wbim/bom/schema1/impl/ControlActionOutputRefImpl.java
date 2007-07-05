@@ -42,7 +42,7 @@ public class ControlActionOutputRefImpl extends EObjectImpl implements ControlAc
 	 * @generated
 	 * @ordered
 	 */
-	protected OutputRepositoryValue repositoryValue = null;
+	protected OutputRepositoryValue repositoryValue;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

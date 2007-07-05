@@ -58,7 +58,7 @@ public class QuantityImpl extends EObjectImpl implements Quantity {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean valueESet = false;
+	protected boolean valueESet;
 
 	/**
 	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute.

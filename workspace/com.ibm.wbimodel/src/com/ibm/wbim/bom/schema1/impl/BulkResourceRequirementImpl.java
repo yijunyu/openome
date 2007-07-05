@@ -10,6 +10,7 @@ import com.ibm.wbim.bom.schema1.BulkResourceRequirement;
 import com.ibm.wbim.bom.schema1.Quantity;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -44,7 +45,7 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity resourceQuantity = null;
+	protected Quantity resourceQuantity;
 
 	/**
 	 * The default value of the '{@link #getBulkResource() <em>Bulk Resource</em>}' attribute.
@@ -94,7 +95,7 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object TIME_REQUIRED_EDEFAULT = null;
+	protected static final Duration TIME_REQUIRED_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTimeRequired() <em>Time Required</em>}' attribute.
@@ -104,7 +105,7 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 	 * @generated
 	 * @ordered
 	 */
-	protected Object timeRequired = TIME_REQUIRED_EDEFAULT;
+	protected Duration timeRequired = TIME_REQUIRED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,7 +215,7 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getTimeRequired() {
+	public Duration getTimeRequired() {
 		return timeRequired;
 	}
 
@@ -223,8 +224,8 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeRequired(Object newTimeRequired) {
-		Object oldTimeRequired = timeRequired;
+	public void setTimeRequired(Duration newTimeRequired) {
+		Duration oldTimeRequired = timeRequired;
 		timeRequired = newTimeRequired;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.BULK_RESOURCE_REQUIREMENT__TIME_REQUIRED, oldTimeRequired, timeRequired));
@@ -279,7 +280,7 @@ public class BulkResourceRequirementImpl extends EObjectImpl implements BulkReso
 				setName((String)newValue);
 				return;
 			case Schema1Package.BULK_RESOURCE_REQUIREMENT__TIME_REQUIRED:
-				setTimeRequired((Object)newValue);
+				setTimeRequired((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

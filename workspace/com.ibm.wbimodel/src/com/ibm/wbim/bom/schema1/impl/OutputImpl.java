@@ -49,7 +49,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected OutputRepositoryValue repositoryValue = null;
+	protected OutputRepositoryValue repositoryValue;
 
 	/**
 	 * The default value of the '{@link #getAssociatedData() <em>Associated Data</em>}' attribute.
@@ -98,7 +98,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isOrderedESet = false;
+	protected boolean isOrderedESet;
 
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
@@ -127,7 +127,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isUniqueESet = false;
+	protected boolean isUniqueESet;
 
 	/**
 	 * The default value of the '{@link #getMaximum() <em>Maximum</em>}' attribute.
@@ -156,7 +156,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean maximumESet = false;
+	protected boolean maximumESet;
 
 	/**
 	 * The default value of the '{@link #getMinimum() <em>Minimum</em>}' attribute.
@@ -185,7 +185,7 @@ public class OutputImpl extends EObjectImpl implements Output {
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean minimumESet = false;
+	protected boolean minimumESet;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

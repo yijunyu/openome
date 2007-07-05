@@ -41,7 +41,7 @@ public class RandomListTypeImpl extends EObjectImpl implements RandomListType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList value = null;
+	protected EList value;
 
 	/**
 	 * <!-- begin-user-doc -->

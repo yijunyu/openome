@@ -60,7 +60,7 @@ public class LoopConditionTypeImpl extends ExpressionImpl implements LoopConditi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean counterIncrementESet = false;
+	protected boolean counterIncrementESet;
 
 	/**
 	 * The default value of the '{@link #getFinalCounter() <em>Final Counter</em>}' attribute.
@@ -89,7 +89,7 @@ public class LoopConditionTypeImpl extends ExpressionImpl implements LoopConditi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean finalCounterESet = false;
+	protected boolean finalCounterESet;
 
 	/**
 	 * The default value of the '{@link #getInitialCounter() <em>Initial Counter</em>}' attribute.
@@ -118,7 +118,7 @@ public class LoopConditionTypeImpl extends ExpressionImpl implements LoopConditi
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean initialCounterESet = false;
+	protected boolean initialCounterESet;
 
 	/**
 	 * <!-- begin-user-doc -->

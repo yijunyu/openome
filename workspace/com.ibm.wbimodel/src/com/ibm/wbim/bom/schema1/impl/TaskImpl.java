@@ -83,7 +83,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Inputs inputs = null;
+	protected Inputs inputs;
 
 	/**
 	 * The cached value of the '{@link #getOutputs() <em>Outputs</em>}' containment reference.
@@ -93,7 +93,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Outputs outputs = null;
+	protected Outputs outputs;
 
 	/**
 	 * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference list.
@@ -103,7 +103,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList precondition = null;
+	protected EList precondition;
 
 	/**
 	 * The cached value of the '{@link #getPostcondition() <em>Postcondition</em>}' containment reference list.
@@ -113,7 +113,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList postcondition = null;
+	protected EList postcondition;
 
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference.
@@ -123,7 +123,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Resources resources = null;
+	protected Resources resources;
 
 	/**
 	 * The cached value of the '{@link #getOrganizations() <em>Organizations</em>}' containment reference.
@@ -133,7 +133,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected Organizations organizations = null;
+	protected Organizations organizations;
 
 	/**
 	 * The cached value of the '{@link #getOperationalData() <em>Operational Data</em>}' containment reference.
@@ -143,7 +143,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected OperationalData operationalData = null;
+	protected OperationalData operationalData;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -153,7 +153,7 @@ public class TaskImpl extends EObjectImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

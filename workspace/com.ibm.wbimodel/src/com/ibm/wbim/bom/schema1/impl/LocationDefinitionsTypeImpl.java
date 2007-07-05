@@ -46,7 +46,7 @@ public class LocationDefinitionsTypeImpl extends EObjectImpl implements Location
 	 * @generated
 	 * @ordered
 	 */
-	protected EList locationDefinition = null;
+	protected EList locationDefinition;
 
 	/**
 	 * <!-- begin-user-doc -->

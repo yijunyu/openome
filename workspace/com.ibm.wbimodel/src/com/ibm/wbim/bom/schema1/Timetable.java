@@ -8,6 +8,8 @@ package com.ibm.wbim.bom.schema1;
 
 import java.math.BigInteger;
 
+import javax.xml.datatype.Duration;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -132,13 +134,13 @@ public interface Timetable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Begining On</em>' attribute.
-	 * @see #setBeginingOn(Object)
+	 * @see #setBeginingOn(XMLGregorianCalendar)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getTimetable_BeginingOn()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.DateTime"
 	 *        extendedMetaData="kind='attribute' name='beginingOn'"
 	 * @generated
 	 */
-	Object getBeginingOn();
+	XMLGregorianCalendar getBeginingOn();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.Timetable#getBeginingOn <em>Begining On</em>}' attribute.
@@ -148,7 +150,7 @@ public interface Timetable extends EObject {
 	 * @see #getBeginingOn()
 	 * @generated
 	 */
-	void setBeginingOn(Object value);
+	void setBeginingOn(XMLGregorianCalendar value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -213,13 +215,13 @@ public interface Timetable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repetition Period</em>' attribute.
-	 * @see #setRepetitionPeriod(Object)
+	 * @see #setRepetitionPeriod(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getTimetable_RepetitionPeriod()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='attribute' name='repetitionPeriod'"
 	 * @generated
 	 */
-	Object getRepetitionPeriod();
+	Duration getRepetitionPeriod();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.Timetable#getRepetitionPeriod <em>Repetition Period</em>}' attribute.
@@ -229,6 +231,6 @@ public interface Timetable extends EObject {
 	 * @see #getRepetitionPeriod()
 	 * @generated
 	 */
-	void setRepetitionPeriod(Object value);
+	void setRepetitionPeriod(Duration value);
 
 } // Timetable

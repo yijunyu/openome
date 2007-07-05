@@ -46,7 +46,7 @@ public class TimetablesTypeImpl extends EObjectImpl implements TimetablesType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList timetable = null;
+	protected EList timetable;
 
 	/**
 	 * <!-- begin-user-doc -->

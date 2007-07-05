@@ -1222,13 +1222,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Additional Input Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Additional Input Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Additional Input Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Additional Input Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1237,13 +1237,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Additional Output Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Additional Output Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Additional Output Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Additional Output Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1252,13 +1252,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Annotated Node Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Annotated Node Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Annotated Node Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Annotated Node Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1267,13 +1267,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Annotation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Annotation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1282,13 +1282,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1297,13 +1297,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Attribute Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Attribute Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1312,13 +1312,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Availability</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Availability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Availability</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Availability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1327,13 +1327,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Based On Timetable Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Based On Timetable Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Based On Timetable Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Based On Timetable Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1342,13 +1342,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Bulk Resource</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bulk Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Bulk Resource</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bulk Resource</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1357,13 +1357,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Bulk Resource Definitions Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bulk Resource Definitions Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Bulk Resource Definitions Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bulk Resource Definitions Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1372,13 +1372,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Bulk Resource Definition Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bulk Resource Definition Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Bulk Resource Definition Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bulk Resource Definition Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1387,13 +1387,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Bulk Resource Requirement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bulk Resource Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Bulk Resource Requirement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bulk Resource Requirement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1402,13 +1402,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Bulk Resources Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Bulk Resources Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Bulk Resources Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Bulk Resources Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1417,13 +1417,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Business Item Instances Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Business Item Instances Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Business Item Instances Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Business Item Instances Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1432,13 +1432,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Business Items Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Business Items Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Business Items Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Business Items Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1447,13 +1447,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Business Item Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Business Item Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Business Item Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Business Item Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1462,13 +1462,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Call To Process Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call To Process Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Call To Process Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call To Process Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1477,13 +1477,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Call To Service Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call To Service Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Call To Service Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call To Service Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1492,13 +1492,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Call To Task Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call To Task Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Call To Task Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call To Task Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1507,13 +1507,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Catalog</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Catalog</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Catalog</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Catalog</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1522,13 +1522,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Catalogs</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Catalogs</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Catalogs</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Catalogs</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1537,13 +1537,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Catalogs Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Catalogs Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Catalogs Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Catalogs Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1552,13 +1552,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Complex Data Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Complex Data Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Data Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1567,13 +1567,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Complex Data Type Instance</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Data Type Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Complex Data Type Instance</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Data Type Instance</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1582,13 +1582,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Connection</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Connection</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Connection</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1597,13 +1597,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Constant Time Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Constant Time Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Constant Time Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Constant Time Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1612,13 +1612,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Control Action Output Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Control Action Output Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Control Action Output Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Control Action Output Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1627,13 +1627,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Correlation Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Correlation Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Correlation Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Correlation Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1642,13 +1642,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Per Quantity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Per Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Per Quantity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Per Quantity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1657,13 +1657,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Per Quantity And Time Unit</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Per Quantity And Time Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Per Quantity And Time Unit</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Per Quantity And Time Unit</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1672,13 +1672,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Per Time Unit</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Per Time Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Per Time Unit</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Per Time Unit</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1687,13 +1687,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Per Time Unit Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Per Time Unit Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Per Time Unit Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Per Time Unit Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1702,13 +1702,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1717,13 +1717,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Cost Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Cost Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Cost Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Cost Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1732,13 +1732,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Criteria Template</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Criteria Template</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Criteria Template</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Criteria Template</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1747,13 +1747,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Data Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Data Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1762,13 +1762,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Decision</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Decision</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Decision</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Decision</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1777,13 +1777,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Default Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Default Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Default Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Default Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1792,13 +1792,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Distribution Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Distribution Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Distribution Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Distribution Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1807,13 +1807,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Distribution Type1</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Distribution Type1</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Distribution Type1</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Distribution Type1</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1822,13 +1822,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Document Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Document Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1837,13 +1837,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>End Node Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>End Node Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>End Node Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>End Node Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1852,13 +1852,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Entry Point Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Point Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Entry Point Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Point Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1867,13 +1867,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Exemption Period Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exemption Period Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Exemption Period Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exemption Period Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1882,13 +1882,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Exponential Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exponential Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Exponential Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exponential Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1897,13 +1897,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1912,13 +1912,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Extended Attributes</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Extended Attributes</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Extended Attributes</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Extended Attributes</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1927,13 +1927,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Extended Attribute Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Extended Attribute Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Extended Attribute Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Extended Attribute Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1942,13 +1942,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Flow Content Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Flow Content Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Flow Content Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Flow Content Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1957,13 +1957,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Fork</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Fork</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Fork</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Fork</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1972,13 +1972,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>For Loop</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>For Loop</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>For Loop</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>For Loop</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -1987,13 +1987,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Gamma Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Gamma Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Gamma Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Gamma Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2002,13 +2002,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Global Repository Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Global Repository Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Global Repository Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Global Repository Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2017,13 +2017,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Group Members Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Group Members Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Group Members Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Group Members Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2032,13 +2032,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Group Search Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Group Search Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Group Search Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Group Search Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2047,13 +2047,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Individual Resource</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Individual Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Individual Resource</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Individual Resource</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2062,13 +2062,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Individual Resource Definitions Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Individual Resource Definitions Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Individual Resource Definitions Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Individual Resource Definitions Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2077,13 +2077,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Individual Resource Definition Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Individual Resource Definition Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Individual Resource Definition Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Individual Resource Definition Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2092,13 +2092,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Individual Resource Requirement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Individual Resource Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Individual Resource Requirement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Individual Resource Requirement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2107,13 +2107,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Individual Resources Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Individual Resources Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Individual Resources Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Individual Resources Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2122,13 +2122,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2137,13 +2137,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Branch</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Branch</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Branch</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2152,13 +2152,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Constant Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Constant Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Constant Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Constant Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2167,13 +2167,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Constant Value Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Constant Value Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Constant Value Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Constant Value Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2182,13 +2182,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Criterion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Criterion</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Criterion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Criterion</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2197,13 +2197,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Criterion Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Criterion Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Criterion Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Criterion Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2212,13 +2212,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Repository Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Repository Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Repository Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Repository Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2227,13 +2227,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Repository Value Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Repository Value Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Repository Value Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Repository Value Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2242,13 +2242,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Inputs</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Inputs</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Inputs</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Inputs</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2257,13 +2257,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Input Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Input Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Input Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Input Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2272,13 +2272,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Invocation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Invocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Invocation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Invocation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2287,13 +2287,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Join</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Join</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Join</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Join</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2302,13 +2302,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Last Activation Time Plus Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Last Activation Time Plus Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Last Activation Time Plus Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Last Activation Time Plus Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2317,13 +2317,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Local Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Local Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Local Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Local Repository</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2332,13 +2332,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Local Repository Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Local Repository Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Local Repository Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Local Repository Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2347,13 +2347,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Location Definitions Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Location Definitions Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Location Definitions Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Location Definitions Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2362,13 +2362,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Location Definition Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Location Definition Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Location Definition Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Location Definition Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2377,13 +2377,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Locations Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Locations Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Locations Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Locations Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2392,13 +2392,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Location Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Location Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Location Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Location Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2407,13 +2407,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Lognormal Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Lognormal Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Lognormal Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Lognormal Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2422,13 +2422,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Loop</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Loop</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Loop</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Loop</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2437,13 +2437,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Loop Condition Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Condition Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Loop Condition Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Condition Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2452,13 +2452,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Manager Of Employee By ID Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Manager Of Employee By ID Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Manager Of Employee By ID Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Manager Of Employee By ID Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2467,13 +2467,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Manager Of Employee Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Manager Of Employee Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Manager Of Employee Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Manager Of Employee Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2482,13 +2482,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Map</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Map</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Map</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Map</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2497,13 +2497,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Merge</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Merge</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Merge</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Merge</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2512,13 +2512,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Model Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Model Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Model Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Model Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2527,13 +2527,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Monetary Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Monetary Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Monetary Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Monetary Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2542,13 +2542,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Normal Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Normal Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2557,13 +2557,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Notification Broadcaster</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Notification Broadcaster</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Notification Broadcaster</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Notification Broadcaster</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2572,13 +2572,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Notification Receiver</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Notification Receiver</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Notification Receiver</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Notification Receiver</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2587,13 +2587,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Notifications Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Notifications Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Notifications Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Notifications Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2602,13 +2602,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Notification Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Notification Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Notification Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Notification Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2617,13 +2617,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Observer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Observer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Observer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Observer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2632,13 +2632,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>One Time Cost</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>One Time Cost</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>One Time Cost</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>One Time Cost</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2647,13 +2647,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Operational Data</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Operational Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Operational Data</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Operational Data</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2662,13 +2662,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Definitions Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Definitions Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Definitions Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Definitions Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2677,13 +2677,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Definition Templates Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Definition Templates Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Definition Templates Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Definition Templates Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2692,13 +2692,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Manager Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Manager Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Manager Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Manager Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2707,13 +2707,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2722,13 +2722,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organizations</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organizations</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organizations</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organizations</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2737,13 +2737,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Units Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Units Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Units Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Units Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2752,13 +2752,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Organization Unit Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Organization Unit Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Organization Unit Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Organization Unit Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2767,13 +2767,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2782,13 +2782,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Branch</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Branch</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Branch</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2797,13 +2797,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Branch Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Branch Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Branch Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Branch Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2812,13 +2812,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Criterion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Criterion</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Criterion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Criterion</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2827,13 +2827,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Criterion Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Criterion Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Criterion Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Criterion Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2842,13 +2842,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Path Operational Data</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Path Operational Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Path Operational Data</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Path Operational Data</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2857,13 +2857,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Path Probability Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Path Probability Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Path Probability Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Path Probability Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2872,13 +2872,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2887,13 +2887,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Repository Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Repository Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Repository Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Repository Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2902,13 +2902,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Output Repository Value Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Output Repository Value Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Output Repository Value Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Output Repository Value Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2917,13 +2917,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Outputs</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Outputs</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Outputs</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Outputs</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2932,13 +2932,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Person Name Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Person Name Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Person Name Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Person Name Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2947,13 +2947,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Person Search Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Person Search Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Person Search Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Person Search Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2962,13 +2962,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Poisson Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Poisson Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Poisson Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Poisson Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2977,13 +2977,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Private Instance</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Private Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Private Instance</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Private Instance</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -2992,13 +2992,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Process</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Process</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Process</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3007,13 +3007,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Processes Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Processes Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Processes Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Processes Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3022,13 +3022,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Process Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Process Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Process Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Process Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3037,13 +3037,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Public Instance</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Public Instance</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Public Instance</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Public Instance</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3052,13 +3052,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Qualification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Qualification</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Qualification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Qualification</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3067,13 +3067,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Quantity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Quantity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3082,13 +3082,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Random List Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Random List Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Random List Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Random List Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3097,13 +3097,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Recurring Time Interval Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Recurring Time Interval Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Recurring Time Interval Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Recurring Time Interval Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3112,13 +3112,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Related Input Criteria Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Related Input Criteria Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Related Input Criteria Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Related Input Criteria Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3127,13 +3127,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Repositories Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repositories Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Repositories Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repositories Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3142,13 +3142,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3157,13 +3157,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Repository Data Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Data Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Repository Data Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Data Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3172,13 +3172,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Resource Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Resource Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3187,13 +3187,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Resources</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Resources</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Resources</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Resources</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3202,13 +3202,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3217,13 +3217,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Role Requirement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Role Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Role Requirement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Role Requirement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3232,13 +3232,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Roles Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Roles Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Roles Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Roles Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3247,13 +3247,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Scope Dimension Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Scope Dimension Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Scope Dimension Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Scope Dimension Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3262,13 +3262,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Scope Dimension Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Scope Dimension Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Scope Dimension Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Scope Dimension Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3277,13 +3277,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Service</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Service</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3292,13 +3292,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Services Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Services Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Services Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Services Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3307,13 +3307,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Source Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Source Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3322,13 +3322,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Start Day Of Week Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Start Day Of Week Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Start Day Of Week Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Start Day Of Week Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3337,13 +3337,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Start Node Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Start Node Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Start Node Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Start Node Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3352,13 +3352,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Stop Node Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Stop Node Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Stop Node Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Stop Node Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3367,13 +3367,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Target Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Target Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Target Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Target Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3382,13 +3382,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Task</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Task</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3397,13 +3397,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Task Individual Resource Requirement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Task Individual Resource Requirement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Task Individual Resource Requirement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Task Individual Resource Requirement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3412,13 +3412,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Tasks Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Tasks Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Tasks Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Tasks Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3427,13 +3427,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Time Estimation Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Time Estimation Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Time Estimation Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Time Estimation Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3442,13 +3442,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Timer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Timer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3457,13 +3457,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Timer Setting Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timer Setting Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Timer Setting Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timer Setting Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3472,13 +3472,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Timetable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timetable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Timetable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timetable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3487,13 +3487,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Timetables Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timetables Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Timetables Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timetables Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3502,13 +3502,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Time Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Time Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Time Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Time Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3517,13 +3517,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Type Declaration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Type Declaration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Type Declaration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3532,13 +3532,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Uniform Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Uniform Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Uniform Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Uniform Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3547,13 +3547,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Value Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Value Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Value Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Value Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3562,13 +3562,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Weighted List Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Weighted List Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Weighted List Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Weighted List Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3577,13 +3577,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>When Cost Applicable Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>When Cost Applicable Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>When Cost Applicable Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>When Cost Applicable Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -3592,13 +3592,13 @@ public class Schema1Switch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

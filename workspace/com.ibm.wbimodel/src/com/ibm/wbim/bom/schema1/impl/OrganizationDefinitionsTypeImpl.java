@@ -46,7 +46,7 @@ public class OrganizationDefinitionsTypeImpl extends EObjectImpl implements Orga
 	 * @generated
 	 * @ordered
 	 */
-	protected EList organizationDefinition = null;
+	protected EList organizationDefinition;
 
 	/**
 	 * <!-- begin-user-doc -->

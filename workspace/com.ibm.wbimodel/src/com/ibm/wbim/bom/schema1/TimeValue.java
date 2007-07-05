@@ -6,6 +6,7 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -35,13 +36,13 @@ public interface TimeValue extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literal Value</em>' attribute.
-	 * @see #setLiteralValue(Object)
+	 * @see #setLiteralValue(Duration)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getTimeValue_LiteralValue()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.Duration"
 	 *        extendedMetaData="kind='element' name='literalValue' namespace='##targetNamespace'"
 	 * @generated
 	 */
-	Object getLiteralValue();
+	Duration getLiteralValue();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.TimeValue#getLiteralValue <em>Literal Value</em>}' attribute.
@@ -51,7 +52,7 @@ public interface TimeValue extends EObject {
 	 * @see #getLiteralValue()
 	 * @generated
 	 */
-	void setLiteralValue(Object value);
+	void setLiteralValue(Duration value);
 
 	/**
 	 * Returns the value of the '<em><b>Distribution</b></em>' containment reference.

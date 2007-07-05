@@ -65,7 +65,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	 * @generated
 	 * @ordered
 	 */
-	protected SourceType source = null;
+	protected SourceType source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
@@ -75,7 +75,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection {
 	 * @generated
 	 * @ordered
 	 */
-	protected TargetType target = null;
+	protected TargetType target;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.

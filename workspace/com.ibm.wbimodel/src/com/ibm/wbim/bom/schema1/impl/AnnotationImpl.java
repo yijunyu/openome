@@ -69,7 +69,7 @@ public class AnnotationImpl extends EObjectImpl implements Annotation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList annotatedNode = null;
+	protected EList annotatedNode;
 
 	/**
 	 * <!-- begin-user-doc -->

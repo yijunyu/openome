@@ -50,7 +50,7 @@ public class OneTimeCostImpl extends EObjectImpl implements OneTimeCost {
 	 * @generated
 	 * @ordered
 	 */
-	protected MonetaryValue costValue = null;
+	protected MonetaryValue costValue;
 
 	/**
 	 * The cached value of the '{@link #getWhenCostApplicable() <em>When Cost Applicable</em>}' containment reference list.
@@ -60,7 +60,7 @@ public class OneTimeCostImpl extends EObjectImpl implements OneTimeCost {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList whenCostApplicable = null;
+	protected EList whenCostApplicable;
 
 	/**
 	 * <!-- begin-user-doc -->

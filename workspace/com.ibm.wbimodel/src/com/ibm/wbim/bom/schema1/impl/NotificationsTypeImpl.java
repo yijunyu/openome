@@ -46,7 +46,7 @@ public class NotificationsTypeImpl extends EObjectImpl implements NotificationsT
 	 * @generated
 	 * @ordered
 	 */
-	protected EList notification = null;
+	protected EList notification;
 
 	/**
 	 * <!-- begin-user-doc -->

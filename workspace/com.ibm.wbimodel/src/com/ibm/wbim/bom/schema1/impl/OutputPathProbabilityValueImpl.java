@@ -57,7 +57,7 @@ public class OutputPathProbabilityValueImpl extends EObjectImpl implements Outpu
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean literalValueESet = false;
+	protected boolean literalValueESet;
 
 	/**
 	 * <!-- begin-user-doc -->

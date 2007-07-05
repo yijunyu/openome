@@ -38,7 +38,7 @@ public interface RandomListType extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getRandomListType_Value()
-	 * @model type="double" unique="false" dataType="com.ibm.wbim.bom.schema1.NonNegativeDouble"
+	 * @model unique="false" dataType="com.ibm.wbim.bom.schema1.NonNegativeDouble"
 	 *        extendedMetaData="kind='element' name='value' namespace='##targetNamespace'"
 	 * @generated
 	 */

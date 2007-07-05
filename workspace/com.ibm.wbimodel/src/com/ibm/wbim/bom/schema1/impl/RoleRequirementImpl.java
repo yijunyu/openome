@@ -10,6 +10,7 @@ import com.ibm.wbim.bom.schema1.Quantity;
 import com.ibm.wbim.bom.schema1.RoleRequirement;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -45,7 +46,7 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity resourceQuantity = null;
+	protected Quantity resourceQuantity;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -95,7 +96,7 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object TIME_REQUIRED_EDEFAULT = null;
+	protected static final Duration TIME_REQUIRED_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTimeRequired() <em>Time Required</em>}' attribute.
@@ -105,7 +106,7 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 	 * @generated
 	 * @ordered
 	 */
-	protected Object timeRequired = TIME_REQUIRED_EDEFAULT;
+	protected Duration timeRequired = TIME_REQUIRED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -235,7 +236,7 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getTimeRequired() {
+	public Duration getTimeRequired() {
 		return timeRequired;
 	}
 
@@ -244,8 +245,8 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeRequired(Object newTimeRequired) {
-		Object oldTimeRequired = timeRequired;
+	public void setTimeRequired(Duration newTimeRequired) {
+		Duration oldTimeRequired = timeRequired;
 		timeRequired = newTimeRequired;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.ROLE_REQUIREMENT__TIME_REQUIRED, oldTimeRequired, timeRequired));
@@ -323,7 +324,7 @@ public class RoleRequirementImpl extends EObjectImpl implements RoleRequirement 
 				setRole((String)newValue);
 				return;
 			case Schema1Package.ROLE_REQUIREMENT__TIME_REQUIRED:
-				setTimeRequired((Object)newValue);
+				setTimeRequired((Duration)newValue);
 				return;
 			case Schema1Package.ROLE_REQUIREMENT__TYPE:
 				setType((String)newValue);

@@ -49,7 +49,7 @@ public class QualificationImpl extends EObjectImpl implements Qualification {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList scopeDimensionValue = null;
+	protected EList scopeDimensionValue;
 
 	/**
 	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.

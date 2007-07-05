@@ -42,7 +42,7 @@ public class TimeEstimationTypeImpl extends EObjectImpl implements TimeEstimatio
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue processingTime = null;
+	protected TimeValue processingTime;
 
 	/**
 	 * The cached value of the '{@link #getMaxResourceWaitingTime() <em>Max Resource Waiting Time</em>}' containment reference.
@@ -52,7 +52,7 @@ public class TimeEstimationTypeImpl extends EObjectImpl implements TimeEstimatio
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeValue maxResourceWaitingTime = null;
+	protected TimeValue maxResourceWaitingTime;
 
 	/**
 	 * <!-- begin-user-doc -->

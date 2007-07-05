@@ -9,6 +9,7 @@ package com.ibm.wbim.bom.schema1.impl;
 import com.ibm.wbim.bom.schema1.LastActivationTimePlusType;
 import com.ibm.wbim.bom.schema1.Schema1Package;
 
+import javax.xml.datatype.Duration;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +39,7 @@ public class LastActivationTimePlusTypeImpl extends EObjectImpl implements LastA
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object DURATION_EDEFAULT = null;
+	protected static final Duration DURATION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
@@ -48,7 +49,7 @@ public class LastActivationTimePlusTypeImpl extends EObjectImpl implements LastA
 	 * @generated
 	 * @ordered
 	 */
-	protected Object duration = DURATION_EDEFAULT;
+	protected Duration duration = DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +74,7 @@ public class LastActivationTimePlusTypeImpl extends EObjectImpl implements LastA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getDuration() {
+	public Duration getDuration() {
 		return duration;
 	}
 
@@ -82,8 +83,8 @@ public class LastActivationTimePlusTypeImpl extends EObjectImpl implements LastA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDuration(Object newDuration) {
-		Object oldDuration = duration;
+	public void setDuration(Duration newDuration) {
+		Duration oldDuration = duration;
 		duration = newDuration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Schema1Package.LAST_ACTIVATION_TIME_PLUS_TYPE__DURATION, oldDuration, duration));
@@ -110,7 +111,7 @@ public class LastActivationTimePlusTypeImpl extends EObjectImpl implements LastA
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Schema1Package.LAST_ACTIVATION_TIME_PLUS_TYPE__DURATION:
-				setDuration((Object)newValue);
+				setDuration((Duration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -61,7 +61,7 @@ public interface RepositoryDataValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literal Value</em>' attribute list.
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getRepositoryDataValue_LiteralValue()
-	 * @model type="java.lang.String" unique="false" dataType="org.eclipse.emf.ecore.xml.type.String" transient="true" volatile="true" derived="true"
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='literalValue' namespace='##targetNamespace' group='#group:0'"
 	 * @generated
 	 */

@@ -6,6 +6,7 @@
  */
 package com.ibm.wbim.bom.schema1;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,13 +35,13 @@ public interface ConstantTimeType extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time</em>' attribute.
-	 * @see #setTime(Object)
+	 * @see #setTime(XMLGregorianCalendar)
 	 * @see com.ibm.wbim.bom.schema1.Schema1Package#getConstantTimeType_Time()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.DateTime"
 	 *        extendedMetaData="kind='attribute' name='time'"
 	 * @generated
 	 */
-	Object getTime();
+	XMLGregorianCalendar getTime();
 
 	/**
 	 * Sets the value of the '{@link com.ibm.wbim.bom.schema1.ConstantTimeType#getTime <em>Time</em>}' attribute.
@@ -50,6 +51,6 @@ public interface ConstantTimeType extends EObject {
 	 * @see #getTime()
 	 * @generated
 	 */
-	void setTime(Object value);
+	void setTime(XMLGregorianCalendar value);
 
 } // ConstantTimeType

@@ -45,7 +45,7 @@ public class OperationalDataImpl extends EObjectImpl implements OperationalData 
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeEstimationType timeEstimation = null;
+	protected TimeEstimationType timeEstimation;
 
 	/**
 	 * The cached value of the '{@link #getCost() <em>Cost</em>}' containment reference.
@@ -55,7 +55,7 @@ public class OperationalDataImpl extends EObjectImpl implements OperationalData 
 	 * @generated
 	 * @ordered
 	 */
-	protected CostType cost = null;
+	protected CostType cost;
 
 	/**
 	 * The cached value of the '{@link #getRevenue() <em>Revenue</em>}' containment reference.
@@ -65,7 +65,7 @@ public class OperationalDataImpl extends EObjectImpl implements OperationalData 
 	 * @generated
 	 * @ordered
 	 */
-	protected CostValue revenue = null;
+	protected CostValue revenue;
 
 	/**
 	 * <!-- begin-user-doc -->

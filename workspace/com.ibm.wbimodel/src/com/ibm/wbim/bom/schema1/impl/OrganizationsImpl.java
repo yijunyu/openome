@@ -48,7 +48,7 @@ public class OrganizationsImpl extends EObjectImpl implements Organizations {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList organizationUnit = null;
+	protected EList organizationUnit;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference list.
@@ -58,7 +58,7 @@ public class OrganizationsImpl extends EObjectImpl implements Organizations {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList location = null;
+	protected EList location;
 
 	/**
 	 * <!-- begin-user-doc -->

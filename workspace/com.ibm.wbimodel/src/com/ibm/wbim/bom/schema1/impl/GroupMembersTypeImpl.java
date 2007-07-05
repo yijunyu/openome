@@ -101,7 +101,7 @@ public class GroupMembersTypeImpl extends EObjectImpl implements GroupMembersTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean includeSubgroupsESet = false;
+	protected boolean includeSubgroupsESet;
 
 	/**
 	 * The default value of the '{@link #getAlternativeName1() <em>Alternative Name1</em>}' attribute.

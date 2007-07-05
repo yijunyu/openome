@@ -73,7 +73,7 @@ public class ComplexDataTypeInstanceImpl extends EObjectImpl implements ComplexD
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attributeValue = null;
+	protected EList attributeValue;
 
 	/**
 	 * The cached value of the '{@link #getExtendedAttributes() <em>Extended Attributes</em>}' containment reference.
@@ -83,7 +83,7 @@ public class ComplexDataTypeInstanceImpl extends EObjectImpl implements ComplexD
 	 * @generated
 	 * @ordered
 	 */
-	protected ExtendedAttributes extendedAttributes = null;
+	protected ExtendedAttributes extendedAttributes;
 
 	/**
 	 * The default value of the '{@link #getInstanceOf() <em>Instance Of</em>}' attribute.

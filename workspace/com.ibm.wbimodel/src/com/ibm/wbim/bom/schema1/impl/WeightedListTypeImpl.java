@@ -46,7 +46,7 @@ public class WeightedListTypeImpl extends EObjectImpl implements WeightedListTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList value = null;
+	protected EList value;
 
 	/**
 	 * <!-- begin-user-doc -->

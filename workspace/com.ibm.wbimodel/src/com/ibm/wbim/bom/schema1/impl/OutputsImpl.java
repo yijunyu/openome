@@ -48,7 +48,7 @@ public class OutputsImpl extends EObjectImpl implements Outputs {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList output = null;
+	protected EList output;
 
 	/**
 	 * The cached value of the '{@link #getOutputCriterion() <em>Output Criterion</em>}' containment reference list.
@@ -58,7 +58,7 @@ public class OutputsImpl extends EObjectImpl implements Outputs {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList outputCriterion = null;
+	protected EList outputCriterion;
 
 	/**
 	 * <!-- begin-user-doc -->

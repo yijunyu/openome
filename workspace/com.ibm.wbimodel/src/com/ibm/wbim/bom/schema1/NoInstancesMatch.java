@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see com.ibm.wbim.bom.schema1.Schema1Package#getNoInstancesMatch()
- * @model
+ * @model extendedMetaData="name='NoInstancesMatch'"
  * @generated
  */
 public final class NoInstancesMatch extends AbstractEnumerator {
@@ -162,7 +162,7 @@ public final class NoInstancesMatch extends AbstractEnumerator {
 			case DISCARD_INPUT: return DISCARD_INPUT_LITERAL;
 			case CREATE_NEW_INSTANCE: return CREATE_NEW_INSTANCE_LITERAL;
 		}
-		return null;	
+		return null;
 	}
 
 	/**

@@ -46,7 +46,7 @@ public class CatalogsImpl extends EObjectImpl implements Catalogs {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList catalog = null;
+	protected EList catalog;
 
 	/**
 	 * <!-- begin-user-doc -->

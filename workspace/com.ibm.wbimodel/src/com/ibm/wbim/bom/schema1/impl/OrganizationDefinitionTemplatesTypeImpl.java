@@ -46,7 +46,7 @@ public class OrganizationDefinitionTemplatesTypeImpl extends EObjectImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList organizationDefinitionTemplate = null;
+	protected EList organizationDefinitionTemplate;
 
 	/**
 	 * <!-- begin-user-doc -->
