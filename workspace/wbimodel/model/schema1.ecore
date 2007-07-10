@@ -805,7 +805,8 @@
       <details key="name" value="CostPerQuantity"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="#//Unit"
+        defaultValueLiteral="acre" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="unit"/>
@@ -2330,7 +2331,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="InstanceOfType" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EDataType" name="InstanceOfType" instanceClassName="java.lang.Object">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="instanceOf_._type"/>
       <details key="memberTypes" value="PredefinedResourceType PredefinedOrganizationType ElementName"/>
@@ -2819,10 +2820,10 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="MultipleInstancesMatch"/>
     </eAnnotations>
-    <eLiterals name="TREAT_AS_ERROR"/>
-    <eLiterals name="DISCARD_INPUT" value="1"/>
-    <eLiterals name="DELIVER_TO_ALL_INSTANCES" value="2"/>
-    <eLiterals name="DELIVER_TO_ANY_INSTANCE" value="3"/>
+    <eLiterals name="TREATASERROR" literal="TREAT_AS_ERROR"/>
+    <eLiterals name="DISCARDINPUT" value="1" literal="DISCARD_INPUT"/>
+    <eLiterals name="DELIVERTOALLINSTANCES" value="2" literal="DELIVER_TO_ALL_INSTANCES"/>
+    <eLiterals name="DELIVERTOANYINSTANCE" value="3" literal="DELIVER_TO_ANY_INSTANCE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="MultipleInstancesMatchObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -2834,9 +2835,9 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="NoInstancesMatch"/>
     </eAnnotations>
-    <eLiterals name="TREAT_AS_ERROR"/>
-    <eLiterals name="DISCARD_INPUT" value="1"/>
-    <eLiterals name="CREATE_NEW_INSTANCE" value="2"/>
+    <eLiterals name="TREATASERROR" literal="TREAT_AS_ERROR"/>
+    <eLiterals name="DISCARDINPUT" value="1" literal="DISCARD_INPUT"/>
+    <eLiterals name="CREATENEWINSTANCE" value="2" literal="CREATE_NEW_INSTANCE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="NoInstancesMatchObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -3437,7 +3438,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ParentTemplateType" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EDataType" name="ParentTemplateType" instanceClassName="java.lang.Object">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="parentTemplate_._type"/>
       <details key="memberTypes" value="PredefinedResourceType PredefinedOrganizationType ElementName"/>
@@ -3655,24 +3656,46 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="PredefinedOrganizationType" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EEnum" name="PredefinedOrganizationType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Modeler predefined organization types"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="PredefinedOrganizationType"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
-      <details key="enumeration" value="Organization%20template Organization"/>
+    </eAnnotations>
+    <eLiterals name="OrganizationTemplate" literal="Organization template"/>
+    <eLiterals name="Organization" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="PredefinedOrganizationTypeObject"
+      instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PredefinedOrganizationType:Object"/>
+      <details key="baseType" value="PredefinedOrganizationType"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="PredefinedResourceType" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EEnum" name="PredefinedResourceType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Modeler predefined resource types"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="PredefinedResourceType"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
-      <details key="enumeration" value="Person%20template Resource%20template Staff%20template Communication%20Service Equipment Facility General%20Service Machine Person Staff Tool"/>
+    </eAnnotations>
+    <eLiterals name="PersonTemplate" literal="Person template"/>
+    <eLiterals name="ResourceTemplate" value="1" literal="Resource template"/>
+    <eLiterals name="StaffTemplate" value="2" literal="Staff template"/>
+    <eLiterals name="CommunicationService" value="3" literal="Communication Service"/>
+    <eLiterals name="Equipment" value="4"/>
+    <eLiterals name="Facility" value="5"/>
+    <eLiterals name="GeneralService" value="6" literal="General Service"/>
+    <eLiterals name="Machine" value="7"/>
+    <eLiterals name="Person" value="8"/>
+    <eLiterals name="Staff" value="9"/>
+    <eLiterals name="Tool" value="10"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="PredefinedResourceTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="PredefinedResourceType:Object"/>
+      <details key="baseType" value="PredefinedResourceType"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrivateInstance">
@@ -3888,7 +3911,8 @@
         <details key="kind" value="simple"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" unique="false" eType="#//Unit"
+        defaultValueLiteral="acre" unsettable="true">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="attribute"/>
         <details key="name" value="unit"/>
@@ -4901,14 +4925,37 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Unit" instanceClassName="java.lang.String">
+  <eClassifiers xsi:type="ecore:EEnum" name="Unit">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Modeler supported unit of measure"/>
     </eAnnotations>
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="Unit"/>
-      <details key="baseType" value="http://www.eclipse.org/emf/2003/XMLType#string"/>
-      <details key="enumeration" value="acre centimeter foot gallon%20(UK) gallon%20(US) gram hectare inch kilogram kilometer liter meter mile ounce pint%20(UK) pint%20(US) pound unit yard"/>
+    </eAnnotations>
+    <eLiterals name="acre"/>
+    <eLiterals name="centimeter" value="1"/>
+    <eLiterals name="foot" value="2"/>
+    <eLiterals name="gallonUK" value="3" literal="gallon (UK)"/>
+    <eLiterals name="gallonUS" value="4" literal="gallon (US)"/>
+    <eLiterals name="gram" value="5"/>
+    <eLiterals name="hectare" value="6"/>
+    <eLiterals name="inch" value="7"/>
+    <eLiterals name="kilogram" value="8"/>
+    <eLiterals name="kilometer" value="9"/>
+    <eLiterals name="liter" value="10"/>
+    <eLiterals name="meter" value="11"/>
+    <eLiterals name="mile" value="12"/>
+    <eLiterals name="ounce" value="13"/>
+    <eLiterals name="pintUK" value="14" literal="pint (UK)"/>
+    <eLiterals name="pintUS" value="15" literal="pint (US)"/>
+    <eLiterals name="pound" value="16"/>
+    <eLiterals name="unit" value="17"/>
+    <eLiterals name="yard" value="18"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="UnitObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="Unit:Object"/>
+      <details key="baseType" value="Unit"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueType">
