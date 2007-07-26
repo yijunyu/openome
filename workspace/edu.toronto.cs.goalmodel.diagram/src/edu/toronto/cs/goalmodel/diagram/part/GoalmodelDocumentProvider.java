@@ -15,10 +15,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Level;
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
@@ -31,6 +33,7 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -39,7 +42,10 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.MultiRule;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -47,10 +53,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.AbstractDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocumentProvider;
@@ -59,8 +69,12 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEdit
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
+import org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.operation.IRunnableContext;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
@@ -92,48 +106,73 @@ import fluid.version.Version;
 /**
  * @generated
  */
-public class GoalmodelDocumentProvider extends StorageDocumentProvider
+public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		implements IDiagramDocumentProvider {
-	/**
-	 * @generated
-	 */
-	private final String myContentObjectURI;
-
-	/**
-	 * @generated
-	 */
-	public GoalmodelDocumentProvider() {
-		this(null);
-	}
-
-	/**
-	 * @generated
-	 */
-	public GoalmodelDocumentProvider(String rootObjectURI) {
-		myContentObjectURI = rootObjectURI;
-	}
-
 	/**
 	 * @generated
 	 */
 	protected ElementInfo createElementInfo(Object element)
 			throws CoreException {
-		if (false == element instanceof FileEditorInputProxy) {
-			throw new CoreException(new Status(IStatus.ERROR,
-					GoalmodelDiagramEditorPlugin.ID, 0,
-					"Incorrect element used: " + element
-							+ " instead of FileEditorInputProxy", null));
+		if (false == element instanceof FileEditorInput
+				&& false == element instanceof URIEditorInput) {
+			throw new CoreException(
+					new Status(
+							IStatus.ERROR,
+							GoalmodelDiagramEditorPlugin.ID,
+							0,
+							NLS
+									.bind(
+											Messages.GoalmodelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
 		}
-		FileEditorInputProxy editorInput = (FileEditorInputProxy) element;
+		IEditorInput editorInput = (IEditorInput) element;
 		IDiagramDocument document = (IDiagramDocument) createDocument(editorInput);
 
 		ResourceSetInfo info = new ResourceSetInfo(document, editorInput);
 		info.setModificationStamp(computeModificationStamp(info));
 		info.fStatus = null;
-		ResourceSetModificationListener modificationListener = new ResourceSetModificationListener(
-				info);
-		info.getResourceSet().eAdapters().add(modificationListener);
 		return info;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IDocument createDocument(Object element) throws CoreException {
+		if (false == element instanceof FileEditorInput
+				&& false == element instanceof URIEditorInput) {
+			throw new CoreException(
+					new Status(
+							IStatus.ERROR,
+							GoalmodelDiagramEditorPlugin.ID,
+							0,
+							NLS
+									.bind(
+											Messages.GoalmodelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
+		}
+		IDocument document = createEmptyDocument();
+		setDocumentContent(document, (IEditorInput) element);
+		setupDocument(element, document);
+		return document;
+	}
+
+	/**
+	 * Sets up the given document as it would be provided for the given element. The
+	 * content of the document is not changed. This default implementation is empty.
+	 * Subclasses may reimplement.
+	 * 
+	 * @param element the blue-print element
+	 * @param document the document to set up
+	 * @generated
+	 */
+	protected void setupDocument(Object element, IDocument document) {
+		// for subclasses
 	}
 
 	/**
@@ -160,45 +199,137 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	 * @generated
 	 */
 	protected IDocument createEmptyDocument() {
-		return new DiagramDocument();
+		DiagramDocument document = new DiagramDocument();
+		document.setEditingDomain(createEditingDomain());
+		return document;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected boolean setDocumentContent(IDocument document,
-			IEditorInput editorInput) throws CoreException {
-		if (editorInput instanceof FileEditorInputProxy
-				&& document instanceof IDiagramDocument) {
-			FileEditorInputProxy editorInputProxy = (FileEditorInputProxy) editorInput;
-			IDiagramDocument diagramDocument = (IDiagramDocument) document;
-			diagramDocument.setEditingDomain(editorInputProxy
-					.getEditingDomain());
-		}
-		return super.setDocumentContent(document, editorInput);
+	private TransactionalEditingDomain createEditingDomain() {
+		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
+				.getInstance().createEditingDomain();
+		editingDomain.setID("edu.toronto.cs.goalmodel.diagram.EditingDomain"); //$NON-NLS-1$
+		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
+				.createNotifierFilter(editingDomain.getResourceSet()).and(
+						NotificationFilter
+								.createEventTypeFilter(Notification.ADD)).and(
+						NotificationFilter.createFeatureFilter(
+								ResourceSet.class,
+								ResourceSet.RESOURCE_SET__RESOURCES));
+		editingDomain.getResourceSet().eAdapters().add(new Adapter() {
+
+			private Notifier myTarger;
+
+			public Notifier getTarget() {
+				return myTarger;
+			}
+
+			public boolean isAdapterForType(Object type) {
+				return false;
+			}
+
+			public void notifyChanged(Notification notification) {
+				if (diagramResourceModifiedFilter.matches(notification)) {
+					Object value = notification.getNewValue();
+					if (value instanceof Resource) {
+						((Resource) value).setTrackingModification(true);
+					}
+				}
+			}
+
+			public void setTarget(Notifier newTarget) {
+				myTarger = newTarget;
+			}
+
+		});
+
+		return editingDomain;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected void setDocumentContentFromStorage(IDocument document,
-			IStorage storage) throws CoreException {
+	protected void setDocumentContent(IDocument document, IEditorInput element)
+			throws CoreException {
 		IDiagramDocument diagramDocument = (IDiagramDocument) document;
-		Diagram diagram = diagramDocument.getDiagram();
-
 		TransactionalEditingDomain domain = diagramDocument.getEditingDomain();
-		diagram = DiagramIOUtil.load(domain, storage, true,
-				getProgressMonitor());
-		if (myContentObjectURI != null
-				&& diagram != null
-				&& diagram.eResource() != null
-				&& !diagram.eResource().getURIFragment(diagram).equals(
-						myContentObjectURI)) {
-			EObject anotherContentObject = diagram.eResource().getEObject(
-					myContentObjectURI);
-			document.setContent(anotherContentObject);
-		} else {
+		if (element instanceof FileEditorInput) {
+			IStorage storage = ((FileEditorInput) element).getStorage();
+			Diagram diagram = DiagramIOUtil.load(domain, storage, true,
+					getProgressMonitor());
 			document.setContent(diagram);
+		} else if (element instanceof URIEditorInput) {
+			URI uri = ((URIEditorInput) element).getURI();
+			Resource resource = null;
+			try {
+				resource = domain.getResourceSet().getResource(
+						uri.trimFragment(), false);
+				if (resource == null) {
+					resource = domain.getResourceSet().createResource(
+							uri.trimFragment());
+				}
+				if (!resource.isLoaded()) {
+					try {
+						Map options = new HashMap(GMFResourceFactory
+								.getDefaultLoadOptions());
+						// @see 171060 
+						// options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+						resource.load(options);
+					} catch (IOException e) {
+						resource.unload();
+						throw e;
+					}
+				}
+				if (uri.fragment() != null) {
+					EObject rootElement = resource.getEObject(uri.fragment());
+					if (rootElement instanceof Diagram) {
+						document.setContent((Diagram) rootElement);
+						return;
+					}
+				} else {
+					for (Iterator it = resource.getContents().iterator(); it
+							.hasNext();) {
+						Object rootElement = it.next();
+						if (rootElement instanceof Diagram) {
+							document.setContent((Diagram) rootElement);
+							return;
+						}
+					}
+				}
+				throw new RuntimeException(
+						Messages.GoalmodelDocumentProvider_NoDiagramInResourceError);
+			} catch (Exception e) {
+				CoreException thrownExcp = null;
+				if (e instanceof CoreException) {
+					thrownExcp = (CoreException) e;
+				} else {
+					String msg = e.getLocalizedMessage();
+					thrownExcp = new CoreException(
+							new Status(
+									IStatus.ERROR,
+									GoalmodelDiagramEditorPlugin.ID,
+									0,
+									msg != null ? msg
+											: Messages.GoalmodelDocumentProvider_DiagramLoadingError,
+									e));
+				}
+				throw thrownExcp;
+			}
+		} else {
+			throw new CoreException(
+					new Status(
+							IStatus.ERROR,
+							GoalmodelDiagramEditorPlugin.ID,
+							0,
+							NLS
+									.bind(
+											Messages.GoalmodelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
 		}
 	}
 
@@ -216,27 +347,15 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	/**
 	 * @generated
 	 */
-	public long getSynchronizationStamp(Object element) {
-		if (element instanceof FileEditorInputProxy) {
-			ResourceSetInfo info = getResourceSetInfo(element);
-			if (info != null) {
-				return info.getModificationStamp();
-			}
-		}
-		return super.getSynchronizationStamp(element);
-	}
-
-	/**
-	 * @generated
-	 */
 	public boolean isDeleted(Object element) {
-		if (element instanceof IFileEditorInput) {
-			IFileEditorInput input = (IFileEditorInput) element;
-			IPath path = input.getFile().getLocation();
-			if (path == null) {
-				return true;
+		IDiagramDocument document = getDiagramDocument(element);
+		if (document != null) {
+			Resource diagramResource = document.getDiagram().eResource();
+			if (diagramResource != null) {
+				IFile file = WorkspaceSynchronizer.getFile(diagramResource);
+				return file == null || file.getLocation() == null
+						|| !file.getLocation().toFile().exists();
 			}
-			return !path.toFile().exists();
 		}
 		return super.isDeleted(element);
 	}
@@ -286,11 +405,51 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	/**
 	 * @generated
 	 */
+	public boolean isReadOnly(Object element) {
+		ResourceSetInfo info = getResourceSetInfo(element);
+		if (info != null) {
+			if (info.isUpdateCache()) {
+				try {
+					updateCache(element);
+				} catch (CoreException ex) {
+					GoalmodelDiagramEditorPlugin
+							.getInstance()
+							.logError(
+									Messages.GoalmodelDocumentProvider_isModifiable,
+									ex);
+					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+				}
+			}
+			return info.isReadOnly();
+		}
+		return super.isReadOnly(element);
+	}
+
+	/**
+	 * @generated
+	 */
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
-			if (element instanceof FileEditorInputProxy) {
+			if (element instanceof FileEditorInput
+					|| element instanceof URIEditorInput) {
 				return true;
 			}
+		}
+		ResourceSetInfo info = getResourceSetInfo(element);
+		if (info != null) {
+			if (info.isUpdateCache()) {
+				try {
+					updateCache(element);
+				} catch (CoreException ex) {
+					GoalmodelDiagramEditorPlugin
+							.getInstance()
+							.logError(
+									Messages.GoalmodelDocumentProvider_isModifiable,
+									ex);
+					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+				}
+			}
+			return info.isModifiable();
 		}
 		return super.isModifiable(element);
 	}
@@ -298,24 +457,34 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected void updateCache(IStorageEditorInput input) throws CoreException {
-		ResourceSetInfo info = getResourceSetInfo(input);
+	protected void updateCache(Object element) throws CoreException {
+		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			for (Iterator it = info.getResourceSet().getResources().iterator(); it
 					.hasNext();) {
 				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null && file.isReadOnly()) {
-					info.fIsReadOnly = true;
-					info.fIsModifiable = false;
+					info.setReadOnly(true);
+					info.setModifiable(false);
 					return;
 				}
 			}
-			info.fIsReadOnly = false;
-			info.fIsModifiable = true;
+			info.setReadOnly(false);
+			info.setModifiable(true);
 			return;
 		}
-		super.updateCache(input);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void doUpdateStateCache(Object element) throws CoreException {
+		ResourceSetInfo info = getResourceSetInfo(element);
+		if (info != null) {
+			info.setUpdateCache(true);
+		}
+		super.doUpdateStateCache(element);
 	}
 
 	/**
@@ -446,78 +615,22 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	protected void doSynchronize(Object element, IProgressMonitor monitor)
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null && element instanceof FileEditorInputProxy) {
-			handleResourcesChanged(info, info.getResourceSet().getResources(),
-					monitor);
+		if (info != null) {
+			for (Iterator it = info.getResourceSet().getResources().iterator(); it
+					.hasNext();) {
+				Resource nextResource = (Resource) it.next();
+				handleElementChanged(info, nextResource, monitor);
+			}
 			return;
 		}
 		super.doSynchronize(element, monitor);
 	}
 
-	/**
-	 * @generated
-	 */
-	protected void handleResourcesMoved(Map movedPathToResource) {
-		for (Iterator it = movedPathToResource.entrySet().iterator(); it
-				.hasNext();) {
-			Entry nextEntry = (Entry) it.next();
-			IPath newPath = (IPath) nextEntry.getKey();
-			Resource resource = (Resource) nextEntry.getValue();
-			resource.setURI(URI.createURI(newPath.toString()));
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void markWholeResourceSetAsDirty(ResourceSet resourceSet) {
-		for (Iterator it = resourceSet.getResources().iterator(); it.hasNext();) {
-			Resource nextResource = (Resource) it.next();
-			nextResource.setModified(true);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void handleResourcesChanged(ResourceSetInfo info,
-			Collection changedResources, IProgressMonitor monitor) {
-		info.stopResourceListening();
-		for (Iterator it = changedResources.iterator(); it.hasNext();) {
-			Resource nextResource = (Resource) it.next();
-			IFile file = WorkspaceSynchronizer.getFile(nextResource);
-			if (file != null) {
-				try {
-					file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
-				} catch (CoreException e) {
-					handleCoreException(e,
-							"FileDocumentProvider.handleElementContentChanged");
-				}
-			}
-			nextResource.unload();
-		}
-		info.startResourceListening();
-
-		fireElementContentAboutToBeReplaced(info.getEditorInput());
-		removeUnchangedElementListeners(info.getEditorInput(), info);
-		info.fStatus = null;
-		try {
-			setDocumentContent(info.fDocument, info.getEditorInput());
-		} catch (CoreException e) {
-			info.fStatus = e.getStatus();
-		}
-		if (!info.fCanBeSaved) {
-			info.setModificationStamp(computeModificationStamp(info));
-		}
-		addUnchangedElementListeners(info.getEditorInput(), info);
-		fireElementContentReplaced(info.getEditorInput());
-	}
 	final static String MOLHADO_PLUGIN_NAME = "molhado";
-	public static String getPluginInstallPath() {		
-		URL url = FileLocator.find(
-				Platform.getBundle(MOLHADO_PLUGIN_NAME), 
-				new Path("repository"), 
-				null);
+
+	public static String getPluginInstallPath() {
+		URL url = FileLocator.find(Platform.getBundle(MOLHADO_PLUGIN_NAME),
+				new Path("repository"), null);
 		try {
 			url = FileLocator.resolve(url);
 			return url.getPath();
@@ -526,34 +639,33 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 		return null;
 	}
+
 	private void buildGoalModel(GoalModel gm, Resource resource) {
 		Hashtable<Intention, IRNode> table = new Hashtable<Intention, IRNode>();
 		tables.put(gm, table);
 		IRNode root = gm.createAGoal("VIRTUAL_ROOT", true);
 		gm.setRoot(root);
 		// the first pass creates nodes
-		for (TreeIterator r = resource.getAllContents(); r
-				.hasNext();) {
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Intention) {
 				Intention i = (Intention) o;
 				String name = i.getName();
 				IRNode g = gm.createAGoal(name, o instanceof Goal);
-//				if (i.getParentDecompositions().size() == 0) {
-					IRNode e = gm.createEdge("virtual");
-					gm.connect(root, g, e);
-//				}
+				//				if (i.getParentDecompositions().size() == 0) {
+				IRNode e = gm.createEdge("virtual");
+				gm.connect(root, g, e);
+				//				}
 				// System.out.println(name + " " + g);
 				table.put(i, g);
 			}
 		}
 		// the second pass creates edges
-		for (TreeIterator r = resource.getAllContents(); r
-				.hasNext();) {
+		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Contribution) {
 				Contribution i = (Contribution) o;
-				if (i.getSource()==null || i.getTarget()==null)
+				if (i.getSource() == null || i.getTarget() == null)
 					continue;
 				String source_name = i.getSource().getName();
 				String target_name = i.getTarget().getName();
@@ -574,7 +686,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			}
 			if (o instanceof Decomposition) {
 				Decomposition i = (Decomposition) o;
-				if (i.getSource()==null || i.getTarget()==null)
+				if (i.getSource() == null || i.getTarget() == null)
 					continue;
 				String source_name = i.getSource().getName();
 				String target_name = i.getTarget().getName();
@@ -591,7 +703,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			}
 		}
 	}
-	
+
 	private void checkInGoalModel(Configuration config, Resource resource) {
 		IRNode rootnode = config.getRoot();
 		fluid.tree.Tree tree = Configuration.getTree();
@@ -603,8 +715,9 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		tree.appendChild(rootnode, gm_node);
 		buildGoalModel(gm, resource);
 		checkin_current_version(config, resource);
-//		System.out.println(versions.get(file_name).intValue());
+		//		System.out.println(versions.get(file_name).intValue());
 	}
+
 	private SCDirectory connectToRepository(Resource resource) {
 		Configuration.ensureLoaded();
 		SCDirectory root = new SCDirectory();
@@ -613,8 +726,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		return root;
 	}
 
-
-		
 	/**
 	 * If the model is opened for the first time, it will be assigned version 0
 	 * and will be checked in and then checked out before the doSave operation.
@@ -630,24 +741,25 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	 * @param model_name
 	 */
 	void checkLatestVersion(Resource resource) {
-	    org.apache.log4j.Logger.getLogger("IR").setLevel(Level.OFF);
-	    String model_name = get_model_name(resource);
-	    String project_name = model_name.substring(0, model_name.indexOf("/", 2));
+		org.apache.log4j.Logger.getLogger("IR").setLevel(Level.OFF);
+		String model_name = get_model_name(resource);
+		String project_name = model_name.substring(0, model_name
+				.indexOf("/", 2));
 		String property = System.getProperty("fluid.ir.path");
-		if (property==null) {
+		if (property == null) {
 			String toString = getPluginInstallPath();
-			System.setProperty("fluid.ir.path", 
-					toString);
-			property = System.getProperty("fluid.ir.path");			
-		}		
+			System.setProperty("fluid.ir.path", toString);
+			property = System.getProperty("fluid.ir.path");
+		}
 		try {
 			int versionNumber = 0;
 			Configuration config = Configuration.loadASCII(new FileReader(
-					property + project_name + ".cfg"), IRPersistent.fluidFileLocator);
+					property + project_name + ".cfg"),
+					IRPersistent.fluidFileLocator);
 			java.util.Enumeration vs = config.getAllVersionNames();
 			while (vs.hasMoreElements()) {
 				String v1_name = (String) vs.nextElement();
-//				System.out.println(v1_name.substring(0, v1_name.lastIndexOf("-")));				
+				//				System.out.println(v1_name.substring(0, v1_name.lastIndexOf("-")));				
 				if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(
 						model_name)) {
 					versionNumber++;
@@ -656,21 +768,20 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			update_version(model_name, versionNumber);
 			configurations.put(resource, config);
 		} catch (Exception e) {
-//			e.printStackTrace();
+			//			e.printStackTrace();
 			SCDirectory project_root = connectToRepository(resource);
 			Configuration config = new Configuration(project_name, project_root);
 			// create a new goal model and check it in
-//			checkInGoalModel(config, resource);
+			//			checkInGoalModel(config, resource);
 			configurations.put(resource, config);
 			update_version(model_name, 0);
 		}
 	}
-	
 
 	private String get_model_name(Resource resource) {
 		String name = resource.getURI().toString();
-		name = name.substring(name.indexOf(":")+10);
-		name = name.substring(0, name.indexOf(".goalmodel"));	    		
+		name = name.substring(name.indexOf(":") + 10);
+		name = name.substring(0, name.indexOf(".goalmodel"));
 		return name;
 	}
 
@@ -701,8 +812,8 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 									.isModified())) {
 						if (!(nextResource instanceof GMFResource)) {
 							// FIXME YY: Checkin/Checkout To Molhado
-							CheckinCheckoutMolhado(nextResource);							
-//							System.err.println(nextResource);							
+							CheckinCheckoutMolhado(nextResource);
+							//							System.err.println(nextResource);							
 						}
 						nextResource.save(Collections.EMPTY_MAP);
 					}
@@ -730,14 +841,64 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		super.doSaveDocument(monitor, element, document, overwrite);
 	}
 
+	/**
+	 * @generated
+	 */
+	protected void handleElementChanged(ResourceSetInfo info,
+			Resource changedResource, IProgressMonitor monitor) {
+		IFile file = WorkspaceSynchronizer.getFile(changedResource);
+		if (file != null) {
+			try {
+				file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+			} catch (CoreException ex) {
+				GoalmodelDiagramEditorPlugin
+						.getInstance()
+						.logError(
+								Messages.GoalmodelDocumentProvider_handleElementContentChanged,
+								ex);
+				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+			}
+		}
+		changedResource.unload();
+
+		fireElementContentAboutToBeReplaced(info.getEditorInput());
+		removeUnchangedElementListeners(info.getEditorInput(), info);
+		info.fStatus = null;
+		try {
+			setDocumentContent(info.fDocument, info.getEditorInput());
+		} catch (CoreException e) {
+			info.fStatus = e.getStatus();
+		}
+		if (!info.fCanBeSaved) {
+			info.setModificationStamp(computeModificationStamp(info));
+		}
+		addUnchangedElementListeners(info.getEditorInput(), info);
+		fireElementContentReplaced(info.getEditorInput());
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void handleElementMoved(IEditorInput input, URI uri) {
+		if (input instanceof FileEditorInput) {
+			IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(
+					new Path(URI.decode(uri.path())).removeFirstSegments(1));
+			fireElementMoved(input, newFile == null ? null
+					: new FileEditorInput(newFile));
+			return;
+		}
+		// TODO: append suffix to the URI! (use diagram as a parameter)
+		fireElementMoved(input, new URIEditorInput(uri));
+	}
+
 	Hashtable<Resource, Configuration> configurations = new Hashtable<Resource, Configuration>();
 	private Hashtable<String, Integer> versions = new Hashtable<String, Integer>();
 	Hashtable<GoalModel, Hashtable<Intention, IRNode>> tables = new Hashtable<GoalModel, Hashtable<Intention, IRNode>>();
 	Hashtable<String, Intention> nodes;
-//	Hashtable<Decomposition, IRNode> decompositions;
-//	Hashtable<Contribution, IRNode> contributions;
-	
-	
+
+	//	Hashtable<Decomposition, IRNode> decompositions;
+	//	Hashtable<Contribution, IRNode> contributions;
+
 	private void checkout_version(Configuration config, String v1_name) {
 		try {
 			Version v1 = config.loadVersionByDelta(v1_name,
@@ -748,15 +909,15 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 	}
 
-	
 	private void checkout_last_version(Configuration config, String model_name) {
 		Integer last = versions.get(model_name);
 		if (last != null && last.intValue() > 0) {
 			String last_version = model_name + "-v" + last.intValue();
 			checkout_version(config, last_version);
 			Version.bumpVersion(); // Tien: important after check out if one wants to modify the mirror 
-		} 
+		}
 	}
+
 	private GoalModel find_the_gm(String file_name, Configuration config) {
 		GoalModel the_gm = null;
 		fluid.tree.Tree tree = Configuration.getTree();
@@ -794,36 +955,35 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			}
 		}
 	}
-	
-	
-//	/**
-//	 * We need to make sure after checkout, the mapping table between goal names
-//	 * and goals in the GoalModel is updated
-//	 * 
-//	 * @param gm
-//	 */
-//	private void updateIndex(GoalModel gm, IRNode root) {
-//		if (root == null)
-//			return;
-//		String name = gm.getGMNodeName(root);
-//		name = name.substring(name.indexOf("_") + 1);
-//		Hashtable<Intention, IRNode> table = tables.get(gm);
-//		if (table == null) {
-//			table = new Hashtable<Intention, IRNode>();
-//			tables.put(gm, table);
-//		}
-//		table.put(name, root);
-//		int numChildren = gm.graph.numChildren(root);
-//		for (int i = 0; i < numChildren; i++) {
-//			IRNode childnode = gm.graph.getChild(root, i);
-//			updateIndex(gm, childnode);
-//		}
-//	}
+
+	//	/**
+	//	 * We need to make sure after checkout, the mapping table between goal names
+	//	 * and goals in the GoalModel is updated
+	//	 * 
+	//	 * @param gm
+	//	 */
+	//	private void updateIndex(GoalModel gm, IRNode root) {
+	//		if (root == null)
+	//			return;
+	//		String name = gm.getGMNodeName(root);
+	//		name = name.substring(name.indexOf("_") + 1);
+	//		Hashtable<Intention, IRNode> table = tables.get(gm);
+	//		if (table == null) {
+	//			table = new Hashtable<Intention, IRNode>();
+	//			tables.put(gm, table);
+	//		}
+	//		table.put(name, root);
+	//		int numChildren = gm.graph.numChildren(root);
+	//		for (int i = 0; i < numChildren; i++) {
+	//			IRNode childnode = gm.graph.getChild(root, i);
+	//			updateIndex(gm, childnode);
+	//		}
+	//	}
 	private void update_version(String model_name, int versionNumber) {
 		versions.put(model_name, new Integer(versionNumber));
 		// System.err.println(model_name + " = " + versionNumber);
 	}
-	
+
 	private void incrementVersion(Configuration config, Version v1,
 			String model_name) {
 		if (versions.get(model_name) == null) {
@@ -835,7 +995,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		config.assignVersionName(v1, v1_name);
 		// System.err.println("Saving " + v1_name);
 	}
-	
+
 	private void checkin_current_version(Configuration config, Resource resource) {
 		Version v1 = Version.getVersion();
 		Version.setVersion(v1);
@@ -860,38 +1020,38 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 				: URI.createURI(name);
 		return uri;
 	}
+
 	GoalmodelPackage e = GoalmodelPackage.eINSTANCE;
 
 	GoalmodelFactory f = e.getGoalmodelFactory();
 
-	
-//	/*
-//	 * nodes will be populated
-//	 */
-//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
-//			Model m, IRNode root, IRNode edgenode) {
-//		if (root == null)
-//			return;
-//		String name = gm.getGMNodeName(root);
-//		String prefix = name.substring(0, name.indexOf("_"));
-//		name = name.substring(name.indexOf("_") + 1);
-//		Intention g;
-//		if (!name.equals("VIRTUAL_ROOT")) {
-//			if (prefix.equals("HardGoal"))
-//				g = f.createGoal();
-//			else
-//				g = f.createSoftgoal();
-//			g.setName(name);
-//			m.getIntentions().add(g);
-//			nodes.put(name, g);
-//		}
-//		int numChildren = gm.graph.numChildren(root);
-//		for (int i = 0; i < numChildren; i++) {
-//			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-//			IRNode childnode = gm.graph.getChild(root, i);
-//			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
-//		}
-//	}
+	//	/*
+	//	 * nodes will be populated
+	//	 */
+	//	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
+	//			Model m, IRNode root, IRNode edgenode) {
+	//		if (root == null)
+	//			return;
+	//		String name = gm.getGMNodeName(root);
+	//		String prefix = name.substring(0, name.indexOf("_"));
+	//		name = name.substring(name.indexOf("_") + 1);
+	//		Intention g;
+	//		if (!name.equals("VIRTUAL_ROOT")) {
+	//			if (prefix.equals("HardGoal"))
+	//				g = f.createGoal();
+	//			else
+	//				g = f.createSoftgoal();
+	//			g.setName(name);
+	//			m.getIntentions().add(g);
+	//			nodes.put(name, g);
+	//		}
+	//		int numChildren = gm.graph.numChildren(root);
+	//		for (int i = 0; i < numChildren; i++) {
+	//			IRNode childedgenode = gm.graph.getChildEdge(root, i);
+	//			IRNode childnode = gm.graph.getChild(root, i);
+	//			traverseGMResourcesForNodes(gm, f, m, childnode, childedgenode);
+	//		}
+	//	}
 
 	private void traverseGMResourcesForNodes(GoalModel gm, GoalmodelFactory f,
 			Model m, IRNode root, IRNode edgenode) {
@@ -916,7 +1076,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			nodes.put(name, g);
 		}
 	}
-	
+
 	/**
 	 * nodes will be used
 	 * 
@@ -929,21 +1089,22 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	private int traverseGMResourcesForEdges(GoalModel gm, GoalmodelFactory f,
 			Model m, IRNode root) {
 		int count = 0;
-		int nNode = gm.graph.numChildren(root);		
+		int nNode = gm.graph.numChildren(root);
 		for (int i = 0; i < nNode; i++) {
 			IRNode source = gm.graph.getChild(root, i);
 			String sourceName = gm.getGMNodeName(source);
 			sourceName = sourceName.substring(sourceName.indexOf("_") + 1);
 			Intention sourceGoal = nodes.get(sourceName);
-			if (sourceGoal==null) continue;
+			if (sourceGoal == null)
+				continue;
 			int nC = gm.graph.numChildren(source);
-			for (int j = 0; j< nC; j++) {
+			for (int j = 0; j < nC; j++) {
 				IRNode edge = gm.graph.getChildEdge(source, j);
 				IRNode target = gm.graph.getChild(source, j);
 				String targetName = gm.getGMNodeName(target);
 				targetName = targetName.substring(targetName.indexOf("_") + 1);
 				Intention targetGoal = nodes.get(targetName);
-				if (targetGoal!=null && edge != null) {
+				if (targetGoal != null && edge != null) {
 					String edgetype = gm.getGMNodeName(edge);
 					String pre = edgetype.substring(edgetype.indexOf("_") + 1);
 					if (pre.equals("AND")) {
@@ -951,37 +1112,37 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getDecompositions().add(d);
-						count ++;
+						count++;
 					} else if (pre.equals("OR")) {
 						OrDecomposition d = f.createOrDecomposition();
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getDecompositions().add(d);
-						count ++;
+						count++;
 					} else if (pre.equals("+")) {
 						HelpContribution d = f.createHelpContribution();
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getContributions().add(d);
-						count ++;
+						count++;
 					} else if (pre.equals("++")) {
 						MakeContribution d = f.createMakeContribution();
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getContributions().add(d);
-						count ++;
+						count++;
 					} else if (pre.equals("-")) {
 						HurtContribution d = f.createHurtContribution();
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getContributions().add(d);
-						count ++;
+						count++;
 					} else if (pre.equals("--")) {
 						BreakContribution d = f.createBreakContribution();
 						d.setSource(sourceGoal);
 						d.setTarget(targetGoal);
 						m.getContributions().add(d);
-						count ++;
+						count++;
 					}
 				}
 			}
@@ -989,7 +1150,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		return count;
 	}
 
-	
 	private void unparse_checkout_into_emf(Configuration config,
 			String v1_name, fluid.tree.Tree project_tree, IRNode project_root) {
 		java.util.Enumeration en = project_tree.depthFirstSearch(project_root);
@@ -1022,14 +1182,15 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			}
 		}
 	}
-	
+
 	// check out
-	private void checkOutAllVersionsFromRepository(
-			Configuration config, String model_name) {
+	private void checkOutAllVersionsFromRepository(Configuration config,
+			String model_name) {
 		java.util.Enumeration vs = config.getAllVersionNames();
 		while (vs.hasMoreElements()) {
 			String v1_name = (String) vs.nextElement();
-			if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(model_name)) {
+			if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(
+					model_name)) {
 				checkout_version(config, v1_name);
 				// Tien: getTree should not be a static method
 				fluid.tree.Tree project_tree = config.getTree();
@@ -1068,7 +1229,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 	}
 
-	
 	private void CheckinCheckoutMolhado(Resource resource) {
 		try {
 			String model_name = get_model_name(resource);
@@ -1078,27 +1238,28 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			GoalModel the_gm = find_the_gm(model_name, config);
 			if (the_gm != null) {
 				//				updateIndex(the_gm, the_gm.getRoot());
-//				print_the_gm(the_gm);
+				//				print_the_gm(the_gm);
 				modify_edited_goal_model(the_gm, resource);
-//				setGoalModel(gm, config);
-//				print_the_gm(the_gm);
+				//				setGoalModel(gm, config);
+				//				print_the_gm(the_gm);
 				checkin_current_version(config, resource);
 			} else {
 				checkInGoalModel(config, resource);
-				update_version(model_name, 1);				
+				update_version(model_name, 1);
 			}
 			checkOutAllVersionsFromRepository(config, model_name);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
-	private void print_the_gm(GoalModel gm) {		
+
+	private void print_the_gm(GoalModel gm) {
 		Hashtable<Intention, IRNode> table = tables.get(gm);
 		IRNode root = gm.getRoot();
 		int numChildren = gm.graph.numChildren(root);
-		for (int i= 0; i < numChildren; i++) {
+		for (int i = 0; i < numChildren; i++) {
 			IRNode g = (IRNode) gm.graph.getChild(root, i);
-			if (g!=null) {
+			if (g != null) {
 				String name = get_goal_name(gm, g);
 				String type = get_goal_type(gm, g);
 				System.err.println(type + ": " + name);
@@ -1107,21 +1268,22 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		}
 		System.out.println("----------------");
 	}
+
 	private void print_the_gm(GoalModel gm, IRNode root) {
-		if (root == null) return;
+		if (root == null)
+			return;
 		Hashtable<Intention, IRNode> table = tables.get(gm);
 		int numChildren = gm.graph.numChildren(root);
-		for (int i= 0; i < numChildren; i++) {
+		for (int i = 0; i < numChildren; i++) {
 			IRNode g = (IRNode) gm.graph.getChild(root, i);
 			IRNode edge = (IRNode) gm.graph.getChildEdge(root, i);
 			String name = get_goal_name(gm, g);
 			String type = get_edge_type(gm, edge);
-			System.err.println(get_goal_name(gm, root) + "-" + type + "-> " + name);
+			System.err.println(get_goal_name(gm, root) + "-" + type + "-> "
+					+ name);
 			print_the_gm(gm, g);
 		}
 	}
-	
-	
 
 	private void modify_edited_goal_model(GoalModel gm, Resource resource) {
 		Hashtable<Intention, IRNode> table = get_mapping_table(gm);
@@ -1129,33 +1291,37 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		mirror_links_to_edges(gm, resource, table, root);
 	}
 
-	private void mirror_links_to_edges(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table, IRNode root) {
+	private void mirror_links_to_edges(GoalModel gm, Resource resource,
+			Hashtable<Intention, IRNode> table, IRNode root) {
 		HashSet<IRNode> alledges = getAllEdges(gm, root);
 		System.err.println("all edges = " + alledges.size());
-		HashSet<IRNode> existing_edges = new HashSet<IRNode> ();
+		HashSet<IRNode> existing_edges = new HashSet<IRNode>();
 		int count = 0;
 		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Contribution) {
-				Contribution c= (Contribution) o;
+				Contribution c = (Contribution) o;
 				Intention s = c.getSource();
 				Intention t = c.getTarget();
 				IRNode n_s = table.get(s);
 				IRNode n_t = table.get(t);
-				if (n_s!=null && n_t!=null) {
+				if (n_s != null && n_t != null) {
 					boolean found = false;
 					int numChildren = gm.graph.numChildren(n_s);
 					for (int j = 0; j < numChildren; j++) {
 						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
 						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
 						String type = gm.getGMNodeName(edge);
-						if (node == n_t && 
-						   (  type.equals("+") && c instanceof HelpContribution
-						   || type.equals("++") && c instanceof MakeContribution
-						   || type.equals("-") && c instanceof HurtContribution
-						   || type.equals("--") && c instanceof BreakContribution)) 
-						{ // existing edge
-//							System.out.println("FOUND!");
+						if (node == n_t
+								&& (type.equals("+")
+										&& c instanceof HelpContribution
+										|| type.equals("++")
+										&& c instanceof MakeContribution
+										|| type.equals("-")
+										&& c instanceof HurtContribution || type
+										.equals("--")
+										&& c instanceof BreakContribution)) { // existing edge
+						//							System.out.println("FOUND!");
 							found = true;
 							existing_edges.add(edge);
 							break;
@@ -1163,38 +1329,40 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					}
 					if (!found) {
 						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge!=null) {
-							existing_edges.add(edge);							
+						if (edge != null) {
+							existing_edges.add(edge);
 						} else {
-							count ++;
+							count++;
 						}
 					}
 				} else {
 					IRNode edge = insert_an_edge(gm, table, c, s, t);
-					if (edge!=null) {
-						existing_edges.add(edge);							
+					if (edge != null) {
+						existing_edges.add(edge);
 					} else {
-						System.out.println("Not inserted edge: " + s.getName() + " " + t.getName());
-						count ++;
+						System.out.println("Not inserted edge: " + s.getName()
+								+ " " + t.getName());
+						count++;
 					}
 				}
 			} else if (o instanceof Decomposition) {
-				Decomposition c= (Decomposition) o;
+				Decomposition c = (Decomposition) o;
 				Intention s = c.getSource();
 				Intention t = c.getTarget();
 				IRNode n_s = table.get(s);
 				IRNode n_t = table.get(t);
-				if (n_s!=null && n_t!=null) {
+				if (n_s != null && n_t != null) {
 					boolean found = false;
 					int numChildren = gm.graph.numChildren(n_s);
 					for (int j = 0; j < numChildren; j++) {
 						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
 						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
 						String type = get_edge_type(gm, edge);
-						if (node == n_t && 
-						   (  type.equals("AND") && c instanceof AndDecomposition
-						   || type.equals("OR") && c instanceof OrDecomposition)) 
-						{ // existing edge
+						if (node == n_t
+								&& (type.equals("AND")
+										&& c instanceof AndDecomposition || type
+										.equals("OR")
+										&& c instanceof OrDecomposition)) { // existing edge
 							found = true;
 							existing_edges.add(edge);
 							break;
@@ -1202,25 +1370,25 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					}
 					if (!found) {
 						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge!=null) {
-							existing_edges.add(edge);							
+						if (edge != null) {
+							existing_edges.add(edge);
 						} else {
-							count ++;
+							count++;
 						}
 					}
 				} else {
 					IRNode edge = insert_an_edge(gm, table, c, s, t);
-					if (edge!=null) {
-						existing_edges.add(edge);							
+					if (edge != null) {
+						existing_edges.add(edge);
 					} else {
-						count ++;
+						count++;
 					}
 				}
 			}
-		}		
+		}
 		System.err.println("inserted edges = " + count);
 		count = 0;
-		for (IRNode e: alledges) {
+		for (IRNode e : alledges) {
 			if (!existing_edges.contains(e)) {
 				gm.graph.disconnect(e);
 				count++;
@@ -1229,14 +1397,16 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		System.err.println("deleted edges = " + count);
 	}
 
-	private IRNode mirror_intention_nodes(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table) {
+	private IRNode mirror_intention_nodes(GoalModel gm, Resource resource,
+			Hashtable<Intention, IRNode> table) {
 		HashSet<String> set = new HashSet<String>();
 		IRNode root = gm.getRoot();
 		// rename nodes
 		HashSet<IRNode> renamed = new HashSet<IRNode>();
 		HashSet<String> to_add = new HashSet<String>();
 		Hashtable<String, Boolean> to_add_type = new Hashtable<String, Boolean>();
-		rename_mirrored_nodes(gm, resource, table, set, root, renamed, to_add, to_add_type);
+		rename_mirrored_nodes(gm, resource, table, set, root, renamed, to_add,
+				to_add_type);
 		add_mirrored_nodes(gm, root, to_add, to_add_type);
 		delete_unmirrored_nodes(gm, table, set, root);
 		return root;
@@ -1244,14 +1414,17 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 
 	private Hashtable<Intention, IRNode> get_mapping_table(GoalModel gm) {
 		Hashtable<Intention, IRNode> table = tables.get(gm);
-		if (table==null) {
-			table = new Hashtable<Intention, IRNode> ();
+		if (table == null) {
+			table = new Hashtable<Intention, IRNode>();
 			tables.put(gm, table);
 		}
 		return table;
 	}
 
-	private void rename_mirrored_nodes(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table, HashSet<String> set, IRNode root, HashSet<IRNode> renamed, HashSet<String> to_add, Hashtable<String, Boolean> to_add_type) {
+	private void rename_mirrored_nodes(GoalModel gm, Resource resource,
+			Hashtable<Intention, IRNode> table, HashSet<String> set,
+			IRNode root, HashSet<IRNode> renamed, HashSet<String> to_add,
+			Hashtable<String, Boolean> to_add_type) {
 		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Intention) {
@@ -1261,7 +1434,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 				//     thus can be found by it's object id
 				boolean origin_found = false;
 				IRNode g = table.get(i);
-				if (g!=null) {
+				if (g != null) {
 					String name = get_goal_name(gm, g);
 					set.add(name);
 					if (!name.equals(i.getName())) {
@@ -1269,18 +1442,18 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 							gm.setHardGoalName(g, i.getName());
 						else if (i instanceof Softgoal) {
 							gm.setSoftGoalName(g, i.getName());
-						}		
+						}
 						renamed.add(g);
 						table.remove(name);
 						table.put(i, g);
-						continue;		
+						continue;
 					}
-				} else { 
+				} else {
 					String name = i.getName();
 					// fixing origin
 					int numChildren = gm.graph.numChildren(root);
 					Boolean found = false;
-					for (int j= 0; j < numChildren; j++) {
+					for (int j = 0; j < numChildren; j++) {
 						IRNode g1 = (IRNode) gm.graph.getChild(root, j);
 						String name1 = get_goal_name(gm, g1);
 						if (name.equals(name1)) {
@@ -1291,47 +1464,50 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					}
 					if (!found) { // really new nodes 
 						to_add.add(name);
-						to_add_type.put(name, i instanceof Goal);						
+						to_add_type.put(name, i instanceof Goal);
 					}
 					set.add(name);
 				}
-			} 
+			}
 		}
 		System.err.println("renamed size= " + renamed.size());
 	}
 
-	private void add_mirrored_nodes(GoalModel gm, IRNode root, HashSet<String> to_add, Hashtable<String, Boolean> to_add_type) {
+	private void add_mirrored_nodes(GoalModel gm, IRNode root,
+			HashSet<String> to_add, Hashtable<String, Boolean> to_add_type) {
 		System.err.println("added size= " + to_add.size());
-		for (String name: to_add) {
+		for (String name : to_add) {
 			Boolean is_hardgoal = to_add_type.get(name);
 			IRNode g = gm.createAGoal(name, is_hardgoal);
 			IRNode vedge = gm.createEdge("virtual");
 			gm.connect(root, g, vedge);
-			System.out.println("add " + (is_hardgoal?"Goal":"Softgoal") + ":" + name);
-//			System.err.println("added name: " + name);
+			System.out.println("add " + (is_hardgoal ? "Goal" : "Softgoal")
+					+ ":" + name);
+			//			System.err.println("added name: " + name);
 		}
 	}
 
-	private void delete_unmirrored_nodes(GoalModel gm, Hashtable<Intention, IRNode> table, HashSet<String> set, IRNode root) {
+	private void delete_unmirrored_nodes(GoalModel gm,
+			Hashtable<Intention, IRNode> table, HashSet<String> set, IRNode root) {
 		// really old nodes removed from table
 		HashSet<IRNode> delete = new HashSet<IRNode>();
-//		System.err.println("renamed and added names: " + set.size());			
-//		for (String name: set) {
-//			System.err.println("name to compare: " + name);			
-//		}
+		//		System.err.println("renamed and added names: " + set.size());			
+		//		for (String name: set) {
+		//			System.err.println("name to compare: " + name);			
+		//		}
 		int numChildren = gm.graph.numChildren(root);
-		for (int i= 0; i < numChildren; i++) {
+		for (int i = 0; i < numChildren; i++) {
 			IRNode g = (IRNode) gm.graph.getChild(root, i);
 			String name = get_goal_name(gm, g);
 			String type = get_goal_type(gm, g);
-//			System.err.println("compare name: " + name);
+			//			System.err.println("compare name: " + name);
 			if (!set.contains(name)) {
 				System.out.println("delete " + (type + ":" + name));
 				delete.add(g);
 			}
 		}
 		System.err.println("deleted size= " + delete.size());
-		for (IRNode g: delete) {
+		for (IRNode g : delete) {
 			gm.graph.removeNode(g);
 			table.remove(g);
 		}
@@ -1341,7 +1517,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		int numChildren;
 		HashSet<IRNode> alledges = new HashSet<IRNode>();
 		numChildren = gm.graph.numChildren(root);
-		for (int j=0; j<numChildren; j++) {
+		for (int j = 0; j < numChildren; j++) {
 			IRNode g = gm.graph.getChild(root, j);
 			alledges.addAll(allEdges(gm, g));
 		}
@@ -1351,7 +1527,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	private HashSet<IRNode> allEdges(GoalModel gm, IRNode root) {
 		HashSet<IRNode> set = new HashSet<IRNode>();
 		int numChildren = gm.graph.numChildren(root);
-		for (int j=0; j<numChildren; j++) {
+		for (int j = 0; j < numChildren; j++) {
 			IRNode e = gm.graph.getChildEdge(root, j);
 			set.add(e);
 			IRNode g = gm.graph.getChild(root, j);
@@ -1361,15 +1537,16 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	}
 
 	private String get_goal_name(GoalModel gm, IRNode g) {
-		if (g==null)
+		if (g == null)
 			return null;
 		String name = gm.getGMNodeName(g);
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		return name;
 	}
+
 	private String get_goal_type(GoalModel gm, IRNode g) {
-		if (g==null)
+		if (g == null)
 			return null;
 		String name = gm.getGMNodeName(g);
 		String prefix = name.substring(0, name.indexOf("_"));
@@ -1378,25 +1555,28 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 
 	private String get_edge_type(GoalModel gm, IRNode g) {
 		String name = gm.getGMNodeName(g);
-		String prefix = name.substring(name.indexOf("_")+1);
+		String prefix = name.substring(name.indexOf("_") + 1);
 		return prefix;
 	}
-//	private void insert_existing_edge(GoalModel gm, Hashtable<Intention, IRNode> table2, GoalModel gm2, Intention s, Intention t, String type) {
-//		IRNode new_s = table2.get(s);
-//		IRNode new_t = table2.get(t);
-//		IRNode new_e = gm.createEdge(type);
-//		gm2.graph.connect(new_e, new_s, new_t);
-//	}
-	private IRNode insert_an_edge(GoalModel gm, Hashtable<Intention, IRNode> table, Contribution c, Intention s, Intention t) {
+
+	//	private void insert_existing_edge(GoalModel gm, Hashtable<Intention, IRNode> table2, GoalModel gm2, Intention s, Intention t, String type) {
+	//		IRNode new_s = table2.get(s);
+	//		IRNode new_t = table2.get(t);
+	//		IRNode new_e = gm.createEdge(type);
+	//		gm2.graph.connect(new_e, new_s, new_t);
+	//	}
+	private IRNode insert_an_edge(GoalModel gm,
+			Hashtable<Intention, IRNode> table, Contribution c, Intention s,
+			Intention t) {
 		String type = get_label_from_type(c);
 		IRNode edge = find_an_edge(gm, table, type, s, t);
-		if (edge==null) {
+		if (edge == null) {
 			IRNode new_e = gm.createEdge(type);
-			if (table.get(s)!=null && table.get(t)!=null) {
+			if (table.get(s) != null && table.get(t) != null) {
 				gm.graph.connect(new_e, table.get(s), table.get(t));
 				edge = new_e;
 			}
-		} 
+		}
 		return edge;
 	}
 
@@ -1411,32 +1591,32 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		return type;
 	}
 
-	private IRNode insert_an_edge(GoalModel gm, 
-			Hashtable<Intention, IRNode> table, 
-			Decomposition c, 
-			Intention s, Intention t) {
+	private IRNode insert_an_edge(GoalModel gm,
+			Hashtable<Intention, IRNode> table, Decomposition c, Intention s,
+			Intention t) {
 		String type = get_label_from_type(c);
 		IRNode edge = find_an_edge(gm, table, type, s, t);
-		if (edge==null) {
+		if (edge == null) {
 			IRNode new_e = gm.createEdge(type);
-			if (table.get(s)!=null && table.get(t)!=null) {
+			if (table.get(s) != null && table.get(t) != null) {
 				gm.graph.connect(new_e, table.get(s), table.get(t));
-//				System.out.println("+ edge: " + s.getName() + ", " + t.getName());
+				//				System.out.println("+ edge: " + s.getName() + ", " + t.getName());
 				edge = new_e;
 			}
 		}
 		return edge;
 	}
 
-	private IRNode find_an_edge(GoalModel gm, Hashtable<Intention, IRNode> table, 
-			String type, Intention s, Intention t) {
+	private IRNode find_an_edge(GoalModel gm,
+			Hashtable<Intention, IRNode> table, String type, Intention s,
+			Intention t) {
 		IRNode edge = null;
 		IRNode new_s = table.get(s);
 		IRNode new_t = table.get(t);
-		if (new_s == null || new_t ==null) {
+		if (new_s == null || new_t == null) {
 			IRNode root = gm.getRoot();
 			int n = gm.graph.numChildren(root);
-			for (int i=0; i<n; i++) {
+			for (int i = 0; i < n; i++) {
 				IRNode g = gm.graph.getChild(root, i);
 				String name = get_goal_name(gm, g);
 				if (name.equals(s.getName())) {
@@ -1447,15 +1627,15 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 					table.put(t, g);
 					new_t = g;
 				}
-			}			
+			}
 		}
-		if (new_s!=null && new_t!=null) {
+		if (new_s != null && new_t != null) {
 			int n = gm.graph.numChildren(new_s);
-			for (int i=0; i<n; i++) {
+			for (int i = 0; i < n; i++) {
 				IRNode g = gm.graph.getChild(new_s, i);
 				IRNode e = gm.graph.getChildEdge(new_s, i);
 				String lbl = get_edge_type(gm, e);
-				if (g==new_t && type.equals(lbl)) {
+				if (g == new_t && type.equals(lbl)) {
 					edge = e;
 					break;
 				}
@@ -1471,24 +1651,9 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		return type;
 	}
 
-	private IRNode add_mapping_if_not_in_table(GoalModel gm, Hashtable<Intention, IRNode> table, Intention s, IRNode new_s) {
+	private IRNode add_mapping_if_not_in_table(GoalModel gm,
+			Hashtable<Intention, IRNode> table, Intention s, IRNode new_s) {
 		return new_s;
-	}
-	/**
-	 * @generated
-	 */
-	protected void handleElementMoved(FileEditorInputProxy input, IPath path) {
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		IFile newFile = workspace.getRoot().getFile(path);
-		fireElementMoved(input, newFile == null ? null : new FileEditorInput(
-				newFile));
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void handleElementDeleted(FileEditorInputProxy input) {
-		fireElementDeleted(input);
 	}
 
 	/**
@@ -1496,12 +1661,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	 */
 	public IEditorInput createInputWithEditingDomain(IEditorInput editorInput,
 			TransactionalEditingDomain domain) {
-		if (editorInput instanceof IFileEditorInput) {
-			return new FileEditorInputProxy((IFileEditorInput) editorInput,
-					domain);
-		}
-		assert false;
-		return null;
+		return editorInput;
 	}
 
 	/**
@@ -1518,7 +1678,14 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected class ResourceSetInfo extends StorageInfo {
+	protected IRunnableContext getOperationRunner(IProgressMonitor monitor) {
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected class ResourceSetInfo extends ElementInfo {
 
 		/**
 		 * @generated
@@ -1528,12 +1695,7 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		/**
 		 * @generated
 		 */
-		private ResourceSetSynchronizer mySynchronizer;
-
-		/**
-		 * @generated
-		 */
-		private ResourceSet myResourceSet;
+		private WorkspaceSynchronizer mySynchronizer;
 
 		/**
 		 * @generated
@@ -1543,18 +1705,44 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		/**
 		 * @generated
 		 */
-		private FileEditorInputProxy myEditorInput;
+		private IDiagramDocument myDocument;
+
+		/**
+		 * @generated
+		 */
+		private IEditorInput myEditorInput;
+
+		/**
+		 * @generated
+		 */
+		private boolean myUpdateCache = true;
+
+		/**
+		 * @generated
+		 */
+		private boolean myModifiable = false;
+
+		/**
+		 * @generated
+		 */
+		private boolean myReadOnly = true;
+
+		/**
+		 * @generated
+		 */
+		private ResourceSetModificationListener myResourceSetListener;
 
 		/**
 		 * @generated
 		 */
 		public ResourceSetInfo(IDiagramDocument document,
-				FileEditorInputProxy editorInput) {
+				IEditorInput editorInput) {
 			super(document);
-			myResourceSet = document.getEditingDomain().getResourceSet();
+			myDocument = document;
 			myEditorInput = editorInput;
-			mySynchronizer = new ResourceSetSynchronizer(this);
 			startResourceListening();
+			myResourceSetListener = new ResourceSetModificationListener(this);
+			getResourceSet().eAdapters().add(myResourceSetListener);
 		}
 
 		/**
@@ -1574,21 +1762,21 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		/**
 		 * @generated
 		 */
-		public ResourceSetSynchronizer getSynchronizer() {
-			return mySynchronizer;
+		public TransactionalEditingDomain getEditingDomain() {
+			return myDocument.getEditingDomain();
 		}
 
 		/**
 		 * @generated
 		 */
 		public ResourceSet getResourceSet() {
-			return myResourceSet;
+			return getEditingDomain().getResourceSet();
 		}
 
 		/**
 		 * @generated
 		 */
-		public FileEditorInputProxy getEditorInput() {
+		public IEditorInput getEditorInput() {
 			return myEditorInput;
 		}
 
@@ -1597,6 +1785,12 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		 */
 		public void dispose() {
 			stopResourceListening();
+			getResourceSet().eAdapters().remove(myResourceSetListener);
+			for (Iterator it = getResourceSet().getResources().iterator(); it
+					.hasNext();) {
+				Resource resource = (Resource) it.next();
+				resource.unload();
+			}
 		}
 
 		/**
@@ -1604,13 +1798,6 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		 */
 		public boolean isSynchronized() {
 			return myUnSynchronizedResources.size() == 0;
-		}
-
-		/**
-		 * @generated
-		 */
-		public void setSynchronized() {
-			myUnSynchronizedResources.clear();
 		}
 
 		/**
@@ -1631,190 +1818,134 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		 * @generated
 		 */
 		public final void stopResourceListening() {
-			ResourcesPlugin.getWorkspace().removeResourceChangeListener(
-					mySynchronizer);
+			mySynchronizer.dispose();
+			mySynchronizer = null;
 		}
 
 		/**
 		 * @generated
 		 */
 		public final void startResourceListening() {
-			ResourcesPlugin.getWorkspace().addResourceChangeListener(
-					mySynchronizer, IResourceChangeEvent.POST_CHANGE);
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	protected class ResourceSetSynchronizer implements IResourceChangeListener {
-
-		/**
-		 * @generated
-		 */
-		private ResourceSetInfo myInfo;
-
-		/**
-		 * @generated
-		 */
-		protected ResourceSetSynchronizer(ResourceSetInfo info) {
-			myInfo = info;
+			mySynchronizer = new WorkspaceSynchronizer(getEditingDomain(),
+					new SynchronizerDelegate());
 		}
 
 		/**
 		 * @generated
 		 */
-		public void resourceChanged(IResourceChangeEvent event) {
-			final ResourceDeltaVisitor deltaVisitor = new ResourceDeltaVisitor();
-			try {
-				event.getDelta().accept(deltaVisitor);
-			} catch (CoreException e) {
-				handleCoreException(e, "FileDocumentProvider.resourceChanged");
+		public boolean isUpdateCache() {
+			return myUpdateCache;
+		}
+
+		/**
+		 * @generated
+		 */
+		public void setUpdateCache(boolean update) {
+			myUpdateCache = update;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean isModifiable() {
+			return myModifiable;
+		}
+
+		/**
+		 * @generated
+		 */
+		public void setModifiable(boolean modifiable) {
+			myModifiable = modifiable;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean isReadOnly() {
+			return myReadOnly;
+		}
+
+		/**
+		 * @generated
+		 */
+		public void setReadOnly(boolean readOnly) {
+			myReadOnly = readOnly;
+		}
+
+		/**
+		 * @generated
+		 */
+		private class SynchronizerDelegate implements
+				WorkspaceSynchronizer.Delegate {
+
+			/**
+			 * @generated
+			 */
+			public void dispose() {
 			}
-			synchronized (myInfo) {
-				if (!myInfo.isSynchronized()) {
-					return;
-				}
-			}
-
-			Display.getDefault().asyncExec(new Runnable() {
-
-				public void run() {
-					if (deltaVisitor.getDeletedResources().size() > 0) {
-						// Just closing editor
-						handleElementDeleted(myInfo.getEditorInput());
-						return;
-					}
-
-					Entry diagramEntry = getDiagramResourceEntry(deltaVisitor
-							.getMovedResourcesMap());
-					if (diagramEntry != null) {
-						deltaVisitor.getMovedResourcesMap().remove(
-								diagramEntry.getKey());
-						// Setting new editor input since diagram file was
-						// renamed Could be processed together with the rest of
-						// moved resources if FileEditorInputProxy will wupport
-						// IFileEditorInput substitution
-						handleElementMoved(myInfo.getEditorInput(),
-								(IPath) diagramEntry.getKey());
-					}
-					if (deltaVisitor.getMovedResourcesMap().size() > 0) {
-						handleResourcesMoved(deltaVisitor
-								.getMovedResourcesMap());
-					}
-					if (deltaVisitor.getChangedResources().size() > 0
-							|| deltaVisitor.getMovedResourcesMap().size() > 0) {
-						// reloading changed resources + changing URIs for moved
-						// resources
-						handleResourcesChanged(myInfo, deltaVisitor
-								.getChangedResources(), null);
-					}
-					if (deltaVisitor.getMovedResourcesMap().size() > 0) {
-						// Marking whole ResourceSet as changed to preserve
-						// changes in resource URIs made by
-						// handleResourcesMoved() call
-						markWholeResourceSetAsDirty(myInfo.getResourceSet());
-					}
-				}
-			});
-		}
-
-		/**
-		 * @generated
-		 */
-		private Entry getDiagramResourceEntry(Map movedResources) {
-			for (Iterator it = movedResources.entrySet().iterator(); it
-					.hasNext();) {
-				Entry nextEntry = (Entry) it.next();
-				Resource nextResource = (Resource) nextEntry.getValue();
-				IFile file = WorkspaceSynchronizer.getFile(nextResource);
-				if (file != null
-						&& file.equals(myInfo.getEditorInput().getFile())) {
-					return nextEntry;
-				}
-			}
-			return null;
-		}
-
-		/**
-		 * @generated
-		 */
-		private class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 
 			/**
 			 * @generated
 			 */
-			private Collection myChangedResources = new ArrayList();
-
-			/**
-			 * @generated
-			 */
-			private Map myMovedResources = new HashMap();
-
-			/**
-			 * @generated
-			 */
-			private Collection myDeletedResources = new ArrayList();
-
-			/**
-			 * Can be called from any thread
-			 * @generated
-			 */
-			public boolean visit(IResourceDelta delta) {
-				if (delta.getFlags() != IResourceDelta.MARKERS
-						&& delta.getResource().getType() == IResource.FILE) {
-					if ((delta.getKind() & (IResourceDelta.CHANGED | IResourceDelta.REMOVED)) != 0) {
-						Resource resource = myInfo.getResourceSet()
-								.getResource(
-										URI.createURI(delta.getFullPath()
-												.toString()), false);
-						if (resource != null && resource.isLoaded()) {
-							synchronized (myInfo) {
-								if (myInfo.fCanBeSaved) {
-									myInfo.setUnSynchronized(resource);
-									return false;
-								}
-							}
-							if ((delta.getKind() & IResourceDelta.REMOVED) != 0) {
-								// element could be either moved/deleted or
-								// changed.
-								if ((IResourceDelta.MOVED_TO & delta.getFlags()) != 0) {
-									IPath destination = delta.getMovedToPath();
-									myMovedResources.put(destination, resource);
-								} else {
-									myDeletedResources.add(resource);
-								}
-							} else {
-								myChangedResources.add(resource);
-							}
-						}
+			public boolean handleResourceChanged(final Resource resource) {
+				synchronized (ResourceSetInfo.this) {
+					if (ResourceSetInfo.this.fCanBeSaved) {
+						ResourceSetInfo.this.setUnSynchronized(resource);
+						return true;
 					}
 				}
-
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						handleElementChanged(ResourceSetInfo.this, resource,
+								null);
+					}
+				});
 				return true;
 			}
 
 			/**
 			 * @generated
 			 */
-			public Collection getChangedResources() {
-				return myChangedResources;
+			public boolean handleResourceDeleted(Resource resource) {
+				synchronized (ResourceSetInfo.this) {
+					if (ResourceSetInfo.this.fCanBeSaved) {
+						ResourceSetInfo.this.setUnSynchronized(resource);
+						return true;
+					}
+				}
+				Display.getDefault().asyncExec(new Runnable() {
+					public void run() {
+						fireElementDeleted(ResourceSetInfo.this
+								.getEditorInput());
+					}
+				});
+				return true;
 			}
 
 			/**
 			 * @generated
 			 */
-			public Collection getDeletedResources() {
-				return myDeletedResources;
+			public boolean handleResourceMoved(Resource resource,
+					final URI newURI) {
+				synchronized (ResourceSetInfo.this) {
+					if (ResourceSetInfo.this.fCanBeSaved) {
+						ResourceSetInfo.this.setUnSynchronized(resource);
+						return true;
+					}
+				}
+				if (myDocument.getDiagram().eResource() == resource) {
+					Display.getDefault().asyncExec(new Runnable() {
+						public void run() {
+							handleElementMoved(ResourceSetInfo.this
+									.getEditorInput(), newURI);
+						}
+					});
+				} else {
+					handleResourceDeleted(resource);
+				}
+				return true;
 			}
 
-			/**
-			 * @generated
-			 */
-			public Map getMovedResourcesMap() {
-				return myMovedResources;
-			}
 		}
 
 	}
@@ -1854,7 +1985,8 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 			if (notification.getNotifier() instanceof ResourceSet) {
 				super.notifyChanged(notification);
 			}
-			if (myModifiedFilter.matches(notification)) {
+			if (!notification.isTouch()
+					&& myModifiedFilter.matches(notification)) {
 				if (notification.getNotifier() instanceof Resource) {
 					Resource resource = (Resource) notification.getNotifier();
 					if (resource.isLoaded()) {
@@ -1880,13 +2012,13 @@ public class GoalmodelDocumentProvider extends StorageDocumentProvider
 						if (dirtyStateChanged) {
 							fireElementDirtyStateChanged(myInfo
 									.getEditorInput(), modified);
+
 							if (!modified) {
 								myInfo
 										.setModificationStamp(computeModificationStamp(myInfo));
 							}
 						}
 					}
-
 				}
 			}
 		}
