@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -42,6 +41,13 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Intention extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,10 +113,10 @@ public interface Intention extends EObject {
 	 * @return the value of the '<em>Rule</em>' reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_Rule()
 	 * @see edu.toronto.cs.goalmodel.Contribution#getSource
-	 * @model type="edu.toronto.cs.goalmodel.Contribution" opposite="source"
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList getRule();
+	EList<Contribution> getRule();
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' attribute.
@@ -177,10 +183,10 @@ public interface Intention extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_Input()
-	 * @model type="edu.toronto.cs.goalmodel.Topic" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getInput();
+	EList<Topic> getInput();
 
 	/**
 	 * Returns the value of the '<em><b>Output</b></em>' containment reference list.
@@ -193,10 +199,10 @@ public interface Intention extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_Output()
-	 * @model type="edu.toronto.cs.goalmodel.Topic" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getOutput();
+	EList<Topic> getOutput();
 
 	/**
 	 * Returns the value of the '<em><b>Exclusive</b></em>' attribute.
@@ -290,10 +296,10 @@ public interface Intention extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_Property()
-	 * @model type="edu.toronto.cs.goalmodel.Property" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getProperty();
+	EList<Property> getProperty();
 
 	/**
 	 * Returns the value of the '<em><b>Dependency From</b></em>' reference list.
@@ -308,10 +314,10 @@ public interface Intention extends EObject {
 	 * @return the value of the '<em>Dependency From</em>' reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_DependencyFrom()
 	 * @see edu.toronto.cs.goalmodel.Dependency#getDependencyTo
-	 * @model type="edu.toronto.cs.goalmodel.Dependency" opposite="dependencyTo"
+	 * @model opposite="dependencyTo"
 	 * @generated
 	 */
-	EList getDependencyFrom();
+	EList<Dependency> getDependencyFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Dependency To</b></em>' reference list.
@@ -326,10 +332,10 @@ public interface Intention extends EObject {
 	 * @return the value of the '<em>Dependency To</em>' reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_DependencyTo()
 	 * @see edu.toronto.cs.goalmodel.Dependency#getDependencyFrom
-	 * @model type="edu.toronto.cs.goalmodel.Dependency" opposite="dependencyFrom"
+	 * @model opposite="dependencyFrom"
 	 * @generated
 	 */
-	EList getDependencyTo();
+	EList<Dependency> getDependencyTo();
 
 	/**
 	 * Returns the value of the '<em><b>Decompositions</b></em>' reference list.
@@ -344,10 +350,10 @@ public interface Intention extends EObject {
 	 * @return the value of the '<em>Decompositions</em>' reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_Decompositions()
 	 * @see edu.toronto.cs.goalmodel.Decomposition#getSource
-	 * @model type="edu.toronto.cs.goalmodel.Decomposition" opposite="source"
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList getDecompositions();
+	EList<Decomposition> getDecompositions();
 
 	/**
 	 * Returns the value of the '<em><b>Parent Decompositions</b></em>' reference list.
@@ -362,10 +368,10 @@ public interface Intention extends EObject {
 	 * @return the value of the '<em>Parent Decompositions</em>' reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getIntention_ParentDecompositions()
 	 * @see edu.toronto.cs.goalmodel.Decomposition#getTarget
-	 * @model type="edu.toronto.cs.goalmodel.Decomposition" opposite="target"
+	 * @model opposite="target"
 	 * @generated
 	 */
-	EList getParentDecompositions();
+	EList<Decomposition> getParentDecompositions();
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.

@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -27,6 +26,13 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface GoalmodelPackage extends EPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -79,7 +85,7 @@ public interface GoalmodelPackage extends EPackage {
 	int CONTAINER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -143,7 +149,7 @@ public interface GoalmodelPackage extends EPackage {
 	int ACTOR__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -207,7 +213,7 @@ public interface GoalmodelPackage extends EPackage {
 	int AGENT__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -363,7 +369,7 @@ public interface GoalmodelPackage extends EPackage {
 	int ASPECT__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1261,7 +1267,7 @@ public interface GoalmodelPackage extends EPackage {
 	int POSITION__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1525,7 +1531,7 @@ public interface GoalmodelPackage extends EPackage {
 	int ROLE__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' container reference.
+	 * The feature id for the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2690,10 +2696,10 @@ public interface GoalmodelPackage extends EPackage {
 	EAttribute getContainer_Name();
 
 	/**
-	 * Returns the meta object for the container reference '{@link edu.toronto.cs.goalmodel.Container#getSuper <em>Super</em>}'.
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.goalmodel.Container#getSuper <em>Super</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Super</em>'.
+	 * @return the meta object for the reference '<em>Super</em>'.
 	 * @see edu.toronto.cs.goalmodel.Container#getSuper()
 	 * @see #getContainer()
 	 * @generated
@@ -3360,7 +3366,7 @@ public interface GoalmodelPackage extends EPackage {
 		EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Super</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Super</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

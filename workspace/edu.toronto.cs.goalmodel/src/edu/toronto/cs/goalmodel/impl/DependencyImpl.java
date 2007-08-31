@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -41,6 +40,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class DependencyImpl extends EObjectImpl implements Dependency {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
 	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +54,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention dependencyFrom = null;
+	protected Intention dependencyFrom;
 
 	/**
 	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference.
@@ -58,7 +64,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention dependencyTo = null;
+	protected Intention dependencyTo;
 
 	/**
 	 * The default value of the '{@link #getTrust() <em>Trust</em>}' attribute.
@@ -114,6 +120,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.DEPENDENCY;
 	}
@@ -326,6 +333,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -349,6 +357,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -366,6 +375,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case GoalmodelPackage.DEPENDENCY__MODEL:
@@ -379,6 +389,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -402,6 +413,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -428,6 +440,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -454,6 +467,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM:
@@ -475,6 +489,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

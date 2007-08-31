@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -19,4 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface TruthLabel extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 } // TruthLabel

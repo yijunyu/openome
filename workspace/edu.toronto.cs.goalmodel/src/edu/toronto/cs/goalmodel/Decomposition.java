@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -27,6 +26,13 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Decomposition extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.goalmodel.Intention#getDecompositions <em>Decompositions</em>}'.

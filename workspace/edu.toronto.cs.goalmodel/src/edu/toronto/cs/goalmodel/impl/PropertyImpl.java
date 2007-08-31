@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -31,6 +30,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class PropertyImpl extends EObjectImpl implements Property {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -85,6 +91,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.PROPERTY;
 	}
@@ -136,6 +143,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.PROPERTY__NAME:
@@ -151,6 +159,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.PROPERTY__NAME:
@@ -168,6 +177,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.PROPERTY__NAME:
@@ -185,6 +195,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.PROPERTY__NAME:
@@ -200,6 +211,7 @@ public class PropertyImpl extends EObjectImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

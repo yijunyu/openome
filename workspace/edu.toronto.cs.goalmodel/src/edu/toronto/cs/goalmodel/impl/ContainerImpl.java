@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -25,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -48,6 +48,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ContainerImpl extends EObjectImpl implements Container {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,6 +75,16 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getSuper() <em>Super</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSuper()
+	 * @generated
+	 * @ordered
+	 */
+	protected Container super_;
+
+	/**
 	 * The cached value of the '{@link #getSub() <em>Sub</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,7 +92,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList sub = null;
+	protected EList<Actor> sub;
 
 	/**
 	 * The cached value of the '{@link #getIntentions() <em>Intentions</em>}' containment reference list.
@@ -85,7 +102,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList intentions = null;
+	protected EList<Intention> intentions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,6 +118,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.CONTAINER;
 	}
@@ -132,8 +150,15 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 */
 	public Container getSuper() {
-		if (eContainerFeatureID != GoalmodelPackage.CONTAINER__SUPER) return null;
-		return (Container)eContainer();
+		if (super_ != null && super_.eIsProxy()) {
+			InternalEObject oldSuper = (InternalEObject)super_;
+			super_ = (Container)eResolveProxy(oldSuper);
+			if (super_ != oldSuper) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GoalmodelPackage.CONTAINER__SUPER, oldSuper, super_));
+			}
+		}
+		return super_;
 	}
 
 	/**
@@ -141,9 +166,8 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSuper(Container newSuper, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newSuper, GoalmodelPackage.CONTAINER__SUPER, msgs);
-		return msgs;
+	public Container basicGetSuper() {
+		return super_;
 	}
 
 	/**
@@ -152,19 +176,10 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 */
 	public void setSuper(Container newSuper) {
-		if (newSuper != eInternalContainer() || (eContainerFeatureID != GoalmodelPackage.CONTAINER__SUPER && newSuper != null)) {
-			if (EcoreUtil.isAncestor(this, newSuper))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newSuper != null)
-				msgs = ((InternalEObject)newSuper).eInverseAdd(this, GoalmodelPackage.CONTAINER__SUB, Container.class, msgs);
-			msgs = basicSetSuper(newSuper, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.CONTAINER__SUPER, newSuper, newSuper));
+		Container oldSuper = super_;
+		super_ = newSuper;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalmodelPackage.CONTAINER__SUPER, oldSuper, super_));
 	}
 
 	/**
@@ -172,9 +187,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSub() {
+	public EList<Actor> getSub() {
 		if (sub == null) {
-			sub = new EObjectContainmentWithInverseEList(Actor.class, this, GoalmodelPackage.CONTAINER__SUB, GoalmodelPackage.CONTAINER__SUPER);
+			sub = new EObjectContainmentEList<Actor>(Actor.class, this, GoalmodelPackage.CONTAINER__SUB);
 		}
 		return sub;
 	}
@@ -184,9 +199,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getIntentions() {
+	public EList<Intention> getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectContainmentWithInverseEList(Intention.class, this, GoalmodelPackage.CONTAINER__INTENTIONS, GoalmodelPackage.INTENTION__CONTAINER);
+			intentions = new EObjectContainmentWithInverseEList<Intention>(Intention.class, this, GoalmodelPackage.CONTAINER__INTENTIONS, GoalmodelPackage.INTENTION__CONTAINER);
 		}
 		return intentions;
 	}
@@ -237,16 +252,12 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GoalmodelPackage.CONTAINER__SUPER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSuper((Container)otherEnd, msgs);
-			case GoalmodelPackage.CONTAINER__SUB:
-				return ((InternalEList)getSub()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
-				return ((InternalEList)getIntentions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIntentions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__MODEL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -260,14 +271,13 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GoalmodelPackage.CONTAINER__SUPER:
-				return basicSetSuper(null, msgs);
 			case GoalmodelPackage.CONTAINER__SUB:
-				return ((InternalEList)getSub()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
-				return ((InternalEList)getIntentions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__MODEL:
 				return basicSetModel(null, msgs);
 		}
@@ -279,10 +289,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
-			case GoalmodelPackage.CONTAINER__SUPER:
-				return eInternalContainer().eInverseRemove(this, GoalmodelPackage.CONTAINER__SUB, Container.class, msgs);
 			case GoalmodelPackage.CONTAINER__MODEL:
 				return eInternalContainer().eInverseRemove(this, GoalmodelPackage.MODEL__CONTAINERS, Model.class, msgs);
 		}
@@ -294,12 +303,14 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__NAME:
 				return getName();
 			case GoalmodelPackage.CONTAINER__SUPER:
-				return getSuper();
+				if (resolve) return getSuper();
+				return basicGetSuper();
 			case GoalmodelPackage.CONTAINER__SUB:
 				return getSub();
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
@@ -315,6 +326,8 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__NAME:
@@ -325,11 +338,11 @@ public class ContainerImpl extends EObjectImpl implements Container {
 				return;
 			case GoalmodelPackage.CONTAINER__SUB:
 				getSub().clear();
-				getSub().addAll((Collection)newValue);
+				getSub().addAll((Collection<? extends Actor>)newValue);
 				return;
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
 				getIntentions().clear();
-				getIntentions().addAll((Collection)newValue);
+				getIntentions().addAll((Collection<? extends Intention>)newValue);
 				return;
 			case GoalmodelPackage.CONTAINER__MODEL:
 				setModel((Model)newValue);
@@ -343,6 +356,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__NAME:
@@ -369,12 +383,13 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalmodelPackage.CONTAINER__SUPER:
-				return getSuper() != null;
+				return super_ != null;
 			case GoalmodelPackage.CONTAINER__SUB:
 				return sub != null && !sub.isEmpty();
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
@@ -390,6 +405,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

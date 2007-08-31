@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -64,6 +63,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class IntentionImpl extends EObjectImpl implements Intention {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,7 +97,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected TruthLabel label = null;
+	protected TruthLabel label;
 
 	/**
 	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
@@ -101,7 +107,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList rule = null;
+	protected EList<Contribution> rule;
 
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
@@ -151,7 +157,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList input = null;
+	protected EList<Topic> input;
 
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
@@ -161,7 +167,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList output = null;
+	protected EList<Topic> output;
 
 	/**
 	 * The default value of the '{@link #getExclusive() <em>Exclusive</em>}' attribute.
@@ -231,7 +237,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList property = null;
+	protected EList<Property> property;
 
 	/**
 	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference list.
@@ -241,7 +247,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencyFrom = null;
+	protected EList<Dependency> dependencyFrom;
 
 	/**
 	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference list.
@@ -251,7 +257,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencyTo = null;
+	protected EList<Dependency> dependencyTo;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' reference list.
@@ -261,7 +267,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList decompositions = null;
+	protected EList<Decomposition> decompositions;
 
 	/**
 	 * The cached value of the '{@link #getParentDecompositions() <em>Parent Decompositions</em>}' reference list.
@@ -271,7 +277,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parentDecompositions = null;
+	protected EList<Decomposition> parentDecompositions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +293,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.INTENTION;
 	}
@@ -360,9 +367,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRule() {
+	public EList<Contribution> getRule() {
 		if (rule == null) {
-			rule = new EObjectWithInverseResolvingEList(Contribution.class, this, GoalmodelPackage.INTENTION__RULE, GoalmodelPackage.CONTRIBUTION__SOURCE);
+			rule = new EObjectWithInverseResolvingEList<Contribution>(Contribution.class, this, GoalmodelPackage.INTENTION__RULE, GoalmodelPackage.CONTRIBUTION__SOURCE);
 		}
 		return rule;
 	}
@@ -414,9 +421,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getInput() {
+	public EList<Topic> getInput() {
 		if (input == null) {
-			input = new EObjectContainmentEList(Topic.class, this, GoalmodelPackage.INTENTION__INPUT);
+			input = new EObjectContainmentEList<Topic>(Topic.class, this, GoalmodelPackage.INTENTION__INPUT);
 		}
 		return input;
 	}
@@ -426,9 +433,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getOutput() {
+	public EList<Topic> getOutput() {
 		if (output == null) {
-			output = new EObjectContainmentEList(Topic.class, this, GoalmodelPackage.INTENTION__OUTPUT);
+			output = new EObjectContainmentEList<Topic>(Topic.class, this, GoalmodelPackage.INTENTION__OUTPUT);
 		}
 		return output;
 	}
@@ -501,9 +508,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getProperty() {
+	public EList<Property> getProperty() {
 		if (property == null) {
-			property = new EObjectContainmentEList(Property.class, this, GoalmodelPackage.INTENTION__PROPERTY);
+			property = new EObjectContainmentEList<Property>(Property.class, this, GoalmodelPackage.INTENTION__PROPERTY);
 		}
 		return property;
 	}
@@ -513,9 +520,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDependencyFrom() {
+	public EList<Dependency> getDependencyFrom() {
 		if (dependencyFrom == null) {
-			dependencyFrom = new EObjectWithInverseResolvingEList(Dependency.class, this, GoalmodelPackage.INTENTION__DEPENDENCY_FROM, GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO);
+			dependencyFrom = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, GoalmodelPackage.INTENTION__DEPENDENCY_FROM, GoalmodelPackage.DEPENDENCY__DEPENDENCY_TO);
 		}
 		return dependencyFrom;
 	}
@@ -525,9 +532,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDependencyTo() {
+	public EList<Dependency> getDependencyTo() {
 		if (dependencyTo == null) {
-			dependencyTo = new EObjectWithInverseResolvingEList(Dependency.class, this, GoalmodelPackage.INTENTION__DEPENDENCY_TO, GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM);
+			dependencyTo = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, GoalmodelPackage.INTENTION__DEPENDENCY_TO, GoalmodelPackage.DEPENDENCY__DEPENDENCY_FROM);
 		}
 		return dependencyTo;
 	}
@@ -537,9 +544,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDecompositions() {
+	public EList<Decomposition> getDecompositions() {
 		if (decompositions == null) {
-			decompositions = new EObjectWithInverseResolvingEList(Decomposition.class, this, GoalmodelPackage.INTENTION__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__SOURCE);
+			decompositions = new EObjectWithInverseResolvingEList<Decomposition>(Decomposition.class, this, GoalmodelPackage.INTENTION__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__SOURCE);
 		}
 		return decompositions;
 	}
@@ -549,9 +556,9 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParentDecompositions() {
+	public EList<Decomposition> getParentDecompositions() {
 		if (parentDecompositions == null) {
-			parentDecompositions = new EObjectWithInverseResolvingEList(Decomposition.class, this, GoalmodelPackage.INTENTION__PARENT_DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__TARGET);
+			parentDecompositions = new EObjectWithInverseResolvingEList<Decomposition>(Decomposition.class, this, GoalmodelPackage.INTENTION__PARENT_DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__TARGET);
 		}
 		return parentDecompositions;
 	}
@@ -602,18 +609,20 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__RULE:
-				return ((InternalEList)getRule()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DEPENDENCY_FROM:
-				return ((InternalEList)getDependencyFrom()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyFrom()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DEPENDENCY_TO:
-				return ((InternalEList)getDependencyTo()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyTo()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DECOMPOSITIONS:
-				return ((InternalEList)getDecompositions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecompositions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__PARENT_DECOMPOSITIONS:
-				return ((InternalEList)getParentDecompositions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParentDecompositions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__CONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -627,26 +636,27 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__LABEL:
 				return basicSetLabel(null, msgs);
 			case GoalmodelPackage.INTENTION__RULE:
-				return ((InternalEList)getRule()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__INPUT:
-				return ((InternalEList)getInput()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__OUTPUT:
-				return ((InternalEList)getOutput()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getOutput()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__PROPERTY:
-				return ((InternalEList)getProperty()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DEPENDENCY_FROM:
-				return ((InternalEList)getDependencyFrom()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getDependencyFrom()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DEPENDENCY_TO:
-				return ((InternalEList)getDependencyTo()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getDependencyTo()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__DECOMPOSITIONS:
-				return ((InternalEList)getDecompositions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__PARENT_DECOMPOSITIONS:
-				return ((InternalEList)getParentDecompositions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getParentDecompositions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.INTENTION__CONTAINER:
 				return basicSetContainer(null, msgs);
 		}
@@ -658,6 +668,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case GoalmodelPackage.INTENTION__CONTAINER:
@@ -671,6 +682,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__NAME:
@@ -714,6 +726,8 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__NAME:
@@ -724,7 +738,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return;
 			case GoalmodelPackage.INTENTION__RULE:
 				getRule().clear();
-				getRule().addAll((Collection)newValue);
+				getRule().addAll((Collection<? extends Contribution>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__SYSTEM:
 				setSystem((Boolean)newValue);
@@ -734,11 +748,11 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return;
 			case GoalmodelPackage.INTENTION__INPUT:
 				getInput().clear();
-				getInput().addAll((Collection)newValue);
+				getInput().addAll((Collection<? extends Topic>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__OUTPUT:
 				getOutput().clear();
-				getOutput().addAll((Collection)newValue);
+				getOutput().addAll((Collection<? extends Topic>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__EXCLUSIVE:
 				setExclusive((Boolean)newValue);
@@ -751,23 +765,23 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return;
 			case GoalmodelPackage.INTENTION__PROPERTY:
 				getProperty().clear();
-				getProperty().addAll((Collection)newValue);
+				getProperty().addAll((Collection<? extends Property>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__DEPENDENCY_FROM:
 				getDependencyFrom().clear();
-				getDependencyFrom().addAll((Collection)newValue);
+				getDependencyFrom().addAll((Collection<? extends Dependency>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__DEPENDENCY_TO:
 				getDependencyTo().clear();
-				getDependencyTo().addAll((Collection)newValue);
+				getDependencyTo().addAll((Collection<? extends Dependency>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__DECOMPOSITIONS:
 				getDecompositions().clear();
-				getDecompositions().addAll((Collection)newValue);
+				getDecompositions().addAll((Collection<? extends Decomposition>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__PARENT_DECOMPOSITIONS:
 				getParentDecompositions().clear();
-				getParentDecompositions().addAll((Collection)newValue);
+				getParentDecompositions().addAll((Collection<? extends Decomposition>)newValue);
 				return;
 			case GoalmodelPackage.INTENTION__CONTAINER:
 				setContainer((Container)newValue);
@@ -781,6 +795,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__NAME:
@@ -840,6 +855,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.INTENTION__NAME:
@@ -883,6 +899,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

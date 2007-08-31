@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -32,6 +31,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
+	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -58,28 +64,26 @@ public interface Container extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Super</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.goalmodel.Container#getSub <em>Sub</em>}'.
+	 * Returns the value of the '<em><b>Super</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Super</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Super</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Super</em>' container reference.
+	 * @return the value of the '<em>Super</em>' reference.
 	 * @see #setSuper(Container)
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getContainer_Super()
-	 * @see edu.toronto.cs.goalmodel.Container#getSub
-	 * @model opposite="sub"
+	 * @model
 	 * @generated
 	 */
 	Container getSuper();
 
 	/**
-	 * Sets the value of the '{@link edu.toronto.cs.goalmodel.Container#getSuper <em>Super</em>}' container reference.
+	 * Sets the value of the '{@link edu.toronto.cs.goalmodel.Container#getSuper <em>Super</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Super</em>' container reference.
+	 * @param value the new value of the '<em>Super</em>' reference.
 	 * @see #getSuper()
 	 * @generated
 	 */
@@ -88,7 +92,6 @@ public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sub</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.toronto.cs.goalmodel.Actor}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.goalmodel.Container#getSuper <em>Super</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sub</em>' containment reference list isn't clear,
@@ -97,11 +100,10 @@ public interface Container extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getContainer_Sub()
-	 * @see edu.toronto.cs.goalmodel.Container#getSuper
-	 * @model type="edu.toronto.cs.goalmodel.Actor" opposite="super" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getSub();
+	EList<Actor> getSub();
 
 	/**
 	 * Returns the value of the '<em><b>Intentions</b></em>' containment reference list.
@@ -116,10 +118,10 @@ public interface Container extends EObject {
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getContainer_Intentions()
 	 * @see edu.toronto.cs.goalmodel.Intention#getContainer
-	 * @model type="edu.toronto.cs.goalmodel.Intention" opposite="container" containment="true"
+	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
-	EList getIntentions();
+	EList<Intention> getIntentions();
 
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' container reference.

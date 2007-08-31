@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -51,6 +50,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends EObjectImpl implements Model {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,7 +84,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList intentions = null;
+	protected EList<Intention> intentions;
 
 	/**
 	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
@@ -88,7 +94,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList contributions = null;
+	protected EList<Contribution> contributions;
 
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
@@ -98,7 +104,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencies = null;
+	protected EList<Dependency> dependencies;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' containment reference list.
@@ -108,7 +114,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList decompositions = null;
+	protected EList<Decomposition> decompositions;
 
 	/**
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -118,7 +124,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList containers = null;
+	protected EList<Container> containers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +140,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.MODEL;
 	}
@@ -164,9 +171,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getIntentions() {
+	public EList<Intention> getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectContainmentEList(Intention.class, this, GoalmodelPackage.MODEL__INTENTIONS);
+			intentions = new EObjectContainmentEList<Intention>(Intention.class, this, GoalmodelPackage.MODEL__INTENTIONS);
 		}
 		return intentions;
 	}
@@ -176,9 +183,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getContributions() {
+	public EList<Contribution> getContributions() {
 		if (contributions == null) {
-			contributions = new EObjectContainmentWithInverseEList(Contribution.class, this, GoalmodelPackage.MODEL__CONTRIBUTIONS, GoalmodelPackage.CONTRIBUTION__MODEL);
+			contributions = new EObjectContainmentWithInverseEList<Contribution>(Contribution.class, this, GoalmodelPackage.MODEL__CONTRIBUTIONS, GoalmodelPackage.CONTRIBUTION__MODEL);
 		}
 		return contributions;
 	}
@@ -188,9 +195,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDependencies() {
+	public EList<Dependency> getDependencies() {
 		if (dependencies == null) {
-			dependencies = new EObjectContainmentWithInverseEList(Dependency.class, this, GoalmodelPackage.MODEL__DEPENDENCIES, GoalmodelPackage.DEPENDENCY__MODEL);
+			dependencies = new EObjectContainmentWithInverseEList<Dependency>(Dependency.class, this, GoalmodelPackage.MODEL__DEPENDENCIES, GoalmodelPackage.DEPENDENCY__MODEL);
 		}
 		return dependencies;
 	}
@@ -200,9 +207,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getDecompositions() {
+	public EList<Decomposition> getDecompositions() {
 		if (decompositions == null) {
-			decompositions = new EObjectContainmentWithInverseEList(Decomposition.class, this, GoalmodelPackage.MODEL__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__MODEL);
+			decompositions = new EObjectContainmentWithInverseEList<Decomposition>(Decomposition.class, this, GoalmodelPackage.MODEL__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__MODEL);
 		}
 		return decompositions;
 	}
@@ -212,9 +219,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getContainers() {
+	public EList<Container> getContainers() {
 		if (containers == null) {
-			containers = new EObjectContainmentWithInverseEList(Container.class, this, GoalmodelPackage.MODEL__CONTAINERS, GoalmodelPackage.CONTAINER__MODEL);
+			containers = new EObjectContainmentWithInverseEList<Container>(Container.class, this, GoalmodelPackage.MODEL__CONTAINERS, GoalmodelPackage.CONTAINER__MODEL);
 		}
 		return containers;
 	}
@@ -224,16 +231,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
-				return ((InternalEList)getContributions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
-				return ((InternalEList)getDependencies()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencies()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
-				return ((InternalEList)getDecompositions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecompositions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTAINERS:
-				return ((InternalEList)getContainers()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainers()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -243,18 +252,19 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__INTENTIONS:
-				return ((InternalEList)getIntentions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
-				return ((InternalEList)getContributions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getContributions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
-				return ((InternalEList)getDependencies()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getDependencies()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
-				return ((InternalEList)getDecompositions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTAINERS:
-				return ((InternalEList)getContainers()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getContainers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -264,6 +274,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__NAME:
@@ -287,6 +298,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__NAME:
@@ -294,23 +307,23 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return;
 			case GoalmodelPackage.MODEL__INTENTIONS:
 				getIntentions().clear();
-				getIntentions().addAll((Collection)newValue);
+				getIntentions().addAll((Collection<? extends Intention>)newValue);
 				return;
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
 				getContributions().clear();
-				getContributions().addAll((Collection)newValue);
+				getContributions().addAll((Collection<? extends Contribution>)newValue);
 				return;
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
 				getDependencies().clear();
-				getDependencies().addAll((Collection)newValue);
+				getDependencies().addAll((Collection<? extends Dependency>)newValue);
 				return;
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
 				getDecompositions().clear();
-				getDecompositions().addAll((Collection)newValue);
+				getDecompositions().addAll((Collection<? extends Decomposition>)newValue);
 				return;
 			case GoalmodelPackage.MODEL__CONTAINERS:
 				getContainers().clear();
-				getContainers().addAll((Collection)newValue);
+				getContainers().addAll((Collection<? extends Container>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -321,6 +334,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__NAME:
@@ -350,6 +364,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__NAME:
@@ -373,6 +388,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

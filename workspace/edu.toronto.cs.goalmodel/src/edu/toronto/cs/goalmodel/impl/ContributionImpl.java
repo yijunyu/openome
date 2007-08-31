@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -39,6 +38,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ContributionImpl extends EObjectImpl implements Contribution {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +52,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention target = null;
+	protected Intention target;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -56,7 +62,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention source = null;
+	protected Intention source;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,6 +78,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.CONTRIBUTION;
 	}
@@ -220,6 +227,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__MODEL:
@@ -239,6 +247,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__MODEL:
@@ -254,6 +263,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case GoalmodelPackage.CONTRIBUTION__MODEL:
@@ -267,6 +277,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TARGET:
@@ -286,6 +297,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TARGET:
@@ -306,6 +318,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TARGET:
@@ -326,6 +339,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTRIBUTION__TARGET:

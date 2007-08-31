@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -29,6 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Dependency extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Dependency From</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.goalmodel.Intention#getDependencyTo <em>Dependency To</em>}'.

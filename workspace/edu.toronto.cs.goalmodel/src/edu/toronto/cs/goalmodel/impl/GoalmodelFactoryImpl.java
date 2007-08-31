@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -23,6 +22,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * @generated
  */
 public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright University of Toronto";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -57,6 +63,7 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GoalmodelPackage.ACTOR: return createActor();
@@ -409,6 +416,7 @@ public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFacto
 	 * @deprecated
 	 * @generated
 	 */
+	@Deprecated
 	public static GoalmodelPackage getPackage() {
 		return GoalmodelPackage.eINSTANCE;
 	}

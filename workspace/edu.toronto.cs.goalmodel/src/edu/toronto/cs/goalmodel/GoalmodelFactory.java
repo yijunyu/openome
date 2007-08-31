@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -17,6 +16,13 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface GoalmodelFactory extends EFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

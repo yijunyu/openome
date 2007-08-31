@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -18,4 +17,11 @@ package edu.toronto.cs.goalmodel;
  * @generated
  */
 public interface MakeContribution extends Contribution {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright University of Toronto";
+
 } // MakeContribution

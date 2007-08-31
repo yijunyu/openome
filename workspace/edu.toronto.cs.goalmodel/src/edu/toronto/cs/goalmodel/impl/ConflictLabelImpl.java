@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -26,6 +25,13 @@ public class ConflictLabelImpl extends TruthLabelImpl implements ConflictLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected ConflictLabelImpl() {
 		super();
 	}
@@ -35,6 +41,7 @@ public class ConflictLabelImpl extends TruthLabelImpl implements ConflictLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.CONFLICT_LABEL;
 	}

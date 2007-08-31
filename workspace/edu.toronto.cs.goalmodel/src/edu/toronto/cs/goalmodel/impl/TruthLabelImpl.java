@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright University of Toronto
  *
  * $Id$
  */
@@ -28,6 +27,13 @@ public class TruthLabelImpl extends EObjectImpl implements TruthLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright University of Toronto";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected TruthLabelImpl() {
 		super();
 	}
@@ -37,6 +43,7 @@ public class TruthLabelImpl extends EObjectImpl implements TruthLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return GoalmodelPackage.Literals.TRUTH_LABEL;
 	}
