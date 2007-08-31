@@ -2,383 +2,435 @@
 <gmfgraph:Canvas xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2005/GraphicalDefinition" name="goalmodel">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="goalmodel">
   <figures
       name="Containers">
-    <figures
-        xsi:type="gmfgraph:Ellipse"
-        referencingElements="Actor"
-        name="ActorFigure"
-        outline="false"
-        fill="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:BorderLayout"/>
-      <children
+    <descriptors
+        name="ActorFigure">
+      <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          referencingElements="ActorCompartment"
-          name="ActorBoundaryFigure"
-          lineWidth="3"
-          lineKind="LINE_DASHDOTDOT">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            vertical="true"/>
+          name="ActorFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:StackLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
-            xsi:type="gmfgraph:CustomDecoration"
-            name="ActorSVGFigure"
-            qualifiedClassName="goalmodel.figures.ActorSVGFigure"
-            bundleName=""/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="236"
-            blue="236"/>
-      </children>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ActorName"
-          name="ActorNameFigure"
-          text="">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            alignment="BEGINNING"
-            vertical="true"/>
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Arial"
-            height="12"
-            style="BOLD"/>
-      </children>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Ellipse"
-        referencingElements="Agent"
-        name="AgentFigure"
-        outline="false"
-        fill="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:BorderLayout"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="AgentName"
-          name="AgentNameFigure"
-          text="&lt;...>">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            alignment="BEGINNING"
-            vertical="true"/>
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Arial"
-            height="12"
-            style="BOLD"/>
-      </children>
-      <children
+            xsi:type="gmfgraph:Ellipse"
+            name="ActorBoundaryFigure"
+            lineWidth="3"
+            lineKind="LINE_DASHDOTDOT">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="236"
+              blue="236"/>
+          <children
+              xsi:type="gmfgraph:CustomDecoration"
+              name="ActorSVGFigure"
+              qualifiedClassName="goalmodel.figures.ActorSVGFigure"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ActorNameFigure"
+            text="">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="12"
+              style="BOLD"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="AgentFigure">
+      <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          referencingElements="AgentCompartment"
-          name="AgentBoundaryFigure"
-          lineWidth="3"
-          lineKind="LINE_DASHDOTDOT">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            vertical="true"/>
+          name="AgentFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:StackLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="AgentSVGFigure"
-            qualifiedClassName="goalmodel.figures.AgentSVGFigure"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="236"
-            blue="236"/>
-      </children>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Ellipse"
-        referencingElements="Position"
-        name="PositionFigure"
-        outline="false"
-        fill="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:BorderLayout"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="PositionName"
-          name="PositionNameFigure"
-          text="&lt;...>">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            alignment="BEGINNING"
-            vertical="true"/>
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Arial"
-            height="12"
-            style="BOLD"/>
-      </children>
-      <children
+            xsi:type="gmfgraph:Label"
+            name="AgentNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            name="AgentBoundaryFigure"
+            lineWidth="3"
+            lineKind="LINE_DASHDOTDOT">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="236"
+              blue="236"/>
+          <children
+              xsi:type="gmfgraph:CustomFigure"
+              name="AgentSVGFigure"
+              qualifiedClassName="goalmodel.figures.AgentSVGFigure"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="PositionFigure">
+      <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          referencingElements="PositionCompartment"
-          name="PositionBoundaryFigure"
-          lineWidth="3"
-          lineKind="LINE_DASHDOTDOT">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            vertical="true"/>
+          name="PositionFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:StackLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="PositionSVGFigure"
-            qualifiedClassName="goalmodel.figures.PositionSVGFigure"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="236"
-            blue="236"/>
-      </children>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Ellipse"
-        referencingElements="Role"
-        name="RoleFigure"
-        outline="false"
-        fill="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:BorderLayout"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="RoleName"
-          name="RoleNameFigure"
-          text="&lt;...>">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            alignment="BEGINNING"
-            vertical="true"/>
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Arial"
-            height="12"
-            style="BOLD"/>
-      </children>
-      <children
+            xsi:type="gmfgraph:Label"
+            name="PositionNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            name="PositionBoundaryFigure"
+            lineWidth="3"
+            lineKind="LINE_DASHDOTDOT">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="236"
+              blue="236"/>
+          <children
+              xsi:type="gmfgraph:CustomFigure"
+              name="PositionSVGFigure"
+              qualifiedClassName="goalmodel.figures.PositionSVGFigure"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="RoleFigure">
+      <actualFigure
           xsi:type="gmfgraph:Ellipse"
-          referencingElements="RoleCompartment"
-          name="RoleBoundaryFigure"
-          lineWidth="3"
-          lineKind="LINE_DASHDOTDOT">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            vertical="true"/>
+          name="RoleFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:StackLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="RoleSVGFigure"
-            qualifiedClassName="goalmodel.figures.RoleSVGFigure"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="236"
-            blue="236"/>
-      </children>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="Aspect"
-        name="AspectFigure"
-        outline="false"
-        fill="false"
-        lineWidth="0">
-      <layout
-          xsi:type="gmfgraph:BorderLayout"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="AspectName"
-          name="AspectNameFigure"
-          text="&lt;...>">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            alignment="BEGINNING"
-            vertical="true"/>
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Arial"
-            height="12"
-            style="BOLD"/>
-      </children>
-      <children
-          xsi:type="gmfgraph:Ellipse"
-          referencingElements="AspectCompartment"
-          name="AspectBoundaryFigure"
-          lineWidth="3"
-          lineKind="LINE_DASHDOTDOT">
-        <layoutData
-            xsi:type="gmfgraph:BorderLayoutData"
-            vertical="true"/>
+            xsi:type="gmfgraph:Label"
+            name="RoleNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            name="RoleBoundaryFigure"
+            lineWidth="3"
+            lineKind="LINE_DASHDOTDOT">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="236"
+              blue="236"/>
+          <children
+              xsi:type="gmfgraph:CustomFigure"
+              name="RoleSVGFigure"
+              qualifiedClassName="goalmodel.figures.RoleSVGFigure"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="AspectFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="AspectFigure"
+          outline="false"
+          fill="false"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:StackLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
-            xsi:type="gmfgraph:CustomFigure"
-            name="AspectSVGFigure"
-            qualifiedClassName="goalmodel.figures.AspectSVGFigure"/>
-        <backgroundColor
-            xsi:type="gmfgraph:RGBColor"
-            red="236"
-            green="236"
-            blue="236"/>
-      </children>
-    </figures>
+            xsi:type="gmfgraph:Label"
+            name="AspectNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+          <font
+              xsi:type="gmfgraph:BasicFont"
+              faceName="Arial"
+              height="12"
+              style="BOLD"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Ellipse"
+            name="AspectBoundaryFigure"
+            lineWidth="3"
+            lineKind="LINE_DASHDOTDOT">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              vertical="true"/>
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+          <backgroundColor
+              xsi:type="gmfgraph:RGBColor"
+              red="236"
+              green="236"
+              blue="236"/>
+          <children
+              xsi:type="gmfgraph:CustomFigure"
+              name="AspectSVGFigure"
+              qualifiedClassName="goalmodel.figures.AspectSVGFigure"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <figures
       name="Nodes">
-    <figures
-        xsi:type="gmfgraph:CustomFigure"
-        referencingElements="Goal"
-        name="GoalFigure"
-        qualifiedClassName="goalmodel.figures.GoalFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="GoalLabel"
-          name="GoalNameFigure"
-          text=""/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:CustomFigure"
-        referencingElements="Softgoal"
-        name="SoftGoalSVGFigure"
-        qualifiedClassName="goalmodel.figures.SoftGoalSVGFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="SoftgoalLabel"
-          name="SoftgoalNameFigure"
-          text=""/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:CustomFigure"
-        referencingElements="Task"
-        name="TaskSVGFigure"
-        qualifiedClassName="goalmodel.figures.TaskSVGFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="TaskLabel"
-          name="TaskNameFigure"
-          text=""/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:CustomFigure"
-        referencingElements="Resource"
-        name="ResourceSVGFigure"
-        qualifiedClassName="goalmodel.figures.ResourceSVGFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ResourceLabel"
-          name="ResourceNameFigure"
-          text=""/>
-    </figures>
+    <descriptors
+        name="GoalFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="GoalFigure"
+          qualifiedClassName="goalmodel.figures.GoalFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="GoalNameFigure"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SoftGoalSVGFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="SoftGoalSVGFigure"
+          qualifiedClassName="goalmodel.figures.SoftGoalSVGFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SoftgoalNameFigure"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="TaskSVGFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="TaskSVGFigure"
+          qualifiedClassName="goalmodel.figures.TaskSVGFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TaskNameFigure"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ResourceSVGFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="ResourceSVGFigure"
+          qualifiedClassName="goalmodel.figures.ResourceSVGFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResourceNameFigure"
+            text=""/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.1/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <figures
       name="Links">
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="Dependency"
-        name="DependencyFigure"
-        lineWidth="2"
-        sourceDecoration="DepDecoration"
-        targetDecoration="Dep2Decoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DependencyLabel"
-          name="DependencyLabelFigure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="AndDecomposition"
-        name="AndDecompositionFigure"
-        lineWidth="2"
-        sourceDecoration="AndDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramAndLabel"
-          name="AndLabel"
-          text="AND"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="OrDecomposition"
-        name="OrDecompositionFigure"
-        lineWidth="2"
-        sourceDecoration="OrDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramOrLabel"
-          name="OrLabel"
-          text="OR"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="MakeContribution"
-        name="MakeContributionFigure"
-        lineWidth="2"
-        targetDecoration="MakeDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramMakeLabel"
-          name="MakeLabel"
-          text="++"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="HelpContribution"
-        name="HelpContributionFigure"
-        lineWidth="2"
-        lineKind="LINE_DASHDOTDOT"
-        targetDecoration="HelpDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramHelpLabel"
-          name="HelpLabel"
-          text="+"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="HurtContribution"
-        name="HurtContributionFigure"
-        lineWidth="2"
-        lineKind="LINE_DASHDOTDOT"
-        targetDecoration="HurtDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramHurtLabel"
-          name="HurtLabel"
-          text="-"/>
-      <font
-          xsi:type="gmfgraph:BasicFont"
-          faceName="Courier New"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="BreakContribution"
-        name="BreakContributionFigure"
-        lineWidth="2"
-        targetDecoration="BreakDecoration">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="DiagramBreakLabel"
-          name="BreakLabel"
-          text="--"/>
-      <font
-          xsi:type="gmfgraph:BasicFont"
-          faceName="Courier New"/>
-    </figures>
+    <descriptors
+        name="DependencyFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="DependencyFigure"
+          lineWidth="2"
+          sourceDecoration="//@figures.4/@figures.0"
+          targetDecoration="//@figures.4/@figures.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DependencyLabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="AndDecompositionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="AndDecompositionFigure"
+          lineWidth="2"
+          sourceDecoration="//@figures.4/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AndLabel"
+            text="AND"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="OrDecompositionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="OrDecompositionFigure"
+          lineWidth="2"
+          sourceDecoration="//@figures.4/@figures.3">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OrLabel"
+            text="OR"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="MakeContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="MakeContributionFigure"
+          lineWidth="2"
+          targetDecoration="//@figures.4/@figures.4">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MakeLabel"
+            text="++"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="HelpContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="HelpContributionFigure"
+          lineWidth="2"
+          lineKind="LINE_DASHDOTDOT"
+          targetDecoration="//@figures.4/@figures.5">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="HelpLabel"
+            text="+"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="HurtContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="HurtContributionFigure"
+          lineWidth="2"
+          lineKind="LINE_DASHDOTDOT"
+          targetDecoration="//@figures.4/@figures.6">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Courier New"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="HurtLabel"
+            text="-"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="BreakContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="BreakContributionFigure"
+          lineWidth="2"
+          targetDecoration="//@figures.4/@figures.7">
+        <font
+            xsi:type="gmfgraph:BasicFont"
+            faceName="Courier New"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BreakLabel"
+            text="--"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.2/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <figures
       name="LinkLabels">
@@ -412,43 +464,35 @@
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="DepDecoration"
-        qualifiedClassName="goalmodel.figures.DepDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.DepDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="Dep2Decoration"
-        qualifiedClassName="goalmodel.figures.Dep2Decoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.Dep2Decoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="AndDecoration"
-        qualifiedClassName="goalmodel.figures.AndDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.AndDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="OrDecoration"
-        qualifiedClassName="goalmodel.figures.OrDecoration"
-        bundleName="goalmodel.figures"/>
+        qualifiedClassName="goalmodel.figures.OrDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="MakeDecoration"
-        qualifiedClassName="goalmodel.figures.MakeDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.MakeDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="HelpDecoration"
-        qualifiedClassName="goalmodel.figures.HelpDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.HelpDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="HurtDecoration"
-        qualifiedClassName="goalmodel.figures.HurtDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.HurtDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
         name="BreakDecoration"
-        qualifiedClassName="goalmodel.figures.BreakDecoration"
-        bundleName="edu.toronto.cs.goalmodel.diagram"/>
+        qualifiedClassName="goalmodel.figures.BreakDecoration"/>
   </figures>
   <nodes
       name="Actor"
@@ -500,8 +544,9 @@
       figure="BreakContributionFigure"/>
   <compartments
       name="ActorCompartment"
-      figure="ActorBoundaryFigure"
-      collapsible="true">
+      figure="ActorFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.0/@accessors.0">
     <facets
         xsi:type="gmfgraph:DefaultSizeFacet">
       <defaultSize
@@ -511,136 +556,156 @@
   </compartments>
   <compartments
       name="AgentCompartment"
-      figure="AgentBoundaryFigure"
-      collapsible="true"/>
+      figure="AgentFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
   <compartments
       name="PositionCompartment"
-      figure="PositionBoundaryFigure"
-      collapsible="true"/>
+      figure="PositionFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
   <compartments
       name="RoleCompartment"
-      figure="RoleBoundaryFigure"
-      collapsible="true"/>
+      figure="RoleFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
   <compartments
       name="AspectCompartment"
-      figure="AspectBoundaryFigure"
-      collapsible="true"/>
+      figure="AspectFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
   <labels
       name="ActorName"
-      figure="ActorNameFigure"
-      elementIcon="false">
+      figure="ActorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.0/@accessors.1">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="AgentName"
-      figure="AgentNameFigure"
-      elementIcon="false">
+      figure="AgentFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.1/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="PositionName"
-      figure="PositionNameFigure"
-      elementIcon="false">
+      figure="PositionFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.2/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="RoleName"
-      figure="RoleNameFigure"
-      elementIcon="false">
+      figure="RoleFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.3/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="AspectName"
-      figure="AspectNameFigure"
-      elementIcon="false">
+      figure="AspectFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.4/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DependencyLabel"
-      figure="DependencyLabelFigure"
-      elementIcon="false">
+      figure="DependencyFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.0/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="GoalLabel"
-      figure="GoalNameFigure"
-      elementIcon="false">
+      figure="GoalFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.0/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="SoftgoalLabel"
-      figure="SoftgoalNameFigure"
-      elementIcon="false">
+      figure="SoftGoalSVGFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.1/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="ResourceLabel"
-      figure="ResourceNameFigure"
-      elementIcon="false">
+      figure="ResourceSVGFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.3/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="TaskLabel"
-      figure="TaskNameFigure"
-      elementIcon="false">
+      figure="TaskSVGFigure"
+      elementIcon="false"
+      accessor="//@figures.1/@descriptors.2/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="DiagramAndLabel"
-      figure="AndLabel"
-      elementIcon="false">
+      figure="AndDecompositionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.1/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="END"/>
   </labels>
   <labels
       name="DiagramOrLabel"
-      figure="OrLabel"
-      elementIcon="false">
+      figure="OrDecompositionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.2/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="END"/>
   </labels>
   <labels
       name="DiagramHelpLabel"
-      figure="HelpLabel"
-      elementIcon="false">
+      figure="HelpContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.4/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramHurtLabel"
-      figure="HurtLabel"
-      elementIcon="false">
+      figure="HurtContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.5/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramBreakLabel"
-      figure="BreakLabel"
-      elementIcon="false">
+      figure="BreakContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.6/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramMakeLabel"
-      figure="MakeLabel"
-      elementIcon="false">
+      figure="MakeContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.3/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
