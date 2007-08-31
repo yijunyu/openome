@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Goalmodel Query Plug-in
+Bundle-SymbolicName: goalmodel.query
+Bundle-Version: 1.0.0
+Bundle-Activator: goalmodel.query.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.examples,
+ org.eclipse.emf.examples.library,
+ org.eclipse.emf.examples.library.edit,
+ org.eclipse.emf.examples.library.editor,
+ org.eclipse.emf.query.examples,
+ org.eclipse.emf.query.examples.ocl,
+ org.eclipse.emf.query.ocl,
+ org.eclipse.ocl.ecore
+Eclipse-LazyStart: true
