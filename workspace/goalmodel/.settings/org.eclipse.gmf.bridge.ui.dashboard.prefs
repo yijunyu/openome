@@ -1,8 +1,0 @@
-#Sat Jul 28 00:16:31 EDT 2007
-eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/goalmodel/model/goalmodel.genmodel
-gmf_dashboard/domainModel=platform\:/resource/goalmodel/model/goalmodel.ecore
-gmf_dashboard/generationModel=platform\:/resource/goalmodel/model/goalmodel.gmfgen
-gmf_dashboard/graphicalDefinitionModel=platform\:/resource/goalmodel/model/goalmodel.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/goalmodel/model/goalmodel.gmfmap
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/goalmodel/model/goalmodel.gmftool

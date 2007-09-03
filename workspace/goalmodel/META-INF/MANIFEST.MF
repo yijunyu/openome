@@ -12,12 +12,12 @@ Require-Bundle: q7,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.core.resources,
+ edu.toronto.cs.goalmodel.editor,
  org.eclipse.emf.codegen.ecore,
  org.eclipse.gmf.codegen,
  org.eclipse.platform,
  org.eclipse.ui.intro,
- molhado,
- edu.toronto.cs.goalmodel
+ molhado
 Eclipse-LazyStart: true
 Export-Package: action,
  codegen,
