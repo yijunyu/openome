@@ -1,7 +1,7 @@
 package convertor;
 
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,18 +25,14 @@ import org.example.dsl.parser.ParserComponent;
 import org.openarchitectureware.type.emf.EmfMetaModel;
 import org.osgi.framework.Bundle;
 
-import q7dsl.Q7dslPackage;
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
-
-public class q7emf implements IConvertor {
+public class Q7_EMF implements IConvertor {
 	public void convert(String input, String output) {
 		String ecore = copy_ecore_model("q7/q7dsl.ecore");
 		save_model(ecore, input, output);
 	}
 	
 	public static void main(String args[]) {
-		save_model("model/q7dsl.ecore", "samples/example.pf", "samples/example.q7dsl");
+		save_model("model/q7dsl.ecore", "samples/example.q7", "samples/example.q7.dsl");
 	}
 	
 	public static void save_model(String metamodel, String model, String output) {
@@ -51,28 +47,23 @@ public class q7emf implements IConvertor {
 			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
 					Resource.Factory.Registry.DEFAULT_EXTENSION, 
 					new XMIResourceFactoryImpl());
-			resourceSet.getPackageRegistry().put(Q7dslPackage.eNS_URI, Q7dslPackage.eINSTANCE);
+//			resourceSet.getPackageRegistry().put(Q7dslPackage.eNS_URI, Q7dslPackage.eINSTANCE);
 			Resource resource = resourceSet.createResource(URI.createFileURI(output));
 			resource.getContents().add((EObject) o);
 			resource.save(Collections.EMPTY_MAP);
 			resource.unload();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (RecognitionException e) {
-			e.printStackTrace();
-		} catch (TokenStreamException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}		
 	}
 
 	private static String copy_ecore_model(String output) {
-		Bundle bundle = Platform.getBundle("q7");
-		String filename = "/model/q7dsl.ecore";
+		try {
 		IWorkspace w = ResourcesPlugin.getWorkspace();
 		IProject project = w.getRoot().getProject("Examples");
 		if (project==null) return null;
+		Bundle bundle = Platform.getBundle("q7.dsl");
+		String filename = "/src-gen/org/example/dsl/q7dsl.ecore";
 		String name = output;
 		InputStream stream;
 		try {
@@ -88,6 +79,7 @@ public class q7emf implements IConvertor {
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
+		} catch (Exception e) { e.printStackTrace();}
 		return null;
 	}
 }
