@@ -24,13 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,130 +68,99 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GoalmodelSwitch<Adapter> modelSwitch =
-		new GoalmodelSwitch<Adapter>() {
-			@Override
-			public Adapter caseActor(Actor object) {
+	protected GoalmodelSwitch modelSwitch =
+		new GoalmodelSwitch() {
+			public Object caseActor(Actor object) {
 				return createActorAdapter();
 			}
-			@Override
-			public Adapter caseAgent(Agent object) {
+			public Object caseAgent(Agent object) {
 				return createAgentAdapter();
 			}
-			@Override
-			public Adapter caseAndDecomposition(AndDecomposition object) {
+			public Object caseAndDecomposition(AndDecomposition object) {
 				return createAndDecompositionAdapter();
 			}
-			@Override
-			public Adapter caseAspect(Aspect object) {
+			public Object caseAspect(Aspect object) {
 				return createAspectAdapter();
 			}
-			@Override
-			public Adapter caseBreakContribution(BreakContribution object) {
+			public Object caseBreakContribution(BreakContribution object) {
 				return createBreakContributionAdapter();
 			}
-			@Override
-			public Adapter caseConflictLabel(ConflictLabel object) {
+			public Object caseConflictLabel(ConflictLabel object) {
 				return createConflictLabelAdapter();
 			}
-			@Override
-			public Adapter caseContribution(Contribution object) {
+			public Object caseContribution(Contribution object) {
 				return createContributionAdapter();
 			}
-			@Override
-			public Adapter caseDecomposition(Decomposition object) {
+			public Object caseDecomposition(Decomposition object) {
 				return createDecompositionAdapter();
 			}
-			@Override
-			public Adapter caseDeniedLabel(DeniedLabel object) {
+			public Object caseDeniedLabel(DeniedLabel object) {
 				return createDeniedLabelAdapter();
 			}
-			@Override
-			public Adapter caseDependency(Dependency object) {
+			public Object caseDependency(Dependency object) {
 				return createDependencyAdapter();
 			}
-			@Override
-			public Adapter caseGoal(Goal object) {
+			public Object caseGoal(Goal object) {
 				return createGoalAdapter();
 			}
-			@Override
-			public Adapter caseHelpContribution(HelpContribution object) {
+			public Object caseHelpContribution(HelpContribution object) {
 				return createHelpContributionAdapter();
 			}
-			@Override
-			public Adapter caseHurtContribution(HurtContribution object) {
+			public Object caseHurtContribution(HurtContribution object) {
 				return createHurtContributionAdapter();
 			}
-			@Override
-			public Adapter caseIntention(Intention object) {
+			public Object caseIntention(Intention object) {
 				return createIntentionAdapter();
 			}
-			@Override
-			public Adapter caseMakeContribution(MakeContribution object) {
+			public Object caseMakeContribution(MakeContribution object) {
 				return createMakeContributionAdapter();
 			}
-			@Override
-			public Adapter caseModel(Model object) {
+			public Object caseModel(Model object) {
 				return createModelAdapter();
 			}
-			@Override
-			public Adapter caseOrDecomposition(OrDecomposition object) {
+			public Object caseOrDecomposition(OrDecomposition object) {
 				return createOrDecompositionAdapter();
 			}
-			@Override
-			public Adapter casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
+			public Object casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
 				return createPartiallyDeniedLabelAdapter();
 			}
-			@Override
-			public Adapter casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
+			public Object casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
 				return createPartiallySatisfiedLabelAdapter();
 			}
-			@Override
-			public Adapter casePosition(Position object) {
+			public Object casePosition(Position object) {
 				return createPositionAdapter();
 			}
-			@Override
-			public Adapter caseProperty(Property object) {
+			public Object caseProperty(Property object) {
 				return createPropertyAdapter();
 			}
-			@Override
-			public Adapter caseResource(Resource object) {
+			public Object caseResource(Resource object) {
 				return createResourceAdapter();
 			}
-			@Override
-			public Adapter caseRole(Role object) {
+			public Object caseRole(Role object) {
 				return createRoleAdapter();
 			}
-			@Override
-			public Adapter caseSatisfiedLabel(SatisfiedLabel object) {
+			public Object caseSatisfiedLabel(SatisfiedLabel object) {
 				return createSatisfiedLabelAdapter();
 			}
-			@Override
-			public Adapter caseSoftgoal(Softgoal object) {
+			public Object caseSoftgoal(Softgoal object) {
 				return createSoftgoalAdapter();
 			}
-			@Override
-			public Adapter caseTask(Task object) {
+			public Object caseTask(Task object) {
 				return createTaskAdapter();
 			}
-			@Override
-			public Adapter caseTopic(Topic object) {
+			public Object caseTopic(Topic object) {
 				return createTopicAdapter();
 			}
-			@Override
-			public Adapter caseUnknownLabel(UnknownLabel object) {
+			public Object caseUnknownLabel(UnknownLabel object) {
 				return createUnknownLabelAdapter();
 			}
-			@Override
-			public Adapter caseTruthLabel(TruthLabel object) {
+			public Object caseTruthLabel(TruthLabel object) {
 				return createTruthLabelAdapter();
 			}
-			@Override
-			public Adapter caseContainer(Container object) {
+			public Object caseContainer(Container object) {
 				return createContainerAdapter();
 			}
-			@Override
-			public Adapter defaultCase(EObject object) {
+			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -213,7 +175,7 @@ public class GoalmodelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return (Adapter)modelSwitch.doSwitch((EObject)target);
 	}
 
 

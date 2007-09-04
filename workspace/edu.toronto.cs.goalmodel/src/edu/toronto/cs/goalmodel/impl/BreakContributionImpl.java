@@ -25,13 +25,6 @@ public class BreakContributionImpl extends ContributionImpl implements BreakCont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	protected BreakContributionImpl() {
 		super();
 	}

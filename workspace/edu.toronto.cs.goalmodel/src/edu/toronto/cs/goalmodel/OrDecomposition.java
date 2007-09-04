@@ -17,11 +17,5 @@ package edu.toronto.cs.goalmodel;
  * @generated
  */
 public interface OrDecomposition extends Decomposition {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
 
 } // OrDecomposition

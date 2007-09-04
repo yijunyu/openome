@@ -57,13 +57,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass actorEClass = null;
 
 	/**
@@ -1138,10 +1131,6 @@ public class GoalmodelPackageImpl extends EPackageImpl implements GoalmodelPacka
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
-
-		// Create type parameters
-
-		// Set bounds for type parameters
 
 		// Add supertypes to classes
 		actorEClass.getESuperTypes().add(this.getContainer());

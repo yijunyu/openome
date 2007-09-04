@@ -17,11 +17,5 @@ package edu.toronto.cs.goalmodel;
  * @generated
  */
 public interface HelpContribution extends Contribution {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
 
 } // HelpContribution

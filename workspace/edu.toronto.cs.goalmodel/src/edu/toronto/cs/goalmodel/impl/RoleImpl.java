@@ -25,13 +25,6 @@ public class RoleImpl extends ContainerImpl implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	protected RoleImpl() {
 		super();
 	}

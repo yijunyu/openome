@@ -17,11 +17,5 @@ package edu.toronto.cs.goalmodel;
  * @generated
  */
 public interface Task extends Intention {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
 
 } // Task

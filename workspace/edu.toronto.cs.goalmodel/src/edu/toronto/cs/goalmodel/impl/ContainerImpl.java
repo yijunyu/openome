@@ -48,13 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ContainerImpl extends EObjectImpl implements Container {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,7 +85,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Actor> sub;
+	protected EList sub;
 
 	/**
 	 * The cached value of the '{@link #getIntentions() <em>Intentions</em>}' containment reference list.
@@ -102,7 +95,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Intention> intentions;
+	protected EList intentions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,9 +180,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Actor> getSub() {
+	public EList getSub() {
 		if (sub == null) {
-			sub = new EObjectContainmentEList<Actor>(Actor.class, this, GoalmodelPackage.CONTAINER__SUB);
+			sub = new EObjectContainmentEList(Actor.class, this, GoalmodelPackage.CONTAINER__SUB);
 		}
 		return sub;
 	}
@@ -199,9 +192,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Intention> getIntentions() {
+	public EList getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectContainmentWithInverseEList<Intention>(Intention.class, this, GoalmodelPackage.CONTAINER__INTENTIONS, GoalmodelPackage.INTENTION__CONTAINER);
+			intentions = new EObjectContainmentWithInverseEList(Intention.class, this, GoalmodelPackage.CONTAINER__INTENTIONS, GoalmodelPackage.INTENTION__CONTAINER);
 		}
 		return intentions;
 	}
@@ -257,7 +250,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIntentions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList)getIntentions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__MODEL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -275,9 +268,9 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.CONTAINER__SUB:
-				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getSub()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
-				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getIntentions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.CONTAINER__MODEL:
 				return basicSetModel(null, msgs);
 		}
@@ -338,11 +331,11 @@ public class ContainerImpl extends EObjectImpl implements Container {
 				return;
 			case GoalmodelPackage.CONTAINER__SUB:
 				getSub().clear();
-				getSub().addAll((Collection<? extends Actor>)newValue);
+				getSub().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.CONTAINER__INTENTIONS:
 				getIntentions().clear();
-				getIntentions().addAll((Collection<? extends Intention>)newValue);
+				getIntentions().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.CONTAINER__MODEL:
 				setModel((Model)newValue);

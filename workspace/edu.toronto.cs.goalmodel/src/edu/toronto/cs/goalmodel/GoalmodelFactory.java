@@ -17,13 +17,6 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface GoalmodelFactory extends EFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

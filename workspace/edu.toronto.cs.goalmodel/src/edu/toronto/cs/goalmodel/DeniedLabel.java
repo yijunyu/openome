@@ -17,11 +17,5 @@ package edu.toronto.cs.goalmodel;
  * @generated
  */
 public interface DeniedLabel extends TruthLabel {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
 
 } // DeniedLabel

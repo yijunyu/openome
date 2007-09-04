@@ -25,14 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see edu.toronto.cs.goalmodel.GoalmodelPackage
  * @generated
  */
-public class GoalmodelSwitch<T> {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
+public class GoalmodelSwitch {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -60,7 +53,7 @@ public class GoalmodelSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
+	public Object doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -71,16 +64,16 @@ public class GoalmodelSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
+	protected Object doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
 		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
+			List eSuperTypes = theEClass.getESuperTypes();
 			return
 				eSuperTypes.isEmpty() ?
 					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
+					doSwitch((EClass)eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -91,206 +84,206 @@ public class GoalmodelSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case GoalmodelPackage.ACTOR: {
 				Actor actor = (Actor)theEObject;
-				T result = caseActor(actor);
+				Object result = caseActor(actor);
 				if (result == null) result = caseContainer(actor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.AGENT: {
 				Agent agent = (Agent)theEObject;
-				T result = caseAgent(agent);
+				Object result = caseAgent(agent);
 				if (result == null) result = caseContainer(agent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.AND_DECOMPOSITION: {
 				AndDecomposition andDecomposition = (AndDecomposition)theEObject;
-				T result = caseAndDecomposition(andDecomposition);
+				Object result = caseAndDecomposition(andDecomposition);
 				if (result == null) result = caseDecomposition(andDecomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.ASPECT: {
 				Aspect aspect = (Aspect)theEObject;
-				T result = caseAspect(aspect);
+				Object result = caseAspect(aspect);
 				if (result == null) result = caseContainer(aspect);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.BREAK_CONTRIBUTION: {
 				BreakContribution breakContribution = (BreakContribution)theEObject;
-				T result = caseBreakContribution(breakContribution);
+				Object result = caseBreakContribution(breakContribution);
 				if (result == null) result = caseContribution(breakContribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.CONFLICT_LABEL: {
 				ConflictLabel conflictLabel = (ConflictLabel)theEObject;
-				T result = caseConflictLabel(conflictLabel);
+				Object result = caseConflictLabel(conflictLabel);
 				if (result == null) result = caseTruthLabel(conflictLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.CONTRIBUTION: {
 				Contribution contribution = (Contribution)theEObject;
-				T result = caseContribution(contribution);
+				Object result = caseContribution(contribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.DECOMPOSITION: {
 				Decomposition decomposition = (Decomposition)theEObject;
-				T result = caseDecomposition(decomposition);
+				Object result = caseDecomposition(decomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.DENIED_LABEL: {
 				DeniedLabel deniedLabel = (DeniedLabel)theEObject;
-				T result = caseDeniedLabel(deniedLabel);
+				Object result = caseDeniedLabel(deniedLabel);
 				if (result == null) result = caseTruthLabel(deniedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.DEPENDENCY: {
 				Dependency dependency = (Dependency)theEObject;
-				T result = caseDependency(dependency);
+				Object result = caseDependency(dependency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.GOAL: {
 				Goal goal = (Goal)theEObject;
-				T result = caseGoal(goal);
+				Object result = caseGoal(goal);
 				if (result == null) result = caseIntention(goal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.HELP_CONTRIBUTION: {
 				HelpContribution helpContribution = (HelpContribution)theEObject;
-				T result = caseHelpContribution(helpContribution);
+				Object result = caseHelpContribution(helpContribution);
 				if (result == null) result = caseContribution(helpContribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.HURT_CONTRIBUTION: {
 				HurtContribution hurtContribution = (HurtContribution)theEObject;
-				T result = caseHurtContribution(hurtContribution);
+				Object result = caseHurtContribution(hurtContribution);
 				if (result == null) result = caseContribution(hurtContribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.INTENTION: {
 				Intention intention = (Intention)theEObject;
-				T result = caseIntention(intention);
+				Object result = caseIntention(intention);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.MAKE_CONTRIBUTION: {
 				MakeContribution makeContribution = (MakeContribution)theEObject;
-				T result = caseMakeContribution(makeContribution);
+				Object result = caseMakeContribution(makeContribution);
 				if (result == null) result = caseContribution(makeContribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.MODEL: {
 				Model model = (Model)theEObject;
-				T result = caseModel(model);
+				Object result = caseModel(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.OR_DECOMPOSITION: {
 				OrDecomposition orDecomposition = (OrDecomposition)theEObject;
-				T result = caseOrDecomposition(orDecomposition);
+				Object result = caseOrDecomposition(orDecomposition);
 				if (result == null) result = caseDecomposition(orDecomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.PARTIALLY_DENIED_LABEL: {
 				PartiallyDeniedLabel partiallyDeniedLabel = (PartiallyDeniedLabel)theEObject;
-				T result = casePartiallyDeniedLabel(partiallyDeniedLabel);
+				Object result = casePartiallyDeniedLabel(partiallyDeniedLabel);
 				if (result == null) result = caseTruthLabel(partiallyDeniedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.PARTIALLY_SATISFIED_LABEL: {
 				PartiallySatisfiedLabel partiallySatisfiedLabel = (PartiallySatisfiedLabel)theEObject;
-				T result = casePartiallySatisfiedLabel(partiallySatisfiedLabel);
+				Object result = casePartiallySatisfiedLabel(partiallySatisfiedLabel);
 				if (result == null) result = caseTruthLabel(partiallySatisfiedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.POSITION: {
 				Position position = (Position)theEObject;
-				T result = casePosition(position);
+				Object result = casePosition(position);
 				if (result == null) result = caseContainer(position);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.PROPERTY: {
 				Property property = (Property)theEObject;
-				T result = caseProperty(property);
+				Object result = caseProperty(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
-				T result = caseResource(resource);
+				Object result = caseResource(resource);
 				if (result == null) result = caseIntention(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.ROLE: {
 				Role role = (Role)theEObject;
-				T result = caseRole(role);
+				Object result = caseRole(role);
 				if (result == null) result = caseContainer(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.SATISFIED_LABEL: {
 				SatisfiedLabel satisfiedLabel = (SatisfiedLabel)theEObject;
-				T result = caseSatisfiedLabel(satisfiedLabel);
+				Object result = caseSatisfiedLabel(satisfiedLabel);
 				if (result == null) result = caseTruthLabel(satisfiedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.SOFTGOAL: {
 				Softgoal softgoal = (Softgoal)theEObject;
-				T result = caseSoftgoal(softgoal);
+				Object result = caseSoftgoal(softgoal);
 				if (result == null) result = caseIntention(softgoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.TASK: {
 				Task task = (Task)theEObject;
-				T result = caseTask(task);
+				Object result = caseTask(task);
 				if (result == null) result = caseIntention(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.TOPIC: {
 				Topic topic = (Topic)theEObject;
-				T result = caseTopic(topic);
+				Object result = caseTopic(topic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.UNKNOWN_LABEL: {
 				UnknownLabel unknownLabel = (UnknownLabel)theEObject;
-				T result = caseUnknownLabel(unknownLabel);
+				Object result = caseUnknownLabel(unknownLabel);
 				if (result == null) result = caseTruthLabel(unknownLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.TRUTH_LABEL: {
 				TruthLabel truthLabel = (TruthLabel)theEObject;
-				T result = caseTruthLabel(truthLabel);
+				Object result = caseTruthLabel(truthLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GoalmodelPackage.CONTAINER: {
 				Container container = (Container)theEObject;
-				T result = caseContainer(container);
+				Object result = caseContainer(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -309,7 +302,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActor(Actor object) {
+	public Object caseActor(Actor object) {
 		return null;
 	}
 
@@ -324,7 +317,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAgent(Agent object) {
+	public Object caseAgent(Agent object) {
 		return null;
 	}
 
@@ -339,7 +332,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAndDecomposition(AndDecomposition object) {
+	public Object caseAndDecomposition(AndDecomposition object) {
 		return null;
 	}
 
@@ -354,7 +347,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAspect(Aspect object) {
+	public Object caseAspect(Aspect object) {
 		return null;
 	}
 
@@ -369,7 +362,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBreakContribution(BreakContribution object) {
+	public Object caseBreakContribution(BreakContribution object) {
 		return null;
 	}
 
@@ -384,7 +377,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConflictLabel(ConflictLabel object) {
+	public Object caseConflictLabel(ConflictLabel object) {
 		return null;
 	}
 
@@ -399,7 +392,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContribution(Contribution object) {
+	public Object caseContribution(Contribution object) {
 		return null;
 	}
 
@@ -414,7 +407,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDecomposition(Decomposition object) {
+	public Object caseDecomposition(Decomposition object) {
 		return null;
 	}
 
@@ -429,7 +422,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDeniedLabel(DeniedLabel object) {
+	public Object caseDeniedLabel(DeniedLabel object) {
 		return null;
 	}
 
@@ -444,7 +437,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependency(Dependency object) {
+	public Object caseDependency(Dependency object) {
 		return null;
 	}
 
@@ -459,7 +452,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGoal(Goal object) {
+	public Object caseGoal(Goal object) {
 		return null;
 	}
 
@@ -474,7 +467,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHelpContribution(HelpContribution object) {
+	public Object caseHelpContribution(HelpContribution object) {
 		return null;
 	}
 
@@ -489,7 +482,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHurtContribution(HurtContribution object) {
+	public Object caseHurtContribution(HurtContribution object) {
 		return null;
 	}
 
@@ -504,7 +497,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntention(Intention object) {
+	public Object caseIntention(Intention object) {
 		return null;
 	}
 
@@ -519,7 +512,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMakeContribution(MakeContribution object) {
+	public Object caseMakeContribution(MakeContribution object) {
 		return null;
 	}
 
@@ -534,7 +527,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModel(Model object) {
+	public Object caseModel(Model object) {
 		return null;
 	}
 
@@ -549,7 +542,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOrDecomposition(OrDecomposition object) {
+	public Object caseOrDecomposition(OrDecomposition object) {
 		return null;
 	}
 
@@ -564,7 +557,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
+	public Object casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
 		return null;
 	}
 
@@ -579,7 +572,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
+	public Object casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
 		return null;
 	}
 
@@ -594,7 +587,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePosition(Position object) {
+	public Object casePosition(Position object) {
 		return null;
 	}
 
@@ -609,7 +602,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProperty(Property object) {
+	public Object caseProperty(Property object) {
 		return null;
 	}
 
@@ -624,7 +617,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResource(Resource object) {
+	public Object caseResource(Resource object) {
 		return null;
 	}
 
@@ -639,7 +632,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRole(Role object) {
+	public Object caseRole(Role object) {
 		return null;
 	}
 
@@ -654,7 +647,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSatisfiedLabel(SatisfiedLabel object) {
+	public Object caseSatisfiedLabel(SatisfiedLabel object) {
 		return null;
 	}
 
@@ -669,7 +662,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSoftgoal(Softgoal object) {
+	public Object caseSoftgoal(Softgoal object) {
 		return null;
 	}
 
@@ -684,7 +677,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTask(Task object) {
+	public Object caseTask(Task object) {
 		return null;
 	}
 
@@ -699,7 +692,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTopic(Topic object) {
+	public Object caseTopic(Topic object) {
 		return null;
 	}
 
@@ -714,7 +707,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnknownLabel(UnknownLabel object) {
+	public Object caseUnknownLabel(UnknownLabel object) {
 		return null;
 	}
 
@@ -729,7 +722,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTruthLabel(TruthLabel object) {
+	public Object caseTruthLabel(TruthLabel object) {
 		return null;
 	}
 
@@ -744,7 +737,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContainer(Container object) {
+	public Object caseContainer(Container object) {
 		return null;
 	}
 
@@ -759,7 +752,7 @@ public class GoalmodelSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public T defaultCase(EObject object) {
+	public Object defaultCase(EObject object) {
 		return null;
 	}
 

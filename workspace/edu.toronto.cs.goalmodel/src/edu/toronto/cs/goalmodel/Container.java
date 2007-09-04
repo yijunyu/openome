@@ -31,13 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container extends EObject {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -100,10 +93,10 @@ public interface Container extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getContainer_Sub()
-	 * @model containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Actor" containment="true"
 	 * @generated
 	 */
-	EList<Actor> getSub();
+	EList getSub();
 
 	/**
 	 * Returns the value of the '<em><b>Intentions</b></em>' containment reference list.
@@ -118,10 +111,10 @@ public interface Container extends EObject {
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getContainer_Intentions()
 	 * @see edu.toronto.cs.goalmodel.Intention#getContainer
-	 * @model opposite="container" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Intention" opposite="container" containment="true"
 	 * @generated
 	 */
-	EList<Intention> getIntentions();
+	EList getIntentions();
 
 	/**
 	 * Returns the value of the '<em><b>Model</b></em>' container reference.

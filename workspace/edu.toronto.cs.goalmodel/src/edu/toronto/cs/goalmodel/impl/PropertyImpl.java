@@ -31,13 +31,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class PropertyImpl extends EObjectImpl implements Property {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

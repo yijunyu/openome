@@ -27,13 +27,6 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface GoalmodelPackage extends EPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

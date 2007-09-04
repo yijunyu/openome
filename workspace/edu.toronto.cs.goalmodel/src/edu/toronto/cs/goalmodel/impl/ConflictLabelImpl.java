@@ -25,13 +25,6 @@ public class ConflictLabelImpl extends TruthLabelImpl implements ConflictLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	protected ConflictLabelImpl() {
 		super();
 	}

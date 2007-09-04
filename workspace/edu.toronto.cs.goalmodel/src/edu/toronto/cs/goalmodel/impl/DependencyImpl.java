@@ -40,13 +40,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class DependencyImpl extends EObjectImpl implements Dependency {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

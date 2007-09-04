@@ -23,13 +23,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class GoalmodelFactoryImpl extends EFactoryImpl implements GoalmodelFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

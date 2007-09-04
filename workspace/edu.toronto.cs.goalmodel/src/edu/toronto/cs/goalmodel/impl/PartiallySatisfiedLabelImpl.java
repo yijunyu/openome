@@ -25,13 +25,6 @@ public class PartiallySatisfiedLabelImpl extends TruthLabelImpl implements Parti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	protected PartiallySatisfiedLabelImpl() {
 		super();
 	}

@@ -38,13 +38,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ContributionImpl extends EObjectImpl implements Contribution {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

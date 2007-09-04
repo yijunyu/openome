@@ -32,13 +32,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright University of Toronto";
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -75,10 +68,10 @@ public interface Model extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getModel_Intentions()
-	 * @model containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Intention" containment="true"
 	 * @generated
 	 */
-	EList<Intention> getIntentions();
+	EList getIntentions();
 
 	/**
 	 * Returns the value of the '<em><b>Contributions</b></em>' containment reference list.
@@ -93,10 +86,10 @@ public interface Model extends EObject {
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getModel_Contributions()
 	 * @see edu.toronto.cs.goalmodel.Contribution#getModel
-	 * @model opposite="model" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Contribution" opposite="model" containment="true"
 	 * @generated
 	 */
-	EList<Contribution> getContributions();
+	EList getContributions();
 
 	/**
 	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
@@ -111,10 +104,10 @@ public interface Model extends EObject {
 	 * @return the value of the '<em>Dependencies</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getModel_Dependencies()
 	 * @see edu.toronto.cs.goalmodel.Dependency#getModel
-	 * @model opposite="model" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Dependency" opposite="model" containment="true"
 	 * @generated
 	 */
-	EList<Dependency> getDependencies();
+	EList getDependencies();
 
 	/**
 	 * Returns the value of the '<em><b>Decompositions</b></em>' containment reference list.
@@ -129,10 +122,10 @@ public interface Model extends EObject {
 	 * @return the value of the '<em>Decompositions</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getModel_Decompositions()
 	 * @see edu.toronto.cs.goalmodel.Decomposition#getModel
-	 * @model opposite="model" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Decomposition" opposite="model" containment="true"
 	 * @generated
 	 */
-	EList<Decomposition> getDecompositions();
+	EList getDecompositions();
 
 	/**
 	 * Returns the value of the '<em><b>Containers</b></em>' containment reference list.
@@ -147,9 +140,9 @@ public interface Model extends EObject {
 	 * @return the value of the '<em>Containers</em>' containment reference list.
 	 * @see edu.toronto.cs.goalmodel.GoalmodelPackage#getModel_Containers()
 	 * @see edu.toronto.cs.goalmodel.Container#getModel
-	 * @model opposite="model" containment="true"
+	 * @model type="edu.toronto.cs.goalmodel.Container" opposite="model" containment="true"
 	 * @generated
 	 */
-	EList<Container> getContainers();
+	EList getContainers();
 
 } // Model

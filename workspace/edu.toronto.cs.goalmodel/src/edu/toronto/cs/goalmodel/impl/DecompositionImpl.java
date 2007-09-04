@@ -38,13 +38,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class DecompositionImpl extends EObjectImpl implements Decomposition {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

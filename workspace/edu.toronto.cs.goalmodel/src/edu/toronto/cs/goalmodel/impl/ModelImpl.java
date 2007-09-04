@@ -50,13 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends EObjectImpl implements Model {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright University of Toronto";
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,7 +77,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Intention> intentions;
+	protected EList intentions;
 
 	/**
 	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
@@ -94,7 +87,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Contribution> contributions;
+	protected EList contributions;
 
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
@@ -104,7 +97,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Dependency> dependencies;
+	protected EList dependencies;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' containment reference list.
@@ -114,7 +107,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Decomposition> decompositions;
+	protected EList decompositions;
 
 	/**
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -124,7 +117,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Container> containers;
+	protected EList containers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,9 +164,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Intention> getIntentions() {
+	public EList getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectContainmentEList<Intention>(Intention.class, this, GoalmodelPackage.MODEL__INTENTIONS);
+			intentions = new EObjectContainmentEList(Intention.class, this, GoalmodelPackage.MODEL__INTENTIONS);
 		}
 		return intentions;
 	}
@@ -183,9 +176,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Contribution> getContributions() {
+	public EList getContributions() {
 		if (contributions == null) {
-			contributions = new EObjectContainmentWithInverseEList<Contribution>(Contribution.class, this, GoalmodelPackage.MODEL__CONTRIBUTIONS, GoalmodelPackage.CONTRIBUTION__MODEL);
+			contributions = new EObjectContainmentWithInverseEList(Contribution.class, this, GoalmodelPackage.MODEL__CONTRIBUTIONS, GoalmodelPackage.CONTRIBUTION__MODEL);
 		}
 		return contributions;
 	}
@@ -195,9 +188,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Dependency> getDependencies() {
+	public EList getDependencies() {
 		if (dependencies == null) {
-			dependencies = new EObjectContainmentWithInverseEList<Dependency>(Dependency.class, this, GoalmodelPackage.MODEL__DEPENDENCIES, GoalmodelPackage.DEPENDENCY__MODEL);
+			dependencies = new EObjectContainmentWithInverseEList(Dependency.class, this, GoalmodelPackage.MODEL__DEPENDENCIES, GoalmodelPackage.DEPENDENCY__MODEL);
 		}
 		return dependencies;
 	}
@@ -207,9 +200,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Decomposition> getDecompositions() {
+	public EList getDecompositions() {
 		if (decompositions == null) {
-			decompositions = new EObjectContainmentWithInverseEList<Decomposition>(Decomposition.class, this, GoalmodelPackage.MODEL__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__MODEL);
+			decompositions = new EObjectContainmentWithInverseEList(Decomposition.class, this, GoalmodelPackage.MODEL__DECOMPOSITIONS, GoalmodelPackage.DECOMPOSITION__MODEL);
 		}
 		return decompositions;
 	}
@@ -219,9 +212,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Container> getContainers() {
+	public EList getContainers() {
 		if (containers == null) {
-			containers = new EObjectContainmentWithInverseEList<Container>(Container.class, this, GoalmodelPackage.MODEL__CONTAINERS, GoalmodelPackage.CONTAINER__MODEL);
+			containers = new EObjectContainmentWithInverseEList(Container.class, this, GoalmodelPackage.MODEL__CONTAINERS, GoalmodelPackage.CONTAINER__MODEL);
 		}
 		return containers;
 	}
@@ -236,13 +229,13 @@ public class ModelImpl extends EObjectImpl implements Model {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList)getContributions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencies()).basicAdd(otherEnd, msgs);
+				return ((InternalEList)getDependencies()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecompositions()).basicAdd(otherEnd, msgs);
+				return ((InternalEList)getDecompositions()).basicAdd(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTAINERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainers()).basicAdd(otherEnd, msgs);
+				return ((InternalEList)getContainers()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -256,15 +249,15 @@ public class ModelImpl extends EObjectImpl implements Model {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalmodelPackage.MODEL__INTENTIONS:
-				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getIntentions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
-				return ((InternalEList<?>)getContributions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getContributions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
-				return ((InternalEList<?>)getDependencies()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getDependencies()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
-				return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getDecompositions()).basicRemove(otherEnd, msgs);
 			case GoalmodelPackage.MODEL__CONTAINERS:
-				return ((InternalEList<?>)getContainers()).basicRemove(otherEnd, msgs);
+				return ((InternalEList)getContainers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -307,23 +300,23 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return;
 			case GoalmodelPackage.MODEL__INTENTIONS:
 				getIntentions().clear();
-				getIntentions().addAll((Collection<? extends Intention>)newValue);
+				getIntentions().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.MODEL__CONTRIBUTIONS:
 				getContributions().clear();
-				getContributions().addAll((Collection<? extends Contribution>)newValue);
+				getContributions().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.MODEL__DEPENDENCIES:
 				getDependencies().clear();
-				getDependencies().addAll((Collection<? extends Dependency>)newValue);
+				getDependencies().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.MODEL__DECOMPOSITIONS:
 				getDecompositions().clear();
-				getDecompositions().addAll((Collection<? extends Decomposition>)newValue);
+				getDecompositions().addAll((Collection)newValue);
 				return;
 			case GoalmodelPackage.MODEL__CONTAINERS:
 				getContainers().clear();
-				getContainers().addAll((Collection<? extends Container>)newValue);
+				getContainers().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
