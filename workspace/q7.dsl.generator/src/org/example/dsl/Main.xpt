@@ -1,9 +1,9 @@
-Â«IMPORT q7dslÂ»
+«IMPORT q7dsl»
 
-Â«REMÂ»
+«REM»
    This is the 'main' template. 
    You should replace the type 'Object' with your respective meta type.
-Â«ENDREMÂ»
-Â«DEFINE main FOR ObjectÂ»
+«ENDREM»
+«DEFINE main FOR Object»
    
-Â«ENDDEFINEÂ»
+«ENDDEFINE»
