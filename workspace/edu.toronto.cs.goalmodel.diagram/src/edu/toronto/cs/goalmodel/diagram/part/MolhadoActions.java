@@ -23,10 +23,12 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import sc.document.Component;
 import sc.document.Configuration;
+import sc.document.Component;
 import sc.document.GoalModel;
 import sc.document.SCDirectory;
+
+
 import edu.toronto.cs.goalmodel.AndDecomposition;
 import edu.toronto.cs.goalmodel.BreakContribution;
 import edu.toronto.cs.goalmodel.Contribution;
@@ -44,6 +46,7 @@ import edu.toronto.cs.goalmodel.Softgoal;
 import fluid.ir.IRNode;
 import fluid.ir.IRPersistent;
 import fluid.version.Version;
+
 
 /**
  * Groups common versioning actions and acts as interface to Molhado repository

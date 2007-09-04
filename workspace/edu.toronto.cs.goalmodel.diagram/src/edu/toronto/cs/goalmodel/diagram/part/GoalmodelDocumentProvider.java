@@ -625,6 +625,7 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 					: new FileEditorInput(newFile));
 			return;
 		}
+		// TODO: append suffix to the URI! (use diagram as a parameter)
 		fireElementMoved(input, new URIEditorInput(uri));
 	}
 
@@ -996,14 +997,16 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		}
 
 	}
-	
+
 	// not generated begins here
-	private boolean molhado_on = Boolean.parseBoolean(System.getProperty("molhado.on")); //false if value not "true".
-	
+	private boolean molhado_on = Boolean.parseBoolean(System
+			.getProperty("molhado.on")); //false if value not "true".
+
 	/**
 	 * @generated NOT
 	 */
-	protected void doSaveDocument(IProgressMonitor monitor, Object element,	IDocument document, boolean overwrite) throws CoreException {
+	protected void doSaveDocument(IProgressMonitor monitor, Object element,
+			IDocument document, boolean overwrite) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {
@@ -1020,24 +1023,34 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 			List resources = info.getResourceSet().getResources();
 			MolhadoActions ma = new MolhadoActions(); //added by nernst
 			try {
-				monitor.beginTask(Messages.GoalmodelDocumentProvider_SaveDiagramTask,	resources.size() + 1); //"Saving diagram"
+				monitor.beginTask(
+						Messages.GoalmodelDocumentProvider_SaveDiagramTask,
+						resources.size() + 1); //"Saving diagram"
 				for (Iterator it = resources.iterator(); it.hasNext();) {
 					Resource nextResource = (Resource) it.next();
-					monitor.setTaskName(NLS.bind(Messages.GoalmodelDocumentProvider_SaveNextResourceTask,nextResource.getURI()));
-					if (nextResource.isLoaded()	&& !info.getEditingDomain().isReadOnly(nextResource)) {
+					monitor
+							.setTaskName(NLS
+									.bind(
+											Messages.GoalmodelDocumentProvider_SaveNextResourceTask,
+											nextResource.getURI()));
+					if (nextResource.isLoaded()
+							&& !info.getEditingDomain()
+									.isReadOnly(nextResource)) {
 						try {
-							if (!(nextResource instanceof GMFResource)) {	// FIXME YY: Checkin/Checkout To Molhado
-								if(molhado_on) {
+							if (!(nextResource instanceof GMFResource)) { // FIXME YY: Checkin/Checkout To Molhado
+								if (molhado_on) {
 									ma.CheckinCheckoutMolhado(nextResource); //TODO is this the right spot?
 									//System.err.println(nextResource);	
 								}
 							}
-							nextResource.save(GoalmodelDiagramEditorUtil.getSaveOptions());
+							nextResource.save(GoalmodelDiagramEditorUtil
+									.getSaveOptions());
 						} catch (IOException e) {
 							fireElementStateChangeFailed(element);
 							throw new CoreException(new Status(IStatus.ERROR,
 									GoalmodelDiagramEditorPlugin.ID,
-									EditorStatusCodes.RESOURCE_FAILURE, e.getLocalizedMessage(), null));
+									EditorStatusCodes.RESOURCE_FAILURE, e
+											.getLocalizedMessage(), null));
 						}
 					}
 					monitor.worked(1);
@@ -1063,7 +1076,12 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 			} else {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(
-						new Status(IStatus.ERROR,GoalmodelDiagramEditorPlugin.ID,0,NLS.bind(
+						new Status(
+								IStatus.ERROR,
+								GoalmodelDiagramEditorPlugin.ID,
+								0,
+								NLS
+										.bind(
 												Messages.GoalmodelDocumentProvider_IncorrectInputError,
 												new Object[] {
 														element,
@@ -1073,17 +1091,25 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 			if (false == document instanceof IDiagramDocument) {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(
-						new Status(IStatus.ERROR,GoalmodelDiagramEditorPlugin.ID,0,
+						new Status(
+								IStatus.ERROR,
+								GoalmodelDiagramEditorPlugin.ID,
+								0,
 								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			IDiagramDocument diagramDocument = (IDiagramDocument) document;
-			final Resource newResource = diagramDocument.getEditingDomain().getResourceSet().createResource(newResoruceURI);
-			final Diagram diagramCopy = (Diagram) EcoreUtil.copy(diagramDocument.getDiagram());
+			final Resource newResource = diagramDocument.getEditingDomain()
+					.getResourceSet().createResource(newResoruceURI);
+			final Diagram diagramCopy = (Diagram) EcoreUtil
+					.copy(diagramDocument.getDiagram());
 			try {
-				new AbstractTransactionalCommand(diagramDocument.getEditingDomain(), NLS.bind(
+				new AbstractTransactionalCommand(diagramDocument
+						.getEditingDomain(), NLS.bind(
 						Messages.GoalmodelDocumentProvider_SaveAsOperation,
 						diagramCopy.getName()), affectedFiles) {
-					protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+					protected CommandResult doExecuteWithResult(
+							IProgressMonitor monitor, IAdaptable info)
+							throws ExecutionException {
 						newResource.getContents().add(diagramCopy);
 						return CommandResult.newOKCommandResult();
 					}
@@ -1092,11 +1118,13 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 			} catch (ExecutionException e) {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(new Status(IStatus.ERROR,
-						GoalmodelDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(), null));
+						GoalmodelDiagramEditorPlugin.ID, 0, e
+								.getLocalizedMessage(), null));
 			} catch (IOException e) {
 				fireElementStateChangeFailed(element);
 				throw new CoreException(new Status(IStatus.ERROR,
-						GoalmodelDiagramEditorPlugin.ID, 0, e.getLocalizedMessage(), null));
+						GoalmodelDiagramEditorPlugin.ID, 0, e
+								.getLocalizedMessage(), null));
 			}
 			newResource.unload();
 		}
