@@ -1,5 +1,7 @@
 package goalmodel.figures;
 
+import java.net.URL;
+
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
@@ -8,9 +10,10 @@ import org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure;
 
 public class NodeSVGFigure extends ScalableImageFigure {
 	public NodeSVGFigure(String name) {
-			super(RenderedImageFactory.getInstance(FileLocator.find(Platform.getBundle("goalmodel"), 
-					new Path("images/" + name + ".svg"), null)), 
-					true, false, true);
-			setMaintainAspectRatio(false);
+		super(RenderedImageFactory.getInstance(FileLocator.find(Platform.getBundle("goalmodel"), new Path("images/" + name + ".svg"), null)),true, false, true);
+		
+		URL f = FileLocator.find(Platform.getBundle("goalmodel"), new Path("images/" + name + ".svg"), null);
+		
+		setMaintainAspectRatio(false);
 	}	
 }
