@@ -555,7 +555,7 @@ public class MolhadoActions {
 		}
 	}
 
-	protected void CheckinCheckoutMolhado(Resource resource) {
+	protected void checkinCheckoutMolhado(Resource resource) {
 		try {
 			String model_name = get_model_name(resource);
 			checkLatestVersion(resource); // Algorithm 3
@@ -564,7 +564,7 @@ public class MolhadoActions {
 			GoalModel the_gm = find_the_gm(model_name, config);
 			if (the_gm != null) {
 				//				updateIndex(the_gm, the_gm.getRoot());
-				//				print_the_gm(the_gm);
+								print_the_gm(the_gm);
 				modify_edited_goal_model(the_gm, resource);
 				//				setGoalModel(gm, config);
 				//				print_the_gm(the_gm);

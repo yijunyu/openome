@@ -1005,8 +1005,7 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated NOT
 	 */
-	protected void doSaveDocument(IProgressMonitor monitor, Object element,
-			IDocument document, boolean overwrite) throws CoreException {
+	protected void doSaveDocument(IProgressMonitor monitor, Object element,	IDocument document, boolean overwrite) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {
@@ -1028,18 +1027,13 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 						resources.size() + 1); //"Saving diagram"
 				for (Iterator it = resources.iterator(); it.hasNext();) {
 					Resource nextResource = (Resource) it.next();
-					monitor
-							.setTaskName(NLS
-									.bind(
-											Messages.GoalmodelDocumentProvider_SaveNextResourceTask,
+					monitor.setTaskName(NLS.bind(Messages.GoalmodelDocumentProvider_SaveNextResourceTask,
 											nextResource.getURI()));
-					if (nextResource.isLoaded()
-							&& !info.getEditingDomain()
-									.isReadOnly(nextResource)) {
+					if (nextResource.isLoaded()	&& !info.getEditingDomain().isReadOnly(nextResource)) {
 						try {
 							if (!(nextResource instanceof GMFResource)) { // FIXME YY: Checkin/Checkout To Molhado
 								if (molhado_on) {
-									ma.CheckinCheckoutMolhado(nextResource); //TODO is this the right spot?
+									ma.checkinCheckoutMolhado(nextResource); //TODO is this the right spot?
 									//System.err.println(nextResource);	
 								}
 							}
