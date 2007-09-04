@@ -1,8 +1,11 @@
 package org.example.dsl;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -10,9 +13,12 @@ import org.eclipse.jface.text.rules.IPartitionTokenScanner;
 import org.eclipse.swt.graphics.Image;
 import org.example.dsl.parser.Scanner;
 import org.example.dsl.parser.q7dslParser;
+import org.openarchitectureware.type.MetaModel;
 import org.openarchitectureware.xtend.XtendFacade;
 import org.openarchitectureware.xtext.AbstractLanguageUtilities;
 import org.openarchitectureware.xtext.parser.EcoreModelFactory;
+import org.openarchitectureware.xtext.parser.ParseResult;
+import org.osgi.framework.Bundle;
 
 import antlr.RecognitionException;
 import antlr.TokenStream;
@@ -80,7 +86,7 @@ public class q7dslUtilities extends AbstractLanguageUtilities {
 
 			XtendFacade f = XtendFacade.create(getImageExtensionsFileName());
 
-			f.registerMetaModel(getMetaModel());
+			f.registerMetaModel((MetaModel) getMetaModels()); //TODO figure out what replaces this in latest oAW version
 
 			String imageName = (String) f.call("image", new Object[] { obj });
 
@@ -98,4 +104,31 @@ public class q7dslUtilities extends AbstractLanguageUtilities {
 
 		return result;
 	}
+
+@Override
+public List<MetaModel> getMetaModels() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public Bundle getPluginBundle() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+protected ParseResult internalParse(org.antlr.runtime.TokenStream arg0,
+		EcoreModelFactory arg1) throws IOException,
+		org.antlr.runtime.RecognitionException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public org.antlr.runtime.TokenStream getScanner(InputStream arg0)
+		throws IOException {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
