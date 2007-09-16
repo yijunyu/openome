@@ -807,8 +807,7 @@ public class MolhadoActions {
 			IRNode g = gm.createAGoal(name, is_hardgoal);
 			IRNode vedge = gm.createEdge("virtual");
 			gm.connect(root, g, vedge);
-			System.out.println("add " + (is_hardgoal ? "Goal" : "Softgoal")
-					+ ":" + name);
+			//System.out.println("add " + (is_hardgoal ? "Goal" : "Softgoal") + ":" + name);
 			//			System.err.println("added name: " + name);
 		}
 	}
