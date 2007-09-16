@@ -33,6 +33,8 @@ public class GoalModel extends Component {
   
     public static final SymmetricEdgeDigraph graph = GoalModelGraphBundle.graph;
 
+	//a map holding the number of operations for reporting
+	private static Hashtable<String, Integer> elementCounts = new Hashtable<String, Integer>(); 
 	
     public static        Bundle   goalModelGraphBundle = GoalModelGraphBundle.getBundle();
     public static        Bundle   goalModelAttrBundle  = GoalModelAttrBundle.getBundle();
@@ -177,7 +179,7 @@ public class GoalModel extends Component {
 //  			System.out.println("Loading delta for GOALMODEL NODE ATTRIBUTE ...");
   			vc = VersionedChunk.get(region,goalModelAttrBundle);
   			vc.getDelta(era).load(floc);
-  			vc.describe(System.out);
+ // 			vc.describe(System.out);
         
         // /?
         // fillTableInAnEra(era);
@@ -214,7 +216,7 @@ public class GoalModel extends Component {
 //        System.out.println("Loading snapshot for GM NODE ATTRIBUTE ...");
         vc = VersionedChunk.get(region, goalModelAttrBundle);
         ((IRPersistent) vc.getSnapshot(v)).load(floc);
-        vc.describe(System.out);
+ //       vc.describe(System.out);
               
         // /?
         // Version.saveVersion();
@@ -325,16 +327,23 @@ public class GoalModel extends Component {
     /** Set name for an entity (node or edge) */
     private void setGMNodeName(IRNode gmnode, String name) {
       gmnode.setSlotValue(gmNameAttr,name);
+      //if(!name.equals("virtual")) System.out.println("rename entity: " + name);
     }
     
     /** Set name for a hard goal node */
     public void setHardGoalName(IRNode node, String name) {      
         setGMNodeName(node,"HardGoal_" + name);
+        if(!name.equals("virtual")) {
+        	elementCounts.put("modify-node", elementCounts.get("modify-node") + 1);
+        }
     }
     
     /** Set name for a soft goal node */
     public void setSoftGoalName(IRNode node, String name) {      
         setGMNodeName(node,"SoftGoal_" + name);
+        if(!name.equals("virtual")) {
+        	elementCounts.put("modify-node", elementCounts.get("modify-node") + 1);
+        }
     }
     
     /** Get the type of a GMNode */
@@ -358,6 +367,7 @@ public class GoalModel extends Component {
       else setSoftGoalName(node,name);
       // Init this irnode within the graph
       graph.initNode(node,~BRANCH_FACTOR,~BRANCH_FACTOR);
+      elementCounts.put("add-node", elementCounts.get("add-node") + 1);
       return node;
     }
     
@@ -371,6 +381,7 @@ public class GoalModel extends Component {
       setGMNodeName(edgenode,"GMEdge_" + name);
       // Init the edge in the graph
       graph.initEdge(edgenode);
+      if(!name.equals("virtual")) elementCounts.put("add-edge", elementCounts.get("add-edge") + 1); //vuirtual?
       return edgenode;
     }
     
@@ -387,19 +398,22 @@ public class GoalModel extends Component {
     		default: return;
     	}
     	setGMNodeName(edgenode,name);
+    	elementCounts.put("modify-edge", elementCounts.get("modify-edge") + 1);
     }
     
     /** Connect from n1 to n2 */ 
     public void connect(IRNode n1, IRNode n2, IRNode edgenode) {
       graph.setSource(edgenode,n1);
       graph.setSink(edgenode,n2);
+      elementCounts.put("modify-edge", elementCounts.get("modify-edge") + 1); //increment
     }
     
     /** Delete an edge */
     public boolean deleteAnEdge(IRNode edgenode) {
         if (edgenode == null) return false;
         graph.setSource(edgenode, null);
-        graph.setSink(edgenode, null);            
+        graph.setSink(edgenode, null);
+        elementCounts.put("delete-edge", elementCounts.get("delete-edge") + 1); //increment
         return true;
     }
     
@@ -407,6 +421,11 @@ public class GoalModel extends Component {
     /** Remove a goal and all of its connecting edges */
     public boolean deleteAGoal(IRNode node) {
       if (node == null) return false;
+      int i = graph.numChildren(node);
+      int j = graph.numParents(node) ;
+      if (i>1) i--; if(j>1) j--; //don't double count 'virtual' edges
+      elementCounts.put("delete-edge", elementCounts.get("delete-edge") + i + j); //increment
+      elementCounts.put("delete-node", elementCounts.get("delete-node") + 1); //increment
       graph.removeNode(node);
       return true;
     }
@@ -419,17 +438,17 @@ public class GoalModel extends Component {
           IRNode childnode = graph.getChild(node,i);
           String nodename = getGMNodeName(childnode);
           String edgetype = getGMNodeName(edgenode);
-          System.out.println("Molhado: Child number " + i + " is " + nodename + "; connected by " + edgetype);
+          System.out.println("Child number " + i + " is " + nodename + "; connected by " + edgetype);
         }
     }
     
     public void traverseGM (IRNode node, IRNode edgenode) {
     	if (node == null) return;
     	String nodename = getGMNodeName(node);
-    	if (edgenode == null) System.out.println("Molhado node name: " + nodename); 
+    	if (edgenode == null) System.out.println(nodename); 
     	else {
     		String edgetype = getGMNodeName(edgenode);
-    		System.out.println("Molhado: " + nodename + " is connected by " + edgetype);
+    		//System.out.println(nodename + " is connected by " + edgetype);
     	}    	
     	int numChildren = graph.numChildren(node);
         for (int i = 0; i < numChildren; i++) {   	
@@ -437,6 +456,21 @@ public class GoalModel extends Component {
             IRNode childnode = graph.getChild(node,i);
             traverseGM(childnode,childedgenode);
         }
+    }
+    
+    public static void clearCount() {
+    	elementCounts.put("delete-edge", new Integer(0));
+    	elementCounts.put("delete-node", new Integer(0));
+    	elementCounts.put("add-node", new Integer(0));
+    	elementCounts.put("add-edge", new Integer(0));
+    	elementCounts.put("modify-node", new Integer(0));
+    	elementCounts.put("modify-edge", new Integer(0));
+    }
+    
+    public static String getCount() {
+    	String s =  elementCounts.toString();
+    	clearCount(); //make sure it is empty
+    	return s;
     }
     
     public IRNode getIthChild(IRNode node, int i) {
