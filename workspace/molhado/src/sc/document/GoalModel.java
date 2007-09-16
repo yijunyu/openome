@@ -419,17 +419,17 @@ public class GoalModel extends Component {
           IRNode childnode = graph.getChild(node,i);
           String nodename = getGMNodeName(childnode);
           String edgetype = getGMNodeName(edgenode);
-          System.out.println("Child number " + i + " is " + nodename + "; connected by " + edgetype);
+          System.out.println("Molhado: Child number " + i + " is " + nodename + "; connected by " + edgetype);
         }
     }
     
     public void traverseGM (IRNode node, IRNode edgenode) {
     	if (node == null) return;
     	String nodename = getGMNodeName(node);
-    	if (edgenode == null) System.out.println(nodename); 
+    	if (edgenode == null) System.out.println("Molhado node name: " + nodename); 
     	else {
     		String edgetype = getGMNodeName(edgenode);
-    		System.out.println(nodename + " is connected by " + edgetype);
+    		System.out.println("Molhado: " + nodename + " is connected by " + edgetype);
     	}    	
     	int numChildren = graph.numChildren(node);
         for (int i = 0; i < numChildren; i++) {   	
