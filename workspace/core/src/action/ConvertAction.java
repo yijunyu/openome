@@ -136,7 +136,7 @@ public class ConvertAction extends ExtensionReader implements IObjectActionDeleg
 				System.out.println("No editor exists for the converted file" + f2.getFullPath());
 			}
 			if (i!=null) {
-				i.saveState(null);
+				//i.saveState(null);
 			}
 		}
 	}
