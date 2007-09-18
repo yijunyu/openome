@@ -1031,9 +1031,9 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 											nextResource.getURI()));
 					if (nextResource.isLoaded()	&& !info.getEditingDomain().isReadOnly(nextResource)) {
 						try {
-							if (!(nextResource instanceof GMFResource)) { // FIXME YY: Checkin/Checkout To Molhado
+							if (!(nextResource instanceof GMFResource)) {
 								if (molhado_on) {
-									ma.checkinCheckoutMolhado(nextResource); //TODO is this the right spot?
+									ma.checkinCheckoutMolhado(nextResource); 
 									//System.err.println(nextResource);	
 								}
 							}

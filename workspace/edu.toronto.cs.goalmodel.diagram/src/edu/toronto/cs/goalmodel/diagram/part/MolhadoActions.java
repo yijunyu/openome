@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.apache.log4j.Level;
 import org.eclipse.core.runtime.FileLocator;
@@ -43,6 +44,7 @@ import edu.toronto.cs.goalmodel.MakeContribution;
 import edu.toronto.cs.goalmodel.Model;
 import edu.toronto.cs.goalmodel.OrDecomposition;
 import edu.toronto.cs.goalmodel.Softgoal;
+import edu.toronto.cs.goalmodel.impl.ModelImpl;
 import fluid.ir.IRNode;
 import fluid.ir.IRPersistent;
 import fluid.version.Version;
@@ -182,8 +184,7 @@ public class MolhadoActions {
 	void checkLatestVersion(Resource resource) {
 		org.apache.log4j.Logger.getLogger("IR").setLevel(Level.OFF);
 		String model_name = get_model_name(resource);
-		String project_name = model_name.substring(0, model_name
-				.indexOf("/", 2));
+		String project_name = model_name.substring(0, model_name.indexOf("/", 2));
 		String property = System.getProperty("fluid.ir.path");
 		if (property == null) {
 			String toString = getPluginInstallPath();
@@ -510,13 +511,11 @@ public class MolhadoActions {
 	}
 
 	// check out
-	private void checkOutAllVersionsFromRepository(Configuration config,
-			String model_name) {
+	private void checkOutAllVersionsFromRepository(Configuration config, String model_name) {
 		java.util.Enumeration vs = config.getAllVersionNames();
 		while (vs.hasMoreElements()) {
 			String v1_name = (String) vs.nextElement();
-			if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(
-					model_name)) {
+			if (v1_name.substring(0, v1_name.lastIndexOf("-")).equals(model_name)) {
 				checkout_version(config, v1_name);
 				// Tien: getTree should not be a static method
 				fluid.tree.Tree project_tree = config.getTree();
@@ -562,16 +561,21 @@ public class MolhadoActions {
 			Configuration config = configurations.get(resource);
 			checkout_last_version(config, model_name);
 			GoalModel the_gm = find_the_gm(model_name, config);
+			
 			if (the_gm != null) {
+				the_gm.clearCount();
 				//				updateIndex(the_gm, the_gm.getRoot());
-								print_the_gm(the_gm);
+				//				print_the_gm(the_gm);
 				modify_edited_goal_model(the_gm, resource);
 				//				setGoalModel(gm, config);
 				//				print_the_gm(the_gm);
 				checkin_current_version(config, resource);
+				System.out.println("Stats for save: " + the_gm.getCount());
 			} else {
+				the_gm.clearCount();
 				checkInGoalModel(config, resource);
 				update_version(model_name, 1);
+				System.out.println("Stats for save: " + the_gm.getCount());
 			}
 			checkOutAllVersionsFromRepository(config, model_name);
 		} catch (Exception e) {
@@ -588,7 +592,7 @@ public class MolhadoActions {
 			if (g != null) {
 				String name = get_goal_name(gm, g);
 				String type = get_goal_type(gm, g);
-				System.err.println(type + ": " + name);
+				//System.err.println(type + ": " + name);
 				print_the_gm(gm, g);
 			}
 		}
@@ -605,8 +609,7 @@ public class MolhadoActions {
 			IRNode edge = (IRNode) gm.graph.getChildEdge(root, i);
 			String name = get_goal_name(gm, g);
 			String type = get_edge_type(gm, edge);
-			System.err.println(get_goal_name(gm, root) + "-" + type + "-> "
-					+ name);
+			//System.err.println(get_goal_name(gm, root) + "-" + type + "-> "	+ name);
 			print_the_gm(gm, g);
 		}
 	}
@@ -617,19 +620,27 @@ public class MolhadoActions {
 		mirror_links_to_edges(gm, resource, table, root);
 	}
 
-	protected void mirror_links_to_edges(GoalModel gm, Resource resource,
-			Hashtable<Intention, IRNode> table, IRNode root) {
-		HashSet<IRNode> alledges = getAllEdges(gm, root);
-		System.err.println("all edges = " + alledges.size());
+	private void mirror_links_to_edges(GoalModel gm, Resource resource, Hashtable<Intention, IRNode> table, IRNode root) {
+		//HashSet<IRNode> alledges = getAllEdges(gm, root); //TODO too friggin recursive!
+		
 		HashSet<IRNode> existing_edges = new HashSet<IRNode>();
+		List<Decomposition> decomps = null;
+		List<Contribution> contribs = null; //list of possible relations pulled from the EMF representation
 		int count = 0;
-		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
-			Object o = r.next();
-			if (o instanceof Contribution) {
-				Contribution c = (Contribution) o;
+		try {
+			ModelImpl modelimpl = (ModelImpl) resource.getContents().get(0); //should be instance of "ModelImpl" as top level element
+			decomps = (List<Decomposition>) modelimpl.getDecompositions();
+			contribs = modelimpl.getContributions();
+			int numedges = decomps.size() + contribs.size(); //hacky for ICSE 
+			System.err.println("all edges = " + numedges);
+		} catch (Exception e) { 
+			System.out.println("empty Resource contents");
+		}
+		for (Contribution c : contribs) { //TODO does the foreach iterator check for null lists?
 				Intention s = c.getSource();
 				Intention t = c.getTarget();
-				IRNode n_s = table.get(s);
+				if(s == null || t == null) continue;
+				IRNode n_s = table.get(s); //source's representation in Molhado
 				IRNode n_t = table.get(t);
 				if (n_s != null && n_t != null) {
 					boolean found = false;
@@ -638,16 +649,11 @@ public class MolhadoActions {
 						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
 						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
 						String type = gm.getGMNodeName(edge);
-						if (node == n_t
-								&& (type.equals("+")
-										&& c instanceof HelpContribution
-										|| type.equals("++")
-										&& c instanceof MakeContribution
-										|| type.equals("-")
+						if (node == n_t	&& (type.equals("+")&& c instanceof HelpContribution || type.equals("++")&& c instanceof MakeContribution || type.equals("-")
 										&& c instanceof HurtContribution || type
 										.equals("--")
 										&& c instanceof BreakContribution)) { // existing edge
-						//							System.out.println("FOUND!");
+							//							System.out.println("FOUND!");
 							found = true;
 							existing_edges.add(edge);
 							break;
@@ -655,71 +661,66 @@ public class MolhadoActions {
 					}
 					if (!found) {
 						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge != null) {
-							existing_edges.add(edge);
-						} else {
-							count++;
-						}
+						if (edge != null) existing_edges.add(edge);
+						else	count++;
 					}
 				} else {
 					IRNode edge = insert_an_edge(gm, table, c, s, t);
-					if (edge != null) {
-						existing_edges.add(edge);
-					} else {
-						System.out.println("Not inserted edge: " + s.getName()
-								+ " " + t.getName());
+					if (edge != null) existing_edges.add(edge);
+					else {
+						System.out.println("Not inserted edge: " + s.getName() 	+ " " + t.getName());
 						count++;
 					}
 				}
-			} else if (o instanceof Decomposition) {
-				Decomposition c = (Decomposition) o;
-				Intention s = c.getSource();
-				Intention t = c.getTarget();
-				IRNode n_s = table.get(s);
-				IRNode n_t = table.get(t);
-				if (n_s != null && n_t != null) {
-					boolean found = false;
-					int numChildren = gm.graph.numChildren(n_s);
-					for (int j = 0; j < numChildren; j++) {
-						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
-						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
-						String type = get_edge_type(gm, edge);
-						if (node == n_t
-								&& (type.equals("AND")
-										&& c instanceof AndDecomposition || type
-										.equals("OR")
-										&& c instanceof OrDecomposition)) { // existing edge
-							found = true;
-							existing_edges.add(edge);
-							break;
-						}
+		}
+		for( Decomposition c: decomps) {
+			Intention s = c.getSource();
+			Intention t = c.getTarget();
+			if(s == null || t == null) continue;
+			IRNode n_s = table.get(s);
+			IRNode n_t = table.get(t);
+			if (n_s != null && n_t != null) {
+				boolean found = false;
+				int numChildren = gm.graph.numChildren(n_s);
+				for (int j = 0; j < numChildren; j++) {
+					IRNode node = (IRNode) gm.graph.getChild(n_s, j);
+					IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+					String type = get_edge_type(gm, edge);
+					if (node == n_t
+							&& (type.equals("AND")
+									&& c instanceof AndDecomposition || type
+									.equals("OR")
+									&& c instanceof OrDecomposition)) { // existing edge
+						found = true;
+						existing_edges.add(edge);
+						break;
 					}
-					if (!found) {
-						IRNode edge = insert_an_edge(gm, table, c, s, t);
-						if (edge != null) {
-							existing_edges.add(edge);
-						} else {
-							count++;
-						}
-					}
-				} else {
+				}
+				if (!found) {
 					IRNode edge = insert_an_edge(gm, table, c, s, t);
 					if (edge != null) {
 						existing_edges.add(edge);
 					} else {
 						count++;
 					}
+				}
+			} else {
+				IRNode edge = insert_an_edge(gm, table, c, s, t);
+				if (edge != null) {
+					existing_edges.add(edge);
+				} else {
+					count++;
 				}
 			}
 		}
 		System.err.println("inserted edges = " + count);
 		count = 0;
-		for (IRNode e : alledges) {
+		/*for (IRNode e : alledges) {
 			if (!existing_edges.contains(e)) {
 				gm.graph.disconnect(e);
 				count++;
 			}
-		}
+		}*/
 		System.err.println("deleted edges = " + count);
 	}
 
@@ -827,7 +828,7 @@ public class MolhadoActions {
 			String type = get_goal_type(gm, g);
 			//			System.err.println("compare name: " + name);
 			if (!set.contains(name)) {
-				System.out.println("delete " + (type + ":" + name));
+				//System.out.println("delete " + (type + ":" + name));
 				delete.add(g);
 			}
 		}
@@ -838,19 +839,27 @@ public class MolhadoActions {
 		}
 	}
 
-	protected HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
-		int numChildren;
+	/**
+	 * Causes stack overflow on large models
+	 * due to recursive calls
+	 * Neil moved outside loop
+	 */	
+	private HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
 		HashSet<IRNode> alledges = new HashSet<IRNode>();
+		set = new HashSet<IRNode>();
+		int numChildren;
 		numChildren = gm.graph.numChildren(root);
 		for (int j = 0; j < numChildren; j++) {
 			IRNode g = gm.graph.getChild(root, j);
 			alledges.addAll(allEdges(gm, g));
+			set.clear();
 		}
 		return alledges;
 	}
-
-	protected HashSet<IRNode> allEdges(GoalModel gm, IRNode root) {
-		HashSet<IRNode> set = new HashSet<IRNode>();
+	
+	HashSet<IRNode> set;
+	
+	private HashSet<IRNode> allEdges(GoalModel gm, IRNode root) {
 		int numChildren = gm.graph.numChildren(root);
 		for (int j = 0; j < numChildren; j++) {
 			IRNode e = gm.graph.getChildEdge(root, j);
@@ -860,6 +869,38 @@ public class MolhadoActions {
 		}
 		return set;
 	}
+
+	/** 
+	 * replaces old method that used recursion
+	 * @param gm
+	 * @param root
+	 * @return
+	 */
+	/*TODO finish this 
+	 * private HashSet<IRNode> getAllEdgesStack(GoalModel gm, IRNode root) {
+		HashSet<IRNode> alledges = new HashSet<IRNode>();
+		Stack<IRNode> st = new Stack<IRNode>(); //the stack
+		int numChildren = gm.graph.numChildren(root);
+		for(int i = 0; i < numChildren; i++ ){
+			st.push(gm.graph.getChild(root,i)); //add all children to the stack
+		}
+		IRNode g = st.pop(); //get first child
+		//this for loop is the non-base case operation ... collect this nodes child edges
+		for (int j = 0; j < numChildren; j++) {
+			alledges.add(gm.graph.getChildEdge(g, j));
+		}
+		while( g != null) {
+			if(gm.graph.hasChildren(g)) {
+				if(g has a next sibling)
+					st.push(g's next sibling);
+			} else {
+				get next sibling
+				if next sibling is null and stack is full
+				g = st.pop(); 
+			}
+		}			
+		return alledges;
+	}*/
 
 	protected String get_goal_name(GoalModel gm, IRNode g) {
 		if (g == null)
@@ -976,8 +1017,8 @@ public class MolhadoActions {
 		return type;
 	}
 
-	private IRNode add_mapping_if_not_in_table(GoalModel gm,
-			Hashtable<Intention, IRNode> table, Intention s, IRNode new_s) {
-		return new_s;
-	}
+//	private IRNode add_mapping_if_not_in_table(GoalModel gm,
+//			Hashtable<Intention, IRNode> table, Intention s, IRNode new_s) {
+//		return new_s;
+//	}
 }
