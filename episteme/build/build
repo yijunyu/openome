@@ -1,0 +1,12 @@
+#!/bin/bash
+V=3.2.1
+export eclipse_home=$HOME/home/IDE/sdk/$V/eclipse
+rm -rf $HOME/eclipse.build/I.openome/*
+./ant
+cd $HOME/eclipse.build/I.openome
+unzip openome-group.zip
+cp $eclipse_home/eclipse $HOME/eclipse.build/I.openome/eclipse
+ln -s $HOME/eclipse.build/I.openome/linux.gtk.x86/eclipse/configuration eclipse
+zip -r openome.zip eclipse
+mv openome.zip /tmp
+cd -

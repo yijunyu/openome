@@ -1,0 +1,8 @@
+#!/bin/bash
+V=3.2.1
+export eclipse_home=$HOME/IDE/sdk/$V/eclipse
+export LD_LIBRARY_PATH=$eclipse_home
+rm -rf $eclipse_home/links
+mkdir $eclipse_home/links
+cp ../links/*.* $eclipse_home/links
+$eclipse_home/eclipse -nosplash -application org.eclipse.ant.core.antRunner -data ../workspace -buildfile build.xml $*
