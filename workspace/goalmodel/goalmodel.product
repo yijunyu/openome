@@ -54,7 +54,6 @@ requirements engineering.
    <intro introId="goalmodel.intro"/>
 
    <plugins>
-      <plugin id="bpel"/>
       <plugin id="ca.uwaterloo.gp.fmp"/>
       <plugin id="com.att.grappa"/>
       <plugin id="com.ibm.icu"/>
@@ -76,20 +75,11 @@ requirements engineering.
       <plugin id="it.itc.sra.taom4e.platform"/>
       <plugin id="it.unitn.goal_analysis"/>
       <plugin id="molhado"/>
-      <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
       <plugin id="org.apache.ant"/>
-      <plugin id="org.apache.axis"/>
       <plugin id="org.apache.batik"/>
-      <plugin id="org.apache.commons_logging"/>
-      <plugin id="org.apache.jakarta_log4j"/>
       <plugin id="org.apache.lucene"/>
-      <plugin id="org.apache.wsil4j"/>
       <plugin id="org.apache.xerces"/>
       <plugin id="org.eclipse.ant.core"/>
-      <plugin id="org.eclipse.bpel.common.model"/>
-      <plugin id="org.eclipse.bpel.common.ui"/>
-      <plugin id="org.eclipse.bpel.model"/>
-      <plugin id="org.eclipse.bpel.ui"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.core.boot"/>
       <plugin id="org.eclipse.core.commands"/>
@@ -210,32 +200,6 @@ requirements engineering.
       <plugin id="org.eclipse.update.core"/>
       <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.eclipse.update.ui"/>
-      <plugin id="org.eclipse.wst.command.env"/>
-      <plugin id="org.eclipse.wst.command.env.core"/>
-      <plugin id="org.eclipse.wst.command.env.ui"/>
-      <plugin id="org.eclipse.wst.common.core"/>
-      <plugin id="org.eclipse.wst.common.emf"/>
-      <plugin id="org.eclipse.wst.common.emfworkbench.integration"/>
-      <plugin id="org.eclipse.wst.common.environment"/>
-      <plugin id="org.eclipse.wst.common.frameworks"/>
-      <plugin id="org.eclipse.wst.common.project.facet.core"/>
-      <plugin id="org.eclipse.wst.common.ui"/>
-      <plugin id="org.eclipse.wst.common.uriresolver"/>
-      <plugin id="org.eclipse.wst.internet.monitor.core"/>
-      <plugin id="org.eclipse.wst.server.core"/>
-      <plugin id="org.eclipse.wst.sse.core"/>
-      <plugin id="org.eclipse.wst.sse.ui"/>
-      <plugin id="org.eclipse.wst.validation"/>
-      <plugin id="org.eclipse.wst.ws"/>
-      <plugin id="org.eclipse.wst.ws.parser"/>
-      <plugin id="org.eclipse.wst.ws.ui"/>
-      <plugin id="org.eclipse.wst.wsdl"/>
-      <plugin id="org.eclipse.wst.wsdl.ui"/>
-      <plugin id="org.eclipse.wst.wsdl.validation"/>
-      <plugin id="org.eclipse.wst.xml.core"/>
-      <plugin id="org.eclipse.wst.xml.ui"/>
-      <plugin id="org.eclipse.wst.xsd.core"/>
-      <plugin id="org.eclipse.wst.xsd.ui"/>
       <plugin id="org.eclipse.xsd"/>
       <plugin id="org.eclipse.xsd.edit"/>
       <plugin id="org.junit"/>
@@ -252,8 +216,6 @@ requirements engineering.
       <plugin id="org.openarchitectureware.xtext.editor"/>
       <plugin id="org.openarchitectureware.xtext.editor.base"/>
       <plugin id="org.sat4j"/>
-      <plugin id="org.uddi4j"/>
-      <plugin id="org.wsdl4j"/>
       <plugin id="q7"/>
       <plugin id="q7.dsl"/>
       <plugin id="q7.dsl.editor"/>
