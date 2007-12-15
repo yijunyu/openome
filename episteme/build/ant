@@ -5,4 +5,4 @@ export LD_LIBRARY_PATH=$eclipse_home
 rm -rf $eclipse_home/links
 mkdir $eclipse_home/links
 cp ../links/*.* $eclipse_home/links
-$eclipse_home/eclipse -nosplash -application org.eclipse.ant.core.antRunner -data ../workspace -buildfile build.xml $*
+$eclipse_home/eclipse -nosplash -application org.eclipse.ant.core.antRunner -buildfile build.xml $*
