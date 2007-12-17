@@ -1,0 +1,17 @@
+#!/bin/bash
+VERSION=3.3.1.1
+IDE=/IDE
+PLATFORM=linux.gtk.x86
+export ECLIPSE_HOME=$IDE/sdk/$VERSION/eclipse
+rm -rf $HOME/eclipse.build/I.openome/*
+./ant
+if [ $? ]; then
+ exit
+fi
+cd $HOME/eclipse.build/I.openome
+unzip openome-group.zip
+cp $ECLIPSE_HOME/eclipse $HOME/eclipse.build/I.openome/eclipse
+ln -s $HOME/eclipse.build/I.openome/$PLATFORM/eclipse/configuration eclipse
+zip -r openome.zip eclipse
+mv openome.zip /tmp
+cd -

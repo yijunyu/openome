@@ -1,0 +1,8 @@
+#!/bin/bash
+VERSION=3.3.1.1
+IDE=/IDE
+export ECLIPSE_HOME=$IDE/sdk/$VERSION/eclipse
+rm -rf $ECLIPSE_HOME/links
+mkdir $ECLIPSE_HOME/links
+cp ../links/*.* $ECLIPSE_HOME/links
+$ECLIPSE_HOME/eclipse -nosplash -application org.eclipse.ant.core.antRunner -buildfile build.xml $*
