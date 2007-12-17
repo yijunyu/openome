@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 element(s) from project &apos;q7&apos;&#x0A;- Original project: &apos;q7&apos;&#x0A;- Original elements:&#x0A;     convertor.Q7_EMF.java&#x0A;     convertor.q7emf.java" description="Delete elements" element1="/src&lt;convertor{q7emf.java" element2="/src&lt;convertor{Q7_EMF.java" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1197884959036" subPackages="false" version="1.0"/>
+</session>

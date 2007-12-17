@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: edu.toronto.cs.goalmodel.diagram; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: edu.toronto.cs.goalmodel.diagram.edit.parts,
+ edu.toronto.cs.goalmodel.diagram.part,
+ edu.toronto.cs.goalmodel.diagram.providers
+Require-Bundle: org.eclipse.core.expressions,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.navigator.resources,
+ org.eclipse.gmf.runtime.diagram.ui.properties,
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
+ edu.toronto.cs.goalmodel.edit;visibility:=reexport,
+ org.eclipse.ocl.ecore;visibility:=reexport,
+ goalmodel.figures,
+ molhado,
+ log4j
+Eclipse-LazyStart: true

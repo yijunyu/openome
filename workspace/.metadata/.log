@@ -1,0 +1,29 @@
+!SESSION 2007-12-17 08:30:14.829 -----------------------------------------------
+eclipse.buildId=M20071023-1652
+java.version=1.6.0_03
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_GB
+Framework arguments:  -plugincustomization plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86 -plugincustomization plugin_customization.ini -data ../workspace
+
+!ENTRY org.eclipse.core.resources 2 1 2007-12-17 08:31:30.804
+!MESSAGE Skipping builder 'org.openarchitectureware.base.oawBuilder' for project 'q7.dsl'. Either the builder is missing from the install, or it belongs to a project nature that is missing or disabled.
+
+!ENTRY org.eclipse.core.resources 2 1 2007-12-17 08:31:31.274
+!MESSAGE Skipping builder 'org.openarchitectureware.base.oawBuilder' for project 'q7.dsl.editor'. Either the builder is missing from the install, or it belongs to a project nature that is missing or disabled.
+
+!ENTRY org.eclipse.core.resources 2 1 2007-12-17 08:31:31.290
+!MESSAGE Skipping builder 'org.openarchitectureware.base.oawBuilder' for project 'q7.dsl.generator'. Either the builder is missing from the install, or it belongs to a project nature that is missing or disabled.
+!SESSION 2007-12-17 09:53:00.080 -----------------------------------------------
+eclipse.buildId=M20071023-1652
+java.version=1.6.0_03
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_GB
+Framework arguments:  -plugincustomization plugin_customization.ini
+Command-line arguments:  -os linux -ws gtk -arch x86 -plugincustomization plugin_customization.ini -data ../workspace
+
+!ENTRY org.eclipse.update.configurator 2007-12-17 09:53:01.736
+!MESSAGE Could not install bundle ../../../mdt-ocl/1.1.1/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime_1.1.0.v200706111738.jar   Bundle "net.sourceforge.lpg.lpgjavaruntime" version "1.1.0.v200706111738" has already been installed from: update@../../../gmf/2.0.1/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime_1.1.0.v200706111738.jar
+
+!ENTRY org.eclipse.update.configurator 2007-12-17 09:53:01.742
+!MESSAGE Could not install bundle ../../../mdt-ocl/1.1.1/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime.source_1.1.0.v200706111738/   Bundle "net.sourceforge.lpg.lpgjavaruntime.source" version "1.1.0.v200706111738" has already been installed from: update@../../../gmf/2.0.1/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime.source_1.1.0.v200706111738.jar

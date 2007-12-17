@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions>
+	<bundle bundleID="331" schema="3.0">
+		<extension line="13" point="org.eclipse.emf.edit.itemProviderAdapterFactories"/>
+	</bundle>
+	<bundle bundleID="332" schema="3.0">
+		<extension line="5" point="org.eclipse.team.core.fileTypes"/>
+		<extension line="13" point="org.eclipse.emf.ecore.extension_parser"/>
+		<extension line="21" point="org.eclipse.ui.editors"/>
+		<extension line="35" point="org.eclipse.ui.contexts"/>
+		<extension line="45" point="org.eclipse.ui.newWizards"/>
+		<extension line="57" point="org.eclipse.ui.popupMenus"/>
+		<extension line="73" point="org.eclipse.ui.popupMenus"/>
+		<extension line="89" point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders"/>
+		<extension line="128" point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders"/>
+		<extension line="172" point="org.eclipse.core.runtime.preferences"/>
+		<extension line="177" point="org.eclipse.ui.preferencePages"/>
+		<extension line="216" point="org.eclipse.ui.views.properties.tabbed.propertyContributor"/>
+		<extension line="227" point="org.eclipse.ui.views.properties.tabbed.propertyTabs"/>
+		<extension line="245" point="org.eclipse.ui.views.properties.tabbed.propertySections"/>
+		<extension line="279" point="org.eclipse.gmf.runtime.diagram.core.viewProviders"/>
+		<extension line="289" point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders"/>
+		<extension line="296" point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders"/>
+		<extension line="303" point="org.eclipse.gmf.runtime.common.ui.services.iconProviders"/>
+		<extension line="310" point="org.eclipse.gmf.runtime.common.ui.services.parserProviders"/>
+		<extension line="317" point="org.eclipse.gmf.runtime.emf.type.core.elementTypes"/>
+		<extension line="671" point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings"/>
+		<extension line="721" point="org.eclipse.core.expressions.propertyTesters"/>
+		<extension line="732" point="org.eclipse.core.expressions.propertyTesters"/>
+		<extension line="743" point="org.eclipse.ui.navigator.viewer"/>
+		<extension line="759" point="org.eclipse.ui.navigator.navigatorContent"/>
+		<extension line="835" point="org.eclipse.ui.navigator.linkHelper"/>
+		<extension line="851" point="org.eclipse.ui.commands"/>
+		<extension line="861" point="org.eclipse.ui.bindings"/>
+	</bundle>
+	<bundle bundleID="333" schema="3.0">
+		<extension line="15" point="org.eclipse.ui.newWizards"/>
+		<extension line="31" point="org.eclipse.ui.editors"/>
+	</bundle>
+	<bundle bundleID="335" schema="3.0">
+		<extension id="ide" line="5" point="org.eclipse.core.runtime.products">
+			<product application="org.eclipse.ui.ide.workbench" description="%productBlurb" name="OpenOME">
+				<property name="windowImages" value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png"/>
+				<property name="aboutImage" value="eclipse_lg.gif"/>
+				<property name="aboutText" value="The Organization Modelling Environment (OME) is a general, 
+
+goal-oriented and/or agent-oriented modeling and analysis tool. 
+
+It provides users with a graphical interface to develop models, 
+
+and supports access to a powerful knowledge base that allows for 
+
+sophisticated computer-aided analysis. This tool is intended to 
+
+provide software developers with a clear link between the 
+
+requirements, specification and architectural design phases of 
+
+development. Attention is also being placed on this use of this tool 
+
+in business process reengineering.
+
+OpenOME integrates an improved version of OME with other tools 
+
+to support goal-oriented, agent-oriented and aspect-oriented 
+
+requirements engineering."/>
+				<property name="appName" value="Eclipse"/>
+				<property name="preferenceCustomization" value="plugin_customization.ini"/>
+				<property name="startupForegroundColor" value="C8D5EA"/>
+				<property name="startupMessageRect" value="7,220,441,20"/>
+				<property name="startupProgressRect" value="0,280,455,15"/>
+				<property name="introTitle" value="%productIntroTitle"/>
+				<property name="introBrandingImage" value="product:intro-eclipse.png"/>
+				<property name="introBrandingImageText" value="%productIntroBrandingText"/>
+				<property name="introDescription-overview" value="%introDescription-overview"/>
+				<property name="introDescription-tutorials" value="%introDescription-tutorials"/>
+				<property name="introDescription-samples" value="%introDescription-samples"/>
+			</product>
+		</extension>
+		<extension line="45" point="org.eclipse.ui.intro">
+			<introProductBinding introId="org.eclipse.ui.intro.universal" productId="org.eclipse.platform.ide"/>
+		</extension>
+		<extension line="53" point="org.eclipse.ui.cheatsheets.cheatSheetContent"/>
+		<extension line="80" point="org.eclipse.ui.intro.configExtension"/>
+		<extension line="103" point="org.eclipse.ui.preferencePages"/>
+	</bundle>
+	<bundle bundleID="341" schema="3.0">
+		<extension line="12" point="org.eclipse.emf.ecore.generated_package"/>
+	</bundle>
+	<bundle bundleID="342" schema="3.2">
+		<extension line="4" point="core.convertor"/>
+		<extension line="12" point="core.generator"/>
+		<extension line="19" point="org.eclipse.ui.popupMenus"/>
+		<extension id="product" line="73" point="org.eclipse.core.runtime.products">
+			<product application="org.eclipse.ui.ide.workbench" name="OpenOME">
+				<property name="windowImages" value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png"/>
+				<property name="aboutText" value="The Organization Modelling Environment (OME) is a general, 
+
+goal-oriented and/or agent-oriented modeling and analysis tool. 
+
+It provides users with a graphical interface to develop models, 
+
+and supports access to a powerful knowledge base that allows for 
+
+sophisticated computer-aided analysis. This tool is intended to 
+
+provide software developers with a clear link between the 
+
+requirements, specification and architectural design phases of 
+
+development. Attention is also being placed on this use of this tool 
+
+in business process reengineering.
+
+OpenOME integrates an improved version of OME with other tools 
+
+to support goal-oriented, agent-oriented and aspect-oriented 
+
+requirements engineering."/>
+				<property name="aboutImage" value="eclipse_lg.gif"/>
+				<property name="startupForegroundColor" value="C8D5EA"/>
+				<property name="startupProgressRect" value="0,280,455,15"/>
+				<property name="startupMessageRect" value="7,220,441,20"/>
+			</product>
+		</extension>
+		<extension line="98" point="org.eclipse.ui.intro">
+			<intro class="org.eclipse.ui.intro.config.CustomizableIntroPart" id="goalmodel.intro"/>
+			<introProductBinding introId="goalmodel.intro" productId="goalmodel.product"/>
+		</extension>
+		<extension line="107" point="org.eclipse.ui.intro.config"/>
+	</bundle>
+	<bundle bundleID="343" schema="3.2">
+		<extension line="4" point="core.example"/>
+		<extension line="21" point="core.convertor"/>
+		<extension line="28" point="org.eclipse.ui.popupMenus"/>
+	</bundle>
+	<bundle bundleID="345" schema="3.2">
+		<extension line="16" point="org.eclipse.ui.actionSets"/>
+		<extension line="55" point="org.eclipse.ui.preferencePages"/>
+		<extension line="62" point="org.eclipse.help.toc"/>
+		<extension-point id="convertor" line="7" name="Convertor Extension Point" schema="schema/convertor.exsd"/>
+		<extension-point id="example" line="11" name="Convertor Extension Point" schema="schema/example.exsd"/>
+		<extension-point id="generator" line="15" name="Generator Extension Point" schema="schema/generator.exsd"/>
+	</bundle>
+</extensions>
