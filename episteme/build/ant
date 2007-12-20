@@ -1,8 +1,10 @@
 #!/bin/bash
 V=3.3.1.1
-export eclipse_home=$HOME/IDE/sdk/$V/eclipse
-export LD_LIBRARY_PATH=$eclipse_home
-rm -rf $eclipse_home/links
-mkdir $eclipse_home/links
-cp ../links/*.* $eclipse_home/links
-$eclipse_home/eclipse -nosplash -application org.eclipse.ant.core.antRunner -buildfile build.xml $*
+export ECLIPSE_SDK=$HOME/IDE/sdk/$V/eclipse
+rm -rf configuration
+mkdir configuration
+cp $ECLIPSE_SDK/configuration/config.ini configuration
+rm -rf $ECLIPSE_SDK/links
+mkdir $ECLIPSE_SDK/links
+cp ../links/*.* $ECLIPSE_SDK/links
+$ECLIPSE_SDK/eclipse -configuration configuration -nosplash -application org.eclipse.ant.core.antRunner -buildfile build.xml $*

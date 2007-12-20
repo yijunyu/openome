@@ -229,7 +229,7 @@
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="/u/yijun/eclipse.build/plugins/edu.toronto.cs.goalmodel.editor" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="/home/yijun/eclipse.build/plugins/edu.toronto.cs.goalmodel.editor" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
