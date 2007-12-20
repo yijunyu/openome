@@ -92,7 +92,7 @@
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="/home/yijun/eclipse.build/plugins/org.sat4j" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="/home/yy66/eclipse.build/plugins/org.sat4j" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 

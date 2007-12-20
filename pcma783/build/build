@@ -8,10 +8,3 @@ rm -rf $HOME/eclipse.build/I.openome/*
 if [ $? ]; then
  exit
 fi
-cd $HOME/eclipse.build/I.openome
-unzip openome-group.zip
-cp $ECLIPSE_HOME/eclipse $HOME/eclipse.build/I.openome/eclipse
-ln -s $HOME/eclipse.build/I.openome/$PLATFORM/eclipse/configuration eclipse
-zip -r openome.zip eclipse
-mv openome.zip /tmp
-cd -

@@ -1,7 +1,5 @@
 rcp::
 	/usr/bin/time -f %E ./build.sh > build.log 
-	rm -rf eclipse
-	unzip /tmp/openome.zip >> build.log
 
 site:
 	cp ../workspace/goalmodel/build-pde.xml ../workspace/goalmodel/build.xml

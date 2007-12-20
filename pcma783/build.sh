@@ -1,6 +1,6 @@
 #!/bin/bash
-export OPENOME_HOME=/work/setup/openome
-export WORKSTATION=pcma783
+export OPENOME_HOME=$(cd ..; pwd)
+export WORKSTATION=$(basename `pwd`)
 rm -rf $HOME/eclipse.build
 mkdir -p $HOME/eclipse.build/features
 mkdir -p $HOME/eclipse.build/plugins

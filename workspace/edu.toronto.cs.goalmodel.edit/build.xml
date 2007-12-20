@@ -63,68 +63,68 @@
 		<delete dir="${temp.folder}/@dot.bin"/>
 		<mkdir dir="${temp.folder}/@dot.bin"/>
 		<path id="@dot.classpath">
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime_3.3.100.v20070530.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.osgi_3.3.1.R33x_v20070828.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.jobs_3.3.1.R33x_v20070709.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.100.v20070316/runtime_registry_compatibility.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.100.v20070316/@dot"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.registry_3.3.1.R33x_v20070802.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.preferences_3.2.100.v20070522.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.contenttype_3.2.100.v20070319.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.100.v20070502.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.app_1.0.1.R33x_v20070828.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.osgi.services_3.1.200.v20070605.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/javax.servlet_2.4.0.v200706111738.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime_3.3.100.v20070530.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.osgi_3.3.1.R33x_v20070828.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.jobs_3.3.1.R33x_v20070709.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.100.v20070316/runtime_registry_compatibility.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.100.v20070316/@dot"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.registry_3.3.1.R33x_v20070802.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.preferences_3.2.100.v20070522.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.contenttype_3.2.100.v20070319.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.100.v20070502.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.app_1.0.1.R33x_v20070828.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.osgi.services_3.1.200.v20070605.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/javax.servlet_2.4.0.v200706111738.jar"/>
 			<pathelement path="${build.result.folder}/../edu.toronto.cs.goalmodel/bin/"/>
 			<pathelement path="${build.result.folder}/../edu.toronto.cs.goalmodel_1.0.0/bin/"/>
 			<pathelement path="${build.result.folder}/../edu.toronto.cs.goalmodel/@dot"/>
 			<pathelement path="${build.result.folder}/../edu.toronto.cs.goalmodel_1.0.0/@dot"/>
-			<pathelement path="../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>
-			<pathelement path="../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.common_2.2.1.v200609210005.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.resources_3.3.0.v20070604.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.resources.compatibility_3.2.100.v20070502.jar"/>
-			<pathelement path="../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.core.resources.win32_3.3.0.v20070226.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ant.core_3.1.200.v20070522.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.variables_3.2.0.v20070426.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.expressions_3.3.0.v20070606-0010.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem_1.1.0.v20070606.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem.linux.x86_1.1.0.v20070416.jar"/>
-			<pathelement path="../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem.win32.x86_1.1.0.v20070510.jar"/>
+			<pathelement path="../../../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>
+			<pathelement path="../../../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.common_2.2.1.v200609210005.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.resources_3.3.0.v20070604.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.resources.compatibility_3.2.100.v20070502.jar"/>
+			<pathelement path="../../../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.core.resources.win32_3.3.0.v20070226.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ant.core_3.1.200.v20070522.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.variables_3.2.0.v20070426.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.expressions_3.3.0.v20070606-0010.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem_1.1.0.v20070606.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem.linux.x86_1.1.0.v20070416.jar"/>
+			<pathelement path="../../../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.core.filesystem.win32.x86_1.1.0.v20070510.jar"/>
 			<pathelement path="${build.result.folder}/../goalmodel.figures/bin/"/>
 			<pathelement path="${build.result.folder}/../goalmodel.figures_1.0.0/bin/"/>
 			<pathelement path="${build.result.folder}/../goalmodel.figures/@dot"/>
 			<pathelement path="${build.result.folder}/../goalmodel.figures_1.0.0/@dot"/>
-			<pathelement path="../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.draw2d.ui_1.0.1.v20061218-1200.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui_3.3.1.M20070910-0800b.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.swt_3.3.2.v3347.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_3.3.2.v3347.jar"/>
-			<pathelement path="../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.3.2.v3347a.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface_3.3.1.M20070910-0800b.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.commands_3.3.0.I20070605-0010.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench_3.3.1.M20070921-1200.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20070319-0010/@dot"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20070319-0010/compatibility.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/com.ibm.icu_3.6.1.v20070906.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.help_3.3.1.v20070726_33x.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface.databinding_1.1.1.M20070910-0800b.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.databinding_1.0.1.M20070822-0800.jar"/>
-			<pathelement path="../../../IDE/gef/3.3M4/eclipse/plugins/org.eclipse.draw2d_3.2.1.v20060921.jar"/>
-			<pathelement path="../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.common.core_1.0.2.v20061214-0000.jar"/>
-			<pathelement path="../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.common.ui_1.0.2.v20061218-1200.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.views_3.2.101.M20070910-0800b.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.console_3.2.1.v20070824_r331.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface.text_3.3.1.r331_v20070629.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.text_3.3.0.v20070606-0010.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.texteditor_3.3.1.r331_v20070806.jar"/>
-			<pathelement path="../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.team.core_3.3.1.r33x_20070807.jar"/>
-			<pathelement path="../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.draw2d.ui.render_1.0.1.v20061214-0000.jar"/>
-			<pathelement path="../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.workspace_1.0.1.v200612220820.jar"/>
-			<pathelement path="../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.transaction_1.1.0.v200612220820.jar"/>
-			<pathelement path="../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.edit_2.2.1.v200609210005.jar"/>
-			<pathelement path="../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore.change_2.2.0.v200609210005.jar"/>
-			<pathelement path="../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.validation_1.1.0.v200612211746.jar"/>
-			<pathelement path="../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore.edit_2.2.0.v200609210005.jar"/>
+			<pathelement path="../../../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.draw2d.ui_1.0.1.v20061218-1200.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui_3.3.1.M20070910-0800b.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.swt_3.3.2.v3347.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_3.3.2.v3347.jar"/>
+			<pathelement path="../../../../../IDE/rcp-delta-pack/3.3.1.1/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.3.2.v3347a.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface_3.3.1.M20070910-0800b.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.commands_3.3.0.I20070605-0010.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench_3.3.1.M20070921-1200.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20070319-0010/@dot"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20070319-0010/compatibility.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/com.ibm.icu_3.6.1.v20070906.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.help_3.3.1.v20070726_33x.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface.databinding_1.1.1.M20070910-0800b.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.databinding_1.0.1.M20070822-0800.jar"/>
+			<pathelement path="../../../../../IDE/gef/3.3M4/eclipse/plugins/org.eclipse.draw2d_3.2.1.v20060921.jar"/>
+			<pathelement path="../../../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.common.core_1.0.2.v20061214-0000.jar"/>
+			<pathelement path="../../../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.common.ui_1.0.2.v20061218-1200.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.views_3.2.101.M20070910-0800b.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.console_3.2.1.v20070824_r331.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.jface.text_3.3.1.r331_v20070629.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.text_3.3.0.v20070606-0010.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.ui.workbench.texteditor_3.3.1.r331_v20070806.jar"/>
+			<pathelement path="../../../../../IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.team.core_3.3.1.r33x_20070807.jar"/>
+			<pathelement path="../../../../../IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.runtime.draw2d.ui.render_1.0.1.v20061214-0000.jar"/>
+			<pathelement path="../../../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.workspace_1.0.1.v200612220820.jar"/>
+			<pathelement path="../../../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.transaction_1.1.0.v200612220820.jar"/>
+			<pathelement path="../../../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.edit_2.2.1.v200609210005.jar"/>
+			<pathelement path="../../../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore.change_2.2.0.v200609210005.jar"/>
+			<pathelement path="../../../../../IDE/emft/1.1M4/eclipse/plugins/org.eclipse.emf.validation_1.1.0.v200612211746.jar"/>
+			<pathelement path="../../../../../IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore.edit_2.2.0.v200609210005.jar"/>
 		</path>
 		<!-- compile the source code -->
 		<javac destdir="${temp.folder}/@dot.bin" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}"		>
@@ -212,7 +212,7 @@
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="/home/yijun/eclipse.build/plugins/edu.toronto.cs.goalmodel.edit" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="/home/yy66/eclipse.build/plugins/edu.toronto.cs.goalmodel.edit" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
