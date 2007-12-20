@@ -93,71 +93,70 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GoalmodelModelWizard extends Wizard implements INewWizard
-{
+public class GoalmodelModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected GoalmodelPackage goalmodelPackage = GoalmodelPackage.eINSTANCE;
+	protected GoalmodelPackage goalmodelPackage = GoalmodelPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected GoalmodelFactory goalmodelFactory = goalmodelPackage.getGoalmodelFactory();
+	protected GoalmodelFactory goalmodelFactory = goalmodelPackage.getGoalmodelFactory();
 
 	/**
 	 * This is the file creation page.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected GoalmodelModelWizardNewFileCreationPage newFileCreationPage;
+	protected GoalmodelModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected GoalmodelModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected GoalmodelModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IStructuredSelection selection;
+	protected IStructuredSelection selection;
 
 	/**
 	 * Remember the workbench during initialization.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IWorkbench workbench;
+	protected IWorkbench workbench;
 
 	/**
 	 * Caches the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected List initialObjectNames;
+	protected List initialObjectNames;
 
 	/**
 	 * This just records the information.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void init(IWorkbench workbench, IStructuredSelection selection) {
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(GoalmodelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
@@ -167,10 +166,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * Returns the names of the types that can be created as the root object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Collection getInitialObjectNames() {
+	protected Collection getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList();
 			for (Iterator classifiers = goalmodelPackage.getEClassifiers().iterator(); classifiers.hasNext(); ) {
@@ -190,10 +189,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected EObject createInitialModel() {
+	protected EObject createInitialModel() {
 		EClass eClass = (EClass)goalmodelPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = goalmodelFactory.create(eClass);
 		return rootObject;
@@ -202,10 +201,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public boolean performFinish() {
+	public boolean performFinish() {
 		try {
 			// Remember the file.
 			//
@@ -291,28 +290,27 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * This is the one page of the wizard.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public class GoalmodelModelWizardNewFileCreationPage extends WizardNewFileCreationPage
-  {
+	public class GoalmodelModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public GoalmodelModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public GoalmodelModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
 		/**
 		 * The framework calls this to see if the file is correct.
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected boolean validatePage() {
+		protected boolean validatePage() {
 			if (super.validatePage()) {
 				// Make sure the file ends in ".goalmodel".
 				//
@@ -333,10 +331,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public IFile getModelFile() {
+		public IFile getModelFile() {
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
@@ -344,48 +342,47 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * This is the page where the type of object to create is selected.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public class GoalmodelModelWizardInitialObjectCreationPage extends WizardPage
-  {
+	public class GoalmodelModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected Combo initialObjectField;
+		protected Combo initialObjectField;
 
 		/**
 		 * @generated
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 */
-    protected List encodings;
+		protected List encodings;
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected Combo encodingField;
+		protected Combo encodingField;
 
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public GoalmodelModelWizardInitialObjectCreationPage(String pageId) {
+		public GoalmodelModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public void createControl(Composite parent) {
+		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
 				GridLayout layout = new GridLayout();
@@ -455,10 +452,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected ModifyListener validator =
+		protected ModifyListener validator =
 			new ModifyListener() {
 				public void modifyText(ModifyEvent e) {
 					setPageComplete(validatePage());
@@ -467,19 +464,19 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected boolean validatePage() {
+		protected boolean validatePage() {
 			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public void setVisible(boolean visible) {
+		public void setVisible(boolean visible) {
 			super.setVisible(visible);
 			if (visible) {
 				if (initialObjectField.getItemCount() == 1) {
@@ -495,10 +492,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public String getInitialObjectName() {
+		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
 			for (Iterator i = getInitialObjectNames().iterator(); i.hasNext(); ) {
@@ -512,20 +509,20 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public String getEncoding() {
+		public String getEncoding() {
 			return encodingField.getText();
 		}
 
 		/**
 		 * Returns the label for the specified type name.
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected String getLabel(String typeName) {
+		protected String getLabel(String typeName) {
 			try {
 				return GoalmodelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
@@ -537,10 +534,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 
 		/**
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    protected Collection getEncodings() {
+		protected Collection getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList();
 				for (StringTokenizer stringTokenizer = new StringTokenizer(GoalmodelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
@@ -554,10 +551,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void addPages() {
+	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new GoalmodelModelWizardNewFileCreationPage("Whatever", selection);
@@ -608,10 +605,10 @@ public class GoalmodelModelWizard extends Wizard implements INewWizard
 	/**
 	 * Get the file from the page.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public IFile getModelFile() {
+	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
 

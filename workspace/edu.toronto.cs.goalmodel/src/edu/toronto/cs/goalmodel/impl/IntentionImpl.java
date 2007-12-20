@@ -90,7 +90,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected TruthLabel label;
+	protected TruthLabel label= null;
 
 	/**
 	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
@@ -100,7 +100,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList rule;
+	protected EList rule= null;
 
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
@@ -150,7 +150,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList input;
+	protected EList input= null;
 
 	/**
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
@@ -160,7 +160,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList output;
+	protected EList output= null;
 
 	/**
 	 * The default value of the '{@link #getExclusive() <em>Exclusive</em>}' attribute.
@@ -230,7 +230,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList property;
+	protected EList property= null;
 
 	/**
 	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference list.
@@ -240,7 +240,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencyFrom;
+	protected EList dependencyFrom= null;
 
 	/**
 	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference list.
@@ -250,7 +250,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencyTo;
+	protected EList dependencyTo= null;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' reference list.
@@ -260,7 +260,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList decompositions;
+	protected EList decompositions= null;
 
 	/**
 	 * The cached value of the '{@link #getParentDecompositions() <em>Parent Decompositions</em>}' reference list.
@@ -270,7 +270,7 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parentDecompositions;
+	protected EList parentDecompositions= null;
 
 	/**
 	 * <!-- begin-user-doc -->

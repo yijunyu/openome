@@ -18,31 +18,30 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * <!-- end-user-doc -->
  * @generated
  */
-public final class GoalmodelEditorPlugin extends EMFPlugin
-{
+public final class GoalmodelEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public static final GoalmodelEditorPlugin INSTANCE = new GoalmodelEditorPlugin();
+	public static final GoalmodelEditorPlugin INSTANCE = new GoalmodelEditorPlugin();
 
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  private static Implementation plugin;
+	private static Implementation plugin;
 
 	/**
 	 * Create the instance.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public GoalmodelEditorPlugin() {
+	public GoalmodelEditorPlugin() {
 		super
 		  (new ResourceLocator [] {
 		   });
@@ -51,40 +50,39 @@ public final class GoalmodelEditorPlugin extends EMFPlugin
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the singleton instance.
 	 * @generated
 	 */
-  public ResourceLocator getPluginResourceLocator() {
+	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the singleton instance.
 	 * @generated
 	 */
-  public static Implementation getPlugin() {
+	public static Implementation getPlugin() {
 		return plugin;
 	}
 
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public static class Implementation extends EclipseUIPlugin
-  {
+	public static class Implementation extends EclipseUIPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-    public Implementation() {
+		public Implementation() {
 			super();
 
 			// Remember the static instance.

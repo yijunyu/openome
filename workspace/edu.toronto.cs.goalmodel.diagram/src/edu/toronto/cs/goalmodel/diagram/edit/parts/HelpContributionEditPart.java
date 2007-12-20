@@ -3,11 +3,9 @@ package edu.toronto.cs.goalmodel.diagram.edit.parts;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.HelpContributionItemSemanticEditPolicy;
@@ -40,28 +38,6 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel4EditPart) {
-			((WrapLabel4EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureHelpLabel());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -69,16 +45,9 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 	 * 
 	 * @generated
 	 */
-
 	protected Connection createConnectionFigure() {
-		return new HelpContributionFigure();
-	}
 
-	/**
-	 * @generated
-	 */
-	public HelpContributionFigure getPrimaryShape() {
-		return (HelpContributionFigure) getFigure();
+		return new HelpContributionFigure();
 	}
 
 	/**
@@ -89,29 +58,15 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureHelpLabel;
-
-		/**
-		 * @generated
-		 */
 		public HelpContributionFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
 			this.setLineWidth(2);
 			this.setLineStyle(Graphics.LINE_DASHDOTDOT);
 
-			createContents();
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureHelpLabel = new WrapLabel();
-			fFigureHelpLabel.setText("+");
-
-			this.add(fFigureHelpLabel);
-
 		}
 
 		/**
@@ -121,13 +76,6 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 			HelpDecoration df = new HelpDecoration();
 
 			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureHelpLabel() {
-			return fFigureHelpLabel;
 		}
 
 	}

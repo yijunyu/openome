@@ -1,12 +1,11 @@
 package edu.toronto.cs.goalmodel.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.DependencyItemSemanticEditPolicy;
@@ -40,29 +39,6 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof DependencyLabelEditPart) {
-			((DependencyLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDependencyLabelFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -70,16 +46,9 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	 * 
 	 * @generated
 	 */
-
 	protected Connection createConnectionFigure() {
-		return new DependencyFigure();
-	}
 
-	/**
-	 * @generated
-	 */
-	public DependencyFigure getPrimaryShape() {
-		return (DependencyFigure) getFigure();
+		return new DependencyFigure();
 	}
 
 	/**
@@ -90,29 +59,16 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureDependencyLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public DependencyFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
 			this.setLineWidth(2);
+			this.setLineStyle(Graphics.LINE_SOLID);
 
-			createContents();
 			setSourceDecoration(createSourceDecoration());
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureDependencyLabelFigure = new WrapLabel();
-			fFigureDependencyLabelFigure.setText("<...>");
-
-			this.add(fFigureDependencyLabelFigure);
-
 		}
 
 		/**
@@ -131,13 +87,6 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 			Dep2Decoration df = new Dep2Decoration();
 
 			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureDependencyLabelFigure() {
-			return fFigureDependencyLabelFigure;
 		}
 
 	}

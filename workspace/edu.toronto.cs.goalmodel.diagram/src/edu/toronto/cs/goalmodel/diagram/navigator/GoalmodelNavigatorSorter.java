@@ -1,8 +1,8 @@
 package edu.toronto.cs.goalmodel.diagram.navigator;
 
-import org.eclipse.jface.viewers.ViewerSorter;
-
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
+
+import org.eclipse.jface.viewers.ViewerSorter;
 
 /**
  * @generated

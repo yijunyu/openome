@@ -10,9 +10,9 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProv
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPartOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
-
 import edu.toronto.cs.goalmodel.diagram.edit.parts.GoalmodelEditPartFactory;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
+
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
 
 /**

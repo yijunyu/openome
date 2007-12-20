@@ -1,12 +1,11 @@
 package edu.toronto.cs.goalmodel.diagram.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
-
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorActorCompartmentEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorNameEditPart;
@@ -20,6 +19,12 @@ import edu.toronto.cs.goalmodel.diagram.edit.parts.AspectNameEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.BreakContributionEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.DependencyEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.DependencyLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramAndLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramBreakLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramHelpLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramHurtLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramMakeLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramOrLabelEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal2EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal3EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal4EditPart;
@@ -79,13 +84,9 @@ import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName4EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName5EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName6EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskNameEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel2EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel3EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel4EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel5EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel6EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabelEditPart;
+
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
+
 import edu.toronto.cs.goalmodel.diagram.view.factories.ActorActorCompartmentViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.ActorNameViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.ActorViewFactory;
@@ -99,6 +100,12 @@ import edu.toronto.cs.goalmodel.diagram.view.factories.AspectViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.BreakContributionViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.DependencyLabelViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.DependencyViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramAndLabelViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramBreakLabelViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramHelpLabelViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramHurtLabelViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramMakeLabelViewFactory;
+import edu.toronto.cs.goalmodel.diagram.view.factories.DiagramOrLabelViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.Goal2ViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.Goal3ViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.Goal4ViewFactory;
@@ -158,12 +165,6 @@ import edu.toronto.cs.goalmodel.diagram.view.factories.TaskName5ViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.TaskName6ViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.TaskNameViewFactory;
 import edu.toronto.cs.goalmodel.diagram.view.factories.TaskViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabel2ViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabel3ViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabel4ViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabel5ViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabel6ViewFactory;
-import edu.toronto.cs.goalmodel.diagram.view.factories.WrapLabelViewFactory;
 
 /**
  * @generated
@@ -193,359 +194,15 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		EObject domainElement = getSemanticElement(semanticAdapter);
-		int visualID;
-		if (semanticHint == null) {
-			// Semantic hint is not specified. Can be a result of call from CanonicalEditPolicy.
-			// In this situation there should be NO elementType, visualID will be determined
-			// by VisualIDRegistry.getNodeVisualID() for domainElement.
-			if (elementType != null || domainElement == null) {
-				return null;
-			}
-			visualID = GoalmodelVisualIDRegistry.getNodeVisualID(containerView,
-					domainElement);
-		} else {
-			visualID = GoalmodelVisualIDRegistry.getVisualID(semanticHint);
-			if (elementType != null) {
-				// Semantic hint is specified together with element type.
-				// Both parameters should describe exactly the same diagram element.
-				// In addition we check that visualID returned by VisualIDRegistry.getNodeVisualID() for
-				// domainElement (if specified) is the same as in element type.
-				if (!GoalmodelElementTypes.isKnownElementType(elementType)
-						|| (!(elementType instanceof IHintedType))) {
-					return null; // foreign element type
-				}
-				String elementTypeHint = ((IHintedType) elementType)
-						.getSemanticHint();
-				if (!semanticHint.equals(elementTypeHint)) {
-					return null; // if semantic hint is specified it should be the same as in element type
-				}
-				if (domainElement != null
-						&& visualID != GoalmodelVisualIDRegistry
-								.getNodeVisualID(containerView, domainElement)) {
-					return null; // visual id for node EClass should match visual id from element type
-				}
-			} else {
-				// Element type is not specified. Domain element should be present (except pure design elements).
-				// This method is called with EObjectAdapter as parameter from:
-				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
-				//   - generated ViewFactory.decorateView() for parent element
-				if (!ModelEditPart.MODEL_ID.equals(GoalmodelVisualIDRegistry
-						.getModelID(containerView))) {
-					return null; // foreign diagram
-				}
-				switch (visualID) {
-				case ActorEditPart.VISUAL_ID:
-				case AgentEditPart.VISUAL_ID:
-				case PositionEditPart.VISUAL_ID:
-				case RoleEditPart.VISUAL_ID:
-				case AspectEditPart.VISUAL_ID:
-				case Goal2EditPart.VISUAL_ID:
-				case Softgoal2EditPart.VISUAL_ID:
-				case Resource2EditPart.VISUAL_ID:
-				case Task2EditPart.VISUAL_ID:
-				case GoalEditPart.VISUAL_ID:
-				case SoftgoalEditPart.VISUAL_ID:
-				case TaskEditPart.VISUAL_ID:
-				case ResourceEditPart.VISUAL_ID:
-				case Goal3EditPart.VISUAL_ID:
-				case Softgoal3EditPart.VISUAL_ID:
-				case Resource3EditPart.VISUAL_ID:
-				case Task3EditPart.VISUAL_ID:
-				case Goal4EditPart.VISUAL_ID:
-				case Softgoal4EditPart.VISUAL_ID:
-				case Resource4EditPart.VISUAL_ID:
-				case Task4EditPart.VISUAL_ID:
-				case Goal5EditPart.VISUAL_ID:
-				case Softgoal5EditPart.VISUAL_ID:
-				case Resource5EditPart.VISUAL_ID:
-				case Task5EditPart.VISUAL_ID:
-				case Goal6EditPart.VISUAL_ID:
-				case Softgoal6EditPart.VISUAL_ID:
-				case Resource6EditPart.VISUAL_ID:
-				case Task6EditPart.VISUAL_ID:
-					if (domainElement == null
-							|| visualID != GoalmodelVisualIDRegistry
-									.getNodeVisualID(containerView,
-											domainElement)) {
-						return null; // visual id in semantic hint should match visual id for domain element
-					}
-					break;
-				case ActorNameEditPart.VISUAL_ID:
-				case ActorActorCompartmentEditPart.VISUAL_ID:
-					if (ActorEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case AgentNameEditPart.VISUAL_ID:
-				case AgentAgentCompartmentEditPart.VISUAL_ID:
-					if (AgentEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case PositionNameEditPart.VISUAL_ID:
-				case PositionPositionCompartmentEditPart.VISUAL_ID:
-					if (PositionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case RoleNameEditPart.VISUAL_ID:
-				case RoleRoleCompartmentEditPart.VISUAL_ID:
-					if (RoleEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case AspectNameEditPart.VISUAL_ID:
-				case AspectAspectCompartmentEditPart.VISUAL_ID:
-					if (AspectEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalNameEditPart.VISUAL_ID:
-					if (GoalEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalNameEditPart.VISUAL_ID:
-					if (SoftgoalEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskNameEditPart.VISUAL_ID:
-					if (TaskEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceNameEditPart.VISUAL_ID:
-					if (ResourceEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalName2EditPart.VISUAL_ID:
-					if (Goal2EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalName2EditPart.VISUAL_ID:
-					if (Softgoal2EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceName2EditPart.VISUAL_ID:
-					if (Resource2EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskName2EditPart.VISUAL_ID:
-					if (Task2EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalName3EditPart.VISUAL_ID:
-					if (Goal3EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalName3EditPart.VISUAL_ID:
-					if (Softgoal3EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceName3EditPart.VISUAL_ID:
-					if (Resource3EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskName3EditPart.VISUAL_ID:
-					if (Task3EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalName4EditPart.VISUAL_ID:
-					if (Goal4EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalName4EditPart.VISUAL_ID:
-					if (Softgoal4EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceName4EditPart.VISUAL_ID:
-					if (Resource4EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskName4EditPart.VISUAL_ID:
-					if (Task4EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalName5EditPart.VISUAL_ID:
-					if (Goal5EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalName5EditPart.VISUAL_ID:
-					if (Softgoal5EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceName5EditPart.VISUAL_ID:
-					if (Resource5EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskName5EditPart.VISUAL_ID:
-					if (Task5EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case GoalName6EditPart.VISUAL_ID:
-					if (Goal6EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case SoftgoalName6EditPart.VISUAL_ID:
-					if (Softgoal6EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case ResourceName6EditPart.VISUAL_ID:
-					if (Resource6EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case TaskName6EditPart.VISUAL_ID:
-					if (Task6EditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case DependencyLabelEditPart.VISUAL_ID:
-					if (DependencyEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabelEditPart.VISUAL_ID:
-					if (AndDecompositionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabel2EditPart.VISUAL_ID:
-					if (OrDecompositionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabel3EditPart.VISUAL_ID:
-					if (MakeContributionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabel4EditPart.VISUAL_ID:
-					if (HelpContributionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabel5EditPart.VISUAL_ID:
-					if (HurtContributionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case WrapLabel6EditPart.VISUAL_ID:
-					if (BreakContributionEditPart.VISUAL_ID != GoalmodelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				default:
-					return null;
-				}
-			}
-		}
-		return getNodeViewClass(containerView, visualID);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Class getNodeViewClass(View containerView, int visualID) {
-		if (containerView == null
-				|| !GoalmodelVisualIDRegistry.canCreateNode(containerView,
-						visualID)) {
+		if (elementType != null
+				&& !GoalmodelElementTypes.isKnownElementType(elementType)) {
 			return null;
 		}
-		switch (visualID) {
+		EClass semanticType = getSemanticEClass(semanticAdapter);
+		EObject semanticElement = getSemanticElement(semanticAdapter);
+		int nodeVID = GoalmodelVisualIDRegistry.getNodeVisualID(containerView,
+				semanticElement, semanticType, semanticHint);
+		switch (nodeVID) {
 		case ActorEditPart.VISUAL_ID:
 			return ActorViewFactory.class;
 		case ActorNameEditPart.VISUAL_ID:
@@ -566,6 +223,22 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 			return AspectViewFactory.class;
 		case AspectNameEditPart.VISUAL_ID:
 			return AspectNameViewFactory.class;
+		case Goal6EditPart.VISUAL_ID:
+			return Goal6ViewFactory.class;
+		case GoalName6EditPart.VISUAL_ID:
+			return GoalName6ViewFactory.class;
+		case Softgoal6EditPart.VISUAL_ID:
+			return Softgoal6ViewFactory.class;
+		case SoftgoalName6EditPart.VISUAL_ID:
+			return SoftgoalName6ViewFactory.class;
+		case Task6EditPart.VISUAL_ID:
+			return Task6ViewFactory.class;
+		case TaskName6EditPart.VISUAL_ID:
+			return TaskName6ViewFactory.class;
+		case Resource6EditPart.VISUAL_ID:
+			return Resource6ViewFactory.class;
+		case ResourceName6EditPart.VISUAL_ID:
+			return ResourceName6ViewFactory.class;
 		case GoalEditPart.VISUAL_ID:
 			return GoalViewFactory.class;
 		case GoalNameEditPart.VISUAL_ID:
@@ -574,14 +247,14 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 			return SoftgoalViewFactory.class;
 		case SoftgoalNameEditPart.VISUAL_ID:
 			return SoftgoalNameViewFactory.class;
-		case TaskEditPart.VISUAL_ID:
-			return TaskViewFactory.class;
-		case TaskNameEditPart.VISUAL_ID:
-			return TaskNameViewFactory.class;
 		case ResourceEditPart.VISUAL_ID:
 			return ResourceViewFactory.class;
 		case ResourceNameEditPart.VISUAL_ID:
 			return ResourceNameViewFactory.class;
+		case TaskEditPart.VISUAL_ID:
+			return TaskViewFactory.class;
+		case TaskNameEditPart.VISUAL_ID:
+			return TaskNameViewFactory.class;
 		case Goal2EditPart.VISUAL_ID:
 			return Goal2ViewFactory.class;
 		case GoalName2EditPart.VISUAL_ID:
@@ -646,22 +319,6 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 			return Task5ViewFactory.class;
 		case TaskName5EditPart.VISUAL_ID:
 			return TaskName5ViewFactory.class;
-		case Goal6EditPart.VISUAL_ID:
-			return Goal6ViewFactory.class;
-		case GoalName6EditPart.VISUAL_ID:
-			return GoalName6ViewFactory.class;
-		case Softgoal6EditPart.VISUAL_ID:
-			return Softgoal6ViewFactory.class;
-		case SoftgoalName6EditPart.VISUAL_ID:
-			return SoftgoalName6ViewFactory.class;
-		case Resource6EditPart.VISUAL_ID:
-			return Resource6ViewFactory.class;
-		case ResourceName6EditPart.VISUAL_ID:
-			return ResourceName6ViewFactory.class;
-		case Task6EditPart.VISUAL_ID:
-			return Task6ViewFactory.class;
-		case TaskName6EditPart.VISUAL_ID:
-			return TaskName6ViewFactory.class;
 		case ActorActorCompartmentEditPart.VISUAL_ID:
 			return ActorActorCompartmentViewFactory.class;
 		case AgentAgentCompartmentEditPart.VISUAL_ID:
@@ -674,18 +331,18 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 			return AspectAspectCompartmentViewFactory.class;
 		case DependencyLabelEditPart.VISUAL_ID:
 			return DependencyLabelViewFactory.class;
-		case WrapLabelEditPart.VISUAL_ID:
-			return WrapLabelViewFactory.class;
-		case WrapLabel2EditPart.VISUAL_ID:
-			return WrapLabel2ViewFactory.class;
-		case WrapLabel3EditPart.VISUAL_ID:
-			return WrapLabel3ViewFactory.class;
-		case WrapLabel4EditPart.VISUAL_ID:
-			return WrapLabel4ViewFactory.class;
-		case WrapLabel5EditPart.VISUAL_ID:
-			return WrapLabel5ViewFactory.class;
-		case WrapLabel6EditPart.VISUAL_ID:
-			return WrapLabel6ViewFactory.class;
+		case DiagramAndLabelEditPart.VISUAL_ID:
+			return DiagramAndLabelViewFactory.class;
+		case DiagramOrLabelEditPart.VISUAL_ID:
+			return DiagramOrLabelViewFactory.class;
+		case DiagramMakeLabelEditPart.VISUAL_ID:
+			return DiagramMakeLabelViewFactory.class;
+		case DiagramHelpLabelEditPart.VISUAL_ID:
+			return DiagramHelpLabelViewFactory.class;
+		case DiagramHurtLabelEditPart.VISUAL_ID:
+			return DiagramHurtLabelViewFactory.class;
+		case DiagramBreakLabelEditPart.VISUAL_ID:
+			return DiagramBreakLabelViewFactory.class;
 		}
 		return null;
 	}
@@ -696,32 +353,18 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 	protected Class getEdgeViewClass(IAdaptable semanticAdapter,
 			View containerView, String semanticHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (!GoalmodelElementTypes.isKnownElementType(elementType)
-				|| (!(elementType instanceof IHintedType))) {
-			return null; // foreign element type
+		if (elementType != null
+				&& !GoalmodelElementTypes.isKnownElementType(elementType)) {
+			return null;
 		}
-		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
-		if (elementTypeHint == null) {
-			return null; // our hint is visual id and must be specified
+		EClass semanticType = getSemanticEClass(semanticAdapter);
+		if (semanticType == null) {
+			return null;
 		}
-		if (semanticHint != null && !semanticHint.equals(elementTypeHint)) {
-			return null; // if semantic hint is specified it should be the same as in element type
-		}
-		int visualID = GoalmodelVisualIDRegistry.getVisualID(elementTypeHint);
-		EObject domainElement = getSemanticElement(semanticAdapter);
-		if (domainElement != null
-				&& visualID != GoalmodelVisualIDRegistry
-						.getLinkWithClassVisualID(domainElement)) {
-			return null; // visual id for link EClass should match visual id from element type
-		}
-		return getEdgeViewClass(visualID);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Class getEdgeViewClass(int visualID) {
-		switch (visualID) {
+		EObject semanticElement = getSemanticElement(semanticAdapter);
+		int linkVID = GoalmodelVisualIDRegistry.getLinkWithClassVisualID(
+				semanticElement, semanticType);
+		switch (linkVID) {
 		case DependencyEditPart.VISUAL_ID:
 			return DependencyViewFactory.class;
 		case AndDecompositionEditPart.VISUAL_ID:
@@ -737,7 +380,8 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 		case BreakContributionEditPart.VISUAL_ID:
 			return BreakContributionViewFactory.class;
 		}
-		return null;
+		return getUnrecognizedConnectorViewClass(semanticAdapter,
+				containerView, semanticHint);
 	}
 
 	/**
@@ -749,4 +393,14 @@ public class GoalmodelViewProvider extends AbstractViewProvider {
 		}
 		return (IElementType) semanticAdapter.getAdapter(IElementType.class);
 	}
+
+	/**
+	 * @generated
+	 */
+	private Class getUnrecognizedConnectorViewClass(IAdaptable semanticAdapter,
+			View containerView, String semanticHint) {
+		// Handle unrecognized child node classes here
+		return null;
+	}
+
 }

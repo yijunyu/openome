@@ -12,26 +12,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.PositionItemSemanticEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
 import goalmodel.figures.PositionSVGFigure;
 
 /**
@@ -65,57 +59,11 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == GoalmodelElementTypes.Goal_2009) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(PositionPositionCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Softgoal_2010) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(PositionPositionCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Resource_2011) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(PositionPositionCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Task_2012) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(PositionPositionCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new PositionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -230,6 +178,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -287,16 +236,6 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class PositionFigure extends Ellipse {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigurePositionNameFigure;
-		/**
-		 * @generated
-		 */
-		private Ellipse fFigurePositionBoundaryFigure;
-
 		/**
 		 * @generated
 		 */
@@ -306,8 +245,11 @@ public class PositionEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
+			this.setFillXOR(false);
 			this.setOutline(false);
+			this.setOutlineXOR(false);
 			this.setLineWidth(0);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -316,28 +258,70 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigurePositionNameFigure = new WrapLabel();
-			fFigurePositionNameFigure.setText("<...>");
+			WrapLabel positionNameFigure0 = new WrapLabel();
+			positionNameFigure0.setText("<...>");
 
-			fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);
+			positionNameFigure0.setFont(PositionNameFigure_FONT);
 
-			this.add(fFigurePositionNameFigure, BorderLayout.TOP);
+			this.add(positionNameFigure0, BorderLayout.TOP);
+			setFigurePositionNameFigure(positionNameFigure0);
 
-			fFigurePositionBoundaryFigure = new Ellipse();
-			fFigurePositionBoundaryFigure.setLineWidth(3);
-			fFigurePositionBoundaryFigure
-					.setLineStyle(Graphics.LINE_DASHDOTDOT);
-			fFigurePositionBoundaryFigure
-					.setBackgroundColor(FFIGUREPOSITIONBOUNDARYFIGURE_BACK);
+			Ellipse positionBoundaryFigure0 = new Ellipse();
+			positionBoundaryFigure0.setFill(true);
+			positionBoundaryFigure0.setFillXOR(false);
+			positionBoundaryFigure0.setOutline(true);
+			positionBoundaryFigure0.setOutlineXOR(false);
+			positionBoundaryFigure0.setLineWidth(3);
+			positionBoundaryFigure0.setLineStyle(Graphics.LINE_DASHDOTDOT);
+			positionBoundaryFigure0
+					.setBackgroundColor(POSITIONBOUNDARYFIGURE_BACK);
 
-			this.add(fFigurePositionBoundaryFigure, BorderLayout.CENTER);
-
-			fFigurePositionBoundaryFigure.setLayoutManager(new StackLayout());
+			this.add(positionBoundaryFigure0, BorderLayout.CENTER);
+			setFigurePositionBoundaryFigure(positionBoundaryFigure0);
+			positionBoundaryFigure0.setLayoutManager(new StackLayout());
 
 			PositionSVGFigure positionSVGFigure1 = new PositionSVGFigure();
 
-			fFigurePositionBoundaryFigure.add(positionSVGFigure1);
+			positionBoundaryFigure0.add(positionSVGFigure1);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fPositionNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigurePositionNameFigure() {
+			return fPositionNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigurePositionNameFigure(WrapLabel fig) {
+			fPositionNameFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private Ellipse fPositionBoundaryFigure;
+
+		/**
+		 * @generated
+		 */
+		public Ellipse getFigurePositionBoundaryFigure() {
+			return fPositionBoundaryFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigurePositionBoundaryFigure(Ellipse fig) {
+			fPositionBoundaryFigure = fig;
 		}
 
 		/**
@@ -359,32 +343,18 @@ public class PositionEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigurePositionNameFigure() {
-			return fFigurePositionNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Ellipse getFigurePositionBoundaryFigure() {
-			return fFigurePositionBoundaryFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREPOSITIONNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(), "Arial", 12, SWT.BOLD);
+	static final Font PositionNameFigure_FONT = new Font(Display.getCurrent(),
+			"Arial", 12, org.eclipse.swt.SWT.BOLD);
 
 	/**
 	 * @generated
 	 */
-	static final Color FFIGUREPOSITIONBOUNDARYFIGURE_BACK = new Color(null,
-			236, 236, 236);
+	static final Color POSITIONBOUNDARYFIGURE_BACK = new Color(null, 236, 236,
+			236);
 
 }

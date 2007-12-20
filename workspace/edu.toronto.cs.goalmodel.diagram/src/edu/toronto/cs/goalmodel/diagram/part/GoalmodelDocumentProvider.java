@@ -1,131 +1,119 @@
 package edu.toronto.cs.goalmodel.diagram.part;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.commands.ExecutionException;
+import java.util.Map.Entry;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.IResourceStatus;
 import org.eclipse.core.resources.IStorage;
+import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.MultiRule;
-import org.eclipse.emf.common.notify.Adapter;
+
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.ui.URIEditorInput;
+
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
-import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.AbstractDocumentProvider;
+
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
+
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDocumentProvider;
+
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
+
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
-import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
-import org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory;
+
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.jface.operation.IRunnableContext;
-import org.eclipse.osgi.util.NLS;
+
 import org.eclipse.swt.widgets.Display;
+
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IStorageEditorInput;
+
 import org.eclipse.ui.part.FileEditorInput;
 
 /**
  * @generated
  */
-public class GoalmodelDocumentProvider extends AbstractDocumentProvider
+public class GoalmodelDocumentProvider extends StorageDocumentProvider
 		implements IDiagramDocumentProvider {
+	/**
+	 * @generated
+	 */
+	private final String myContentObjectURI;
+
+	/**
+	 * @generated
+	 */
+	public GoalmodelDocumentProvider() {
+		this(null);
+	}
+
+	/**
+	 * @generated
+	 */
+	public GoalmodelDocumentProvider(String rootObjectURI) {
+		myContentObjectURI = rootObjectURI;
+	}
 
 	/**
 	 * @generated
 	 */
 	protected ElementInfo createElementInfo(Object element)
 			throws CoreException {
-		if (false == element instanceof FileEditorInput
-				&& false == element instanceof URIEditorInput) {
-			throw new CoreException(
-					new Status(
-							IStatus.ERROR,
-							GoalmodelDiagramEditorPlugin.ID,
-							0,
-							NLS
-									.bind(
-											Messages.GoalmodelDocumentProvider_IncorrectInputError,
-											new Object[] {
-													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
-							null));
+		if (false == element instanceof FileEditorInputProxy) {
+			throw new CoreException(new Status(IStatus.ERROR,
+					GoalmodelDiagramEditorPlugin.ID, 0,
+					"Incorrect element used: " + element
+							+ " instead of FileEditorInputProxy", null));
 		}
-		IEditorInput editorInput = (IEditorInput) element;
+		FileEditorInputProxy editorInput = (FileEditorInputProxy) element;
 		IDiagramDocument document = (IDiagramDocument) createDocument(editorInput);
 
 		ResourceSetInfo info = new ResourceSetInfo(document, editorInput);
 		info.setModificationStamp(computeModificationStamp(info));
 		info.fStatus = null;
+		ResourceSetModificationListener modificationListener = new ResourceSetModificationListener(
+				info);
+		info.getResourceSet().eAdapters().add(modificationListener);
 		return info;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IDocument createDocument(Object element) throws CoreException {
-		if (false == element instanceof FileEditorInput
-				&& false == element instanceof URIEditorInput) {
-			throw new CoreException(
-					new Status(
-							IStatus.ERROR,
-							GoalmodelDiagramEditorPlugin.ID,
-							0,
-							NLS
-									.bind(
-											Messages.GoalmodelDocumentProvider_IncorrectInputError,
-											new Object[] {
-													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
-							null));
-		}
-		IDocument document = createEmptyDocument();
-		setDocumentContent(document, (IEditorInput) element);
-		setupDocument(element, document);
-		return document;
-	}
-
-	/**
-	 * Sets up the given document as it would be provided for the given element. The
-	 * content of the document is not changed. This default implementation is empty.
-	 * Subclasses may reimplement.
-	 * 
-	 * @param element the blue-print element
-	 * @param document the document to set up
-	 * @generated
-	 */
-	protected void setupDocument(Object element, IDocument document) {
-		// for subclasses
 	}
 
 	/**
@@ -152,137 +140,45 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	 * @generated
 	 */
 	protected IDocument createEmptyDocument() {
-		DiagramDocument document = new DiagramDocument();
-		document.setEditingDomain(createEditingDomain());
-		return document;
+		return new DiagramDocument();
 	}
 
 	/**
 	 * @generated
 	 */
-	private TransactionalEditingDomain createEditingDomain() {
-		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
-				.getInstance().createEditingDomain();
-		editingDomain.setID("edu.toronto.cs.goalmodel.diagram.EditingDomain"); //$NON-NLS-1$
-		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
-				.createNotifierFilter(editingDomain.getResourceSet()).and(
-						NotificationFilter
-								.createEventTypeFilter(Notification.ADD)).and(
-						NotificationFilter.createFeatureFilter(
-								ResourceSet.class,
-								ResourceSet.RESOURCE_SET__RESOURCES));
-		editingDomain.getResourceSet().eAdapters().add(new Adapter() {
-
-			private Notifier myTarger;
-
-			public Notifier getTarget() {
-				return myTarger;
-			}
-
-			public boolean isAdapterForType(Object type) {
-				return false;
-			}
-
-			public void notifyChanged(Notification notification) {
-				if (diagramResourceModifiedFilter.matches(notification)) {
-					Object value = notification.getNewValue();
-					if (value instanceof Resource) {
-						((Resource) value).setTrackingModification(true);
-					}
-				}
-			}
-
-			public void setTarget(Notifier newTarget) {
-				myTarger = newTarget;
-			}
-
-		});
-
-		return editingDomain;
+	protected boolean setDocumentContent(IDocument document,
+			IEditorInput editorInput) throws CoreException {
+		if (editorInput instanceof FileEditorInputProxy
+				&& document instanceof IDiagramDocument) {
+			FileEditorInputProxy editorInputProxy = (FileEditorInputProxy) editorInput;
+			IDiagramDocument diagramDocument = (IDiagramDocument) document;
+			diagramDocument.setEditingDomain(editorInputProxy
+					.getEditingDomain());
+		}
+		return super.setDocumentContent(document, editorInput);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected void setDocumentContent(IDocument document, IEditorInput element)
-			throws CoreException {
+	protected void setDocumentContentFromStorage(IDocument document,
+			IStorage storage) throws CoreException {
 		IDiagramDocument diagramDocument = (IDiagramDocument) document;
+		Diagram diagram = diagramDocument.getDiagram();
+
 		TransactionalEditingDomain domain = diagramDocument.getEditingDomain();
-		if (element instanceof FileEditorInput) {
-			IStorage storage = ((FileEditorInput) element).getStorage();
-			Diagram diagram = DiagramIOUtil.load(domain, storage, true,
-					getProgressMonitor());
-			document.setContent(diagram);
-		} else if (element instanceof URIEditorInput) {
-			URI uri = ((URIEditorInput) element).getURI();
-			Resource resource = null;
-			try {
-				resource = domain.getResourceSet().getResource(
-						uri.trimFragment(), false);
-				if (resource == null) {
-					resource = domain.getResourceSet().createResource(
-							uri.trimFragment());
-				}
-				if (!resource.isLoaded()) {
-					try {
-						Map options = new HashMap(GMFResourceFactory
-								.getDefaultLoadOptions());
-						// @see 171060 
-						// options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
-						resource.load(options);
-					} catch (IOException e) {
-						resource.unload();
-						throw e;
-					}
-				}
-				if (uri.fragment() != null) {
-					EObject rootElement = resource.getEObject(uri.fragment());
-					if (rootElement instanceof Diagram) {
-						document.setContent((Diagram) rootElement);
-						return;
-					}
-				} else {
-					for (Iterator it = resource.getContents().iterator(); it
-							.hasNext();) {
-						Object rootElement = it.next();
-						if (rootElement instanceof Diagram) {
-							document.setContent((Diagram) rootElement);
-							return;
-						}
-					}
-				}
-				throw new RuntimeException(
-						Messages.GoalmodelDocumentProvider_NoDiagramInResourceError);
-			} catch (Exception e) {
-				CoreException thrownExcp = null;
-				if (e instanceof CoreException) {
-					thrownExcp = (CoreException) e;
-				} else {
-					String msg = e.getLocalizedMessage();
-					thrownExcp = new CoreException(
-							new Status(
-									IStatus.ERROR,
-									GoalmodelDiagramEditorPlugin.ID,
-									0,
-									msg != null ? msg
-											: Messages.GoalmodelDocumentProvider_DiagramLoadingError,
-									e));
-				}
-				throw thrownExcp;
-			}
+		diagram = DiagramIOUtil.load(domain, storage, true,
+				getProgressMonitor());
+		if (myContentObjectURI != null
+				&& diagram != null
+				&& diagram.eResource() != null
+				&& !diagram.eResource().getURIFragment(diagram).equals(
+						myContentObjectURI)) {
+			EObject anotherContentObject = diagram.eResource().getEObject(
+					myContentObjectURI);
+			document.setContent(anotherContentObject);
 		} else {
-			throw new CoreException(
-					new Status(
-							IStatus.ERROR,
-							GoalmodelDiagramEditorPlugin.ID,
-							0,
-							NLS
-									.bind(
-											Messages.GoalmodelDocumentProvider_IncorrectInputError,
-											new Object[] {
-													element,
-													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
-							null));
+			document.setContent(diagram);
 		}
 	}
 
@@ -300,15 +196,27 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	public boolean isDeleted(Object element) {
-		IDiagramDocument document = getDiagramDocument(element);
-		if (document != null) {
-			Resource diagramResource = document.getDiagram().eResource();
-			if (diagramResource != null) {
-				IFile file = WorkspaceSynchronizer.getFile(diagramResource);
-				return file == null || file.getLocation() == null
-						|| !file.getLocation().toFile().exists();
+	public long getSynchronizationStamp(Object element) {
+		if (element instanceof FileEditorInputProxy) {
+			ResourceSetInfo info = getResourceSetInfo(element);
+			if (info != null) {
+				return info.getModificationStamp();
 			}
+		}
+		return super.getSynchronizationStamp(element);
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean isDeleted(Object element) {
+		if (element instanceof IFileEditorInput) {
+			IFileEditorInput input = (IFileEditorInput) element;
+			IPath path = input.getFile().getLocation();
+			if (path == null) {
+				return true;
+			}
+			return !path.toFile().exists();
 		}
 		return super.isDeleted(element);
 	}
@@ -358,51 +266,11 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	public boolean isReadOnly(Object element) {
-		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null) {
-			if (info.isUpdateCache()) {
-				try {
-					updateCache(element);
-				} catch (CoreException ex) {
-					GoalmodelDiagramEditorPlugin
-							.getInstance()
-							.logError(
-									Messages.GoalmodelDocumentProvider_isModifiable,
-									ex);
-					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
-				}
-			}
-			return info.isReadOnly();
-		}
-		return super.isReadOnly(element);
-	}
-
-	/**
-	 * @generated
-	 */
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
-			if (element instanceof FileEditorInput
-					|| element instanceof URIEditorInput) {
+			if (element instanceof FileEditorInputProxy) {
 				return true;
 			}
-		}
-		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null) {
-			if (info.isUpdateCache()) {
-				try {
-					updateCache(element);
-				} catch (CoreException ex) {
-					GoalmodelDiagramEditorPlugin
-							.getInstance()
-							.logError(
-									Messages.GoalmodelDocumentProvider_isModifiable,
-									ex);
-					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
-				}
-			}
-			return info.isModifiable();
 		}
 		return super.isModifiable(element);
 	}
@@ -410,34 +278,24 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected void updateCache(Object element) throws CoreException {
-		ResourceSetInfo info = getResourceSetInfo(element);
+	protected void updateCache(IStorageEditorInput input) throws CoreException {
+		ResourceSetInfo info = getResourceSetInfo(input);
 		if (info != null) {
 			for (Iterator it = info.getResourceSet().getResources().iterator(); it
 					.hasNext();) {
 				Resource nextResource = (Resource) it.next();
 				IFile file = WorkspaceSynchronizer.getFile(nextResource);
 				if (file != null && file.isReadOnly()) {
-					info.setReadOnly(true);
-					info.setModifiable(false);
+					info.fIsReadOnly = true;
+					info.fIsModifiable = false;
 					return;
 				}
 			}
-			info.setReadOnly(false);
-			info.setModifiable(true);
+			info.fIsReadOnly = false;
+			info.fIsModifiable = true;
 			return;
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void doUpdateStateCache(Object element) throws CoreException {
-		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null) {
-			info.setUpdateCache(true);
-		}
-		super.doUpdateStateCache(element);
+		super.updateCache(input);
 	}
 
 	/**
@@ -568,12 +426,9 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	protected void doSynchronize(Object element, IProgressMonitor monitor)
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null) {
-			for (Iterator it = info.getResourceSet().getResources().iterator(); it
-					.hasNext();) {
-				Resource nextResource = (Resource) it.next();
-				handleElementChanged(info, nextResource, monitor);
-			}
+		if (info != null && element instanceof FileEditorInputProxy) {
+			handleResourcesChanged(info, info.getResourceSet().getResources(),
+					monitor);
 			return;
 		}
 		super.doSynchronize(element, monitor);
@@ -582,22 +437,46 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected void handleElementChanged(ResourceSetInfo info,
-			Resource changedResource, IProgressMonitor monitor) {
-		IFile file = WorkspaceSynchronizer.getFile(changedResource);
-		if (file != null) {
-			try {
-				file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
-			} catch (CoreException ex) {
-				GoalmodelDiagramEditorPlugin
-						.getInstance()
-						.logError(
-								Messages.GoalmodelDocumentProvider_handleElementContentChanged,
-								ex);
-				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
-			}
+	protected void handleResourcesMoved(Map movedPathToResource) {
+		for (Iterator it = movedPathToResource.entrySet().iterator(); it
+				.hasNext();) {
+			Entry nextEntry = (Entry) it.next();
+			IPath newPath = (IPath) nextEntry.getKey();
+			Resource resource = (Resource) nextEntry.getValue();
+			resource.setURI(URI.createURI(newPath.toString()));
 		}
-		changedResource.unload();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void markWholeResourceSetAsDirty(ResourceSet resourceSet) {
+		for (Iterator it = resourceSet.getResources().iterator(); it.hasNext();) {
+			Resource nextResource = (Resource) it.next();
+			nextResource.setModified(true);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void handleResourcesChanged(ResourceSetInfo info,
+			Collection changedResources, IProgressMonitor monitor) {
+		info.stopResourceListening();
+		for (Iterator it = changedResources.iterator(); it.hasNext();) {
+			Resource nextResource = (Resource) it.next();
+			IFile file = WorkspaceSynchronizer.getFile(nextResource);
+			if (file != null) {
+				try {
+					file.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+				} catch (CoreException e) {
+					handleCoreException(e,
+							"FileDocumentProvider.handleElementContentChanged");
+				}
+			}
+			nextResource.unload();
+		}
+		info.startResourceListening();
 
 		fireElementContentAboutToBeReplaced(info.getEditorInput());
 		removeUnchangedElementListeners(info.getEditorInput(), info);
@@ -617,16 +496,69 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected void handleElementMoved(IEditorInput input, URI uri) {
-		if (input instanceof FileEditorInput) {
-			IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(
-					new Path(URI.decode(uri.path())).removeFirstSegments(1));
-			fireElementMoved(input, newFile == null ? null
-					: new FileEditorInput(newFile));
-			return;
+	protected void doSaveDocument(IProgressMonitor monitor, Object element,
+			IDocument document, boolean overwrite) throws CoreException {
+		ResourceSetInfo info = getResourceSetInfo(element);
+		if (info != null) {
+			if (!overwrite && !info.isSynchronized()) {
+				throw new CoreException(new Status(IStatus.ERROR,
+						GoalmodelDiagramEditorPlugin.ID,
+						IResourceStatus.OUT_OF_SYNC_LOCAL,
+						"The file has been changed on the file system", null));
+			}
+			info.stopResourceListening();
+			fireElementStateChanging(element);
+			try {
+				monitor.beginTask("Saving diagram editor", info
+						.getResourceSet().getResources().size());
+				for (Iterator it = info.getResourceSet().getResources()
+						.iterator(); it.hasNext();) {
+					Resource nextResource = (Resource) it.next();
+					monitor.setTaskName("Saving " + nextResource.getURI());
+					if (nextResource.isLoaded()
+							&& (!nextResource.isTrackingModification() || nextResource
+									.isModified())) {
+						nextResource.save(Collections.EMPTY_MAP);
+					}
+					monitor.worked(1);
+				}
+				monitor.done();
+			} catch (IOException e) {
+				fireElementStateChangeFailed(element);
+				throw new CoreException(new Status(IStatus.ERROR,
+						GoalmodelDiagramEditorPlugin.ID,
+						EditorStatusCodes.RESOURCE_FAILURE, e
+								.getLocalizedMessage(), null));
+			} catch (RuntimeException x) {
+				fireElementStateChangeFailed(element);
+				throw x;
+			} finally {
+				info.startResourceListening();
+			}
+
+			if (info != null) {
+				info.setModificationStamp(computeModificationStamp(info));
+				info.setSynchronized();
+			}
 		}
-		// TODO: append suffix to the URI! (use diagram as a parameter)
-		fireElementMoved(input, new URIEditorInput(uri));
+		super.doSaveDocument(monitor, element, document, overwrite);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void handleElementMoved(FileEditorInputProxy input, IPath path) {
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IFile newFile = workspace.getRoot().getFile(path);
+		fireElementMoved(input, newFile == null ? null : new FileEditorInput(
+				newFile));
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void handleElementDeleted(FileEditorInputProxy input) {
+		fireElementDeleted(input);
 	}
 
 	/**
@@ -634,7 +566,12 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	 */
 	public IEditorInput createInputWithEditingDomain(IEditorInput editorInput,
 			TransactionalEditingDomain domain) {
-		return editorInput;
+		if (editorInput instanceof IFileEditorInput) {
+			return new FileEditorInputProxy((IFileEditorInput) editorInput,
+					domain);
+		}
+		assert false;
+		return null;
 	}
 
 	/**
@@ -651,14 +588,7 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
-	protected IRunnableContext getOperationRunner(IProgressMonitor monitor) {
-		return null;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected class ResourceSetInfo extends ElementInfo {
+	protected class ResourceSetInfo extends StorageInfo {
 
 		/**
 		 * @generated
@@ -668,7 +598,12 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		/**
 		 * @generated
 		 */
-		private WorkspaceSynchronizer mySynchronizer;
+		private ResourceSetSynchronizer mySynchronizer;
+
+		/**
+		 * @generated
+		 */
+		private ResourceSet myResourceSet;
 
 		/**
 		 * @generated
@@ -678,44 +613,18 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		/**
 		 * @generated
 		 */
-		private IDiagramDocument myDocument;
-
-		/**
-		 * @generated
-		 */
-		private IEditorInput myEditorInput;
-
-		/**
-		 * @generated
-		 */
-		private boolean myUpdateCache = true;
-
-		/**
-		 * @generated
-		 */
-		private boolean myModifiable = false;
-
-		/**
-		 * @generated
-		 */
-		private boolean myReadOnly = true;
-
-		/**
-		 * @generated
-		 */
-		private ResourceSetModificationListener myResourceSetListener;
+		private FileEditorInputProxy myEditorInput;
 
 		/**
 		 * @generated
 		 */
 		public ResourceSetInfo(IDiagramDocument document,
-				IEditorInput editorInput) {
+				FileEditorInputProxy editorInput) {
 			super(document);
-			myDocument = document;
+			myResourceSet = document.getEditingDomain().getResourceSet();
 			myEditorInput = editorInput;
+			mySynchronizer = new ResourceSetSynchronizer(this);
 			startResourceListening();
-			myResourceSetListener = new ResourceSetModificationListener(this);
-			getResourceSet().eAdapters().add(myResourceSetListener);
 		}
 
 		/**
@@ -735,21 +644,21 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		/**
 		 * @generated
 		 */
-		public TransactionalEditingDomain getEditingDomain() {
-			return myDocument.getEditingDomain();
+		public ResourceSetSynchronizer getSynchronizer() {
+			return mySynchronizer;
 		}
 
 		/**
 		 * @generated
 		 */
 		public ResourceSet getResourceSet() {
-			return getEditingDomain().getResourceSet();
+			return myResourceSet;
 		}
 
 		/**
 		 * @generated
 		 */
-		public IEditorInput getEditorInput() {
+		public FileEditorInputProxy getEditorInput() {
 			return myEditorInput;
 		}
 
@@ -758,12 +667,6 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		 */
 		public void dispose() {
 			stopResourceListening();
-			getResourceSet().eAdapters().remove(myResourceSetListener);
-			for (Iterator it = getResourceSet().getResources().iterator(); it
-					.hasNext();) {
-				Resource resource = (Resource) it.next();
-				resource.unload();
-			}
 		}
 
 		/**
@@ -771,6 +674,13 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		 */
 		public boolean isSynchronized() {
 			return myUnSynchronizedResources.size() == 0;
+		}
+
+		/**
+		 * @generated
+		 */
+		public void setSynchronized() {
+			myUnSynchronizedResources.clear();
 		}
 
 		/**
@@ -791,134 +701,190 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 		 * @generated
 		 */
 		public final void stopResourceListening() {
-			mySynchronizer.dispose();
-			mySynchronizer = null;
+			ResourcesPlugin.getWorkspace().removeResourceChangeListener(
+					mySynchronizer);
 		}
 
 		/**
 		 * @generated
 		 */
 		public final void startResourceListening() {
-			mySynchronizer = new WorkspaceSynchronizer(getEditingDomain(),
-					new SynchronizerDelegate());
+			ResourcesPlugin.getWorkspace().addResourceChangeListener(
+					mySynchronizer, IResourceChangeEvent.POST_CHANGE);
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	protected class ResourceSetSynchronizer implements IResourceChangeListener {
+
+		/**
+		 * @generated
+		 */
+		private ResourceSetInfo myInfo;
+
+		/**
+		 * @generated
+		 */
+		protected ResourceSetSynchronizer(ResourceSetInfo info) {
+			myInfo = info;
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean isUpdateCache() {
-			return myUpdateCache;
-		}
-
-		/**
-		 * @generated
-		 */
-		public void setUpdateCache(boolean update) {
-			myUpdateCache = update;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean isModifiable() {
-			return myModifiable;
-		}
-
-		/**
-		 * @generated
-		 */
-		public void setModifiable(boolean modifiable) {
-			myModifiable = modifiable;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean isReadOnly() {
-			return myReadOnly;
-		}
-
-		/**
-		 * @generated
-		 */
-		public void setReadOnly(boolean readOnly) {
-			myReadOnly = readOnly;
-		}
-
-		/**
-		 * @generated
-		 */
-		private class SynchronizerDelegate implements
-				WorkspaceSynchronizer.Delegate {
-
-			/**
-			 * @generated
-			 */
-			public void dispose() {
+		public void resourceChanged(IResourceChangeEvent event) {
+			final ResourceDeltaVisitor deltaVisitor = new ResourceDeltaVisitor();
+			try {
+				event.getDelta().accept(deltaVisitor);
+			} catch (CoreException e) {
+				handleCoreException(e, "FileDocumentProvider.resourceChanged");
+			}
+			synchronized (myInfo) {
+				if (!myInfo.isSynchronized()) {
+					return;
+				}
 			}
 
-			/**
-			 * @generated
-			 */
-			public boolean handleResourceChanged(final Resource resource) {
-				synchronized (ResourceSetInfo.this) {
-					if (ResourceSetInfo.this.fCanBeSaved) {
-						ResourceSetInfo.this.setUnSynchronized(resource);
-						return true;
+			Display.getDefault().asyncExec(new Runnable() {
+
+				public void run() {
+					if (deltaVisitor.getDeletedResources().size() > 0) {
+						// Just closing editor
+						handleElementDeleted(myInfo.getEditorInput());
+						return;
+					}
+
+					Entry diagramEntry = getDiagramResourceEntry(deltaVisitor
+							.getMovedResourcesMap());
+					if (diagramEntry != null) {
+						deltaVisitor.getMovedResourcesMap().remove(
+								diagramEntry.getKey());
+						// Setting new editor input since diagram file was
+						// renamed Could be processed together with the rest of
+						// moved resources if FileEditorInputProxy will wupport
+						// IFileEditorInput substitution
+						handleElementMoved(myInfo.getEditorInput(),
+								(IPath) diagramEntry.getKey());
+					}
+					if (deltaVisitor.getMovedResourcesMap().size() > 0) {
+						handleResourcesMoved(deltaVisitor
+								.getMovedResourcesMap());
+					}
+					if (deltaVisitor.getChangedResources().size() > 0
+							|| deltaVisitor.getMovedResourcesMap().size() > 0) {
+						// reloading changed resources + changing URIs for moved
+						// resources
+						handleResourcesChanged(myInfo, deltaVisitor
+								.getChangedResources(), null);
+					}
+					if (deltaVisitor.getMovedResourcesMap().size() > 0) {
+						// Marking whole ResourceSet as changed to preserve
+						// changes in resource URIs made by
+						// handleResourcesMoved() call
+						markWholeResourceSetAsDirty(myInfo.getResourceSet());
 					}
 				}
-				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {
-						handleElementChanged(ResourceSetInfo.this, resource,
-								null);
-					}
-				});
-				return true;
+			});
+		}
+
+		/**
+		 * @generated
+		 */
+		private Entry getDiagramResourceEntry(Map movedResources) {
+			for (Iterator it = movedResources.entrySet().iterator(); it
+					.hasNext();) {
+				Entry nextEntry = (Entry) it.next();
+				Resource nextResource = (Resource) nextEntry.getValue();
+				IFile file = WorkspaceSynchronizer.getFile(nextResource);
+				if (file != null
+						&& file.equals(myInfo.getEditorInput().getFile())) {
+					return nextEntry;
+				}
 			}
+			return null;
+		}
+
+		/**
+		 * @generated
+		 */
+		private class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 
 			/**
 			 * @generated
 			 */
-			public boolean handleResourceDeleted(Resource resource) {
-				synchronized (ResourceSetInfo.this) {
-					if (ResourceSetInfo.this.fCanBeSaved) {
-						ResourceSetInfo.this.setUnSynchronized(resource);
-						return true;
-					}
-				}
-				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {
-						fireElementDeleted(ResourceSetInfo.this
-								.getEditorInput());
-					}
-				});
-				return true;
-			}
+			private Collection myChangedResources = new ArrayList();
 
 			/**
 			 * @generated
 			 */
-			public boolean handleResourceMoved(Resource resource,
-					final URI newURI) {
-				synchronized (ResourceSetInfo.this) {
-					if (ResourceSetInfo.this.fCanBeSaved) {
-						ResourceSetInfo.this.setUnSynchronized(resource);
-						return true;
-					}
-				}
-				if (myDocument.getDiagram().eResource() == resource) {
-					Display.getDefault().asyncExec(new Runnable() {
-						public void run() {
-							handleElementMoved(ResourceSetInfo.this
-									.getEditorInput(), newURI);
+			private Map myMovedResources = new HashMap();
+
+			/**
+			 * @generated
+			 */
+			private Collection myDeletedResources = new ArrayList();
+
+			/**
+			 * Can be called from any thread
+			 * @generated
+			 */
+			public boolean visit(IResourceDelta delta) {
+				if (delta.getFlags() != IResourceDelta.MARKERS
+						&& delta.getResource().getType() == IResource.FILE) {
+					if ((delta.getKind() & (IResourceDelta.CHANGED | IResourceDelta.REMOVED)) != 0) {
+						Resource resource = myInfo.getResourceSet()
+								.getResource(
+										URI.createURI(delta.getFullPath()
+												.toString()), false);
+						if (resource != null && resource.isLoaded()) {
+							synchronized (myInfo) {
+								if (myInfo.fCanBeSaved) {
+									myInfo.setUnSynchronized(resource);
+									return false;
+								}
+							}
+							if ((delta.getKind() & IResourceDelta.REMOVED) != 0) {
+								// element could be either moved/deleted or
+								// changed.
+								if ((IResourceDelta.MOVED_TO & delta.getFlags()) != 0) {
+									IPath destination = delta.getMovedToPath();
+									myMovedResources.put(destination, resource);
+								} else {
+									myDeletedResources.add(resource);
+								}
+							} else {
+								myChangedResources.add(resource);
+							}
 						}
-					});
-				} else {
-					handleResourceDeleted(resource);
+					}
 				}
+
 				return true;
 			}
 
+			/**
+			 * @generated
+			 */
+			public Collection getChangedResources() {
+				return myChangedResources;
+			}
+
+			/**
+			 * @generated
+			 */
+			public Collection getDeletedResources() {
+				return myDeletedResources;
+			}
+
+			/**
+			 * @generated
+			 */
+			public Map getMovedResourcesMap() {
+				return myMovedResources;
+			}
 		}
 
 	}
@@ -958,8 +924,7 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 			if (notification.getNotifier() instanceof ResourceSet) {
 				super.notifyChanged(notification);
 			}
-			if (!notification.isTouch()
-					&& myModifiedFilter.matches(notification)) {
+			if (myModifiedFilter.matches(notification)) {
 				if (notification.getNotifier() instanceof Resource) {
 					Resource resource = (Resource) notification.getNotifier();
 					if (resource.isLoaded()) {
@@ -985,142 +950,15 @@ public class GoalmodelDocumentProvider extends AbstractDocumentProvider
 						if (dirtyStateChanged) {
 							fireElementDirtyStateChanged(myInfo
 									.getEditorInput(), modified);
-
 							if (!modified) {
 								myInfo
 										.setModificationStamp(computeModificationStamp(myInfo));
 							}
 						}
 					}
+
 				}
 			}
-		}
-
-	}
-
-	// not generated begins here
-	private boolean molhado_on = Boolean.parseBoolean(System
-			.getProperty("molhado.on")); //false if value not "true".
-
-	/**
-	 * @generated NOT
-	 */
-	protected void doSaveDocument(IProgressMonitor monitor, Object element,	IDocument document, boolean overwrite) throws CoreException {
-		ResourceSetInfo info = getResourceSetInfo(element);
-		if (info != null) {
-			if (!overwrite && !info.isSynchronized()) {
-				throw new CoreException(
-						new Status(
-								IStatus.ERROR,
-								GoalmodelDiagramEditorPlugin.ID,
-								IResourceStatus.OUT_OF_SYNC_LOCAL,
-								Messages.GoalmodelDocumentProvider_UnsynchronizedFileSaveError,
-								null));
-			}
-			info.stopResourceListening();
-			fireElementStateChanging(element);
-			List resources = info.getResourceSet().getResources();
-			MolhadoActions ma = new MolhadoActions(); //added by nernst
-			try {
-				monitor.beginTask(
-						Messages.GoalmodelDocumentProvider_SaveDiagramTask,
-						resources.size() + 1); //"Saving diagram"
-				for (Iterator it = resources.iterator(); it.hasNext();) {
-					Resource nextResource = (Resource) it.next();
-					monitor.setTaskName(NLS.bind(Messages.GoalmodelDocumentProvider_SaveNextResourceTask,
-											nextResource.getURI()));
-					if (nextResource.isLoaded()	&& !info.getEditingDomain().isReadOnly(nextResource)) {
-						try {
-							if (!(nextResource instanceof GMFResource)) {
-								if (molhado_on) {
-									ma.checkinCheckoutMolhado(nextResource); 
-									//System.err.println(nextResource);	
-								}
-							}
-							nextResource.save(GoalmodelDiagramEditorUtil
-									.getSaveOptions());
-						} catch (IOException e) {
-							fireElementStateChangeFailed(element);
-							throw new CoreException(new Status(IStatus.ERROR,
-									GoalmodelDiagramEditorPlugin.ID,
-									EditorStatusCodes.RESOURCE_FAILURE, e
-											.getLocalizedMessage(), null));
-						}
-					}
-					monitor.worked(1);
-				}
-				monitor.done();
-				info.setModificationStamp(computeModificationStamp(info));
-			} catch (RuntimeException x) {
-				fireElementStateChangeFailed(element);
-				throw x;
-			} finally {
-				info.startResourceListening();
-			}
-		} else {
-			URI newResoruceURI;
-			List affectedFiles = null;
-			if (element instanceof FileEditorInput) {
-				IFile newFile = ((FileEditorInput) element).getFile();
-				affectedFiles = Collections.singletonList(newFile);
-				newResoruceURI = URI.createPlatformResourceURI(newFile
-						.getFullPath().toString(), true);
-			} else if (element instanceof URIEditorInput) {
-				newResoruceURI = ((URIEditorInput) element).getURI();
-			} else {
-				fireElementStateChangeFailed(element);
-				throw new CoreException(
-						new Status(
-								IStatus.ERROR,
-								GoalmodelDiagramEditorPlugin.ID,
-								0,
-								NLS
-										.bind(
-												Messages.GoalmodelDocumentProvider_IncorrectInputError,
-												new Object[] {
-														element,
-														"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
-								null));
-			}
-			if (false == document instanceof IDiagramDocument) {
-				fireElementStateChangeFailed(element);
-				throw new CoreException(
-						new Status(
-								IStatus.ERROR,
-								GoalmodelDiagramEditorPlugin.ID,
-								0,
-								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
-			}
-			IDiagramDocument diagramDocument = (IDiagramDocument) document;
-			final Resource newResource = diagramDocument.getEditingDomain()
-					.getResourceSet().createResource(newResoruceURI);
-			final Diagram diagramCopy = (Diagram) EcoreUtil
-					.copy(diagramDocument.getDiagram());
-			try {
-				new AbstractTransactionalCommand(diagramDocument
-						.getEditingDomain(), NLS.bind(
-						Messages.GoalmodelDocumentProvider_SaveAsOperation,
-						diagramCopy.getName()), affectedFiles) {
-					protected CommandResult doExecuteWithResult(
-							IProgressMonitor monitor, IAdaptable info)
-							throws ExecutionException {
-						newResource.getContents().add(diagramCopy);
-						return CommandResult.newOKCommandResult();
-					}
-				}.execute(monitor, null);
-				newResource.save(GoalmodelDiagramEditorUtil.getSaveOptions());
-			} catch (ExecutionException e) {
-				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR,
-						GoalmodelDiagramEditorPlugin.ID, 0, e
-								.getLocalizedMessage(), null));
-			} catch (IOException e) {
-				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR,
-						GoalmodelDiagramEditorPlugin.ID, 0, e
-								.getLocalizedMessage(), null));
-			}
-			newResource.unload();
 		}
 	}
 

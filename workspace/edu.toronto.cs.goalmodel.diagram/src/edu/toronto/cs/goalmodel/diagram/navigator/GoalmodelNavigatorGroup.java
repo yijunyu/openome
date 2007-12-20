@@ -78,20 +78,13 @@ public class GoalmodelNavigatorGroup extends GoalmodelAbstractNavigatorItem {
 	 * @generated
 	 */
 	public boolean equals(Object obj) {
-		if (obj instanceof edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorGroup) {
-			edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorGroup anotherGroup = (edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorGroup) obj;
+		if (obj instanceof GoalmodelNavigatorGroup) {
+			GoalmodelNavigatorGroup anotherGroup = (GoalmodelNavigatorGroup) obj;
 			if (getGroupName().equals(anotherGroup.getGroupName())) {
 				return getParent().equals(anotherGroup.getParent());
 			}
 		}
 		return super.equals(obj);
-	}
-
-	/**
-	 * @generated
-	 */
-	public int hashCode() {
-		return getGroupName().hashCode();
 	}
 
 }

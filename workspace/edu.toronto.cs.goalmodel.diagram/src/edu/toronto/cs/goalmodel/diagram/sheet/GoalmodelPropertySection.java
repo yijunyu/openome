@@ -3,19 +3,24 @@ package edu.toronto.cs.goalmodel.diagram.sheet;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AdvancedPropertySection;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+
+import org.eclipse.emf.transaction.util.TransactionUtil;
+
+import org.eclipse.gef.EditPart;
+
+import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AdvancedPropertySection;
+
+import org.eclipse.gmf.runtime.notation.View;
+
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
@@ -48,18 +53,10 @@ public class GoalmodelPropertySection extends AdvancedPropertySection implements
 	}
 
 	/**
-	 * @generated
-	 */
-	protected IPropertySourceProvider getPropertySourceProvider() {
-		return this;
-	}
-
-	/**
-	 * Modify/unwrap selection.
+	 * Modify/unwrap selection.  
 	 * @generated
 	 */
 	protected Object transformSelection(Object selected) {
-
 		if (selected instanceof EditPart) {
 			Object model = ((EditPart) selected).getModel();
 			return model instanceof View ? ((View) model).getElement() : null;
@@ -74,6 +71,13 @@ public class GoalmodelPropertySection extends AdvancedPropertySection implements
 			}
 		}
 		return selected;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IPropertySourceProvider getPropertySourceProvider() {
+		return this;
 	}
 
 	/**
@@ -113,5 +117,4 @@ public class GoalmodelPropertySection extends AdvancedPropertySection implements
 		}
 		return null;
 	}
-
 }

@@ -1,14 +1,12 @@
 package edu.toronto.cs.goalmodel.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
@@ -42,28 +40,6 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel6EditPart) {
-			((WrapLabel6EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureBreakLabel());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -71,16 +47,9 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart {
 	 * 
 	 * @generated
 	 */
-
 	protected Connection createConnectionFigure() {
-		return new BreakContributionFigure();
-	}
 
-	/**
-	 * @generated
-	 */
-	public BreakContributionFigure getPrimaryShape() {
-		return (BreakContributionFigure) getFigure();
+		return new BreakContributionFigure();
 	}
 
 	/**
@@ -91,30 +60,17 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBreakLabel;
-
-		/**
-		 * @generated
-		 */
 		public BreakContributionFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
 			this.setLineWidth(2);
+			this.setLineStyle(Graphics.LINE_SOLID);
 
-			this.setFont(THIS_FONT);
+			this.setFont(BreakContributionFigure_FONT);
 
-			createContents();
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureBreakLabel = new WrapLabel();
-			fFigureBreakLabel.setText("--");
-
-			this.add(fFigureBreakLabel);
-
 		}
 
 		/**
@@ -126,19 +82,12 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart {
 			return df;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureBreakLabel() {
-			return fFigureBreakLabel;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), "Courier New",
-			9, SWT.NORMAL);
+	static final Font BreakContributionFigure_FONT = new Font(Display
+			.getCurrent(), "Courier New", 9, org.eclipse.swt.SWT.NORMAL);
 
 }

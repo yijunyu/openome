@@ -1,33 +1,31 @@
 package edu.toronto.cs.goalmodel.diagram.navigator;
 
-import java.util.Iterator;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
+
+import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditor;
+import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin;
+import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.common.ui.URIEditorInput;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditorInput;
+
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
+
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
+
 import org.eclipse.ui.navigator.CommonActionProvider;
 import org.eclipse.ui.navigator.ICommonActionConstants;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
-import org.eclipse.ui.part.FileEditorInput;
-
-import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditor;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.part.Messages;
 
 /**
  * @generated
@@ -105,7 +103,7 @@ public class GoalmodelNavigatorActionProvider extends CommonActionProvider {
 		 * @generated
 		 */
 		public OpenDiagramAction(ICommonViewerWorkbenchSite viewerSite) {
-			super(Messages.NavigatorActionProvider_OpenDiagramActionName);
+			super("Open Diagram");
 			myViewerSite = viewerSite;
 		}
 
@@ -138,40 +136,17 @@ public class GoalmodelNavigatorActionProvider extends CommonActionProvider {
 		 * @generated
 		 */
 		public void run() {
-			if (myDiagram == null || myDiagram.eResource() == null) {
+			if (myDiagram == null) {
 				return;
 			}
-
-			IEditorInput editorInput = getEditorInput();
+			DiagramEditorInput editorInput = new DiagramEditorInput(myDiagram);
 			IWorkbenchPage page = myViewerSite.getPage();
 			try {
 				page.openEditor(editorInput, GoalmodelDiagramEditor.ID);
 			} catch (PartInitException e) {
 				GoalmodelDiagramEditorPlugin.getInstance().logError(
-						"Exception while openning diagram", e); //$NON-NLS-1$
+						"Exception while openning diagram", e);
 			}
-		}
-
-		/**
-		 * @generated
-		 */
-		private IEditorInput getEditorInput() {
-			for (Iterator it = myDiagram.eResource().getContents().iterator(); it
-					.hasNext();) {
-				EObject nextEObject = (EObject) it.next();
-				if (nextEObject == myDiagram) {
-					return new FileEditorInput(WorkspaceSynchronizer
-							.getFile(myDiagram.eResource()));
-				}
-				if (nextEObject instanceof Diagram) {
-					break;
-				}
-			}
-			URI uri = EcoreUtil.getURI(myDiagram);
-			String editorName = uri.lastSegment()
-					+ "#" + myDiagram.eResource().getContents().indexOf(myDiagram); //$NON-NLS-1$
-			IEditorInput editorInput = new URIEditorInput(uri, editorName);
-			return editorInput;
 		}
 
 	}

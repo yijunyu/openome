@@ -1,9 +1,8 @@
 package edu.toronto.cs.goalmodel.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -14,12 +13,11 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.ActorActorCompartmentCanonicalEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.edit.policies.ActorActorCompartmentItemSemanticEditPolicy;
-import edu.toronto.cs.goalmodel.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class ActorActorCompartmentEditPart extends ListCompartmentEditPart {
+public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -36,15 +34,8 @@ public class ActorActorCompartmentEditPart extends ListCompartmentEditPart {
 	/**
 	 * @generated
 	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
 	public String getCompartmentName() {
-		return Messages.ActorActorCompartmentEditPart_title;
+		return "ActorCompartment";
 	}
 
 	/**
@@ -82,5 +73,4 @@ public class ActorActorCompartmentEditPart extends ListCompartmentEditPart {
 			super.setRatio(ratio);
 		}
 	}
-
 }

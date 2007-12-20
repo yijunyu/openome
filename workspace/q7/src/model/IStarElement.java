@@ -42,7 +42,7 @@ public class IStarElement implements Comparable {
 	public void setSoftGoal() {
 		isSoftGoal = true;
 	}
-	String getType(String n) {
+	public String getType(String n) {
 		/* special patterns */
 		if (n == null) return null;
 		String name = n;

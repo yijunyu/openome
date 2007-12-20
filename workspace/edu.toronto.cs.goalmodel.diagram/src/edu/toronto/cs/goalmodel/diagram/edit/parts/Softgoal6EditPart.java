@@ -29,7 +29,7 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2018;
+	public static final int VISUAL_ID = 1007;
 
 	/**
 	 * @generated
@@ -52,13 +52,11 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new Softgoal6ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -156,6 +154,7 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -213,12 +212,6 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class SoftGoalSVGFigure extends goalmodel.figures.SoftGoalSVGFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureSoftgoalNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -232,11 +225,31 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureSoftgoalNameFigure = new WrapLabel();
-			fFigureSoftgoalNameFigure.setText("");
+			WrapLabel softgoalNameFigure0 = new WrapLabel();
+			softgoalNameFigure0.setText("");
 
-			this.add(fFigureSoftgoalNameFigure);
+			this.add(softgoalNameFigure0);
+			setFigureSoftgoalNameFigure(softgoalNameFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fSoftgoalNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureSoftgoalNameFigure() {
+			return fSoftgoalNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureSoftgoalNameFigure(WrapLabel fig) {
+			fSoftgoalNameFigure = fig;
 		}
 
 		/**
@@ -256,13 +269,6 @@ public class Softgoal6EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureSoftgoalNameFigure() {
-			return fFigureSoftgoalNameFigure;
 		}
 
 	}

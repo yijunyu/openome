@@ -29,7 +29,7 @@ public class Task3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2012;
 
 	/**
 	 * @generated
@@ -52,13 +52,11 @@ public class Task3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new Task3ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -156,6 +154,7 @@ public class Task3EditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -213,12 +212,6 @@ public class Task3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class TaskSVGFigure extends goalmodel.figures.TaskSVGFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureTaskNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -232,11 +225,31 @@ public class Task3EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureTaskNameFigure = new WrapLabel();
-			fFigureTaskNameFigure.setText("");
+			WrapLabel taskNameFigure0 = new WrapLabel();
+			taskNameFigure0.setText("");
 
-			this.add(fFigureTaskNameFigure);
+			this.add(taskNameFigure0);
+			setFigureTaskNameFigure(taskNameFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fTaskNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureTaskNameFigure() {
+			return fTaskNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureTaskNameFigure(WrapLabel fig) {
+			fTaskNameFigure = fig;
 		}
 
 		/**
@@ -256,13 +269,6 @@ public class Task3EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureTaskNameFigure() {
-			return fFigureTaskNameFigure;
 		}
 
 	}

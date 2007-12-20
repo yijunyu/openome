@@ -1,15 +1,26 @@
 package edu.toronto.cs.goalmodel.diagram.view.factories;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.notation.View;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
-import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
 public class ResourceName2ViewFactory extends BasicNodeViewFactory {
+
+	/**
+	 * @generated
+	 */
+	protected void decorateView(View containerView, View view,
+			IAdaptable semanticAdapter, String semanticHint, int index,
+			boolean persisted) {
+		super.decorateView(containerView, view, semanticAdapter, semanticHint,
+				index, persisted);
+	}
 
 	/**
 	 * @generated

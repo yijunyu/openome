@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
@@ -43,160 +42,6 @@ public class GoalmodelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	private static Set KNOWN_ELEMENT_TYPES;
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType Model_79 = getElementType("edu.toronto.cs.goalmodel.diagram.Model_79"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Actor_1001 = getElementType("edu.toronto.cs.goalmodel.diagram.Actor_1001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Agent_1002 = getElementType("edu.toronto.cs.goalmodel.diagram.Agent_1002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Position_1003 = getElementType("edu.toronto.cs.goalmodel.diagram.Position_1003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Role_1004 = getElementType("edu.toronto.cs.goalmodel.diagram.Role_1004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Aspect_1005 = getElementType("edu.toronto.cs.goalmodel.diagram.Aspect_1005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_1006 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_1006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_1007 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_1007"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_1008 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_1008"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_1009 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_1009"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_2001 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2002 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2003 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2004 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_2005 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2006 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2007 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2007"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2008 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2008"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_2009 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2009"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2010 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2010"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2011 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2011"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2012 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2012"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_2013 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2013"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2014 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2014"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2015 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2015"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2016 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2016"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Goal_2017 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2017"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2018 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2018"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2019 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2019"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2020 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2020"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Dependency_3001 = getElementType("edu.toronto.cs.goalmodel.diagram.Dependency_3001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType AndDecomposition_3002 = getElementType("edu.toronto.cs.goalmodel.diagram.AndDecomposition_3002"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType OrDecomposition_3003 = getElementType("edu.toronto.cs.goalmodel.diagram.OrDecomposition_3003"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType MakeContribution_3004 = getElementType("edu.toronto.cs.goalmodel.diagram.MakeContribution_3004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType HelpContribution_3005 = getElementType("edu.toronto.cs.goalmodel.diagram.HelpContribution_3005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType HurtContribution_3006 = getElementType("edu.toronto.cs.goalmodel.diagram.HurtContribution_3006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType BreakContribution_3007 = getElementType("edu.toronto.cs.goalmodel.diagram.BreakContribution_3007"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -217,15 +62,7 @@ public class GoalmodelElementTypes extends ElementInitializers {
 	private static ImageDescriptor getProvidedImageDescriptor(
 			ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
-			EStructuralFeature feature = ((EStructuralFeature) element);
-			EClass eContainingClass = feature.getEContainingClass();
-			EClassifier eType = feature.getEType();
-			if (eContainingClass != null && !eContainingClass.isAbstract()) {
-				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
-				element = eType;
-			}
+			element = ((EStructuralFeature) element).getEContainingClass();
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
@@ -405,9 +242,199 @@ public class GoalmodelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Model_79 = getElementType("edu.toronto.cs.goalmodel.diagram.Model_79"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Actor_1001 = getElementType("edu.toronto.cs.goalmodel.diagram.Actor_1001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Agent_1002 = getElementType("edu.toronto.cs.goalmodel.diagram.Agent_1002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Position_1003 = getElementType("edu.toronto.cs.goalmodel.diagram.Position_1003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Role_1004 = getElementType("edu.toronto.cs.goalmodel.diagram.Role_1004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Aspect_1005 = getElementType("edu.toronto.cs.goalmodel.diagram.Aspect_1005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_1006 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_1006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_1007 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_1007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_1008 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_1008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_1009 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_1009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_2001 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_2002 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_2003 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_2004 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_2005 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_2006 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_2007 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_2008 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_2009 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_2010 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_2011 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2011"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_2012 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_2013 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_2014 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2014"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_2015 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2015"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_2016 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2016"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Goal_2017 = getElementType("edu.toronto.cs.goalmodel.diagram.Goal_2017"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Softgoal_2018 = getElementType("edu.toronto.cs.goalmodel.diagram.Softgoal_2018"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Resource_2019 = getElementType("edu.toronto.cs.goalmodel.diagram.Resource_2019"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_2020 = getElementType("edu.toronto.cs.goalmodel.diagram.Task_2020"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Dependency_3001 = getElementType("edu.toronto.cs.goalmodel.diagram.Dependency_3001"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AndDecomposition_3002 = getElementType("edu.toronto.cs.goalmodel.diagram.AndDecomposition_3002"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OrDecomposition_3003 = getElementType("edu.toronto.cs.goalmodel.diagram.OrDecomposition_3003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MakeContribution_3004 = getElementType("edu.toronto.cs.goalmodel.diagram.MakeContribution_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HelpContribution_3005 = getElementType("edu.toronto.cs.goalmodel.diagram.HelpContribution_3005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HurtContribution_3006 = getElementType("edu.toronto.cs.goalmodel.diagram.HurtContribution_3006"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BreakContribution_3007 = getElementType("edu.toronto.cs.goalmodel.diagram.BreakContribution_3007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static IElementType getElementType(String id) {
 		return ElementTypeRegistry.getInstance().getType(id);
 	}
+
+	/**
+	 * @generated
+	 */
+	private static Set KNOWN_ELEMENT_TYPES;
 
 	/**
 	 * @generated
@@ -455,5 +482,4 @@ public class GoalmodelElementTypes extends ElementInitializers {
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
-
 }

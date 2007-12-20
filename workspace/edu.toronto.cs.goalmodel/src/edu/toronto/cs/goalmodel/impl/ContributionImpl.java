@@ -45,7 +45,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention target;
+	protected Intention target= null;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -55,7 +55,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention source;
+	protected Intention source= null;
 
 	/**
 	 * <!-- begin-user-doc -->

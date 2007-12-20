@@ -8,8 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -20,15 +18,16 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
-
-import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.AgentEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.AspectEditPart;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.AgentAgentCompartmentEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.AspectAspectCompartmentEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.PositionEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.RoleEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.PositionPositionCompartmentEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.RoleRoleCompartmentEditPart;
+
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin;
-import edu.toronto.cs.goalmodel.diagram.part.Messages;
 
 /**
  * @generated
@@ -42,7 +41,7 @@ public class GoalmodelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof ActorEditPart) {
+		if (editPart instanceof ActorActorCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(GoalmodelElementTypes.Goal_2001);
 			types.add(GoalmodelElementTypes.Softgoal_2002);
@@ -50,7 +49,7 @@ public class GoalmodelModelingAssistantProvider extends
 			types.add(GoalmodelElementTypes.Task_2004);
 			return types;
 		}
-		if (editPart instanceof AgentEditPart) {
+		if (editPart instanceof AgentAgentCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(GoalmodelElementTypes.Goal_2005);
 			types.add(GoalmodelElementTypes.Softgoal_2006);
@@ -58,7 +57,7 @@ public class GoalmodelModelingAssistantProvider extends
 			types.add(GoalmodelElementTypes.Task_2008);
 			return types;
 		}
-		if (editPart instanceof PositionEditPart) {
+		if (editPart instanceof PositionPositionCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(GoalmodelElementTypes.Goal_2009);
 			types.add(GoalmodelElementTypes.Softgoal_2010);
@@ -66,7 +65,7 @@ public class GoalmodelModelingAssistantProvider extends
 			types.add(GoalmodelElementTypes.Task_2012);
 			return types;
 		}
-		if (editPart instanceof RoleEditPart) {
+		if (editPart instanceof RoleRoleCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(GoalmodelElementTypes.Goal_2013);
 			types.add(GoalmodelElementTypes.Softgoal_2014);
@@ -74,7 +73,7 @@ public class GoalmodelModelingAssistantProvider extends
 			types.add(GoalmodelElementTypes.Task_2016);
 			return types;
 		}
-		if (editPart instanceof AspectEditPart) {
+		if (editPart instanceof AspectAspectCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(GoalmodelElementTypes.Goal_2017);
 			types.add(GoalmodelElementTypes.Softgoal_2018);
@@ -102,8 +101,6 @@ public class GoalmodelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -111,8 +108,6 @@ public class GoalmodelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -121,10 +116,6 @@ public class GoalmodelModelingAssistantProvider extends
 	 */
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -133,8 +124,6 @@ public class GoalmodelModelingAssistantProvider extends
 	 */
 	public List getTypesForSource(IAdaptable target,
 			IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -143,8 +132,6 @@ public class GoalmodelModelingAssistantProvider extends
 	 */
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -212,8 +199,8 @@ public class GoalmodelModelingAssistantProvider extends
 						.getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, labelProvider);
-		dialog.setMessage(Messages.GoalmodelModelingAssistantProviderMessage);
-		dialog.setTitle(Messages.GoalmodelModelingAssistantProviderTitle);
+		dialog.setMessage("Available domain model elements:");
+		dialog.setTitle("Select domain model element");
 		dialog.setMultipleSelection(false);
 		dialog.setElements(elements);
 		EObject selected = null;

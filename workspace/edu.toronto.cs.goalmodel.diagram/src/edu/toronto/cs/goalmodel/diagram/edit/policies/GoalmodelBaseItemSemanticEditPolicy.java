@@ -1,17 +1,10 @@
 package edu.toronto.cs.goalmodel.diagram.edit.policies;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.EditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
-import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -19,7 +12,6 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.SemanticEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IEditHelperContext;
@@ -37,59 +29,16 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.MoveRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
-import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
-
 import edu.toronto.cs.goalmodel.Intention;
 import edu.toronto.cs.goalmodel.Model;
+
 import edu.toronto.cs.goalmodel.diagram.edit.helpers.GoalmodelBaseEditHelper;
-import edu.toronto.cs.goalmodel.diagram.expressions.GoalmodelAbstractExpression;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
 
 /**
  * @generated
  */
 public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
-
-	/**
-	 * Extended request data key to hold editpart visual id.
-	 * 
-	 * @generated
-	 */
-	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
-
-	/**
-	 * Extended request data key to hold editpart visual id.
-	 * Add visual id of edited editpart to extended data of the request
-	 * so command switch can decide what kind of diagram element is being edited.
-	 * It is done in those cases when it's not possible to deduce diagram
-	 * element kind from domain element.
-	 * 
-	 * @generated
-	 */
-	public Command getCommand(Request request) {
-		if (request instanceof ReconnectRequest) {
-			Object view = ((ReconnectRequest) request).getConnectionEditPart()
-					.getModel();
-			if (view instanceof View) {
-				Integer id = new Integer(GoalmodelVisualIDRegistry
-						.getVisualID((View) view));
-				request.getExtendedData().put(VISUAL_ID_KEY, id);
-			}
-		}
-		return super.getCommand(request);
-	}
-
-	/**
-	 * Returns visual id from request parameters.
-	 * 
-	 * @generated
-	 */
-	protected int getVisualID(IEditCommandRequest request) {
-		Object id = request.getParameter(VISUAL_ID_KEY);
-		return id instanceof Integer ? ((Integer) id).intValue() : -1;
-	}
 
 	/**
 	 * @generated
@@ -113,14 +62,15 @@ public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				"org.eclipse.gmf.runtime.emf.type.core.default")) { //$NON-NLS-1$ 
 			elementType = null;
 		}
-		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (semanticCommand != null) {
-			ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
+		Command epCommand = getSemanticCommandSwitch(completedRequest);
+		if (epCommand != null) {
+			ICommand command = epCommand instanceof ICommandProxy ? ((ICommandProxy) epCommand)
 					.getICommand()
-					: new CommandProxy(semanticCommand);
+					: new CommandProxy(epCommand);
 			completedRequest.setParameter(
 					GoalmodelBaseEditHelper.EDIT_POLICY_COMMAND, command);
 		}
+		Command ehCommand = null;
 		if (elementType != null) {
 			ICommand command = elementType.getEditCommand(completedRequest);
 			if (command != null) {
@@ -130,7 +80,7 @@ public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 					command = new CompositeTransactionalCommand(editingDomain,
 							null).compose(command);
 				}
-				semanticCommand = new ICommandProxy(command);
+				ehCommand = new ICommandProxy(command);
 			}
 		}
 		boolean shouldProceed = true;
@@ -144,10 +94,10 @@ public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				Command deleteViewCommand = new ICommandProxy(
 						new DeleteCommand(editingDomain, (View) getHost()
 								.getModel()));
-				semanticCommand = semanticCommand == null ? deleteViewCommand
-						: semanticCommand.chain(deleteViewCommand);
+				ehCommand = ehCommand == null ? deleteViewCommand : ehCommand
+						.chain(deleteViewCommand);
 			}
-			return semanticCommand;
+			return ehCommand;
 		}
 		return null;
 	}
@@ -264,17 +214,8 @@ public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected final Command getGEFWrapper(ICommand cmd) {
+	protected Command getMSLWrapper(ICommand cmd) {
 		return new ICommandProxy(cmd);
-	}
-
-	/**
-	 * @deprecated use getGEFWrapper() instead
-	 * @generated
-	 */
-	protected final Command getMSLWrapper(ICommand cmd) {
-		// XXX deprecated: use getGEFWrapper() instead
-		return getGEFWrapper(cmd);
 	}
 
 	/**
@@ -285,205 +226,88 @@ public class GoalmodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 	}
 
 	/**
-	 * Returns editing domain from the host edit part.
+	 * Finds container element for the new relationship of the specified type.
+	 * Default implementation goes up by containment hierarchy starting from
+	 * the specified element and returns the first element that is instance of
+	 * the specified container class.
 	 * 
 	 * @generated
 	 */
-	protected TransactionalEditingDomain getEditingDomain() {
-		return ((IGraphicalEditPart) getHost()).getEditingDomain();
-	}
-
-	/**
-	 * Creates command to destroy the link.
-	 * 
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(View view) {
-		EditPart editPart = (EditPart) getHost().getViewer()
-				.getEditPartRegistry().get(view);
-		DestroyElementRequest request = new DestroyElementRequest(
-				getEditingDomain(), false);
-		return editPart.getCommand(new EditCommandRequestWrapper(request,
-				Collections.EMPTY_MAP));
-	}
-
-	/**
-	 * Creates commands to destroy all host incoming and outgoing links.
-	 * 
-	 * @generated
-	 */
-	protected CompoundCommand getDestroyEdgesCommand() {
-		CompoundCommand cmd = new CompoundCommand();
-		View view = (View) getHost().getModel();
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		return cmd;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addDestroyShortcutsCommand(CompoundCommand command) {
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return;
-		}
-		for (Iterator it = view.getDiagram().getChildren().iterator(); it
-				.hasNext();) {
-			View nextView = (View) it.next();
-			if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
-				continue;
+	protected EObject getRelationshipContainer(EObject element,
+			EClass containerClass, IElementType relationshipType) {
+		for (; element != null; element = element.eContainer()) {
+			if (containerClass.isSuperTypeOf(element.eClass())) {
+				return element;
 			}
-			command.add(getDestroyElementCommand(nextView));
 		}
+		return null;
 	}
 
 	/**
-	 * @generated
+	 * @generated 
 	 */
-	public static class LinkConstraints {
+	protected static class LinkConstraints {
+
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateDependency_3001(Model container,
 				Intention source, Intention target) {
-			return canExistDependency_3001(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateAndDecomposition_3002(Model container,
 				Intention source, Intention target) {
-			return canExistAndDecomposition_3002(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateOrDecomposition_3003(Model container,
 				Intention source, Intention target) {
-			return canExistOrDecomposition_3003(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateMakeContribution_3004(Model container,
 				Intention source, Intention target) {
-			return canExistMakeContribution_3004(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateHelpContribution_3005(Model container,
 				Intention source, Intention target) {
-			return canExistHelpContribution_3005(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateHurtContribution_3006(Model container,
 				Intention source, Intention target) {
-			return canExistHurtContribution_3006(container, source, target);
+			return true;
 		}
 
 		/**
-		 * @generated
+		 * @generated 
 		 */
 		public static boolean canCreateBreakContribution_3007(Model container,
 				Intention source, Intention target) {
-			return canExistBreakContribution_3007(container, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistDependency_3001(Model container,
-				Intention source, Intention target) {
 			return true;
 		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistAndDecomposition_3002(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistOrDecomposition_3003(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistMakeContribution_3004(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistHelpContribution_3005(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistHurtContribution_3006(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public static boolean canExistBreakContribution_3007(Model container,
-				Intention source, Intention target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		private static boolean evaluate(GoalmodelAbstractExpression constraint,
-				Object sourceEnd, Object oppositeEnd, boolean clearEnv) {
-			if (sourceEnd == null) {
-				return true;
-			}
-			Map evalEnv = Collections.singletonMap(OPPOSITE_END_VAR,
-					oppositeEnd);
-			try {
-				Object val = constraint.evaluate(sourceEnd, evalEnv);
-				return (val instanceof Boolean) ? ((Boolean) val)
-						.booleanValue() : false;
-			} catch (Exception e) {
-				GoalmodelDiagramEditorPlugin.getInstance().logError(
-						"Link constraint evaluation error", e); //$NON-NLS-1$
-				return false;
-			}
-		}
-
 	}
 
 }

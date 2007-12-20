@@ -1,46 +1,57 @@
 package edu.toronto.cs.goalmodel.diagram.part;
 
+import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.ui.URIEditorInput;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
-import org.eclipse.gef.palette.PaletteRoot;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import org.eclipse.emf.transaction.NotificationFilter;
+
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
+
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
+
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
-import org.eclipse.gmf.runtime.notation.Diagram;
+
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDiagramDocumentProvider;
+
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
+
 import org.eclipse.jface.window.Window;
+
 import org.eclipse.osgi.util.NLS;
+
 import org.eclipse.swt.widgets.Shell;
+
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.SaveAsDialog;
-import org.eclipse.ui.ide.IGotoMarker;
-import org.eclipse.ui.navigator.resources.ProjectExplorer;
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.IShowInTargetList;
-import org.eclipse.ui.part.ShowInContext;
 
-import edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem;
+import org.eclipse.ui.dialogs.SaveAsDialog;
+
+import org.eclipse.ui.ide.IGotoMarker;
+
+import org.eclipse.ui.part.FileEditorInput;
 
 /**
  * @generated
@@ -56,11 +67,6 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
-	public static final String CONTEXT_ID = "edu.toronto.cs.goalmodel.diagram.ui.diagramContext"; //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public GoalmodelDiagramEditor() {
 		super(true);
 	}
@@ -68,8 +74,51 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
-	protected String getContextID() {
-		return CONTEXT_ID;
+	protected String getEditingDomainID() {
+		return "edu.toronto.cs.goalmodel.diagram.EditingDomain"; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	protected TransactionalEditingDomain createEditingDomain() {
+		TransactionalEditingDomain domain = super.createEditingDomain();
+		domain.setID(getEditingDomainID());
+		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
+				.createNotifierFilter(domain.getResourceSet()).and(
+						NotificationFilter
+								.createEventTypeFilter(Notification.ADD)).and(
+						NotificationFilter.createFeatureFilter(
+								ResourceSet.class,
+								ResourceSet.RESOURCE_SET__RESOURCES));
+		domain.getResourceSet().eAdapters().add(new Adapter() {
+
+			private Notifier myTarger;
+
+			public Notifier getTarget() {
+				return myTarger;
+			}
+
+			public boolean isAdapterForType(Object type) {
+				return false;
+			}
+
+			public void notifyChanged(Notification notification) {
+				if (diagramResourceModifiedFilter.matches(notification)) {
+					Object value = notification.getNewValue();
+					if (value instanceof Resource) {
+						((Resource) value).setTrackingModification(true);
+					}
+				}
+			}
+
+			public void setTarget(Notifier newTarget) {
+				myTarger = newTarget;
+			}
+
+		});
+
+		return domain;
 	}
 
 	/**
@@ -98,51 +147,16 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
-	public Object getAdapter(Class type) {
-		if (type == IShowInTargetList.class) {
-			return new IShowInTargetList() {
-				public String[] getShowInTargetIds() {
-					return new String[] { ProjectExplorer.VIEW_ID };
-				}
-			};
-		}
-		return super.getAdapter(type);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
-		if (input instanceof IFileEditorInput
-				|| input instanceof URIEditorInput) {
-			return GoalmodelDiagramEditorPlugin.getInstance()
-					.getDocumentProvider();
-		}
-		return super.getDocumentProvider(input);
-	}
-
-	/**
-	 * @generated
-	 */
-	public TransactionalEditingDomain getEditingDomain() {
-		IDocument document = getEditorInput() != null ? getDocumentProvider()
-				.getDocument(getEditorInput()) : null;
-		if (document instanceof IDiagramDocument) {
-			return ((IDiagramDocument) document).getEditingDomain();
-		}
-		return super.getEditingDomain();
-	}
+	private String contentObjectURI;
 
 	/**
 	 * @generated
 	 */
 	protected void setDocumentProvider(IEditorInput input) {
-		if (input instanceof IFileEditorInput
-				|| input instanceof URIEditorInput) {
-			setDocumentProvider(GoalmodelDiagramEditorPlugin.getInstance()
-					.getDocumentProvider());
+		if (input instanceof IFileEditorInput) {
+			setDocumentProvider(new GoalmodelDocumentProvider(contentObjectURI));
 		} else {
-			super.setDocumentProvider(input);
+			setDocumentProvider(new StorageDiagramDocumentProvider());
 		}
 	}
 
@@ -188,7 +202,7 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 		}
 		if (provider.isDeleted(input) && original != null) {
 			String message = NLS.bind(
-					Messages.GoalmodelDiagramEditor_SavingDeletedFile, original
+					"The original file ''{0}'' has been deleted.", original
 							.getName());
 			dialog.setErrorMessage(null);
 			dialog.setMessage(message, IMessageProvider.WARNING);
@@ -217,9 +231,9 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 				.getEditorReferences();
 		for (int i = 0; i < editorRefs.length; i++) {
 			if (matchingStrategy.matches(editorRefs[i], newInput)) {
-				MessageDialog.openWarning(shell,
-						Messages.GoalmodelDiagramEditor_SaveAsErrorTitle,
-						Messages.GoalmodelDiagramEditor_SaveAsErrorMessage);
+				MessageDialog
+						.openWarning(shell, "Problem During Save As...",
+								"Save could not be completed. Target file is already open in another editor.");
 				return;
 			}
 		}
@@ -233,10 +247,8 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 		} catch (CoreException x) {
 			IStatus status = x.getStatus();
 			if (status == null || status.getSeverity() != IStatus.CANCEL) {
-				ErrorDialog.openError(shell,
-						Messages.GoalmodelDiagramEditor_SaveErrorTitle,
-						Messages.GoalmodelDiagramEditor_SaveErrorMessage, x
-								.getStatus());
+				ErrorDialog.openError(shell, "Save Problems",
+						"Could not save file.", x.getStatus());
 			}
 		} finally {
 			provider.changed(newInput);
@@ -247,31 +259,6 @@ public class GoalmodelDiagramEditor extends DiagramDocumentEditor implements
 		if (progressMonitor != null) {
 			progressMonitor.setCanceled(!success);
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public ShowInContext getShowInContext() {
-		return new ShowInContext(getEditorInput(), getNavigatorSelection());
-	}
-
-	/**
-	 * @generated
-	 */
-	private ISelection getNavigatorSelection() {
-		IDiagramDocument document = getDiagramDocument();
-		if (document == null) {
-			return StructuredSelection.EMPTY;
-		}
-		Diagram diagram = document.getDiagram();
-		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
-		if (file != null) {
-			GoalmodelNavigatorItem item = new GoalmodelNavigatorItem(diagram,
-					file, false);
-			return new StructuredSelection(item);
-		}
-		return StructuredSelection.EMPTY;
 	}
 
 }

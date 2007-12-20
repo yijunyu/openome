@@ -1,24 +1,35 @@
 package edu.toronto.cs.goalmodel.diagram.part;
 
+import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
+
 import org.eclipse.core.resources.IFile;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
+
 import org.eclipse.jface.action.IAction;
+
+import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.MessageDialog;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
+
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.osgi.util.NLS;
-import org.eclipse.swt.widgets.Shell;
+import org.eclipse.jface.wizard.WizardDialog;
+
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-
-import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
 
 /**
  * @generated
@@ -28,42 +39,40 @@ public class GoalmodelInitDiagramFileAction implements IObjectActionDelegate {
 	/**
 	 * @generated
 	 */
-	private IWorkbenchPart targetPart;
+	private IWorkbenchPart myPart;
 
 	/**
 	 * @generated
 	 */
-	private URI domainModelURI;
+	private IFile mySelectedModelFile;
+
+	/**
+	 * @generated
+	 */
+	private IStructuredSelection mySelection;
 
 	/**
 	 * @generated
 	 */
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		this.targetPart = targetPart;
+		myPart = targetPart;
 	}
 
 	/**
 	 * @generated
 	 */
 	public void selectionChanged(IAction action, ISelection selection) {
-		domainModelURI = null;
+		mySelectedModelFile = null;
+		mySelection = StructuredSelection.EMPTY;
 		action.setEnabled(false);
 		if (selection instanceof IStructuredSelection == false
 				|| selection.isEmpty()) {
 			return;
 		}
-		IFile file = (IFile) ((IStructuredSelection) selection)
+		mySelection = (IStructuredSelection) selection;
+		mySelectedModelFile = (IFile) ((IStructuredSelection) selection)
 				.getFirstElement();
-		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
-				.toString(), true);
 		action.setEnabled(true);
-	}
-
-	/**
-	 * @generated
-	 */
-	private Shell getShell() {
-		return targetPart.getSite().getShell();
 	}
 
 	/**
@@ -75,28 +84,43 @@ public class GoalmodelInitDiagramFileAction implements IObjectActionDelegate {
 		ResourceSet resourceSet = editingDomain.getResourceSet();
 		EObject diagramRoot = null;
 		try {
-			Resource resource = resourceSet.getResource(domainModelURI, true);
+			Resource resource = resourceSet.getResource(URI
+					.createPlatformResourceURI(mySelectedModelFile
+							.getFullPath().toString(), true), true);
 			diagramRoot = (EObject) resource.getContents().get(0);
 		} catch (WrappedException ex) {
-			GoalmodelDiagramEditorPlugin.getInstance().logError(
-					"Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
+			GoalmodelDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"Unable to load resource: " + mySelectedModelFile.getFullPath().toString(), ex); //$NON-NLS-1$
 		}
 		if (diagramRoot == null) {
-			MessageDialog
-					.openError(
-							getShell(),
-							Messages.GoalmodelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle,
-							Messages.GoalmodelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage);
+			MessageDialog.openError(myPart.getSite().getShell(), "Error",
+					"Model file loading failed");
 			return;
 		}
-		Wizard wizard = new GoalmodelNewDiagramFileWizard(domainModelURI,
-				diagramRoot, editingDomain);
-		wizard
-				.setWindowTitle(NLS
-						.bind(
-								Messages.GoalmodelInitDiagramFileAction_InitDiagramFileWizardTitle,
-								ModelEditPart.MODEL_ID));
-		GoalmodelDiagramEditorUtil.runWizard(getShell(), wizard,
-				"InitDiagramFile"); //$NON-NLS-1$
+		Wizard wizard = new GoalmodelNewDiagramFileWizard(mySelectedModelFile,
+				myPart.getSite().getPage(), mySelection, diagramRoot,
+				editingDomain);
+		IDialogSettings pluginDialogSettings = GoalmodelDiagramEditorPlugin
+				.getInstance().getDialogSettings();
+		IDialogSettings initDiagramFileSettings = pluginDialogSettings
+				.getSection("InisDiagramFile"); //$NON-NLS-1$
+		if (initDiagramFileSettings == null) {
+			initDiagramFileSettings = pluginDialogSettings
+					.addNewSection("InisDiagramFile"); //$NON-NLS-1$
+		}
+		wizard.setDialogSettings(initDiagramFileSettings);
+		wizard.setForcePreviousAndNextButtons(false);
+		wizard.setWindowTitle("Initialize new " + ModelEditPart.MODEL_ID
+				+ " diagram file");
+
+		WizardDialog dialog = new WizardDialog(myPart.getSite().getShell(),
+				wizard);
+		dialog.create();
+		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
+				500);
+		dialog.open();
 	}
+
 }

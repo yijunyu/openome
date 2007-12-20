@@ -38,7 +38,5 @@ public class ModelEditPart extends DiagramEditPart {
 				new ModelItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new ModelCanonicalEditPolicy());
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
-
 }

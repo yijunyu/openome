@@ -1,14 +1,17 @@
 package edu.toronto.cs.goalmodel.diagram.edit.policies;
 
-import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
-import edu.toronto.cs.goalmodel.diagram.edit.commands.Goal3CreateCommand;
-import edu.toronto.cs.goalmodel.diagram.edit.commands.Resource3CreateCommand;
-import edu.toronto.cs.goalmodel.diagram.edit.commands.Softgoal3CreateCommand;
-import edu.toronto.cs.goalmodel.diagram.edit.commands.Task3CreateCommand;
+
+import edu.toronto.cs.goalmodel.diagram.edit.commands.Goal2CreateCommand;
+import edu.toronto.cs.goalmodel.diagram.edit.commands.Resource2CreateCommand;
+import edu.toronto.cs.goalmodel.diagram.edit.commands.Softgoal2CreateCommand;
+import edu.toronto.cs.goalmodel.diagram.edit.commands.Task2CreateCommand;
+
 import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
+
+import org.eclipse.gef.commands.Command;
+
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 /**
  * @generated
@@ -25,30 +28,29 @@ public class AgentAgentCompartmentItemSemanticEditPolicy extends
 				req.setContainmentFeature(GoalmodelPackage.eINSTANCE
 						.getContainer_Intentions());
 			}
-			return getGEFWrapper(new Goal3CreateCommand(req));
+			return getMSLWrapper(new Goal2CreateCommand(req));
 		}
 		if (GoalmodelElementTypes.Softgoal_2006 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(GoalmodelPackage.eINSTANCE
 						.getContainer_Intentions());
 			}
-			return getGEFWrapper(new Softgoal3CreateCommand(req));
+			return getMSLWrapper(new Softgoal2CreateCommand(req));
 		}
 		if (GoalmodelElementTypes.Resource_2007 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(GoalmodelPackage.eINSTANCE
 						.getContainer_Intentions());
 			}
-			return getGEFWrapper(new Resource3CreateCommand(req));
+			return getMSLWrapper(new Resource2CreateCommand(req));
 		}
 		if (GoalmodelElementTypes.Task_2008 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(GoalmodelPackage.eINSTANCE
 						.getContainer_Intentions());
 			}
-			return getGEFWrapper(new Task3CreateCommand(req));
+			return getMSLWrapper(new Task2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
-
 }

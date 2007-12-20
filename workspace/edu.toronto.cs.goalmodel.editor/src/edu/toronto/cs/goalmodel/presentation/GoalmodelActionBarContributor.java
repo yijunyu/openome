@@ -51,32 +51,31 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class GoalmodelActionBarContributor
-  extends EditingDomainActionBarContributor
-  implements ISelectionChangedListener
-{
+	extends EditingDomainActionBarContributor
+	implements ISelectionChangedListener {
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IEditorPart activeEditorPart;
+	protected IEditorPart activeEditorPart;
 
 	/**
 	 * This keeps track of the current selection provider.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected ISelectionProvider selectionProvider;
+	protected ISelectionProvider selectionProvider;
 
 	/**
 	 * This action opens the Properties view.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IAction showPropertiesViewAction =
+	protected IAction showPropertiesViewAction =
 		new Action(GoalmodelEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
 			public void run() {
 				try {
@@ -92,10 +91,10 @@ public class GoalmodelActionBarContributor
 	 * This action refreshes the viewer of the current editor if the editor
 	 * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IAction refreshViewerAction =
+	protected IAction refreshViewerAction =
 		new Action(GoalmodelEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
@@ -115,43 +114,43 @@ public class GoalmodelActionBarContributor
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Collection createChildActions;
+	protected Collection createChildActions;
 
 	/**
 	 * This is the menu manager into which menu contribution items should be added for CreateChild actions.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IMenuManager createChildMenuManager;
+	protected IMenuManager createChildMenuManager;
 
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Collection createSiblingActions;
+	protected Collection createSiblingActions;
 
 	/**
 	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected IMenuManager createSiblingMenuManager;
+	protected IMenuManager createSiblingMenuManager;
 
 	/**
 	 * This creates an instance of the contributor.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public GoalmodelActionBarContributor() {
+	public GoalmodelActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -161,10 +160,10 @@ public class GoalmodelActionBarContributor
 	/**
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void contributeToToolBar(IToolBarManager toolBarManager) {
+	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("goalmodel-settings"));
 		toolBarManager.add(new Separator("goalmodel-additions"));
 	}
@@ -173,10 +172,10 @@ public class GoalmodelActionBarContributor
 	 * This adds to the menu bar a menu and some separators for editor additions,
 	 * as well as the sub-menus for object creation items.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void contributeToMenu(IMenuManager menuManager) {
+	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
 		IMenuManager submenuManager = new MenuManager(GoalmodelEditorPlugin.INSTANCE.getString("_UI_GoalmodelEditor_menu"), "edu.toronto.cs.goalmodelMenuID");
@@ -211,10 +210,10 @@ public class GoalmodelActionBarContributor
 	/**
 	 * When the active editor changes, this remembers the change and registers with it as a selection provider.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void setActiveEditor(IEditorPart part) {
+	public void setActiveEditor(IEditorPart part) {
 		super.setActiveEditor(part);
 		activeEditorPart = part;
 
@@ -243,10 +242,10 @@ public class GoalmodelActionBarContributor
 	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
 	 * that can be added to the selected object and updating the menus accordingly.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void selectionChanged(SelectionChangedEvent event) {
+	public void selectionChanged(SelectionChangedEvent event) {
 		// Remove any menu items for old selection.
 		//
 		if (createChildMenuManager != null) {
@@ -290,10 +289,10 @@ public class GoalmodelActionBarContributor
 	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>,
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Collection generateCreateChildActions(Collection descriptors, ISelection selection) {
+	protected Collection generateCreateChildActions(Collection descriptors, ISelection selection) {
 		Collection actions = new ArrayList();
 		if (descriptors != null) {
 			for (Iterator i = descriptors.iterator(); i.hasNext(); ) {
@@ -307,10 +306,10 @@ public class GoalmodelActionBarContributor
 	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>,
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected Collection generateCreateSiblingActions(Collection descriptors, ISelection selection) {
+	protected Collection generateCreateSiblingActions(Collection descriptors, ISelection selection) {
 		Collection actions = new ArrayList();
 		if (descriptors != null) {
 			for (Iterator i = descriptors.iterator(); i.hasNext(); ) {
@@ -326,10 +325,10 @@ public class GoalmodelActionBarContributor
 	 * by inserting them before the specified contribution item <code>contributionID</code>.
 	 * If <code>ID</code> is <code>null</code>, they are simply added.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void populateManager(IContributionManager manager, Collection actions, String contributionID) {
+	protected void populateManager(IContributionManager manager, Collection actions, String contributionID) {
 		if (actions != null) {
 			for (Iterator i = actions.iterator(); i.hasNext(); ) {
 				IAction action = (IAction)i.next();
@@ -347,10 +346,10 @@ public class GoalmodelActionBarContributor
 	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
 	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void depopulateManager(IContributionManager manager, Collection actions) {
+	protected void depopulateManager(IContributionManager manager, Collection actions) {
 		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
 			for (int i = 0; i < items.length; i++) {
@@ -376,10 +375,10 @@ public class GoalmodelActionBarContributor
 	/**
 	 * This populates the pop-up menu before it appears.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void menuAboutToShow(IMenuManager menuManager) {
+	public void menuAboutToShow(IMenuManager menuManager) {
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
@@ -395,10 +394,10 @@ public class GoalmodelActionBarContributor
 	/**
 	 * This inserts global actions before the "additions-end" separator.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addGlobalActions(IMenuManager menuManager) {
+	protected void addGlobalActions(IMenuManager menuManager) {
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
 		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
 
@@ -411,10 +410,10 @@ public class GoalmodelActionBarContributor
 	/**
 	 * This ensures that a delete action will clean up all references to deleted objects.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected boolean removeAllReferencesOnDelete() {
+	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}
 

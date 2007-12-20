@@ -69,32 +69,6 @@
       </objectContribution>
    </extension>
    <extension
-         id="product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.ui.ide.workbench"
-            name="OpenOME">
-         <property
-               name="windowImages"
-               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png"/>
-         <property
-               name="aboutText"
-               value="The Organization Modelling Environment (OME) is a general, &#x0A;&#x0A;goal-oriented and/or agent-oriented modeling and analysis tool. &#x0A;&#x0A;It provides users with a graphical interface to develop models, &#x0A;&#x0A;and supports access to a powerful knowledge base that allows for &#x0A;&#x0A;sophisticated computer-aided analysis. This tool is intended to &#x0A;&#x0A;provide software developers with a clear link between the &#x0A;&#x0A;requirements, specification and architectural design phases of &#x0A;&#x0A;development. Attention is also being placed on this use of this tool &#x0A;&#x0A;in business process reengineering.&#x0A;&#x0A;OpenOME integrates an improved version of OME with other tools &#x0A;&#x0A;to support goal-oriented, agent-oriented and aspect-oriented &#x0A;&#x0A;requirements engineering."/>
-         <property
-               name="aboutImage"
-               value="eclipse_lg.gif"/>
-         <property
-               name="startupForegroundColor"
-               value="C8D5EA"/>
-         <property
-               name="startupProgressRect"
-               value="0,280,455,15"/>
-         <property
-               name="startupMessageRect"
-               value="7,220,441,20"/>
-      </product>
-   </extension>
-   <extension
          point="org.eclipse.ui.intro">
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
@@ -116,5 +90,45 @@
                   style="content/shared.css"/>
          </presentation>
       </config>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="OpenOME">
+         <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png">
+         </property>
+         <property
+               name="aboutText"
+               value="The Organization Modelling Environment (OME) is a general, &#x0A;&#x0A;goal-oriented and/or agent-oriented modeling and analysis tool. &#x0A;&#x0A;It provides users with a graphical interface to develop models, &#x0A;&#x0A;and supports access to a powerful knowledge base that allows for &#x0A;&#x0A;sophisticated computer-aided analysis. This tool is intended to &#x0A;&#x0A;provide software developers with a clear link between the &#x0A;&#x0A;requirements, specification and architectural design phases of &#x0A;&#x0A;development. Attention is also being placed on this use of this tool &#x0A;&#x0A;in business process reengineering.&#x0A;&#x0A;OpenOME integrates an improved version of OME with other tools &#x0A;&#x0A;to support goal-oriented, agent-oriented and aspect-oriented &#x0A;&#x0A;requirements engineering.">
+         </property>
+         <property
+               name="aboutImage"
+               value="eclipse_lg.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="C8D5EA">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,280,455,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,220,441,20">
+         </property>
+         <property
+               name="appName"
+               value="OpenOME">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
    </extension>
 </plugin>

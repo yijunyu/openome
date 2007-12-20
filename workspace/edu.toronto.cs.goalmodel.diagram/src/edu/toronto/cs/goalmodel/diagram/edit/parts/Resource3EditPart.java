@@ -29,7 +29,7 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2007;
+	public static final int VISUAL_ID = 2011;
 
 	/**
 	 * @generated
@@ -52,13 +52,11 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new Resource3ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -156,6 +154,7 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -213,12 +212,6 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class ResourceSVGFigure extends goalmodel.figures.ResourceSVGFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureResourceNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -232,11 +225,31 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureResourceNameFigure = new WrapLabel();
-			fFigureResourceNameFigure.setText("");
+			WrapLabel resourceNameFigure0 = new WrapLabel();
+			resourceNameFigure0.setText("");
 
-			this.add(fFigureResourceNameFigure);
+			this.add(resourceNameFigure0);
+			setFigureResourceNameFigure(resourceNameFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fResourceNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureResourceNameFigure() {
+			return fResourceNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureResourceNameFigure(WrapLabel fig) {
+			fResourceNameFigure = fig;
 		}
 
 		/**
@@ -256,13 +269,6 @@ public class Resource3EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureResourceNameFigure() {
-			return fFigureResourceNameFigure;
 		}
 
 	}

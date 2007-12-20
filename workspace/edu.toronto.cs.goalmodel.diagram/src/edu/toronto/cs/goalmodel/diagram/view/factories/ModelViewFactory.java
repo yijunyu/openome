@@ -3,7 +3,10 @@ package edu.toronto.cs.goalmodel.diagram.view.factories;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
+
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.DiagramViewFactory;
+
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
@@ -14,12 +17,22 @@ import org.eclipse.gmf.runtime.notation.View;
 public class ModelViewFactory extends DiagramViewFactory {
 
 	/**
-	 * @generated
+	 * @generated 
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createDiagramStyle());
+		styles.add(NotationFactory.eINSTANCE.createPageStyle());
+		styles.add(NotationFactory.eINSTANCE.createGuideStyle());
+		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		return styles;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void decorateView(View view, IAdaptable semanticAdapter,
+			String diagramKind) {
+		super.decorateView(view, semanticAdapter, diagramKind);
 	}
 
 	/**
@@ -28,4 +41,5 @@ public class ModelViewFactory extends DiagramViewFactory {
 	protected MeasurementUnit getMeasurementUnit() {
 		return MeasurementUnit.PIXEL_LITERAL;
 	}
+
 }

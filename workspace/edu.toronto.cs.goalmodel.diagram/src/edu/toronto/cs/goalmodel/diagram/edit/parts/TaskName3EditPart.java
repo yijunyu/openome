@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -34,13 +33,14 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
+import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
@@ -48,7 +48,6 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.GoalmodelTextSelectionEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelParserProvider;
 
 /**
  * @generated
@@ -59,7 +58,7 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4009;
+	public static final int VISUAL_ID = 4014;
 
 	/**
 	 * @generated
@@ -188,7 +187,8 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return resolveSemanticElement();
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
@@ -203,10 +203,9 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	 */
 	protected String getLabelText() {
 		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
+		if (getParser() != null) {
 			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
+					new EObjectAdapter(getParserElement()),
 					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
@@ -230,7 +229,7 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParserElement() == null || getParser() == null) {
+		if (getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -282,7 +281,7 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParserElement() == null || getParser() == null) {
+		if (getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(
@@ -302,9 +301,16 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new GoalmodelParserProvider.HintAdapter(
-					GoalmodelElementTypes.Task_2008, getParserElement(),
-					parserHint);
+			ParserHintAdapter hintAdapter = new ParserHintAdapter(
+					getParserElement(), parserHint) {
+
+				public Object getAdapter(Class adapter) {
+					if (IElementType.class.equals(adapter)) {
+						return GoalmodelElementTypes.Task_2012;
+					}
+					return super.getAdapter(adapter);
+				}
+			};
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;
@@ -446,8 +452,11 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
 			FontData fontData = new FontData(style.getFontName(), style
-					.getFontHeight(), (style.isBold() ? SWT.BOLD : SWT.NORMAL)
-					| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
+					.getFontHeight(),
+					(style.isBold() ? org.eclipse.swt.SWT.BOLD
+							: org.eclipse.swt.SWT.NORMAL)
+							| (style.isItalic() ? org.eclipse.swt.SWT.ITALIC
+									: org.eclipse.swt.SWT.NORMAL));
 			setFont(fontData);
 		}
 	}

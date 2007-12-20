@@ -2,8 +2,9 @@ package edu.toronto.cs.goalmodel.diagram.navigator;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Platform;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -16,24 +17,20 @@ public class GoalmodelNavigatorItem extends GoalmodelAbstractNavigatorItem {
 	 */
 	static {
 		final Class[] supportedTypes = new Class[] { View.class, EObject.class };
-		Platform.getAdapterManager().registerAdapters(
-				new IAdapterFactory() {
+		Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
 
-					public Object getAdapter(Object adaptableObject,
-							Class adapterType) {
-						if (adaptableObject instanceof edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem
-								&& (adapterType == View.class || adapterType == EObject.class)) {
-							return ((edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem) adaptableObject)
-									.getView();
-						}
-						return null;
-					}
+			public Object getAdapter(Object adaptableObject, Class adapterType) {
+				if (adaptableObject instanceof GoalmodelNavigatorItem
+						&& (adapterType == View.class || adapterType == EObject.class)) {
+					return ((GoalmodelNavigatorItem) adaptableObject).getView();
+				}
+				return null;
+			}
 
-					public Class[] getAdapterList() {
-						return supportedTypes;
-					}
-				},
-				edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem.class);
+			public Class[] getAdapterList() {
+				return supportedTypes;
+			}
+		}, GoalmodelNavigatorItem.class);
 	}
 
 	/**
@@ -73,22 +70,22 @@ public class GoalmodelNavigatorItem extends GoalmodelAbstractNavigatorItem {
 	 * @generated
 	 */
 	public boolean equals(Object obj) {
-		if (obj instanceof edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem) {
-			return EcoreUtil
-					.getURI(getView())
-					.equals(
-							EcoreUtil
-									.getURI(((edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorItem) obj)
-											.getView()));
+		if (obj instanceof GoalmodelNavigatorItem) {
+			EObject eObject = getView().getElement();
+			EObject anotherEObject = ((GoalmodelNavigatorItem) obj).getView()
+					.getElement();
+			if (eObject == null) {
+				return anotherEObject == null;
+			} else if (anotherEObject == null) {
+				return false;
+			}
+			if (eObject.eResource() != null) {
+				return eObject.eResource().getURIFragment(eObject).equals(
+						anotherEObject.eResource().getURIFragment(
+								anotherEObject));
+			}
 		}
 		return super.equals(obj);
-	}
-
-	/**
-	 * @generated
-	 */
-	public int hashCode() {
-		return EcoreUtil.getURI(getView()).hashCode();
 	}
 
 }

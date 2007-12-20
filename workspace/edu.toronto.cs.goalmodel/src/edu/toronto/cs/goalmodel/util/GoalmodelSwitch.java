@@ -292,13 +292,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Actor</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -307,13 +307,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Agent</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Agent</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Agent</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Agent</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -322,13 +322,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>And Decomposition</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>And Decomposition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>And Decomposition</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>And Decomposition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -337,13 +337,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aspect</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Aspect</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aspect</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Aspect</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -352,13 +352,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Break Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Break Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -367,13 +367,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conflict Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Conflict Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conflict Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Conflict Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -382,13 +382,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Contribution</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Contribution</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -397,13 +397,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Decomposition</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Decomposition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Decomposition</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Decomposition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -412,13 +412,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Denied Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Denied Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Denied Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Denied Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -427,13 +427,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Dependency</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -442,13 +442,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Goal</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Goal</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Goal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -457,13 +457,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Help Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Help Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -472,13 +472,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Hurt Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Hurt Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -487,13 +487,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Intention</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Intention</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Intention</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Intention</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -502,13 +502,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Make Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Make Contribution</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -517,13 +517,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -532,13 +532,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Or Decomposition</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Or Decomposition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Or Decomposition</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Or Decomposition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -547,13 +547,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Partially Denied Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Partially Denied Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Partially Denied Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Partially Denied Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -562,13 +562,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Partially Satisfied Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Partially Satisfied Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Partially Satisfied Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Partially Satisfied Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -577,13 +577,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Position</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Position</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -592,13 +592,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -607,13 +607,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Resource</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -622,13 +622,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Role</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -637,13 +637,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Satisfied Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Satisfied Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Satisfied Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Satisfied Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -652,13 +652,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Softgoal</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Softgoal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Softgoal</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Softgoal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -667,13 +667,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Task</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -682,13 +682,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Topic</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Topic</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -697,13 +697,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unknown Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Unknown Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unknown Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Unknown Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -712,13 +712,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Truth Label</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Truth Label</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Truth Label</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Truth Label</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -727,13 +727,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -742,13 +742,13 @@ public class GoalmodelSwitch {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

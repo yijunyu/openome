@@ -1,13 +1,24 @@
 package edu.toronto.cs.goalmodel.diagram.part;
 
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.View;
-
+import edu.toronto.cs.goalmodel.Actor;
+import edu.toronto.cs.goalmodel.Agent;
+import edu.toronto.cs.goalmodel.AndDecomposition;
+import edu.toronto.cs.goalmodel.Aspect;
+import edu.toronto.cs.goalmodel.BreakContribution;
+import edu.toronto.cs.goalmodel.Dependency;
+import edu.toronto.cs.goalmodel.Goal;
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
+import edu.toronto.cs.goalmodel.HelpContribution;
+import edu.toronto.cs.goalmodel.HurtContribution;
+import edu.toronto.cs.goalmodel.MakeContribution;
 import edu.toronto.cs.goalmodel.Model;
+import edu.toronto.cs.goalmodel.OrDecomposition;
+import edu.toronto.cs.goalmodel.Position;
+import edu.toronto.cs.goalmodel.Resource;
+import edu.toronto.cs.goalmodel.Role;
+import edu.toronto.cs.goalmodel.Softgoal;
+import edu.toronto.cs.goalmodel.Task;
+
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorActorCompartmentEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorNameEditPart;
@@ -21,6 +32,12 @@ import edu.toronto.cs.goalmodel.diagram.edit.parts.AspectNameEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.BreakContributionEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.DependencyEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.DependencyLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramAndLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramBreakLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramHelpLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramHurtLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramMakeLabelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.DiagramOrLabelEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal2EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal3EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.Goal4EditPart;
@@ -80,20 +97,24 @@ import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName4EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName5EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName6EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskNameEditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel2EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel3EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel4EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel5EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabel6EditPart;
-import edu.toronto.cs.goalmodel.diagram.edit.parts.WrapLabelEditPart;
+
 import edu.toronto.cs.goalmodel.diagram.expressions.GoalmodelAbstractExpression;
 import edu.toronto.cs.goalmodel.diagram.expressions.GoalmodelOCLFactory;
 
+import org.eclipse.core.runtime.Platform;
+
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
+
 /**
  * This registry is used to determine which type of visual object should be
- * created for the corresponding Diagram, Node, ChildNode or Link represented
+ * created for the corresponding Diagram, Node, ChildNode or Link represented 
  * by a domain model object.
- * 
+ *
  * @generated
  */
 public class GoalmodelVisualIDRegistry {
@@ -108,223 +129,6 @@ public class GoalmodelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final GoalmodelAbstractExpression Actor_1001_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Actor)", GoalmodelPackage.eINSTANCE
-					.getActor());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_1006_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_1007_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_1008_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_1009_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_2001_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_2002_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_2003_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_2004_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_2005_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_2006_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_2007_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_2008_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_2009_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_2010_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_2011_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_2012_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_2013_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_2014_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_2015_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_2016_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Goal_2017_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Goal)", GoalmodelPackage.eINSTANCE
-					.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Softgoal_2018_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)", GoalmodelPackage.eINSTANCE
-					.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Resource_2019_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Resource)", GoalmodelPackage.eINSTANCE
-					.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression Task_2020_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(Task)", GoalmodelPackage.eINSTANCE
-					.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression AndDecomposition_3002_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(AndDecomposition)",
-					GoalmodelPackage.eINSTANCE.getAndDecomposition());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression OrDecomposition_3003_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(OrDecomposition)",
-					GoalmodelPackage.eINSTANCE.getOrDecomposition());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression MakeContribution_3004_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(MakeContribution)",
-					GoalmodelPackage.eINSTANCE.getMakeContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression HelpContribution_3005_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(HelpContribution)",
-					GoalmodelPackage.eINSTANCE.getHelpContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression HurtContribution_3006_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(HurtContribution)",
-					GoalmodelPackage.eINSTANCE.getHurtContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final GoalmodelAbstractExpression BreakContribution_3007_Constraint = GoalmodelOCLFactory
-			.getExpression("oclIsKindOf(BreakContribution)",
-					GoalmodelPackage.eINSTANCE.getBreakContribution());
-
-	/**
-	 * @generated
-	 */
 	public static int getVisualID(View view) {
 		if (view instanceof Diagram) {
 			if (ModelEditPart.MODEL_ID.equals(view.getType())) {
@@ -333,8 +137,7 @@ public class GoalmodelVisualIDRegistry {
 				return -1;
 			}
 		}
-		return edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry
-				.getVisualID(view.getType());
+		return getVisualID(view.getType());
 	}
 
 	/**
@@ -383,500 +186,476 @@ public class GoalmodelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		EClass domainElementMetaclass = domainElement.eClass();
+		return getDiagramVisualID(domainElement, domainElementMetaclass);
+	}
+
+	/**
+	 * @generated
+	 */
+	private static int getDiagramVisualID(EObject domainElement,
+			EClass domainElementMetaclass) {
 		if (GoalmodelPackage.eINSTANCE.getModel().isSuperTypeOf(
-				domainElement.eClass())
-				&& isDiagram((Model) domainElement)) {
+				domainElementMetaclass)
+				&& isDiagramModel_79((Model) domainElement)) {
 			return ModelEditPart.VISUAL_ID;
 		}
-		return -1;
+		return getUnrecognizedDiagramID(domainElement);
 	}
 
 	/**
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null
-				|| !ModelEditPart.MODEL_ID
-						.equals(edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry
-								.getModelID(containerView))) {
+		if (domainElement == null) {
 			return -1;
 		}
-		switch (edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry
-				.getVisualID(containerView)) {
-		case ActorActorCompartmentEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_2001_Constraint, domainElement)) {
-				return Goal2EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_2002_Constraint, domainElement)) {
-				return Softgoal2EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_2003_Constraint, domainElement)) {
-				return Resource2EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_2004_Constraint, domainElement)) {
-				return Task2EditPart.VISUAL_ID;
-			}
-			break;
-		case AgentAgentCompartmentEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_2005_Constraint, domainElement)) {
-				return Goal3EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_2006_Constraint, domainElement)) {
-				return Softgoal3EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_2007_Constraint, domainElement)) {
-				return Resource3EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_2008_Constraint, domainElement)) {
-				return Task3EditPart.VISUAL_ID;
-			}
-			break;
-		case PositionPositionCompartmentEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_2009_Constraint, domainElement)) {
-				return Goal4EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_2010_Constraint, domainElement)) {
-				return Softgoal4EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_2011_Constraint, domainElement)) {
-				return Resource4EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_2012_Constraint, domainElement)) {
-				return Task4EditPart.VISUAL_ID;
-			}
-			break;
-		case RoleRoleCompartmentEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_2013_Constraint, domainElement)) {
-				return Goal5EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_2014_Constraint, domainElement)) {
-				return Softgoal5EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_2015_Constraint, domainElement)) {
-				return Resource5EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_2016_Constraint, domainElement)) {
-				return Task5EditPart.VISUAL_ID;
-			}
-			break;
-		case AspectAspectCompartmentEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_2017_Constraint, domainElement)) {
-				return Goal6EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_2018_Constraint, domainElement)) {
-				return Softgoal6EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_2019_Constraint, domainElement)) {
-				return Resource6EditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_2020_Constraint, domainElement)) {
-				return Task6EditPart.VISUAL_ID;
-			}
-			break;
-		case ModelEditPart.VISUAL_ID:
-			if (GoalmodelPackage.eINSTANCE.getActor().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Actor_1001_Constraint, domainElement)) {
-				return ActorEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getAgent().isSuperTypeOf(
-					domainElement.eClass())) {
-				return AgentEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getPosition().isSuperTypeOf(
-					domainElement.eClass())) {
-				return PositionEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getRole().isSuperTypeOf(
-					domainElement.eClass())) {
-				return RoleEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getAspect().isSuperTypeOf(
-					domainElement.eClass())) {
-				return AspectEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Goal_1006_Constraint, domainElement)) {
-				return GoalEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Softgoal_1007_Constraint, domainElement)) {
-				return SoftgoalEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Task_1008_Constraint, domainElement)) {
-				return TaskEditPart.VISUAL_ID;
-			}
-			if (GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
-					domainElement.eClass())
-					&& evaluate(Resource_1009_Constraint, domainElement)) {
-				return ResourceEditPart.VISUAL_ID;
-			}
-			break;
-		}
-		return -1;
+		EClass domainElementMetaclass = domainElement.eClass();
+		return getNodeVisualID(containerView, domainElement,
+				domainElementMetaclass, null);
 	}
 
 	/**
 	 * @generated
 	 */
-	public static boolean canCreateNode(View containerView, int nodeVisualID) {
-		String containerModelID = edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry
-				.getModelID(containerView);
+	public static int getNodeVisualID(View containerView,
+			EObject domainElement, EClass domainElementMetaclass,
+			String semanticHint) {
+		String containerModelID = getModelID(containerView);
 		if (!ModelEditPart.MODEL_ID.equals(containerModelID)) {
-			return false;
+			return -1;
 		}
 		int containerVisualID;
 		if (ModelEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry
-					.getVisualID(containerView);
+			containerVisualID = getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = ModelEditPart.VISUAL_ID;
 			} else {
-				return false;
+				return -1;
 			}
 		}
+		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
+				: -1;
 		switch (containerVisualID) {
 		case ActorEditPart.VISUAL_ID:
 			if (ActorNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return ActorNameEditPart.VISUAL_ID;
 			}
 			if (ActorActorCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return ActorActorCompartmentEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedActor_1001ChildNodeID(domainElement,
+					semanticHint);
 		case AgentEditPart.VISUAL_ID:
 			if (AgentNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return AgentNameEditPart.VISUAL_ID;
 			}
 			if (AgentAgentCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return AgentAgentCompartmentEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedAgent_1002ChildNodeID(domainElement,
+					semanticHint);
 		case PositionEditPart.VISUAL_ID:
 			if (PositionNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return PositionNameEditPart.VISUAL_ID;
 			}
 			if (PositionPositionCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return PositionPositionCompartmentEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedPosition_1003ChildNodeID(domainElement,
+					semanticHint);
 		case RoleEditPart.VISUAL_ID:
 			if (RoleNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return RoleNameEditPart.VISUAL_ID;
 			}
 			if (RoleRoleCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return RoleRoleCompartmentEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedRole_1004ChildNodeID(domainElement,
+					semanticHint);
 		case AspectEditPart.VISUAL_ID:
 			if (AspectNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return AspectNameEditPart.VISUAL_ID;
 			}
 			if (AspectAspectCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return AspectAspectCompartmentEditPart.VISUAL_ID;
 			}
-			break;
-		case GoalEditPart.VISUAL_ID:
-			if (GoalNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case SoftgoalEditPart.VISUAL_ID:
-			if (SoftgoalNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case TaskEditPart.VISUAL_ID:
-			if (TaskNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ResourceEditPart.VISUAL_ID:
-			if (ResourceNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Goal2EditPart.VISUAL_ID:
-			if (GoalName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Softgoal2EditPart.VISUAL_ID:
-			if (SoftgoalName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Resource2EditPart.VISUAL_ID:
-			if (ResourceName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Task2EditPart.VISUAL_ID:
-			if (TaskName2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Goal3EditPart.VISUAL_ID:
-			if (GoalName3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Softgoal3EditPart.VISUAL_ID:
-			if (SoftgoalName3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Resource3EditPart.VISUAL_ID:
-			if (ResourceName3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Task3EditPart.VISUAL_ID:
-			if (TaskName3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Goal4EditPart.VISUAL_ID:
-			if (GoalName4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Softgoal4EditPart.VISUAL_ID:
-			if (SoftgoalName4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Resource4EditPart.VISUAL_ID:
-			if (ResourceName4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Task4EditPart.VISUAL_ID:
-			if (TaskName4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Goal5EditPart.VISUAL_ID:
-			if (GoalName5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Softgoal5EditPart.VISUAL_ID:
-			if (SoftgoalName5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Resource5EditPart.VISUAL_ID:
-			if (ResourceName5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case Task5EditPart.VISUAL_ID:
-			if (TaskName5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
+			return getUnrecognizedAspect_1005ChildNodeID(domainElement,
+					semanticHint);
 		case Goal6EditPart.VISUAL_ID:
 			if (GoalName6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return GoalName6EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedGoal_1006ChildNodeID(domainElement,
+					semanticHint);
 		case Softgoal6EditPart.VISUAL_ID:
 			if (SoftgoalName6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return SoftgoalName6EditPart.VISUAL_ID;
 			}
-			break;
-		case Resource6EditPart.VISUAL_ID:
-			if (ResourceName6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
+			return getUnrecognizedSoftgoal_1007ChildNodeID(domainElement,
+					semanticHint);
 		case Task6EditPart.VISUAL_ID:
 			if (TaskName6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return TaskName6EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedTask_1008ChildNodeID(domainElement,
+					semanticHint);
+		case Resource6EditPart.VISUAL_ID:
+			if (ResourceName6EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceName6EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_1009ChildNodeID(domainElement,
+					semanticHint);
+		case GoalEditPart.VISUAL_ID:
+			if (GoalNameEditPart.VISUAL_ID == nodeVisualID) {
+				return GoalNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGoal_2001ChildNodeID(domainElement,
+					semanticHint);
+		case SoftgoalEditPart.VISUAL_ID:
+			if (SoftgoalNameEditPart.VISUAL_ID == nodeVisualID) {
+				return SoftgoalNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSoftgoal_2002ChildNodeID(domainElement,
+					semanticHint);
+		case ResourceEditPart.VISUAL_ID:
+			if (ResourceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_2003ChildNodeID(domainElement,
+					semanticHint);
+		case TaskEditPart.VISUAL_ID:
+			if (TaskNameEditPart.VISUAL_ID == nodeVisualID) {
+				return TaskNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedTask_2004ChildNodeID(domainElement,
+					semanticHint);
+		case Goal2EditPart.VISUAL_ID:
+			if (GoalName2EditPart.VISUAL_ID == nodeVisualID) {
+				return GoalName2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGoal_2005ChildNodeID(domainElement,
+					semanticHint);
+		case Softgoal2EditPart.VISUAL_ID:
+			if (SoftgoalName2EditPart.VISUAL_ID == nodeVisualID) {
+				return SoftgoalName2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSoftgoal_2006ChildNodeID(domainElement,
+					semanticHint);
+		case Resource2EditPart.VISUAL_ID:
+			if (ResourceName2EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceName2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_2007ChildNodeID(domainElement,
+					semanticHint);
+		case Task2EditPart.VISUAL_ID:
+			if (TaskName2EditPart.VISUAL_ID == nodeVisualID) {
+				return TaskName2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedTask_2008ChildNodeID(domainElement,
+					semanticHint);
+		case Goal3EditPart.VISUAL_ID:
+			if (GoalName3EditPart.VISUAL_ID == nodeVisualID) {
+				return GoalName3EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGoal_2009ChildNodeID(domainElement,
+					semanticHint);
+		case Softgoal3EditPart.VISUAL_ID:
+			if (SoftgoalName3EditPart.VISUAL_ID == nodeVisualID) {
+				return SoftgoalName3EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSoftgoal_2010ChildNodeID(domainElement,
+					semanticHint);
+		case Resource3EditPart.VISUAL_ID:
+			if (ResourceName3EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceName3EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_2011ChildNodeID(domainElement,
+					semanticHint);
+		case Task3EditPart.VISUAL_ID:
+			if (TaskName3EditPart.VISUAL_ID == nodeVisualID) {
+				return TaskName3EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedTask_2012ChildNodeID(domainElement,
+					semanticHint);
+		case Goal4EditPart.VISUAL_ID:
+			if (GoalName4EditPart.VISUAL_ID == nodeVisualID) {
+				return GoalName4EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGoal_2013ChildNodeID(domainElement,
+					semanticHint);
+		case Softgoal4EditPart.VISUAL_ID:
+			if (SoftgoalName4EditPart.VISUAL_ID == nodeVisualID) {
+				return SoftgoalName4EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSoftgoal_2014ChildNodeID(domainElement,
+					semanticHint);
+		case Resource4EditPart.VISUAL_ID:
+			if (ResourceName4EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceName4EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_2015ChildNodeID(domainElement,
+					semanticHint);
+		case Task4EditPart.VISUAL_ID:
+			if (TaskName4EditPart.VISUAL_ID == nodeVisualID) {
+				return TaskName4EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedTask_2016ChildNodeID(domainElement,
+					semanticHint);
+		case Goal5EditPart.VISUAL_ID:
+			if (GoalName5EditPart.VISUAL_ID == nodeVisualID) {
+				return GoalName5EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGoal_2017ChildNodeID(domainElement,
+					semanticHint);
+		case Softgoal5EditPart.VISUAL_ID:
+			if (SoftgoalName5EditPart.VISUAL_ID == nodeVisualID) {
+				return SoftgoalName5EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSoftgoal_2018ChildNodeID(domainElement,
+					semanticHint);
+		case Resource5EditPart.VISUAL_ID:
+			if (ResourceName5EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceName5EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResource_2019ChildNodeID(domainElement,
+					semanticHint);
+		case Task5EditPart.VISUAL_ID:
+			if (TaskName5EditPart.VISUAL_ID == nodeVisualID) {
+				return TaskName5EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedTask_2020ChildNodeID(domainElement,
+					semanticHint);
 		case ActorActorCompartmentEditPart.VISUAL_ID:
-			if (Goal2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || GoalEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_2001((Goal) domainElement))) {
+				return GoalEditPart.VISUAL_ID;
 			}
-			if (Softgoal2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || SoftgoalEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_2002((Softgoal) domainElement))) {
+				return SoftgoalEditPart.VISUAL_ID;
 			}
-			if (Resource2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || ResourceEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_2003((Resource) domainElement))) {
+				return ResourceEditPart.VISUAL_ID;
 			}
-			if (Task2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || TaskEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_2004((Task) domainElement))) {
+				return TaskEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedActorActorCompartment_5001ChildNodeID(
+					domainElement, semanticHint);
 		case AgentAgentCompartmentEditPart.VISUAL_ID:
-			if (Goal3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Goal2EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_2005((Goal) domainElement))) {
+				return Goal2EditPart.VISUAL_ID;
 			}
-			if (Softgoal3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Softgoal2EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_2006((Softgoal) domainElement))) {
+				return Softgoal2EditPart.VISUAL_ID;
 			}
-			if (Resource3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Resource2EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_2007((Resource) domainElement))) {
+				return Resource2EditPart.VISUAL_ID;
 			}
-			if (Task3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Task2EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_2008((Task) domainElement))) {
+				return Task2EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedAgentAgentCompartment_5002ChildNodeID(
+					domainElement, semanticHint);
 		case PositionPositionCompartmentEditPart.VISUAL_ID:
-			if (Goal4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Goal3EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_2009((Goal) domainElement))) {
+				return Goal3EditPart.VISUAL_ID;
 			}
-			if (Softgoal4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Softgoal3EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_2010((Softgoal) domainElement))) {
+				return Softgoal3EditPart.VISUAL_ID;
 			}
-			if (Resource4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Resource3EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_2011((Resource) domainElement))) {
+				return Resource3EditPart.VISUAL_ID;
 			}
-			if (Task4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Task3EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_2012((Task) domainElement))) {
+				return Task3EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedPositionPositionCompartment_5003ChildNodeID(
+					domainElement, semanticHint);
 		case RoleRoleCompartmentEditPart.VISUAL_ID:
-			if (Goal5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Goal4EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_2013((Goal) domainElement))) {
+				return Goal4EditPart.VISUAL_ID;
 			}
-			if (Softgoal5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Softgoal4EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_2014((Softgoal) domainElement))) {
+				return Softgoal4EditPart.VISUAL_ID;
 			}
-			if (Resource5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Resource4EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_2015((Resource) domainElement))) {
+				return Resource4EditPart.VISUAL_ID;
 			}
-			if (Task5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Task4EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_2016((Task) domainElement))) {
+				return Task4EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedRoleRoleCompartment_5004ChildNodeID(
+					domainElement, semanticHint);
 		case AspectAspectCompartmentEditPart.VISUAL_ID:
-			if (Goal6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Goal5EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_2017((Goal) domainElement))) {
+				return Goal5EditPart.VISUAL_ID;
 			}
-			if (Softgoal6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Softgoal5EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_2018((Softgoal) domainElement))) {
+				return Softgoal5EditPart.VISUAL_ID;
 			}
-			if (Resource6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Resource5EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_2019((Resource) domainElement))) {
+				return Resource5EditPart.VISUAL_ID;
 			}
-			if (Task6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Task5EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_2020((Task) domainElement))) {
+				return Task5EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedAspectAspectCompartment_5005ChildNodeID(
+					domainElement, semanticHint);
 		case ModelEditPart.VISUAL_ID:
-			if (ActorEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || ActorEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getActor().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeActor_1001((Actor) domainElement))) {
+				return ActorEditPart.VISUAL_ID;
 			}
-			if (AgentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || AgentEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getAgent().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeAgent_1002((Agent) domainElement))) {
+				return AgentEditPart.VISUAL_ID;
 			}
-			if (PositionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || PositionEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getPosition().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodePosition_1003((Position) domainElement))) {
+				return PositionEditPart.VISUAL_ID;
 			}
-			if (RoleEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || RoleEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getRole().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeRole_1004((Role) domainElement))) {
+				return RoleEditPart.VISUAL_ID;
 			}
-			if (AspectEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || AspectEditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getAspect().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeAspect_1005((Aspect) domainElement))) {
+				return AspectEditPart.VISUAL_ID;
 			}
-			if (GoalEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Goal6EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getGoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeGoal_1006((Goal) domainElement))) {
+				return Goal6EditPart.VISUAL_ID;
 			}
-			if (SoftgoalEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Softgoal6EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getSoftgoal().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeSoftgoal_1007((Softgoal) domainElement))) {
+				return Softgoal6EditPart.VISUAL_ID;
 			}
-			if (TaskEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Task6EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getTask().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeTask_1008((Task) domainElement))) {
+				return Task6EditPart.VISUAL_ID;
 			}
-			if (ResourceEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if ((semanticHint == null || Resource6EditPart.VISUAL_ID == nodeVisualID)
+					&& GoalmodelPackage.eINSTANCE.getResource().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeResource_1009((Resource) domainElement))) {
+				return Resource6EditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedModel_79ChildNodeID(domainElement,
+					semanticHint);
 		case DependencyEditPart.VISUAL_ID:
 			if (DependencyLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+				return DependencyLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedDependency_3001LinkLabelID(semanticHint);
 		case AndDecompositionEditPart.VISUAL_ID:
-			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramAndLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramAndLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedAndDecomposition_3002LinkLabelID(semanticHint);
 		case OrDecompositionEditPart.VISUAL_ID:
-			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramOrLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramOrLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedOrDecomposition_3003LinkLabelID(semanticHint);
 		case MakeContributionEditPart.VISUAL_ID:
-			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramMakeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramMakeLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedMakeContribution_3004LinkLabelID(semanticHint);
 		case HelpContributionEditPart.VISUAL_ID:
-			if (WrapLabel4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramHelpLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramHelpLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedHelpContribution_3005LinkLabelID(semanticHint);
 		case HurtContributionEditPart.VISUAL_ID:
-			if (WrapLabel5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramHurtLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramHurtLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedHurtContribution_3006LinkLabelID(semanticHint);
 		case BreakContributionEditPart.VISUAL_ID:
-			if (WrapLabel6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
+			if (DiagramBreakLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return DiagramBreakLabelEditPart.VISUAL_ID;
 			}
-			break;
+			return getUnrecognizedBreakContribution_3007LinkLabelID(semanticHint);
 		}
-		return false;
+		return -1;
 	}
 
 	/**
@@ -886,60 +665,1147 @@ public class GoalmodelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		EClass domainElementMetaclass = domainElement.eClass();
+		return getLinkWithClassVisualID(domainElement, domainElementMetaclass);
+	}
+
+	/**
+	 * @generated
+	 */
+	public static int getLinkWithClassVisualID(EObject domainElement,
+			EClass domainElementMetaclass) {
 		if (GoalmodelPackage.eINSTANCE.getDependency().isSuperTypeOf(
-				domainElement.eClass())) {
+				domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassDependency_3001((Dependency) domainElement))) {
 			return DependencyEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getAndDecomposition().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(AndDecomposition_3002_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getAndDecomposition()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassAndDecomposition_3002((AndDecomposition) domainElement))) {
 			return AndDecompositionEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getOrDecomposition().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(OrDecomposition_3003_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getOrDecomposition()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassOrDecomposition_3003((OrDecomposition) domainElement))) {
 			return OrDecompositionEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getMakeContribution().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(MakeContribution_3004_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getMakeContribution()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassMakeContribution_3004((MakeContribution) domainElement))) {
 			return MakeContributionEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getHelpContribution().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(HelpContribution_3005_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getHelpContribution()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassHelpContribution_3005((HelpContribution) domainElement))) {
 			return HelpContributionEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getHurtContribution().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(HurtContribution_3006_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getHurtContribution()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassHurtContribution_3006((HurtContribution) domainElement))) {
 			return HurtContributionEditPart.VISUAL_ID;
-		}
-		if (GoalmodelPackage.eINSTANCE.getBreakContribution().isSuperTypeOf(
-				domainElement.eClass())
-				&& evaluate(BreakContribution_3007_Constraint, domainElement)) {
+		} else if (GoalmodelPackage.eINSTANCE.getBreakContribution()
+				.isSuperTypeOf(domainElementMetaclass)
+				&& (domainElement == null || isLinkWithClassBreakContribution_3007((BreakContribution) domainElement))) {
 			return BreakContributionEditPart.VISUAL_ID;
+		} else {
+			return getUnrecognizedLinkWithClassID(domainElement);
 		}
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isDiagramModel_79(Model element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedDiagramID(EObject domainElement) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeActor_1001(Actor element) {
+		return Actor_1001.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeAgent_1002(Agent element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodePosition_1003(Position element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeRole_1004(Role element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeAspect_1005(Aspect element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_1006(Goal element) {
+		return Goal_1006.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_1007(Softgoal element) {
+		return Softgoal_1007.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_1008(Task element) {
+		return Task_1008.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_1009(Resource element) {
+		return Resource_1009.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_2001(Goal element) {
+		return Goal_2001.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_2002(Softgoal element) {
+		return Softgoal_2002.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_2003(Resource element) {
+		return Resource_2003.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_2004(Task element) {
+		return Task_2004.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_2005(Goal element) {
+		return Goal_2005.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_2006(Softgoal element) {
+		return Softgoal_2006.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_2007(Resource element) {
+		return Resource_2007.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_2008(Task element) {
+		return Task_2008.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_2009(Goal element) {
+		return Goal_2009.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_2010(Softgoal element) {
+		return Softgoal_2010.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_2011(Resource element) {
+		return Resource_2011.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_2012(Task element) {
+		return Task_2012.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_2013(Goal element) {
+		return Goal_2013.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_2014(Softgoal element) {
+		return Softgoal_2014.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_2015(Resource element) {
+		return Resource_2015.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_2016(Task element) {
+		return Task_2016.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeGoal_2017(Goal element) {
+		return Goal_2017.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSoftgoal_2018(Softgoal element) {
+		return Softgoal_2018.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResource_2019(Resource element) {
+		return Resource_2019.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeTask_2020(Task element) {
+		return Task_2020.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedActor_1001ChildNodeID(
+			EObject domainElement, String semanticHint) {
 		return -1;
 	}
 
 	/**
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
-	 * 
+	 *
 	 * @generated
 	 */
-	private static boolean isDiagram(Model element) {
+	private static int getUnrecognizedAgent_1002ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedPosition_1003ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedRole_1004ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedAspect_1005ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_1006ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_1007ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_1008ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_1009ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_2001ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_2002ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_2003ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_2004ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_2005ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_2006ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_2007ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_2008ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_2009ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_2010ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_2011ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_2012ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_2013ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_2014ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_2015ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_2016ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedGoal_2017ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSoftgoal_2018ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResource_2019ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedTask_2020ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedActorActorCompartment_5001ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedAgentAgentCompartment_5002ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedPositionPositionCompartment_5003ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedRoleRoleCompartment_5004ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedAspectAspectCompartment_5005ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedModel_79ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedDependency_3001LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedAndDecomposition_3002LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedOrDecomposition_3003LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedMakeContribution_3004LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedHelpContribution_3005LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedHurtContribution_3006LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedBreakContribution_3007LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedLinkWithClassID(EObject domainElement) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassDependency_3001(Dependency element) {
 		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassAndDecomposition_3002(
+			AndDecomposition element) {
+		return AndDecomposition_3002.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassOrDecomposition_3003(
+			OrDecomposition element) {
+		return OrDecomposition_3003.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassMakeContribution_3004(
+			MakeContribution element) {
+		return MakeContribution_3004.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassHelpContribution_3005(
+			HelpContribution element) {
+		return HelpContribution_3005.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassHurtContribution_3006(
+			HurtContribution element) {
+		return HurtContribution_3006.matches(element);
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isLinkWithClassBreakContribution_3007(
+			BreakContribution element) {
+		return BreakContribution_3007.matches(element);
 	}
 
 	/**
 	 * @generated
 	 */
-	private static boolean evaluate(GoalmodelAbstractExpression expression,
-			Object element) {
-		Object result = expression.evaluate(element);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
-	}
+	private static final Matcher Goal_2001 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
 
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_2002 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_2003 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_2004 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Goal_2005 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_2006 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_2007 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_2008 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Goal_2009 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_2010 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_2011 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_2012 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Goal_2013 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_2014 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_2015 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_2016 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Goal_2017 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_2018 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_2019 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_2020 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Actor_1001 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Actor)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getActor()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Goal_1006 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Goal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getGoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Softgoal_1007 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Softgoal)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getSoftgoal()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Task_1008 = new Matcher(GoalmodelOCLFactory
+			.getExpression("oclIsKindOf(Task)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getTask()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher Resource_1009 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(Resource)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getResource()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher AndDecomposition_3002 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(AndDecomposition)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getAndDecomposition()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher OrDecomposition_3003 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(OrDecomposition)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getOrDecomposition()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher MakeContribution_3004 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(MakeContribution)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getMakeContribution()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher HelpContribution_3005 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(HelpContribution)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getHelpContribution()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher HurtContribution_3006 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(HurtContribution)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getHurtContribution()));
+
+	/**
+	 * @generated
+	 */
+	private static final Matcher BreakContribution_3007 = new Matcher(
+			GoalmodelOCLFactory.getExpression("oclIsKindOf(BreakContribution)", //$NON-NLS-1$
+					GoalmodelPackage.eINSTANCE.getBreakContribution()));
+
+	/**
+	 * @generated	
+	 */
+	static class Matcher {
+
+		/**
+		 * @generated	
+		 */
+		private GoalmodelAbstractExpression condition;
+
+		/**
+		 * @generated	
+		 */
+		Matcher(GoalmodelAbstractExpression conditionExpression) {
+			this.condition = conditionExpression;
+		}
+
+		/**
+		 * @generated	
+		 */
+		boolean matches(EObject object) {
+			Object result = condition.evaluate(object);
+			return result instanceof Boolean
+					&& ((Boolean) result).booleanValue();
+		}
+	}// Matcher
 }

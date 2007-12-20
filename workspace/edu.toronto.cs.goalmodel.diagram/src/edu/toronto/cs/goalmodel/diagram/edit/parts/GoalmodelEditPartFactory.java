@@ -11,7 +11,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
@@ -62,6 +61,30 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			case AspectNameEditPart.VISUAL_ID:
 				return new AspectNameEditPart(view);
 
+			case Goal6EditPart.VISUAL_ID:
+				return new Goal6EditPart(view);
+
+			case GoalName6EditPart.VISUAL_ID:
+				return new GoalName6EditPart(view);
+
+			case Softgoal6EditPart.VISUAL_ID:
+				return new Softgoal6EditPart(view);
+
+			case SoftgoalName6EditPart.VISUAL_ID:
+				return new SoftgoalName6EditPart(view);
+
+			case Task6EditPart.VISUAL_ID:
+				return new Task6EditPart(view);
+
+			case TaskName6EditPart.VISUAL_ID:
+				return new TaskName6EditPart(view);
+
+			case Resource6EditPart.VISUAL_ID:
+				return new Resource6EditPart(view);
+
+			case ResourceName6EditPart.VISUAL_ID:
+				return new ResourceName6EditPart(view);
+
 			case GoalEditPart.VISUAL_ID:
 				return new GoalEditPart(view);
 
@@ -74,17 +97,17 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			case SoftgoalNameEditPart.VISUAL_ID:
 				return new SoftgoalNameEditPart(view);
 
-			case TaskEditPart.VISUAL_ID:
-				return new TaskEditPart(view);
-
-			case TaskNameEditPart.VISUAL_ID:
-				return new TaskNameEditPart(view);
-
 			case ResourceEditPart.VISUAL_ID:
 				return new ResourceEditPart(view);
 
 			case ResourceNameEditPart.VISUAL_ID:
 				return new ResourceNameEditPart(view);
+
+			case TaskEditPart.VISUAL_ID:
+				return new TaskEditPart(view);
+
+			case TaskNameEditPart.VISUAL_ID:
+				return new TaskNameEditPart(view);
 
 			case Goal2EditPart.VISUAL_ID:
 				return new Goal2EditPart(view);
@@ -182,30 +205,6 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			case TaskName5EditPart.VISUAL_ID:
 				return new TaskName5EditPart(view);
 
-			case Goal6EditPart.VISUAL_ID:
-				return new Goal6EditPart(view);
-
-			case GoalName6EditPart.VISUAL_ID:
-				return new GoalName6EditPart(view);
-
-			case Softgoal6EditPart.VISUAL_ID:
-				return new Softgoal6EditPart(view);
-
-			case SoftgoalName6EditPart.VISUAL_ID:
-				return new SoftgoalName6EditPart(view);
-
-			case Resource6EditPart.VISUAL_ID:
-				return new Resource6EditPart(view);
-
-			case ResourceName6EditPart.VISUAL_ID:
-				return new ResourceName6EditPart(view);
-
-			case Task6EditPart.VISUAL_ID:
-				return new Task6EditPart(view);
-
-			case TaskName6EditPart.VISUAL_ID:
-				return new TaskName6EditPart(view);
-
 			case ActorActorCompartmentEditPart.VISUAL_ID:
 				return new ActorActorCompartmentEditPart(view);
 
@@ -230,38 +229,38 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			case AndDecompositionEditPart.VISUAL_ID:
 				return new AndDecompositionEditPart(view);
 
-			case WrapLabelEditPart.VISUAL_ID:
-				return new WrapLabelEditPart(view);
+			case DiagramAndLabelEditPart.VISUAL_ID:
+				return new DiagramAndLabelEditPart(view);
 
 			case OrDecompositionEditPart.VISUAL_ID:
 				return new OrDecompositionEditPart(view);
 
-			case WrapLabel2EditPart.VISUAL_ID:
-				return new WrapLabel2EditPart(view);
+			case DiagramOrLabelEditPart.VISUAL_ID:
+				return new DiagramOrLabelEditPart(view);
 
 			case MakeContributionEditPart.VISUAL_ID:
 				return new MakeContributionEditPart(view);
 
-			case WrapLabel3EditPart.VISUAL_ID:
-				return new WrapLabel3EditPart(view);
+			case DiagramMakeLabelEditPart.VISUAL_ID:
+				return new DiagramMakeLabelEditPart(view);
 
 			case HelpContributionEditPart.VISUAL_ID:
 				return new HelpContributionEditPart(view);
 
-			case WrapLabel4EditPart.VISUAL_ID:
-				return new WrapLabel4EditPart(view);
+			case DiagramHelpLabelEditPart.VISUAL_ID:
+				return new DiagramHelpLabelEditPart(view);
 
 			case HurtContributionEditPart.VISUAL_ID:
 				return new HurtContributionEditPart(view);
 
-			case WrapLabel5EditPart.VISUAL_ID:
-				return new WrapLabel5EditPart(view);
+			case DiagramHurtLabelEditPart.VISUAL_ID:
+				return new DiagramHurtLabelEditPart(view);
 
 			case BreakContributionEditPart.VISUAL_ID:
 				return new BreakContributionEditPart(view);
 
-			case WrapLabel6EditPart.VISUAL_ID:
-				return new WrapLabel6EditPart(view);
+			case DiagramBreakLabelEditPart.VISUAL_ID:
+				return new DiagramBreakLabelEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
@@ -321,12 +320,13 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			if (getWrapLabel().isTextWrapped()
 					&& getWrapLabel().getText().length() > 0) {
 				rect.setSize(new Dimension(text.computeSize(rect.width,
-						SWT.DEFAULT)));
+						org.eclipse.swt.SWT.DEFAULT)));
 			} else {
 				int avr = FigureUtilities.getFontMetrics(text.getFont())
 						.getAverageCharWidth();
-				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
-						SWT.DEFAULT)).expand(avr * 2, 0));
+				rect.setSize(new Dimension(text.computeSize(
+						org.eclipse.swt.SWT.DEFAULT,
+						org.eclipse.swt.SWT.DEFAULT)).expand(avr * 2, 0));
 			}
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);
@@ -368,8 +368,9 @@ public class GoalmodelEditPartFactory implements EditPartFactory {
 			getLabel().translateToAbsolute(rect);
 			int avr = FigureUtilities.getFontMetrics(text.getFont())
 					.getAverageCharWidth();
-			rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
-					SWT.DEFAULT)).expand(avr * 2, 0));
+			rect.setSize(new Dimension(text.computeSize(
+					org.eclipse.swt.SWT.DEFAULT, org.eclipse.swt.SWT.DEFAULT))
+					.expand(avr * 2, 0));
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);
 			}

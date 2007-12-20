@@ -12,26 +12,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.ActorItemSemanticEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
 import goalmodel.figures.ActorSVGFigure;
 
 /**
@@ -65,57 +59,11 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == GoalmodelElementTypes.Goal_2001) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(ActorActorCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Softgoal_2002) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(ActorActorCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Resource_2003) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(ActorActorCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Task_2004) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(ActorActorCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ActorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -230,6 +178,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -287,16 +236,6 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class ActorFigure extends Ellipse {
-
-		/**
-		 * @generated
-		 */
-		private Ellipse fFigureActorBoundaryFigure;
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureActorNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -306,8 +245,11 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
+			this.setFillXOR(false);
 			this.setOutline(false);
+			this.setOutlineXOR(false);
 			this.setLineWidth(0);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -316,27 +258,69 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureActorBoundaryFigure = new Ellipse();
-			fFigureActorBoundaryFigure.setLineWidth(3);
-			fFigureActorBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
-			fFigureActorBoundaryFigure
-					.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK);
+			Ellipse actorBoundaryFigure0 = new Ellipse();
+			actorBoundaryFigure0.setFill(true);
+			actorBoundaryFigure0.setFillXOR(false);
+			actorBoundaryFigure0.setOutline(true);
+			actorBoundaryFigure0.setOutlineXOR(false);
+			actorBoundaryFigure0.setLineWidth(3);
+			actorBoundaryFigure0.setLineStyle(Graphics.LINE_DASHDOTDOT);
+			actorBoundaryFigure0.setBackgroundColor(ACTORBOUNDARYFIGURE_BACK);
 
-			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
-
-			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
+			this.add(actorBoundaryFigure0, BorderLayout.CENTER);
+			setFigureActorBoundaryFigure(actorBoundaryFigure0);
+			actorBoundaryFigure0.setLayoutManager(new StackLayout());
 
 			ActorSVGFigure actorSVGFigure1 = new ActorSVGFigure();
 
-			fFigureActorBoundaryFigure.add(actorSVGFigure1);
+			actorBoundaryFigure0.add(actorSVGFigure1);
 
-			fFigureActorNameFigure = new WrapLabel();
-			fFigureActorNameFigure.setText("");
+			WrapLabel actorNameFigure0 = new WrapLabel();
+			actorNameFigure0.setText("");
 
-			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
+			actorNameFigure0.setFont(ActorNameFigure_FONT);
 
-			this.add(fFigureActorNameFigure, BorderLayout.TOP);
+			this.add(actorNameFigure0, BorderLayout.TOP);
+			setFigureActorNameFigure(actorNameFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private Ellipse fActorBoundaryFigure;
+
+		/**
+		 * @generated
+		 */
+		public Ellipse getFigureActorBoundaryFigure() {
+			return fActorBoundaryFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureActorBoundaryFigure(Ellipse fig) {
+			fActorBoundaryFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fActorNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureActorNameFigure() {
+			return fActorNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureActorNameFigure(WrapLabel fig) {
+			fActorNameFigure = fig;
 		}
 
 		/**
@@ -358,32 +342,17 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public Ellipse getFigureActorBoundaryFigure() {
-			return fFigureActorBoundaryFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureActorNameFigure() {
-			return fFigureActorNameFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Color FFIGUREACTORBOUNDARYFIGURE_BACK = new Color(null, 236,
-			236, 236);
+	static final Color ACTORBOUNDARYFIGURE_BACK = new Color(null, 236, 236, 236);
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREACTORNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(), "Arial", 12, SWT.BOLD);
+	static final Font ActorNameFigure_FONT = new Font(Display.getCurrent(),
+			"Arial", 12, org.eclipse.swt.SWT.BOLD);
 
 }

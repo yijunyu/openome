@@ -1,15 +1,18 @@
 package edu.toronto.cs.goalmodel.diagram.sheet;
 
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
-
 import edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelNavigatorGroup;
+
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelDiagramEditorPlugin;
+
+import org.eclipse.core.runtime.IAdaptable;
+
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+
+import org.eclipse.jface.viewers.DecoratingLabelProvider;
 
 /**
  * @generated
@@ -77,5 +80,4 @@ public class GoalmodelSheetLabelProvider extends DecoratingLabelProvider {
 	private Object unwrapView(View view) {
 		return view.getElement() == null ? view : view.getElement();
 	}
-
 }

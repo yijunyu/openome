@@ -1,27 +1,34 @@
 package edu.toronto.cs.goalmodel.diagram.view.factories;
 
+import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
+import edu.toronto.cs.goalmodel.diagram.edit.parts.PositionPositionCompartmentEditPart;
+
+import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
+
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EcoreFactory;
+
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.ListCompartmentViewFactory;
+
 import org.eclipse.gmf.runtime.notation.DrawerStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
-import edu.toronto.cs.goalmodel.diagram.edit.parts.PositionPositionCompartmentEditPart;
-import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-
 /**
  * @generated
  */
 public class PositionPositionCompartmentViewFactory extends
-		BasicNodeViewFactory {
+		ListCompartmentViewFactory {
 
 	/**
-	 * @generated
+	 * @generated 
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
@@ -46,6 +53,15 @@ public class PositionPositionCompartmentViewFactory extends
 				index, persisted);
 		setupCompartmentTitle(view);
 		setupCompartmentCollapsed(view);
+		if (!ModelEditPart.MODEL_ID.equals(GoalmodelVisualIDRegistry
+				.getModelID(containerView))) {
+			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
+					.createEAnnotation();
+			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
+			shortcutAnnotation.getDetails().put(
+					"modelID", ModelEditPart.MODEL_ID); //$NON-NLS-1$
+			view.getEAnnotations().add(shortcutAnnotation);
+		}
 	}
 
 	/**
@@ -69,4 +85,5 @@ public class PositionPositionCompartmentViewFactory extends
 			drawerStyle.setCollapsed(false);
 		}
 	}
+
 }

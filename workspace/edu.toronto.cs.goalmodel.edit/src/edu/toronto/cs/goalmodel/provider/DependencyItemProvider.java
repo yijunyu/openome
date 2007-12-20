@@ -35,31 +35,30 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DependencyItemProvider
-  extends ItemProviderAdapter
-  implements	
-    IEditingDomainItemProvider,	
-    IStructuredItemContentProvider,	
-    ITreeItemContentProvider,	
-    IItemLabelProvider,	
-    IItemPropertySource		
-{
+	extends ItemProviderAdapter
+	implements	
+		IEditingDomainItemProvider,	
+		IStructuredItemContentProvider,	
+		ITreeItemContentProvider,	
+		IItemLabelProvider,	
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public DependencyItemProvider(AdapterFactory adapterFactory) {
+	public DependencyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public List getPropertyDescriptors(Object object) {
+	public List getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
@@ -74,10 +73,10 @@ public class DependencyItemProvider
 	/**
 	 * This adds a property descriptor for the Dependency From feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addDependencyFromPropertyDescriptor(Object object) {
+	protected void addDependencyFromPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -96,10 +95,10 @@ public class DependencyItemProvider
 	/**
 	 * This adds a property descriptor for the Dependency To feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addDependencyToPropertyDescriptor(Object object) {
+	protected void addDependencyToPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -118,10 +117,10 @@ public class DependencyItemProvider
 	/**
 	 * This adds a property descriptor for the Trust feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addTrustPropertyDescriptor(Object object) {
+	protected void addTrustPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -140,10 +139,10 @@ public class DependencyItemProvider
 	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void addLabelPropertyDescriptor(Object object) {
+	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -162,20 +161,20 @@ public class DependencyItemProvider
 	/**
 	 * This returns Dependency.gif.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public Object getImage(Object object) {
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Dependency"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public String getText(Object object) {
+	public String getText(Object object) {
 		Dependency dependency = (Dependency)object;
 		return getString("_UI_Dependency_type") + " " + dependency.getTrust();
 	}
@@ -184,10 +183,10 @@ public class DependencyItemProvider
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Dependency.class)) {
@@ -203,20 +202,20 @@ public class DependencyItemProvider
 	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
 	 * describing all of the children that can be created under this object.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-  public ResourceLocator getResourceLocator() {
+	public ResourceLocator getResourceLocator() {
 		return GoalmodelEditPlugin.INSTANCE;
 	}
 

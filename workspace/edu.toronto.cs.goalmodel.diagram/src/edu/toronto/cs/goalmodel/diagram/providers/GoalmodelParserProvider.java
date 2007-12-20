@@ -1,18 +1,14 @@
 package edu.toronto.cs.goalmodel.diagram.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
-
 import edu.toronto.cs.goalmodel.GoalmodelPackage;
+
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ActorNameEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.AgentNameEditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.AspectNameEditPart;
@@ -43,7 +39,7 @@ import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName4EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName5EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskName6EditPart;
 import edu.toronto.cs.goalmodel.diagram.edit.parts.TaskNameEditPart;
-import edu.toronto.cs.goalmodel.diagram.parsers.MessageFormatParser;
+
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
 
 /**
@@ -55,750 +51,720 @@ public class GoalmodelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser actorName_4005Parser;
+	private IParser goalGoalName_4001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getActorName_4005Parser() {
-		if (actorName_4005Parser == null) {
-			actorName_4005Parser = createActorName_4005Parser();
+	private IParser getGoalGoalName_4001Parser() {
+		if (goalGoalName_4001Parser == null) {
+			goalGoalName_4001Parser = createGoalGoalName_4001Parser();
 		}
-		return actorName_4005Parser;
+		return goalGoalName_4001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createActorName_4005Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getContainer_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4001Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser agentName_4010Parser;
+	private IParser softgoalSoftgoalName_4002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAgentName_4010Parser() {
-		if (agentName_4010Parser == null) {
-			agentName_4010Parser = createAgentName_4010Parser();
+	private IParser getSoftgoalSoftgoalName_4002Parser() {
+		if (softgoalSoftgoalName_4002Parser == null) {
+			softgoalSoftgoalName_4002Parser = createSoftgoalSoftgoalName_4002Parser();
 		}
-		return agentName_4010Parser;
+		return softgoalSoftgoalName_4002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAgentName_4010Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getContainer_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4002Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser positionName_4015Parser;
+	private IParser resourceResourceName_4003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPositionName_4015Parser() {
-		if (positionName_4015Parser == null) {
-			positionName_4015Parser = createPositionName_4015Parser();
+	private IParser getResourceResourceName_4003Parser() {
+		if (resourceResourceName_4003Parser == null) {
+			resourceResourceName_4003Parser = createResourceResourceName_4003Parser();
 		}
-		return positionName_4015Parser;
+		return resourceResourceName_4003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createPositionName_4015Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getContainer_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4003Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser roleName_4020Parser;
+	private IParser taskTaskName_4004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRoleName_4020Parser() {
-		if (roleName_4020Parser == null) {
-			roleName_4020Parser = createRoleName_4020Parser();
+	private IParser getTaskTaskName_4004Parser() {
+		if (taskTaskName_4004Parser == null) {
+			taskTaskName_4004Parser = createTaskTaskName_4004Parser();
 		}
-		return roleName_4020Parser;
+		return taskTaskName_4004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createRoleName_4020Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getContainer_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4004Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser aspectName_4025Parser;
+	private IParser goalGoalName_4006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAspectName_4025Parser() {
-		if (aspectName_4025Parser == null) {
-			aspectName_4025Parser = createAspectName_4025Parser();
+	private IParser getGoalGoalName_4006Parser() {
+		if (goalGoalName_4006Parser == null) {
+			goalGoalName_4006Parser = createGoalGoalName_4006Parser();
 		}
-		return aspectName_4025Parser;
+		return goalGoalName_4006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAspectName_4025Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getContainer_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4006Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4026Parser;
+	private IParser softgoalSoftgoalName_4007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4026Parser() {
-		if (goalName_4026Parser == null) {
-			goalName_4026Parser = createGoalName_4026Parser();
+	private IParser getSoftgoalSoftgoalName_4007Parser() {
+		if (softgoalSoftgoalName_4007Parser == null) {
+			softgoalSoftgoalName_4007Parser = createSoftgoalSoftgoalName_4007Parser();
 		}
-		return goalName_4026Parser;
+		return softgoalSoftgoalName_4007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4026Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4007Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4027Parser;
+	private IParser resourceResourceName_4008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4027Parser() {
-		if (softgoalName_4027Parser == null) {
-			softgoalName_4027Parser = createSoftgoalName_4027Parser();
+	private IParser getResourceResourceName_4008Parser() {
+		if (resourceResourceName_4008Parser == null) {
+			resourceResourceName_4008Parser = createResourceResourceName_4008Parser();
 		}
-		return softgoalName_4027Parser;
+		return resourceResourceName_4008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4027Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4008Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4028Parser;
+	private IParser taskTaskName_4009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4028Parser() {
-		if (taskName_4028Parser == null) {
-			taskName_4028Parser = createTaskName_4028Parser();
+	private IParser getTaskTaskName_4009Parser() {
+		if (taskTaskName_4009Parser == null) {
+			taskTaskName_4009Parser = createTaskTaskName_4009Parser();
 		}
-		return taskName_4028Parser;
+		return taskTaskName_4009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4028Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4009Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4029Parser;
+	private IParser goalGoalName_4011Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4029Parser() {
-		if (resourceName_4029Parser == null) {
-			resourceName_4029Parser = createResourceName_4029Parser();
+	private IParser getGoalGoalName_4011Parser() {
+		if (goalGoalName_4011Parser == null) {
+			goalGoalName_4011Parser = createGoalGoalName_4011Parser();
 		}
-		return resourceName_4029Parser;
+		return goalGoalName_4011Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4029Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4011Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4001Parser;
+	private IParser softgoalSoftgoalName_4012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4001Parser() {
-		if (goalName_4001Parser == null) {
-			goalName_4001Parser = createGoalName_4001Parser();
+	private IParser getSoftgoalSoftgoalName_4012Parser() {
+		if (softgoalSoftgoalName_4012Parser == null) {
+			softgoalSoftgoalName_4012Parser = createSoftgoalSoftgoalName_4012Parser();
 		}
-		return goalName_4001Parser;
+		return softgoalSoftgoalName_4012Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4001Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4012Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4002Parser;
+	private IParser resourceResourceName_4013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4002Parser() {
-		if (softgoalName_4002Parser == null) {
-			softgoalName_4002Parser = createSoftgoalName_4002Parser();
+	private IParser getResourceResourceName_4013Parser() {
+		if (resourceResourceName_4013Parser == null) {
+			resourceResourceName_4013Parser = createResourceResourceName_4013Parser();
 		}
-		return softgoalName_4002Parser;
+		return resourceResourceName_4013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4002Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4013Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4003Parser;
+	private IParser taskTaskName_4014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4003Parser() {
-		if (resourceName_4003Parser == null) {
-			resourceName_4003Parser = createResourceName_4003Parser();
+	private IParser getTaskTaskName_4014Parser() {
+		if (taskTaskName_4014Parser == null) {
+			taskTaskName_4014Parser = createTaskTaskName_4014Parser();
 		}
-		return resourceName_4003Parser;
+		return taskTaskName_4014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4003Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4014Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4004Parser;
+	private IParser goalGoalName_4016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4004Parser() {
-		if (taskName_4004Parser == null) {
-			taskName_4004Parser = createTaskName_4004Parser();
+	private IParser getGoalGoalName_4016Parser() {
+		if (goalGoalName_4016Parser == null) {
+			goalGoalName_4016Parser = createGoalGoalName_4016Parser();
 		}
-		return taskName_4004Parser;
+		return goalGoalName_4016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4004Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4016Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4006Parser;
+	private IParser softgoalSoftgoalName_4017Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4006Parser() {
-		if (goalName_4006Parser == null) {
-			goalName_4006Parser = createGoalName_4006Parser();
+	private IParser getSoftgoalSoftgoalName_4017Parser() {
+		if (softgoalSoftgoalName_4017Parser == null) {
+			softgoalSoftgoalName_4017Parser = createSoftgoalSoftgoalName_4017Parser();
 		}
-		return goalName_4006Parser;
+		return softgoalSoftgoalName_4017Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4006Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4017Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4007Parser;
+	private IParser resourceResourceName_4018Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4007Parser() {
-		if (softgoalName_4007Parser == null) {
-			softgoalName_4007Parser = createSoftgoalName_4007Parser();
+	private IParser getResourceResourceName_4018Parser() {
+		if (resourceResourceName_4018Parser == null) {
+			resourceResourceName_4018Parser = createResourceResourceName_4018Parser();
 		}
-		return softgoalName_4007Parser;
+		return resourceResourceName_4018Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4007Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4018Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4008Parser;
+	private IParser taskTaskName_4019Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4008Parser() {
-		if (resourceName_4008Parser == null) {
-			resourceName_4008Parser = createResourceName_4008Parser();
+	private IParser getTaskTaskName_4019Parser() {
+		if (taskTaskName_4019Parser == null) {
+			taskTaskName_4019Parser = createTaskTaskName_4019Parser();
 		}
-		return resourceName_4008Parser;
+		return taskTaskName_4019Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4008Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4019Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4009Parser;
+	private IParser goalGoalName_4021Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4009Parser() {
-		if (taskName_4009Parser == null) {
-			taskName_4009Parser = createTaskName_4009Parser();
+	private IParser getGoalGoalName_4021Parser() {
+		if (goalGoalName_4021Parser == null) {
+			goalGoalName_4021Parser = createGoalGoalName_4021Parser();
 		}
-		return taskName_4009Parser;
+		return goalGoalName_4021Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4009Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4021Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4011Parser;
+	private IParser softgoalSoftgoalName_4022Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4011Parser() {
-		if (goalName_4011Parser == null) {
-			goalName_4011Parser = createGoalName_4011Parser();
+	private IParser getSoftgoalSoftgoalName_4022Parser() {
+		if (softgoalSoftgoalName_4022Parser == null) {
+			softgoalSoftgoalName_4022Parser = createSoftgoalSoftgoalName_4022Parser();
 		}
-		return goalName_4011Parser;
+		return softgoalSoftgoalName_4022Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4011Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4022Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4012Parser;
+	private IParser resourceResourceName_4023Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4012Parser() {
-		if (softgoalName_4012Parser == null) {
-			softgoalName_4012Parser = createSoftgoalName_4012Parser();
+	private IParser getResourceResourceName_4023Parser() {
+		if (resourceResourceName_4023Parser == null) {
+			resourceResourceName_4023Parser = createResourceResourceName_4023Parser();
 		}
-		return softgoalName_4012Parser;
+		return resourceResourceName_4023Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4012Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4023Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4013Parser;
+	private IParser taskTaskName_4024Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4013Parser() {
-		if (resourceName_4013Parser == null) {
-			resourceName_4013Parser = createResourceName_4013Parser();
+	private IParser getTaskTaskName_4024Parser() {
+		if (taskTaskName_4024Parser == null) {
+			taskTaskName_4024Parser = createTaskTaskName_4024Parser();
 		}
-		return resourceName_4013Parser;
+		return taskTaskName_4024Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4013Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4024Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4014Parser;
+	private IParser actorActorName_4005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4014Parser() {
-		if (taskName_4014Parser == null) {
-			taskName_4014Parser = createTaskName_4014Parser();
+	private IParser getActorActorName_4005Parser() {
+		if (actorActorName_4005Parser == null) {
+			actorActorName_4005Parser = createActorActorName_4005Parser();
 		}
-		return taskName_4014Parser;
+		return actorActorName_4005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4014Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createActorActorName_4005Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getContainer_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4016Parser;
+	private IParser agentAgentName_4010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4016Parser() {
-		if (goalName_4016Parser == null) {
-			goalName_4016Parser = createGoalName_4016Parser();
+	private IParser getAgentAgentName_4010Parser() {
+		if (agentAgentName_4010Parser == null) {
+			agentAgentName_4010Parser = createAgentAgentName_4010Parser();
 		}
-		return goalName_4016Parser;
+		return agentAgentName_4010Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4016Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createAgentAgentName_4010Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getContainer_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4017Parser;
+	private IParser positionPositionName_4015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4017Parser() {
-		if (softgoalName_4017Parser == null) {
-			softgoalName_4017Parser = createSoftgoalName_4017Parser();
+	private IParser getPositionPositionName_4015Parser() {
+		if (positionPositionName_4015Parser == null) {
+			positionPositionName_4015Parser = createPositionPositionName_4015Parser();
 		}
-		return softgoalName_4017Parser;
+		return positionPositionName_4015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4017Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createPositionPositionName_4015Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getContainer_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4018Parser;
+	private IParser roleRoleName_4020Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4018Parser() {
-		if (resourceName_4018Parser == null) {
-			resourceName_4018Parser = createResourceName_4018Parser();
+	private IParser getRoleRoleName_4020Parser() {
+		if (roleRoleName_4020Parser == null) {
+			roleRoleName_4020Parser = createRoleRoleName_4020Parser();
 		}
-		return resourceName_4018Parser;
+		return roleRoleName_4020Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4018Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createRoleRoleName_4020Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getContainer_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4019Parser;
+	private IParser aspectAspectName_4025Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4019Parser() {
-		if (taskName_4019Parser == null) {
-			taskName_4019Parser = createTaskName_4019Parser();
+	private IParser getAspectAspectName_4025Parser() {
+		if (aspectAspectName_4025Parser == null) {
+			aspectAspectName_4025Parser = createAspectAspectName_4025Parser();
 		}
-		return taskName_4019Parser;
+		return aspectAspectName_4025Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4019Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createAspectAspectName_4025Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getContainer_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser goalName_4021Parser;
+	private IParser goalGoalName_4026Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_4021Parser() {
-		if (goalName_4021Parser == null) {
-			goalName_4021Parser = createGoalName_4021Parser();
+	private IParser getGoalGoalName_4026Parser() {
+		if (goalGoalName_4026Parser == null) {
+			goalGoalName_4026Parser = createGoalGoalName_4026Parser();
 		}
-		return goalName_4021Parser;
+		return goalGoalName_4026Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_4021Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createGoalGoalName_4026Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_4022Parser;
+	private IParser softgoalSoftgoalName_4027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_4022Parser() {
-		if (softgoalName_4022Parser == null) {
-			softgoalName_4022Parser = createSoftgoalName_4022Parser();
+	private IParser getSoftgoalSoftgoalName_4027Parser() {
+		if (softgoalSoftgoalName_4027Parser == null) {
+			softgoalSoftgoalName_4027Parser = createSoftgoalSoftgoalName_4027Parser();
 		}
-		return softgoalName_4022Parser;
+		return softgoalSoftgoalName_4027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_4022Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createSoftgoalSoftgoalName_4027Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_4023Parser;
+	private IParser taskTaskName_4028Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_4023Parser() {
-		if (resourceName_4023Parser == null) {
-			resourceName_4023Parser = createResourceName_4023Parser();
+	private IParser getTaskTaskName_4028Parser() {
+		if (taskTaskName_4028Parser == null) {
+			taskTaskName_4028Parser = createTaskTaskName_4028Parser();
 		}
-		return resourceName_4023Parser;
+		return taskTaskName_4028Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_4023Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createTaskTaskName_4028Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser taskName_4024Parser;
+	private IParser resourceResourceName_4029Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_4024Parser() {
-		if (taskName_4024Parser == null) {
-			taskName_4024Parser = createTaskName_4024Parser();
+	private IParser getResourceResourceName_4029Parser() {
+		if (resourceResourceName_4029Parser == null) {
+			resourceResourceName_4029Parser = createResourceResourceName_4029Parser();
 		}
-		return taskName_4024Parser;
+		return resourceResourceName_4029Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_4024Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getIntention_Name(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createResourceResourceName_4029Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getIntention_Name());
 		return parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser dependencyLabel_4030Parser;
+	private IParser dependencyDependencyLabel_4030Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDependencyLabel_4030Parser() {
-		if (dependencyLabel_4030Parser == null) {
-			dependencyLabel_4030Parser = createDependencyLabel_4030Parser();
+	private IParser getDependencyDependencyLabel_4030Parser() {
+		if (dependencyDependencyLabel_4030Parser == null) {
+			dependencyDependencyLabel_4030Parser = createDependencyDependencyLabel_4030Parser();
 		}
-		return dependencyLabel_4030Parser;
+		return dependencyDependencyLabel_4030Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createDependencyLabel_4030Parser() {
-		EAttribute[] features = new EAttribute[] { GoalmodelPackage.eINSTANCE
-				.getDependency_Label(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
+	protected IParser createDependencyDependencyLabel_4030Parser() {
+		GoalmodelStructuralFeatureParser parser = new GoalmodelStructuralFeatureParser(
+				GoalmodelPackage.eINSTANCE.getDependency_Label());
 		return parser;
 	}
 
@@ -807,66 +773,66 @@ public class GoalmodelParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case ActorNameEditPart.VISUAL_ID:
-			return getActorName_4005Parser();
-		case AgentNameEditPart.VISUAL_ID:
-			return getAgentName_4010Parser();
-		case PositionNameEditPart.VISUAL_ID:
-			return getPositionName_4015Parser();
-		case RoleNameEditPart.VISUAL_ID:
-			return getRoleName_4020Parser();
-		case AspectNameEditPart.VISUAL_ID:
-			return getAspectName_4025Parser();
 		case GoalNameEditPart.VISUAL_ID:
-			return getGoalName_4026Parser();
+			return getGoalGoalName_4001Parser();
 		case SoftgoalNameEditPart.VISUAL_ID:
-			return getSoftgoalName_4027Parser();
-		case TaskNameEditPart.VISUAL_ID:
-			return getTaskName_4028Parser();
+			return getSoftgoalSoftgoalName_4002Parser();
 		case ResourceNameEditPart.VISUAL_ID:
-			return getResourceName_4029Parser();
+			return getResourceResourceName_4003Parser();
+		case TaskNameEditPart.VISUAL_ID:
+			return getTaskTaskName_4004Parser();
 		case GoalName2EditPart.VISUAL_ID:
-			return getGoalName_4001Parser();
+			return getGoalGoalName_4006Parser();
 		case SoftgoalName2EditPart.VISUAL_ID:
-			return getSoftgoalName_4002Parser();
+			return getSoftgoalSoftgoalName_4007Parser();
 		case ResourceName2EditPart.VISUAL_ID:
-			return getResourceName_4003Parser();
+			return getResourceResourceName_4008Parser();
 		case TaskName2EditPart.VISUAL_ID:
-			return getTaskName_4004Parser();
+			return getTaskTaskName_4009Parser();
 		case GoalName3EditPart.VISUAL_ID:
-			return getGoalName_4006Parser();
+			return getGoalGoalName_4011Parser();
 		case SoftgoalName3EditPart.VISUAL_ID:
-			return getSoftgoalName_4007Parser();
+			return getSoftgoalSoftgoalName_4012Parser();
 		case ResourceName3EditPart.VISUAL_ID:
-			return getResourceName_4008Parser();
+			return getResourceResourceName_4013Parser();
 		case TaskName3EditPart.VISUAL_ID:
-			return getTaskName_4009Parser();
+			return getTaskTaskName_4014Parser();
 		case GoalName4EditPart.VISUAL_ID:
-			return getGoalName_4011Parser();
+			return getGoalGoalName_4016Parser();
 		case SoftgoalName4EditPart.VISUAL_ID:
-			return getSoftgoalName_4012Parser();
+			return getSoftgoalSoftgoalName_4017Parser();
 		case ResourceName4EditPart.VISUAL_ID:
-			return getResourceName_4013Parser();
+			return getResourceResourceName_4018Parser();
 		case TaskName4EditPart.VISUAL_ID:
-			return getTaskName_4014Parser();
+			return getTaskTaskName_4019Parser();
 		case GoalName5EditPart.VISUAL_ID:
-			return getGoalName_4016Parser();
+			return getGoalGoalName_4021Parser();
 		case SoftgoalName5EditPart.VISUAL_ID:
-			return getSoftgoalName_4017Parser();
+			return getSoftgoalSoftgoalName_4022Parser();
 		case ResourceName5EditPart.VISUAL_ID:
-			return getResourceName_4018Parser();
+			return getResourceResourceName_4023Parser();
 		case TaskName5EditPart.VISUAL_ID:
-			return getTaskName_4019Parser();
+			return getTaskTaskName_4024Parser();
+		case ActorNameEditPart.VISUAL_ID:
+			return getActorActorName_4005Parser();
+		case AgentNameEditPart.VISUAL_ID:
+			return getAgentAgentName_4010Parser();
+		case PositionNameEditPart.VISUAL_ID:
+			return getPositionPositionName_4015Parser();
+		case RoleNameEditPart.VISUAL_ID:
+			return getRoleRoleName_4020Parser();
+		case AspectNameEditPart.VISUAL_ID:
+			return getAspectAspectName_4025Parser();
 		case GoalName6EditPart.VISUAL_ID:
-			return getGoalName_4021Parser();
+			return getGoalGoalName_4026Parser();
 		case SoftgoalName6EditPart.VISUAL_ID:
-			return getSoftgoalName_4022Parser();
-		case ResourceName6EditPart.VISUAL_ID:
-			return getResourceName_4023Parser();
+			return getSoftgoalSoftgoalName_4027Parser();
 		case TaskName6EditPart.VISUAL_ID:
-			return getTaskName_4024Parser();
+			return getTaskTaskName_4028Parser();
+		case ResourceName6EditPart.VISUAL_ID:
+			return getResourceResourceName_4029Parser();
 		case DependencyLabelEditPart.VISUAL_ID:
-			return getDependencyLabel_4030Parser();
+			return getDependencyDependencyLabel_4030Parser();
 		}
 		return null;
 	}
@@ -899,35 +865,4 @@ public class GoalmodelParserProvider extends AbstractProvider implements
 		}
 		return false;
 	}
-
-	/**
-	 * @generated
-	 */
-	public static class HintAdapter extends ParserHintAdapter {
-
-		/**
-		 * @generated
-		 */
-		private final IElementType elementType;
-
-		/**
-		 * @generated
-		 */
-		public HintAdapter(IElementType type, EObject object, String parserHint) {
-			super(object, parserHint);
-			assert type != null;
-			elementType = type;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Object getAdapter(Class adapter) {
-			if (IElementType.class.equals(adapter)) {
-				return elementType;
-			}
-			return super.getAdapter(adapter);
-		}
-	}
-
 }

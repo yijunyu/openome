@@ -3,13 +3,10 @@ package edu.toronto.cs.goalmodel.diagram.edit.parts;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
@@ -43,28 +40,6 @@ public class HurtContributionEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel5EditPart) {
-			((WrapLabel5EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureHurtLabel());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -72,16 +47,9 @@ public class HurtContributionEditPart extends ConnectionNodeEditPart {
 	 * 
 	 * @generated
 	 */
-
 	protected Connection createConnectionFigure() {
-		return new HurtContributionFigure();
-	}
 
-	/**
-	 * @generated
-	 */
-	public HurtContributionFigure getPrimaryShape() {
-		return (HurtContributionFigure) getFigure();
+		return new HurtContributionFigure();
 	}
 
 	/**
@@ -92,31 +60,17 @@ public class HurtContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureHurtLabel;
-
-		/**
-		 * @generated
-		 */
 		public HurtContributionFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
 			this.setLineWidth(2);
 			this.setLineStyle(Graphics.LINE_DASHDOTDOT);
 
-			this.setFont(THIS_FONT);
+			this.setFont(HurtContributionFigure_FONT);
 
-			createContents();
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureHurtLabel = new WrapLabel();
-			fFigureHurtLabel.setText("-");
-
-			this.add(fFigureHurtLabel);
-
 		}
 
 		/**
@@ -128,19 +82,12 @@ public class HurtContributionEditPart extends ConnectionNodeEditPart {
 			return df;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureHurtLabel() {
-			return fFigureHurtLabel;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font THIS_FONT = new Font(Display.getCurrent(), "Courier New",
-			9, SWT.NORMAL);
+	static final Font HurtContributionFigure_FONT = new Font(Display
+			.getCurrent(), "Courier New", 9, org.eclipse.swt.SWT.NORMAL);
 
 }

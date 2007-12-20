@@ -12,26 +12,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.RoleItemSemanticEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
 import goalmodel.figures.RoleSVGFigure;
 
 /**
@@ -65,57 +59,11 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == GoalmodelElementTypes.Goal_2013) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(RoleRoleCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Softgoal_2014) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(RoleRoleCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Resource_2015) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(RoleRoleCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Task_2016) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(RoleRoleCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new RoleItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -229,6 +177,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -286,16 +235,6 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class RoleFigure extends Ellipse {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureRoleNameFigure;
-		/**
-		 * @generated
-		 */
-		private Ellipse fFigureRoleBoundaryFigure;
-
 		/**
 		 * @generated
 		 */
@@ -305,8 +244,11 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
+			this.setFillXOR(false);
 			this.setOutline(false);
+			this.setOutlineXOR(false);
 			this.setLineWidth(0);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -315,27 +257,69 @@ public class RoleEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureRoleNameFigure = new WrapLabel();
-			fFigureRoleNameFigure.setText("<...>");
+			WrapLabel roleNameFigure0 = new WrapLabel();
+			roleNameFigure0.setText("<...>");
 
-			fFigureRoleNameFigure.setFont(FFIGUREROLENAMEFIGURE_FONT);
+			roleNameFigure0.setFont(RoleNameFigure_FONT);
 
-			this.add(fFigureRoleNameFigure, BorderLayout.TOP);
+			this.add(roleNameFigure0, BorderLayout.TOP);
+			setFigureRoleNameFigure(roleNameFigure0);
 
-			fFigureRoleBoundaryFigure = new Ellipse();
-			fFigureRoleBoundaryFigure.setLineWidth(3);
-			fFigureRoleBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
-			fFigureRoleBoundaryFigure
-					.setBackgroundColor(FFIGUREROLEBOUNDARYFIGURE_BACK);
+			Ellipse roleBoundaryFigure0 = new Ellipse();
+			roleBoundaryFigure0.setFill(true);
+			roleBoundaryFigure0.setFillXOR(false);
+			roleBoundaryFigure0.setOutline(true);
+			roleBoundaryFigure0.setOutlineXOR(false);
+			roleBoundaryFigure0.setLineWidth(3);
+			roleBoundaryFigure0.setLineStyle(Graphics.LINE_DASHDOTDOT);
+			roleBoundaryFigure0.setBackgroundColor(ROLEBOUNDARYFIGURE_BACK);
 
-			this.add(fFigureRoleBoundaryFigure, BorderLayout.CENTER);
-
-			fFigureRoleBoundaryFigure.setLayoutManager(new StackLayout());
+			this.add(roleBoundaryFigure0, BorderLayout.CENTER);
+			setFigureRoleBoundaryFigure(roleBoundaryFigure0);
+			roleBoundaryFigure0.setLayoutManager(new StackLayout());
 
 			RoleSVGFigure roleSVGFigure1 = new RoleSVGFigure();
 
-			fFigureRoleBoundaryFigure.add(roleSVGFigure1);
+			roleBoundaryFigure0.add(roleSVGFigure1);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fRoleNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureRoleNameFigure() {
+			return fRoleNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureRoleNameFigure(WrapLabel fig) {
+			fRoleNameFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private Ellipse fRoleBoundaryFigure;
+
+		/**
+		 * @generated
+		 */
+		public Ellipse getFigureRoleBoundaryFigure() {
+			return fRoleBoundaryFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureRoleBoundaryFigure(Ellipse fig) {
+			fRoleBoundaryFigure = fig;
 		}
 
 		/**
@@ -357,32 +341,17 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureRoleNameFigure() {
-			return fFigureRoleNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Ellipse getFigureRoleBoundaryFigure() {
-			return fFigureRoleBoundaryFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREROLENAMEFIGURE_FONT = new Font(Display
-			.getCurrent(), "Arial", 12, SWT.BOLD);
+	static final Font RoleNameFigure_FONT = new Font(Display.getCurrent(),
+			"Arial", 12, org.eclipse.swt.SWT.BOLD);
 
 	/**
 	 * @generated
 	 */
-	static final Color FFIGUREROLEBOUNDARYFIGURE_BACK = new Color(null, 236,
-			236, 236);
+	static final Color ROLEBOUNDARYFIGURE_BACK = new Color(null, 236, 236, 236);
 
 }

@@ -45,7 +45,7 @@ public class DecompositionImpl extends EObjectImpl implements Decomposition {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention source;
+	protected Intention source= null;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -55,7 +55,7 @@ public class DecompositionImpl extends EObjectImpl implements Decomposition {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention target;
+	protected Intention target= null;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -29,7 +29,7 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2009;
+	public static final int VISUAL_ID = 2013;
 
 	/**
 	 * @generated
@@ -52,13 +52,11 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new Goal4ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -156,6 +154,7 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -213,12 +212,6 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class GoalFigure extends goalmodel.figures.GoalFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureGoalNameFigure;
-
 		/**
 		 * @generated
 		 */
@@ -232,11 +225,31 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureGoalNameFigure = new WrapLabel();
-			fFigureGoalNameFigure.setText("");
+			WrapLabel goalNameFigure0 = new WrapLabel();
+			goalNameFigure0.setText("");
 
-			this.add(fFigureGoalNameFigure);
+			this.add(goalNameFigure0);
+			setFigureGoalNameFigure(goalNameFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fGoalNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureGoalNameFigure() {
+			return fGoalNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureGoalNameFigure(WrapLabel fig) {
+			fGoalNameFigure = fig;
 		}
 
 		/**
@@ -256,13 +269,6 @@ public class Goal4EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureGoalNameFigure() {
-			return fFigureGoalNameFigure;
 		}
 
 	}

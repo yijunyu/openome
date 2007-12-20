@@ -1,14 +1,15 @@
 package edu.toronto.cs.goalmodel.diagram.navigator;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.PlatformObject;
+
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 /**
  * @generated
  */
-public abstract class GoalmodelAbstractNavigatorItem extends PlatformObject {
+public abstract class GoalmodelAbstractNavigatorItem implements IAdaptable {
 
 	/**
 	 * @generated
@@ -20,23 +21,20 @@ public abstract class GoalmodelAbstractNavigatorItem extends PlatformObject {
 				return "edu.toronto.cs.goalmodel.diagram"; //$NON-NLS-1$
 			}
 		};
-		Platform.getAdapterManager().registerAdapters(
-				new IAdapterFactory() {
+		Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
 
-					public Object getAdapter(Object adaptableObject,
-							Class adapterType) {
-						if (adaptableObject instanceof edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelAbstractNavigatorItem
-								&& adapterType == ITabbedPropertySheetPageContributor.class) {
-							return propertySheetPageContributor;
-						}
-						return null;
-					}
+			public Object getAdapter(Object adaptableObject, Class adapterType) {
+				if (adaptableObject instanceof GoalmodelAbstractNavigatorItem
+						&& adapterType == ITabbedPropertySheetPageContributor.class) {
+					return propertySheetPageContributor;
+				}
+				return null;
+			}
 
-					public Class[] getAdapterList() {
-						return supportedTypes;
-					}
-				},
-				edu.toronto.cs.goalmodel.diagram.navigator.GoalmodelAbstractNavigatorItem.class);
+			public Class[] getAdapterList() {
+				return supportedTypes;
+			}
+		}, GoalmodelAbstractNavigatorItem.class);
 	}
 
 	/**
@@ -56,6 +54,13 @@ public abstract class GoalmodelAbstractNavigatorItem extends PlatformObject {
 	 */
 	public Object getParent() {
 		return myParent;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Object getAdapter(Class adapter) {
+		return Platform.getAdapterManager().getAdapter(this, adapter);
 	}
 
 }

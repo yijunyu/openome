@@ -13,26 +13,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.AspectItemSemanticEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
 import goalmodel.figures.AspectSVGFigure;
 
 /**
@@ -66,57 +60,11 @@ public class AspectEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == GoalmodelElementTypes.Goal_2017) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AspectAspectCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Softgoal_2018) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AspectAspectCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Resource_2019) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AspectAspectCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Task_2020) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AspectAspectCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new AspectItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -231,6 +179,7 @@ public class AspectEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -288,16 +237,6 @@ public class AspectEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class AspectFigure extends RectangleFigure {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureAspectNameFigure;
-		/**
-		 * @generated
-		 */
-		private Ellipse fFigureAspectBoundaryFigure;
-
 		/**
 		 * @generated
 		 */
@@ -307,8 +246,11 @@ public class AspectEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
+			this.setFillXOR(false);
 			this.setOutline(false);
+			this.setOutlineXOR(false);
 			this.setLineWidth(0);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -317,27 +259,69 @@ public class AspectEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureAspectNameFigure = new WrapLabel();
-			fFigureAspectNameFigure.setText("<...>");
+			WrapLabel aspectNameFigure0 = new WrapLabel();
+			aspectNameFigure0.setText("<...>");
 
-			fFigureAspectNameFigure.setFont(FFIGUREASPECTNAMEFIGURE_FONT);
+			aspectNameFigure0.setFont(AspectNameFigure_FONT);
 
-			this.add(fFigureAspectNameFigure, BorderLayout.TOP);
+			this.add(aspectNameFigure0, BorderLayout.TOP);
+			setFigureAspectNameFigure(aspectNameFigure0);
 
-			fFigureAspectBoundaryFigure = new Ellipse();
-			fFigureAspectBoundaryFigure.setLineWidth(3);
-			fFigureAspectBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
-			fFigureAspectBoundaryFigure
-					.setBackgroundColor(FFIGUREASPECTBOUNDARYFIGURE_BACK);
+			Ellipse aspectBoundaryFigure0 = new Ellipse();
+			aspectBoundaryFigure0.setFill(true);
+			aspectBoundaryFigure0.setFillXOR(false);
+			aspectBoundaryFigure0.setOutline(true);
+			aspectBoundaryFigure0.setOutlineXOR(false);
+			aspectBoundaryFigure0.setLineWidth(3);
+			aspectBoundaryFigure0.setLineStyle(Graphics.LINE_DASHDOTDOT);
+			aspectBoundaryFigure0.setBackgroundColor(ASPECTBOUNDARYFIGURE_BACK);
 
-			this.add(fFigureAspectBoundaryFigure, BorderLayout.CENTER);
-
-			fFigureAspectBoundaryFigure.setLayoutManager(new StackLayout());
+			this.add(aspectBoundaryFigure0, BorderLayout.CENTER);
+			setFigureAspectBoundaryFigure(aspectBoundaryFigure0);
+			aspectBoundaryFigure0.setLayoutManager(new StackLayout());
 
 			AspectSVGFigure aspectSVGFigure1 = new AspectSVGFigure();
 
-			fFigureAspectBoundaryFigure.add(aspectSVGFigure1);
+			aspectBoundaryFigure0.add(aspectSVGFigure1);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fAspectNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureAspectNameFigure() {
+			return fAspectNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureAspectNameFigure(WrapLabel fig) {
+			fAspectNameFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private Ellipse fAspectBoundaryFigure;
+
+		/**
+		 * @generated
+		 */
+		public Ellipse getFigureAspectBoundaryFigure() {
+			return fAspectBoundaryFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureAspectBoundaryFigure(Ellipse fig) {
+			fAspectBoundaryFigure = fig;
 		}
 
 		/**
@@ -359,32 +343,18 @@ public class AspectEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureAspectNameFigure() {
-			return fFigureAspectNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Ellipse getFigureAspectBoundaryFigure() {
-			return fFigureAspectBoundaryFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREASPECTNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(), "Arial", 12, SWT.BOLD);
+	static final Font AspectNameFigure_FONT = new Font(Display.getCurrent(),
+			"Arial", 12, org.eclipse.swt.SWT.BOLD);
 
 	/**
 	 * @generated
 	 */
-	static final Color FFIGUREASPECTBOUNDARYFIGURE_BACK = new Color(null, 236,
-			236, 236);
+	static final Color ASPECTBOUNDARYFIGURE_BACK = new Color(null, 236, 236,
+			236);
 
 }

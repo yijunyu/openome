@@ -32,7 +32,7 @@ public class GoalmodelPaletteFactory {
 	 */
 	private PaletteContainer createGoalmodel1Group() {
 		PaletteGroup paletteContainer = new PaletteGroup(
-				Messages.Goalmodel1Group_title);
+				GoalmodelDiagramEditorPlugin.getString("Goalmodel1Group.title")); //$NON-NLS-1$
 		paletteContainer.add(createActor1CreationTool());
 		paletteContainer.add(createAgent2CreationTool());
 		paletteContainer.add(createPosition3CreationTool());
@@ -63,8 +63,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Actor_1001);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Actor1CreationTool_title,
-				Messages.Actor1CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Actor1CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Actor1CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/actor.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -79,8 +79,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Agent_1002);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Agent2CreationTool_title,
-				Messages.Agent2CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Agent2CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Agent2CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/agent.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -95,8 +95,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Position_1003);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Position3CreationTool_title,
-				Messages.Position3CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Position3CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Position3CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/position.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -111,8 +111,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Role_1004);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Role4CreationTool_title,
-				Messages.Role4CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Role4CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Role4CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/role.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -127,8 +127,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Aspect_1005);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Aspect5CreationTool_title,
-				Messages.Aspect5CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Aspect5CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Aspect5CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/aspect.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -148,8 +148,8 @@ public class GoalmodelPaletteFactory {
 		types.add(GoalmodelElementTypes.Goal_2017);
 		types.add(GoalmodelElementTypes.Goal_1006);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Hardgoal7CreationTool_title,
-				Messages.Hardgoal7CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Hardgoal7CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Hardgoal7CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/hardgoal.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -169,8 +169,8 @@ public class GoalmodelPaletteFactory {
 		types.add(GoalmodelElementTypes.Softgoal_2018);
 		types.add(GoalmodelElementTypes.Softgoal_1007);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Softgoal8CreationTool_title,
-				Messages.Softgoal8CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Softgoal8CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Softgoal8CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/softgoal.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -190,8 +190,8 @@ public class GoalmodelPaletteFactory {
 		types.add(GoalmodelElementTypes.Task_2020);
 		types.add(GoalmodelElementTypes.Task_1008);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Task9CreationTool_title,
-				Messages.Task9CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Task9CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Task9CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/task.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -211,8 +211,8 @@ public class GoalmodelPaletteFactory {
 		types.add(GoalmodelElementTypes.Resource_2019);
 		types.add(GoalmodelElementTypes.Resource_1009);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Resource10CreationTool_title,
-				Messages.Resource10CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Resource10CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Resource10CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/resource.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -227,8 +227,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.Dependency_3001);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Dependency12CreationTool_title,
-				Messages.Dependency12CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Dependency12CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Dependency12CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/dependency.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -243,8 +243,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.AndDecomposition_3002);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.And14CreationTool_title,
-				Messages.And14CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("And14CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("And14CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/anddecomposition.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -259,8 +259,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.OrDecomposition_3003);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Or15CreationTool_title,
-				Messages.Or15CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Or15CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Or15CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/ordecomposition.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -275,8 +275,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.MakeContribution_3004);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Make17CreationTool_title,
-				Messages.Make17CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Make17CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Make17CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/makecontribution.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -291,8 +291,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.HelpContribution_3005);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Help18CreationTool_title,
-				Messages.Help18CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Help18CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Help18CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/helpcontribution.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -307,8 +307,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.HurtContribution_3006);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Hurt19CreationTool_title,
-				Messages.Hurt19CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Hurt19CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Hurt19CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/hurtcontribution.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin
@@ -323,8 +323,8 @@ public class GoalmodelPaletteFactory {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(GoalmodelElementTypes.BreakContribution_3007);
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Break20CreationTool_title,
-				Messages.Break20CreationTool_desc, types);
+				GoalmodelDiagramEditorPlugin
+						.getString("Break20CreationTool.title"), GoalmodelDiagramEditorPlugin.getString("Break20CreationTool.desc"), types); //$NON-NLS-1$ $NON-NLS-2$
 		entry.setSmallIcon(GoalmodelDiagramEditorPlugin
 				.findImageDescriptor("/goalmodel/icons/breakcontribution.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(GoalmodelDiagramEditorPlugin

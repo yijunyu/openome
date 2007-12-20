@@ -1,7 +1,7 @@
-# Tracing options for the edu.toronto.cs.goalmodel.diagram plug-in
+# Debugging options for the edu.toronto.cs.goalmodel.diagram plug-in
 
-# Common issues
+# Turn on general debugging for the edu.toronto.cs.goalmodel.diagram plug-in
 edu.toronto.cs.goalmodel.diagram/debug=false
 
-# Visual IDs
-edu.toronto.cs.goalmodel.diagram/debug/visualID=false
+# Turn on debugging of visualID processing
+edu.toronto.cs.goalmodel.diagram/debug/visualID=true

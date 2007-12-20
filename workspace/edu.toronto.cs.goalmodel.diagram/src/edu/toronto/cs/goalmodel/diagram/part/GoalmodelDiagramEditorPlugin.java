@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,7 +20,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-
 import edu.toronto.cs.goalmodel.provider.GoalmodelItemProviderAdapterFactory;
 
 /**
@@ -47,11 +47,6 @@ public class GoalmodelDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	private ComposedAdapterFactory adapterFactory;
-
-	/**
-	 * @generated
-	 */
-	private GoalmodelDocumentProvider documentProvider;
 
 	/**
 	 * @generated
@@ -157,6 +152,14 @@ public class GoalmodelDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
+	 * Returns string from plug-in's resource bundle
+	 * @generated
+	 */
+	public static String getString(String key) {
+		return Platform.getResourceString(getInstance().getBundle(), "%" + key); //$NON-NLS-1$
+	}
+
+	/**
 	 * Returns an image for the image file at the given plug-in relative path.
 	 * Client do not need to dispose this image. Images will be disposed automatically.
 	 *
@@ -174,25 +177,6 @@ public class GoalmodelDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns string from plug-in's resource bundle
-	 *
-	 * @generated
-	 */
-	public static String getString(String key) {
-		return Platform.getResourceString(getInstance().getBundle(), "%" + key); //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	public GoalmodelDocumentProvider getDocumentProvider() {
-		if (documentProvider == null) {
-			documentProvider = new GoalmodelDocumentProvider();
-		}
-		return documentProvider;
-	}
-
-	/**
 	 * @generated
 	 */
 	public void logError(String error) {
@@ -200,6 +184,7 @@ public class GoalmodelDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
+	 * @param throwable actual error or null could be passed
 	 * @generated
 	 */
 	public void logError(String error, Throwable throwable) {
@@ -220,6 +205,7 @@ public class GoalmodelDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
+	 * @param throwable actual error or null could be passed
 	 * @generated
 	 */
 	public void logInfo(String message, Throwable throwable) {

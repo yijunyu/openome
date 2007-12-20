@@ -75,7 +75,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected Container super_;
+	protected Container super_= null;
 
 	/**
 	 * The cached value of the '{@link #getSub() <em>Sub</em>}' containment reference list.
@@ -85,7 +85,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList sub;
+	protected EList sub= null;
 
 	/**
 	 * The cached value of the '{@link #getIntentions() <em>Intentions</em>}' containment reference list.
@@ -95,7 +95,7 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList intentions;
+	protected EList intentions= null;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,12 +1,15 @@
 package edu.toronto.cs.goalmodel.diagram.edit.commands;
 
+import edu.toronto.cs.goalmodel.GoalmodelPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-import org.eclipse.gmf.runtime.notation.View;
 
-import edu.toronto.cs.goalmodel.GoalmodelPackage;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
+
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
@@ -23,6 +26,13 @@ public class AspectCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
+	protected EClass getEClassToEdit() {
+		return GoalmodelPackage.eINSTANCE.getModel();
+	};
+
+	/**
+	 * @generated
+	 */
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
@@ -32,10 +42,4 @@ public class AspectCreateCommand extends CreateElementCommand {
 		return container;
 	}
 
-	/**
-	 * @generated
-	 */
-	protected EClass getEClassToEdit() {
-		return GoalmodelPackage.eINSTANCE.getModel();
-	}
 }

@@ -1,13 +1,12 @@
 package edu.toronto.cs.goalmodel.diagram.part;
 
-import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
-
 import edu.toronto.cs.goalmodel.diagram.edit.parts.ModelEditPart;
 
 /**
@@ -36,8 +35,8 @@ public class GoalmodelLoadResourceAction implements IObjectActionDelegate {
 	 * @generated
 	 */
 	public void run(IAction action) {
-		LoadResourceAction.LoadResourceDialog loadResourceDialog = new LoadResourceAction.LoadResourceDialog(
-				myShell, mySelectedElement.getEditingDomain());
+		LoadResourceDialog loadResourceDialog = new LoadResourceDialog(myShell,
+				mySelectedElement.getEditingDomain());
 		loadResourceDialog.open();
 	}
 

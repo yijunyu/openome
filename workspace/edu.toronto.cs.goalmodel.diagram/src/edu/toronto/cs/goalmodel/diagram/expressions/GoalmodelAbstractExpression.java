@@ -34,14 +34,21 @@ public abstract class GoalmodelAbstractExpression {
 							.getInstance().getBundle().getSymbolicName()
 							+ "/debug/disableNoExprImplExceptionLog"))
 			.booleanValue();
+
 	/**
 	 * @generated
 	 */
-	private final String body;
+	private String body;
+
 	/**
 	 * @generated
 	 */
-	private final EClassifier context;
+	private EClassifier context;
+
+	/**
+	 * @generated
+	 */
+	private Map env;
 
 	/**
 	 * @generated
@@ -52,15 +59,17 @@ public abstract class GoalmodelAbstractExpression {
 	 * @generated
 	 */
 	protected GoalmodelAbstractExpression(EClassifier context) {
-		this(null, context);
+		this.context = context;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected GoalmodelAbstractExpression(String body, EClassifier context) {
+	protected GoalmodelAbstractExpression(String body, EClassifier context,
+			Map env) {
 		this.body = body;
 		this.context = context;
+		this.env = env;
 	}
 
 	/**
@@ -129,6 +138,13 @@ public abstract class GoalmodelAbstractExpression {
 	 */
 	public EClassifier context() {
 		return context;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Map environment() {
+		return env;
 	}
 
 	/**

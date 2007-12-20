@@ -77,7 +77,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList intentions;
+	protected EList intentions= null;
 
 	/**
 	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
@@ -87,7 +87,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList contributions;
+	protected EList contributions= null;
 
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
@@ -97,7 +97,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList dependencies;
+	protected EList dependencies= null;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' containment reference list.
@@ -107,7 +107,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList decompositions;
+	protected EList decompositions= null;
 
 	/**
 	 * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -117,7 +117,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList containers;
+	protected EList containers= null;
 
 	/**
 	 * <!-- begin-user-doc -->

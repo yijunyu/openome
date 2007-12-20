@@ -12,26 +12,20 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.goalmodel.diagram.edit.policies.AgentItemSemanticEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
 import goalmodel.figures.AgentSVGFigure;
 
 /**
@@ -65,57 +59,11 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == GoalmodelElementTypes.Goal_2005) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AgentAgentCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Softgoal_2006) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AgentAgentCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Resource_2007) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AgentAgentCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == GoalmodelElementTypes.Task_2008) {
-									EditPart compartmentEditPart = getChildBySemanticHint(GoalmodelVisualIDRegistry
-											.getType(AgentAgentCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
-
 		super.createDefaultEditPolicies();
+
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new AgentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -230,6 +178,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
+
 		return result;
 	}
 
@@ -287,16 +236,6 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class AgentFigure extends Ellipse {
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureAgentNameFigure;
-		/**
-		 * @generated
-		 */
-		private Ellipse fFigureAgentBoundaryFigure;
-
 		/**
 		 * @generated
 		 */
@@ -306,8 +245,11 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setFill(false);
+			this.setFillXOR(false);
 			this.setOutline(false);
+			this.setOutlineXOR(false);
 			this.setLineWidth(0);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -316,27 +258,69 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureAgentNameFigure = new WrapLabel();
-			fFigureAgentNameFigure.setText("<...>");
+			WrapLabel agentNameFigure0 = new WrapLabel();
+			agentNameFigure0.setText("<...>");
 
-			fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);
+			agentNameFigure0.setFont(AgentNameFigure_FONT);
 
-			this.add(fFigureAgentNameFigure, BorderLayout.TOP);
+			this.add(agentNameFigure0, BorderLayout.TOP);
+			setFigureAgentNameFigure(agentNameFigure0);
 
-			fFigureAgentBoundaryFigure = new Ellipse();
-			fFigureAgentBoundaryFigure.setLineWidth(3);
-			fFigureAgentBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
-			fFigureAgentBoundaryFigure
-					.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK);
+			Ellipse agentBoundaryFigure0 = new Ellipse();
+			agentBoundaryFigure0.setFill(true);
+			agentBoundaryFigure0.setFillXOR(false);
+			agentBoundaryFigure0.setOutline(true);
+			agentBoundaryFigure0.setOutlineXOR(false);
+			agentBoundaryFigure0.setLineWidth(3);
+			agentBoundaryFigure0.setLineStyle(Graphics.LINE_DASHDOTDOT);
+			agentBoundaryFigure0.setBackgroundColor(AGENTBOUNDARYFIGURE_BACK);
 
-			this.add(fFigureAgentBoundaryFigure, BorderLayout.CENTER);
-
-			fFigureAgentBoundaryFigure.setLayoutManager(new StackLayout());
+			this.add(agentBoundaryFigure0, BorderLayout.CENTER);
+			setFigureAgentBoundaryFigure(agentBoundaryFigure0);
+			agentBoundaryFigure0.setLayoutManager(new StackLayout());
 
 			AgentSVGFigure agentSVGFigure1 = new AgentSVGFigure();
 
-			fFigureAgentBoundaryFigure.add(agentSVGFigure1);
+			agentBoundaryFigure0.add(agentSVGFigure1);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fAgentNameFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureAgentNameFigure() {
+			return fAgentNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureAgentNameFigure(WrapLabel fig) {
+			fAgentNameFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private Ellipse fAgentBoundaryFigure;
+
+		/**
+		 * @generated
+		 */
+		public Ellipse getFigureAgentBoundaryFigure() {
+			return fAgentBoundaryFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureAgentBoundaryFigure(Ellipse fig) {
+			fAgentBoundaryFigure = fig;
 		}
 
 		/**
@@ -358,32 +342,17 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureAgentNameFigure() {
-			return fFigureAgentNameFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Ellipse getFigureAgentBoundaryFigure() {
-			return fFigureAgentBoundaryFigure;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Font FFIGUREAGENTNAMEFIGURE_FONT = new Font(Display
-			.getCurrent(), "Arial", 12, SWT.BOLD);
+	static final Font AgentNameFigure_FONT = new Font(Display.getCurrent(),
+			"Arial", 12, org.eclipse.swt.SWT.BOLD);
 
 	/**
 	 * @generated
 	 */
-	static final Color FFIGUREAGENTBOUNDARYFIGURE_BACK = new Color(null, 236,
-			236, 236);
+	static final Color AGENTBOUNDARYFIGURE_BACK = new Color(null, 236, 236, 236);
 
 }

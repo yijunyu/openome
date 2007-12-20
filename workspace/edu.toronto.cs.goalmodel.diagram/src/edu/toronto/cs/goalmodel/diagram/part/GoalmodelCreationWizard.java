@@ -91,7 +91,7 @@ public class GoalmodelCreationWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(Messages.GoalmodelCreationWizardTitle);
+		setWindowTitle("New Goalmodel Diagram");
 		setDefaultPageImageDescriptor(GoalmodelDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewGoalmodelWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
@@ -103,18 +103,16 @@ public class GoalmodelCreationWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		diagramModelFilePage = new GoalmodelCreationWizardPage(
 				"DiagramModelFile", getSelection(), "goalmodel_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage.setTitle("Create Goalmodel Diagram");
 		diagramModelFilePage
-				.setTitle(Messages.GoalmodelCreationWizard_DiagramModelFilePageTitle);
-		diagramModelFilePage
-				.setDescription(Messages.GoalmodelCreationWizard_DiagramModelFilePageDescription);
+				.setDescription("Select file that will contain diagram model.");
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new GoalmodelCreationWizardPage(
 				"DomainModelFile", getSelection(), "goalmodel"); //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage.setTitle("Create Goalmodel Diagram");
 		domainModelFilePage
-				.setTitle(Messages.GoalmodelCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(Messages.GoalmodelCreationWizard_DomainModelFilePageDescription);
+				.setDescription("Select file that will contain domain model.");
 		addPage(domainModelFilePage);
 	}
 
@@ -133,11 +131,9 @@ public class GoalmodelCreationWizard extends Wizard implements INewWizard {
 					try {
 						GoalmodelDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog
-								.openError(
-										getContainer().getShell(),
-										Messages.GoalmodelCreationWizardOpenEditorError,
-										null, e.getStatus());
+						ErrorDialog.openError(getContainer().getShell(),
+								"Error opening diagram editor", null, e
+										.getStatus());
 					}
 				}
 			}
@@ -149,8 +145,8 @@ public class GoalmodelCreationWizard extends Wizard implements INewWizard {
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
 				ErrorDialog.openError(getContainer().getShell(),
-						Messages.GoalmodelCreationWizardCreationError, null,
-						((CoreException) e.getTargetException()).getStatus());
+						"Creation Problems", null, ((CoreException) e
+								.getTargetException()).getStatus());
 			} else {
 				GoalmodelDiagramEditorPlugin.getInstance().logError(
 						"Error creating diagram", e.getTargetException()); //$NON-NLS-1$

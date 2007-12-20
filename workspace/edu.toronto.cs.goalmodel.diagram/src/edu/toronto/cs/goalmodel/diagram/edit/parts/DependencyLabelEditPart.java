@@ -3,7 +3,6 @@ package edu.toronto.cs.goalmodel.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -30,13 +29,14 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
+import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
@@ -45,7 +45,6 @@ import org.eclipse.swt.graphics.Image;
 import edu.toronto.cs.goalmodel.diagram.edit.policies.GoalmodelTextSelectionEditPolicy;
 import edu.toronto.cs.goalmodel.diagram.part.GoalmodelVisualIDRegistry;
 import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelElementTypes;
-import edu.toronto.cs.goalmodel.diagram.providers.GoalmodelParserProvider;
 
 /**
  * @generated
@@ -82,10 +81,8 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	static {
-		registerSnapBackPosition(
-				GoalmodelVisualIDRegistry
-						.getType(edu.toronto.cs.goalmodel.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID),
-				new Point(0, 40));
+		registerSnapBackPosition(GoalmodelVisualIDRegistry
+				.getType(DependencyLabelEditPart.VISUAL_ID), new Point(0, 40));
 	}
 
 	/**
@@ -158,7 +155,7 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -184,7 +181,8 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return resolveSemanticElement();
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
@@ -199,10 +197,9 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 */
 	protected String getLabelText() {
 		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
+		if (getParser() != null) {
 			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
+					new EObjectAdapter(getParserElement()),
 					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
@@ -226,7 +223,7 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParserElement() == null || getParser() == null) {
+		if (getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -278,7 +275,7 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParserElement() == null || getParser() == null) {
+		if (getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(
@@ -298,9 +295,16 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new GoalmodelParserProvider.HintAdapter(
-					GoalmodelElementTypes.Dependency_3001, getParserElement(),
-					parserHint);
+			ParserHintAdapter hintAdapter = new ParserHintAdapter(
+					getParserElement(), parserHint) {
+
+				public Object getAdapter(Class adapter) {
+					if (IElementType.class.equals(adapter)) {
+						return GoalmodelElementTypes.Dependency_3001;
+					}
+					return super.getAdapter(adapter);
+				}
+			};
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;
@@ -442,8 +446,11 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
 			FontData fontData = new FontData(style.getFontName(), style
-					.getFontHeight(), (style.isBold() ? SWT.BOLD : SWT.NORMAL)
-					| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
+					.getFontHeight(),
+					(style.isBold() ? org.eclipse.swt.SWT.BOLD
+							: org.eclipse.swt.SWT.NORMAL)
+							| (style.isItalic() ? org.eclipse.swt.SWT.ITALIC
+									: org.eclipse.swt.SWT.NORMAL));
 			setFont(fontData);
 		}
 	}
@@ -554,7 +561,29 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
 	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new DependencyLabelFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class DependencyLabelFigure extends WrapLabel {
+		/**
+		 * @generated
+		 */
+		public DependencyLabelFigure() {
+			this.setText("<...>");
+		}
+
+	}
+
 }

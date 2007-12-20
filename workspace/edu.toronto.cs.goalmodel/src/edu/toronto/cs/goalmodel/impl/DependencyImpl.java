@@ -47,7 +47,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention dependencyFrom;
+	protected Intention dependencyFrom= null;
 
 	/**
 	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference.
@@ -57,7 +57,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * @generated
 	 * @ordered
 	 */
-	protected Intention dependencyTo;
+	protected Intention dependencyTo= null;
 
 	/**
 	 * The default value of the '{@link #getTrust() <em>Trust</em>}' attribute.
