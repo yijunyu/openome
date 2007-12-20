@@ -1,6 +1,6 @@
 #!/bin/bash
-export OPENOME_HOME=/h/164/yijun/work/openome.git.fresh
-export WORKSTATION=comps0
+export OPENOME_HOME=$(cd ..; pwd)
+export WORKSTATION=$(basename `pwd`)
 rm -rf $HOME/eclipse.build
 mkdir -p $HOME/eclipse.build/features
 mkdir -p $HOME/eclipse.build/plugins
