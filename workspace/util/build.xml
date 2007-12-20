@@ -6,7 +6,7 @@
 	<property name="basearch" value="${arch}"/>
 	<property name="basenl" value="${nl}"/>
 	<property name="bundleId" value="util"/>
-	<property name="bundleVersion" value="1.0.0.200712172238"/>
+	<property name="bundleVersion" value="1.0.0.200712201100"/>
 
 	<!-- Compiler settings. -->
 	<property name="javacFailOnError" value="false"/>
@@ -33,7 +33,7 @@
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="pluginTemp" value="${basedir}"/>
-		<condition property="build.result.folder" value="${pluginTemp}/util_1.0.0.200712172238">
+		<condition property="build.result.folder" value="${pluginTemp}/util_1.0.0.200712201100">
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="build.result.folder" value="${basedir}"/>
@@ -53,7 +53,7 @@
 		<antcall target="gather.bin.parts">
 			<param name="destination.temp.folder" value="${temp.folder}/"/>
 		</antcall>
-		<jar destfile="${plugin.destination}/util_1.0.0.200712172238.jar" basedir="${temp.folder}/util_1.0.0.200712172238" filesetmanifest="merge"/>
+		<jar destfile="${plugin.destination}/util_1.0.0.200712201100.jar" basedir="${temp.folder}/util_1.0.0.200712201100" filesetmanifest="merge"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
@@ -104,28 +104,28 @@
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712172238"/>
-		<copy todir="${destination.temp.folder}/util_1.0.0.200712172238" failonerror="true" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712201100"/>
+		<copy todir="${destination.temp.folder}/util_1.0.0.200712201100" failonerror="true" overwrite="false">
 			<fileset dir="${build.result.folder}/@dot">
 				<include name="**"/>
 			</fileset>
 		</copy>
-		<copy todir="${destination.temp.folder}/util_1.0.0.200712172238" failonerror="true" overwrite="false">
+		<copy todir="${destination.temp.folder}/util_1.0.0.200712201100" failonerror="true" overwrite="false">
 			<fileset dir="${basedir}">
 				<include name="META-INF/"/>
 				<include name="bin/"/>
 			</fileset>
 		</copy>
-		<eclipse.versionReplacer path="${destination.temp.folder}/util_1.0.0.200712172238" version="1.0.0.200712172238"/>
+		<eclipse.versionReplacer path="${destination.temp.folder}/util_1.0.0.200712201100" version="1.0.0.200712201100"/>
 	</target>
 
 	<target name="build.zips" depends="init">
 	</target>
 
 	<target name="gather.sources" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712172238"/>
-		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/util_1.0.0.200712172238" failonerror="false" overwrite="false"/>
-		<copy todir="${destination.temp.folder}/util_1.0.0.200712172238" failonerror="false" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712201100"/>
+		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/util_1.0.0.200712201100" failonerror="false" overwrite="false"/>
+		<copy todir="${destination.temp.folder}/util_1.0.0.200712201100" failonerror="false" overwrite="false">
 			<fileset dir="${basedir}">
 				<include name="src/"/>
 				<include name="build.properties"/>
@@ -137,8 +137,8 @@
 	</target>
 
 	<target name="gather.logs" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712172238"/>
-		<copy todir="${destination.temp.folder}/util_1.0.0.200712172238" failonerror="false" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/util_1.0.0.200712201100"/>
+		<copy todir="${destination.temp.folder}/util_1.0.0.200712201100" failonerror="false" overwrite="false">
 			<fileset dir="${temp.folder}">
 				<include name="@dot.bin${logExtension}"/>
 			</fileset>
@@ -148,13 +148,13 @@
 	<target name="clean" depends="init" description="Clean the plug-in: util of all the zips, jars and logs created.">
 		<delete dir="${build.result.folder}/@dot"/>
 		<delete file="${build.result.folder}/src.zip"/>
-		<delete file="${plugin.destination}/util_1.0.0.200712172238.jar"/>
-		<delete file="${plugin.destination}/util_1.0.0.200712172238.zip"/>
+		<delete file="${plugin.destination}/util_1.0.0.200712201100.jar"/>
+		<delete file="${plugin.destination}/util_1.0.0.200712201100.zip"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="/home/yy66/eclipse.build/plugins/util" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="/u/yijun/eclipse.build/plugins/util" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
@@ -174,7 +174,7 @@
 				<include name="**/*.bin${logExtension}"/>
 			</fileset>
 		</delete>
-		<zip destfile="${plugin.destination}/util_1.0.0.200712172238.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${plugin.destination}/util_1.0.0.200712201100.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
