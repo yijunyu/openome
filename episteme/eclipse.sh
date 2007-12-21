@@ -1,5 +1,5 @@
 #!/bin/bash
-export ECLIPSE_SDK=/IDE/sdk/3.3.1.1
+export ECLIPSE_SDK=$HOME/IDE/sdk/3.3.1.1
 rm -rf configuration
 mkdir configuration
 cp $ECLIPSE_SDK/eclipse/configuration/config.ini configuration
