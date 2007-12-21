@@ -1,7 +1,15 @@
 #ADAPTER#ACCESS#core/bin/[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+<<<<<<< .mine
+#ADAPTER#ACCESS#core_1.0.0.200712210519/bin/[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+=======
 #ADAPTER#ACCESS#core_1.0.0.200712202229/bin/[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+>>>>>>> .r666
 #ADAPTER#ACCESS#core/@dot[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+<<<<<<< .mine
+#ADAPTER#ACCESS#core_1.0.0.200712210519/@dot[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+=======
 #ADAPTER#ACCESS#core_1.0.0.200712202229/@dot[+action/*:+convertor/*:+plugin/*:+ui/*:?**/*]
+>>>>>>> .r666
 #ADAPTER#ACCESS#IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime_3.3.100.v20070530.jar[?**/*]
 #ADAPTER#ACCESS#IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.osgi_3.3.1.R33x_v20070828.jar[?**/*]
 #ADAPTER#ACCESS#IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.equinox.common_3.3.0.v20070426.jar[?**/*]
@@ -71,9 +79,17 @@
 #ADAPTER#ACCESS#IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.filebuffers_3.3.1.r331_v20070829.jar[?**/*]
 #ADAPTER#ACCESS#IDE/sdk/3.3.1.1/eclipse/plugins/org.eclipse.core.runtime.compatibility_3.1.200.v20070502.jar[?**/*]
 #ADAPTER#ACCESS#util/bin/[+util/*:?**/*]
+<<<<<<< .mine
+#ADAPTER#ACCESS#util_1.0.0.200712210519/bin/[+util/*:?**/*]
+=======
 #ADAPTER#ACCESS#util_1.0.0.200712202229/bin/[+util/*:?**/*]
+>>>>>>> .r666
 #ADAPTER#ACCESS#util/@dot[+util/*:?**/*]
+<<<<<<< .mine
+#ADAPTER#ACCESS#util_1.0.0.200712210519/@dot[+util/*:?**/*]
+=======
 #ADAPTER#ACCESS#util_1.0.0.200712202229/@dot[+util/*:?**/*]
+>>>>>>> .r666
 #ADAPTER#ACCESS#IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf_2.2.0.v200609210005.jar[?**/*]
 #ADAPTER#ACCESS#IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar[+org/eclipse/emf/ecore/*:+org/eclipse/emf/ecore/impl/*:+org/eclipse/emf/ecore/plugin/*:+org/eclipse/emf/ecore/resource/*:+org/eclipse/emf/ecore/resource/impl/*:+org/eclipse/emf/ecore/util/*:+org/eclipse/emf/ecore/xml/namespace/*:+org/eclipse/emf/ecore/xml/namespace/impl/*:+org/eclipse/emf/ecore/xml/namespace/util/*:+org/eclipse/emf/ecore/xml/type/*:+org/eclipse/emf/ecore/xml/type/impl/*:+org/eclipse/emf/ecore/xml/type/internal/*:+org/eclipse/emf/ecore/xml/type/util/*:?**/*]
 #ADAPTER#ACCESS#IDE/emf/2.2.0.v200609210005/eclipse/plugins/org.eclipse.emf.common_2.2.1.v200609210005.jar[+org/eclipse/emf/common/*:+org/eclipse/emf/common/archive/*:+org/eclipse/emf/common/command/*:+org/eclipse/emf/common/notify/*:+org/eclipse/emf/common/notify/impl/*:+org/eclipse/emf/common/util/*:?**/*]

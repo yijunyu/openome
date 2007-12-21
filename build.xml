@@ -1,0 +1,14 @@
+<!-- Delegating build script, used by cruisecontrol. 
+     Note that the basedir is set to the checked out project -->
+<project name="openome" default="build" basedir=".">
+  <target name="build">
+      <property environment="env"/>
+	  <condition property="hostname" value="${env.HOST}">
+	    <os family="unix"/>
+	  </condition>
+	  <condition property="hostname" value="${env.COMPUTERNAME}">
+	    <os family="windows"/>
+	  </condition>
+      <exec executable="${user.home}/work/openome/${hostname}/build.sh"/>
+    </target>
+</project>

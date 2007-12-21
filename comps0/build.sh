@@ -1,4 +1,5 @@
 #!/bin/bash
+cd $(dirname $0)
 export OPENOME_HOME=$(cd ..; pwd)
 export WORKSTATION=$(basename `pwd`)
 rm -rf $HOME/eclipse.build
