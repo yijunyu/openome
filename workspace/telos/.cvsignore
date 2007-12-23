@@ -1,0 +1,5 @@
+bin
+lib
+*.zip
+*.jar
+build.xml

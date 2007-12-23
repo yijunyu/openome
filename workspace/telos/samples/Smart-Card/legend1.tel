@@ -1,0 +1,1423 @@
+Token SerializedViewObject_0_12
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 40
+        attribute
+            y : 595
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 12
+END
+
+Token SerializedViewObject_0_11
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 510
+        attribute
+            y : 596
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 11
+END
+
+Token SerializedViewObject_0_10
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 217
+        attribute
+            y : 555
+        attribute
+            scale : 1.8
+        attribute
+            expanded : 0
+        attribute
+            ID : 10
+END
+
+Token SerializedViewObject_0_9
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 510
+        attribute
+            y : 480
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 9
+END
+
+Token SerializedViewObject_0_8
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 37
+        attribute
+            y : 480
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 8
+END
+
+Token SerializedViewObject_0_7
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 219
+        attribute
+            y : 439
+        attribute
+            scale : 1.8
+        attribute
+            expanded : 0
+        attribute
+            ID : 7
+END
+
+Token SerializedViewObject_0_6
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 217
+        attribute
+            y : 318
+        attribute
+            scale : 1.8
+        attribute
+            expanded : 0
+        attribute
+            ID : 6
+END
+
+Token SerializedViewObject_0_5
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 513
+        attribute
+            y : 360
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 5
+END
+
+Token SerializedViewObject_0_4
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 35
+        attribute
+            y : 360
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 4
+END
+
+Token SerializedViewObject_0_3
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 213
+        attribute
+            y : 197
+        attribute
+            scale : 1.8
+        attribute
+            expanded : 0
+        attribute
+            ID : 3
+END
+
+Token SerializedViewObject_0_2
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 513
+        attribute
+            y : 243
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 2
+END
+
+Token SerializedViewObject_0_1
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 34
+        attribute
+            y : 241
+        attribute
+            scale : 0.1
+        attribute
+            expanded : 0
+        attribute
+            ID : 1
+END
+
+Token SerializedViewObject_0_0
+    IN SerializedObject
+    WITH
+        attribute, type
+             : "OME.GraphicView$GVERecord"
+        attribute
+            x : 220
+        attribute
+            y : 28
+        attribute
+            scale : 1.5
+        attribute
+            expanded : 0
+        attribute
+            ID : 0
+END
+
+Token Link_7
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_11
+        attribute, from
+            from : Element_10
+        attribute, name
+             : ""
+END
+
+Token Link_6
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_10
+        attribute, from
+            from : Element_12
+        attribute, name
+             : ""
+END
+
+Token Element_12
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_6
+END
+
+Token Element_11
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_7
+END
+
+Token Element_10
+    IN IStarSoftGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_6
+        attribute, links
+             : Link_7
+END
+
+Token Link_5
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_9
+        attribute, from
+            from : Element_7
+        attribute, name
+             : ""
+END
+
+Token Link_4
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_7
+        attribute, from
+            from : Element_8
+        attribute, name
+             : ""
+END
+
+Token Element_9
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_5
+END
+
+Token Element_8
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_4
+END
+
+Token Element_7
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_4
+        attribute, links
+             : Link_5
+END
+
+Token Link_3
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_5
+        attribute, from
+            from : Element_6
+        attribute, name
+             : ""
+END
+
+Token Link_2
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_6
+        attribute, from
+            from : Element_4
+        attribute, name
+             : ""
+END
+
+Token Element_6
+    IN IStarTaskElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_2
+        attribute, links
+             : Link_3
+END
+
+Token Element_5
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_3
+END
+
+Token Element_4
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_2
+END
+
+Token Link_1
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_2
+        attribute, from
+            from : Element_3
+        attribute, name
+             : ""
+END
+
+Token Link_0
+    IN IStarDependencyLink
+    WITH
+        attribute, to
+            to : Element_3
+        attribute, from
+            from : Element_1
+        attribute, name
+             : ""
+END
+
+Token Element_3
+    IN IStarResourceElement
+    WITH
+        attribute, links
+             : Link_0
+        attribute, links
+             : Link_1
+        attribute, name
+             : ""
+END
+
+Token Element_2
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_1
+END
+
+Token Element_1
+    IN IStarGoalElement
+    WITH
+        attribute, name
+             : ""
+        attribute, links
+             : Link_0
+END
+
+Token Element_0
+    IN IStarActorElement
+    WITH
+        attribute, name
+             : ""
+END
+
+Token SerializedView_0
+    IN SerializedView
+    WITH
+        attribute, view_objects
+             : SerializedViewObject_0_0
+        attribute, view_objects
+             : SerializedViewObject_0_1
+        attribute, view_objects
+             : SerializedViewObject_0_2
+        attribute, view_objects
+             : SerializedViewObject_0_3
+        attribute, view_objects
+             : SerializedViewObject_0_4
+        attribute, view_objects
+             : SerializedViewObject_0_5
+        attribute, view_objects
+             : SerializedViewObject_0_6
+        attribute, view_objects
+             : SerializedViewObject_0_7
+        attribute, view_objects
+             : SerializedViewObject_0_8
+        attribute, view_objects
+             : SerializedViewObject_0_9
+        attribute, view_objects
+             : SerializedViewObject_0_10
+        attribute, view_objects
+             : SerializedViewObject_0_11
+        attribute, view_objects
+             : SerializedViewObject_0_12
+END
+
+SimpleClass NFRSoftgoal
+    IN OMEInstantiableClass, OMEElementClass, OMEVisibleClass
+    ISA NFRElement
+    WITH
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "NFRSoftgoal.gif"
+        attribute, name
+             : "NFRSoftgoal"
+END
+
+SimpleClass NFRClaim
+    IN OMEInstantiableClass, OMEElementClass, OMEVisibleClass
+    ISA NFRElement
+    WITH
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Claim.gif"
+        attribute, name
+             : "Claim"
+END
+
+SimpleClass NFROperationalization
+    IN OMEInstantiableClass, OMEElementClass, OMEVisibleClass
+    ISA NFRElement
+    WITH
+        attribute, OMEAttributes
+            priority : NFRSoftgoalPriorityClass
+        attribute, OMEAttributes
+            label : NFRSoftgoalLabelClass
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Operationalization.gif"
+        attribute, name
+             : "Operationalization"
+END
+
+SimpleClass NFRElement
+    ISA OMEElement
+END
+
+SimpleClass BreakContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Break"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Break"
+END
+
+SimpleClass MakeContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Make"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Make"
+END
+
+SimpleClass OrContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "or"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Or"
+END
+
+SimpleClass AndContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "and"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "And"
+END
+
+SimpleClass EqualContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "="
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "DoubleArrow.gif"
+        attribute, name
+             : "Equal"
+END
+
+SimpleClass HurtContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Hurt"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Hurt"
+END
+
+SimpleClass HelpContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Help"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Help"
+END
+
+SimpleClass UnknownContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Unknown"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Unknown"
+END
+
+SimpleClass SomePositiveContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Some +"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Some +"
+END
+
+SimpleClass SomeNegativeContribution
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalContribution
+    WITH
+        attribute, defaultname
+             : "Some -"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Some -"
+END
+
+SimpleClass NFRSoftgoalContribution
+    IN OMELinkClass, OMEVisibleClass
+    ISA NFRLink
+    WITH
+        attribute, OMEAttributes
+            label : NFRContributionLabelClass
+        attribute, name
+             : "NFRSoftgoalContribution"
+END
+
+SimpleClass NFRDeniedContributionLabel
+    IN NFRContributionLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 10
+        attribute, imageposition
+            dx : 20
+        attribute, imagesize, imagesize
+            height : 20
+        attribute, imagesize, imagesize
+            width : 20
+        attribute, imagename, imagename
+             : "Cross.gif"
+        attribute, name, name
+             : "Denied Contribution"
+END
+
+SimpleClass NFRDeniedSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 40
+        attribute, imagesize, imagesize
+            height : 20
+        attribute, imagesize, imagesize
+            width : 20
+        attribute, imagename, imagename
+             : "Cross.gif"
+        attribute, name, name
+             : "Denied"
+END
+
+SimpleClass NFRWeaklyDeniedSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 60
+        attribute, imagesize, imagesize
+            height : 50
+        attribute, imagesize, imagesize
+            width : 50
+        attribute, imagename, imagename
+             : "WeaklyDenied.gif"
+        attribute, name, name
+             : "Weakly Denied"
+END
+
+SimpleClass NFRUndecidedSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 60
+        attribute, imagesize, imagesize
+            height : 50
+        attribute, imagesize, imagesize
+            width : 50
+        attribute, imagename, imagename
+             : "Undecided.gif"
+        attribute, name, name
+             : "Undecided"
+END
+
+SimpleClass NFRWeaklySatisficedSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 60
+        attribute, imagesize, imagesize
+            height : 50
+        attribute, imagesize, imagesize
+            width : 50
+        attribute, imagename, imagename
+             : "WeaklySatisficed.gif"
+        attribute, name, name
+             : "Weakly Satisficed"
+END
+
+SimpleClass NFRSatisficedSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 60
+        attribute, imagesize, imagesize
+            height : 50
+        attribute, imagesize, imagesize
+            width : 50
+        attribute, imagename, imagename
+             : "Check.gif"
+        attribute, name, name
+             : "Satisficed"
+END
+
+SimpleClass NFRConflictSoftgoalLabel
+    IN NFRSoftgoalLabelClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : 55
+        attribute, imagesize, imagesize
+            height : 50
+        attribute, imagesize, imagesize
+            width : 50
+        attribute, imagename, imagename
+             : "Conflict.gif"
+        attribute, name, name
+             : "Conflict"
+END
+
+SimpleClass NFRSoftgoalPriority
+    IN NFRSoftgoalPriorityClass, OMEVisibleClass
+    WITH
+        attribute, imageposition
+            dy : 0
+        attribute, imageposition
+            dx : -45
+        attribute, imagesize, imagesize
+            height : 30
+        attribute, imagesize, imagesize
+            width : 30
+        attribute, imagename, imagename
+             : "ExclamationPoint.gif"
+        attribute, name, name
+             : "Priority Softgoal"
+END
+
+SimpleClass BreakCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Break"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Break Correlation"
+END
+
+SimpleClass MakeCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Make"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Make Correlation"
+END
+
+SimpleClass HurtCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Hurt"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Hurt Correlation"
+END
+
+SimpleClass HelpCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Help"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Help Correlation"
+END
+
+SimpleClass UnknownCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Unknown"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Unknown Correlation"
+END
+
+SimpleClass SomePositiveCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Some +"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Some + Correlation"
+END
+
+SimpleClass SomeNegativeCorrelation
+    IN OMELinkClass, OMEInstantiableClass
+    ISA NFRSoftgoalCorrelation
+    WITH
+        attribute, stroke
+             : "dashed"
+        attribute, defaultname
+             : "Some -"
+        attribute, imagesize
+            height : 20
+        attribute, imagesize
+            width : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Some - Correlation"
+END
+
+SimpleClass NFRSoftgoalCorrelation
+    IN OMELinkClass, OMEVisibleClass
+    ISA NFRLink
+    WITH
+        attribute, name
+             : "NFRSoftgoalCorrelation"
+END
+
+SimpleClass NFRLink
+    ISA OMELink
+END
+
+MetaClass NFRSoftgoalLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass NFRContributionLabelClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+MetaClass NFRSoftgoalPriorityClass
+    IN OMEAttributeMetaClass
+    ISA OMEAttributeClass
+END
+
+SimpleClass IStarRoleElement
+    IN OMEInstantiableClass, IStarActorElementClass
+    ISA IStarActorElement
+    WITH
+        attribute, imagesize
+            height : 80
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Role.gif"
+        attribute, name
+             : "Role"
+END
+
+SimpleClass IStarPositionElement
+    IN OMEInstantiableClass, IStarActorElementClass
+    ISA IStarActorElement
+    WITH
+        attribute, imagesize
+            height : 80
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Position.gif"
+        attribute, name
+             : "Position"
+END
+
+SimpleClass IStarAgentElement
+    IN OMEInstantiableClass, IStarActorElementClass
+    ISA IStarActorElement
+    WITH
+        attribute, imagesize
+            height : 80
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Agent.gif"
+        attribute, name
+             : "Agent"
+END
+
+SimpleClass IStarActorElement
+    IN OMEInstantiableClass, IStarActorElementClass, IStarClass
+    ISA OMEGrowableElement, IStarElement
+    WITH
+        attribute, imagesize
+            height : 80
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Actor.gif"
+        attribute, name
+             : "Actor"
+        attribute
+            children : IStarIntentionalElement
+END
+
+SimpleClass IStarGoalElement
+    IN OMEInstantiableClass, IStarIntentionalElementClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Goal.gif"
+        attribute, name
+             : "Goal"
+END
+
+SimpleClass IStarTaskElement
+    IN OMEInstantiableClass, IStarIntentionalElementClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Task.gif"
+        attribute, name
+             : "Task"
+END
+
+SimpleClass IStarSoftGoalElement
+    IN OMEInstantiableClass, IStarIntentionalElementClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Softgoal.gif"
+        attribute, name
+             : "Softgoal"
+END
+
+SimpleClass IStarResourceElement
+    IN OMEInstantiableClass, IStarIntentionalElementClass
+    ISA IStarIntentionalElement
+    WITH
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute, imagename
+             : "Resource.gif"
+        attribute, name
+             : "Resource"
+END
+
+SimpleClass IStarIntentionalElement
+    IN OMEVisibleClass, OMEElementClass, IStarClass
+    ISA IStarElement
+    WITH
+        attribute, imagesize
+            height : 50
+        attribute, imagesize
+            width : 80
+        attribute
+            parent : IStarActorElement
+END
+
+SimpleClass IStarElement
+    IN IStarClass
+    ISA OMEElement
+    WITH
+        attribute
+            name : String
+END
+
+SimpleClass IStarDependencyLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Dependency.gif"
+        attribute, name
+             : "Dependency link"
+END
+
+SimpleClass IStarDecompositionLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Decomposition.gif"
+        attribute, name
+             : "Decomposition link"
+        attribute
+            from : IStarIntentionalElement
+        attribute
+            to : IStarTaskElement
+END
+
+SimpleClass IStarContributionLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Contribution.gif"
+        attribute, name
+             : "Contribution link"
+        attribute
+            from : OMEElement
+        attribute
+            to : IStarSoftGoalElement
+END
+
+SimpleClass IStarMeansEndsLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Means-Ends.gif"
+        attribute, name
+             : "Means-ends link"
+        attribute
+            from : IStarIntentionalElement
+        attribute
+            to : IStarGoalElement
+END
+
+SimpleClass IStarISALink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, defaultname
+             : "ISA"
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "ISA"
+        attribute
+            from : IStarActorElement
+        attribute
+            to : IStarActorElement
+END
+
+SimpleClass IStarINSLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, defaultname
+             : "INS"
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "INS"
+        attribute
+            from : IStarActorElement
+        attribute
+            to : IStarActorElement
+END
+
+SimpleClass IStarPlaysLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, defaultname
+             : "PLAYS"
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Plays"
+        attribute
+            from : IStarAgentElement
+        attribute
+            to : IStarRoleElement
+END
+
+SimpleClass IStarOccupiesLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, defaultname
+             : "OCCUPIES"
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Occupies"
+        attribute
+            from : IStarAgentElement
+        attribute
+            to : IStarPositionElement
+END
+
+SimpleClass IStarCoversLink
+    IN OMEInstantiableClass, IStarLinkClass
+    ISA IStarLink
+    WITH
+        attribute, defaultname
+             : "COVERS"
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute, imagename
+             : "Arrow.gif"
+        attribute, name
+             : "Covers"
+        attribute
+            from : IStarPositionElement
+        attribute
+            to : IStarRoleElement
+END
+
+SimpleClass IStarLink
+    IN OMEVisibleClass, IStarLinkClass
+    ISA OMELink
+    WITH
+        attribute, imagesize
+            width : 20
+        attribute, imagesize
+            height : 20
+        attribute
+            name : String
+END
+
+MetaClass IStarLinkClass
+    ISA OMELinkClass, IStarClass
+END
+
+MetaClass IStarActorElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarIntentionalElementClass
+    ISA IStarElementClass
+END
+
+MetaClass IStarElementClass
+    ISA OMEElementClass, IStarClass
+END
+
+MetaClass IStarClass
+    ISA OMEObjectClass
+END
+
+SimpleClass OMEGrowableElement
+    IN OMEGrowableElementClass
+    ISA OMEElement
+    WITH
+        attribute
+            children : OMEElement
+END
+
+SimpleClass OMEElement
+    IN OMEElementClass
+    ISA OMEObject
+    WITH
+        attribute
+            parent : OMEElement
+END
+
+SimpleClass OMELink
+    IN OMELinkClass
+    ISA OMEObject
+    WITH
+        attribute
+            from : OMEObject
+        attribute
+            to : OMEObject
+END
+
+SimpleClass OMEObject
+    IN OMEObjectClass
+    WITH
+        attribute
+            comment : String
+        attribute
+            links : OMELink
+        attribute
+            name : String
+END
+
+SimpleClass SerializedView
+    WITH
+        attribute
+            view_objects : Token
+END
+
+SimpleClass SerializedObject
+    WITH
+        attribute
+            type : String
+END
+
+MetaClass OMEInstantiableClass
+    ISA OMEVisibleClass, OMEClass
+    WITH
+        attribute
+            autogui : Integer
+END
+
+MetaClass OMEVisibleClass
+    ISA OMEClass
+    WITH
+        attribute
+            name : String
+        attribute
+            imagesize : Integer
+        attribute
+            imagename : String
+END
+
+MetaClass OMEGrowableElementClass
+    ISA OMEElementClass, OMEObjectClass
+END
+
+MetaClass OMEElementClass
+    ISA OMEObjectClass
+END
+
+MetaClass OMELinkClass
+    ISA OMEObjectClass
+    WITH
+        attribute
+            stroke : String
+END
+
+MetaClass OMEObjectClass
+    ISA OMEClass
+    WITH
+        attribute
+            defaultname : String
+        attribute
+            OMEAttributes : OMEAttributeMetaClass
+END
+
+MetaClass OMEClass
+END
+
+MetaClass OMEAttributeClass
+    WITH
+        attribute
+            imageposition : Integer
+        attribute
+            imagesize : Integer
+        attribute
+            imagename : String
+        attribute
+            name : String
+END
+
+MetaMetaClass OMEAttributeMetaClass
+END
+

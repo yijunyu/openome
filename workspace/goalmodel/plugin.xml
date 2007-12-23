@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="core.convertor">
+      <convertor id="Q7 to Goal Model" 
+      		class="convertor.Q7_GoalModel"
+            input="q7" output="goalmodel"/>
+      <convertor id="Reasoning with Goal Model (SAT)" 
+      		class="convertor.Reasoning_GoalModel"
+            input="goalmodel" output="sat.goalmodel"/>
+   </extension>
+   <extension point="core.generator">
+      <generator id="EMF model generation" 
+      	class="codegen.EMFProjectsGeneration"/>
+      <generator id="GMF diagram generation" 
+      	class="codegen.GMFProjectGeneration"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.q7"
+            id="q7">
+         <menu
+               label="Convert the Q7 representation into"
+               path="additions"
+               id="menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="action.Q7_GoalModel"
+               icon="icons/goal.gif"
+               id="GoalModelAction"
+               label="Goal Model"
+               menubarPath="menu1/group1"
+               tooltip="goal model">
+         </action>         
+      </objectContribution>
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.goalmodel"
+            id="goalmodel">
+         <menu
+               label="Reasoning the Goal Model"
+               path="additions"
+               id="object">
+            <separator
+                  name="reasoning">
+            </separator>
+         </menu>
+         <action
+               class="action.ReasoningAction"
+               icon="icons/goal.gif"
+               id="ReasoningAction"
+               label="with SAT solver"
+               menubarPath="object/reasoning"
+               tooltip="top down reasoning">
+         </action>         
+         <action
+               class="action.QueryAction"
+               icon="icons/goal.gif"
+               id="QueryAction"
+               label="Show configuration"
+               menubarPath="object/reasoning"
+               tooltip="show variability configuration">
+         </action>         
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="goalmodel.intro"/>
+      <introProductBinding
+            introId="goalmodel.intro"
+            productId="goalmodel.product"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="goalmodel.introConfigId"
+            introId="goalmodel.intro">
+         <presentation home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css"/>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="OpenOME">
+         <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png">
+         </property>
+         <property
+               name="aboutText"
+               value="The Organization Modelling Environment (OME) is a general, &#x0A;&#x0A;goal-oriented and/or agent-oriented modeling and analysis tool. &#x0A;&#x0A;It provides users with a graphical interface to develop models, &#x0A;&#x0A;and supports access to a powerful knowledge base that allows for &#x0A;&#x0A;sophisticated computer-aided analysis. This tool is intended to &#x0A;&#x0A;provide software developers with a clear link between the &#x0A;&#x0A;requirements, specification and architectural design phases of &#x0A;&#x0A;development. Attention is also being placed on this use of this tool &#x0A;&#x0A;in business process reengineering.&#x0A;&#x0A;OpenOME integrates an improved version of OME with other tools &#x0A;&#x0A;to support goal-oriented, agent-oriented and aspect-oriented &#x0A;&#x0A;requirements engineering.">
+         </property>
+         <property
+               name="aboutImage"
+               value="eclipse_lg.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="C8D5EA">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,280,455,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,220,441,20">
+         </property>
+         <property
+               name="appName"
+               value="OpenOME">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+</plugin>

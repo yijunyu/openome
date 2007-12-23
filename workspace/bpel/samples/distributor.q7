@@ -1,0 +1,39 @@
+/**
+ Alexei Lapouchnian et al, Generating Autonomic Computing Systems from Goal Models, CASCON'05.
+ */ 
+"Supply Customer" { & ;
+ "Get Order" { | /
+   "Get Order Standard" { | /
+     "Get Fax Order"
+     "Get Phone Order"
+   } => + Cost, - "Customer Satisfaction"
+   "Get Order & Web" { | /
+     "Get Fax Order"
+     "Get Phone Order"
+     "Get Web Order"
+   } => - Cost, + "Customer Satisfaction"
+ }
+ "Verify Order"
+ "Process Order" { & ;
+   "Check Stock"
+   "Add Order Item" { | /
+     "Order Out of Stock Item" { & ; 
+       "Order Item" { | /
+         "Order From Partner Wholesaler" => +"Customer Cost", -Performance
+         "Order From Retailer" => -"Customer Cost", +Performance
+       } 
+       "Receive Item"
+       "Add Product to Order"
+     }
+     "Add Product to Order"
+   }
+ }
+ "Package Order"
+ "Ship and Bill" { & ||
+   "Bill Customer"
+   "Ship Order" { | /
+     "Ship Express" => - "Customer Cost", + Performance
+     "Ship Standard" => + "Customer Cost", - Performance
+   }
+ }
+}
