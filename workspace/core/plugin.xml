@@ -17,39 +17,48 @@
       <actionSet label="Actions"
             visible="true"
             id="action.actionSet">
-         <menu id="menu1" label="Developer">
-            <separator name="group1"/>
+         <menu
+               id="openome_developer_menu"
+               label="Developer"
+               path="openome_top_menu">
          </menu>
-         <menu id="menu2" label="User">
-            <separator name="group2"/>
+         <menu
+               id="openome_user_menu"
+               label="User"
+               path="openome_top_menu">
          </menu>
          <action
                class="action.CreateExamplesAction"
                icon="icons/example.gif"
-               id="action1"
-               label="Examples"
-               menubarPath="menu1/group"
-               toolbarPath="group"
+               id="openome_examples"
+               label="Generate examples"
+               menubarPath="openome_top_menu/openome_developer_menu"
+               toolbarPath="openome_group"
                tooltip="Create the Examples project">
          </action>
          <action
                class="action.ImportProjects"
                icon="icons/build.gif"
-               id="action2"
+               id="openome_import"
                label="Import Projects"
-               menubarPath="menu2/group"
-               toolbarPath="group"
+               menubarPath="openome_top_menu/openome_user_menu"
+               toolbarPath="openome_group"
                tooltip="Import Projects">
          </action>
          <action
                class="action.CleanProjects"
                icon="icons/clean.gif"
-               id="action3"
+               id="openome_clean"
                label="Clean Projects"
-               menubarPath="menu2/group"
-               toolbarPath="group"
+               menubarPath="openome_top_menu/openome_user_menu"
+               toolbarPath="openome_group"
                tooltip="Clean Projects">
 	 	</action>
+         <menu
+               id="openome_top_menu"
+               label="OpenOME"
+               path="OpenOME">
+         </menu>
       </actionSet>
    </extension>
    <extension point="org.eclipse.ui.preferencePages">
