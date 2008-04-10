@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2001-2008 University of Toronto"
+    modelDirectory="/edu.toronto.cs.openome_model/src" editDirectory="/edu.toronto.cs.openome_model.edit/src"
+    editorDirectory="/edu.toronto.cs.openome_model.editor/src" modelPluginID="edu.toronto.cs.openome_model"
+    modelName="openome_model" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    providerRootExtendsClass="">
+  <foreignModel>openome_model.ecore</foreignModel>
+  <genPackages prefix="openome_model" basePackage="edu.toronto.cs" disposableProviderFactory="true"
+      ecorePackage="openome_model.ecore#/">
+    <genClasses ecoreClass="openome_model.ecore#//Actor"/>
+    <genClasses ecoreClass="openome_model.ecore#//Agent"/>
+    <genClasses ecoreClass="openome_model.ecore#//AndDecomposition"/>
+    <genClasses ecoreClass="openome_model.ecore#//Aspect"/>
+    <genClasses ecoreClass="openome_model.ecore#//BreakContribution"/>
+    <genClasses ecoreClass="openome_model.ecore#//ConflictLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//Contribution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/source"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//Decomposition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Decomposition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Decomposition/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Decomposition/model"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//DeniedLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/dependencyTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Dependency/trust"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Dependency/label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/model"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//Goal"/>
+    <genClasses ecoreClass="openome_model.ecore#//HelpContribution"/>
+    <genClasses ecoreClass="openome_model.ecore#//HurtContribution"/>
+    <genClasses ecoreClass="openome_model.ecore#//Intention">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/system"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/boundary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/exclusive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/sequential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/parallel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/dependencyTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/decompositions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/parentDecompositions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/container"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/model"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//MakeContribution"/>
+    <genClasses ecoreClass="openome_model.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/intentions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/contributions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/dependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/decompositions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/containers"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//OrDecomposition"/>
+    <genClasses ecoreClass="openome_model.ecore#//PartiallyDeniedLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//PartiallySatisfiedLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//Position"/>
+    <genClasses ecoreClass="openome_model.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//Resource"/>
+    <genClasses ecoreClass="openome_model.ecore#//Role"/>
+    <genClasses ecoreClass="openome_model.ecore#//SatisfiedLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//Softgoal"/>
+    <genClasses ecoreClass="openome_model.ecore#//Task"/>
+    <genClasses ecoreClass="openome_model.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Topic/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Topic/type"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//UnknownLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//TruthLabel"/>
+    <genClasses ecoreClass="openome_model.ecore#//Container">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Container/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/super"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/sub"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/intentions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Container/model"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,107 @@
+# 21/12/07 1:29:42 EST PM
+# Eclipse Java Compiler 0.780_R33x, 3.3.1, Copyright IBM Corp 2000, 2007. All rights reserved.
+----------
+1. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/action/GMFProjectGeneration.java (at line 82)
+	gen.run();
+	^^^^^^^^^
+Discouraged access: The method run() from the type GeneratorBase is not accessible due to restriction on classpath entry /home/yijun/IDE/gmf/2.0M4/eclipse/plugins/org.eclipse.gmf.common_1.1.0.v20061222-1800.jar
+----------
+----------
+2. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/action/Reasoning.java (at line 181)
+	for (Iterator i = resource.getResourceSet().getAllContents();
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+3. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/action/Reasoning.java (at line 634)
+	List values = Arrays.asList(result.split(" "));
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+4. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 65)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+5. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 170)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+6. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 344)
+	public void propagate_actor_elements(HashMap hm) {
+	                                     ^^^^^^^
+HashMap is a raw type. References to generic type HashMap<K,V> should be parameterized
+----------
+7. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 348)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+8. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 647)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+9. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 677)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+10. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 698)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+11. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 732)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+12. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 737)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+13. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 750)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+14. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 775)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+15. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 804)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+16. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 837)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+17. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 871)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+18. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 898)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+19. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/codegen/GoalModel.java (at line 1047)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+20. WARNING in /home/nernst/eclipse.build/plugins/goalmodel/src/service/QueryVariability.java (at line 58)
+	for (Iterator i = resource.getResourceSet().getAllContents();
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+20 problems (20 warnings)[14 .class files generated]
