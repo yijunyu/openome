@@ -1,0 +1,260 @@
+# 21/12/07 1:29:41 EST PM
+# Eclipse Java Compiler 0.780_R33x, 3.3.1, Copyright IBM Corp 2000, 2007. All rights reserved.
+----------
+1. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/Dot.java (at line 99)
+	lst.add((Comparable) new Integer(m));
+	         ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+----------
+2. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 49)
+	for (Enumeration i = resources.getKeys(); i.hasMoreElements(); ) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+3. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1009)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+4. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1161)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+5. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1310)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+6. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1340)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+7. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1361)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+8. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1391)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+9. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1396)
+	for (Iterator i = advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+10. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1408)
+	for (Iterator i = serialized_tokens.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+11. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1412)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+12. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1419)
+	sorted_keys.add((Comparable)p);
+	                 ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+13. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1438)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+14. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1457)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+15. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1482)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+16. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1511)
+	for (Enumeration i = links.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+17. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1545)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+18. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1581)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+19. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1608)
+	for (Enumeration j = links.keys(); j.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+20. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/IStar.java (at line 1764)
+	for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+21. WARNING in /home/nernst/eclipse.build/plugins/q7/src/codegen/RSF.java (at line 85)
+	lst.add((Comparable) new Integer(m));
+	         ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+----------
+22. WARNING in /home/nernst/eclipse.build/plugins/q7/src/convertor/Q7_RSF.java (at line 4)
+	import codegen.Dot;
+	       ^^^^^^^^^^^
+The import codegen.Dot is never used
+----------
+----------
+23. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/Advice.java (at line 10)
+	public ArrayList where;
+	       ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+24. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/Advice.java (at line 12)
+	public ArrayList how_much;
+	       ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+25. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/Advice.java (at line 16)
+	String _what, String _alias, ArrayList _where, How _how,
+	                             ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+26. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/Advice.java (at line 17)
+	ArrayList _how_much, String _comment, String _label) {
+	^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+----------
+27. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/How.java (at line 9)
+	public java.util.ArrayList advices;
+	       ^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+28. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/How.java (at line 10)
+	public How(String r, String e, java.util.ArrayList a) {
+	                               ^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+----------
+29. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/IStarElement.java (at line 16)
+	public class IStarElement implements Comparable {
+	                                     ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+30. WARNING in /home/nernst/eclipse.build/plugins/q7/src/model/IStarElement.java (at line 184)
+	for (Iterator i = children.iterator(); i.hasNext(); ) {
+	     ^^^^^^^^
+Iterator is a raw type. References to generic type Iterator<E> should be parameterized
+----------
+----------
+31. WARNING in /home/nernst/eclipse.build/plugins/q7/src/parser/Q7.java (at line 45)
+	static final public java.util.ArrayList Advices() throws ParseException {
+	                    ^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+32. WARNING in /home/nernst/eclipse.build/plugins/q7/src/parser/Q7.java (at line 75)
+	java.util.ArrayList where = null;
+	^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+33. WARNING in /home/nernst/eclipse.build/plugins/q7/src/parser/Q7.java (at line 77)
+	java.util.ArrayList how_much = null;
+	^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+34. WARNING in /home/nernst/eclipse.build/plugins/q7/src/parser/Q7.java (at line 697)
+	java.util.ArrayList advices = null;
+	^^^^^^^^^^^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+35. WARNING in /home/nernst/eclipse.build/plugins/q7/src/parser/Q7.java (at line 1003)
+	for (java.util.Enumeration e = jj_expentries.elements(); e.hasMoreElements();) {
+	     ^^^^^^^^^^^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+----------
+36. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/DecompositionType.java (at line 145)
+	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	                    ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+37. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/Enrichment.java (at line 197)
+	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	                    ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+38. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/LabelEnumerator.java (at line 197)
+	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	                    ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+39. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/Op.java (at line 249)
+	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	                    ^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+40. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/HowImpl.java (at line 204)
+	getAdvices().addAll((Collection)newValue);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method addAll(Collection) belongs to the raw type List. References to generic type List<E> should be parameterized
+----------
+41. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/HowImpl.java (at line 204)
+	getAdvices().addAll((Collection)newValue);
+	                     ^^^^^^^^^^
+Collection is a raw type. References to generic type Collection<E> should be parameterized
+----------
+----------
+42. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/HowMuchRulesImpl.java (at line 112)
+	getHowmuch().addAll((Collection)newValue);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method addAll(Collection) belongs to the raw type List. References to generic type List<E> should be parameterized
+----------
+43. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/HowMuchRulesImpl.java (at line 112)
+	getHowmuch().addAll((Collection)newValue);
+	                     ^^^^^^^^^^
+Collection is a raw type. References to generic type Collection<E> should be parameterized
+----------
+----------
+44. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/ModelImpl.java (at line 112)
+	getAdvices().addAll((Collection)newValue);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method addAll(Collection) belongs to the raw type List. References to generic type List<E> should be parameterized
+----------
+45. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/ModelImpl.java (at line 112)
+	getAdvices().addAll((Collection)newValue);
+	                     ^^^^^^^^^^
+Collection is a raw type. References to generic type Collection<E> should be parameterized
+----------
+----------
+46. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/WhatImpl.java (at line 112)
+	getTopics().addAll((Collection)newValue);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method addAll(Collection) belongs to the raw type List. References to generic type List<E> should be parameterized
+----------
+47. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/impl/WhatImpl.java (at line 112)
+	getTopics().addAll((Collection)newValue);
+	                    ^^^^^^^^^^
+Collection is a raw type. References to generic type Collection<E> should be parameterized
+----------
+----------
+48. WARNING in /home/nernst/eclipse.build/plugins/q7/src/q7dsl/util/Q7dslSwitch.java (at line 87)
+	List eSuperTypes = theEClass.getESuperTypes();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+48 problems (48 warnings)[68 .class files generated]
