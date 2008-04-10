@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Versioning Plug-in
+Bundle-SymbolicName: edu.toronto.cs.openome_model.versioning; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: edu.toronto.cs.openome_model.versioning.Activator
+Require-Bundle: molhado,
+ org.apache.log4j,
+ edu.toronto.cs.openome_model.editor,
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
+ org.eclipse.gmf.runtime.diagram.core,
+ edu.toronto.cs.openome_model.diagram
+Eclipse-LazyStart: true
