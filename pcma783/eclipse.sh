@@ -5,5 +5,5 @@ mkdir configuration
 cp $ECLIPSE_SDK/eclipse/configuration/config.ini configuration
 rm -rf $ECLIPSE_SDK/eclipse/links
 mkdir $ECLIPSE_SDK/eclipse/links
-cp links/*.* $ECLIPSE_SDK/eclipse/links
+cp links2/*.* $ECLIPSE_SDK/eclipse/links
 $ECLIPSE_SDK/eclipse/eclipse -plugincustomization plugin_customization.ini -configuration configuration -data ../workspace

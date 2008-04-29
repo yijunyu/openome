@@ -14,7 +14,7 @@
           fill="false"
           lineWidth="0">
         <layout
-            xsi:type="gmfgraph:BorderLayout"/>
+            xsi:type="gmfgraph:XYLayout"/>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="ActorBoundaryFigure"
@@ -496,7 +496,9 @@
   </figures>
   <nodes
       name="Actor"
-      figure="ActorFigure"/>
+      figure="ActorFigure"
+      resizeConstraint="NONE"
+      contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
       name="Agent"
       figure="AgentFigure"/>

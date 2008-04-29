@@ -55,7 +55,6 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
 
-
 //import openome_modelDocumentProvider.ResourceSetInfo;
 
 /**
@@ -1146,40 +1145,41 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								Openome_modelDiagramEditorPlugin.ID,
+								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
 								IResourceStatus.OUT_OF_SYNC_LOCAL,
-								Messages.Openome_modelDocumentProvider_UnsynchronizedFileSaveError,
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDocumentProvider_UnsynchronizedFileSaveError,
 								null));
 			}
 			info.stopResourceListening();
 			fireElementStateChanging(element);
 			List resources = info.getResourceSet().getResources();
 			try {
-				monitor.beginTask(
-						Messages.Openome_modelDocumentProvider_SaveDiagramTask,
-						resources.size() + 1); //"Saving diagram"
+				monitor
+						.beginTask(
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDocumentProvider_SaveDiagramTask,
+								resources.size() + 1); //"Saving diagram"
 				for (Iterator it = resources.iterator(); it.hasNext();) {
 					Resource nextResource = (Resource) it.next();
 					monitor
 							.setTaskName(NLS
 									.bind(
-											Messages.Openome_modelDocumentProvider_SaveNextResourceTask,
+											edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDocumentProvider_SaveNextResourceTask,
 											nextResource.getURI()));
 					if (nextResource.isLoaded()
 							&& !info.getEditingDomain()
 									.isReadOnly(nextResource)) {
 						try {
-							if (!(nextResource instanceof GMFResource)) {
-
-							}
-							nextResource.save(Openome_modelDiagramEditorUtil
-									.getSaveOptions());
+							nextResource
+									.save(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
+											.getSaveOptions());
 						} catch (IOException e) {
 							fireElementStateChangeFailed(element);
-							throw new CoreException(new Status(IStatus.ERROR,
-									Openome_modelDiagramEditorPlugin.ID,
-									EditorStatusCodes.RESOURCE_FAILURE, e
-											.getLocalizedMessage(), null));
+							throw new CoreException(
+									new Status(
+											IStatus.ERROR,
+											edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
+											EditorStatusCodes.RESOURCE_FAILURE,
+											e.getLocalizedMessage(), null));
 						}
 					}
 					monitor.worked(1);
@@ -1207,11 +1207,11 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								Openome_modelDiagramEditorPlugin.ID,
+								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
 								0,
 								NLS
 										.bind(
-												Messages.Openome_modelDocumentProvider_IncorrectInputError,
+												edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDocumentProvider_IncorrectInputError,
 												new Object[] {
 														element,
 														"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
@@ -1222,7 +1222,7 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 				throw new CoreException(
 						new Status(
 								IStatus.ERROR,
-								Openome_modelDiagramEditorPlugin.ID,
+								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
 								0,
 								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
@@ -1232,10 +1232,12 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 			final Diagram diagramCopy = (Diagram) EcoreUtil
 					.copy(diagramDocument.getDiagram());
 			try {
-				new AbstractTransactionalCommand(diagramDocument
-						.getEditingDomain(), NLS.bind(
-						Messages.Openome_modelDocumentProvider_SaveAsOperation,
-						diagramCopy.getName()), affectedFiles) {
+				new AbstractTransactionalCommand(
+						diagramDocument.getEditingDomain(),
+						NLS
+								.bind(
+										edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDocumentProvider_SaveAsOperation,
+										diagramCopy.getName()), affectedFiles) {
 					protected CommandResult doExecuteWithResult(
 							IProgressMonitor monitor, IAdaptable info)
 							throws ExecutionException {
@@ -1243,18 +1245,23 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 						return CommandResult.newOKCommandResult();
 					}
 				}.execute(monitor, null);
-				newResource.save(Openome_modelDiagramEditorUtil
-						.getSaveOptions());
+				newResource
+						.save(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
+								.getSaveOptions());
 			} catch (ExecutionException e) {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR,
-						Openome_modelDiagramEditorPlugin.ID, 0, e
-								.getLocalizedMessage(), null));
+				throw new CoreException(
+						new Status(
+								IStatus.ERROR,
+								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
+								0, e.getLocalizedMessage(), null));
 			} catch (IOException e) {
 				fireElementStateChangeFailed(element);
-				throw new CoreException(new Status(IStatus.ERROR,
-						Openome_modelDiagramEditorPlugin.ID, 0, e
-								.getLocalizedMessage(), null));
+				throw new CoreException(
+						new Status(
+								IStatus.ERROR,
+								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.ID,
+								0, e.getLocalizedMessage(), null));
 			}
 			newResource.unload();
 		}
