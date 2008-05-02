@@ -40,19 +40,9 @@ requirements engineering.
    <windowImages i16="eclipse.gif" i32="eclipse32.gif" i48="eclipse48.gif" i64="eclipse.png" i128="eclipse32.png"/>
 
    <splash
-      location="openome_model"
       startupProgressRect="0,280,455,15"
       startupMessageRect="7,220,441,20"
       startupForegroundColor="C8D5EA" />
-   <launcher name="openome">
-      <solaris/>
-      <win useIco="false">
-         <bmp/>
-      </win>
-   </launcher>
-
-   <intro introId="openome_model.intro"/>
-
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="core"/>
@@ -77,6 +67,13 @@ requirements engineering.
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.batik.xml"/>
+      <plugin id="org.apache.commons.el"/>
+      <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.jasper"/>
+      <plugin id="org.apache.lucene"/>
+      <plugin id="org.apache.lucene.analysis"/>
+      <plugin id="org.apache.xerces"/>
+      <plugin id="org.apache.xml.resolver"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -103,7 +100,6 @@ requirements engineering.
       <plugin id="org.eclipse.debug.core"/>
       <plugin id="org.eclipse.debug.ui"/>
       <plugin id="org.eclipse.draw2d"/>
-      <plugin id="org.eclipse.emf"/>
       <plugin id="org.eclipse.emf.codegen"/>
       <plugin id="org.eclipse.emf.codegen.ecore"/>
       <plugin id="org.eclipse.emf.common"/>
@@ -132,16 +128,12 @@ requirements engineering.
       <plugin id="org.eclipse.gmf.runtime.common.ui"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.action"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.action.ide"/>
-      <plugin id="org.eclipse.gmf.runtime.common.ui.printing"/>
-      <plugin id="org.eclipse.gmf.runtime.common.ui.printing.win32" fragment="true"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services.action"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services.properties"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.core"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.actions"/>
-      <plugin id="org.eclipse.gmf.runtime.diagram.ui.printing"/>
-      <plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.properties"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.providers"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
@@ -159,7 +151,6 @@ requirements engineering.
       <plugin id="org.eclipse.gmf.runtime.emf.ui.properties"/>
       <plugin id="org.eclipse.gmf.runtime.gef.ui"/>
       <plugin id="org.eclipse.gmf.runtime.notation"/>
-      <plugin id="org.eclipse.gmf.runtime.notation.providers"/>
       <plugin id="org.eclipse.gmf.validate"/>
       <plugin id="org.eclipse.gmf.xpand"/>
       <plugin id="org.eclipse.help"/>
@@ -217,6 +208,7 @@ requirements engineering.
       <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.eclipse.update.ui"/>
       <plugin id="org.junit"/>
+      <plugin id="org.junit4"/>
       <plugin id="org.sat4j"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.smil"/>
@@ -224,24 +216,5 @@ requirements engineering.
       <plugin id="q7"/>
       <plugin id="util"/>
    </plugins>
-
-   <features>
-      <feature id="core.feature" version="1.0.0.qualifier"/>
-      <feature id="openome_model.feature" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.platform" version="3.3.2.R33x_v20071022-_19UEksF-G8Yc6bUv3Dz"/>
-      <feature id="org.eclipse.rcp" version="3.3.2.R33x_r20071022-8y8eE9CEV3FspP8HJrY1M2dS"/>
-      <feature id="q7.feature" version="1.0.0.qualifier"/>
-      <feature id="sat4j.feature" version="1.0.0"/>
-      <feature id="org.eclipse.emf.workspace" version="1.0.1.v200612220820"/>
-      <feature id="org.eclipse.emf" version="2.2.1.v200609210005"/>
-      <feature id="org.eclipse.emf.ocl" version="1.1.0.v200612211659"/>
-      <feature id="org.eclipse.emf.query" version="1.0.1.v200612211745"/>
-      <feature id="org.eclipse.emf.transaction" version="1.1.0.v200612220820"/>
-      <feature id="org.eclipse.emf.validation" version="1.1.0.v200612211746"/>
-      <feature id="org.eclipse.gef" version="3.3.0.v20061109"/>
-      <feature id="org.eclipse.gmf" version="1.0.0.v20061013-1330-gW3quYQ-RN0v7tp"/>
-      <feature id="org.apache.batik" version="1.6.0.v20061222-1222-0842283444-3444"/>
-      <feature id="org.eclipse.sdk" version="3.3.2.R33x_r20071022-7M7J7C_Mu2gop0b_GAwplOBhyuKO"/>
-   </features>
 
 </product>

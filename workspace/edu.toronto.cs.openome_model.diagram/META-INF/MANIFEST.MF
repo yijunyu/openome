@@ -36,5 +36,6 @@ Require-Bundle: org.eclipse.core.expressions,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor,
  edu.toronto.cs.openome_model;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
- org.eclipse.gef;visibility:=reexport
+ org.eclipse.gef;visibility:=reexport,
+ openome_model
 Eclipse-LazyStart: true

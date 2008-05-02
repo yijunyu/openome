@@ -6,10 +6,10 @@
       <example file="aspects/mediashop.q7"/>
       <example file="aspects/mediashop-aspects.q7"/>
       <example file="aspects/mediashop-aspects-separated.q7"/>
-      <example file="bottom-up-reasoning/er02.q7"/>
       <example file="bottom-up-reasoning/giorgini02er.pdf"/>
-      <example file="top-down-reasoning/example.q7"/>
+      <example file="bottom-up-reasoning/er02.q7"/>
       <example file="top-down-reasoning/sebastianni04caise.pdf"/>
+      <example file="top-down-reasoning/example.q7"/>
       <example file="reuse/leite05caise.pdf"/>
       <example file="reuse/mediashop.q7"/>
       <example file="reuse/WBT.q7"/>
@@ -17,6 +17,9 @@
       <example file="molhado/drproject.q7"/>
       <example file="molhado/trac-goal.png"/>
       <example file="molhado/drproject-goal.png"/>
+      <example file="componenx/componenx.q7"/>
+      <example file="componenx/lapouchnian07bpm.pdf"/>
+      <example file="componenx/componenx.q7"/>
    </extension>    
 
    <extension

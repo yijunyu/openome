@@ -7,5 +7,5 @@ mkdir configuration
 cp $ECLIPSE_HOME/configuration/config.ini configuration
 rm -rf $ECLIPSE_HOME/links
 mkdir $ECLIPSE_HOME/links
-cp ../links/*.* $ECLIPSE_HOME/links
+cp ../links2/*.* $ECLIPSE_HOME/links
 $ECLIPSE_HOME/eclipse -configuration configuration -nosplash -application org.eclipse.ant.core.antRunner -buildfile build.xml $*

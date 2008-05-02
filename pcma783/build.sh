@@ -5,11 +5,8 @@ rm -rf $HOME/eclipse.build
 mkdir -p $HOME/eclipse.build/features
 mkdir -p $HOME/eclipse.build/plugins
 cd $HOME/eclipse.build/features
-for f in core fmp goalmodel q7.dsl q7 sat4j wbimodel; do
-  ln -sf $OPENOME_HOME/workspace/$f.feature .
-done
 cd $HOME/eclipse.build/plugins
-for f in com.att.grappa com.ibm.wbimodel com.ibm.wbimodel.edit com.ibm.wbimodel.editor com.keypoint.png core edu.stanford.smi.protege edu.toronto.cs.goalmodel edu.toronto.cs.goalmodel.diagram edu.toronto.cs.goalmodel.edit edu.toronto.cs.goalmodel.editor edu.toronto.cs.jtelos fmp goalmodel goalmodel.figures it.itc.sra.taom4e.model it.itc.sra.taom4e.platform it.unitn.goal_analysis log4j molhado org.eclipse.platform org.sat4j org.wsdl4j q7 q7.dsl q7.dsl.editor q7.dsl.generator taom4e telos util wbimodel; do
+for f in core edu.toronto.cs.openome_model edu.toronto.cs.openome_model.diagram edu.toronto.cs.openome_model.edit edu.toronto.cs.openome_model.editor openome_model openome_model.figures log4j molhado org.sat4j q7 util org.eclipse.platform; do
 ln -sf $OPENOME_HOME/workspace/$f .
 done
 cd $OPENOME_HOME/$WORKSTATION/build
