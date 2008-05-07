@@ -1,0 +1,12 @@
+
+extension q7::dsl::Extensions;
+extension q7::dsl::Linking;
+
+link(emf::EObject this) :
+	this.allElements().internalLink();
+
+private Void internalLink(emf::EObject this) :
+	null;
+
+
+

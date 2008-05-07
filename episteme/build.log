@@ -1,0 +1,20 @@
+Buildfile: build.xml
+
+main:
+
+preBuild:
+
+preSetup:
+
+checkLocalMaps:
+
+getMapFiles:
+   [concat] No existing resources and no nested text, doing nothing
+
+postSetup:
+
+checkLocalBase:
+
+getBaseComponents:
+
+generateFeature:

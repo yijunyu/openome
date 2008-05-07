@@ -1,0 +1,9 @@
+import q7dsl;
+
+extension q7::dsl::Extensions;
+
+/*
+ * check linking
+ */
+
+

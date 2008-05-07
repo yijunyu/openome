@@ -1,0 +1,6 @@
+#!/bin/bash
+V=3.3.1.1
+export eclipse_home=$HOME/IDE/sdk/$V/eclipse
+export LD_LIBRARY_PATH=$eclipse_home
+rm -rf $HOME/eclipse.build/I.openome/*
+./ant

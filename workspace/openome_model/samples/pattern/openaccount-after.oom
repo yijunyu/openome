@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore" name="/home/yy66/workspace/Examples/openome_model/pattern/openaccount.oom">
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Security"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@intentions.0" source="//@containers.1/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:BreakContribution" target="//@containers.0/@intentions.8" source="//@containers.0/@intentions.5"/>
+  <dependencies dependencyFrom="//@containers.0/@intentions.4" dependencyTo="//@containers.1/@intentions.7" label="D"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.8" dependencyTo="//@containers.0/@intentions.7" label="D"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.3" dependencyTo="//@containers.0/@intentions.5" label="D"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.7" dependencyTo="//@containers.0/@intentions.6" label="D"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.6" dependencyTo="//@containers.0/@intentions.2" label="D"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.0" target="//@containers.0/@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.0" target="//@containers.0/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.1" target="//@containers.0/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.2" target="//@containers.0/@intentions.3"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.2" target="//@containers.0/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.5" target="//@containers.0/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.0" target="//@containers.1/@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.0" target="//@containers.1/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.1" target="//@containers.1/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.1" target="//@containers.1/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.2" target="//@containers.1/@intentions.8"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.2" target="//@containers.1/@intentions.3"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.4" target="//@containers.1/@intentions.3"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.4" target="//@containers.1/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.5" target="//@containers.1/@intentions.3"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.5" target="//@containers.1/@intentions.7"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Manager">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ManageMoney" decompositions="//@decompositions.0 //@decompositions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="OpenAccount" decompositions="//@decompositions.2" parentDecompositions="//@decompositions.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="CreateAccount" dependencyFrom="//@dependencies.4" decompositions="//@decompositions.3 //@decompositions.4" parentDecompositions="//@decompositions.2"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="CreateAuthorization" parentDecompositions="//@decompositions.3"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="IssueCard" dependencyTo="//@dependencies.0" parentDecompositions="//@decompositions.4"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ManageAccount" rule="//@contributions.1" dependencyFrom="//@dependencies.2" decompositions="//@decompositions.5" parentDecompositions="//@decompositions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="AuthorizeCard" dependencyFrom="//@dependencies.3" parentDecompositions="//@decompositions.5"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="CheckCredit" dependencyFrom="//@dependencies.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ChangeBalance"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Customer">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Banking" decompositions="//@decompositions.6 //@decompositions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="DepositAccount" decompositions="//@decompositions.8 //@decompositions.9" parentDecompositions="//@decompositions.6"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="OpenAccount" decompositions="//@decompositions.10 //@decompositions.11" parentDecompositions="//@decompositions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ChangeBalance" rule="//@contributions.0" dependencyTo="//@dependencies.2" parentDecompositions="//@decompositions.11 //@decompositions.12 //@decompositions.14"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Deposit" decompositions="//@decompositions.12 //@decompositions.13" parentDecompositions="//@decompositions.9"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="WithdrawAccount" decompositions="//@decompositions.14 //@decompositions.15" parentDecompositions="//@decompositions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="InitialDeposit" dependencyTo="//@dependencies.4"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ProvideCard" dependencyFrom="//@dependencies.0" dependencyTo="//@dependencies.3" parentDecompositions="//@decompositions.13 //@decompositions.15"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="ProvidePersonalInfo" dependencyTo="//@dependencies.1" parentDecompositions="//@decompositions.10"/>
+  </containers>
+</edu.toronto.cs.openome_model:Model>

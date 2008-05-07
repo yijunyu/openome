@@ -1,0 +1,10 @@
+import q7dsl;
+
+extension q7::dsl::Extensions;
+extension q7::dsl::GenNavigation reexport;
+/*
+ * overwrite the extensions
+ * ''emf::EObject findDeclaration(String,Object,Object)''
+ * ''List[emf::EObject] findReferences(String,Object,Object)''
+ * from q7::dsl::GenNavigation.ext to control the construction of the findReferences / findDeclaration actions
+ */

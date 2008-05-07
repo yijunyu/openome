@@ -1,0 +1,9 @@
+import q7dsl;
+
+extension q7::dsl::Extensions reexport;
+extension q7::dsl::GenEditorExtensions reexport;
+
+/*
+ * use this file to overwrite the label() and the image()
+ * extension for your model elements
+ */

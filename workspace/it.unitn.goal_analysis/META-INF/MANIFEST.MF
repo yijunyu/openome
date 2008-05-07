@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Goal_analysis Plug-in
+Bundle-SymbolicName: it.unitn.goal_analysis
+Bundle-Version: 1.0.0
+Bundle-Activator: it.unitn.goal_analysis.Activator
+Bundle-Vendor: University of Trento
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Eclipse-LazyStart: true
+Export-Package: it.unitn.goal_analysis,
+ it.unitn.goal_analysis.graph_creation
