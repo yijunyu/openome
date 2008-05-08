@@ -1,9 +1,13 @@
 #!/bin/bash
-export ECLIPSE_SDK=$HOME/IDE/sdk/3.3.1.1
+#PRODUCT=goalmodel
+PRODUCT=openome
+#VERSION=3.3.1.1
+VERSION=3.3.2
+export ECLIPSE_SDK=/IDE/sdk/$VERSION
+export ECLIPSE_HOME=$ECLIPSE_SDK/eclipse
 rm -rf configuration
-mkdir configuration
-cp $ECLIPSE_SDK/eclipse/configuration/config.ini configuration
-rm -rf $ECLIPSE_SDK/eclipse/links
-mkdir $ECLIPSE_SDK/eclipse/links
-cp linux/*.* $ECLIPSE_SDK/eclipse/links
-$ECLIPSE_SDK/eclipse/eclipse -plugincustomization plugin_customization.ini -configuration configuration -data workspace
+cp -rf $ECLIPSE_HOME/configuration .
+rm -rf $ECLIPSE_HOME/links
+mkdir -p $ECLIPSE_HOME/links
+cp $PRODUCT.links-$VERSION/*.* $ECLIPSE_HOME/links
+$ECLIPSE_SDK/eclipse/eclipse -plugincustomization plugin_customization.ini -configuration configuration -data ../workspace

@@ -7,6 +7,9 @@
 <property name="allElementsFile" value="${eclipse.pdebuild.scripts}/productBuild/allElements.xml"/>
 <import file="${eclipse.pdebuild.scripts}/build.xml"/>
 <property name="pluginPath" value=""/>
+<property name="pluginList" value=""/>
+<property name="featureList" value=""/>
+<property name="includeLaunchers" value="true"/>
 
 <!-- ===================================================================== -->
 <!-- main entry point to setup, fetch, generate, build etc. Use -->
@@ -42,6 +45,9 @@
 		verify="${verify}"
 		pluginPath="${pluginPath}"
 		configInfo="${configs}"
+		pluginList="${pluginList}"
+		featureList="${featureList}"
+		includeLaunchers="${includeLaunchers}"
 	/>
 </target>
 
