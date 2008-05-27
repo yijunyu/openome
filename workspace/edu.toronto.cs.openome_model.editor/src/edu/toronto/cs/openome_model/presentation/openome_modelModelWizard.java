@@ -321,8 +321,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	@Override
 		protected boolean validatePage() {
 			if (super.validatePage()) {
-				// Make sure the file ends in ".openome_model".
-				//
+				// Make sure the file ends in ".oom".
 				String requiredExt = openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameExtension");
 				String enteredExt = new Path(getFileName()).getFileExtension();
 				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
