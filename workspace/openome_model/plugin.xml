@@ -23,82 +23,13 @@
       <example file="pattern/openaccount-attack.ood"/>
       <example file="pattern/openaccount-attack.png"/>
    </extension>    
-   <extension point="core.convertor">
-      <convertor id="Q7 to Goal Model" 
-      		class="convertor.Q7_GoalModel"
-            input="q7" output="oom"/>
-      <convertor id="Reasoning with Goal Model (SAT)" 
-      		class="convertor.Reasoning_GoalModel"
-            input="oom" output="sat.oom"/>
-   </extension>
+
    <extension point="core.generator">
       <generator id="EMF model generation" 
       	class="codegen.EMFProjectsGeneration"/>
       <generator id="GMF diagram generation" 
       	class="codegen.GMFProjectGeneration"/>
-   </extension>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            objectClass="org.eclipse.core.resources.IFile"
-            nameFilter="*.q7"
-            id="q7">
-         <menu
-               label="Convert the Q7 representation into"
-               path="additions"
-               id="menu1">
-            <separator
-                  name="group1">
-            </separator>
-         </menu>
-         <action
-               class="action.Q7_GoalModel"
-               icon="icons/goal.gif"
-               id="GoalModelAction"
-               label="OpenOME Model"
-               menubarPath="menu1/group1"
-               tooltip="openOME model">
-         </action>         
-      </objectContribution>
-      <objectContribution
-            objectClass="org.eclipse.core.resources.IFile"
-            nameFilter="*.oom"
-            id="openome_model">
-         <menu
-               label="Reasoning the Goal Model"
-               path="additions"
-               id="object">
-            <separator
-                  name="reasoning">
-            </separator>
-         </menu>
-         <action
-               class="action.ReasoningAction"
-               icon="icons/goal.gif"
-               id="ReasoningAction"
-               label="with SAT solver"
-               menubarPath="object/reasoning"
-               tooltip="top down reasoning">
-         </action>         
-         <action
-               class="action.QueryAction"
-               icon="icons/goal.gif"
-               id="QueryAction"
-               label="Show configuration"
-               menubarPath="object/reasoning"
-               tooltip="show variability configuration">
-         </action>         
-      </objectContribution>
-   </extension>
-   <extension
-         point="org.eclipse.ui.intro">
-      <intro
-            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            id="openome_model.intro"/>
-      <introProductBinding
-            introId="openome_model.intro"
-            productId="openome_model.product"/>
-   </extension>
+   </extension> 
    <extension
          point="org.eclipse.ui.intro.config">
       <config
@@ -152,5 +83,14 @@
                value="plugin_customization.ini">
          </property>
       </product>
+   </extension>
+      <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="openome_model.intro"/>
+      <introProductBinding
+            introId="openome_model.intro"
+            productId="openome_model.product"/>
    </extension>
 </plugin>
