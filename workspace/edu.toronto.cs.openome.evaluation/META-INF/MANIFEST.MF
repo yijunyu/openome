@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Evaluation Plug-in
+Bundle-SymbolicName: edu.toronto.cs.openome.evaluation;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ q7,
+ core,
+ util,
+ edu.toronto.cs.openome_model,
+ org.sat4j,
+ org.eclipse.gmf.codegen,
+ edu.toronto.cs.openome.conversion
