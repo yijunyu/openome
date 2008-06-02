@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome_model.versioning;
+package edu.toronto.cs.openome.versioning;
 
 import java.io.BufferedWriter;
 import java.io.File;

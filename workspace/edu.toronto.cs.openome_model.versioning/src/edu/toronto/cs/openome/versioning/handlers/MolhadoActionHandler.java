@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome_model.versioning.handlers;
+package edu.toronto.cs.openome.versioning.handlers;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -16,8 +16,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
 
+import edu.toronto.cs.openome.versioning.MolhadoActions;
 import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
-import edu.toronto.cs.openome_model.versioning.MolhadoActions;
 
 /** 
  * Super class for any Handler for a Molhado related command

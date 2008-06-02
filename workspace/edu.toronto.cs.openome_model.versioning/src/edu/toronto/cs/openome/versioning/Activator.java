@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome_model.versioning;
+package edu.toronto.cs.openome.versioning;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "edu.toronto.cs.openome_model.versioning";
+	public static final String PLUGIN_ID = "edu.toronto.cs.openome.versioning";
 
 	// The shared instance
 	private static Activator plugin;

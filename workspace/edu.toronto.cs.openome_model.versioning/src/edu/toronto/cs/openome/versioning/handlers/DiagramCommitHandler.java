@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome_model.versioning.handlers;
+package edu.toronto.cs.openome.versioning.handlers;
 
 import java.net.URI;
 import java.util.List;

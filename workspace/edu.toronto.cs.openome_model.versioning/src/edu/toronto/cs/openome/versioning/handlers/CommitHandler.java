@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome_model.versioning.handlers;
+package edu.toronto.cs.openome.versioning.handlers;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
