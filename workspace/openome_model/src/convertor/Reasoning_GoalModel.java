@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import edu.toronto.cs.openome.core.convertor.IConvertor;
+
 import parser.GoalModelReader;
 import action.Reasoning;
 

@@ -17,7 +17,7 @@ import org.eclipse.gmf.codegen.gmfgen.GenEditorGenerator;
 import org.eclipse.gmf.codegen.util.CodegenEmitters;
 import org.eclipse.gmf.codegen.util.Generator;
 
-import convertor.IGenerator;
+import edu.toronto.cs.openome.core.convertor.IGenerator;
 
 public class GMFProjectGeneration implements IGenerator {
 
