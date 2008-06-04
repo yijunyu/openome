@@ -19,7 +19,7 @@
   <extension point="org.eclipse.ui.preferencePages">
       <page name="OpenOME"
             category="primary"
-            class="ui.PrefPage"
+            class="edu.toronto.cs.openome.core.ui.PrefPage"
             id="preference">
       </page>
    </extension>
@@ -32,17 +32,17 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="action.CreateExamplesHandler"
+            defaultHandler="edu.toronto.cs.openome.core.action.CreateExamplesHandler"
             id="openome_example_cmd"
             name="openome_example_cmd">
       </command>
       <command
-            defaultHandler="action.ImportProjects"
+            defaultHandler="edu.toronto.cs.openome.core.action.ImportProjects"
             id="openome_import_cmd"
             name="openome_import_cmd">
       </command>
       <command
-            defaultHandler="action.CleanProjects"
+            defaultHandler="edu.toronto.cs.openome.core.action.CleanProjects"
             id="openome_clean_cmd"
             name="openome_clean_cmd">
       </command>

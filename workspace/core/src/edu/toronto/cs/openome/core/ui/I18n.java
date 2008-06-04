@@ -1,4 +1,4 @@
-package ui;
+package edu.toronto.cs.openome.core.ui;
 
 import java.net.MalformedURLException;
 import java.net.URL;

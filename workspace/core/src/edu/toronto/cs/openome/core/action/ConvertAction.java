@@ -1,4 +1,4 @@
-package action;
+package edu.toronto.cs.openome.core.action;
 
 import java.util.Vector;
 
@@ -18,7 +18,7 @@ import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import convertor.IConvertor;
+import edu.toronto.cs.openome.core.convertor.IConvertor;
 
 public class ConvertAction extends ExtensionReader implements IObjectActionDelegate {
 

@@ -8,8 +8,8 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.core.runtime
-Export-Package: action,
- convertor,
- plugin,
- ui
+Export-Package: edu.toronto.cs.openome.core.action,
+ edu.toronto.cs.openome.core.convertor,
+ edu.toronto.cs.openome.core.plugin,
+ edu.toronto.cs.openome.core.ui
 Eclipse-LazyStart: false

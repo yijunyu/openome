@@ -1,4 +1,4 @@
-package action;
+package edu.toronto.cs.openome.core.action;
 
 import java.util.Vector;
 

@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package ui;
+package edu.toronto.cs.openome.core.ui;
 
 /**
  * This interface contains constants for use only within the

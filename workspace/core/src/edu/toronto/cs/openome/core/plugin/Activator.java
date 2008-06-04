@@ -1,4 +1,4 @@
-package plugin;
+package edu.toronto.cs.openome.core.plugin;
 
 
 import org.eclipse.ui.plugin.*;

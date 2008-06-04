@@ -1,4 +1,4 @@
-package action;
+package edu.toronto.cs.openome.core.action;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.core.commands.IHandler;
 
 
-import convertor.IGenerator;
+import edu.toronto.cs.openome.core.convertor.IGenerator;
 
 /**
  *

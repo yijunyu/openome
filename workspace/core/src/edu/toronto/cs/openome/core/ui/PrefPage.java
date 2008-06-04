@@ -1,4 +1,4 @@
-package ui;
+package edu.toronto.cs.openome.core.ui;
 
 import java.util.Enumeration;
 import java.util.Hashtable;

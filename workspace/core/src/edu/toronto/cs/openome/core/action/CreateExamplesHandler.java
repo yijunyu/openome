@@ -6,7 +6,7 @@
  *     Ward Cunningham - initial implementation
  *******************************************************************************/
 
-package action;
+package edu.toronto.cs.openome.core.action;
 
 import java.io.IOException;
 import java.io.InputStream;

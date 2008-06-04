@@ -1,4 +1,4 @@
-package action;
+package edu.toronto.cs.openome.core.action;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.action.IAction;
