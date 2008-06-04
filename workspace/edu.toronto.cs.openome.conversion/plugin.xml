@@ -15,7 +15,7 @@
 			<separator name="group1"> </separator>
         </menu>
         <action
-               class="action.Q7_GoalModel"
+               class="edu.toronto.cs.openome.conversion.action.Q7_GoalModel"
                icon="icons/goal.gif"
                id="GoalModelAction"
                label="OpenOME Model"

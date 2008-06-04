@@ -1,4 +1,4 @@
-package service;
+package edu.toronto.cs.openome.conversion.service;
 
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import java.util.Vector;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import parser.GoalModelReader;
+import edu.toronto.cs.openome.conversion.parser.GoalModelReader;
 import edu.toronto.cs.openome_model.*;
 
 public class QueryVariability implements IConfigurator {

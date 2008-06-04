@@ -1,6 +1,6 @@
-package codegen;
+package edu.toronto.cs.openome.conversion.codegen;
 
-public class EMFProjectsGeneration extends action.EMFProjectsGeneration {
+public class EMFProjectsGeneration extends edu.toronto.cs.openome.conversion.action.EMFProjectsGeneration {
 
 	public EMFProjectsGeneration() {
 		super("openome_model", 

@@ -1,5 +1,5 @@
-package codegen;
-public class GMFProjectGeneration extends action.GMFProjectGeneration {
+package edu.toronto.cs.openome.conversion.codegen;
+public class GMFProjectGeneration extends edu.toronto.cs.openome.conversion.action.GMFProjectGeneration {
 	public GMFProjectGeneration() {
 		super("openome_model", 
 			  "/model/openome_model.gmfgen", 

@@ -1,4 +1,4 @@
-package action;
+package edu.toronto.cs.openome.conversion.action;
 
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.codegen.ecore.Generator;
 import org.osgi.framework.Bundle;
 
-import convertor.IGenerator;
+import edu.toronto.cs.openome.core.convertor.IGenerator;
 
 public class EMFProjectsGeneration implements IGenerator {
 

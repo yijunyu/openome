@@ -1,7 +1,8 @@
-package convertor;
+package edu.toronto.cs.openome.conversion.convertor;
 
 import parser.Q7;
-import codegen.GoalModel;
+import edu.toronto.cs.openome.conversion.codegen.GoalModel;
+import edu.toronto.cs.openome.core.convertor.IConvertor;
 
 public class Q7_GoalModel implements IConvertor {
 	public void convert(String input, String output) {

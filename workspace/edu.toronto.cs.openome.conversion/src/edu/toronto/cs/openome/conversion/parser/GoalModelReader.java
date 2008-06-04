@@ -1,4 +1,4 @@
-package parser;
+package edu.toronto.cs.openome.conversion.parser;
 
 import java.io.File;
 
@@ -10,7 +10,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import util.Computing;
-import edu.toronto.cs.openome_model.*;
+import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Decomposition;
+import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 public class GoalModelReader {
 	
@@ -34,7 +37,7 @@ public class GoalModelReader {
 	}
 
 	private Intention getParent(Intention g) {
-		EList pl = g.getParentDecompositions();
+		EList<Decomposition> pl = g.getParentDecompositions();
 		Intention p = null;
 		if (pl.size()>0)
 			p = ((Decomposition) pl.get(0)).getSource();

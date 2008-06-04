@@ -1,10 +1,4 @@
-/*
- * Created on Jan 27, 2005
- * To generate i* diagram from the parsed Q7 input
- * 
- * TODO use When information to generate the "claim" softgoal 
- */
-package codegen;
+package edu.toronto.cs.openome.conversion.codegen;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +8,6 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -32,13 +25,20 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import edu.toronto.cs.openome_model.Container;
+import codegen.IStar;
+
 import edu.toronto.cs.openome_model.*;
 
 import util.Computing;
 import util.SortArrayList;
+
 /**
  * @author Yijun Yu
+ * Created on Jan 27, 2005
+ * To generate i* diagram from the parsed Q7 input
+ * 
+ * TODO use When information to generate the "claim" softgoal 
+ *
  */
 public class GoalModel extends IStar {
 	Hashtable<String, IStarElement> agents = null;
@@ -67,8 +67,7 @@ public class GoalModel extends IStar {
 		if (a == null) return;		
 		preprocess_abbreviations(parent, a);
 		if (a.how!=null && a.how.advices!=null)
-		for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
-			Advice ad = (Advice) i.next();
+		for (Advice ad: a.how.advices) {
 			preprocessAllInheritance(a, ad);
 		}		
     }
@@ -131,8 +130,7 @@ public class GoalModel extends IStar {
 	 */
 	private void generateHowForElement(Advice a) {
 		if (a.how != null) {
-			for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
-				Advice ad = (Advice) i.next();
+			for (Advice ad: a.how.advices) {
 				generateGoalModelForElements(a, ad);
 			}
 		}
@@ -300,13 +298,11 @@ public class GoalModel extends IStar {
 		return uri;
 	}
 
-	
-	public void propagate_actor_elements(HashMap hm) {
+	public void propagate_actor_elements(HashMap<Integer,Intention> hm) {
 		boolean change = true;
 		do {
 			change = false;
-			for (Enumeration i = links.keys(); i.hasMoreElements();) {
-				IStarLink s = links.get(i.nextElement());
+			for (IStarLink s: links.values()) {
 				if (! s.op.startsWith("Dep")) {
 					Intention x = (Intention) hm.get(new Integer(s.from.id));
 					Intention y = (Intention) hm.get(new Integer(s.to.id));
@@ -605,8 +601,7 @@ public class GoalModel extends IStar {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && ! g.isSoftGoal) {
 			    	Vector<IStarLink> l = new Vector<IStarLink>(); // links
-					for (Enumeration j = links.keys(); j.hasMoreElements();) {
-						IStarLink s = links.get(j.nextElement());
+			    	for (IStarLink s: links.values()) {
 						if (s.to.id == g.id && s.isDecomposition()) {
 							l.add(s);
 						}
@@ -635,8 +630,7 @@ public class GoalModel extends IStar {
 	 * replace .. with parent's name 
 	 */
 	private void preprocess() {
-		for (Iterator i = advices.iterator(); i.hasNext();) {
-			Advice a = (Advice) i.next();
+		for (Advice a: advices) {
 			preprocessAllInheritance(null, a);
 		}
 	}
@@ -656,8 +650,7 @@ public class GoalModel extends IStar {
 	 */
 	private void remove_self_dependencies() {
 		// remove cyclic dependencies
-		for (Enumeration i = links.keys(); i.hasMoreElements();) {
-			IStarLink l = links.get(i.nextElement());
+		for (IStarLink l: links.values()) {
 			if (l.op.equals("Dep")) {
 				IStarElement a = l.to;
 				IStarElement b = l.from;
@@ -690,13 +683,11 @@ public class GoalModel extends IStar {
 		serialized_view += "Token SerializedView_0\n"
 				+ "    IN SerializedView\n" + "    WITH\n";
 		// the first pass creates the elements only, to avoid duplications
-		for (Iterator i = advices.iterator(); i.hasNext();) {
-			Advice a = (Advice) i.next();
+		for (Advice a: advices) {
 			generateGoalModelForElements(null, a);
 		}
 		// the second pass creates the links only, to make sure no extra links are created
-		for (Iterator i = advices.iterator(); i.hasNext();) {
-			Advice a = (Advice) i.next();
+		for (Advice a: advices) {
 			generateGoalModel(null, a);
 		}
 	}
@@ -708,8 +699,7 @@ public class GoalModel extends IStar {
 		boolean change = true;
 		do {
 			change = false;
-			for (Enumeration i = links.keys(); i.hasMoreElements();) {
-				IStarLink s = links.get(i.nextElement());
+			for (IStarLink s: links.values()) {
 				if (s.isDecomposition()) {
 					if (s.from.isSoftGoal && !s.to.isSoftGoal || s.to.isSoftGoal && !s.from.isSoftGoal) {
 						s.from.setSoftGoal(); s.to.setSoftGoal();
@@ -733,8 +723,7 @@ public class GoalModel extends IStar {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && g.isSoftGoal) {
 			    	boolean root = true;
-					for (Enumeration j = links.keys(); j.hasMoreElements();) {
-						IStarLink s = links.get(j.nextElement());
+			    	for (IStarLink s: links.values()) {
 						if (s.to.id == g.id && s.isDecomposition()) {
 							root = false;
 							break;
@@ -762,8 +751,7 @@ public class GoalModel extends IStar {
 		change = true;
 		do {
 			change = false;
-			for (Enumeration i = links.keys(); i.hasMoreElements();) {
-				IStarLink s = links.get(i.nextElement());
+			for (IStarLink s: links.values()) {
 				if (s.isDecomposition()) { // merge subgoal into its parent Intention's context (agent/aspect) 
 					if (s.from.parent!=null && (s.to.parent==null /*|| s.from.parent.id != s.to.parent.id */)) {
 						if (s.to.parent!=null)
@@ -795,8 +783,7 @@ public class GoalModel extends IStar {
 			    if (g!=null && !g.isSoftGoal && !g.isAgent && !g.isAspect) {
 			    	boolean leaf = true;
 			    	boolean and_decomposed = true;
-					for (Enumeration j = links.keys(); j.hasMoreElements();) {
-						IStarLink s = links.get(j.nextElement());
+			    	for (IStarLink s: links.values()) {
 						if (s.from.id == g.id && s.isDecomposition()) {
 							leaf = false;
 							if (s.isOrDecomposition()) {
@@ -829,8 +816,7 @@ public class GoalModel extends IStar {
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
-						for (Enumeration j = links.keys(); j.hasMoreElements();) {
-							IStarLink s = links.get(j.nextElement());
+				    	for (IStarLink s: links.values()) {
 							if (s.to.id == g.id && s.from.isOperationalization && !g.isOperationalization && s.isDecomposition()) {
 								g.isOperationalization = true;
 								change = true;
@@ -856,8 +842,7 @@ public class GoalModel extends IStar {
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
-						for (Enumeration j = links.keys(); j.hasMoreElements();) {
-							IStarLink s = links.get(j.nextElement());
+				    	for (IStarLink s: links.values()) {
 							if (s.to.id == g.id && s.from.isSoftGoal && !g.isSoftGoal&& s.isDecomposition()) {
 								g.isSoftGoal= true;
 								change = true;
@@ -950,8 +935,7 @@ public class GoalModel extends IStar {
 	 */
 	private void generateHow(Advice a) {
 		if (a.how != null) {
-			for (Iterator i = a.how.advices.iterator(); i.hasNext();) {
-				Advice ad = (Advice) i.next();
+			for (Advice ad: a.how.advices) {
 				generateGoalModel(a, ad);
 			}
 		}

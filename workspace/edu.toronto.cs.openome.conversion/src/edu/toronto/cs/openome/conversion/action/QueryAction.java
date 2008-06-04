@@ -1,8 +1,10 @@
-package action;
+package edu.toronto.cs.openome.conversion.action;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import parser.GoalModelReader;
-import service.QueryVariability;
+import edu.toronto.cs.openome.conversion.parser.GoalModelReader;
+import edu.toronto.cs.openome.conversion.service.QueryVariability;
+import edu.toronto.cs.openome.core.action.ObjectAction;
+
 public class QueryAction extends ObjectAction {
 	public void performAction(String name) {
 		GoalModelReader rdr = new GoalModelReader();
