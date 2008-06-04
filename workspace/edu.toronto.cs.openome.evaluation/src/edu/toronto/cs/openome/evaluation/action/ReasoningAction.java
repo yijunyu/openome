@@ -1,6 +1,6 @@
 package edu.toronto.cs.openome.evaluation.action;
 
-import action.ConvertAction; //from core
+import edu.toronto.cs.openome.core.action.ConvertAction;
 
 public class ReasoningAction extends ConvertAction {
 
