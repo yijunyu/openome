@@ -3,7 +3,7 @@
 <plugin>
    <extension point="core.convertor">
       <convertor id="Q7 to Goal Model" 
-      		class="convertor.Q7_GoalModel"
+      		class="edu.toronto.cs.openome.conversion.convertor.Q7_GoalModel"
             input="q7" output="oom"/>
    </extension>
   <extension point="org.eclipse.ui.popupMenus">
