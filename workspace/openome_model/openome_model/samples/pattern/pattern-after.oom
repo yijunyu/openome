@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore" name="/home/yy66/workspace/Examples/openome_model/pattern/pattern.oom">
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Security"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@intentions.0" source="//@containers.1/@intentions.0"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:BreakContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.0"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@containers.0/@intentions.0" label="D"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="A">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="G1" rule="//@contributions.1" dependencyFrom="//@dependencies.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="G2"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="B">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="G2" rule="//@contributions.0" dependencyTo="//@dependencies.0"/>
+  </containers>
+</edu.toronto.cs.openome_model:Model>
