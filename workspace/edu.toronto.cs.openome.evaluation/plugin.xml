@@ -3,7 +3,7 @@
 <plugin>
 <extension point="core.convertor">
 		<convertor id="Reasoning with Goal Model (SAT)" 
-      		class="convertor.Reasoning_GoalModel"
+      		class="edu.toronto.cs.openome.evaluation.convertor.Reasoning_GoalModel"
             input="oom" output="sat.oom"/>
    </extension>
    <extension point="org.eclipse.ui.popupMenus">

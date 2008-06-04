@@ -1,4 +1,4 @@
-package convertor;
+package edu.toronto.cs.openome.evaluation.convertor;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,7 +11,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import parser.GoalModelReader;
-import action.Reasoning;
+import edu.toronto.cs.openome.evaluation.action.Reasoning;
+import convertor.IConvertor; //core
 
 public class Reasoning_GoalModel implements IConvertor {
 
