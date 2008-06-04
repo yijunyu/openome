@@ -2078,7 +2078,10 @@
           kind="Pathmaps"/>
     </preferencePages>
   </diagram>
-  <plugin/>
+  <plugin>
+    <requiredPlugins>openome_model</requiredPlugins>
+    <requiredPlugins>openome_model.figures</requiredPlugins>
+  </plugin>
   <editor/>
   <navigator>
     <childReferences
