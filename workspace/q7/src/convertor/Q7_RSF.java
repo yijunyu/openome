@@ -2,6 +2,7 @@ package convertor;
 
 import parser.Q7;
 import codegen.RSF;
+import edu.toronto.cs.openome.core.convertor.IConvertor;
 
 public class Q7_RSF implements IConvertor {
 	public void convert(String input, String output) {
