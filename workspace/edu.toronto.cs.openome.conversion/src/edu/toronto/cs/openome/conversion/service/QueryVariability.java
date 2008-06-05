@@ -3,7 +3,6 @@ package edu.toronto.cs.openome.conversion.service;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Vector;
 
 import org.eclipse.emf.common.util.EList;
@@ -45,15 +44,13 @@ public class QueryVariability implements IConfigurator {
 	Vector<Intention> Intentions = new Vector<Intention>();
 
 	private void collect_goals() {
-		for (Iterator i = resource.getResourceSet().getAllContents();
-	       i.hasNext(); ) {
-	    	Object o = i.next();
+		for (Resource o: resource.getResourceSet().getResources()){ 
 	    	if (o instanceof Intention) {
 	    		Intention p = (Intention) o;
 	    		collect_goals(p);
 	    	} else if (o instanceof Container) {
 	    		Container a = (Container) o;
-    			EList l = a.getIntentions();
+    			EList<Intention> l = a.getIntentions();
 	    		for (int j =0; j < l.size(); j++) {
 	    			Intention root = (Intention) l.get(j);
 	    			collect_goals(root);
@@ -96,7 +93,7 @@ public class QueryVariability implements IConfigurator {
 		for (Intention g: Intentions) {
 			if (is_or(g) && !is_runtime_or(g)) {
 				VAR_goals.add(g);
-				EList subgoals = g.getDecompositions();
+				EList<Decomposition> subgoals = g.getDecompositions();
 				HashSet<Intention> config = new HashSet<Intention>();
 				for (int i=0; i<subgoals.size(); i++) {
 					Intention s = ((Decomposition) subgoals.get(i)).getTarget();
@@ -112,7 +109,7 @@ public class QueryVariability implements IConfigurator {
 	
 	private void collect_goals(Intention root) {
 		add_a_goal(root); 
-		EList subgoals = root.getDecompositions();
+		EList<Decomposition> subgoals = root.getDecompositions();
 		for (int j=0; j < subgoals.size(); j++) {
 			Intention s = ((Decomposition) subgoals.get(j)).getTarget();
 			collect_goals(s);
@@ -144,10 +141,10 @@ public class QueryVariability implements IConfigurator {
 		if (System.getProperty("ome.reasoning.topdown.runtime_or")==null)
 			return false;
 		boolean isRuntimeOR = true;
-		EList list = to.getDecompositions();
+		EList<Decomposition> list = to.getDecompositions();
 		for (int j = 0; j < list.size(); j++) {
 			Intention from = ((Decomposition) list.get(j)).getTarget();
-			EList contributions = from.getRule();
+			EList<Contribution> contributions = from.getRule();
 			if (contributions.size() > 0) {
 				isRuntimeOR = false;
 				break;
