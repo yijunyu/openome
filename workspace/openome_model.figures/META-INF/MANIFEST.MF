@@ -11,6 +11,5 @@ Require-Bundle: org.eclipse.gmf.runtime.draw2d.ui,
  org.eclipse.gmf.runtime.draw2d.ui.render;visibility:=reexport,
  org.eclipse.draw2d,
  org.eclipse.core.runtime,
- org.eclipse.emf.workspace;visibility:=reexport,
- openome_model
+ org.eclipse.emf.workspace;visibility:=reexport
 Eclipse-LazyStart: true
