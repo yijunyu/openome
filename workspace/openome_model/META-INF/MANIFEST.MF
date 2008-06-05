@@ -7,4 +7,5 @@ Bundle-Vendor: University of Toronto KM lab
 Bundle-Localization: plugin
 Eclipse-LazyStart: true
 Plugin-Class: PluginActivator
+Require-Bundle: org.eclipse.ui.intro
 
