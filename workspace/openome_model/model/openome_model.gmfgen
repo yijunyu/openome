@@ -2079,7 +2079,6 @@
     </preferencePages>
   </diagram>
   <plugin>
-    <requiredPlugins>openome_model</requiredPlugins>
     <requiredPlugins>openome_model.figures</requiredPlugins>
   </plugin>
   <editor/>
