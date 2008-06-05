@@ -139,7 +139,7 @@ public final class AStar {
 			node newNode = (node) children.elementAt(i); 
 			int newTotal = newNode.total; 
 			int newCosts = newNode.costs; 
-			boolean done = false; 
+			//boolean done = false; 
 			int idx = bsearch(0, nodes.size()-1, newTotal, newCosts); 
 			nodes.insertElementAt(newNode, idx); 
 			

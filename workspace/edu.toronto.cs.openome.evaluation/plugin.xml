@@ -28,7 +28,7 @@
                tooltip="top down reasoning">
          </action>         
          <action
-               class="action.QueryAction"
+               class="edu.toronto.cs.openome.conversion.action.QueryAction"
                icon="icons/goal.gif"
                id="QueryAction"
                label="Show configuration"
