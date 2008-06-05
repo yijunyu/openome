@@ -5,21 +5,6 @@ Bundle-SymbolicName: openome_model;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Vendor: University of Toronto KM lab
 Bundle-Localization: plugin
-Require-Bundle: q7,
- util,
- org.sat4j,
- core,
- org.eclipse.gmf.codegen,
- org.eclipse.core.runtime.compatibility.auth,
- org.eclipse.core.runtime.compatibility,
- edu.toronto.cs.openome_model,
- org.eclipse.emf.ecore.edit,
- org.eclipse.ui.intro
-Export-Package: action,
- codegen,
- convertor,
- parser,
- service
 Eclipse-LazyStart: true
 Plugin-Class: PluginActivator
 
