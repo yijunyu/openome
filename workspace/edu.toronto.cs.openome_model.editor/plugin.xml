@@ -26,11 +26,6 @@
       <description>Derive a structured tree of your model</description>
       <selection class = "org.eclipse.core.resources.IResource" />
     </wizard>
-    <wizard
-          class="edu.toronto.cs.openome_model.editor.NewWizard2"
-          id="edu.toronto.cs.openome_model.editor.wizard2"
-          name="name">
-    </wizard>
   </extension>
 
   <extension point = "org.eclipse.ui.editors">
