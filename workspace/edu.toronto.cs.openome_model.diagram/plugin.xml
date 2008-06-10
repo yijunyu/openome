@@ -22,7 +22,7 @@
       <?gmfgen generated="true"?>
       <editor
          id="edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorID"
-         name="%editorName"
+         name="Diagram - (.ood file) Editor"
          icon="icons/obj16/openome_modelDiagramFile.gif"
          extensions="ood"
          default="true"
@@ -45,12 +45,12 @@
    <extension point="org.eclipse.ui.newWizards">
       <?gmfgen generated="true"?>
   	  <wizard
-  	     name="%newWizardName"
-  	     icon="icons/obj16/openome_modelDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
-  	     class="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizard"
-  	     id="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID">
-  	  	 <description>%newWizardDesc</description>  
+           category="edu.toronto.cs.openome_model.editor.category"
+           class="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizard"
+           icon="icons/obj16/openome_modelDiagramFile.gif"
+           id="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID"
+           name="Diagram - (.ood file)">
+  	  	 <description>Use the canvas to draw your model</description>  
       </wizard>
    </extension>
 
