@@ -13,25 +13,30 @@
   <extension
     point = "org.eclipse.ui.newWizards">
     <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
-      name="%_UI_Wizard_category">
+      id = "edu.toronto.cs.openome_model.editor.category"
+      name="OpenOME">
     </category>
     <wizard
-          category="org.eclipse.emf.ecore.Wizard.category.ID"
+          category="edu.toronto.cs.openome_model.editor.category"
           class="edu.toronto.cs.openome_model.presentation.openome_modelModelWizard"
           icon="icons/full/obj16/openome_modelModelFile.gif"
           id="edu.toronto.cs.openome_model.presentation.openome_modelModelWizardID"
-          name="%_UI_openome_modelModelWizard_label"
+          name="Model - (.oom file)"
           project="false">
-      <description>%_UI_openome_modelModelWizard_description</description>
+      <description>Derive a structured tree of your model</description>
       <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+    <wizard
+          class="edu.toronto.cs.openome_model.editor.NewWizard2"
+          id="edu.toronto.cs.openome_model.editor.wizard2"
+          name="name">
     </wizard>
   </extension>
 
   <extension point = "org.eclipse.ui.editors">
     <editor
         id = "edu.toronto.cs.openome_model.presentation.openome_modelEditorID"
-        name = "%_UI_openome_modelEditor_label"
+        name = "Model - (.oom file) Editor"
         icon = "icons/full/obj16/openome_modelModelFile.gif"
         extensions = "oom"
         class = "edu.toronto.cs.openome_model.presentation.openome_modelEditor" 
