@@ -59,7 +59,7 @@
                 id="openome_top_menu"
                 label="OpenOME"
                 mnemonic="O">
-         	<command
+         	<!--<command
                	commandId="openome_clean_cmd"
                 icon="icons/clean.gif"
 				id="openome_clean_menu"
@@ -70,7 +70,7 @@
                 icon="icons/build.gif"
 				id="openome_import_menu"
 				label="Import Projects"> 
-         	</command>
+         	</command> -->
          	<command
                	commandId="openome_example_cmd"
                 icon="icons/example.gif"
