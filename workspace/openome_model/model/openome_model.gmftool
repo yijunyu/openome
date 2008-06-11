@@ -19,7 +19,7 @@
         <largeIcon
             xsi:type="gmftool:BundleImage"
             path="/icons/actor.gif"
-            bundle="goalmodel"/>
+            bundle="openome_model"/>
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
@@ -28,7 +28,7 @@
         <smallIcon
             xsi:type="gmftool:BundleImage"
             path="/icons/agent.gif"
-            bundle="goalmodel"/>
+            bundle="openome_model"/>
         <largeIcon
             xsi:type="gmftool:BundleImage"
             path="/icons/agent.gif"

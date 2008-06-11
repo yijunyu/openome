@@ -14,7 +14,7 @@
           fill="false"
           lineWidth="0">
         <layout
-            xsi:type="gmfgraph:XYLayout"/>
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="ActorBoundaryFigure"
