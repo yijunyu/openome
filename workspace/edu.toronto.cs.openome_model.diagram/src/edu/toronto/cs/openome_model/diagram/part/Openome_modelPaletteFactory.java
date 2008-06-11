@@ -70,7 +70,7 @@ public class Openome_modelPaletteFactory {
 						.findImageDescriptor("/openome_model/icons/actor.gif")); //$NON-NLS-1$
 		entry
 				.setLargeIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
-						.findImageDescriptor("/goalmodel/icons/actor.gif")); //$NON-NLS-1$
+						.findImageDescriptor("/openome_model/icons/actor.gif")); //$NON-NLS-1$
 		return entry;
 	}
 
@@ -87,7 +87,7 @@ public class Openome_modelPaletteFactory {
 				types);
 		entry
 				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
-						.findImageDescriptor("/goalmodel/icons/agent.gif")); //$NON-NLS-1$
+						.findImageDescriptor("/openome_model/icons/agent.gif")); //$NON-NLS-1$
 		entry
 				.setLargeIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 						.findImageDescriptor("/openome_model/icons/agent.gif")); //$NON-NLS-1$
