@@ -190,7 +190,6 @@ public class openome_modelEditor
 
 	
 	/**
-	 * 
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,7 +391,7 @@ public class openome_modelEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Collection<Resource> savedResources = new ArrayList<Resource>();
+	protected Collection<Resource> savedResources = new ArrayList<Resource>();
 
 	/**
 	 * Map to store the diagnostic associated with a resource.
@@ -400,7 +399,7 @@ public class openome_modelEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
 
 	/**
 	 * Controls whether the problem indication should be updated.
@@ -1507,7 +1506,7 @@ public class openome_modelEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPersisted(Resource resource) {
+	protected boolean isPersisted(Resource resource) {
 		boolean result = false;
 		try {
 			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
@@ -1849,7 +1848,6 @@ public class openome_modelEditor
 	 */
 	public void createModel() {
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-		IFileEditorInput modelFile = (IFileEditorInput) getEditorInput(); //not generated
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -1864,32 +1862,64 @@ public class openome_modelEditor
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
 
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply saves the model
-	 * file. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This is for implementing {@link IEditorPart} and simply saves the model file.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
-		// Do the work within an operation because this is a long running
-		// activity that modifies the workbench.
-		//		
+		// Save only resources that have actually changed.
+		//
+		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
+		// Do the work within an operation because this is a long running activity that modifies the workbench.
+		//
+		WorkspaceModifyOperation operation =
+			new WorkspaceModifyOperation() {
+				// This is the method that gets invoked when the operation runs.
+				//
+				@Override
+				public void execute(IProgressMonitor monitor) {
+					// Save the resources to the file system.
+					//
+					boolean first = true;
+					for (Resource resource : editingDomain.getResourceSet().getResources()) {
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
+							try {
+								savedResources.add(resource);
+								resource.save(saveOptions);
+							}
+							catch (Exception exception) {
+								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							}
+							first = false;
+						}
+					}
+				}
+			};
+
 		updateProblemIndication = false;
 		try {
 			// This runs the options, and shows progress.
-			new ProgressMonitorDialog(getSite().getShell()).run(true, false, oldOperation);
+			//
+			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+
 			// Refresh the necessary state.
 			//
-			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			// Something went wrong that shouldn't.
+			//
 			openome_modelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
