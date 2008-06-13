@@ -89,17 +89,17 @@ public class Reasoning {
 	private void update() {
 		for (Intention root: Intentions) {
 			if (FS_goals.contains(root)) {
-				root.setLabel(f.createSatisfiedLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
 			} else if (FD_goals.contains(root)) {
-				root.setLabel(f.createDeniedLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);
 			} else if (PS_goals.contains(root)) {
-				root.setLabel(f.createPartiallySatisfiedLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
 			} else if (PD_goals.contains(root)) {
-				root.setLabel(f.createPartiallyDeniedLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
 			} else if (CF_goals.contains(root)) {
-				root.setLabel(f.createConflictLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 			} else {
-				root.setLabel(f.createUnknownLabel());
+				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 			}
 		}
 	}
@@ -242,15 +242,15 @@ public class Reasoning {
 	private void add_a_goal(Intention root) {
 		goal_ids.put(root, Intentions.size());
 		Intentions.add(root);
-		if (root.getLabel() instanceof SatisfiedLabel ) {
+		if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.SATISFIED) {
 			FS_goals.add(root);
-		} else if (root.getLabel() instanceof DeniedLabel ) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED) {
 			FD_goals.add(root);
-		} else if (root.getLabel() instanceof PartiallySatisfiedLabel ) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED) {
 			PS_goals.add(root);
-		} else if (root.getLabel() instanceof PartiallyDeniedLabel ) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED) {
 			PD_goals.add(root);
-		} else if (root.getLabel() instanceof ConflictLabel) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT) {
 			CF_goals.add(root);
 		} else {
 			UN_goals.add(root);
@@ -369,7 +369,7 @@ public class Reasoning {
 	 */
 	private String encode_3(Intention from) {
 		StringBuffer b = new StringBuffer();
-		EList<Contribution> list = from.getRule();
+		EList<Contribution> list = from.getContributesFrom(); //getRule now getContributesFrom? hope so
 		for (int j=0; j<list.size(); j++) {
 			Contribution c = list.get(j);
 			Intention to = c.getTarget();
@@ -427,16 +427,17 @@ public class Reasoning {
 	}
 
 	private boolean is_hurt_contribution(Contribution c){
-		return c instanceof HurtContribution;
+		return c.getIstar_contribution_type() == IStarContributionType.HURT;
 	}
+	
 	private boolean is_make_contribution(Contribution c){
-		return c instanceof MakeContribution;
+		return c.getIstar_contribution_type() == IStarContributionType.MAKE;
 	}
 	private boolean is_help_contribution(Contribution c){
-		return c instanceof HelpContribution;
+		return c.getIstar_contribution_type() == IStarContributionType.HELP;
 	}
 	private boolean is_break_contribution(Contribution c){
-		return c instanceof BreakContribution;		
+		return c.getIstar_contribution_type() == IStarContributionType.BREAK;		
 	}
 
 	private boolean is_soft_goal(Intention from) {
@@ -579,7 +580,7 @@ public class Reasoning {
 		for (int j = 0; j < list.size(); j++) {
 			Decomposition d = (Decomposition) list.get(j);
 			Intention from = d.getTarget();
-			EList<Contribution> contributions = from.getRule();
+			EList<Contribution> contributions = from.getContributesFrom();
 			if (contributions.size() > 0) {
 				isRuntimeOR = false;
 				break;
