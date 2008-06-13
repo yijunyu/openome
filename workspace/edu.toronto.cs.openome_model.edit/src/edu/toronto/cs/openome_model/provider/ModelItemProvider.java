@@ -74,6 +74,7 @@ public class ModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addCorrelationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +97,28 @@ public class ModelItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Correlations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCorrelationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_correlations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_correlations_feature", "_UI_Model_type"),
+				 openome_modelPackage.Literals.MODEL__CORRELATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -223,28 +246,13 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__INTENTIONS,
+				 openome_modelFactory.eINSTANCE.createBelief()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
 				 openome_modelFactory.eINSTANCE.createContribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
-				 openome_modelFactory.eINSTANCE.createBreakContribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
-				 openome_modelFactory.eINSTANCE.createHelpContribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
-				 openome_modelFactory.eINSTANCE.createHurtContribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
-				 openome_modelFactory.eINSTANCE.createMakeContribution()));
 
 		newChildDescriptors.add
 			(createChildParameter

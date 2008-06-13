@@ -74,7 +74,6 @@ public class IntentionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addRulePropertyDescriptor(object);
 			addSystemPropertyDescriptor(object);
 			addBoundaryPropertyDescriptor(object);
 			addExclusivePropertyDescriptor(object);
@@ -84,6 +83,14 @@ public class IntentionItemProvider
 			addDependencyToPropertyDescriptor(object);
 			addDecompositionsPropertyDescriptor(object);
 			addParentDecompositionsPropertyDescriptor(object);
+			addQualitativeReasoningCombinedLabelPropertyDescriptor(object);
+			addQualitativeReasoningSatisfiedLabelPropertyDescriptor(object);
+			addQualitativeReasoningDenialLabelPropertyDescriptor(object);
+			addQuantitativeReasoningCombinedLabelPropertyDescriptor(object);
+			addQuantitativeReasoningDeniedLabelPropertyDescriptor(object);
+			addQuantitativeReasoningSatisfiedLabelPropertyDescriptor(object);
+			addContributesToPropertyDescriptor(object);
+			addContributesFromPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,28 +113,6 @@ public class IntentionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Rule feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRulePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Intention_rule_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_rule_feature", "_UI_Intention_type"),
-				 openome_modelPackage.Literals.INTENTION__RULE,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -331,6 +316,182 @@ public class IntentionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Qualitative Reasoning Combined Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQualitativeReasoningCombinedLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QualitativeReasoningCombinedLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QualitativeReasoningCombinedLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Qualitative Reasoning Satisfied Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQualitativeReasoningSatisfiedLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QualitativeReasoningSatisfiedLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QualitativeReasoningSatisfiedLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Qualitative Reasoning Denial Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQualitativeReasoningDenialLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QualitativeReasoningDenialLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QualitativeReasoningDenialLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Quantitative Reasoning Combined Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantitativeReasoningCombinedLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QuantitativeReasoningCombinedLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QuantitativeReasoningCombinedLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Quantitative Reasoning Denied Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantitativeReasoningDeniedLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QuantitativeReasoningDeniedLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QuantitativeReasoningDeniedLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Quantitative Reasoning Satisfied Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantitativeReasoningSatisfiedLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_QuantitativeReasoningSatisfiedLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_QuantitativeReasoningSatisfiedLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Contributes To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContributesToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_contributesTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_contributesTo_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__CONTRIBUTES_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Contributes From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContributesFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_contributesFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_contributesFrom_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__CONTRIBUTES_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -342,7 +503,6 @@ public class IntentionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__LABEL);
 			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__INPUT);
 			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__OUTPUT);
 			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__PROPERTY);
@@ -406,9 +566,14 @@ public class IntentionItemProvider
 			case openome_modelPackage.INTENTION__EXCLUSIVE:
 			case openome_modelPackage.INTENTION__SEQUENTIAL:
 			case openome_modelPackage.INTENTION__PARALLEL:
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case openome_modelPackage.INTENTION__LABEL:
 			case openome_modelPackage.INTENTION__INPUT:
 			case openome_modelPackage.INTENTION__OUTPUT:
 			case openome_modelPackage.INTENTION__PROPERTY:
@@ -428,41 +593,6 @@ public class IntentionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createTruthLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createConflictLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createDeniedLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createPartiallyDeniedLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createPartiallySatisfiedLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createSatisfiedLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__LABEL,
-				 openome_modelFactory.eINSTANCE.createUnknownLabel()));
 
 		newChildDescriptors.add
 			(createChildParameter

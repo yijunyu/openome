@@ -174,52 +174,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.BreakContribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BreakContributionItemProvider breakContributionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.BreakContribution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBreakContributionAdapter() {
-		if (breakContributionItemProvider == null) {
-			breakContributionItemProvider = new BreakContributionItemProvider(this);
-		}
-
-		return breakContributionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.ConflictLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConflictLabelItemProvider conflictLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.ConflictLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConflictLabelAdapter() {
-		if (conflictLabelItemProvider == null) {
-			conflictLabelItemProvider = new ConflictLabelItemProvider(this);
-		}
-
-		return conflictLabelItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Contribution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,29 +217,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		}
 
 		return decompositionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.DeniedLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeniedLabelItemProvider deniedLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.DeniedLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeniedLabelAdapter() {
-		if (deniedLabelItemProvider == null) {
-			deniedLabelItemProvider = new DeniedLabelItemProvider(this);
-		}
-
-		return deniedLabelItemProvider;
 	}
 
 	/**
@@ -335,52 +266,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.HelpContribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HelpContributionItemProvider helpContributionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.HelpContribution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHelpContributionAdapter() {
-		if (helpContributionItemProvider == null) {
-			helpContributionItemProvider = new HelpContributionItemProvider(this);
-		}
-
-		return helpContributionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.HurtContribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HurtContributionItemProvider hurtContributionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.HurtContribution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createHurtContributionAdapter() {
-		if (hurtContributionItemProvider == null) {
-			hurtContributionItemProvider = new HurtContributionItemProvider(this);
-		}
-
-		return hurtContributionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Intention} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -401,29 +286,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		}
 
 		return intentionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.MakeContribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MakeContributionItemProvider makeContributionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.MakeContribution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMakeContributionAdapter() {
-		if (makeContributionItemProvider == null) {
-			makeContributionItemProvider = new MakeContributionItemProvider(this);
-		}
-
-		return makeContributionItemProvider;
 	}
 
 	/**
@@ -470,52 +332,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		}
 
 		return orDecompositionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.PartiallyDeniedLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PartiallyDeniedLabelItemProvider partiallyDeniedLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.PartiallyDeniedLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPartiallyDeniedLabelAdapter() {
-		if (partiallyDeniedLabelItemProvider == null) {
-			partiallyDeniedLabelItemProvider = new PartiallyDeniedLabelItemProvider(this);
-		}
-
-		return partiallyDeniedLabelItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.PartiallySatisfiedLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PartiallySatisfiedLabelItemProvider partiallySatisfiedLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.PartiallySatisfiedLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPartiallySatisfiedLabelAdapter() {
-		if (partiallySatisfiedLabelItemProvider == null) {
-			partiallySatisfiedLabelItemProvider = new PartiallySatisfiedLabelItemProvider(this);
-		}
-
-		return partiallySatisfiedLabelItemProvider;
 	}
 
 	/**
@@ -611,29 +427,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.SatisfiedLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SatisfiedLabelItemProvider satisfiedLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.SatisfiedLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSatisfiedLabelAdapter() {
-		if (satisfiedLabelItemProvider == null) {
-			satisfiedLabelItemProvider = new SatisfiedLabelItemProvider(this);
-		}
-
-		return satisfiedLabelItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Softgoal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,52 +496,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.UnknownLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnknownLabelItemProvider unknownLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.UnknownLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnknownLabelAdapter() {
-		if (unknownLabelItemProvider == null) {
-			unknownLabelItemProvider = new UnknownLabelItemProvider(this);
-		}
-
-		return unknownLabelItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.TruthLabel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TruthLabelItemProvider truthLabelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.TruthLabel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTruthLabelAdapter() {
-		if (truthLabelItemProvider == null) {
-			truthLabelItemProvider = new TruthLabelItemProvider(this);
-		}
-
-		return truthLabelItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -769,6 +516,52 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		}
 
 		return containerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Belief} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeliefItemProvider beliefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Belief}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeliefAdapter() {
+		if (beliefItemProvider == null) {
+			beliefItemProvider = new BeliefItemProvider(this);
+		}
+
+		return beliefItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Correlation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CorrelationItemProvider correlationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Correlation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCorrelationAdapter() {
+		if (correlationItemProvider == null) {
+			correlationItemProvider = new CorrelationItemProvider(this);
+		}
+
+		return correlationItemProvider;
 	}
 
 	/**
@@ -874,32 +667,23 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (agentItemProvider != null) agentItemProvider.dispose();
 		if (andDecompositionItemProvider != null) andDecompositionItemProvider.dispose();
 		if (aspectItemProvider != null) aspectItemProvider.dispose();
-		if (breakContributionItemProvider != null) breakContributionItemProvider.dispose();
-		if (conflictLabelItemProvider != null) conflictLabelItemProvider.dispose();
 		if (contributionItemProvider != null) contributionItemProvider.dispose();
 		if (decompositionItemProvider != null) decompositionItemProvider.dispose();
-		if (deniedLabelItemProvider != null) deniedLabelItemProvider.dispose();
 		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
 		if (goalItemProvider != null) goalItemProvider.dispose();
-		if (helpContributionItemProvider != null) helpContributionItemProvider.dispose();
-		if (hurtContributionItemProvider != null) hurtContributionItemProvider.dispose();
 		if (intentionItemProvider != null) intentionItemProvider.dispose();
-		if (makeContributionItemProvider != null) makeContributionItemProvider.dispose();
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (orDecompositionItemProvider != null) orDecompositionItemProvider.dispose();
-		if (partiallyDeniedLabelItemProvider != null) partiallyDeniedLabelItemProvider.dispose();
-		if (partiallySatisfiedLabelItemProvider != null) partiallySatisfiedLabelItemProvider.dispose();
 		if (positionItemProvider != null) positionItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (resourceItemProvider != null) resourceItemProvider.dispose();
 		if (roleItemProvider != null) roleItemProvider.dispose();
-		if (satisfiedLabelItemProvider != null) satisfiedLabelItemProvider.dispose();
 		if (softgoalItemProvider != null) softgoalItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (topicItemProvider != null) topicItemProvider.dispose();
-		if (unknownLabelItemProvider != null) unknownLabelItemProvider.dispose();
-		if (truthLabelItemProvider != null) truthLabelItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
+		if (beliefItemProvider != null) beliefItemProvider.dispose();
+		if (correlationItemProvider != null) correlationItemProvider.dispose();
 	}
 
 }

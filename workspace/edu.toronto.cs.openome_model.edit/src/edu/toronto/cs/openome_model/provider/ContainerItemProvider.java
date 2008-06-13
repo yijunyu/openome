@@ -74,7 +74,6 @@ public class ContainerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addSuperPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,28 +96,6 @@ public class ContainerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Super feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSuperPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Container_super_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Container_super_feature", "_UI_Container_type"),
-				 openome_modelPackage.Literals.CONTAINER__SUPER,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -220,6 +197,21 @@ public class ContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createAgent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createPosition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(openome_modelPackage.Literals.CONTAINER__INTENTIONS,
 				 openome_modelFactory.eINSTANCE.createIntention()));
 
@@ -242,6 +234,11 @@ public class ContainerItemProvider
 			(createChildParameter
 				(openome_modelPackage.Literals.CONTAINER__INTENTIONS,
 				 openome_modelFactory.eINSTANCE.createTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__INTENTIONS,
+				 openome_modelFactory.eINSTANCE.createBelief()));
 	}
 
 	/**
