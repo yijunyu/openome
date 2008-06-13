@@ -364,76 +364,21 @@
           figure="//@figures.2/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="MakeContributionFigure">
+        name="ContributionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="MakeContributionFigure"
-          lineWidth="2"
           targetDecoration="//@figures.4/@figures.4">
         <children
             xsi:type="gmfgraph:Label"
-            name="MakeLabel"
-            text="++"/>
+            name="ContributionLabel"
+            text="Contribution"/>
       </actualFigure>
       <accessors
           figure="//@figures.2/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors
-        name="HelpContributionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="HelpContributionFigure"
-          lineWidth="2"
-          lineKind="LINE_DASHDOTDOT"
-          targetDecoration="//@figures.4/@figures.5">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="HelpLabel"
-            text="+"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.2/@descriptors.4/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="HurtContributionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="HurtContributionFigure"
-          lineWidth="2"
-          lineKind="LINE_DASHDOTDOT"
-          targetDecoration="//@figures.4/@figures.6">
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Courier New"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="HurtLabel"
-            text="-"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.2/@descriptors.5/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="BreakContributionFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="BreakContributionFigure"
-          lineWidth="2"
-          targetDecoration="//@figures.4/@figures.7">
-        <font
-            xsi:type="gmfgraph:BasicFont"
-            faceName="Courier New"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="BreakLabel"
-            text="--"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.2/@descriptors.6/@actualFigure/@children.0"/>
-    </descriptors>
   </figures>
   <figures
-      name="LinkLabels">
+      name="IStarContributionLabels">
     <figures
         xsi:type="gmfgraph:Label"
         name="BreakLabel"
@@ -458,6 +403,14 @@
         xsi:type="gmfgraph:Label"
         name="MakeLabel"
         text="++"/>
+    <figures
+        xsi:type="gmfgraph:Label"
+        name="SomePlusLabel"
+        text="Some+"/>
+    <figures
+        xsi:type="gmfgraph:Label"
+        name="SomeMinusLabel"
+        text="Some-"/>
   </figures>
   <figures
       name="LinkDecorations">
@@ -479,20 +432,8 @@
         qualifiedClassName="openome_model.figures.OrDecoration"/>
     <figures
         xsi:type="gmfgraph:CustomDecoration"
-        name="MakeDecoration"
-        qualifiedClassName="openome_model.figures.MakeDecoration"/>
-    <figures
-        xsi:type="gmfgraph:CustomDecoration"
-        name="HelpDecoration"
-        qualifiedClassName="openome_model.figures.HelpDecoration"/>
-    <figures
-        xsi:type="gmfgraph:CustomDecoration"
-        name="HurtDecoration"
-        qualifiedClassName="openome_model.figures.HurtDecoration"/>
-    <figures
-        xsi:type="gmfgraph:CustomDecoration"
-        name="BreakDecoration"
-        qualifiedClassName="openome_model.figures.BreakDecoration"/>
+        name="ContributionDecoration"
+        qualifiedClassName="openome_model.figures.ContributionDecoration"/>
   </figures>
   <nodes
       name="Actor"
@@ -533,17 +474,8 @@
       name="OrDecomposition"
       figure="OrDecompositionFigure"/>
   <connections
-      name="MakeContribution"
-      figure="MakeContributionFigure"/>
-  <connections
-      name="HelpContribution"
-      figure="HelpContributionFigure"/>
-  <connections
-      name="HurtContribution"
-      figure="HurtContributionFigure"/>
-  <connections
-      name="BreakContribution"
-      figure="BreakContributionFigure"/>
+      name="Contribution"
+      figure="ContributionFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -681,33 +613,25 @@
   </labels>
   <labels
       name="DiagramHelpLabel"
-      figure="HelpContributionFigure"
-      elementIcon="false"
-      accessor="//@figures.2/@descriptors.4/@accessors.0">
+      elementIcon="false">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramHurtLabel"
-      figure="HurtContributionFigure"
-      elementIcon="false"
-      accessor="//@figures.2/@descriptors.5/@accessors.0">
+      elementIcon="false">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramBreakLabel"
-      figure="BreakContributionFigure"
-      elementIcon="false"
-      accessor="//@figures.2/@descriptors.6/@accessors.0">
+      elementIcon="false">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>
   <labels
       name="DiagramMakeLabel"
-      figure="MakeContributionFigure"
-      elementIcon="false"
-      accessor="//@figures.2/@descriptors.3/@accessors.0">
+      elementIcon="false">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>

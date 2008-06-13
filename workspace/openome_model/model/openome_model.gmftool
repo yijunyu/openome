@@ -173,56 +173,23 @@
       <tools
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
-          xsi:type="gmftool:CreationTool"
-          title="Make"
-          description="Create new MakeContribution">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/makecontribution.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/makecontribution.gif"
-            bundle="openome_model"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Help"
-          description="Create new HelpContribution">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/helpcontribution.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/helpcontribution.gif"
-            bundle="openome_model"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Hurt"
-          description="Create new HurtContribution">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/hurtcontribution.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/hurtcontribution.gif"
-            bundle="openome_model"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Break"
-          description="Create new BreakContribution">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/breakcontribution.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/breakcontribution.gif"
-            bundle="openome_model"/>
+          xsi:type="gmftool:ToolGroup"
+          title="ContributionTools"
+          description=""
+          collapsible="true">
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Contribution"
+            description="Create new Contribution">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/helpcontribution.gif"
+              bundle="openome_model"/>
+          <largeIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/helpcontribution.gif"
+              bundle="openome_model"/>
+        </tools>
       </tools>
     </tools>
   </palette>

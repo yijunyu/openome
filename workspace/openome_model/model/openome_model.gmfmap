@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:gmfmap="http://www.eclipse.org/gmf/2005/mappings/2.0"
+    xmlns:gmfmap="http://www.eclipse.org/gmf/2006/mappings"
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
@@ -833,33 +833,9 @@
   </links>
   <links>
     <domainMetaElement
-        href="openome_model.ecore#//MakeContribution"/>
+        href="openome_model.ecore#//Contribution"/>
     <domainSpecialization
-        body="oclIsKindOf(MakeContribution)"/>
-    <labelMappings
-        readOnly="true">
-      <diagramLabel
-          href="openome_model.gmfgraph#DiagramMakeLabel"/>
-    </labelMappings>
-    <containmentFeature
-        href="openome_model.ecore#//Model/contributions"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.16"/>
-    <diagramLink
-        href="openome_model.gmfgraph#MakeContribution"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="openome_model.ecore#//HelpContribution"/>
-    <domainSpecialization
-        body="oclIsKindOf(HelpContribution)"/>
+        body="oclIsKindOf(Contribution)"/>
     <labelMappings
         readOnly="true">
       <diagramLabel
@@ -869,57 +845,9 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.17"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.16/@tools.0"/>
     <diagramLink
-        href="openome_model.gmfgraph#HelpContribution"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="openome_model.ecore#//HurtContribution"/>
-    <domainSpecialization
-        body="oclIsKindOf(HurtContribution)"/>
-    <labelMappings
-        readOnly="true">
-      <diagramLabel
-          href="openome_model.gmfgraph#DiagramHurtLabel"/>
-    </labelMappings>
-    <containmentFeature
-        href="openome_model.ecore#//Model/contributions"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.18"/>
-    <diagramLink
-        href="openome_model.gmfgraph#HurtContribution"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Contribution/target"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="openome_model.ecore#//BreakContribution"/>
-    <domainSpecialization
-        body="oclIsKindOf(BreakContribution)"/>
-    <labelMappings
-        readOnly="true">
-      <diagramLabel
-          href="openome_model.gmfgraph#DiagramBreakLabel"/>
-    </labelMappings>
-    <containmentFeature
-        href="openome_model.ecore#//Model/contributions"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.19"/>
-    <diagramLink
-        href="openome_model.gmfgraph#BreakContribution"/>
+        href="openome_model.gmfgraph#Contribution"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Contribution/source"/>

@@ -3,18 +3,33 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="openome_model"
     nsURI="http:///edu/toronto/cs/openome_model.ecore" nsPrefix="edu.toronto.cs.openome_model">
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Container"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="is_a" upperBound="-1" eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="is_part_of" upperBound="-1"
+        eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="believes" upperBound="-1"
+        eType="#//Belief"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Actor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plays" upperBound="-1"
+        eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="occupies" upperBound="-1"
+        eType="#//Position"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ins" eType="#//Agent"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AndDecomposition" eSuperTypes="#//Decomposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Aspect" eSuperTypes="#//Container"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BreakContribution" eSuperTypes="#//Contribution"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConflictLabel" eSuperTypes="#//TruthLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Intention"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Intention"
+        eOpposite="#//Intention/contributesFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         transient="true" eOpposite="#//Model/contributions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Intention"
-        eOpposite="#//Intention/rule"/>
+        eOpposite="#//Intention/contributesTo"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="goal_model_contribution_type"
+        eType="#//GoalModelingContributionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="istar_contribution_type"
+        eType="#//IStarContributionType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decomposition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Intention"
@@ -24,7 +39,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         transient="true" eOpposite="#//Model/decompositions"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeniedLabel" eSuperTypes="#//TruthLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyFrom" eType="#//Intention"
         eOpposite="#//Intention/dependencyTo"/>
@@ -36,14 +50,8 @@
         transient="true" eOpposite="#//Model/dependencies"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//Intention"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HelpContribution" eSuperTypes="#//Contribution"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HurtContribution" eSuperTypes="#//Contribution"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intention">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//TruthLabel"
-        containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" upperBound="-1" eType="#//Contribution"
-        eOpposite="#//Contribution/source"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="boundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
@@ -72,8 +80,23 @@
         transient="true" eOpposite="#//Container/intentions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"
         eOpposite="#//Model/intentions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningCombinedLabel"
+        eType="#//EvaluationLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningSatisfiedLabel"
+        eType="#//EvaluationLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningDenialLabel"
+        eType="#//EvaluationLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningCombinedLabel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningDeniedLabel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningSatisfiedLabel"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributesTo" upperBound="-1"
+        eType="#//Contribution" eOpposite="#//Contribution/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributesFrom" upperBound="-1"
+        eType="#//Contribution" eOpposite="#//Contribution/target"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MakeContribution" eSuperTypes="#//Contribution"/>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
@@ -86,18 +109,20 @@
         eType="#//Decomposition" containment="true" resolveProxies="false" eOpposite="#//Decomposition/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//Container" containment="true" resolveProxies="false" eOpposite="#//Container/model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correlations" upperBound="-1"
+        eType="#//Correlation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrDecomposition" eSuperTypes="#//Decomposition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PartiallyDeniedLabel" eSuperTypes="#//TruthLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PartiallySatisfiedLabel" eSuperTypes="#//TruthLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Actor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="covers" upperBound="-1"
+        eType="#//Role"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Intention"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Container"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SatisfiedLabel" eSuperTypes="#//TruthLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Actor"/>
   <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Topic">
@@ -106,16 +131,46 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="String"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnknownLabel" eSuperTypes="#//TruthLabel"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TruthLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="super" eType="#//Container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sub" upperBound="-1" eType="#//Actor"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
         eType="#//Intention" containment="true" resolveProxies="false" eOpposite="#//Intention/container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         transient="true" eOpposite="#//Model/containers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Belief" eSuperTypes="#//Intention"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Correlation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Intention"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Intention"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvaluationLabel">
+    <eLiterals name="Undecided" value="3"/>
+    <eLiterals name="WeaklyDenied" value="4"/>
+    <eLiterals name="WeaklySatisfied" value="1"/>
+    <eLiterals name="Denied" value="5"/>
+    <eLiterals name="Conflict" value="2"/>
+    <eLiterals name="Satisfied"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionType">
+    <eLiterals name="None"/>
+    <eLiterals name="PlusPlusSat" value="1" literal=""/>
+    <eLiterals name="PlusSat" value="2"/>
+    <eLiterals name="MinusSat" value="3"/>
+    <eLiterals name="MinusMinusSat" value="4"/>
+    <eLiterals name="PlusPlusDen" value="5"/>
+    <eLiterals name="PlusDen" value="6"/>
+    <eLiterals name="MinusDen" value="7"/>
+    <eLiterals name="MinusMinusDen" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IStarContributionType">
+    <eLiterals name="Unknown" literal="UnknownContribution"/>
+    <eLiterals name="Make" value="1"/>
+    <eLiterals name="Help" value="2"/>
+    <eLiterals name="SomePlus" value="3"/>
+    <eLiterals name="SomeMinus" value="4"/>
+    <eLiterals name="Hurt" value="5"/>
+    <eLiterals name="Break" value="6"/>
   </eClassifiers>
 </ecore:EPackage>
