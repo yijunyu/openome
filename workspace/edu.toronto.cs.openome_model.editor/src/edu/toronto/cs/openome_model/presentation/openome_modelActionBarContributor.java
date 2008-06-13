@@ -205,7 +205,7 @@ public class openome_modelActionBarContributor
 		//
 		createSiblingMenuManager = new MenuManager(openome_modelEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
-	
+
 		// Force an update because Eclipse hides empty menus now.
 		//
 		submenuManager.addMenuListener
@@ -266,7 +266,7 @@ public class openome_modelActionBarContributor
 		if (createSiblingMenuManager != null) {
 			depopulateManager(createSiblingMenuManager, createSiblingActions);
 		}
-		
+
 		// Query the new selection for appropriate new child/sibling descriptors
 		//
 		Collection<?> newChildDescriptors = null;
