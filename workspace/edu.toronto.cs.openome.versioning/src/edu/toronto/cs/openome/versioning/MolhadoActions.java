@@ -212,7 +212,7 @@ public class MolhadoActions {
 	 * @param v1_name
 	 */
 	public void unparse_checkout_into_emf(Configuration config, String v1_name) {
-		fluid.tree.Tree project_tree = Configuration.getTree();  //TODO why static
+		fluid.tree.Tree project_tree = Configuration.getTree(); 
 		IRNode project_root = config.getRoot();
 		
 		Enumeration<IRNode> en = project_tree.depthFirstSearch(project_root);
@@ -282,13 +282,13 @@ public class MolhadoActions {
 				String source_name = i.getSource().getName();
 				String target_name = i.getTarget().getName();
 				String label = "";
-				if (o instanceof HelpContribution)
+				if (i.getIstar_contribution_type() == IStarContributionType.HELP)
 					label = "+";
-				if (o instanceof MakeContribution)
+				if (i.getIstar_contribution_type() == IStarContributionType.MAKE)
 					label = "++";
-				if (o instanceof HurtContribution)
+				if (i.getIstar_contribution_type() == IStarContributionType.HURT)
 					label = "-";
-				if (o instanceof BreakContribution)
+				if (i.getIstar_contribution_type() == IStarContributionType.BREAK)
 					label = "--";
 				IRNode e = gm.createEdge(label);
 				IRNode source = table.get(source_name);
@@ -458,25 +458,29 @@ public class MolhadoActions {
 					d.setTarget(gc);
 					m.getDecompositions().add(d);
 				} else if (pre.equals("+")) {
-					HelpContribution d = f.createHelpContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
+					Contribution c = f.createContribution();
+					c.setIstar_contribution_type(IStarContributionType.HELP);
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
 				} else if (pre.equals("++")) {
-					MakeContribution d = f.createMakeContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
+					Contribution c = f.createContribution();
+					c.setIstar_contribution_type(IStarContributionType.MAKE);
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
 				} else if (pre.equals("-")) {
-					HurtContribution d = f.createHurtContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
+					Contribution c = f.createContribution();
+					c.setIstar_contribution_type(IStarContributionType.HURT);
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
 				} else if (pre.equals("--")) {
-					BreakContribution d = f.createBreakContribution();
-					d.setSource(g);
-					d.setTarget(gc);
-					m.getContributions().add(d);
+					Contribution c = f.createContribution();
+					c.setIstar_contribution_type(IStarContributionType.BREAK);
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
 				} else /* VIRTUAL_EDGE */ {
 					// do nothing
 				}
@@ -696,10 +700,11 @@ public class MolhadoActions {
 						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
 						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
 						String type = gm.getGMNodeName(edge);
-						if (node == n_t	&& (type.equals("+")&& c instanceof HelpContribution || type.equals("++")&& c instanceof MakeContribution || type.equals("-")
-										&& c instanceof HurtContribution || type
-										.equals("--")
-										&& c instanceof BreakContribution)) { // existing edge
+						if (node == n_t	
+								&& (type.equals("+")&& c.getIstar_contribution_type() == IStarContributionType.HELP 
+								|| type.equals("++")&& c.getIstar_contribution_type() == IStarContributionType.MAKE
+								|| type.equals("-") && c.getIstar_contribution_type() == IStarContributionType.HURT
+								|| type.equals("--")&& c.getIstar_contribution_type() == IStarContributionType.BREAK)) { // existing edge
 							//							System.out.println("FOUND!");
 							found = true;
 							existing_edges.add(edge);
@@ -792,12 +797,12 @@ public class MolhadoActions {
 	}
 
 	private String get_label_from_type(Contribution c) {
-		String type = "+";
-		if (c instanceof MakeContribution)
+		String type = "+"; //assume help
+		if (c.getIstar_contribution_type() == IStarContributionType.MAKE)
 			type = "++";
-		else if (c instanceof HurtContribution)
+		else if (c.getIstar_contribution_type() == IStarContributionType.HURT)
 			type = "-";
-		else if (c instanceof BreakContribution)
+		else if (c.getIstar_contribution_type() == IStarContributionType.BREAK)
 			type = "--";
 		return type;
 	}
@@ -1093,11 +1098,11 @@ public class MolhadoActions {
 
 	private String getContributionLabel(Contribution it) {
 		String label = "+";	// HELP
-		if ((it instanceof HurtContribution)) {
+		if (it.getIstar_contribution_type() == IStarContributionType.HURT) {
 			label = "-";
-		} else if ((it instanceof MakeContribution)) {
+		} else if (it.getIstar_contribution_type() == IStarContributionType.MAKE) {
 			label = "++";
-		} else if ((it instanceof BreakContribution)) {
+		} else if (it.getIstar_contribution_type() == IStarContributionType.BREAK) {
 			label = "--";
 		}
 		return label;
@@ -1259,13 +1264,13 @@ public class MolhadoActions {
 				IRNode f = table.get(from.getName());
 				IRNode t = table.get(to.getName());
 				IRNode e;
-				if (contrib instanceof HelpContribution) {
+				if (contrib.getIstar_contribution_type() == IStarContributionType.HELP) {
 					e = gm.createEdge("+");		
-				} else if (contrib instanceof MakeContribution) {
+				} else if (contrib.getIstar_contribution_type() == IStarContributionType.MAKE) {
 					e = gm.createEdge("++");												
-				} else if (contrib instanceof HurtContribution) {
+				} else if (contrib.getIstar_contribution_type() == IStarContributionType.HURT) {
 					e = gm.createEdge("-");												
-				} else { // if (contrib instanceof BreakContribution)
+				} else { // use BREAK
 					e = gm.createEdge("--");												
 				}
 				gm.connect(f, t, e);		

@@ -37,7 +37,7 @@ public class DiagramCommitHandler extends MolhadoActionHandler implements IHandl
 	 * Possible states of the model on call: 
 	 * 1) not a valid OpenOME model (ood file)
 	 * 2) new model, never committed
-	 * 3) existing model, commmitted before, not dirty
+	 * 3) existing model, committed before, not dirty
 	 * 4) existing model, committed before, dirty
 	 * 
 	 */
