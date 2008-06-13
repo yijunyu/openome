@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getName <em>Name</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Container#getSuper <em>Super</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getModel <em>Model</em>}</li>
@@ -62,32 +61,6 @@ public interface Container extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Super</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Super</em>' reference.
-	 * @see #setSuper(Container)
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Super()
-	 * @model
-	 * @generated
-	 */
-	Container getSuper();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Container#getSuper <em>Super</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Super</em>' reference.
-	 * @see #getSuper()
-	 * @generated
-	 */
-	void setSuper(Container value);
 
 	/**
 	 * Returns the value of the '<em><b>Sub</b></em>' containment reference list.

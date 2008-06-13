@@ -9,11 +9,11 @@ import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependency;
+import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.Topic;
-import edu.toronto.cs.openome_model.TruthLabel;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
@@ -42,8 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getName <em>Name</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getRule <em>Rule</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getSystem <em>System</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getBoundary <em>Boundary</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getInput <em>Input</em>}</li>
@@ -58,6 +56,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQuantitativeReasoningCombinedLabel <em>Quantitative Reasoning Combined Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQuantitativeReasoningDeniedLabel <em>Quantitative Reasoning Denied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContributesTo <em>Contributes To</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContributesFrom <em>Contributes From</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,26 +96,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected TruthLabel label;
-
-	/**
-	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRule()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Contribution> rule;
 
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
@@ -282,6 +268,146 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	protected EList<Decomposition> parentDecompositions;
 
 	/**
+	 * The default value of the '{@link #getQualitativeReasoningCombinedLabel() <em>Qualitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningCombinedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EvaluationLabel QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT = EvaluationLabel.UNDECIDED;
+
+	/**
+	 * The cached value of the '{@link #getQualitativeReasoningCombinedLabel() <em>Qualitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningCombinedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EvaluationLabel qualitativeReasoningCombinedLabel = QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQualitativeReasoningSatisfiedLabel() <em>Qualitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningSatisfiedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EvaluationLabel QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT = EvaluationLabel.UNDECIDED;
+
+	/**
+	 * The cached value of the '{@link #getQualitativeReasoningSatisfiedLabel() <em>Qualitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningSatisfiedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EvaluationLabel qualitativeReasoningSatisfiedLabel = QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQualitativeReasoningDenialLabel() <em>Qualitative Reasoning Denial Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningDenialLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EvaluationLabel QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT = EvaluationLabel.UNDECIDED;
+
+	/**
+	 * The cached value of the '{@link #getQualitativeReasoningDenialLabel() <em>Qualitative Reasoning Denial Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualitativeReasoningDenialLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EvaluationLabel qualitativeReasoningDenialLabel = QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQuantitativeReasoningCombinedLabel() <em>Quantitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningCombinedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double QUANTITATIVE_REASONING_COMBINED_LABEL_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getQuantitativeReasoningCombinedLabel() <em>Quantitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningCombinedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected double quantitativeReasoningCombinedLabel = QUANTITATIVE_REASONING_COMBINED_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQuantitativeReasoningDeniedLabel() <em>Quantitative Reasoning Denied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningDeniedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double QUANTITATIVE_REASONING_DENIED_LABEL_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getQuantitativeReasoningDeniedLabel() <em>Quantitative Reasoning Denied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningDeniedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected double quantitativeReasoningDeniedLabel = QUANTITATIVE_REASONING_DENIED_LABEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQuantitativeReasoningSatisfiedLabel() <em>Quantitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningSatisfiedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double QUANTITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getQuantitativeReasoningSatisfiedLabel() <em>Quantitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitativeReasoningSatisfiedLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected double quantitativeReasoningSatisfiedLabel = QUANTITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getContributesTo() <em>Contributes To</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContributesTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contribution> contributesTo;
+
+	/**
+	 * The cached value of the '{@link #getContributesFrom() <em>Contributes From</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContributesFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contribution> contributesFrom;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -319,61 +445,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TruthLabel getLabel() {
-		return label;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLabel(TruthLabel newLabel, NotificationChain msgs) {
-		TruthLabel oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__LABEL, oldLabel, newLabel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(TruthLabel newLabel) {
-		if (newLabel != label) {
-			NotificationChain msgs = null;
-			if (label != null)
-				msgs = ((InternalEObject)label).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__LABEL, null, msgs);
-			if (newLabel != null)
-				msgs = ((InternalEObject)newLabel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__LABEL, null, msgs);
-			msgs = basicSetLabel(newLabel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__LABEL, newLabel, newLabel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Contribution> getRule() {
-		if (rule == null) {
-			rule = new EObjectWithInverseResolvingEList<Contribution>(Contribution.class, this, openome_modelPackage.INTENTION__RULE, openome_modelPackage.CONTRIBUTION__SOURCE);
-		}
-		return rule;
 	}
 
 	/**
@@ -652,12 +723,160 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EvaluationLabel getQualitativeReasoningCombinedLabel() {
+		return qualitativeReasoningCombinedLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQualitativeReasoningCombinedLabel(EvaluationLabel newQualitativeReasoningCombinedLabel) {
+		EvaluationLabel oldQualitativeReasoningCombinedLabel = qualitativeReasoningCombinedLabel;
+		qualitativeReasoningCombinedLabel = newQualitativeReasoningCombinedLabel == null ? QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT : newQualitativeReasoningCombinedLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL, oldQualitativeReasoningCombinedLabel, qualitativeReasoningCombinedLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluationLabel getQualitativeReasoningSatisfiedLabel() {
+		return qualitativeReasoningSatisfiedLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQualitativeReasoningSatisfiedLabel(EvaluationLabel newQualitativeReasoningSatisfiedLabel) {
+		EvaluationLabel oldQualitativeReasoningSatisfiedLabel = qualitativeReasoningSatisfiedLabel;
+		qualitativeReasoningSatisfiedLabel = newQualitativeReasoningSatisfiedLabel == null ? QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT : newQualitativeReasoningSatisfiedLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL, oldQualitativeReasoningSatisfiedLabel, qualitativeReasoningSatisfiedLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluationLabel getQualitativeReasoningDenialLabel() {
+		return qualitativeReasoningDenialLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQualitativeReasoningDenialLabel(EvaluationLabel newQualitativeReasoningDenialLabel) {
+		EvaluationLabel oldQualitativeReasoningDenialLabel = qualitativeReasoningDenialLabel;
+		qualitativeReasoningDenialLabel = newQualitativeReasoningDenialLabel == null ? QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT : newQualitativeReasoningDenialLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL, oldQualitativeReasoningDenialLabel, qualitativeReasoningDenialLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getQuantitativeReasoningCombinedLabel() {
+		return quantitativeReasoningCombinedLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantitativeReasoningCombinedLabel(double newQuantitativeReasoningCombinedLabel) {
+		double oldQuantitativeReasoningCombinedLabel = quantitativeReasoningCombinedLabel;
+		quantitativeReasoningCombinedLabel = newQuantitativeReasoningCombinedLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL, oldQuantitativeReasoningCombinedLabel, quantitativeReasoningCombinedLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getQuantitativeReasoningDeniedLabel() {
+		return quantitativeReasoningDeniedLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantitativeReasoningDeniedLabel(double newQuantitativeReasoningDeniedLabel) {
+		double oldQuantitativeReasoningDeniedLabel = quantitativeReasoningDeniedLabel;
+		quantitativeReasoningDeniedLabel = newQuantitativeReasoningDeniedLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL, oldQuantitativeReasoningDeniedLabel, quantitativeReasoningDeniedLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getQuantitativeReasoningSatisfiedLabel() {
+		return quantitativeReasoningSatisfiedLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQuantitativeReasoningSatisfiedLabel(double newQuantitativeReasoningSatisfiedLabel) {
+		double oldQuantitativeReasoningSatisfiedLabel = quantitativeReasoningSatisfiedLabel;
+		quantitativeReasoningSatisfiedLabel = newQuantitativeReasoningSatisfiedLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL, oldQuantitativeReasoningSatisfiedLabel, quantitativeReasoningSatisfiedLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Contribution> getContributesTo() {
+		if (contributesTo == null) {
+			contributesTo = new EObjectWithInverseResolvingEList<Contribution>(Contribution.class, this, openome_modelPackage.INTENTION__CONTRIBUTES_TO, openome_modelPackage.CONTRIBUTION__SOURCE);
+		}
+		return contributesTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Contribution> getContributesFrom() {
+		if (contributesFrom == null) {
+			contributesFrom = new EObjectWithInverseResolvingEList<Contribution>(Contribution.class, this, openome_modelPackage.INTENTION__CONTRIBUTES_FROM, openome_modelPackage.CONTRIBUTION__TARGET);
+		}
+		return contributesFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case openome_modelPackage.INTENTION__RULE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRule()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyFrom()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
@@ -674,6 +893,10 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetModel((Model)otherEnd, msgs);
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributesTo()).basicAdd(otherEnd, msgs);
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributesFrom()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -686,10 +909,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case openome_modelPackage.INTENTION__LABEL:
-				return basicSetLabel(null, msgs);
-			case openome_modelPackage.INTENTION__RULE:
-				return ((InternalEList<?>)getRule()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__INPUT:
 				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__OUTPUT:
@@ -708,6 +927,10 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return basicSetContainer(null, msgs);
 			case openome_modelPackage.INTENTION__MODEL:
 				return basicSetModel(null, msgs);
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				return ((InternalEList<?>)getContributesTo()).basicRemove(otherEnd, msgs);
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				return ((InternalEList<?>)getContributesFrom()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -738,10 +961,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		switch (featureID) {
 			case openome_modelPackage.INTENTION__NAME:
 				return getName();
-			case openome_modelPackage.INTENTION__LABEL:
-				return getLabel();
-			case openome_modelPackage.INTENTION__RULE:
-				return getRule();
 			case openome_modelPackage.INTENTION__SYSTEM:
 				return getSystem();
 			case openome_modelPackage.INTENTION__BOUNDARY:
@@ -770,6 +989,22 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return getContainer();
 			case openome_modelPackage.INTENTION__MODEL:
 				return getModel();
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
+				return getQualitativeReasoningCombinedLabel();
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
+				return getQualitativeReasoningSatisfiedLabel();
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
+				return getQualitativeReasoningDenialLabel();
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
+				return new Double(getQuantitativeReasoningCombinedLabel());
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
+				return new Double(getQuantitativeReasoningDeniedLabel());
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
+				return new Double(getQuantitativeReasoningSatisfiedLabel());
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				return getContributesTo();
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				return getContributesFrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -785,13 +1020,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		switch (featureID) {
 			case openome_modelPackage.INTENTION__NAME:
 				setName((String)newValue);
-				return;
-			case openome_modelPackage.INTENTION__LABEL:
-				setLabel((TruthLabel)newValue);
-				return;
-			case openome_modelPackage.INTENTION__RULE:
-				getRule().clear();
-				getRule().addAll((Collection<? extends Contribution>)newValue);
 				return;
 			case openome_modelPackage.INTENTION__SYSTEM:
 				setSystem((Boolean)newValue);
@@ -842,6 +1070,32 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 			case openome_modelPackage.INTENTION__MODEL:
 				setModel((Model)newValue);
 				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
+				setQualitativeReasoningCombinedLabel((EvaluationLabel)newValue);
+				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
+				setQualitativeReasoningSatisfiedLabel((EvaluationLabel)newValue);
+				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
+				setQualitativeReasoningDenialLabel((EvaluationLabel)newValue);
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
+				setQuantitativeReasoningCombinedLabel(((Double)newValue).doubleValue());
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
+				setQuantitativeReasoningDeniedLabel(((Double)newValue).doubleValue());
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
+				setQuantitativeReasoningSatisfiedLabel(((Double)newValue).doubleValue());
+				return;
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				getContributesTo().clear();
+				getContributesTo().addAll((Collection<? extends Contribution>)newValue);
+				return;
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				getContributesFrom().clear();
+				getContributesFrom().addAll((Collection<? extends Contribution>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -856,12 +1110,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		switch (featureID) {
 			case openome_modelPackage.INTENTION__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case openome_modelPackage.INTENTION__LABEL:
-				setLabel((TruthLabel)null);
-				return;
-			case openome_modelPackage.INTENTION__RULE:
-				getRule().clear();
 				return;
 			case openome_modelPackage.INTENTION__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
@@ -905,6 +1153,30 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 			case openome_modelPackage.INTENTION__MODEL:
 				setModel((Model)null);
 				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
+				setQualitativeReasoningCombinedLabel(QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
+				setQualitativeReasoningSatisfiedLabel(QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
+				setQualitativeReasoningDenialLabel(QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
+				setQuantitativeReasoningCombinedLabel(QUANTITATIVE_REASONING_COMBINED_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
+				setQuantitativeReasoningDeniedLabel(QUANTITATIVE_REASONING_DENIED_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
+				setQuantitativeReasoningSatisfiedLabel(QUANTITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				getContributesTo().clear();
+				return;
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				getContributesFrom().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -919,10 +1191,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		switch (featureID) {
 			case openome_modelPackage.INTENTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case openome_modelPackage.INTENTION__LABEL:
-				return label != null;
-			case openome_modelPackage.INTENTION__RULE:
-				return rule != null && !rule.isEmpty();
 			case openome_modelPackage.INTENTION__SYSTEM:
 				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
 			case openome_modelPackage.INTENTION__BOUNDARY:
@@ -951,6 +1219,22 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return getContainer() != null;
 			case openome_modelPackage.INTENTION__MODEL:
 				return getModel() != null;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
+				return qualitativeReasoningCombinedLabel != QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
+				return qualitativeReasoningSatisfiedLabel != QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
+				return qualitativeReasoningDenialLabel != QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
+				return quantitativeReasoningCombinedLabel != QUANTITATIVE_REASONING_COMBINED_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
+				return quantitativeReasoningDeniedLabel != QUANTITATIVE_REASONING_DENIED_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
+				return quantitativeReasoningSatisfiedLabel != QUANTITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
+				return contributesTo != null && !contributesTo.isEmpty();
+			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
+				return contributesFrom != null && !contributesFrom.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -977,6 +1261,18 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		result.append(sequential);
 		result.append(", parallel: ");
 		result.append(parallel);
+		result.append(", QualitativeReasoningCombinedLabel: ");
+		result.append(qualitativeReasoningCombinedLabel);
+		result.append(", QualitativeReasoningSatisfiedLabel: ");
+		result.append(qualitativeReasoningSatisfiedLabel);
+		result.append(", QualitativeReasoningDenialLabel: ");
+		result.append(qualitativeReasoningDenialLabel);
+		result.append(", QuantitativeReasoningCombinedLabel: ");
+		result.append(quantitativeReasoningCombinedLabel);
+		result.append(", QuantitativeReasoningDeniedLabel: ");
+		result.append(quantitativeReasoningDeniedLabel);
+		result.append(", QuantitativeReasoningSatisfiedLabel: ");
+		result.append(quantitativeReasoningSatisfiedLabel);
 		result.append(')');
 		return result.toString();
 	}

@@ -68,24 +68,6 @@ public interface openome_modelFactory extends EFactory {
 	Aspect createAspect();
 
 	/**
-	 * Returns a new object of class '<em>Break Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Break Contribution</em>'.
-	 * @generated
-	 */
-	BreakContribution createBreakContribution();
-
-	/**
-	 * Returns a new object of class '<em>Conflict Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conflict Label</em>'.
-	 * @generated
-	 */
-	ConflictLabel createConflictLabel();
-
-	/**
 	 * Returns a new object of class '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,15 +84,6 @@ public interface openome_modelFactory extends EFactory {
 	 * @generated
 	 */
 	Decomposition createDecomposition();
-
-	/**
-	 * Returns a new object of class '<em>Denied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Denied Label</em>'.
-	 * @generated
-	 */
-	DeniedLabel createDeniedLabel();
 
 	/**
 	 * Returns a new object of class '<em>Dependency</em>'.
@@ -131,24 +104,6 @@ public interface openome_modelFactory extends EFactory {
 	Goal createGoal();
 
 	/**
-	 * Returns a new object of class '<em>Help Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Help Contribution</em>'.
-	 * @generated
-	 */
-	HelpContribution createHelpContribution();
-
-	/**
-	 * Returns a new object of class '<em>Hurt Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Hurt Contribution</em>'.
-	 * @generated
-	 */
-	HurtContribution createHurtContribution();
-
-	/**
 	 * Returns a new object of class '<em>Intention</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,15 +111,6 @@ public interface openome_modelFactory extends EFactory {
 	 * @generated
 	 */
 	Intention createIntention();
-
-	/**
-	 * Returns a new object of class '<em>Make Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Make Contribution</em>'.
-	 * @generated
-	 */
-	MakeContribution createMakeContribution();
 
 	/**
 	 * Returns a new object of class '<em>Model</em>'.
@@ -183,24 +129,6 @@ public interface openome_modelFactory extends EFactory {
 	 * @generated
 	 */
 	OrDecomposition createOrDecomposition();
-
-	/**
-	 * Returns a new object of class '<em>Partially Denied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Partially Denied Label</em>'.
-	 * @generated
-	 */
-	PartiallyDeniedLabel createPartiallyDeniedLabel();
-
-	/**
-	 * Returns a new object of class '<em>Partially Satisfied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Partially Satisfied Label</em>'.
-	 * @generated
-	 */
-	PartiallySatisfiedLabel createPartiallySatisfiedLabel();
 
 	/**
 	 * Returns a new object of class '<em>Position</em>'.
@@ -239,15 +167,6 @@ public interface openome_modelFactory extends EFactory {
 	Role createRole();
 
 	/**
-	 * Returns a new object of class '<em>Satisfied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Satisfied Label</em>'.
-	 * @generated
-	 */
-	SatisfiedLabel createSatisfiedLabel();
-
-	/**
 	 * Returns a new object of class '<em>Softgoal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,24 +194,6 @@ public interface openome_modelFactory extends EFactory {
 	Topic createTopic();
 
 	/**
-	 * Returns a new object of class '<em>Unknown Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unknown Label</em>'.
-	 * @generated
-	 */
-	UnknownLabel createUnknownLabel();
-
-	/**
-	 * Returns a new object of class '<em>Truth Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Truth Label</em>'.
-	 * @generated
-	 */
-	TruthLabel createTruthLabel();
-
-	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -300,6 +201,24 @@ public interface openome_modelFactory extends EFactory {
 	 * @generated
 	 */
 	Container createContainer();
+
+	/**
+	 * Returns a new object of class '<em>Belief</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Belief</em>'.
+	 * @generated
+	 */
+	Belief createBelief();
+
+	/**
+	 * Returns a new object of class '<em>Correlation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Correlation</em>'.
+	 * @generated
+	 */
+	Correlation createCorrelation();
 
 	/**
 	 * Returns the package supported by this factory.

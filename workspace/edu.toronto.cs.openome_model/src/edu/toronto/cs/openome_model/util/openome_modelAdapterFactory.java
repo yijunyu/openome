@@ -94,24 +94,12 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createAspectAdapter();
 			}
 			@Override
-			public Adapter caseBreakContribution(BreakContribution object) {
-				return createBreakContributionAdapter();
-			}
-			@Override
-			public Adapter caseConflictLabel(ConflictLabel object) {
-				return createConflictLabelAdapter();
-			}
-			@Override
 			public Adapter caseContribution(Contribution object) {
 				return createContributionAdapter();
 			}
 			@Override
 			public Adapter caseDecomposition(Decomposition object) {
 				return createDecompositionAdapter();
-			}
-			@Override
-			public Adapter caseDeniedLabel(DeniedLabel object) {
-				return createDeniedLabelAdapter();
 			}
 			@Override
 			public Adapter caseDependency(Dependency object) {
@@ -122,20 +110,8 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createGoalAdapter();
 			}
 			@Override
-			public Adapter caseHelpContribution(HelpContribution object) {
-				return createHelpContributionAdapter();
-			}
-			@Override
-			public Adapter caseHurtContribution(HurtContribution object) {
-				return createHurtContributionAdapter();
-			}
-			@Override
 			public Adapter caseIntention(Intention object) {
 				return createIntentionAdapter();
-			}
-			@Override
-			public Adapter caseMakeContribution(MakeContribution object) {
-				return createMakeContributionAdapter();
 			}
 			@Override
 			public Adapter caseModel(Model object) {
@@ -144,14 +120,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOrDecomposition(OrDecomposition object) {
 				return createOrDecompositionAdapter();
-			}
-			@Override
-			public Adapter casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
-				return createPartiallyDeniedLabelAdapter();
-			}
-			@Override
-			public Adapter casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
-				return createPartiallySatisfiedLabelAdapter();
 			}
 			@Override
 			public Adapter casePosition(Position object) {
@@ -170,10 +138,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createRoleAdapter();
 			}
 			@Override
-			public Adapter caseSatisfiedLabel(SatisfiedLabel object) {
-				return createSatisfiedLabelAdapter();
-			}
-			@Override
 			public Adapter caseSoftgoal(Softgoal object) {
 				return createSoftgoalAdapter();
 			}
@@ -186,16 +150,16 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createTopicAdapter();
 			}
 			@Override
-			public Adapter caseUnknownLabel(UnknownLabel object) {
-				return createUnknownLabelAdapter();
-			}
-			@Override
-			public Adapter caseTruthLabel(TruthLabel object) {
-				return createTruthLabelAdapter();
-			}
-			@Override
 			public Adapter caseContainer(Container object) {
 				return createContainerAdapter();
+			}
+			@Override
+			public Adapter caseBelief(Belief object) {
+				return createBeliefAdapter();
+			}
+			@Override
+			public Adapter caseCorrelation(Correlation object) {
+				return createCorrelationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -274,34 +238,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.BreakContribution <em>Break Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.BreakContribution
-	 * @generated
-	 */
-	public Adapter createBreakContributionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.ConflictLabel <em>Conflict Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.ConflictLabel
-	 * @generated
-	 */
-	public Adapter createConflictLabelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Contribution <em>Contribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -326,20 +262,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDecompositionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.DeniedLabel <em>Denied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.DeniedLabel
-	 * @generated
-	 */
-	public Adapter createDeniedLabelAdapter() {
 		return null;
 	}
 
@@ -372,34 +294,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.HelpContribution <em>Help Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.HelpContribution
-	 * @generated
-	 */
-	public Adapter createHelpContributionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.HurtContribution <em>Hurt Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.HurtContribution
-	 * @generated
-	 */
-	public Adapter createHurtContributionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Intention <em>Intention</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -410,20 +304,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntentionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.MakeContribution <em>Make Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.MakeContribution
-	 * @generated
-	 */
-	public Adapter createMakeContributionAdapter() {
 		return null;
 	}
 
@@ -452,34 +332,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrDecompositionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.PartiallyDeniedLabel <em>Partially Denied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.PartiallyDeniedLabel
-	 * @generated
-	 */
-	public Adapter createPartiallyDeniedLabelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.PartiallySatisfiedLabel <em>Partially Satisfied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.PartiallySatisfiedLabel
-	 * @generated
-	 */
-	public Adapter createPartiallySatisfiedLabelAdapter() {
 		return null;
 	}
 
@@ -540,20 +392,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.SatisfiedLabel <em>Satisfied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.SatisfiedLabel
-	 * @generated
-	 */
-	public Adapter createSatisfiedLabelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Softgoal <em>Softgoal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -596,34 +434,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.UnknownLabel <em>Unknown Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.UnknownLabel
-	 * @generated
-	 */
-	public Adapter createUnknownLabelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.TruthLabel <em>Truth Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.TruthLabel
-	 * @generated
-	 */
-	public Adapter createTruthLabelAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -634,6 +444,34 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Belief <em>Belief</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.Belief
+	 * @generated
+	 */
+	public Adapter createBeliefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Correlation <em>Correlation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.Correlation
+	 * @generated
+	 */
+	public Adapter createCorrelationAdapter() {
 		return null;
 	}
 

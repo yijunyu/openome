@@ -8,6 +8,7 @@ package edu.toronto.cs.openome_model.impl;
 import edu.toronto.cs.openome_model.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -70,34 +71,63 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.AGENT: return createAgent();
 			case openome_modelPackage.AND_DECOMPOSITION: return createAndDecomposition();
 			case openome_modelPackage.ASPECT: return createAspect();
-			case openome_modelPackage.BREAK_CONTRIBUTION: return createBreakContribution();
-			case openome_modelPackage.CONFLICT_LABEL: return createConflictLabel();
 			case openome_modelPackage.CONTRIBUTION: return createContribution();
 			case openome_modelPackage.DECOMPOSITION: return createDecomposition();
-			case openome_modelPackage.DENIED_LABEL: return createDeniedLabel();
 			case openome_modelPackage.DEPENDENCY: return createDependency();
 			case openome_modelPackage.GOAL: return createGoal();
-			case openome_modelPackage.HELP_CONTRIBUTION: return createHelpContribution();
-			case openome_modelPackage.HURT_CONTRIBUTION: return createHurtContribution();
 			case openome_modelPackage.INTENTION: return createIntention();
-			case openome_modelPackage.MAKE_CONTRIBUTION: return createMakeContribution();
 			case openome_modelPackage.MODEL: return createModel();
 			case openome_modelPackage.OR_DECOMPOSITION: return createOrDecomposition();
-			case openome_modelPackage.PARTIALLY_DENIED_LABEL: return createPartiallyDeniedLabel();
-			case openome_modelPackage.PARTIALLY_SATISFIED_LABEL: return createPartiallySatisfiedLabel();
 			case openome_modelPackage.POSITION: return createPosition();
 			case openome_modelPackage.PROPERTY: return createProperty();
 			case openome_modelPackage.RESOURCE: return createResource();
 			case openome_modelPackage.ROLE: return createRole();
-			case openome_modelPackage.SATISFIED_LABEL: return createSatisfiedLabel();
 			case openome_modelPackage.SOFTGOAL: return createSoftgoal();
 			case openome_modelPackage.TASK: return createTask();
 			case openome_modelPackage.TOPIC: return createTopic();
-			case openome_modelPackage.UNKNOWN_LABEL: return createUnknownLabel();
-			case openome_modelPackage.TRUTH_LABEL: return createTruthLabel();
 			case openome_modelPackage.CONTAINER: return createContainer();
+			case openome_modelPackage.BELIEF: return createBelief();
+			case openome_modelPackage.CORRELATION: return createCorrelation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case openome_modelPackage.EVALUATION_LABEL:
+				return createEvaluationLabelFromString(eDataType, initialValue);
+			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
+				return createGoalModelingContributionTypeFromString(eDataType, initialValue);
+			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
+				return createIStarContributionTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case openome_modelPackage.EVALUATION_LABEL:
+				return convertEvaluationLabelToString(eDataType, instanceValue);
+			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
+				return convertGoalModelingContributionTypeToString(eDataType, instanceValue);
+			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
+				return convertIStarContributionTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -146,26 +176,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BreakContribution createBreakContribution() {
-		BreakContributionImpl breakContribution = new BreakContributionImpl();
-		return breakContribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConflictLabel createConflictLabel() {
-		ConflictLabelImpl conflictLabel = new ConflictLabelImpl();
-		return conflictLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Contribution createContribution() {
 		ContributionImpl contribution = new ContributionImpl();
 		return contribution;
@@ -179,16 +189,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public Decomposition createDecomposition() {
 		DecompositionImpl decomposition = new DecompositionImpl();
 		return decomposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeniedLabel createDeniedLabel() {
-		DeniedLabelImpl deniedLabel = new DeniedLabelImpl();
-		return deniedLabel;
 	}
 
 	/**
@@ -216,39 +216,9 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HelpContribution createHelpContribution() {
-		HelpContributionImpl helpContribution = new HelpContributionImpl();
-		return helpContribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public HurtContribution createHurtContribution() {
-		HurtContributionImpl hurtContribution = new HurtContributionImpl();
-		return hurtContribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Intention createIntention() {
 		IntentionImpl intention = new IntentionImpl();
 		return intention;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MakeContribution createMakeContribution() {
-		MakeContributionImpl makeContribution = new MakeContributionImpl();
-		return makeContribution;
 	}
 
 	/**
@@ -269,26 +239,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public OrDecomposition createOrDecomposition() {
 		OrDecompositionImpl orDecomposition = new OrDecompositionImpl();
 		return orDecomposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PartiallyDeniedLabel createPartiallyDeniedLabel() {
-		PartiallyDeniedLabelImpl partiallyDeniedLabel = new PartiallyDeniedLabelImpl();
-		return partiallyDeniedLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PartiallySatisfiedLabel createPartiallySatisfiedLabel() {
-		PartiallySatisfiedLabelImpl partiallySatisfiedLabel = new PartiallySatisfiedLabelImpl();
-		return partiallySatisfiedLabel;
 	}
 
 	/**
@@ -336,16 +286,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SatisfiedLabel createSatisfiedLabel() {
-		SatisfiedLabelImpl satisfiedLabel = new SatisfiedLabelImpl();
-		return satisfiedLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Softgoal createSoftgoal() {
 		SoftgoalImpl softgoal = new SoftgoalImpl();
 		return softgoal;
@@ -376,29 +316,89 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnknownLabel createUnknownLabel() {
-		UnknownLabelImpl unknownLabel = new UnknownLabelImpl();
-		return unknownLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TruthLabel createTruthLabel() {
-		TruthLabelImpl truthLabel = new TruthLabelImpl();
-		return truthLabel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Container createContainer() {
 		ContainerImpl container = new ContainerImpl();
 		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Belief createBelief() {
+		BeliefImpl belief = new BeliefImpl();
+		return belief;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Correlation createCorrelation() {
+		CorrelationImpl correlation = new CorrelationImpl();
+		return correlation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluationLabel createEvaluationLabelFromString(EDataType eDataType, String initialValue) {
+		EvaluationLabel result = EvaluationLabel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEvaluationLabelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GoalModelingContributionType createGoalModelingContributionTypeFromString(EDataType eDataType, String initialValue) {
+		GoalModelingContributionType result = GoalModelingContributionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGoalModelingContributionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IStarContributionType createIStarContributionTypeFromString(EDataType eDataType, String initialValue) {
+		IStarContributionType result = IStarContributionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIStarContributionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

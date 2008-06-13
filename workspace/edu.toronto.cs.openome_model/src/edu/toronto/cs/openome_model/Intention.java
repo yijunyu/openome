@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getName <em>Name</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getLabel <em>Label</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getRule <em>Rule</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getSystem <em>System</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getBoundary <em>Boundary</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getInput <em>Input</em>}</li>
@@ -34,6 +32,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getContainer <em>Container</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getModel <em>Model</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningCombinedLabel <em>Quantitative Reasoning Combined Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningDeniedLabel <em>Quantitative Reasoning Denied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getContributesTo <em>Contributes To</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getContributesFrom <em>Contributes From</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,50 +80,6 @@ public interface Intention extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' containment reference.
-	 * @see #setLabel(TruthLabel)
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_Label()
-	 * @model containment="true"
-	 * @generated
-	 */
-	TruthLabel getLabel();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getLabel <em>Label</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' containment reference.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(TruthLabel value);
-
-	/**
-	 * Returns the value of the '<em><b>Rule</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Contribution}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Contribution#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rule</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rule</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_Rule()
-	 * @see edu.toronto.cs.openome_model.Contribution#getSource
-	 * @model opposite="source"
-	 * @generated
-	 */
-	EList<Contribution> getRule();
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' attribute.
@@ -429,5 +391,206 @@ public interface Intention extends EObject {
 	 * @generated
 	 */
 	void setModel(Model value);
+
+	/**
+	 * Returns the value of the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.EvaluationLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Qualitative Reasoning Combined Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Qualitative Reasoning Combined Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #setQualitativeReasoningCombinedLabel(EvaluationLabel)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QualitativeReasoningCombinedLabel()
+	 * @model
+	 * @generated
+	 */
+	EvaluationLabel getQualitativeReasoningCombinedLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Qualitative Reasoning Combined Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #getQualitativeReasoningCombinedLabel()
+	 * @generated
+	 */
+	void setQualitativeReasoningCombinedLabel(EvaluationLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.EvaluationLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Qualitative Reasoning Satisfied Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Qualitative Reasoning Satisfied Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #setQualitativeReasoningSatisfiedLabel(EvaluationLabel)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QualitativeReasoningSatisfiedLabel()
+	 * @model
+	 * @generated
+	 */
+	EvaluationLabel getQualitativeReasoningSatisfiedLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Qualitative Reasoning Satisfied Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #getQualitativeReasoningSatisfiedLabel()
+	 * @generated
+	 */
+	void setQualitativeReasoningSatisfiedLabel(EvaluationLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.EvaluationLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Qualitative Reasoning Denial Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Qualitative Reasoning Denial Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #setQualitativeReasoningDenialLabel(EvaluationLabel)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QualitativeReasoningDenialLabel()
+	 * @model
+	 * @generated
+	 */
+	EvaluationLabel getQualitativeReasoningDenialLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Qualitative Reasoning Denial Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #getQualitativeReasoningDenialLabel()
+	 * @generated
+	 */
+	void setQualitativeReasoningDenialLabel(EvaluationLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantitative Reasoning Combined Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantitative Reasoning Combined Label</em>' attribute.
+	 * @see #setQuantitativeReasoningCombinedLabel(double)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QuantitativeReasoningCombinedLabel()
+	 * @model
+	 * @generated
+	 */
+	double getQuantitativeReasoningCombinedLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningCombinedLabel <em>Quantitative Reasoning Combined Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantitative Reasoning Combined Label</em>' attribute.
+	 * @see #getQuantitativeReasoningCombinedLabel()
+	 * @generated
+	 */
+	void setQuantitativeReasoningCombinedLabel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantitative Reasoning Denied Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantitative Reasoning Denied Label</em>' attribute.
+	 * @see #setQuantitativeReasoningDeniedLabel(double)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QuantitativeReasoningDeniedLabel()
+	 * @model
+	 * @generated
+	 */
+	double getQuantitativeReasoningDeniedLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningDeniedLabel <em>Quantitative Reasoning Denied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantitative Reasoning Denied Label</em>' attribute.
+	 * @see #getQuantitativeReasoningDeniedLabel()
+	 * @generated
+	 */
+	void setQuantitativeReasoningDeniedLabel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantitative Reasoning Satisfied Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantitative Reasoning Satisfied Label</em>' attribute.
+	 * @see #setQuantitativeReasoningSatisfiedLabel(double)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_QuantitativeReasoningSatisfiedLabel()
+	 * @model
+	 * @generated
+	 */
+	double getQuantitativeReasoningSatisfiedLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantitative Reasoning Satisfied Label</em>' attribute.
+	 * @see #getQuantitativeReasoningSatisfiedLabel()
+	 * @generated
+	 */
+	void setQuantitativeReasoningSatisfiedLabel(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Contributes To</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Contribution}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Contribution#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contributes To</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contributes To</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_ContributesTo()
+	 * @see edu.toronto.cs.openome_model.Contribution#getSource
+	 * @model opposite="source"
+	 * @generated
+	 */
+	EList<Contribution> getContributesTo();
+
+	/**
+	 * Returns the value of the '<em><b>Contributes From</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Contribution}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Contribution#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contributes From</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contributes From</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_ContributesFrom()
+	 * @see edu.toronto.cs.openome_model.Contribution#getTarget
+	 * @model opposite="target"
+	 * @generated
+	 */
+	EList<Contribution> getContributesFrom();
 
 } // Intention

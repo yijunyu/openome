@@ -103,6 +103,7 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.AGENT: {
 				Agent agent = (Agent)theEObject;
 				T result = caseAgent(agent);
+				if (result == null) result = caseActor(agent);
 				if (result == null) result = caseContainer(agent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -121,20 +122,6 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.BREAK_CONTRIBUTION: {
-				BreakContribution breakContribution = (BreakContribution)theEObject;
-				T result = caseBreakContribution(breakContribution);
-				if (result == null) result = caseContribution(breakContribution);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.CONFLICT_LABEL: {
-				ConflictLabel conflictLabel = (ConflictLabel)theEObject;
-				T result = caseConflictLabel(conflictLabel);
-				if (result == null) result = caseTruthLabel(conflictLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case openome_modelPackage.CONTRIBUTION: {
 				Contribution contribution = (Contribution)theEObject;
 				T result = caseContribution(contribution);
@@ -144,13 +131,6 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.DECOMPOSITION: {
 				Decomposition decomposition = (Decomposition)theEObject;
 				T result = caseDecomposition(decomposition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.DENIED_LABEL: {
-				DeniedLabel deniedLabel = (DeniedLabel)theEObject;
-				T result = caseDeniedLabel(deniedLabel);
-				if (result == null) result = caseTruthLabel(deniedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -167,30 +147,9 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.HELP_CONTRIBUTION: {
-				HelpContribution helpContribution = (HelpContribution)theEObject;
-				T result = caseHelpContribution(helpContribution);
-				if (result == null) result = caseContribution(helpContribution);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.HURT_CONTRIBUTION: {
-				HurtContribution hurtContribution = (HurtContribution)theEObject;
-				T result = caseHurtContribution(hurtContribution);
-				if (result == null) result = caseContribution(hurtContribution);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case openome_modelPackage.INTENTION: {
 				Intention intention = (Intention)theEObject;
 				T result = caseIntention(intention);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.MAKE_CONTRIBUTION: {
-				MakeContribution makeContribution = (MakeContribution)theEObject;
-				T result = caseMakeContribution(makeContribution);
-				if (result == null) result = caseContribution(makeContribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,23 +166,10 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.PARTIALLY_DENIED_LABEL: {
-				PartiallyDeniedLabel partiallyDeniedLabel = (PartiallyDeniedLabel)theEObject;
-				T result = casePartiallyDeniedLabel(partiallyDeniedLabel);
-				if (result == null) result = caseTruthLabel(partiallyDeniedLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.PARTIALLY_SATISFIED_LABEL: {
-				PartiallySatisfiedLabel partiallySatisfiedLabel = (PartiallySatisfiedLabel)theEObject;
-				T result = casePartiallySatisfiedLabel(partiallySatisfiedLabel);
-				if (result == null) result = caseTruthLabel(partiallySatisfiedLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case openome_modelPackage.POSITION: {
 				Position position = (Position)theEObject;
 				T result = casePosition(position);
+				if (result == null) result = caseActor(position);
 				if (result == null) result = caseContainer(position);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -244,14 +190,8 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.ROLE: {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
+				if (result == null) result = caseActor(role);
 				if (result == null) result = caseContainer(role);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.SATISFIED_LABEL: {
-				SatisfiedLabel satisfiedLabel = (SatisfiedLabel)theEObject;
-				T result = caseSatisfiedLabel(satisfiedLabel);
-				if (result == null) result = caseTruthLabel(satisfiedLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -275,22 +215,22 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.UNKNOWN_LABEL: {
-				UnknownLabel unknownLabel = (UnknownLabel)theEObject;
-				T result = caseUnknownLabel(unknownLabel);
-				if (result == null) result = caseTruthLabel(unknownLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.TRUTH_LABEL: {
-				TruthLabel truthLabel = (TruthLabel)theEObject;
-				T result = caseTruthLabel(truthLabel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case openome_modelPackage.CONTAINER: {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.BELIEF: {
+				Belief belief = (Belief)theEObject;
+				T result = caseBelief(belief);
+				if (result == null) result = caseIntention(belief);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.CORRELATION: {
+				Correlation correlation = (Correlation)theEObject;
+				T result = caseCorrelation(correlation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -359,36 +299,6 @@ public class openome_modelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBreakContribution(BreakContribution object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conflict Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conflict Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConflictLabel(ConflictLabel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -415,21 +325,6 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseDecomposition(Decomposition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Denied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Denied Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDeniedLabel(DeniedLabel object) {
 		return null;
 	}
 
@@ -464,36 +359,6 @@ public class openome_modelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseHelpContribution(HelpContribution object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseHurtContribution(HurtContribution object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Intention</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -505,21 +370,6 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseIntention(Intention object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMakeContribution(MakeContribution object) {
 		return null;
 	}
 
@@ -550,36 +400,6 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseOrDecomposition(OrDecomposition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Partially Denied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Partially Denied Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePartiallyDeniedLabel(PartiallyDeniedLabel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Partially Satisfied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Partially Satisfied Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePartiallySatisfiedLabel(PartiallySatisfiedLabel object) {
 		return null;
 	}
 
@@ -644,21 +464,6 @@ public class openome_modelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Satisfied Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Satisfied Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSatisfiedLabel(SatisfiedLabel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Softgoal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -704,36 +509,6 @@ public class openome_modelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unknown Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unknown Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnknownLabel(UnknownLabel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Truth Label</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Truth Label</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTruthLabel(TruthLabel object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -745,6 +520,36 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseContainer(Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Belief</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Belief</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBelief(Belief object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Correlation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Correlation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCorrelation(Correlation object) {
 		return null;
 	}
 

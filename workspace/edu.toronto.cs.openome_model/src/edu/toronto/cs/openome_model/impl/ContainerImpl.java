@@ -37,7 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getName <em>Name</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getSuper <em>Super</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getModel <em>Model</em>}</li>
@@ -73,16 +72,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSuper() <em>Super</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSuper()
-	 * @generated
-	 * @ordered
-	 */
-	protected Container super_;
 
 	/**
 	 * The cached value of the '{@link #getSub() <em>Sub</em>}' containment reference list.
@@ -142,44 +131,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTAINER__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Container getSuper() {
-		if (super_ != null && super_.eIsProxy()) {
-			InternalEObject oldSuper = (InternalEObject)super_;
-			super_ = (Container)eResolveProxy(oldSuper);
-			if (super_ != oldSuper) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.CONTAINER__SUPER, oldSuper, super_));
-			}
-		}
-		return super_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Container basicGetSuper() {
-		return super_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSuper(Container newSuper) {
-		Container oldSuper = super_;
-		super_ = newSuper;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTAINER__SUPER, oldSuper, super_));
 	}
 
 	/**
@@ -308,9 +259,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				return getName();
-			case openome_modelPackage.CONTAINER__SUPER:
-				if (resolve) return getSuper();
-				return basicGetSuper();
 			case openome_modelPackage.CONTAINER__SUB:
 				return getSub();
 			case openome_modelPackage.CONTAINER__INTENTIONS:
@@ -332,9 +280,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				setName((String)newValue);
-				return;
-			case openome_modelPackage.CONTAINER__SUPER:
-				setSuper((Container)newValue);
 				return;
 			case openome_modelPackage.CONTAINER__SUB:
 				getSub().clear();
@@ -362,9 +307,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 			case openome_modelPackage.CONTAINER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case openome_modelPackage.CONTAINER__SUPER:
-				setSuper((Container)null);
-				return;
 			case openome_modelPackage.CONTAINER__SUB:
 				getSub().clear();
 				return;
@@ -388,8 +330,6 @@ public class ContainerImpl extends EObjectImpl implements Container {
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case openome_modelPackage.CONTAINER__SUPER:
-				return super_ != null;
 			case openome_modelPackage.CONTAINER__SUB:
 				return sub != null && !sub.isEmpty();
 			case openome_modelPackage.CONTAINER__INTENTIONS:

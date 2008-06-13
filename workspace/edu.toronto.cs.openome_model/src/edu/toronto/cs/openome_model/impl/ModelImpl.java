@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.Correlation;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.Intention;
@@ -26,8 +27,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getContainers <em>Containers</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getCorrelations <em>Correlations</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +127,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Container> containers;
+
+	/**
+	 * The cached value of the '{@link #getCorrelations() <em>Correlations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Correlation> correlations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,6 +243,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Correlation> getCorrelations() {
+		if (correlations == null) {
+			correlations = new EObjectResolvingEList<Correlation>(Correlation.class, this, openome_modelPackage.MODEL__CORRELATIONS);
+		}
+		return correlations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -291,6 +315,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return getDecompositions();
 			case openome_modelPackage.MODEL__CONTAINERS:
 				return getContainers();
+			case openome_modelPackage.MODEL__CORRELATIONS:
+				return getCorrelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -327,6 +353,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 				getContainers().clear();
 				getContainers().addAll((Collection<? extends Container>)newValue);
 				return;
+			case openome_modelPackage.MODEL__CORRELATIONS:
+				getCorrelations().clear();
+				getCorrelations().addAll((Collection<? extends Correlation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -357,6 +387,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 			case openome_modelPackage.MODEL__CONTAINERS:
 				getContainers().clear();
 				return;
+			case openome_modelPackage.MODEL__CORRELATIONS:
+				getCorrelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -381,6 +414,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return decompositions != null && !decompositions.isEmpty();
 			case openome_modelPackage.MODEL__CONTAINERS:
 				return containers != null && !containers.isEmpty();
+			case openome_modelPackage.MODEL__CORRELATIONS:
+				return correlations != null && !correlations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

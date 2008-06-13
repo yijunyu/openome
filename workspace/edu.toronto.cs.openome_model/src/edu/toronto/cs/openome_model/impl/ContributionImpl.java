@@ -6,6 +6,8 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.GoalModelingContributionType;
+import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.openome_modelPackage;
@@ -31,6 +33,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getGoal_model_contribution_type <em>Goal model contribution type</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getIstar_contribution_type <em>Istar contribution type</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +67,46 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @ordered
 	 */
 	protected Intention source;
+
+	/**
+	 * The default value of the '{@link #getGoal_model_contribution_type() <em>Goal model contribution type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal_model_contribution_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final GoalModelingContributionType GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT = GoalModelingContributionType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getGoal_model_contribution_type() <em>Goal model contribution type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal_model_contribution_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected GoalModelingContributionType goal_model_contribution_type = GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIstar_contribution_type() <em>Istar contribution type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIstar_contribution_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IStarContributionType ISTAR_CONTRIBUTION_TYPE_EDEFAULT = IStarContributionType.UNKNOWN;
+
+	/**
+	 * The cached value of the '{@link #getIstar_contribution_type() <em>Istar contribution type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIstar_contribution_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected IStarContributionType istar_contribution_type = ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,11 +158,33 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(Intention newTarget) {
+	public NotificationChain basicSetTarget(Intention newTarget, NotificationChain msgs) {
 		Intention oldTarget = target;
 		target = newTarget;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__TARGET, oldTarget, target));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__TARGET, oldTarget, newTarget);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTarget(Intention newTarget) {
+		if (newTarget != target) {
+			NotificationChain msgs = null;
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, openome_modelPackage.INTENTION__CONTRIBUTES_FROM, Intention.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, openome_modelPackage.INTENTION__CONTRIBUTES_FROM, Intention.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -212,9 +278,9 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__RULE, Intention.class, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__CONTRIBUTES_TO, Intention.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, openome_modelPackage.INTENTION__RULE, Intention.class, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, openome_modelPackage.INTENTION__CONTRIBUTES_TO, Intention.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -227,16 +293,62 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GoalModelingContributionType getGoal_model_contribution_type() {
+		return goal_model_contribution_type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoal_model_contribution_type(GoalModelingContributionType newGoal_model_contribution_type) {
+		GoalModelingContributionType oldGoal_model_contribution_type = goal_model_contribution_type;
+		goal_model_contribution_type = newGoal_model_contribution_type == null ? GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT : newGoal_model_contribution_type;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE, oldGoal_model_contribution_type, goal_model_contribution_type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IStarContributionType getIstar_contribution_type() {
+		return istar_contribution_type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIstar_contribution_type(IStarContributionType newIstar_contribution_type) {
+		IStarContributionType oldIstar_contribution_type = istar_contribution_type;
+		istar_contribution_type = newIstar_contribution_type == null ? ISTAR_CONTRIBUTION_TYPE_EDEFAULT : newIstar_contribution_type;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE, oldIstar_contribution_type, istar_contribution_type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case openome_modelPackage.CONTRIBUTION__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, openome_modelPackage.INTENTION__CONTRIBUTES_FROM, Intention.class, msgs);
+				return basicSetTarget((Intention)otherEnd, msgs);
 			case openome_modelPackage.CONTRIBUTION__MODEL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetModel((Model)otherEnd, msgs);
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__RULE, Intention.class, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__CONTRIBUTES_TO, Intention.class, msgs);
 				return basicSetSource((Intention)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -250,6 +362,8 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case openome_modelPackage.CONTRIBUTION__TARGET:
+				return basicSetTarget(null, msgs);
 			case openome_modelPackage.CONTRIBUTION__MODEL:
 				return basicSetModel(null, msgs);
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
@@ -288,6 +402,10 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
+				return getGoal_model_contribution_type();
+			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
+				return getIstar_contribution_type();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +426,12 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 				return;
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				setSource((Intention)newValue);
+				return;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
+				setGoal_model_contribution_type((GoalModelingContributionType)newValue);
+				return;
+			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
+				setIstar_contribution_type((IStarContributionType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,6 +454,12 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				setSource((Intention)null);
 				return;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
+				setGoal_model_contribution_type(GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT);
+				return;
+			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
+				setIstar_contribution_type(ISTAR_CONTRIBUTION_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -348,8 +478,30 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 				return getModel() != null;
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				return source != null;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
+				return goal_model_contribution_type != GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT;
+			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
+				return istar_contribution_type != ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (goal_model_contribution_type: ");
+		result.append(goal_model_contribution_type);
+		result.append(", istar_contribution_type: ");
+		result.append(istar_contribution_type);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ContributionImpl

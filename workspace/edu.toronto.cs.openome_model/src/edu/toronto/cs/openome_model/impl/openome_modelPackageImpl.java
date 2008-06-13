@@ -5,45 +5,39 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Aspect;
-import edu.toronto.cs.openome_model.BreakContribution;
-import edu.toronto.cs.openome_model.ConflictLabel;
+import edu.toronto.cs.openome_model.Belief;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.Correlation;
 import edu.toronto.cs.openome_model.Decomposition;
-import edu.toronto.cs.openome_model.DeniedLabel;
 import edu.toronto.cs.openome_model.Dependency;
+import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Goal;
-import edu.toronto.cs.openome_model.HelpContribution;
-import edu.toronto.cs.openome_model.HurtContribution;
+import edu.toronto.cs.openome_model.GoalModelingContributionType;
+import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.OrDecomposition;
-import edu.toronto.cs.openome_model.PartiallyDeniedLabel;
-import edu.toronto.cs.openome_model.PartiallySatisfiedLabel;
 import edu.toronto.cs.openome_model.Position;
 import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.Resource;
 import edu.toronto.cs.openome_model.Role;
-import edu.toronto.cs.openome_model.SatisfiedLabel;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.Topic;
-import edu.toronto.cs.openome_model.TruthLabel;
-import edu.toronto.cs.openome_model.UnknownLabel;
 import edu.toronto.cs.openome_model.openome_modelFactory;
 import edu.toronto.cs.openome_model.openome_modelPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,20 +86,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass breakContributionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conflictLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass contributionEClass = null;
 
 	/**
@@ -114,13 +94,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass decompositionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass deniedLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,28 +114,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass helpContributionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass hurtContributionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass intentionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass makeContributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,20 +129,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass orDecompositionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass partiallyDeniedLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass partiallySatisfiedLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,13 +163,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass satisfiedLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass softgoalEClass = null;
 
 	/**
@@ -253,21 +184,42 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass unknownLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass truthLabelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass containerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass beliefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass correlationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum evaluationLabelEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum goalModelingContributionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum iStarContributionTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -351,8 +303,62 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActor_Is_a() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActor_Is_part_of() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActor_Believes() {
+		return (EReference)actorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAgent() {
 		return agentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAgent_Plays() {
+		return (EReference)agentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAgent_Occupies() {
+		return (EReference)agentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAgent_Ins() {
+		return (EReference)agentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -371,24 +377,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 */
 	public EClass getAspect() {
 		return aspectEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBreakContribution() {
-		return breakContributionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConflictLabel() {
-		return conflictLabelEClass;
 	}
 
 	/**
@@ -432,6 +420,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getContribution_Goal_model_contribution_type() {
+		return (EAttribute)contributionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getContribution_Istar_contribution_type() {
+		return (EAttribute)contributionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDecomposition() {
 		return decompositionEClass;
 	}
@@ -461,15 +467,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 */
 	public EReference getDecomposition_Model() {
 		return (EReference)decompositionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDeniedLabel() {
-		return deniedLabelEClass;
 	}
 
 	/**
@@ -540,24 +537,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getHelpContribution() {
-		return helpContributionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getHurtContribution() {
-		return hurtContributionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIntention() {
 		return intentionEClass;
 	}
@@ -576,26 +555,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_Label() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIntention_Rule() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIntention_System() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -604,7 +565,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Boundary() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -613,7 +574,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Input() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(5);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -622,7 +583,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Output() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(6);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -631,7 +592,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Exclusive() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -640,7 +601,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Sequential() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -649,7 +610,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Parallel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -658,7 +619,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Property() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -667,7 +628,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_DependencyFrom() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(11);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -676,7 +637,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_DependencyTo() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(12);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -685,7 +646,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Decompositions() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(13);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -694,7 +655,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ParentDecompositions() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(14);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -703,7 +664,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Container() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(15);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -712,7 +673,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Model() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(16);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -720,8 +681,71 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMakeContribution() {
-		return makeContributionEClass;
+	public EAttribute getIntention_QualitativeReasoningCombinedLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_QualitativeReasoningSatisfiedLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_QualitativeReasoningDenialLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_QuantitativeReasoningCombinedLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_QuantitativeReasoningDeniedLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_QuantitativeReasoningSatisfiedLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntention_ContributesTo() {
+		return (EReference)intentionEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntention_ContributesFrom() {
+		return (EReference)intentionEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -792,6 +816,15 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Correlations() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOrDecomposition() {
 		return orDecompositionEClass;
 	}
@@ -801,26 +834,17 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPartiallyDeniedLabel() {
-		return partiallyDeniedLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPartiallySatisfiedLabel() {
-		return partiallySatisfiedLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPosition() {
 		return positionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPosition_Covers() {
+		return (EReference)positionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -873,15 +897,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSatisfiedLabel() {
-		return satisfiedLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSoftgoal() {
 		return softgoalEClass;
 	}
@@ -927,24 +942,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUnknownLabel() {
-		return unknownLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTruthLabel() {
-		return truthLabelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getContainer() {
 		return containerEClass;
 	}
@@ -963,7 +960,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Super() {
+	public EReference getContainer_Sub() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -972,7 +969,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Sub() {
+	public EReference getContainer_Intentions() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -981,7 +978,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Intentions() {
+	public EReference getContainer_Model() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -990,8 +987,62 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Model() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(4);
+	public EClass getBelief() {
+		return beliefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCorrelation() {
+		return correlationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCorrelation_Target() {
+		return (EReference)correlationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCorrelation_Source() {
+		return (EReference)correlationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEvaluationLabel() {
+		return evaluationLabelEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGoalModelingContributionType() {
+		return goalModelingContributionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIStarContributionType() {
+		return iStarContributionTypeEEnum;
 	}
 
 	/**
@@ -1023,28 +1074,30 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		// Create classes and their features
 		actorEClass = createEClass(ACTOR);
+		createEReference(actorEClass, ACTOR__IS_A);
+		createEReference(actorEClass, ACTOR__IS_PART_OF);
+		createEReference(actorEClass, ACTOR__BELIEVES);
 
 		agentEClass = createEClass(AGENT);
+		createEReference(agentEClass, AGENT__PLAYS);
+		createEReference(agentEClass, AGENT__OCCUPIES);
+		createEReference(agentEClass, AGENT__INS);
 
 		andDecompositionEClass = createEClass(AND_DECOMPOSITION);
 
 		aspectEClass = createEClass(ASPECT);
 
-		breakContributionEClass = createEClass(BREAK_CONTRIBUTION);
-
-		conflictLabelEClass = createEClass(CONFLICT_LABEL);
-
 		contributionEClass = createEClass(CONTRIBUTION);
 		createEReference(contributionEClass, CONTRIBUTION__TARGET);
 		createEReference(contributionEClass, CONTRIBUTION__MODEL);
 		createEReference(contributionEClass, CONTRIBUTION__SOURCE);
+		createEAttribute(contributionEClass, CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE);
+		createEAttribute(contributionEClass, CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE);
 
 		decompositionEClass = createEClass(DECOMPOSITION);
 		createEReference(decompositionEClass, DECOMPOSITION__SOURCE);
 		createEReference(decompositionEClass, DECOMPOSITION__TARGET);
 		createEReference(decompositionEClass, DECOMPOSITION__MODEL);
-
-		deniedLabelEClass = createEClass(DENIED_LABEL);
 
 		dependencyEClass = createEClass(DEPENDENCY);
 		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY_FROM);
@@ -1055,14 +1108,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		goalEClass = createEClass(GOAL);
 
-		helpContributionEClass = createEClass(HELP_CONTRIBUTION);
-
-		hurtContributionEClass = createEClass(HURT_CONTRIBUTION);
-
 		intentionEClass = createEClass(INTENTION);
 		createEAttribute(intentionEClass, INTENTION__NAME);
-		createEReference(intentionEClass, INTENTION__LABEL);
-		createEReference(intentionEClass, INTENTION__RULE);
 		createEAttribute(intentionEClass, INTENTION__SYSTEM);
 		createEAttribute(intentionEClass, INTENTION__BOUNDARY);
 		createEReference(intentionEClass, INTENTION__INPUT);
@@ -1077,8 +1124,14 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(intentionEClass, INTENTION__PARENT_DECOMPOSITIONS);
 		createEReference(intentionEClass, INTENTION__CONTAINER);
 		createEReference(intentionEClass, INTENTION__MODEL);
-
-		makeContributionEClass = createEClass(MAKE_CONTRIBUTION);
+		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL);
+		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL);
+		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL);
+		createEAttribute(intentionEClass, INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL);
+		createEAttribute(intentionEClass, INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL);
+		createEAttribute(intentionEClass, INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL);
+		createEReference(intentionEClass, INTENTION__CONTRIBUTES_TO);
+		createEReference(intentionEClass, INTENTION__CONTRIBUTES_FROM);
 
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__NAME);
@@ -1087,14 +1140,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(modelEClass, MODEL__DEPENDENCIES);
 		createEReference(modelEClass, MODEL__DECOMPOSITIONS);
 		createEReference(modelEClass, MODEL__CONTAINERS);
+		createEReference(modelEClass, MODEL__CORRELATIONS);
 
 		orDecompositionEClass = createEClass(OR_DECOMPOSITION);
 
-		partiallyDeniedLabelEClass = createEClass(PARTIALLY_DENIED_LABEL);
-
-		partiallySatisfiedLabelEClass = createEClass(PARTIALLY_SATISFIED_LABEL);
-
 		positionEClass = createEClass(POSITION);
+		createEReference(positionEClass, POSITION__COVERS);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
@@ -1104,8 +1155,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		roleEClass = createEClass(ROLE);
 
-		satisfiedLabelEClass = createEClass(SATISFIED_LABEL);
-
 		softgoalEClass = createEClass(SOFTGOAL);
 
 		taskEClass = createEClass(TASK);
@@ -1114,16 +1163,22 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(topicEClass, TOPIC__NAME);
 		createEAttribute(topicEClass, TOPIC__TYPE);
 
-		unknownLabelEClass = createEClass(UNKNOWN_LABEL);
-
-		truthLabelEClass = createEClass(TRUTH_LABEL);
-
 		containerEClass = createEClass(CONTAINER);
 		createEAttribute(containerEClass, CONTAINER__NAME);
-		createEReference(containerEClass, CONTAINER__SUPER);
 		createEReference(containerEClass, CONTAINER__SUB);
 		createEReference(containerEClass, CONTAINER__INTENTIONS);
 		createEReference(containerEClass, CONTAINER__MODEL);
+
+		beliefEClass = createEClass(BELIEF);
+
+		correlationEClass = createEClass(CORRELATION);
+		createEReference(correlationEClass, CORRELATION__TARGET);
+		createEReference(correlationEClass, CORRELATION__SOURCE);
+
+		// Create enums
+		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
+		goalModelingContributionTypeEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_TYPE);
+		iStarContributionTypeEEnum = createEEnum(ISTAR_CONTRIBUTION_TYPE);
 	}
 
 	/**
@@ -1155,51 +1210,44 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		// Add supertypes to classes
 		actorEClass.getESuperTypes().add(this.getContainer());
-		agentEClass.getESuperTypes().add(this.getContainer());
+		agentEClass.getESuperTypes().add(this.getActor());
 		andDecompositionEClass.getESuperTypes().add(this.getDecomposition());
 		aspectEClass.getESuperTypes().add(this.getContainer());
-		breakContributionEClass.getESuperTypes().add(this.getContribution());
-		conflictLabelEClass.getESuperTypes().add(this.getTruthLabel());
-		deniedLabelEClass.getESuperTypes().add(this.getTruthLabel());
 		goalEClass.getESuperTypes().add(this.getIntention());
-		helpContributionEClass.getESuperTypes().add(this.getContribution());
-		hurtContributionEClass.getESuperTypes().add(this.getContribution());
-		makeContributionEClass.getESuperTypes().add(this.getContribution());
 		orDecompositionEClass.getESuperTypes().add(this.getDecomposition());
-		partiallyDeniedLabelEClass.getESuperTypes().add(this.getTruthLabel());
-		partiallySatisfiedLabelEClass.getESuperTypes().add(this.getTruthLabel());
-		positionEClass.getESuperTypes().add(this.getContainer());
+		positionEClass.getESuperTypes().add(this.getActor());
 		resourceEClass.getESuperTypes().add(this.getIntention());
-		roleEClass.getESuperTypes().add(this.getContainer());
-		satisfiedLabelEClass.getESuperTypes().add(this.getTruthLabel());
+		roleEClass.getESuperTypes().add(this.getActor());
 		softgoalEClass.getESuperTypes().add(this.getIntention());
 		taskEClass.getESuperTypes().add(this.getIntention());
-		unknownLabelEClass.getESuperTypes().add(this.getTruthLabel());
+		beliefEClass.getESuperTypes().add(this.getIntention());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActor_Is_a(), this.getActor(), null, "is_a", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_Is_part_of(), this.getActor(), null, "is_part_of", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActor_Believes(), this.getBelief(), null, "believes", null, 0, -1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(agentEClass, Agent.class, "Agent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAgent_Plays(), this.getRole(), null, "plays", null, 0, -1, Agent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAgent_Occupies(), this.getPosition(), null, "occupies", null, 0, -1, Agent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAgent_Ins(), this.getAgent(), null, "ins", null, 0, 1, Agent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(andDecompositionEClass, AndDecomposition.class, "AndDecomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(aspectEClass, Aspect.class, "Aspect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(breakContributionEClass, BreakContribution.class, "BreakContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(conflictLabelEClass, ConflictLabel.class, "ConflictLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(contributionEClass, Contribution.class, "Contribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContribution_Target(), this.getIntention(), null, "target", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContribution_Target(), this.getIntention(), this.getIntention_ContributesFrom(), "target", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContribution_Model(), this.getModel(), this.getModel_Contributions(), "model", null, 0, 1, Contribution.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContribution_Source(), this.getIntention(), this.getIntention_Rule(), "source", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContribution_Source(), this.getIntention(), this.getIntention_ContributesTo(), "source", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContribution_Goal_model_contribution_type(), this.getGoalModelingContributionType(), "goal_model_contribution_type", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContribution_Istar_contribution_type(), this.getIStarContributionType(), "istar_contribution_type", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(decompositionEClass, Decomposition.class, "Decomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDecomposition_Source(), this.getIntention(), this.getIntention_Decompositions(), "source", null, 0, 1, Decomposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDecomposition_Target(), this.getIntention(), this.getIntention_ParentDecompositions(), "target", null, 0, 1, Decomposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDecomposition_Model(), this.getModel(), this.getModel_Decompositions(), "model", null, 0, 1, Decomposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(deniedLabelEClass, DeniedLabel.class, "DeniedLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDependency_DependencyFrom(), this.getIntention(), this.getIntention_DependencyTo(), "dependencyFrom", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1210,14 +1258,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(goalEClass, Goal.class, "Goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(helpContributionEClass, HelpContribution.class, "HelpContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(hurtContributionEClass, HurtContribution.class, "HurtContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(intentionEClass, Intention.class, "Intention", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntention_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_Label(), this.getTruthLabel(), null, "label", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_Rule(), this.getContribution(), this.getContribution_Source(), "rule", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_System(), ecorePackage.getEBooleanObject(), "system", "true", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Boundary(), ecorePackage.getEBooleanObject(), "boundary", "false", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Input(), this.getTopic(), null, "input", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1232,8 +1274,14 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getIntention_ParentDecompositions(), this.getDecomposition(), this.getDecomposition_Target(), "parentDecompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Container(), this.getContainer(), this.getContainer_Intentions(), "container", null, 0, 1, Intention.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Model(), this.getModel(), this.getModel_Intentions(), "model", null, 1, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(makeContributionEClass, MakeContribution.class, "MakeContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntention_QualitativeReasoningCombinedLabel(), this.getEvaluationLabel(), "QualitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QualitativeReasoningSatisfiedLabel(), this.getEvaluationLabel(), "QualitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QualitativeReasoningDenialLabel(), this.getEvaluationLabel(), "QualitativeReasoningDenialLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningCombinedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningDeniedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningDeniedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningSatisfiedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntention_ContributesTo(), this.getContribution(), this.getContribution_Source(), "contributesTo", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntention_ContributesFrom(), this.getContribution(), this.getContribution_Target(), "contributesFrom", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1242,14 +1290,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getModel_Dependencies(), this.getDependency(), this.getDependency_Model(), "dependencies", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Decompositions(), this.getDecomposition(), this.getDecomposition_Model(), "decompositions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Containers(), this.getContainer(), this.getContainer_Model(), "containers", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Correlations(), this.getCorrelation(), null, "correlations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orDecompositionEClass, OrDecomposition.class, "OrDecomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(partiallyDeniedLabelEClass, PartiallyDeniedLabel.class, "PartiallyDeniedLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(partiallySatisfiedLabelEClass, PartiallySatisfiedLabel.class, "PartiallySatisfiedLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPosition_Covers(), this.getRole(), null, "covers", null, 0, -1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1259,8 +1305,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(satisfiedLabelEClass, SatisfiedLabel.class, "SatisfiedLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(softgoalEClass, Softgoal.class, "Softgoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1269,16 +1313,46 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEAttribute(getTopic_Name(), ecorePackage.getEString(), "name", "", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTopic_Type(), ecorePackage.getEString(), "type", "String", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(unknownLabelEClass, UnknownLabel.class, "UnknownLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(truthLabelEClass, TruthLabel.class, "TruthLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(containerEClass, Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Super(), this.getContainer(), null, "super", null, 0, 1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(beliefEClass, Belief.class, "Belief", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(correlationEClass, Correlation.class, "Correlation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCorrelation_Target(), this.getIntention(), null, "target", null, 0, 1, Correlation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCorrelation_Source(), this.getIntention(), null, "source", null, 0, 1, Correlation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.UNDECIDED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_DENIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_SATISFIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.DENIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.CONFLICT);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.SATISFIED);
+
+		initEEnum(goalModelingContributionTypeEEnum, GoalModelingContributionType.class, "GoalModelingContributionType");
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.NONE);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.PLUS_PLUS_SAT);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.PLUS_SAT);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS_SAT);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS_MINUS_SAT);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.PLUS_PLUS_DEN);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.PLUS_DEN);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS_DEN);
+		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS_MINUS_DEN);
+
+		initEEnum(iStarContributionTypeEEnum, IStarContributionType.class, "IStarContributionType");
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.UNKNOWN);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.MAKE);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.HELP);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.SOME_PLUS);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.SOME_MINUS);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.HURT);
+		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.BREAK);
 
 		// Create resource
 		createResource(eNS_URI);

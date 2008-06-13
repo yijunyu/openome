@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class RoleImpl extends ContainerImpl implements Role {
+public class RoleImpl extends ActorImpl implements Role {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

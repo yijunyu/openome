@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Model#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getContainers <em>Containers</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Model#getCorrelations <em>Correlations</em>}</li>
  * </ul>
  * </p>
  *
@@ -153,5 +154,21 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Container> getContainers();
+
+	/**
+	 * Returns the value of the '<em><b>Correlations</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Correlation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Correlations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Correlations</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Correlations()
+	 * @model
+	 * @generated
+	 */
+	EList<Correlation> getCorrelations();
 
 } // Model

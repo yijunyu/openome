@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -73,7 +74,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 29;
+	int CONTAINER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -85,22 +86,13 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__SUPER = 1;
-
-	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__SUB = 2;
+	int CONTAINER__SUB = 1;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -109,7 +101,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__INTENTIONS = 3;
+	int CONTAINER__INTENTIONS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -118,7 +110,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__MODEL = 4;
+	int CONTAINER__MODEL = 3;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -127,7 +119,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 5;
+	int CONTAINER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -147,15 +139,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__SUPER = CONTAINER__SUPER;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -185,13 +168,40 @@ public interface openome_modelPackage extends EPackage {
 	int ACTOR__MODEL = CONTAINER__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Is a</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__IS_A = CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__IS_PART_OF = CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Believes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__BELIEVES = CONTAINER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
+	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
@@ -210,16 +220,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__SUPER = CONTAINER__SUPER;
+	int AGENT__NAME = ACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -228,7 +229,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__SUB = CONTAINER__SUB;
+	int AGENT__SUB = ACTOR__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -237,7 +238,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__INTENTIONS = CONTAINER__INTENTIONS;
+	int AGENT__INTENTIONS = ACTOR__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -246,7 +247,61 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__MODEL = CONTAINER__MODEL;
+	int AGENT__MODEL = ACTOR__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Is a</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__IS_A = ACTOR__IS_A;
+
+	/**
+	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__IS_PART_OF = ACTOR__IS_PART_OF;
+
+	/**
+	 * The feature id for the '<em><b>Believes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__BELIEVES = ACTOR__BELIEVES;
+
+	/**
+	 * The feature id for the '<em><b>Plays</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__PLAYS = ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Occupies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__OCCUPIES = ACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Ins</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__INS = ACTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Agent</em>' class.
@@ -255,7 +310,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
+	int AGENT_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DecompositionImpl <em>Decomposition</em>}' class.
@@ -265,7 +320,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDecomposition()
 	 * @generated
 	 */
-	int DECOMPOSITION = 7;
+	int DECOMPOSITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -369,15 +424,6 @@ public interface openome_modelPackage extends EPackage {
 	int ASPECT__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT__SUPER = CONTAINER__SUPER;
-
-	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,7 +467,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getContribution()
 	 * @generated
 	 */
-	int CONTRIBUTION = 6;
+	int CONTRIBUTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -451,116 +497,31 @@ public interface openome_modelPackage extends EPackage {
 	int CONTRIBUTION__SOURCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Goal model contribution type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Istar contribution type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Contribution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.BreakContributionImpl <em>Break Contribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.BreakContributionImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBreakContribution()
-	 * @generated
-	 */
-	int BREAK_CONTRIBUTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BREAK_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BREAK_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BREAK_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>Break Contribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BREAK_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.TruthLabelImpl <em>Truth Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.TruthLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getTruthLabel()
-	 * @generated
-	 */
-	int TRUTH_LABEL = 28;
-
-	/**
-	 * The number of structural features of the '<em>Truth Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUTH_LABEL_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ConflictLabelImpl <em>Conflict Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.ConflictLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getConflictLabel()
-	 * @generated
-	 */
-	int CONFLICT_LABEL = 5;
-
-	/**
-	 * The number of structural features of the '<em>Conflict Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFLICT_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DeniedLabelImpl <em>Denied Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.DeniedLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDeniedLabel()
-	 * @generated
-	 */
-	int DENIED_LABEL = 8;
-
-	/**
-	 * The number of structural features of the '<em>Denied Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DENIED_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
+	int CONTRIBUTION_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -570,7 +531,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 9;
+	int DEPENDENCY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Dependency From</b></em>' reference.
@@ -634,7 +595,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIntention()
 	 * @generated
 	 */
-	int INTENTION = 13;
+	int INTENTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -646,31 +607,13 @@ public interface openome_modelPackage extends EPackage {
 	int INTENTION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__LABEL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__RULE = 2;
-
-	/**
 	 * The feature id for the '<em><b>System</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__SYSTEM = 3;
+	int INTENTION__SYSTEM = 1;
 
 	/**
 	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
@@ -679,7 +622,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__BOUNDARY = 4;
+	int INTENTION__BOUNDARY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
@@ -688,7 +631,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__INPUT = 5;
+	int INTENTION__INPUT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Output</b></em>' containment reference list.
@@ -697,7 +640,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__OUTPUT = 6;
+	int INTENTION__OUTPUT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
@@ -706,7 +649,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__EXCLUSIVE = 7;
+	int INTENTION__EXCLUSIVE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
@@ -715,7 +658,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__SEQUENTIAL = 8;
+	int INTENTION__SEQUENTIAL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
@@ -724,7 +667,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__PARALLEL = 9;
+	int INTENTION__PARALLEL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -733,7 +676,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__PROPERTY = 10;
+	int INTENTION__PROPERTY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
@@ -742,7 +685,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DEPENDENCY_FROM = 11;
+	int INTENTION__DEPENDENCY_FROM = 9;
 
 	/**
 	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
@@ -751,7 +694,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DEPENDENCY_TO = 12;
+	int INTENTION__DEPENDENCY_TO = 10;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -760,7 +703,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DECOMPOSITIONS = 13;
+	int INTENTION__DECOMPOSITIONS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Parent Decompositions</b></em>' reference list.
@@ -769,7 +712,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__PARENT_DECOMPOSITIONS = 14;
+	int INTENTION__PARENT_DECOMPOSITIONS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -778,7 +721,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTAINER = 15;
+	int INTENTION__CONTAINER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -787,7 +730,79 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__MODEL = 16;
+	int INTENTION__MODEL = 14;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = 15;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = 16;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = 17;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = 18;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = 19;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = 20;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__CONTRIBUTES_TO = 21;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__CONTRIBUTES_FROM = 22;
 
 	/**
 	 * The number of structural features of the '<em>Intention</em>' class.
@@ -796,7 +811,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION_FEATURE_COUNT = 17;
+	int INTENTION_FEATURE_COUNT = 23;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
@@ -806,7 +821,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoal()
 	 * @generated
 	 */
-	int GOAL = 10;
+	int GOAL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -816,24 +831,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GOAL__NAME = INTENTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__LABEL = INTENTION__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__RULE = INTENTION__RULE;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' attribute.
@@ -962,6 +959,78 @@ public interface openome_modelPackage extends EPackage {
 	int GOAL__MODEL = INTENTION__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUALITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUALITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUALITATIVE_REASONING_DENIAL_LABEL = INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUANTITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUANTITATIVE_REASONING_DENIED_LABEL = INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__QUANTITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__CONTRIBUTES_TO = INTENTION__CONTRIBUTES_TO;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
 	 * The number of structural features of the '<em>Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -971,144 +1040,6 @@ public interface openome_modelPackage extends EPackage {
 	int GOAL_FEATURE_COUNT = INTENTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.HelpContributionImpl <em>Help Contribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.HelpContributionImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHelpContribution()
-	 * @generated
-	 */
-	int HELP_CONTRIBUTION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HELP_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HELP_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HELP_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>Help Contribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HELP_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.HurtContributionImpl <em>Hurt Contribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.HurtContributionImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHurtContribution()
-	 * @generated
-	 */
-	int HURT_CONTRIBUTION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HURT_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HURT_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HURT_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>Hurt Contribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HURT_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.MakeContributionImpl <em>Make Contribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.MakeContributionImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getMakeContribution()
-	 * @generated
-	 */
-	int MAKE_CONTRIBUTION = 14;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAKE_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAKE_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAKE_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
-
-	/**
-	 * The number of structural features of the '<em>Make Contribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAKE_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1116,7 +1047,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getModel()
 	 * @generated
 	 */
-	int MODEL = 15;
+	int MODEL = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1173,13 +1104,22 @@ public interface openome_modelPackage extends EPackage {
 	int MODEL__CONTAINERS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Correlations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__CORRELATIONS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 6;
+	int MODEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
@@ -1189,7 +1129,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOrDecomposition()
 	 * @generated
 	 */
-	int OR_DECOMPOSITION = 16;
+	int OR_DECOMPOSITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1228,44 +1168,6 @@ public interface openome_modelPackage extends EPackage {
 	int OR_DECOMPOSITION_FEATURE_COUNT = DECOMPOSITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PartiallyDeniedLabelImpl <em>Partially Denied Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.PartiallyDeniedLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPartiallyDeniedLabel()
-	 * @generated
-	 */
-	int PARTIALLY_DENIED_LABEL = 17;
-
-	/**
-	 * The number of structural features of the '<em>Partially Denied Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTIALLY_DENIED_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PartiallySatisfiedLabelImpl <em>Partially Satisfied Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.PartiallySatisfiedLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPartiallySatisfiedLabel()
-	 * @generated
-	 */
-	int PARTIALLY_SATISFIED_LABEL = 18;
-
-	/**
-	 * The number of structural features of the '<em>Partially Satisfied Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARTIALLY_SATISFIED_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PositionImpl <em>Position</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1273,7 +1175,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 19;
+	int POSITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,16 +1184,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__SUPER = CONTAINER__SUPER;
+	int POSITION__NAME = ACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -1300,7 +1193,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__SUB = CONTAINER__SUB;
+	int POSITION__SUB = ACTOR__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1309,7 +1202,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__INTENTIONS = CONTAINER__INTENTIONS;
+	int POSITION__INTENTIONS = ACTOR__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -1318,7 +1211,43 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__MODEL = CONTAINER__MODEL;
+	int POSITION__MODEL = ACTOR__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Is a</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__IS_A = ACTOR__IS_A;
+
+	/**
+	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__IS_PART_OF = ACTOR__IS_PART_OF;
+
+	/**
+	 * The feature id for the '<em><b>Believes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__BELIEVES = ACTOR__BELIEVES;
+
+	/**
+	 * The feature id for the '<em><b>Covers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__COVERS = ACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Position</em>' class.
@@ -1327,7 +1256,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
+	int POSITION_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PropertyImpl <em>Property</em>}' class.
@@ -1337,7 +1266,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 20;
+	int PROPERTY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1374,7 +1303,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 21;
+	int RESOURCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1384,24 +1313,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__NAME = INTENTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__LABEL = INTENTION__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__RULE = INTENTION__RULE;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' attribute.
@@ -1530,6 +1441,78 @@ public interface openome_modelPackage extends EPackage {
 	int RESOURCE__MODEL = INTENTION__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUALITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUALITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUALITATIVE_REASONING_DENIAL_LABEL = INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUANTITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUANTITATIVE_REASONING_DENIED_LABEL = INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__QUANTITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTRIBUTES_TO = INTENTION__CONTRIBUTES_TO;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1546,7 +1529,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 22;
+	int ROLE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1555,16 +1538,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Super</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__SUPER = CONTAINER__SUPER;
+	int ROLE__NAME = ACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -1573,7 +1547,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__SUB = CONTAINER__SUB;
+	int ROLE__SUB = ACTOR__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1582,7 +1556,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__INTENTIONS = CONTAINER__INTENTIONS;
+	int ROLE__INTENTIONS = ACTOR__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -1591,7 +1565,34 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__MODEL = CONTAINER__MODEL;
+	int ROLE__MODEL = ACTOR__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Is a</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__IS_A = ACTOR__IS_A;
+
+	/**
+	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__IS_PART_OF = ACTOR__IS_PART_OF;
+
+	/**
+	 * The feature id for the '<em><b>Believes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__BELIEVES = ACTOR__BELIEVES;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -1600,26 +1601,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.SatisfiedLabelImpl <em>Satisfied Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.SatisfiedLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSatisfiedLabel()
-	 * @generated
-	 */
-	int SATISFIED_LABEL = 23;
-
-	/**
-	 * The number of structural features of the '<em>Satisfied Label</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SATISFIED_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
+	int ROLE_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.SoftgoalImpl <em>Softgoal</em>}' class.
@@ -1629,7 +1611,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSoftgoal()
 	 * @generated
 	 */
-	int SOFTGOAL = 24;
+	int SOFTGOAL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1639,24 +1621,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTGOAL__NAME = INTENTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTGOAL__LABEL = INTENTION__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTGOAL__RULE = INTENTION__RULE;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' attribute.
@@ -1785,6 +1749,78 @@ public interface openome_modelPackage extends EPackage {
 	int SOFTGOAL__MODEL = INTENTION__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUALITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUALITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUALITATIVE_REASONING_DENIAL_LABEL = INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUANTITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUANTITATIVE_REASONING_DENIED_LABEL = INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__QUANTITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__CONTRIBUTES_TO = INTENTION__CONTRIBUTES_TO;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
 	 * The number of structural features of the '<em>Softgoal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1801,7 +1837,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 25;
+	int TASK = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1811,24 +1847,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK__NAME = INTENTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__LABEL = INTENTION__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Rule</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__RULE = INTENTION__RULE;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' attribute.
@@ -1957,6 +1975,78 @@ public interface openome_modelPackage extends EPackage {
 	int TASK__MODEL = INTENTION__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUALITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUALITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUALITATIVE_REASONING_DENIAL_LABEL = INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUANTITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUANTITATIVE_REASONING_DENIED_LABEL = INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__QUANTITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CONTRIBUTES_TO = INTENTION__CONTRIBUTES_TO;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1973,7 +2063,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getTopic()
 	 * @generated
 	 */
-	int TOPIC = 26;
+	int TOPIC = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2003,24 +2093,297 @@ public interface openome_modelPackage extends EPackage {
 	int TOPIC_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.UnknownLabelImpl <em>Unknown Label</em>}' class.
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.BeliefImpl <em>Belief</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.UnknownLabelImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getUnknownLabel()
+	 * @see edu.toronto.cs.openome_model.impl.BeliefImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBelief()
 	 * @generated
 	 */
-	int UNKNOWN_LABEL = 27;
+	int BELIEF = 19;
 
 	/**
-	 * The number of structural features of the '<em>Unknown Label</em>' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_LABEL_FEATURE_COUNT = TRUTH_LABEL_FEATURE_COUNT + 0;
+	int BELIEF__NAME = INTENTION__NAME;
 
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__SYSTEM = INTENTION__SYSTEM;
+
+	/**
+	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__BOUNDARY = INTENTION__BOUNDARY;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__INPUT = INTENTION__INPUT;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__OUTPUT = INTENTION__OUTPUT;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__EXCLUSIVE = INTENTION__EXCLUSIVE;
+
+	/**
+	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__SEQUENTIAL = INTENTION__SEQUENTIAL;
+
+	/**
+	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__PARALLEL = INTENTION__PARALLEL;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__PROPERTY = INTENTION__PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
+
+	/**
+	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__DECOMPOSITIONS = INTENTION__DECOMPOSITIONS;
+
+	/**
+	 * The feature id for the '<em><b>Parent Decompositions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__PARENT_DECOMPOSITIONS = INTENTION__PARENT_DECOMPOSITIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__CONTAINER = INTENTION__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__MODEL = INTENTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUALITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUALITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUALITATIVE_REASONING_DENIAL_LABEL = INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUANTITATIVE_REASONING_COMBINED_LABEL = INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUANTITATIVE_REASONING_DENIED_LABEL = INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__QUANTITATIVE_REASONING_SATISFIED_LABEL = INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__CONTRIBUTES_TO = INTENTION__CONTRIBUTES_TO;
+
+	/**
+	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
+	 * The number of structural features of the '<em>Belief</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF_FEATURE_COUNT = INTENTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.CorrelationImpl <em>Correlation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.CorrelationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getCorrelation()
+	 * @generated
+	 */
+	int CORRELATION = 20;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRELATION__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRELATION__SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Correlation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRELATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
+	 * @generated
+	 */
+	int EVALUATION_LABEL = 21;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionType
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
+	 * @generated
+	 */
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 22;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.IStarContributionType
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
+	 * @generated
+	 */
+	int ISTAR_CONTRIBUTION_TYPE = 23;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -2033,6 +2396,39 @@ public interface openome_modelPackage extends EPackage {
 	EClass getActor();
 
 	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getIs_a <em>Is a</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is a</em>'.
+	 * @see edu.toronto.cs.openome_model.Actor#getIs_a()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_Is_a();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getIs_part_of <em>Is part of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Is part of</em>'.
+	 * @see edu.toronto.cs.openome_model.Actor#getIs_part_of()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_Is_part_of();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getBelieves <em>Believes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Believes</em>'.
+	 * @see edu.toronto.cs.openome_model.Actor#getBelieves()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_Believes();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Agent <em>Agent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2041,6 +2437,39 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAgent();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Agent#getPlays <em>Plays</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Plays</em>'.
+	 * @see edu.toronto.cs.openome_model.Agent#getPlays()
+	 * @see #getAgent()
+	 * @generated
+	 */
+	EReference getAgent_Plays();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Agent#getOccupies <em>Occupies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Occupies</em>'.
+	 * @see edu.toronto.cs.openome_model.Agent#getOccupies()
+	 * @see #getAgent()
+	 * @generated
+	 */
+	EReference getAgent_Occupies();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Agent#getIns <em>Ins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ins</em>'.
+	 * @see edu.toronto.cs.openome_model.Agent#getIns()
+	 * @see #getAgent()
+	 * @generated
+	 */
+	EReference getAgent_Ins();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.AndDecomposition <em>And Decomposition</em>}'.
@@ -2061,26 +2490,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAspect();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.BreakContribution <em>Break Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Break Contribution</em>'.
-	 * @see edu.toronto.cs.openome_model.BreakContribution
-	 * @generated
-	 */
-	EClass getBreakContribution();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.ConflictLabel <em>Conflict Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conflict Label</em>'.
-	 * @see edu.toronto.cs.openome_model.ConflictLabel
-	 * @generated
-	 */
-	EClass getConflictLabel();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Contribution <em>Contribution</em>}'.
@@ -2126,6 +2535,28 @@ public interface openome_modelPackage extends EPackage {
 	EReference getContribution_Source();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type <em>Goal model contribution type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Goal model contribution type</em>'.
+	 * @see edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type()
+	 * @see #getContribution()
+	 * @generated
+	 */
+	EAttribute getContribution_Goal_model_contribution_type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type <em>Istar contribution type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Istar contribution type</em>'.
+	 * @see edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type()
+	 * @see #getContribution()
+	 * @generated
+	 */
+	EAttribute getContribution_Istar_contribution_type();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Decomposition <em>Decomposition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2167,16 +2598,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDecomposition_Model();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.DeniedLabel <em>Denied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Denied Label</em>'.
-	 * @see edu.toronto.cs.openome_model.DeniedLabel
-	 * @generated
-	 */
-	EClass getDeniedLabel();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Dependency <em>Dependency</em>}'.
@@ -2254,26 +2675,6 @@ public interface openome_modelPackage extends EPackage {
 	EClass getGoal();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.HelpContribution <em>Help Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Help Contribution</em>'.
-	 * @see edu.toronto.cs.openome_model.HelpContribution
-	 * @generated
-	 */
-	EClass getHelpContribution();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.HurtContribution <em>Hurt Contribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Hurt Contribution</em>'.
-	 * @see edu.toronto.cs.openome_model.HurtContribution
-	 * @generated
-	 */
-	EClass getHurtContribution();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Intention <em>Intention</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2293,28 +2694,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntention_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link edu.toronto.cs.openome_model.Intention#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Label</em>'.
-	 * @see edu.toronto.cs.openome_model.Intention#getLabel()
-	 * @see #getIntention()
-	 * @generated
-	 */
-	EReference getIntention_Label();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getRule <em>Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Rule</em>'.
-	 * @see edu.toronto.cs.openome_model.Intention#getRule()
-	 * @see #getIntention()
-	 * @generated
-	 */
-	EReference getIntention_Rule();
 
 	/**
 	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getSystem <em>System</em>}'.
@@ -2471,14 +2850,92 @@ public interface openome_modelPackage extends EPackage {
 	EReference getIntention_Model();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.MakeContribution <em>Make Contribution</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Make Contribution</em>'.
-	 * @see edu.toronto.cs.openome_model.MakeContribution
+	 * @return the meta object for the attribute '<em>Qualitative Reasoning Combined Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel()
+	 * @see #getIntention()
 	 * @generated
 	 */
-	EClass getMakeContribution();
+	EAttribute getIntention_QualitativeReasoningCombinedLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualitative Reasoning Satisfied Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQualitativeReasoningSatisfiedLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_QualitativeReasoningSatisfiedLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualitative Reasoning Denial Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQualitativeReasoningDenialLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_QualitativeReasoningDenialLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningCombinedLabel <em>Quantitative Reasoning Combined Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantitative Reasoning Combined Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningCombinedLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_QuantitativeReasoningCombinedLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningDeniedLabel <em>Quantitative Reasoning Denied Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantitative Reasoning Denied Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningDeniedLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_QuantitativeReasoningDeniedLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantitative Reasoning Satisfied Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningSatisfiedLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_QuantitativeReasoningSatisfiedLabel();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getContributesTo <em>Contributes To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contributes To</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getContributesTo()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EReference getIntention_ContributesTo();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getContributesFrom <em>Contributes From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contributes From</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getContributesFrom()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EReference getIntention_ContributesFrom();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Model <em>Model</em>}'.
@@ -2557,6 +3014,17 @@ public interface openome_modelPackage extends EPackage {
 	EReference getModel_Containers();
 
 	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Model#getCorrelations <em>Correlations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Correlations</em>'.
+	 * @see edu.toronto.cs.openome_model.Model#getCorrelations()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Correlations();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OrDecomposition <em>Or Decomposition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2567,26 +3035,6 @@ public interface openome_modelPackage extends EPackage {
 	EClass getOrDecomposition();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.PartiallyDeniedLabel <em>Partially Denied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Partially Denied Label</em>'.
-	 * @see edu.toronto.cs.openome_model.PartiallyDeniedLabel
-	 * @generated
-	 */
-	EClass getPartiallyDeniedLabel();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.PartiallySatisfiedLabel <em>Partially Satisfied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Partially Satisfied Label</em>'.
-	 * @see edu.toronto.cs.openome_model.PartiallySatisfiedLabel
-	 * @generated
-	 */
-	EClass getPartiallySatisfiedLabel();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Position <em>Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2595,6 +3043,17 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPosition();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Position#getCovers <em>Covers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Covers</em>'.
+	 * @see edu.toronto.cs.openome_model.Position#getCovers()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EReference getPosition_Covers();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Property <em>Property</em>}'.
@@ -2649,16 +3108,6 @@ public interface openome_modelPackage extends EPackage {
 	EClass getRole();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.SatisfiedLabel <em>Satisfied Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Satisfied Label</em>'.
-	 * @see edu.toronto.cs.openome_model.SatisfiedLabel
-	 * @generated
-	 */
-	EClass getSatisfiedLabel();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Softgoal <em>Softgoal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2711,26 +3160,6 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getTopic_Type();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.UnknownLabel <em>Unknown Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unknown Label</em>'.
-	 * @see edu.toronto.cs.openome_model.UnknownLabel
-	 * @generated
-	 */
-	EClass getUnknownLabel();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.TruthLabel <em>Truth Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Truth Label</em>'.
-	 * @see edu.toronto.cs.openome_model.TruthLabel
-	 * @generated
-	 */
-	EClass getTruthLabel();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Container <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2750,17 +3179,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContainer_Name();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Container#getSuper <em>Super</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Super</em>'.
-	 * @see edu.toronto.cs.openome_model.Container#getSuper()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_Super();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}'.
@@ -2796,6 +3214,78 @@ public interface openome_modelPackage extends EPackage {
 	EReference getContainer_Model();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Belief <em>Belief</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Belief</em>'.
+	 * @see edu.toronto.cs.openome_model.Belief
+	 * @generated
+	 */
+	EClass getBelief();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Correlation <em>Correlation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Correlation</em>'.
+	 * @see edu.toronto.cs.openome_model.Correlation
+	 * @generated
+	 */
+	EClass getCorrelation();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Correlation#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see edu.toronto.cs.openome_model.Correlation#getTarget()
+	 * @see #getCorrelation()
+	 * @generated
+	 */
+	EReference getCorrelation_Target();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Correlation#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see edu.toronto.cs.openome_model.Correlation#getSource()
+	 * @see #getCorrelation()
+	 * @generated
+	 */
+	EReference getCorrelation_Source();
+
+	/**
+	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Evaluation Label</em>'.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @generated
+	 */
+	EEnum getEvaluationLabel();
+
+	/**
+	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Goal Modeling Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionType
+	 * @generated
+	 */
+	EEnum getGoalModelingContributionType();
+
+	/**
+	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>IStar Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.IStarContributionType
+	 * @generated
+	 */
+	EEnum getIStarContributionType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2828,6 +3318,30 @@ public interface openome_modelPackage extends EPackage {
 		EClass ACTOR = eINSTANCE.getActor();
 
 		/**
+		 * The meta object literal for the '<em><b>Is a</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__IS_A = eINSTANCE.getActor_Is_a();
+
+		/**
+		 * The meta object literal for the '<em><b>Is part of</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__IS_PART_OF = eINSTANCE.getActor_Is_part_of();
+
+		/**
+		 * The meta object literal for the '<em><b>Believes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__BELIEVES = eINSTANCE.getActor_Believes();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2836,6 +3350,30 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AGENT = eINSTANCE.getAgent();
+
+		/**
+		 * The meta object literal for the '<em><b>Plays</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AGENT__PLAYS = eINSTANCE.getAgent_Plays();
+
+		/**
+		 * The meta object literal for the '<em><b>Occupies</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AGENT__OCCUPIES = eINSTANCE.getAgent_Occupies();
+
+		/**
+		 * The meta object literal for the '<em><b>Ins</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AGENT__INS = eINSTANCE.getAgent_Ins();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AndDecompositionImpl <em>And Decomposition</em>}' class.
@@ -2856,26 +3394,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ASPECT = eINSTANCE.getAspect();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BreakContributionImpl <em>Break Contribution</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.BreakContributionImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBreakContribution()
-		 * @generated
-		 */
-		EClass BREAK_CONTRIBUTION = eINSTANCE.getBreakContribution();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ConflictLabelImpl <em>Conflict Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.ConflictLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getConflictLabel()
-		 * @generated
-		 */
-		EClass CONFLICT_LABEL = eINSTANCE.getConflictLabel();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ContributionImpl <em>Contribution</em>}' class.
@@ -2912,6 +3430,22 @@ public interface openome_modelPackage extends EPackage {
 		EReference CONTRIBUTION__SOURCE = eINSTANCE.getContribution_Source();
 
 		/**
+		 * The meta object literal for the '<em><b>Goal model contribution type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = eINSTANCE.getContribution_Goal_model_contribution_type();
+
+		/**
+		 * The meta object literal for the '<em><b>Istar contribution type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getContribution_Istar_contribution_type();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.DecompositionImpl <em>Decomposition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2944,16 +3478,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECOMPOSITION__MODEL = eINSTANCE.getDecomposition_Model();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.DeniedLabelImpl <em>Denied Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.DeniedLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDeniedLabel()
-		 * @generated
-		 */
-		EClass DENIED_LABEL = eINSTANCE.getDeniedLabel();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -3016,26 +3540,6 @@ public interface openome_modelPackage extends EPackage {
 		EClass GOAL = eINSTANCE.getGoal();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.HelpContributionImpl <em>Help Contribution</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.HelpContributionImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHelpContribution()
-		 * @generated
-		 */
-		EClass HELP_CONTRIBUTION = eINSTANCE.getHelpContribution();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.HurtContributionImpl <em>Hurt Contribution</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.HurtContributionImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHurtContribution()
-		 * @generated
-		 */
-		EClass HURT_CONTRIBUTION = eINSTANCE.getHurtContribution();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IntentionImpl <em>Intention</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3052,22 +3556,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTENTION__NAME = eINSTANCE.getIntention_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTENTION__LABEL = eINSTANCE.getIntention_Label();
-
-		/**
-		 * The meta object literal for the '<em><b>Rule</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTENTION__RULE = eINSTANCE.getIntention_Rule();
 
 		/**
 		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
@@ -3182,14 +3670,68 @@ public interface openome_modelPackage extends EPackage {
 		EReference INTENTION__MODEL = eINSTANCE.getIntention_Model();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.MakeContributionImpl <em>Make Contribution</em>}' class.
+		 * The meta object literal for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.MakeContributionImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getMakeContribution()
 		 * @generated
 		 */
-		EClass MAKE_CONTRIBUTION = eINSTANCE.getMakeContribution();
+		EAttribute INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = eINSTANCE.getIntention_QualitativeReasoningCombinedLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = eINSTANCE.getIntention_QualitativeReasoningSatisfiedLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = eINSTANCE.getIntention_QualitativeReasoningDenialLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = eINSTANCE.getIntention_QuantitativeReasoningCombinedLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = eINSTANCE.getIntention_QuantitativeReasoningDeniedLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = eINSTANCE.getIntention_QuantitativeReasoningSatisfiedLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Contributes To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION__CONTRIBUTES_TO = eINSTANCE.getIntention_ContributesTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Contributes From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION__CONTRIBUTES_FROM = eINSTANCE.getIntention_ContributesFrom();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ModelImpl <em>Model</em>}' class.
@@ -3250,6 +3792,14 @@ public interface openome_modelPackage extends EPackage {
 		EReference MODEL__CONTAINERS = eINSTANCE.getModel_Containers();
 
 		/**
+		 * The meta object literal for the '<em><b>Correlations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__CORRELATIONS = eINSTANCE.getModel_Correlations();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3260,26 +3810,6 @@ public interface openome_modelPackage extends EPackage {
 		EClass OR_DECOMPOSITION = eINSTANCE.getOrDecomposition();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.PartiallyDeniedLabelImpl <em>Partially Denied Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.PartiallyDeniedLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPartiallyDeniedLabel()
-		 * @generated
-		 */
-		EClass PARTIALLY_DENIED_LABEL = eINSTANCE.getPartiallyDeniedLabel();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.PartiallySatisfiedLabelImpl <em>Partially Satisfied Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.PartiallySatisfiedLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPartiallySatisfiedLabel()
-		 * @generated
-		 */
-		EClass PARTIALLY_SATISFIED_LABEL = eINSTANCE.getPartiallySatisfiedLabel();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.PositionImpl <em>Position</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3288,6 +3818,14 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POSITION = eINSTANCE.getPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Covers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POSITION__COVERS = eINSTANCE.getPosition_Covers();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.PropertyImpl <em>Property</em>}' class.
@@ -3336,16 +3874,6 @@ public interface openome_modelPackage extends EPackage {
 		EClass ROLE = eINSTANCE.getRole();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.SatisfiedLabelImpl <em>Satisfied Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.SatisfiedLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSatisfiedLabel()
-		 * @generated
-		 */
-		EClass SATISFIED_LABEL = eINSTANCE.getSatisfiedLabel();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.SoftgoalImpl <em>Softgoal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3392,26 +3920,6 @@ public interface openome_modelPackage extends EPackage {
 		EAttribute TOPIC__TYPE = eINSTANCE.getTopic_Type();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.UnknownLabelImpl <em>Unknown Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.UnknownLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getUnknownLabel()
-		 * @generated
-		 */
-		EClass UNKNOWN_LABEL = eINSTANCE.getUnknownLabel();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.TruthLabelImpl <em>Truth Label</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.TruthLabelImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getTruthLabel()
-		 * @generated
-		 */
-		EClass TRUTH_LABEL = eINSTANCE.getTruthLabel();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ContainerImpl <em>Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3428,14 +3936,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Super</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__SUPER = eINSTANCE.getContainer_Super();
 
 		/**
 		 * The meta object literal for the '<em><b>Sub</b></em>' containment reference list feature.
@@ -3460,6 +3960,72 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__MODEL = eINSTANCE.getContainer_Model();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BeliefImpl <em>Belief</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.BeliefImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBelief()
+		 * @generated
+		 */
+		EClass BELIEF = eINSTANCE.getBelief();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.CorrelationImpl <em>Correlation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.CorrelationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getCorrelation()
+		 * @generated
+		 */
+		EClass CORRELATION = eINSTANCE.getCorrelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CORRELATION__TARGET = eINSTANCE.getCorrelation_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CORRELATION__SOURCE = eINSTANCE.getCorrelation_Source();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.EvaluationLabel
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
+		 * @generated
+		 */
+		EEnum EVALUATION_LABEL = eINSTANCE.getEvaluationLabel();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.GoalModelingContributionType
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
+		 * @generated
+		 */
+		EEnum GOAL_MODELING_CONTRIBUTION_TYPE = eINSTANCE.getGoalModelingContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.IStarContributionType
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
+		 * @generated
+		 */
+		EEnum ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getIStarContributionType();
 
 	}
 
