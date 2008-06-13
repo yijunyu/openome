@@ -40,11 +40,6 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureMakeLabel());
-			return true;
-		}
 		return false;
 	}
 
@@ -68,31 +63,30 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 	 */
 
 	protected Connection createConnectionFigure() {
-		return new MakeContributionFigure();
+		return new ContributionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public MakeContributionFigure getPrimaryShape() {
-		return (MakeContributionFigure) getFigure();
+	public ContributionFigure getPrimaryShape() {
+		return (ContributionFigure) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class MakeContributionFigure extends PolylineConnectionEx {
+	public class ContributionFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureMakeLabel;
+		private WrapLabel fFigureContributionLabel;
 
 		/**
 		 * @generated
 		 */
-		public MakeContributionFigure() {
-			this.setLineWidth(2);
+		public ContributionFigure() {
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
@@ -103,10 +97,10 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureMakeLabel = new WrapLabel();
-			fFigureMakeLabel.setText("++");
+			fFigureContributionLabel = new WrapLabel();
+			fFigureContributionLabel.setText("Contribution");
 
-			this.add(fFigureMakeLabel);
+			this.add(fFigureContributionLabel);
 
 		}
 
@@ -114,7 +108,7 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		private RotatableDecoration createTargetDecoration() {
-			openome_model.figures.MakeDecoration df = new openome_model.figures.MakeDecoration();
+			openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();
 
 			return df;
 		}
@@ -122,8 +116,8 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureMakeLabel() {
-			return fFigureMakeLabel;
+		public WrapLabel getFigureContributionLabel() {
+			return fFigureContributionLabel;
 		}
 
 	}

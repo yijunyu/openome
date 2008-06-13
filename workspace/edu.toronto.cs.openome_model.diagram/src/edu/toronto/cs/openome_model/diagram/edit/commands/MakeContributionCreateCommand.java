@@ -79,7 +79,7 @@ public class MakeContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateMakeContribution_3004(getContainer(), getSource(),
+				.canCreateContribution_3004(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,9 +87,9 @@ public class MakeContributionCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.MakeContribution newElement = (edu.toronto.cs.openome_model.MakeContribution) super.doDefaultElementCreation();
-		edu.toronto.cs.openome_model.MakeContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
-				.createMakeContribution();
+		// edu.toronto.cs.openome_model.Contribution newElement = (edu.toronto.cs.openome_model.Contribution) super.doDefaultElementCreation();
+		edu.toronto.cs.openome_model.Contribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
+				.createContribution();
 		getContainer().getContributions().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());

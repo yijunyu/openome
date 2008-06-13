@@ -248,6 +248,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ContributionTools17Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ContributionTools17Group_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Actor1CreationTool_title;
 
 	/**
@@ -368,42 +378,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Make17CreationTool_title;
+	public static String Contribution1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Make17CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Help18CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Help18CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Hurt19CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Hurt19CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Break20CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Break20CreationTool_desc;
+	public static String Contribution1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -713,42 +693,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_MakeContribution_3004_target;
+	public static String NavigatorGroupName_Contribution_3004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_MakeContribution_3004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_HelpContribution_3005_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_HelpContribution_3005_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_HurtContribution_3006_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_HurtContribution_3006_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_BreakContribution_3007_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_BreakContribution_3007_source;
+	public static String NavigatorGroupName_Contribution_3004_source;
 
 	/**
 	 * @generated

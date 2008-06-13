@@ -177,19 +177,7 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType MakeContribution_3004 = getElementType("edu.toronto.cs.openome_model.diagram.MakeContribution_3004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType HelpContribution_3005 = getElementType("edu.toronto.cs.openome_model.diagram.HelpContribution_3005"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType HurtContribution_3006 = getElementType("edu.toronto.cs.openome_model.diagram.HurtContribution_3006"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType BreakContribution_3007 = getElementType("edu.toronto.cs.openome_model.diagram.BreakContribution_3007"); //$NON-NLS-1$
+	public static final IElementType Contribution_3004 = getElementType("edu.toronto.cs.openome_model.diagram.Contribution_3004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -434,21 +422,9 @@ public class Openome_modelElementTypes extends ElementInitializers {
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrDecomposition());
 
-			elements.put(MakeContribution_3004,
+			elements.put(Contribution_3004,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getMakeContribution());
-
-			elements.put(HelpContribution_3005,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getHelpContribution());
-
-			elements.put(HurtContribution_3006,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getHurtContribution());
-
-			elements.put(BreakContribution_3007,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getBreakContribution());
+							.getContribution());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -499,10 +475,7 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Dependency_3001);
 			KNOWN_ELEMENT_TYPES.add(AndDecomposition_3002);
 			KNOWN_ELEMENT_TYPES.add(OrDecomposition_3003);
-			KNOWN_ELEMENT_TYPES.add(MakeContribution_3004);
-			KNOWN_ELEMENT_TYPES.add(HelpContribution_3005);
-			KNOWN_ELEMENT_TYPES.add(HurtContribution_3006);
-			KNOWN_ELEMENT_TYPES.add(BreakContribution_3007);
+			KNOWN_ELEMENT_TYPES.add(Contribution_3004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

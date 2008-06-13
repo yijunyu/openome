@@ -42,7 +42,7 @@ public class MakeContributionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.MakeContribution)) {
+		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.Contribution)) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -68,8 +68,7 @@ public class MakeContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistMakeContribution_3004(container, getNewSource(),
-						target);
+				.canExistContribution_3004(container, getNewSource(), target);
 	}
 
 	/**
@@ -86,8 +85,7 @@ public class MakeContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistMakeContribution_3004(container, source,
-						getNewTarget());
+				.canExistContribution_3004(container, source, getNewTarget());
 	}
 
 	/**
@@ -127,8 +125,8 @@ public class MakeContributionReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.MakeContribution getLink() {
-		return (edu.toronto.cs.openome_model.MakeContribution) getElementToEdit();
+	protected edu.toronto.cs.openome_model.Contribution getLink() {
+		return (edu.toronto.cs.openome_model.Contribution) getElementToEdit();
 	}
 
 	/**

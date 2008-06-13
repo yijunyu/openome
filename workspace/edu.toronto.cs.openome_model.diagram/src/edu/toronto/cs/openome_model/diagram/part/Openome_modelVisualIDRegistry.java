@@ -241,34 +241,10 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression MakeContribution_3004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(MakeContribution)",
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Contribution_3004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Contribution)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getMakeContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression HelpContribution_3005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(HelpContribution)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getHelpContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression HurtContribution_3006_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(HurtContribution)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getHurtContribution());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression BreakContribution_3007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(BreakContribution)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getBreakContribution());
+							.getContribution());
 
 	/**
 	 * @generated
@@ -826,21 +802,6 @@ public class Openome_modelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -867,24 +828,9 @@ public class Openome_modelVisualIDRegistry {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID;
 		}
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getMakeContribution().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(MakeContribution_3004_Constraint, domainElement)) {
+				.getContribution().isSuperTypeOf(domainElement.eClass())
+				&& evaluate(Contribution_3004_Constraint, domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID;
-		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHelpContribution().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(HelpContribution_3005_Constraint, domainElement)) {
-			return edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID;
-		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHurtContribution().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(HurtContribution_3006_Constraint, domainElement)) {
-			return edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID;
-		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getBreakContribution().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(BreakContribution_3007_Constraint, domainElement)) {
-			return edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

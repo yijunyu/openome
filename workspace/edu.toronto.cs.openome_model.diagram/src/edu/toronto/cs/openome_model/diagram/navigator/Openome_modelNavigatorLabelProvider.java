@@ -181,16 +181,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?OrDecomposition", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003); //$NON-NLS-1$
 		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?MakeContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_3004); //$NON-NLS-1$
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?HelpContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_3005); //$NON-NLS-1$
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?HurtContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_3006); //$NON-NLS-1$
-		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?BreakContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007); //$NON-NLS-1$
+					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?Contribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -314,13 +305,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
 			return getOrDecomposition_3003Text(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return getMakeContribution_3004Text(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-			return getHelpContribution_3005Text(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-			return getHurtContribution_3006Text(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-			return getBreakContribution_3007Text(view);
+			return getContribution_3004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -1074,73 +1059,13 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getMakeContribution_3004Text(View view) {
+	private String getContribution_3004Text(View view) {
 
 		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_3004,
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004,
 				(view.getElement() != null ? view.getElement() : view),
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getHelpContribution_3005Text(View view) {
-
-		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_3005,
-				(view.getElement() != null ? view.getElement() : view),
-				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getHurtContribution_3006Text(View view) {
-
-		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_3006,
-				(view.getElement() != null ? view.getElement() : view),
-				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBreakContribution_3007Text(View view) {
-
-		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007,
-				(view.getElement() != null ? view.getElement() : view),
-				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

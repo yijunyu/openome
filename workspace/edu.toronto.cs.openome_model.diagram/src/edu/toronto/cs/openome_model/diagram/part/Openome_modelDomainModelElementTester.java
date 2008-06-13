@@ -36,23 +36,11 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getBreakContribution()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getConflictLabel()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContribution()) {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getDecomposition()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getDeniedLabel()) {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
@@ -64,19 +52,7 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHelpContribution()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHurtContribution()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getMakeContribution()) {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
@@ -85,14 +61,6 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getOrDecomposition()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getPartiallyDeniedLabel()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getPartiallySatisfiedLabel()) {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
@@ -112,10 +80,6 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getSatisfiedLabel()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getSoftgoal()) {
 			return true;
 		}
@@ -128,15 +92,15 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getUnknownLabel()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getTruthLabel()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getBelief()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getCorrelation()) {
 			return true;
 		}
 		return false;

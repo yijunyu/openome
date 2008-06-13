@@ -47,7 +47,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/openome_modelDiagramFile.gif"
-  	     category="edu.toronto.cs.openome_model.editor.category"
+  	     category="org.eclipse.ui.Examples"
   	     class="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizard"
   	     id="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -148,21 +148,6 @@
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
@@ -628,42 +613,12 @@
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.MakeContribution_3004"
-               name="%metatype.name.MakeContribution_3004"
+               id="edu.toronto.cs.openome_model.diagram.Contribution_3004"
+               name="%metatype.name.Contribution_3004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="MakeContribution"
+               eclass="Contribution"
                edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.MakeContributionEditHelper">
             <param name="semanticHint" value="3004"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.HelpContribution_3005"
-               name="%metatype.name.HelpContribution_3005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="HelpContribution"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.HelpContributionEditHelper">
-            <param name="semanticHint" value="3005"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.HurtContribution_3006"
-               name="%metatype.name.HurtContribution_3006"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="HurtContribution"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.HurtContributionEditHelper">
-            <param name="semanticHint" value="3006"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.BreakContribution_3007"
-               name="%metatype.name.BreakContribution_3007"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="BreakContribution"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.BreakContributionEditHelper">
-            <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -711,10 +666,7 @@
          <elementType ref="edu.toronto.cs.openome_model.diagram.Dependency_3001"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.AndDecomposition_3002"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.OrDecomposition_3003"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.MakeContribution_3004"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.HelpContribution_3005"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.HurtContribution_3006"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.BreakContribution_3007"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Contribution_3004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

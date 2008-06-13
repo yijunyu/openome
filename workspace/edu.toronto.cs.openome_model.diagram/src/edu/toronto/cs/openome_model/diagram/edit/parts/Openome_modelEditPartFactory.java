@@ -315,30 +315,6 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart(
 						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart(
-						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

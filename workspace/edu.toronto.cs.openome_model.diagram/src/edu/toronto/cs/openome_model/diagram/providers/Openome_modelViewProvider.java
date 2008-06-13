@@ -353,27 +353,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
 				default:
 					return null;
 				}
@@ -526,12 +505,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel3ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel4EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel4ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel5EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel5ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel6ViewFactory.class;
 		}
 		return null;
 	}
@@ -578,12 +551,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.OrDecompositionViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.MakeContributionViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.HelpContributionViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.HurtContributionViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.BreakContributionViewFactory.class;
 		}
 		return null;
 	}
