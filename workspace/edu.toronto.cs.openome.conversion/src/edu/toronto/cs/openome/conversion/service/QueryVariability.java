@@ -119,15 +119,15 @@ public class QueryVariability implements IConfigurator {
 	private void add_a_goal(Intention root) {
 		goal_ids.put(root, Intentions.size());
 		Intentions.add(root);
-		if (root.getLabel() instanceof SatisfiedLabel ) {
+		if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.SATISFIED ) {
 			FS_goals.add(root);
-		} else if (root.getLabel() instanceof DeniedLabel) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED ) {
 			FD_goals.add(root);
-		} else if (root.getLabel() instanceof PartiallySatisfiedLabel) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED ) {
 			PS_goals.add(root);
-		} else if (root.getLabel() instanceof PartiallyDeniedLabel) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED ) {
 			PD_goals.add(root);
-		} else if (root.getLabel() instanceof ConflictLabel) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT ) {
 			CF_goals.add(root);
 		} else {
 			UN_goals.add(root);
@@ -142,9 +142,9 @@ public class QueryVariability implements IConfigurator {
 			return false;
 		boolean isRuntimeOR = true;
 		EList<Decomposition> list = to.getDecompositions();
-		for (int j = 0; j < list.size(); j++) {
-			Intention from = ((Decomposition) list.get(j)).getTarget();
-			EList<Contribution> contributions = from.getRule();
+		for(Decomposition d: list) {
+			Intention from = d.getTarget();
+			EList<Contribution> contributions = from.getContributesFrom();
 			if (contributions.size() > 0) {
 				isRuntimeOR = false;
 				break;

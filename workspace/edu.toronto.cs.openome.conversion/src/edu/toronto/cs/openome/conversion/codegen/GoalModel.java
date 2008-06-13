@@ -367,17 +367,15 @@ public class GoalModel extends IStar {
 							}
 							m.getDecompositions().add(d);
 						} else if (! s.op.startsWith("Dep")){
-							Contribution c;
+							Contribution c = f.createContribution();;
 							if (s.op.equals("Help")) 
-								c = f.createHelpContribution();
+								c.setIstar_contribution_type( IStarContributionType.HELP);
 							else if (s.op.equals("Make")) 
-								c = f.createMakeContribution();
+								c.setIstar_contribution_type( IStarContributionType.MAKE);
 							else if (s.op.equals("Hurt")) 
-								c = f.createHurtContribution();
+								c.setIstar_contribution_type( IStarContributionType.HURT);
 							else if (s.op.equals("Break")) 
-								c = f.createBreakContribution();
-							else
-								c = f.createContribution();
+								c.setIstar_contribution_type( IStarContributionType.BREAK);
 							c.setSource(y);
 							c.setTarget(x);
 							m.getContributions().add(c);
@@ -464,28 +462,28 @@ public class GoalModel extends IStar {
 				} else {
 					x.setParallel(false);
 				}
-				// see computing.sdtolabel
-				TruthLabel lbl = f.createUnknownLabel();
+				// see computing.sdtolabel for how numeric values are converted
+				//default is no label
+				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 				if (g.label!=null && g.label.equals("FS")
 						|| g.s == 1 && g.d == 0) {
-					lbl = f.createSatisfiedLabel();
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
 				} else if(g.label!=null && g.label.equals("FD")
 						|| g.s == 0 && g.d == 1){
-					lbl = f.createDeniedLabel();		    			
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);		    			
 				} else if(g.label!=null && g.label.equals("PS")
 						|| g.s > g.d){
-					lbl = f.createPartiallySatisfiedLabel();  			
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);  			
 				} else if(g.label!=null && g.label.equals("PD")
 						|| g.s < g.d){
-					lbl = f.createPartiallyDeniedLabel();		    			
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);		    			
 				} else if(g.label!=null && g.label.equals("CF")
 						|| g.s == g.d && g.s >= 0.5){
-					lbl = f.createConflictLabel();
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 				} else if(g.label!=null && g.label.equals("UN")
 						|| g.s == g.d && g.s < 0.5){
-					lbl = f.createUnknownLabel();
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 				}
-				x.setLabel(lbl);
 				m.getIntentions().add(x);
 				if (g.parent!=null) {
 					Container a = (Container) hm.get(new Integer(g.parent.id));
