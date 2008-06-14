@@ -220,7 +220,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__NAME = ACTOR__NAME;
+	int AGENT__NAME = CONTAINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -229,7 +229,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__SUB = ACTOR__SUB;
+	int AGENT__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -238,7 +238,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__INTENTIONS = ACTOR__INTENTIONS;
+	int AGENT__INTENTIONS = CONTAINER__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -247,34 +247,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__MODEL = ACTOR__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Is a</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__IS_A = ACTOR__IS_A;
-
-	/**
-	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__IS_PART_OF = ACTOR__IS_PART_OF;
-
-	/**
-	 * The feature id for the '<em><b>Believes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__BELIEVES = ACTOR__BELIEVES;
+	int AGENT__MODEL = CONTAINER__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Plays</b></em>' reference list.
@@ -283,7 +256,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__PLAYS = ACTOR_FEATURE_COUNT + 0;
+	int AGENT__PLAYS = CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Occupies</b></em>' reference list.
@@ -292,7 +265,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__OCCUPIES = ACTOR_FEATURE_COUNT + 1;
+	int AGENT__OCCUPIES = CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Ins</b></em>' reference.
@@ -301,7 +274,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT__INS = ACTOR_FEATURE_COUNT + 2;
+	int AGENT__INS = CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Agent</em>' class.
@@ -310,7 +283,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGENT_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 3;
+	int AGENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DecompositionImpl <em>Decomposition</em>}' class.
@@ -1184,7 +1157,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__NAME = ACTOR__NAME;
+	int POSITION__NAME = CONTAINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -1193,7 +1166,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__SUB = ACTOR__SUB;
+	int POSITION__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1202,7 +1175,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__INTENTIONS = ACTOR__INTENTIONS;
+	int POSITION__INTENTIONS = CONTAINER__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -1211,34 +1184,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__MODEL = ACTOR__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Is a</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__IS_A = ACTOR__IS_A;
-
-	/**
-	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__IS_PART_OF = ACTOR__IS_PART_OF;
-
-	/**
-	 * The feature id for the '<em><b>Believes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__BELIEVES = ACTOR__BELIEVES;
+	int POSITION__MODEL = CONTAINER__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Covers</b></em>' reference list.
@@ -1247,7 +1193,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION__COVERS = ACTOR_FEATURE_COUNT + 0;
+	int POSITION__COVERS = CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Position</em>' class.
@@ -1256,7 +1202,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 1;
+	int POSITION_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PropertyImpl <em>Property</em>}' class.
@@ -1538,7 +1484,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__NAME = ACTOR__NAME;
+	int ROLE__NAME = CONTAINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
@@ -1547,7 +1493,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__SUB = ACTOR__SUB;
+	int ROLE__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1556,7 +1502,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__INTENTIONS = ACTOR__INTENTIONS;
+	int ROLE__INTENTIONS = CONTAINER__INTENTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -1565,34 +1511,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__MODEL = ACTOR__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Is a</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__IS_A = ACTOR__IS_A;
-
-	/**
-	 * The feature id for the '<em><b>Is part of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__IS_PART_OF = ACTOR__IS_PART_OF;
-
-	/**
-	 * The feature id for the '<em><b>Believes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__BELIEVES = ACTOR__BELIEVES;
+	int ROLE__MODEL = CONTAINER__MODEL;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -1601,7 +1520,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int ROLE_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.SoftgoalImpl <em>Softgoal</em>}' class.

@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class AgentImpl extends ActorImpl implements Agent {
+public class AgentImpl extends ContainerImpl implements Agent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

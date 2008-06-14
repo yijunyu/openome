@@ -16,7 +16,7 @@ package edu.toronto.cs.openome_model;
  * @model
  * @generated
  */
-public interface Role extends Actor {
+public interface Role extends Container {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

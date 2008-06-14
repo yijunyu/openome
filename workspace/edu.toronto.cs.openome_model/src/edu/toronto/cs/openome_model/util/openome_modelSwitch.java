@@ -103,7 +103,6 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.AGENT: {
 				Agent agent = (Agent)theEObject;
 				T result = caseAgent(agent);
-				if (result == null) result = caseActor(agent);
 				if (result == null) result = caseContainer(agent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -169,7 +168,6 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.POSITION: {
 				Position position = (Position)theEObject;
 				T result = casePosition(position);
-				if (result == null) result = caseActor(position);
 				if (result == null) result = caseContainer(position);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -190,7 +188,6 @@ public class openome_modelSwitch<T> {
 			case openome_modelPackage.ROLE: {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
-				if (result == null) result = caseActor(role);
 				if (result == null) result = caseContainer(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

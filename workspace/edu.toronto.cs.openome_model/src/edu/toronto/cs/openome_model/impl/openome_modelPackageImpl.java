@@ -1210,14 +1210,14 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		// Add supertypes to classes
 		actorEClass.getESuperTypes().add(this.getContainer());
-		agentEClass.getESuperTypes().add(this.getActor());
+		agentEClass.getESuperTypes().add(this.getContainer());
 		andDecompositionEClass.getESuperTypes().add(this.getDecomposition());
 		aspectEClass.getESuperTypes().add(this.getContainer());
 		goalEClass.getESuperTypes().add(this.getIntention());
 		orDecompositionEClass.getESuperTypes().add(this.getDecomposition());
-		positionEClass.getESuperTypes().add(this.getActor());
+		positionEClass.getESuperTypes().add(this.getContainer());
 		resourceEClass.getESuperTypes().add(this.getIntention());
-		roleEClass.getESuperTypes().add(this.getActor());
+		roleEClass.getESuperTypes().add(this.getContainer());
 		softgoalEClass.getESuperTypes().add(this.getIntention());
 		taskEClass.getESuperTypes().add(this.getIntention());
 		beliefEClass.getESuperTypes().add(this.getIntention());

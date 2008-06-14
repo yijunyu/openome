@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class PositionImpl extends ActorImpl implements Position {
+public class PositionImpl extends ContainerImpl implements Position {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
