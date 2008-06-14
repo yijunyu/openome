@@ -442,13 +442,16 @@
       contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
       name="Agent"
-      figure="AgentFigure"/>
+      figure="AgentFigure"
+      contentPane="//@figures.0/@descriptors.1/@accessors.1"/>
   <nodes
       name="Position"
-      figure="PositionFigure"/>
+      figure="PositionFigure"
+      contentPane="//@figures.0/@descriptors.2/@accessors.1"/>
   <nodes
       name="Role"
-      figure="RoleFigure"/>
+      figure="RoleFigure"
+      contentPane="//@figures.0/@descriptors.3/@accessors.1"/>
   <nodes
       name="Aspect"
       figure="AspectFigure"/>

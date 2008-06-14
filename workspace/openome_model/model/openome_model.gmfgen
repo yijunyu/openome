@@ -1080,6 +1080,8 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/containers"/>
+        <modelElementSelector
+            body="oclIsKindOf(Agent)"/>
       </modelFacet>
       <labels
           visualID="4010"
@@ -1903,9 +1905,7 @@
           kind="Pathmaps"/>
     </preferencePages>
   </diagram>
-  <plugin>
-    <requiredPlugins>openome_model.figures</requiredPlugins>
-  </plugin>
+  <plugin/>
   <editor/>
   <navigator>
     <childReferences
@@ -4347,6 +4347,6 @@
   <expressionProviders>
     <providers
         xsi:type="gmfgen:GenExpressionInterpreter"
-        expressions="//@diagram/@topLevelNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.11/@modelFacet/@modelElementSelector //@diagram/@childNodes.12/@modelFacet/@modelElementSelector //@diagram/@childNodes.13/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.17/@modelFacet/@modelElementSelector //@diagram/@childNodes.18/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.5/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.6/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.7/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.8/@modelFacet/@modelElementSelector //@diagram/@links.1/@modelFacet/@modelElementSelector //@diagram/@links.2/@modelFacet/@modelElementSelector //@diagram/@links.3/@modelFacet/@modelElementSelector"/>
+        expressions="//@diagram/@topLevelNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.11/@modelFacet/@modelElementSelector //@diagram/@childNodes.12/@modelFacet/@modelElementSelector //@diagram/@childNodes.13/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@childNodes.16/@modelFacet/@modelElementSelector //@diagram/@childNodes.17/@modelFacet/@modelElementSelector //@diagram/@childNodes.18/@modelFacet/@modelElementSelector //@diagram/@childNodes.19/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.5/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.6/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.7/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.8/@modelFacet/@modelElementSelector //@diagram/@links.1/@modelFacet/@modelElementSelector //@diagram/@links.2/@modelFacet/@modelElementSelector //@diagram/@links.3/@modelFacet/@modelElementSelector"/>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

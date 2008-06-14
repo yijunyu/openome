@@ -10,7 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="believes" upperBound="-1"
         eType="#//Belief"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Actor">
+  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="plays" upperBound="-1"
         eType="#//Role"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="occupies" upperBound="-1"
@@ -113,7 +113,7 @@
         eType="#//Correlation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrDecomposition" eSuperTypes="#//Decomposition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Actor">
+  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="covers" upperBound="-1"
         eType="#//Role"/>
   </eClassifiers>
@@ -122,7 +122,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Intention"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Topic">

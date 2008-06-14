@@ -146,6 +146,8 @@
     <ownedChild>
       <domainMetaElement
           href="openome_model.ecore#//Agent"/>
+      <domainSpecialization
+          body="oclIsKindOf(Agent)"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
