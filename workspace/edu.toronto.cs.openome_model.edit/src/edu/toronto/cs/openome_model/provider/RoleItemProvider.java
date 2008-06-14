@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class RoleItemProvider
-	extends ActorItemProvider
+	extends ContainerItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
