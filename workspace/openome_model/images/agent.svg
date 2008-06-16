@@ -13,11 +13,8 @@
    id="svg10205"
    sodipodi:version="0.32"
    inkscape:version="0.45"
-   version="1.0"
-   sodipodi:docbase="/home/nernst/Desktop"
-   sodipodi:docname="role.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   sodipodi:modified="true">
+   sodipodi:modified="true"
+   version="1.0">
   <defs
      id="defs10207" />
   <sodipodi:namedview
@@ -64,5 +61,10 @@
        sodipodi:rx="57.142857"
        sodipodi:ry="57.142857"
        d="M 157.14286 109.50504 A 57.142857 57.142857 0 1 1  42.857143,109.50504 A 57.142857 57.142857 0 1 1  157.14286 109.50504 z" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 51.367818,78.523323 L 147.33591,78.462569 L 147.98774,78.462569"
+       id="path11184"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>
