@@ -183,39 +183,13 @@ public class openome_modelActionBarContributor
 	 * as well as the sub-menus for object creation items.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
-
-		IMenuManager submenuManager = new MenuManager(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditor_menu"), "edu.toronto.cs.openome_modelMenuID");
-		menuManager.insertAfter("additions", submenuManager);
-		submenuManager.add(new Separator("settings"));
-		submenuManager.add(new Separator("actions"));
-		submenuManager.add(new Separator("additions"));
-		submenuManager.add(new Separator("additions-end"));
-
-		// Prepare for CreateChild item addition or removal.
-		//
-		createChildMenuManager = new MenuManager(openome_modelEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
-		submenuManager.insertBefore("additions", createChildMenuManager);
-
-		// Prepare for CreateSibling item addition or removal.
-		//
-		createSiblingMenuManager = new MenuManager(openome_modelEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
-		submenuManager.insertBefore("additions", createSiblingMenuManager);
-
-		// Force an update because Eclipse hides empty menus now.
-		//
-		submenuManager.addMenuListener
-			(new IMenuListener() {
-				 public void menuAboutToShow(IMenuManager menuManager) {
-					 menuManager.updateAll(true);
-				 }
-			 });
-
-		addGlobalActions(submenuManager);
+		/* Removed the code that adds the OpenOME menu to 
+		  the menu bar when the model editor is open. */
 	}
 
 	/**
