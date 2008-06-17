@@ -83,7 +83,7 @@ public class Openome_modelDiagramEditorUtil {
 			} catch (PartInitException exception) {
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 						.getInstance().logError(
-								"Unable to open the Properies view  ",
+								"Unable to open the Properties view  ",
 								exception);
 			}
 
