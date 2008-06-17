@@ -131,6 +131,19 @@
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="ActorDependency"
+          description="Create new Actor Dependency">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="/icons/dependency.gif"
+            bundle="openome_model"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"
+            path="/icons/dependency.gif"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Dependency"
           description="Create new Dependency">
         <smallIcon
@@ -173,23 +186,17 @@
       <tools
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
-          xsi:type="gmftool:ToolGroup"
-          title="ContributionTools"
-          description=""
-          collapsible="true">
-        <tools
-            xsi:type="gmftool:CreationTool"
-            title="Contribution"
-            description="Create new Contribution">
-          <smallIcon
-              xsi:type="gmftool:BundleImage"
-              path="/icons/helpcontribution.gif"
-              bundle="openome_model"/>
-          <largeIcon
-              xsi:type="gmftool:BundleImage"
-              path="/icons/helpcontribution.gif"
-              bundle="openome_model"/>
-        </tools>
+          xsi:type="gmftool:CreationTool"
+          title="Contribution"
+          description="Create new Contribution">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="/icons/helpcontribution.gif"
+            bundle="openome_model"/>
+        <largeIcon
+            xsi:type="gmftool:BundleImage"
+            path="/icons/helpcontribution.gif"
+            bundle="openome_model"/>
       </tools>
     </tools>
   </palette>

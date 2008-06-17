@@ -787,6 +787,31 @@
   </links>
   <links>
     <domainMetaElement
+        href="openome_model.ecore#//Dependency"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        editPattern="">
+      <diagramLabel
+          href="openome_model.gmfgraph#DependencyLabel"/>
+      <features
+          href="openome_model.ecore#//Dependency/label"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/dependencies"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.11"/>
+    <diagramLink
+        href="openome_model.gmfgraph#Dependency"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Dependency/actorDependencyTo"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Dependency/actorDependencyFrom"/>
+  </links>
+  <links>
+    <domainMetaElement
         href="openome_model.ecore#//AndDecomposition"/>
     <domainSpecialization
         body="oclIsKindOf(AndDecomposition)"/>
@@ -798,7 +823,7 @@
     <containmentFeature
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
-        xsi:type="gmftool:CreationTool"
+        xsi:type="gmftool:PaletteSeparator"
         href="openome_model.gmftool#//@palette/@tools.0/@tools.13"/>
     <diagramLink
         href="openome_model.gmfgraph#AndDecomposition"/>
@@ -847,7 +872,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.16/@tools.0"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.17"/>
     <diagramLink
         href="openome_model.gmfgraph#Contribution"/>
     <sourceMetaFeature

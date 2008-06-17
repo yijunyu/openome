@@ -19,16 +19,13 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//GoalModelingContributionType">
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/None"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/PlusPlusSat"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/PlusSat"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusSat"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusMinusSat"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/PlusPlusDen"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/PlusDen"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusDen"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusMinusDen"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/PlusPlus"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/Plus"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/Minus"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusMinus"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//IStarContributionType">
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/None"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Unknown"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Make"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Help"/>
@@ -37,10 +34,17 @@
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Hurt"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Break"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//GoalModelingContributionSymmetry">
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionSymmetry/Both"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionSymmetry/Sat"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionSymmetry/Den"/>
+    </genEnums>
     <genClasses ecoreClass="openome_model.ecore#//Actor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/is_a"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/is_part_of"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/believes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/dependencyTo"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Agent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Agent/plays"/>
@@ -55,6 +59,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/goal_model_contribution_type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/istar_contribution_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/goal_model_symmetry"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Decomposition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Decomposition/source"/>
@@ -67,6 +72,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Dependency/trust"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Dependency/label"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/actorDependencyFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependency/actorDependencyTo"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Goal"/>
     <genClasses ecoreClass="openome_model.ecore#//Intention">
@@ -122,6 +129,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Container/model"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Belief"/>
+    <genClasses image="false" ecoreClass="openome_model.ecore#//Link"/>
     <genClasses ecoreClass="openome_model.ecore#//Correlation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Correlation/target"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Correlation/source"/>
