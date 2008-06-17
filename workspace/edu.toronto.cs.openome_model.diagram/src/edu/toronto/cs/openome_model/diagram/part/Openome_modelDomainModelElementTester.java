@@ -88,10 +88,6 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getTopic()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer()) {
 			return true;
 		}

@@ -20,8 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getName <em>Name</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getSystem <em>System</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getBoundary <em>Boundary</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getInput <em>Input</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getOutput <em>Output</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getExclusive <em>Exclusive</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getSequential <em>Sequential</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getParallel <em>Parallel</em>}</li>
@@ -134,38 +132,6 @@ public interface Intention extends EObject {
 	 * @generated
 	 */
 	void setBoundary(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Topic}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_Input()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Topic> getInput();
-
-	/**
-	 * Returns the value of the '<em><b>Output</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Topic}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Output</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_Output()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Topic> getOutput();
 
 	/**
 	 * Returns the value of the '<em><b>Exclusive</b></em>' attribute.

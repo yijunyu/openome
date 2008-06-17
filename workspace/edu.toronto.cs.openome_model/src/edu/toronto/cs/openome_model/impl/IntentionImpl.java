@@ -44,8 +44,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getName <em>Name</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getSystem <em>System</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getBoundary <em>Boundary</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getInput <em>Input</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getExclusive <em>Exclusive</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getSequential <em>Sequential</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getParallel <em>Parallel</em>}</li>
@@ -136,26 +134,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @ordered
 	 */
 	protected Boolean boundary = BOUNDARY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInput()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Topic> input;
-
-	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutput()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Topic> output;
 
 	/**
 	 * The default value of the '{@link #getExclusive() <em>Exclusive</em>}' attribute.
@@ -487,30 +465,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		boundary = newBoundary;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__BOUNDARY, oldBoundary, boundary));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Topic> getInput() {
-		if (input == null) {
-			input = new EObjectContainmentEList<Topic>(Topic.class, this, openome_modelPackage.INTENTION__INPUT);
-		}
-		return input;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Topic> getOutput() {
-		if (output == null) {
-			output = new EObjectContainmentEList<Topic>(Topic.class, this, openome_modelPackage.INTENTION__OUTPUT);
-		}
-		return output;
 	}
 
 	/**
@@ -909,10 +863,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case openome_modelPackage.INTENTION__INPUT:
-				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
-			case openome_modelPackage.INTENTION__OUTPUT:
-				return ((InternalEList<?>)getOutput()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__PROPERTY:
 				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
@@ -965,10 +915,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return getSystem();
 			case openome_modelPackage.INTENTION__BOUNDARY:
 				return getBoundary();
-			case openome_modelPackage.INTENTION__INPUT:
-				return getInput();
-			case openome_modelPackage.INTENTION__OUTPUT:
-				return getOutput();
 			case openome_modelPackage.INTENTION__EXCLUSIVE:
 				return getExclusive();
 			case openome_modelPackage.INTENTION__SEQUENTIAL:
@@ -1026,14 +972,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return;
 			case openome_modelPackage.INTENTION__BOUNDARY:
 				setBoundary((Boolean)newValue);
-				return;
-			case openome_modelPackage.INTENTION__INPUT:
-				getInput().clear();
-				getInput().addAll((Collection<? extends Topic>)newValue);
-				return;
-			case openome_modelPackage.INTENTION__OUTPUT:
-				getOutput().clear();
-				getOutput().addAll((Collection<? extends Topic>)newValue);
 				return;
 			case openome_modelPackage.INTENTION__EXCLUSIVE:
 				setExclusive((Boolean)newValue);
@@ -1117,12 +1055,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 			case openome_modelPackage.INTENTION__BOUNDARY:
 				setBoundary(BOUNDARY_EDEFAULT);
 				return;
-			case openome_modelPackage.INTENTION__INPUT:
-				getInput().clear();
-				return;
-			case openome_modelPackage.INTENTION__OUTPUT:
-				getOutput().clear();
-				return;
 			case openome_modelPackage.INTENTION__EXCLUSIVE:
 				setExclusive(EXCLUSIVE_EDEFAULT);
 				return;
@@ -1195,10 +1127,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
 			case openome_modelPackage.INTENTION__BOUNDARY:
 				return BOUNDARY_EDEFAULT == null ? boundary != null : !BOUNDARY_EDEFAULT.equals(boundary);
-			case openome_modelPackage.INTENTION__INPUT:
-				return input != null && !input.isEmpty();
-			case openome_modelPackage.INTENTION__OUTPUT:
-				return output != null && !output.isEmpty();
 			case openome_modelPackage.INTENTION__EXCLUSIVE:
 				return EXCLUSIVE_EDEFAULT == null ? exclusive != null : !EXCLUSIVE_EDEFAULT.equals(exclusive);
 			case openome_modelPackage.INTENTION__SEQUENTIAL:

@@ -206,12 +206,6 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.TOPIC: {
-				Topic topic = (Topic)theEObject;
-				T result = caseTopic(topic);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case openome_modelPackage.CONTAINER: {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
@@ -487,21 +481,6 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseTask(Task object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Topic</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Topic</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTopic(Topic object) {
 		return null;
 	}
 

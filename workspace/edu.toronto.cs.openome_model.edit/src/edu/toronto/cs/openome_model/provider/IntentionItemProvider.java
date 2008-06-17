@@ -503,8 +503,6 @@ public class IntentionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__INPUT);
-			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__OUTPUT);
 			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__PROPERTY);
 		}
 		return childrenFeatures;
@@ -574,8 +572,6 @@ public class IntentionItemProvider
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case openome_modelPackage.INTENTION__INPUT:
-			case openome_modelPackage.INTENTION__OUTPUT:
 			case openome_modelPackage.INTENTION__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -596,41 +592,8 @@ public class IntentionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__INPUT,
-				 openome_modelFactory.eINSTANCE.createTopic()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION__OUTPUT,
-				 openome_modelFactory.eINSTANCE.createTopic()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(openome_modelPackage.Literals.INTENTION__PROPERTY,
 				 openome_modelFactory.eINSTANCE.createProperty()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == openome_modelPackage.Literals.INTENTION__INPUT ||
-			childFeature == openome_modelPackage.Literals.INTENTION__OUTPUT;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

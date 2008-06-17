@@ -185,15 +185,6 @@ public interface openome_modelFactory extends EFactory {
 	Task createTask();
 
 	/**
-	 * Returns a new object of class '<em>Topic</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Topic</em>'.
-	 * @generated
-	 */
-	Topic createTopic();
-
-	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

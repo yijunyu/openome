@@ -473,29 +473,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Topic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TopicItemProvider topicItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Topic}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTopicAdapter() {
-		if (topicItemProvider == null) {
-			topicItemProvider = new TopicItemProvider(this);
-		}
-
-		return topicItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Container} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -680,7 +657,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (roleItemProvider != null) roleItemProvider.dispose();
 		if (softgoalItemProvider != null) softgoalItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (topicItemProvider != null) topicItemProvider.dispose();
 		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (beliefItemProvider != null) beliefItemProvider.dispose();
 		if (correlationItemProvider != null) correlationItemProvider.dispose();

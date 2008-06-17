@@ -508,13 +508,15 @@ public class GoalModel extends IStar {
 	@SuppressWarnings("unchecked")
 	private void set_goal_name(Intention x, String n) {
 		x.setName(Computing.strip_quote(n));
-		// check whether n contains a Topic
-		if (n.indexOf("[")>0 && n.indexOf("]")> n.indexOf("[")) {
+		// check whether n contains a Topic e.g. "name[topic]"
+		if (n.indexOf("[")>0 && n.indexOf("]")> n.indexOf("[") && x instanceof Softgoal) {
 			String m = n.substring(n.indexOf("[")).substring(1, n.indexOf("]") - n.indexOf("["));
-			for (StringTokenizer st = new StringTokenizer(m, ",");
-				 st.hasMoreTokens();) {
+			Softgoal sg = (Softgoal) x;
+			sg.setTopic(m);
+			/* deprecated... not sure what the business logic is here.  Alexei's? 
+			for (StringTokenizer st = new StringTokenizer(m, ","); st.hasMoreTokens();) {
 				String item = Computing.strip_quote(st.nextToken());
-				Topic t = f.createTopic();
+					Topic t = f.createTopic();
 				StringTokenizer st2 = new StringTokenizer(item, " ");
 				if (st2.countTokens()==1) {
 					t.setType("String"); // default
@@ -526,14 +528,8 @@ public class GoalModel extends IStar {
 					t.setType(st2.nextToken());
 					t.setName(item.substring(item.indexOf(" ")+1));
 				}
-				if (t.getName().endsWith("*")) {
-					// output
-					x.getOutput().add(t);
-				} else {
-					// input
-					x.getInput().add(t);
-				}
-			}
+
+			} */
 		}
 	}
 

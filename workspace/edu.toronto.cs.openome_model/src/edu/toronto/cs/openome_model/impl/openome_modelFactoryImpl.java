@@ -84,7 +84,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.ROLE: return createRole();
 			case openome_modelPackage.SOFTGOAL: return createSoftgoal();
 			case openome_modelPackage.TASK: return createTask();
-			case openome_modelPackage.TOPIC: return createTopic();
 			case openome_modelPackage.CONTAINER: return createContainer();
 			case openome_modelPackage.BELIEF: return createBelief();
 			case openome_modelPackage.CORRELATION: return createCorrelation();
@@ -299,16 +298,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Topic createTopic() {
-		TopicImpl topic = new TopicImpl();
-		return topic;
 	}
 
 	/**

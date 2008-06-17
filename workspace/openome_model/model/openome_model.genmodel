@@ -73,8 +73,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/system"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/boundary"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/input"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/exclusive"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/sequential"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/parallel"/>
@@ -113,12 +111,10 @@
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Resource"/>
     <genClasses ecoreClass="openome_model.ecore#//Role"/>
-    <genClasses ecoreClass="openome_model.ecore#//Softgoal"/>
-    <genClasses ecoreClass="openome_model.ecore#//Task"/>
-    <genClasses ecoreClass="openome_model.ecore#//Topic">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Topic/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Topic/type"/>
+    <genClasses ecoreClass="openome_model.ecore#//Softgoal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Softgoal/Topic"/>
     </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//Task"/>
     <genClasses ecoreClass="openome_model.ecore#//Container">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Container/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/sub"/>

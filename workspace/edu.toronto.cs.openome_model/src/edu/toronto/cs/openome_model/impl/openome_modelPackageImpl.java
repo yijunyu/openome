@@ -177,13 +177,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass topicEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass containerEClass = null;
 
 	/**
@@ -573,26 +566,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_Input() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIntention_Output() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIntention_Exclusive() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -601,7 +576,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Sequential() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -610,7 +585,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_Parallel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -619,7 +594,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Property() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(8);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -628,7 +603,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_DependencyFrom() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(9);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -637,7 +612,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_DependencyTo() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -646,7 +621,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Decompositions() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(11);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -655,7 +630,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ParentDecompositions() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(12);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -664,7 +639,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Container() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(13);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -673,7 +648,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_Model() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(14);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -682,7 +657,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -691,7 +666,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -700,7 +675,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningDenialLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -709,7 +684,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -718,7 +693,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningDeniedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -727,7 +702,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -736,7 +711,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesTo() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(21);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -745,7 +720,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesFrom() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(22);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -906,35 +881,17 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSoftgoal_Topic() {
+		return (EAttribute)softgoalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTask() {
 		return taskEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTopic() {
-		return topicEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTopic_Name() {
-		return (EAttribute)topicEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTopic_Type() {
-		return (EAttribute)topicEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1112,8 +1069,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(intentionEClass, INTENTION__NAME);
 		createEAttribute(intentionEClass, INTENTION__SYSTEM);
 		createEAttribute(intentionEClass, INTENTION__BOUNDARY);
-		createEReference(intentionEClass, INTENTION__INPUT);
-		createEReference(intentionEClass, INTENTION__OUTPUT);
 		createEAttribute(intentionEClass, INTENTION__EXCLUSIVE);
 		createEAttribute(intentionEClass, INTENTION__SEQUENTIAL);
 		createEAttribute(intentionEClass, INTENTION__PARALLEL);
@@ -1156,12 +1111,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		roleEClass = createEClass(ROLE);
 
 		softgoalEClass = createEClass(SOFTGOAL);
+		createEAttribute(softgoalEClass, SOFTGOAL__TOPIC);
 
 		taskEClass = createEClass(TASK);
-
-		topicEClass = createEClass(TOPIC);
-		createEAttribute(topicEClass, TOPIC__NAME);
-		createEAttribute(topicEClass, TOPIC__TYPE);
 
 		containerEClass = createEClass(CONTAINER);
 		createEAttribute(containerEClass, CONTAINER__NAME);
@@ -1262,8 +1214,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEAttribute(getIntention_Name(), ecorePackage.getEString(), "name", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_System(), ecorePackage.getEBooleanObject(), "system", "true", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Boundary(), ecorePackage.getEBooleanObject(), "boundary", "false", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_Input(), this.getTopic(), null, "input", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_Output(), this.getTopic(), null, "output", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Exclusive(), ecorePackage.getEBooleanObject(), "exclusive", "true", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Sequential(), ecorePackage.getEBooleanObject(), "sequential", "true", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Parallel(), ecorePackage.getEBooleanObject(), "parallel", "false", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1306,12 +1256,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(softgoalEClass, Softgoal.class, "Softgoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSoftgoal_Topic(), ecorePackage.getEString(), "Topic", null, 0, 1, Softgoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(topicEClass, Topic.class, "Topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTopic_Name(), ecorePackage.getEString(), "name", "", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTopic_Type(), ecorePackage.getEString(), "type", "String", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containerEClass, Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
