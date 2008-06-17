@@ -66,7 +66,7 @@ public class Openome_modelDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static boolean openDiagram(Resource diagram)
 			throws PartInitException {
@@ -76,6 +76,17 @@ public class Openome_modelDiagramEditorUtil {
 		if (workspaceResource instanceof IFile) {
 			IWorkbenchPage page = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage();
+			
+			// Open the Properties view when the diagram (.ood) editor opens.
+			try {
+				page.showView("org.eclipse.ui.views.PropertySheet");
+			} catch (PartInitException exception) {
+				edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.getInstance().logError(
+								"Unable to open the Properies view  ",
+								exception);
+			}
+
 			return null != page
 					.openEditor(
 							new FileEditorInput((IFile) workspaceResource),
