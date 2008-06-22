@@ -158,14 +158,14 @@
     <eLiterals name="MinusMinus" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IStarContributionType">
-    <eLiterals name="None" value="-1"/>
-    <eLiterals name="Unknown" literal="UnknownContribution"/>
-    <eLiterals name="Make" value="1"/>
-    <eLiterals name="Help" value="2"/>
-    <eLiterals name="SomePlus" value="3"/>
-    <eLiterals name="SomeMinus" value="4"/>
-    <eLiterals name="Hurt" value="5"/>
-    <eLiterals name="Break" value="6"/>
+    <eLiterals name="None"/>
+    <eLiterals name="Unknown" value="1" literal="UnknownContribution"/>
+    <eLiterals name="Make" value="2"/>
+    <eLiterals name="Help" value="3"/>
+    <eLiterals name="SomePlus" value="4"/>
+    <eLiterals name="SomeMinus" value="5"/>
+    <eLiterals name="Hurt" value="6"/>
+    <eLiterals name="Break" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionSymmetry">
     <eLiterals name="Both" value="2"/>
