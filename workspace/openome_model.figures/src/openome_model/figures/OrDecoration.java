@@ -12,7 +12,7 @@ public class OrDecoration extends PolygonDecoration {
 		setFillXOR(false);
 		setOutline(true);
 		setOutlineXOR(false);
-		setLineWidth(1);
+		setLineWidth(3);
 		setLineStyle(Graphics.LINE_SOLID);
 		setScale(10, 4);
 	}
