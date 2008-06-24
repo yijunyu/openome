@@ -11,7 +11,7 @@ public class AndDecoration extends PolylineDecoration {
 		setFillXOR(false);
 		setOutline(true);
 		setOutlineXOR(false);
-		setLineWidth(4);
+		setLineWidth(3);
 		setLineStyle(Graphics.LINE_SOLID);
 		PointList template = new PointList();
 

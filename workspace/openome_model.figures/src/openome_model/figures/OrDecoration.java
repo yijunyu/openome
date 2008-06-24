@@ -7,7 +7,6 @@ import org.eclipse.draw2d.PolygonDecoration;
 public class OrDecoration extends PolygonDecoration {
 
 	public OrDecoration() {
-		setBackgroundColor(ColorConstants.white);
 		setFill(true);
 		setFillXOR(false);
 		setOutline(true);
