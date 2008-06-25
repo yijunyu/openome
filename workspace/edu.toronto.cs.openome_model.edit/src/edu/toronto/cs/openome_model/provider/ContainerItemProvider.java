@@ -197,6 +197,21 @@ public class ContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createAgent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createPosition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.CONTAINER__SUB,
+				 openome_modelFactory.eINSTANCE.createRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(openome_modelPackage.Literals.CONTAINER__INTENTIONS,
 				 openome_modelFactory.eINSTANCE.createIntention()));
 

@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class CorrelationItemProvider
-	extends ItemProviderAdapter
+	extends LinkItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

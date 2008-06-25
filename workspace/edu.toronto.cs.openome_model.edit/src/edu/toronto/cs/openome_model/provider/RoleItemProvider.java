@@ -8,6 +8,7 @@ package edu.toronto.cs.openome_model.provider;
 
 import edu.toronto.cs.openome_model.Role;
 
+import edu.toronto.cs.openome_model.openome_modelPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -65,8 +67,123 @@ public class RoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIs_aPropertyDescriptor(object);
+			addIs_part_ofPropertyDescriptor(object);
+			addBelievesPropertyDescriptor(object);
+			addDependencyFromPropertyDescriptor(object);
+			addDependencyToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Is a feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIs_aPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_is_a_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_is_a_feature", "_UI_Actor_type"),
+				 openome_modelPackage.Literals.ACTOR__IS_A,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is part of feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIs_part_ofPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_is_part_of_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_is_part_of_feature", "_UI_Actor_type"),
+				 openome_modelPackage.Literals.ACTOR__IS_PART_OF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Believes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBelievesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_believes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_believes_feature", "_UI_Actor_type"),
+				 openome_modelPackage.Literals.ACTOR__BELIEVES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_dependencyFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_dependencyFrom_feature", "_UI_Actor_type"),
+				 openome_modelPackage.Literals.ACTOR__DEPENDENCY_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dependency To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependencyToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Actor_dependencyTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_dependencyTo_feature", "_UI_Actor_type"),
+				 openome_modelPackage.Literals.ACTOR__DEPENDENCY_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

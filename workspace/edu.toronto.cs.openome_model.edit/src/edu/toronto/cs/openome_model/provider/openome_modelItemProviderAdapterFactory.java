@@ -151,29 +151,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Aspect} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AspectItemProvider aspectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Aspect}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAspectAdapter() {
-		if (aspectItemProvider == null) {
-			aspectItemProvider = new AspectItemProvider(this);
-		}
-
-		return aspectItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Contribution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,29 +450,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Container} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContainerItemProvider containerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Container}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContainerAdapter() {
-		if (containerItemProvider == null) {
-			containerItemProvider = new ContainerItemProvider(this);
-		}
-
-		return containerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Belief} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,7 +597,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (actorItemProvider != null) actorItemProvider.dispose();
 		if (agentItemProvider != null) agentItemProvider.dispose();
 		if (andDecompositionItemProvider != null) andDecompositionItemProvider.dispose();
-		if (aspectItemProvider != null) aspectItemProvider.dispose();
 		if (contributionItemProvider != null) contributionItemProvider.dispose();
 		if (decompositionItemProvider != null) decompositionItemProvider.dispose();
 		if (dependencyItemProvider != null) dependencyItemProvider.dispose();
@@ -657,7 +610,6 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (roleItemProvider != null) roleItemProvider.dispose();
 		if (softgoalItemProvider != null) softgoalItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (containerItemProvider != null) containerItemProvider.dispose();
 		if (beliefItemProvider != null) beliefItemProvider.dispose();
 		if (correlationItemProvider != null) correlationItemProvider.dispose();
 	}

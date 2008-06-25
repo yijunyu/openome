@@ -36,7 +36,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ContributionItemProvider
-	extends ItemProviderAdapter
+	extends LinkItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -75,6 +75,7 @@ public class ContributionItemProvider
 			addSourcePropertyDescriptor(object);
 			addGoal_model_contribution_typePropertyDescriptor(object);
 			addIstar_contribution_typePropertyDescriptor(object);
+			addGoal_model_symmetryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +169,28 @@ public class ContributionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Goal model symmetry feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoal_model_symmetryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Contribution_goal_model_symmetry_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_goal_model_symmetry_feature", "_UI_Contribution_type"),
+				 openome_modelPackage.Literals.CONTRIBUTION__GOAL_MODEL_SYMMETRY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Contribution.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,6 +230,7 @@ public class ContributionItemProvider
 		switch (notification.getFeatureID(Contribution.class)) {
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
 			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

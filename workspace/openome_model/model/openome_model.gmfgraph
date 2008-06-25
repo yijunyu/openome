@@ -443,6 +443,7 @@
   <nodes
       name="Agent"
       figure="AgentFigure"
+      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.1/@accessors.1"/>
   <nodes
       name="Position"
@@ -452,9 +453,6 @@
       name="Role"
       figure="RoleFigure"
       contentPane="//@figures.0/@descriptors.3/@accessors.1"/>
-  <nodes
-      name="Aspect"
-      figure="AspectFigure"/>
   <nodes
       name="Goal"
       figure="GoalFigure"/>
@@ -506,11 +504,6 @@
       figure="RoleFigure"
       collapsible="true"
       accessor="//@figures.0/@descriptors.3/@accessors.1"/>
-  <compartments
-      name="AspectCompartment"
-      figure="AspectFigure"
-      collapsible="true"
-      accessor="//@figures.0/@descriptors.4/@accessors.1"/>
   <labels
       name="ActorName"
       figure="ActorFigure"
@@ -540,14 +533,6 @@
       figure="RoleFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.3/@accessors.0">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
-  <labels
-      name="AspectName"
-      figure="AspectFigure"
-      elementIcon="false"
-      accessor="//@figures.0/@descriptors.4/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
   </labels>

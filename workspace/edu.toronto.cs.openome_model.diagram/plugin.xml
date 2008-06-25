@@ -47,7 +47,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/openome_modelDiagramFile.gif"
-  	     category="edu.toronto.cs.openome_model.editor.category"
+  	     category="org.eclipse.ui.Examples"
   	     class="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizard"
   	     id="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -137,6 +137,11 @@
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
@@ -147,7 +152,7 @@
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart"/>
+            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
@@ -352,49 +357,39 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.Aspect_1005"
-               name="%metatype.name.Aspect_1005"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Aspect"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.AspectEditHelper">
+         <specializationType
+               id="edu.toronto.cs.openome_model.diagram.Goal_1005"
+               name="%metatype.name.Goal_1005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="edu.toronto.cs.openome_model.diagram.Goal_2001"/>
             <param name="semanticHint" value="1005"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Goal_1006"
-               name="%metatype.name.Goal_1006"
+               id="edu.toronto.cs.openome_model.diagram.Softgoal_1006"
+               name="%metatype.name.Softgoal_1006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Goal_2001"/>
+            <specializes id="edu.toronto.cs.openome_model.diagram.Softgoal_2002"/>
             <param name="semanticHint" value="1006"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Softgoal_1007"
-               name="%metatype.name.Softgoal_1007"
+               id="edu.toronto.cs.openome_model.diagram.Task_1007"
+               name="%metatype.name.Task_1007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Softgoal_2002"/>
+            <specializes id="edu.toronto.cs.openome_model.diagram.Task_2004"/>
             <param name="semanticHint" value="1007"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Task_1008"
-               name="%metatype.name.Task_1008"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Task_2004"/>
-            <param name="semanticHint" value="1008"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Resource_1009"
-               name="%metatype.name.Resource_1009"
+               id="edu.toronto.cs.openome_model.diagram.Resource_1008"
+               name="%metatype.name.Resource_1008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="edu.toronto.cs.openome_model.diagram.Resource_2003"/>
-            <param name="semanticHint" value="1009"/>
+            <param name="semanticHint" value="1008"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
@@ -546,42 +541,6 @@
          </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Goal_2017"
-               name="%metatype.name.Goal_2017"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Goal_2001"/>
-            <param name="semanticHint" value="2017"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Softgoal_2018"
-               name="%metatype.name.Softgoal_2018"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Softgoal_2002"/>
-            <param name="semanticHint" value="2018"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Resource_2019"
-               name="%metatype.name.Resource_2019"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Resource_2003"/>
-            <param name="semanticHint" value="2019"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <specializationType
-               id="edu.toronto.cs.openome_model.diagram.Task_2020"
-               name="%metatype.name.Task_2020"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="edu.toronto.cs.openome_model.diagram.Task_2004"/>
-            <param name="semanticHint" value="2020"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <metamodelType
                id="edu.toronto.cs.openome_model.diagram.Dependency_3001"
                name="%metatype.name.Dependency_3001"
@@ -592,33 +551,42 @@
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
-         <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.AndDecomposition_3002"
-               name="%metatype.name.AndDecomposition_3002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AndDecomposition"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.AndDecompositionEditHelper">
+         <specializationType
+               id="edu.toronto.cs.openome_model.diagram.Dependency_3002"
+               name="%metatype.name.Dependency_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="edu.toronto.cs.openome_model.diagram.Dependency_3001"/>
             <param name="semanticHint" value="3002"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.OrDecomposition_3003"
-               name="%metatype.name.OrDecomposition_3003"
+               id="edu.toronto.cs.openome_model.diagram.AndDecomposition_3003"
+               name="%metatype.name.AndDecomposition_3003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OrDecomposition"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.OrDecompositionEditHelper">
+               eclass="AndDecomposition"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.AndDecompositionEditHelper">
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
          <metamodelType
-               id="edu.toronto.cs.openome_model.diagram.Contribution_3004"
-               name="%metatype.name.Contribution_3004"
+               id="edu.toronto.cs.openome_model.diagram.OrDecomposition_3004"
+               name="%metatype.name.OrDecomposition_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OrDecomposition"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.OrDecompositionEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.Contribution_3005"
+               name="%metatype.name.Contribution_3005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Contribution"
-               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.MakeContributionEditHelper">
-            <param name="semanticHint" value="3004"/>
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.ContributionEditHelper">
+            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -638,11 +606,10 @@
          <elementType ref="edu.toronto.cs.openome_model.diagram.Agent_1002"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Position_1003"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Role_1004"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Aspect_1005"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Goal_1006"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Softgoal_1007"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Task_1008"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Resource_1009"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Goal_1005"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Softgoal_1006"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Task_1007"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Resource_1008"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Goal_2001"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Softgoal_2002"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Resource_2003"/>
@@ -659,14 +626,11 @@
          <elementType ref="edu.toronto.cs.openome_model.diagram.Softgoal_2014"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Resource_2015"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Task_2016"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Goal_2017"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Softgoal_2018"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Resource_2019"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Task_2020"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Dependency_3001"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.AndDecomposition_3002"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.OrDecomposition_3003"/>
-         <elementType ref="edu.toronto.cs.openome_model.diagram.Contribution_3004"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Dependency_3002"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.AndDecomposition_3003"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.OrDecomposition_3004"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.Contribution_3005"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

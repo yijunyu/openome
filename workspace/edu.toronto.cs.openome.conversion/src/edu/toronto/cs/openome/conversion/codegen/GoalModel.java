@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.StringTokenizer;
 import java.util.Vector;
 
 import model.Advice;
@@ -396,7 +395,7 @@ public class GoalModel extends IStar {
 	private void create_actor_elements(HashMap<Integer, EObject> hm) {
 		for (Enumeration<Advice> i = elements.keys(); i.hasMoreElements();) {
 			IStarElement g = elements.get(i.nextElement());
-			if ((g.isAgent || g.isAspect) && g.name!=null && !g.name.equals("")) {
+			if ((g.isAgent) && g.name!=null && !g.name.equals("")) {
 				Container x;
 				if (g.name.startsWith("Agent ")) 
 				{	
@@ -408,9 +407,6 @@ public class GoalModel extends IStar {
 				} else if (g.name.startsWith("Position ")) {					
 					x = f.createPosition();
 					x.setName(g.name.substring(9));
-				} else if (g.name.startsWith("Aspect ")) {					
-					x = f.createAspect();
-					x.setName(g.name.substring(7));
 				} else {
 					x = f.createActor();
 					x.setName(Computing.strip_quote(g.name));

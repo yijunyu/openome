@@ -277,22 +277,12 @@ public class ModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__CONTAINERS,
-				 openome_modelFactory.eINSTANCE.createContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTAINERS,
 				 openome_modelFactory.eINSTANCE.createActor()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__CONTAINERS,
 				 openome_modelFactory.eINSTANCE.createAgent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.MODEL__CONTAINERS,
-				 openome_modelFactory.eINSTANCE.createAspect()));
 
 		newChildDescriptors.add
 			(createChildParameter

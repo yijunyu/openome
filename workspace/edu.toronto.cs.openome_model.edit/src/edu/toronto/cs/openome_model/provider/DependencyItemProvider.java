@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DependencyItemProvider
-	extends ItemProviderAdapter
+	extends LinkItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -74,6 +74,8 @@ public class DependencyItemProvider
 			addDependencyToPropertyDescriptor(object);
 			addTrustPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
+			addActorDependencyFromPropertyDescriptor(object);
+			addActorDependencyToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -162,6 +164,50 @@ public class DependencyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Actor Dependency From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActorDependencyFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Dependency_actorDependencyFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_actorDependencyFrom_feature", "_UI_Dependency_type"),
+				 openome_modelPackage.Literals.DEPENDENCY__ACTOR_DEPENDENCY_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Actor Dependency To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActorDependencyToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Dependency_actorDependencyTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_actorDependencyTo_feature", "_UI_Dependency_type"),
+				 openome_modelPackage.Literals.DEPENDENCY__ACTOR_DEPENDENCY_TO,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

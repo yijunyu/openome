@@ -27,7 +27,7 @@
           href="openome_model.gmfgraph#Actor"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.5/@ownedChild">
+          referencedChild="//@nodes.4/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -47,14 +47,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.6/@ownedChild">
+          referencedChild="//@nodes.5/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -74,14 +74,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.7/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -101,14 +101,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.7/@ownedChild">
+          referencedChild="//@nodes.6/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -128,7 +128,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -162,7 +162,7 @@
           href="openome_model.gmfgraph#Agent"/>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.5/@ownedChild">
+          referencedChild="//@nodes.4/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -182,14 +182,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.6/@ownedChild">
+          referencedChild="//@nodes.5/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -208,14 +208,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.7/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -235,14 +235,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.1/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.7/@ownedChild">
+          referencedChild="//@nodes.6/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -262,7 +262,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -294,7 +294,7 @@
           href="openome_model.gmfgraph#Position"/>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.5/@ownedChild">
+          referencedChild="//@nodes.4/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -314,14 +314,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.6/@ownedChild">
+          referencedChild="//@nodes.5/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -340,14 +340,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.7/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -367,14 +367,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.7/@ownedChild">
+          referencedChild="//@nodes.6/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -394,7 +394,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -426,7 +426,7 @@
           href="openome_model.gmfgraph#Role"/>
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.5/@ownedChild">
+          referencedChild="//@nodes.4/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -446,14 +446,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.6/@ownedChild">
+          referencedChild="//@nodes.5/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -472,14 +472,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
+          referencedChild="//@nodes.7/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -499,14 +499,14 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
       </children>
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.7/@ownedChild">
+          referencedChild="//@nodes.6/@ownedChild">
         <containmentFeature
             href="openome_model.ecore#//Container/intentions"/>
         <childrenFeature
@@ -526,7 +526,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -535,138 +535,6 @@
           children="//@nodes.3/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.3">
         <compartment
             href="openome_model.gmfgraph#RoleCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="openome_model.ecore#//Model/containers"/>
-    <ownedChild>
-      <domainMetaElement
-          href="openome_model.ecore#//Aspect"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="openome_model.gmfgraph#AspectName"/>
-        <features
-            href="openome_model.ecore#//Container/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.4"/>
-      <diagramNode
-          href="openome_model.gmfgraph#Aspect"/>
-      <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.5/@ownedChild">
-        <containmentFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <childrenFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <ownedChild>
-          <domainMetaElement
-              href="openome_model.ecore#//Goal"/>
-          <domainSpecialization
-              body="oclIsKindOf(Goal)"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              editPattern="">
-            <diagramLabel
-                href="openome_model.gmfgraph#GoalLabel"/>
-            <features
-                href="openome_model.ecore#//Intention/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
-          <diagramNode
-              href="openome_model.gmfgraph#Goal"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.6/@ownedChild">
-        <containmentFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <childrenFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <ownedChild>
-          <domainMetaElement
-              href="openome_model.ecore#//Softgoal"/>
-          <domainSpecialization
-              body="oclIsKindOf(Softgoal)"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="openome_model.gmfgraph#SoftgoalLabel"/>
-            <features
-                href="openome_model.ecore#//Intention/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
-          <diagramNode
-              href="openome_model.gmfgraph#Softgoal"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.8/@ownedChild">
-        <containmentFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <childrenFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <ownedChild>
-          <domainMetaElement
-              href="openome_model.ecore#//Resource"/>
-          <domainSpecialization
-              body="oclIsKindOf(Resource)"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              editPattern="">
-            <diagramLabel
-                href="openome_model.gmfgraph#ResourceLabel"/>
-            <features
-                href="openome_model.ecore#//Intention/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
-          <diagramNode
-              href="openome_model.gmfgraph#Resource"/>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.4/@ownedChild/@compartments.0"
-          referencedChild="//@nodes.7/@ownedChild">
-        <containmentFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <childrenFeature
-            href="openome_model.ecore#//Container/intentions"/>
-        <ownedChild>
-          <domainMetaElement
-              href="openome_model.ecore#//Task"/>
-          <domainSpecialization
-              body="oclIsKindOf(Task)"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              editPattern="">
-            <diagramLabel
-                href="openome_model.gmfgraph#TaskLabel"/>
-            <features
-                href="openome_model.ecore#//Intention/name"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
-          <diagramNode
-              href="openome_model.gmfgraph#Task"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.4/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.3">
-        <compartment
-            href="openome_model.gmfgraph#AspectCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -688,7 +556,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="openome_model.gmfgraph#Goal"/>
     </ownedChild>
@@ -710,7 +578,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="openome_model.gmfgraph#Softgoal"/>
     </ownedChild>
@@ -733,7 +601,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="openome_model.gmfgraph#Task"/>
     </ownedChild>
@@ -756,7 +624,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="openome_model.gmfgraph#Resource"/>
     </ownedChild>
@@ -800,7 +668,7 @@
         href="openome_model.ecore#//Model/dependencies"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.11"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.10"/>
     <diagramLink
         href="openome_model.gmfgraph#Dependency"/>
     <sourceMetaFeature
@@ -823,7 +691,7 @@
     <containmentFeature
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
-        xsi:type="gmftool:PaletteSeparator"
+        xsi:type="gmftool:CreationTool"
         href="openome_model.gmftool#//@palette/@tools.0/@tools.13"/>
     <diagramLink
         href="openome_model.gmfgraph#AndDecomposition"/>
@@ -872,7 +740,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.17"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.16"/>
     <diagramLink
         href="openome_model.gmfgraph#Contribution"/>
     <sourceMetaFeature

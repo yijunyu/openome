@@ -61,19 +61,6 @@
             bundle="openome_model"/>
       </tools>
       <tools
-          xsi:type="gmftool:CreationTool"
-          title="Aspect"
-          description="Create new Aspect">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/aspect.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/aspect.gif"
-            bundle="openome_model"/>
-      </tools>
-      <tools
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
           xsi:type="gmftool:CreationTool"
