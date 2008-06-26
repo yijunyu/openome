@@ -33,30 +33,6 @@ public class Openome_modelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2001);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2002);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2004);
-			return types;
-		}
-		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
-			List types = new ArrayList();
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2005);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2007);
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2008);
-			return types;
-		}
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
 			List types = new ArrayList();
 			types
@@ -69,7 +45,31 @@ public class Openome_modelModelingAssistantProvider extends
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2012);
 			return types;
 		}
-		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart) {
+			List types = new ArrayList();
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2001);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2002);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2004);
+			return types;
+		}
+		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart) {
+			List types = new ArrayList();
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2005);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2007);
+			types
+					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2008);
+			return types;
+		}
+		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart) {
 			List types = new ArrayList();
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2013);

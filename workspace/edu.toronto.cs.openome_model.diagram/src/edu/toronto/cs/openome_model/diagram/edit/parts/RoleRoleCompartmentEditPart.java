@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class RoleRoleCompartmentEditPart extends ListCompartmentEditPart {
+public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -28,13 +28,6 @@ public class RoleRoleCompartmentEditPart extends ListCompartmentEditPart {
 	 */
 	public RoleRoleCompartmentEditPart(View view) {
 		super(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
 	}
 
 	/**
