@@ -111,31 +111,28 @@ public class openome_modelSwitch<T> {
 				AndDecomposition andDecomposition = (AndDecomposition)theEObject;
 				T result = caseAndDecomposition(andDecomposition);
 				if (result == null) result = caseDecomposition(andDecomposition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case openome_modelPackage.ASPECT: {
-				Aspect aspect = (Aspect)theEObject;
-				T result = caseAspect(aspect);
-				if (result == null) result = caseContainer(aspect);
+				if (result == null) result = caseLink(andDecomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case openome_modelPackage.CONTRIBUTION: {
 				Contribution contribution = (Contribution)theEObject;
 				T result = caseContribution(contribution);
+				if (result == null) result = caseLink(contribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case openome_modelPackage.DECOMPOSITION: {
 				Decomposition decomposition = (Decomposition)theEObject;
 				T result = caseDecomposition(decomposition);
+				if (result == null) result = caseLink(decomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case openome_modelPackage.DEPENDENCY: {
 				Dependency dependency = (Dependency)theEObject;
 				T result = caseDependency(dependency);
+				if (result == null) result = caseLink(dependency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,6 +159,7 @@ public class openome_modelSwitch<T> {
 				OrDecomposition orDecomposition = (OrDecomposition)theEObject;
 				T result = caseOrDecomposition(orDecomposition);
 				if (result == null) result = caseDecomposition(orDecomposition);
+				if (result == null) result = caseLink(orDecomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,9 +217,16 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case openome_modelPackage.LINK: {
+				Link link = (Link)theEObject;
+				T result = caseLink(link);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case openome_modelPackage.CORRELATION: {
 				Correlation correlation = (Correlation)theEObject;
 				T result = caseCorrelation(correlation);
+				if (result == null) result = caseLink(correlation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -271,21 +276,6 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseAndDecomposition(AndDecomposition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aspect</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aspect</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAspect(Aspect object) {
 		return null;
 	}
 
@@ -511,6 +501,21 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseBelief(Belief object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLink(Link object) {
 		return null;
 	}
 

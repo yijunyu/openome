@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CorrelationImpl extends EObjectImpl implements Correlation {
+public class CorrelationImpl extends LinkImpl implements Correlation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

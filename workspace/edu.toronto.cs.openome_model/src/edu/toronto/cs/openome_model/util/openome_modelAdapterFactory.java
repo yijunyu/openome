@@ -90,10 +90,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createAndDecompositionAdapter();
 			}
 			@Override
-			public Adapter caseAspect(Aspect object) {
-				return createAspectAdapter();
-			}
-			@Override
 			public Adapter caseContribution(Contribution object) {
 				return createContributionAdapter();
 			}
@@ -152,6 +148,10 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBelief(Belief object) {
 				return createBeliefAdapter();
+			}
+			@Override
+			public Adapter caseLink(Link object) {
+				return createLinkAdapter();
 			}
 			@Override
 			public Adapter caseCorrelation(Correlation object) {
@@ -216,20 +216,6 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAndDecompositionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Aspect <em>Aspect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.Aspect
-	 * @generated
-	 */
-	public Adapter createAspectAdapter() {
 		return null;
 	}
 
@@ -440,6 +426,20 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBeliefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Link <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.Link
+	 * @generated
+	 */
+	public Adapter createLinkAdapter() {
 		return null;
 	}
 

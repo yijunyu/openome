@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.toronto.cs.openome_model.Actor#getIs_a <em>Is a</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Actor#getIs_part_of <em>Is part of</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Actor#getBelieves <em>Believes</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Actor#getDependencyFrom <em>Dependency From</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Actor#getDependencyTo <em>Dependency To</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,5 +83,41 @@ public interface Actor extends Container {
 	 * @generated
 	 */
 	EList<Belief> getBelieves();
+
+	/**
+	 * Returns the value of the '<em><b>Dependency From</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependency From</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependency From</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getActor_DependencyFrom()
+	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyTo
+	 * @model opposite="actorDependencyTo"
+	 * @generated
+	 */
+	EList<Dependency> getDependencyFrom();
+
+	/**
+	 * Returns the value of the '<em><b>Dependency To</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom <em>Actor Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependency To</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependency To</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getActor_DependencyTo()
+	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom
+	 * @model opposite="actorDependencyFrom"
+	 * @generated
+	 */
+	EList<Dependency> getDependencyTo();
 
 } // Actor

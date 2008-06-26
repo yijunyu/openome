@@ -59,15 +59,6 @@ public interface openome_modelFactory extends EFactory {
 	AndDecomposition createAndDecomposition();
 
 	/**
-	 * Returns a new object of class '<em>Aspect</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aspect</em>'.
-	 * @generated
-	 */
-	Aspect createAspect();
-
-	/**
 	 * Returns a new object of class '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,15 +174,6 @@ public interface openome_modelFactory extends EFactory {
 	 * @generated
 	 */
 	Task createTask();
-
-	/**
-	 * Returns a new object of class '<em>Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Container</em>'.
-	 * @generated
-	 */
-	Container createContainer();
 
 	/**
 	 * Returns a new object of class '<em>Belief</em>'.

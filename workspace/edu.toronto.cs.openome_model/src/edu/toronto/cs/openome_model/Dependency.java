@@ -5,6 +5,7 @@
  */
 package edu.toronto.cs.openome_model;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Dependency#getTrust <em>Trust</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Dependency#getLabel <em>Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Dependency#getModel <em>Model</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom <em>Actor Dependency From</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Dependency extends EObject {
+public interface Dependency extends Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,5 +173,51 @@ public interface Dependency extends EObject {
 	 * @generated
 	 */
 	void setModel(Model value);
+
+	/**
+	 * Returns the value of the '<em><b>Actor Dependency From</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Actor}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Actor#getDependencyTo <em>Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actor Dependency From</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actor Dependency From</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependency_ActorDependencyFrom()
+	 * @see edu.toronto.cs.openome_model.Actor#getDependencyTo
+	 * @model opposite="dependencyTo"
+	 * @generated
+	 */
+	EList<Actor> getActorDependencyFrom();
+
+	/**
+	 * Returns the value of the '<em><b>Actor Dependency To</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Actor#getDependencyFrom <em>Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Actor Dependency To</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Actor Dependency To</em>' reference.
+	 * @see #setActorDependencyTo(Actor)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependency_ActorDependencyTo()
+	 * @see edu.toronto.cs.openome_model.Actor#getDependencyFrom
+	 * @model opposite="dependencyFrom"
+	 * @generated
+	 */
+	Actor getActorDependencyTo();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Actor Dependency To</em>' reference.
+	 * @see #getActorDependencyTo()
+	 * @generated
+	 */
+	void setActorDependencyTo(Actor value);
 
 } // Dependency

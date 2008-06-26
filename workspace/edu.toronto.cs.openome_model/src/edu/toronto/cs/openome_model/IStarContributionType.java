@@ -22,6 +22,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum IStarContributionType implements Enumerator {
 	/**
+	 * The '<em><b>None</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(0, "None", "None"), /**
 	 * The '<em><b>Unknown</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,7 +37,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "UnknownContribution"),
+	UNKNOWN(1, "Unknown", "UnknownContribution"),
 
 	/**
 	 * The '<em><b>Make</b></em>' literal object.
@@ -39,7 +47,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAKE(1, "Make", "Make"),
+	MAKE(2, "Make", "Make"),
 
 	/**
 	 * The '<em><b>Help</b></em>' literal object.
@@ -49,7 +57,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HELP(2, "Help", "Help"),
+	HELP(3, "Help", "Help"),
 
 	/**
 	 * The '<em><b>Some Plus</b></em>' literal object.
@@ -59,7 +67,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOME_PLUS(3, "SomePlus", "SomePlus"),
+	SOME_PLUS(4, "SomePlus", "SomePlus"),
 
 	/**
 	 * The '<em><b>Some Minus</b></em>' literal object.
@@ -69,7 +77,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOME_MINUS(4, "SomeMinus", "SomeMinus"),
+	SOME_MINUS(5, "SomeMinus", "SomeMinus"),
 
 	/**
 	 * The '<em><b>Hurt</b></em>' literal object.
@@ -79,7 +87,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HURT(5, "Hurt", "Hurt"),
+	HURT(6, "Hurt", "Hurt"),
 
 	/**
 	 * The '<em><b>Break</b></em>' literal object.
@@ -89,7 +97,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BREAK(6, "Break", "Break");
+	BREAK(7, "Break", "Break");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +105,21 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
+	/**
+	 * The '<em><b>None</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>None</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model name="None"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 0;
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.
@@ -111,7 +134,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNKNOWN_VALUE = 0;
+	public static final int UNKNOWN_VALUE = 1;
 
 	/**
 	 * The '<em><b>Make</b></em>' literal value.
@@ -126,7 +149,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MAKE_VALUE = 1;
+	public static final int MAKE_VALUE = 2;
 
 	/**
 	 * The '<em><b>Help</b></em>' literal value.
@@ -141,7 +164,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HELP_VALUE = 2;
+	public static final int HELP_VALUE = 3;
 
 	/**
 	 * The '<em><b>Some Plus</b></em>' literal value.
@@ -156,7 +179,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SOME_PLUS_VALUE = 3;
+	public static final int SOME_PLUS_VALUE = 4;
 
 	/**
 	 * The '<em><b>Some Minus</b></em>' literal value.
@@ -171,7 +194,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SOME_MINUS_VALUE = 4;
+	public static final int SOME_MINUS_VALUE = 5;
 
 	/**
 	 * The '<em><b>Hurt</b></em>' literal value.
@@ -186,7 +209,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HURT_VALUE = 5;
+	public static final int HURT_VALUE = 6;
 
 	/**
 	 * The '<em><b>Break</b></em>' literal value.
@@ -201,7 +224,7 @@ public enum IStarContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BREAK_VALUE = 6;
+	public static final int BREAK_VALUE = 7;
 
 	/**
 	 * An array of all the '<em><b>IStar Contribution Type</b></em>' enumerators.
@@ -211,6 +234,7 @@ public enum IStarContributionType implements Enumerator {
 	 */
 	private static final IStarContributionType[] VALUES_ARRAY =
 		new IStarContributionType[] {
+			NONE,
 			UNKNOWN,
 			MAKE,
 			HELP,
@@ -268,6 +292,7 @@ public enum IStarContributionType implements Enumerator {
 	 */
 	public static IStarContributionType get(int value) {
 		switch (value) {
+			case NONE_VALUE: return NONE;
 			case UNKNOWN_VALUE: return UNKNOWN;
 			case MAKE_VALUE: return MAKE;
 			case HELP_VALUE: return HELP;

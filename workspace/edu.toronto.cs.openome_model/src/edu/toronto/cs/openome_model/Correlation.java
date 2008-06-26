@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Correlation extends EObject {
+public interface Correlation extends Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,6 +6,7 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.GoalModelingContributionType;
 import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
@@ -35,12 +36,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getGoal_model_contribution_type <em>Goal model contribution type</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getIstar_contribution_type <em>Istar contribution type</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getGoal_model_symmetry <em>Goal model symmetry</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ContributionImpl extends EObjectImpl implements Contribution {
+public class ContributionImpl extends LinkImpl implements Contribution {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,7 +98,7 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IStarContributionType ISTAR_CONTRIBUTION_TYPE_EDEFAULT = IStarContributionType.UNKNOWN;
+	protected static final IStarContributionType ISTAR_CONTRIBUTION_TYPE_EDEFAULT = IStarContributionType.NONE;
 
 	/**
 	 * The cached value of the '{@link #getIstar_contribution_type() <em>Istar contribution type</em>}' attribute.
@@ -107,6 +109,26 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * @ordered
 	 */
 	protected IStarContributionType istar_contribution_type = ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGoal_model_symmetry() <em>Goal model symmetry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal_model_symmetry()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final GoalModelingContributionSymmetry GOAL_MODEL_SYMMETRY_EDEFAULT = GoalModelingContributionSymmetry.BOTH;
+
+	/**
+	 * The cached value of the '{@link #getGoal_model_symmetry() <em>Goal model symmetry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal_model_symmetry()
+	 * @generated
+	 * @ordered
+	 */
+	protected GoalModelingContributionSymmetry goal_model_symmetry = GOAL_MODEL_SYMMETRY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -335,6 +357,27 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GoalModelingContributionSymmetry getGoal_model_symmetry() {
+		return goal_model_symmetry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoal_model_symmetry(GoalModelingContributionSymmetry newGoal_model_symmetry) {
+		GoalModelingContributionSymmetry oldGoal_model_symmetry = goal_model_symmetry;
+		goal_model_symmetry = newGoal_model_symmetry == null ? GOAL_MODEL_SYMMETRY_EDEFAULT : newGoal_model_symmetry;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY, oldGoal_model_symmetry, goal_model_symmetry));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -406,6 +449,8 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 				return getGoal_model_contribution_type();
 			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
 				return getIstar_contribution_type();
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
+				return getGoal_model_symmetry();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,6 +477,9 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 				return;
 			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
 				setIstar_contribution_type((IStarContributionType)newValue);
+				return;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
+				setGoal_model_symmetry((GoalModelingContributionSymmetry)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -460,6 +508,9 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
 				setIstar_contribution_type(ISTAR_CONTRIBUTION_TYPE_EDEFAULT);
 				return;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
+				setGoal_model_symmetry(GOAL_MODEL_SYMMETRY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -482,6 +533,8 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 				return goal_model_contribution_type != GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT;
 			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
 				return istar_contribution_type != ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
+			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
+				return goal_model_symmetry != GOAL_MODEL_SYMMETRY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -500,6 +553,8 @@ public class ContributionImpl extends EObjectImpl implements Contribution {
 		result.append(goal_model_contribution_type);
 		result.append(", istar_contribution_type: ");
 		result.append(istar_contribution_type);
+		result.append(", goal_model_symmetry: ");
+		result.append(goal_model_symmetry);
 		result.append(')');
 		return result.toString();
 	}

@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Container extends EObject {

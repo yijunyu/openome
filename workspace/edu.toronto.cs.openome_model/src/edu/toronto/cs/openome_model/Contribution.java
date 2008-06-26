@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getSource <em>Source</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type <em>Goal model contribution type</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type <em>Istar contribution type</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry <em>Goal model symmetry</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Contribution extends EObject {
+public interface Contribution extends Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,5 +177,34 @@ public interface Contribution extends EObject {
 	 * @generated
 	 */
 	void setIstar_contribution_type(IStarContributionType value);
+
+	/**
+	 * Returns the value of the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goal model symmetry</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goal model symmetry</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
+	 * @see #setGoal_model_symmetry(GoalModelingContributionSymmetry)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Goal_model_symmetry()
+	 * @model
+	 * @generated
+	 */
+	GoalModelingContributionSymmetry getGoal_model_symmetry();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry <em>Goal model symmetry</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal model symmetry</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
+	 * @see #getGoal_model_symmetry()
+	 * @generated
+	 */
+	void setGoal_model_symmetry(GoalModelingContributionSymmetry value);
 
 } // Contribution

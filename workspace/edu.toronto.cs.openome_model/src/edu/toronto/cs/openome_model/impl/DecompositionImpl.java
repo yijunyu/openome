@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class DecompositionImpl extends EObjectImpl implements Decomposition {
+public class DecompositionImpl extends LinkImpl implements Decomposition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

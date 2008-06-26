@@ -70,7 +70,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.ACTOR: return createActor();
 			case openome_modelPackage.AGENT: return createAgent();
 			case openome_modelPackage.AND_DECOMPOSITION: return createAndDecomposition();
-			case openome_modelPackage.ASPECT: return createAspect();
 			case openome_modelPackage.CONTRIBUTION: return createContribution();
 			case openome_modelPackage.DECOMPOSITION: return createDecomposition();
 			case openome_modelPackage.DEPENDENCY: return createDependency();
@@ -84,7 +83,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.ROLE: return createRole();
 			case openome_modelPackage.SOFTGOAL: return createSoftgoal();
 			case openome_modelPackage.TASK: return createTask();
-			case openome_modelPackage.CONTAINER: return createContainer();
 			case openome_modelPackage.BELIEF: return createBelief();
 			case openome_modelPackage.CORRELATION: return createCorrelation();
 			default:
@@ -106,6 +104,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 				return createGoalModelingContributionTypeFromString(eDataType, initialValue);
 			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
 				return createIStarContributionTypeFromString(eDataType, initialValue);
+			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
+				return createGoalModelingContributionSymmetryFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +125,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 				return convertGoalModelingContributionTypeToString(eDataType, instanceValue);
 			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
 				return convertIStarContributionTypeToString(eDataType, instanceValue);
+			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
+				return convertGoalModelingContributionSymmetryToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -158,16 +160,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public AndDecomposition createAndDecomposition() {
 		AndDecompositionImpl andDecomposition = new AndDecompositionImpl();
 		return andDecomposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Aspect createAspect() {
-		AspectImpl aspect = new AspectImpl();
-		return aspect;
 	}
 
 	/**
@@ -305,16 +297,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Container createContainer() {
-		ContainerImpl container = new ContainerImpl();
-		return container;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Belief createBelief() {
 		BeliefImpl belief = new BeliefImpl();
 		return belief;
@@ -387,6 +369,26 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * @generated
 	 */
 	public String convertIStarContributionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GoalModelingContributionSymmetry createGoalModelingContributionSymmetryFromString(EDataType eDataType, String initialValue) {
+		GoalModelingContributionSymmetry result = GoalModelingContributionSymmetry.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGoalModelingContributionSymmetryToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

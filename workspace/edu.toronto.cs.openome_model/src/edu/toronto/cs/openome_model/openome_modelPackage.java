@@ -74,7 +74,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getContainer()
 	 * @generated
 	 */
-	int CONTAINER = 17;
+	int CONTAINER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -195,13 +195,31 @@ public interface openome_modelPackage extends EPackage {
 	int ACTOR__BELIEVES = CONTAINER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_FROM = CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_TO = CONTAINER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
+	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
@@ -286,6 +304,25 @@ public interface openome_modelPackage extends EPackage {
 	int AGENT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.LinkImpl <em>Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.LinkImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getLink()
+	 * @generated
+	 */
+	int LINK = 18;
+
+	/**
+	 * The number of structural features of the '<em>Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DecompositionImpl <em>Decomposition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,7 +330,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDecomposition()
 	 * @generated
 	 */
-	int DECOMPOSITION = 5;
+	int DECOMPOSITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -302,7 +339,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECOMPOSITION__SOURCE = 0;
+	int DECOMPOSITION__SOURCE = LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -311,7 +348,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECOMPOSITION__TARGET = 1;
+	int DECOMPOSITION__TARGET = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -320,7 +357,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECOMPOSITION__MODEL = 2;
+	int DECOMPOSITION__MODEL = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Decomposition</em>' class.
@@ -329,7 +366,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECOMPOSITION_FEATURE_COUNT = 3;
+	int DECOMPOSITION_FEATURE_COUNT = LINK_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AndDecompositionImpl <em>And Decomposition</em>}' class.
@@ -378,61 +415,6 @@ public interface openome_modelPackage extends EPackage {
 	int AND_DECOMPOSITION_FEATURE_COUNT = DECOMPOSITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AspectImpl <em>Aspect</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.AspectImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAspect()
-	 * @generated
-	 */
-	int ASPECT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT__SUB = CONTAINER__SUB;
-
-	/**
-	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT__INTENTIONS = CONTAINER__INTENTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT__MODEL = CONTAINER__MODEL;
-
-	/**
-	 * The number of structural features of the '<em>Aspect</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASPECT_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ContributionImpl <em>Contribution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,7 +422,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getContribution()
 	 * @generated
 	 */
-	int CONTRIBUTION = 4;
+	int CONTRIBUTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -449,7 +431,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__TARGET = 0;
+	int CONTRIBUTION__TARGET = LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -458,7 +440,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__MODEL = 1;
+	int CONTRIBUTION__MODEL = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -467,7 +449,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__SOURCE = 2;
+	int CONTRIBUTION__SOURCE = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Goal model contribution type</b></em>' attribute.
@@ -476,7 +458,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = 3;
+	int CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = LINK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Istar contribution type</b></em>' attribute.
@@ -485,7 +467,16 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = 4;
+	int CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = LINK_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__GOAL_MODEL_SYMMETRY = LINK_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Contribution</em>' class.
@@ -494,7 +485,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_FEATURE_COUNT = 5;
+	int CONTRIBUTION_FEATURE_COUNT = LINK_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -504,7 +495,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDependency()
 	 * @generated
 	 */
-	int DEPENDENCY = 6;
+	int DEPENDENCY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Dependency From</b></em>' reference.
@@ -513,7 +504,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__DEPENDENCY_FROM = 0;
+	int DEPENDENCY__DEPENDENCY_FROM = LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Dependency To</b></em>' reference.
@@ -522,7 +513,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__DEPENDENCY_TO = 1;
+	int DEPENDENCY__DEPENDENCY_TO = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Trust</b></em>' attribute.
@@ -531,7 +522,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__TRUST = 2;
+	int DEPENDENCY__TRUST = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -540,7 +531,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__LABEL = 3;
+	int DEPENDENCY__LABEL = LINK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -549,7 +540,25 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__MODEL = 4;
+	int DEPENDENCY__MODEL = LINK_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Actor Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY__ACTOR_DEPENDENCY_FROM = LINK_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Actor Dependency To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY__ACTOR_DEPENDENCY_TO = LINK_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Dependency</em>' class.
@@ -558,7 +567,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY_FEATURE_COUNT = 5;
+	int DEPENDENCY_FEATURE_COUNT = LINK_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IntentionImpl <em>Intention</em>}' class.
@@ -568,7 +577,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIntention()
 	 * @generated
 	 */
-	int INTENTION = 8;
+	int INTENTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -776,7 +785,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoal()
 	 * @generated
 	 */
-	int GOAL = 7;
+	int GOAL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -984,7 +993,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getModel()
 	 * @generated
 	 */
-	int MODEL = 9;
+	int MODEL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1066,7 +1075,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOrDecomposition()
 	 * @generated
 	 */
-	int OR_DECOMPOSITION = 10;
+	int OR_DECOMPOSITION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1112,7 +1121,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 11;
+	int POSITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1176,7 +1185,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 12;
+	int PROPERTY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1213,7 +1222,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 13;
+	int RESOURCE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1421,7 +1430,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 14;
+	int ROLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1476,7 +1485,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSoftgoal()
 	 * @generated
 	 */
-	int SOFTGOAL = 15;
+	int SOFTGOAL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1693,7 +1702,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getTask()
 	 * @generated
 	 */
-	int TASK = 16;
+	int TASK = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1901,7 +1910,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBelief()
 	 * @generated
 	 */
-	int BELIEF = 18;
+	int BELIEF = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2118,7 +2127,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRELATION__TARGET = 0;
+	int CORRELATION__TARGET = LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2127,7 +2136,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRELATION__SOURCE = 1;
+	int CORRELATION__SOURCE = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Correlation</em>' class.
@@ -2136,7 +2145,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CORRELATION_FEATURE_COUNT = 2;
+	int CORRELATION_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
@@ -2167,6 +2176,16 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	int ISTAR_CONTRIBUTION_TYPE = 22;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
+	 * @generated
+	 */
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 23;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -2210,6 +2229,28 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActor_Believes();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getDependencyFrom <em>Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency From</em>'.
+	 * @see edu.toronto.cs.openome_model.Actor#getDependencyFrom()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_DependencyFrom();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getDependencyTo <em>Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency To</em>'.
+	 * @see edu.toronto.cs.openome_model.Actor#getDependencyTo()
+	 * @see #getActor()
+	 * @generated
+	 */
+	EReference getActor_DependencyTo();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Agent <em>Agent</em>}'.
@@ -2263,16 +2304,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAndDecomposition();
-
-	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Aspect <em>Aspect</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Aspect</em>'.
-	 * @see edu.toronto.cs.openome_model.Aspect
-	 * @generated
-	 */
-	EClass getAspect();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Contribution <em>Contribution</em>}'.
@@ -2338,6 +2369,17 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContribution_Istar_contribution_type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry <em>Goal model symmetry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Goal model symmetry</em>'.
+	 * @see edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry()
+	 * @see #getContribution()
+	 * @generated
+	 */
+	EAttribute getContribution_Goal_model_symmetry();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Decomposition <em>Decomposition</em>}'.
@@ -2446,6 +2488,28 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDependency_Model();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom <em>Actor Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actor Dependency From</em>'.
+	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom()
+	 * @see #getDependency()
+	 * @generated
+	 */
+	EReference getDependency_ActorDependencyFrom();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor Dependency To</em>'.
+	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyTo()
+	 * @see #getDependency()
+	 * @generated
+	 */
+	EReference getDependency_ActorDependencyTo();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Goal <em>Goal</em>}'.
@@ -2964,6 +3028,16 @@ public interface openome_modelPackage extends EPackage {
 	EClass getBelief();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Link <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link</em>'.
+	 * @see edu.toronto.cs.openome_model.Link
+	 * @generated
+	 */
+	EClass getLink();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Correlation <em>Correlation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3026,6 +3100,16 @@ public interface openome_modelPackage extends EPackage {
 	EEnum getIStarContributionType();
 
 	/**
+	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Goal Modeling Contribution Symmetry</em>'.
+	 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
+	 * @generated
+	 */
+	EEnum getGoalModelingContributionSymmetry();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3082,6 +3166,22 @@ public interface openome_modelPackage extends EPackage {
 		EReference ACTOR__BELIEVES = eINSTANCE.getActor_Believes();
 
 		/**
+		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__DEPENDENCY_FROM = eINSTANCE.getActor_DependencyFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTOR__DEPENDENCY_TO = eINSTANCE.getActor_DependencyTo();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3124,16 +3224,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AND_DECOMPOSITION = eINSTANCE.getAndDecomposition();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AspectImpl <em>Aspect</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.AspectImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAspect()
-		 * @generated
-		 */
-		EClass ASPECT = eINSTANCE.getAspect();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ContributionImpl <em>Contribution</em>}' class.
@@ -3184,6 +3274,14 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getContribution_Istar_contribution_type();
+
+		/**
+		 * The meta object literal for the '<em><b>Goal model symmetry</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTRIBUTION__GOAL_MODEL_SYMMETRY = eINSTANCE.getContribution_Goal_model_symmetry();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.DecompositionImpl <em>Decomposition</em>}' class.
@@ -3268,6 +3366,22 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPENDENCY__MODEL = eINSTANCE.getDependency_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor Dependency From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPENDENCY__ACTOR_DEPENDENCY_FROM = eINSTANCE.getDependency_ActorDependencyFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor Dependency To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPENDENCY__ACTOR_DEPENDENCY_TO = eINSTANCE.getDependency_ActorDependencyTo();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
@@ -3678,6 +3792,16 @@ public interface openome_modelPackage extends EPackage {
 		EClass BELIEF = eINSTANCE.getBelief();
 
 		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.LinkImpl <em>Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.LinkImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getLink()
+		 * @generated
+		 */
+		EClass LINK = eINSTANCE.getLink();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.CorrelationImpl <em>Correlation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3732,6 +3856,16 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getIStarContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
+		 * @generated
+		 */
+		EEnum GOAL_MODELING_CONTRIBUTION_SYMMETRY = eINSTANCE.getGoalModelingContributionSymmetry();
 
 	}
 

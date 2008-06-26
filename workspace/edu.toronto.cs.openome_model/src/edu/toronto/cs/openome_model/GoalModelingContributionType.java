@@ -32,84 +32,38 @@ public enum GoalModelingContributionType implements Enumerator {
 	NONE(0, "None", "None"),
 
 	/**
-	 * The '<em><b>Plus Plus Sat</b></em>' literal object.
+	 * The '<em><b>Plus Plus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PLUS_PLUS_SAT_VALUE
+	 * @see #PLUS_PLUS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PLUS_PLUS_SAT(1, "PlusPlusSat", ""),
-
-	/**
-	 * The '<em><b>Plus Sat</b></em>' literal object.
+	PLUS_PLUS(1, "PlusPlus", ""), /**
+	 * The '<em><b>Plus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PLUS_SAT_VALUE
+	 * @see #PLUS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	PLUS_SAT(2, "PlusSat", "PlusSat"),
-
-	/**
-	 * The '<em><b>Minus Sat</b></em>' literal object.
+	PLUS(2, "Plus", "Plus"), /**
+	 * The '<em><b>Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MINUS_SAT_VALUE
+	 * @see #MINUS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MINUS_SAT(3, "MinusSat", "MinusSat"),
-
-	/**
-	 * The '<em><b>Minus Minus Sat</b></em>' literal object.
+	MINUS(3, "Minus", "Minus"), /**
+	 * The '<em><b>Minus Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MINUS_MINUS_SAT_VALUE
+	 * @see #MINUS_MINUS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MINUS_MINUS_SAT(4, "MinusMinusSat", "MinusMinusSat"),
-
-	/**
-	 * The '<em><b>Plus Plus Den</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PLUS_PLUS_DEN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PLUS_PLUS_DEN(5, "PlusPlusDen", "PlusPlusDen"),
-
-	/**
-	 * The '<em><b>Plus Den</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PLUS_DEN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PLUS_DEN(6, "PlusDen", "PlusDen"),
-
-	/**
-	 * The '<em><b>Minus Den</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MINUS_DEN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MINUS_DEN(7, "MinusDen", "MinusDen"),
-
-	/**
-	 * The '<em><b>Minus Minus Den</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MINUS_MINUS_DEN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MINUS_MINUS_DEN(8, "MinusMinusDen", "MinusMinusDen");
+	MINUS_MINUS(4, "MinusMinus", "MinusMinus");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,124 +88,64 @@ public enum GoalModelingContributionType implements Enumerator {
 	public static final int NONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Plus Plus Sat</b></em>' literal value.
+	 * The '<em><b>Plus Plus</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Plus Plus Sat</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Plus Plus</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PLUS_PLUS_SAT
-	 * @model name="PlusPlusSat" literal=""
+	 * @see #PLUS_PLUS
+	 * @model name="PlusPlus" literal=""
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PLUS_PLUS_SAT_VALUE = 1;
+	public static final int PLUS_PLUS_VALUE = 1;
 
 	/**
-	 * The '<em><b>Plus Sat</b></em>' literal value.
+	 * The '<em><b>Plus</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Plus Sat</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Plus</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PLUS_SAT
-	 * @model name="PlusSat"
+	 * @see #PLUS
+	 * @model name="Plus"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PLUS_SAT_VALUE = 2;
+	public static final int PLUS_VALUE = 2;
 
 	/**
-	 * The '<em><b>Minus Sat</b></em>' literal value.
+	 * The '<em><b>Minus</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Minus Sat</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Minus</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MINUS_SAT
-	 * @model name="MinusSat"
+	 * @see #MINUS
+	 * @model name="Minus"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MINUS_SAT_VALUE = 3;
+	public static final int MINUS_VALUE = 3;
 
 	/**
-	 * The '<em><b>Minus Minus Sat</b></em>' literal value.
+	 * The '<em><b>Minus Minus</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Minus Minus Sat</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Minus Minus</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MINUS_MINUS_SAT
-	 * @model name="MinusMinusSat"
+	 * @see #MINUS_MINUS
+	 * @model name="MinusMinus"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MINUS_MINUS_SAT_VALUE = 4;
-
-	/**
-	 * The '<em><b>Plus Plus Den</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Plus Plus Den</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PLUS_PLUS_DEN
-	 * @model name="PlusPlusDen"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PLUS_PLUS_DEN_VALUE = 5;
-
-	/**
-	 * The '<em><b>Plus Den</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Plus Den</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #PLUS_DEN
-	 * @model name="PlusDen"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PLUS_DEN_VALUE = 6;
-
-	/**
-	 * The '<em><b>Minus Den</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Minus Den</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #MINUS_DEN
-	 * @model name="MinusDen"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MINUS_DEN_VALUE = 7;
-
-	/**
-	 * The '<em><b>Minus Minus Den</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Minus Minus Den</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #MINUS_MINUS_DEN
-	 * @model name="MinusMinusDen"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MINUS_MINUS_DEN_VALUE = 8;
+	public static final int MINUS_MINUS_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Goal Modeling Contribution Type</b></em>' enumerators.
@@ -262,14 +156,10 @@ public enum GoalModelingContributionType implements Enumerator {
 	private static final GoalModelingContributionType[] VALUES_ARRAY =
 		new GoalModelingContributionType[] {
 			NONE,
-			PLUS_PLUS_SAT,
-			PLUS_SAT,
-			MINUS_SAT,
-			MINUS_MINUS_SAT,
-			PLUS_PLUS_DEN,
-			PLUS_DEN,
-			MINUS_DEN,
-			MINUS_MINUS_DEN,
+			PLUS_PLUS,
+			PLUS,
+			MINUS,
+			MINUS_MINUS,
 		};
 
 	/**
@@ -321,14 +211,10 @@ public enum GoalModelingContributionType implements Enumerator {
 	public static GoalModelingContributionType get(int value) {
 		switch (value) {
 			case NONE_VALUE: return NONE;
-			case PLUS_PLUS_SAT_VALUE: return PLUS_PLUS_SAT;
-			case PLUS_SAT_VALUE: return PLUS_SAT;
-			case MINUS_SAT_VALUE: return MINUS_SAT;
-			case MINUS_MINUS_SAT_VALUE: return MINUS_MINUS_SAT;
-			case PLUS_PLUS_DEN_VALUE: return PLUS_PLUS_DEN;
-			case PLUS_DEN_VALUE: return PLUS_DEN;
-			case MINUS_DEN_VALUE: return MINUS_DEN;
-			case MINUS_MINUS_DEN_VALUE: return MINUS_MINUS_DEN;
+			case PLUS_PLUS_VALUE: return PLUS_PLUS;
+			case PLUS_VALUE: return PLUS;
+			case MINUS_VALUE: return MINUS;
+			case MINUS_MINUS_VALUE: return MINUS_MINUS;
 		}
 		return null;
 	}
