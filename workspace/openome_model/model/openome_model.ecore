@@ -14,7 +14,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
         eType="#//Dependency" eOpposite="#//Dependency/actorDependencyFrom"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Actor #//Container">
+  <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="plays" upperBound="-1"
         eType="#//Role"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="occupies" upperBound="-1"
@@ -22,7 +22,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ins" eType="#//Agent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AndDecomposition" eSuperTypes="#//Decomposition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Aspect" eSuperTypes="#//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Intention"
         eOpposite="#//Intention/contributesFrom"/>
@@ -118,7 +117,7 @@
         eType="#//Correlation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrDecomposition" eSuperTypes="#//Decomposition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Actor #//Container">
+  <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="covers" upperBound="-1"
         eType="#//Role"/>
   </eClassifiers>
@@ -127,7 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Intention"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Container #//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Container"/>
   <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Intention">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Topic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
