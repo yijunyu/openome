@@ -117,6 +117,7 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public WrapLabel getFigureContributionLabel() {
+			this.setSmoothness(SMOOTH_NORMAL);
 			return fFigureContributionLabel;
 		}
 

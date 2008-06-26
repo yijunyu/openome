@@ -134,6 +134,7 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public WrapLabel getFigureDependencyLabelFigure() {
+			this.setSmoothness(SMOOTH_NORMAL);
 			return fFigureDependencyLabelFigure;
 		}
 
