@@ -65,23 +65,23 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Aspect_1005 = getElementType("edu.toronto.cs.openome_model.diagram.Aspect_1005"); //$NON-NLS-1$
+	public static final IElementType Goal_1005 = getElementType("edu.toronto.cs.openome_model.diagram.Goal_1005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Goal_1006 = getElementType("edu.toronto.cs.openome_model.diagram.Goal_1006"); //$NON-NLS-1$
+	public static final IElementType Softgoal_1006 = getElementType("edu.toronto.cs.openome_model.diagram.Softgoal_1006"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Softgoal_1007 = getElementType("edu.toronto.cs.openome_model.diagram.Softgoal_1007"); //$NON-NLS-1$
+	public static final IElementType Task_1007 = getElementType("edu.toronto.cs.openome_model.diagram.Task_1007"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Task_1008 = getElementType("edu.toronto.cs.openome_model.diagram.Task_1008"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_1009 = getElementType("edu.toronto.cs.openome_model.diagram.Resource_1009"); //$NON-NLS-1$
+	public static final IElementType Resource_1008 = getElementType("edu.toronto.cs.openome_model.diagram.Resource_1008"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -149,35 +149,26 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Goal_2017 = getElementType("edu.toronto.cs.openome_model.diagram.Goal_2017"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Softgoal_2018 = getElementType("edu.toronto.cs.openome_model.diagram.Softgoal_2018"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Resource_2019 = getElementType("edu.toronto.cs.openome_model.diagram.Resource_2019"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType Task_2020 = getElementType("edu.toronto.cs.openome_model.diagram.Task_2020"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
 	public static final IElementType Dependency_3001 = getElementType("edu.toronto.cs.openome_model.diagram.Dependency_3001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType AndDecomposition_3002 = getElementType("edu.toronto.cs.openome_model.diagram.AndDecomposition_3002"); //$NON-NLS-1$
+	public static final IElementType Dependency_3002 = getElementType("edu.toronto.cs.openome_model.diagram.Dependency_3002"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType OrDecomposition_3003 = getElementType("edu.toronto.cs.openome_model.diagram.OrDecomposition_3003"); //$NON-NLS-1$
+	public static final IElementType AndDecomposition_3003 = getElementType("edu.toronto.cs.openome_model.diagram.AndDecomposition_3003"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Contribution_3004 = getElementType("edu.toronto.cs.openome_model.diagram.Contribution_3004"); //$NON-NLS-1$
+	public static final IElementType OrDecomposition_3004 = getElementType("edu.toronto.cs.openome_model.diagram.OrDecomposition_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Contribution_3005 = getElementType("edu.toronto.cs.openome_model.diagram.Contribution_3005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -310,23 +301,19 @@ public class Openome_modelElementTypes extends ElementInitializers {
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getRole());
 
-			elements.put(Aspect_1005,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getAspect());
-
-			elements.put(Goal_1006,
+			elements.put(Goal_1005,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
-			elements.put(Softgoal_1007,
+			elements.put(Softgoal_1006,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
-			elements.put(Task_1008,
+			elements.put(Task_1007,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
-			elements.put(Resource_1009,
+			elements.put(Resource_1008,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
@@ -394,35 +381,23 @@ public class Openome_modelElementTypes extends ElementInitializers {
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
-			elements.put(Goal_2017,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getGoal());
-
-			elements.put(Softgoal_2018,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getSoftgoal());
-
-			elements.put(Resource_2019,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getResource());
-
-			elements.put(Task_2020,
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getTask());
-
 			elements.put(Dependency_3001,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getDependency());
 
-			elements.put(AndDecomposition_3002,
+			elements.put(Dependency_3002,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getDependency());
+
+			elements.put(AndDecomposition_3003,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAndDecomposition());
 
-			elements.put(OrDecomposition_3003,
+			elements.put(OrDecomposition_3004,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrDecomposition());
 
-			elements.put(Contribution_3004,
+			elements.put(Contribution_3005,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getContribution());
 		}
@@ -447,11 +422,10 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Agent_1002);
 			KNOWN_ELEMENT_TYPES.add(Position_1003);
 			KNOWN_ELEMENT_TYPES.add(Role_1004);
-			KNOWN_ELEMENT_TYPES.add(Aspect_1005);
-			KNOWN_ELEMENT_TYPES.add(Goal_1006);
-			KNOWN_ELEMENT_TYPES.add(Softgoal_1007);
-			KNOWN_ELEMENT_TYPES.add(Task_1008);
-			KNOWN_ELEMENT_TYPES.add(Resource_1009);
+			KNOWN_ELEMENT_TYPES.add(Goal_1005);
+			KNOWN_ELEMENT_TYPES.add(Softgoal_1006);
+			KNOWN_ELEMENT_TYPES.add(Task_1007);
+			KNOWN_ELEMENT_TYPES.add(Resource_1008);
 			KNOWN_ELEMENT_TYPES.add(Goal_2001);
 			KNOWN_ELEMENT_TYPES.add(Softgoal_2002);
 			KNOWN_ELEMENT_TYPES.add(Resource_2003);
@@ -468,14 +442,11 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Softgoal_2014);
 			KNOWN_ELEMENT_TYPES.add(Resource_2015);
 			KNOWN_ELEMENT_TYPES.add(Task_2016);
-			KNOWN_ELEMENT_TYPES.add(Goal_2017);
-			KNOWN_ELEMENT_TYPES.add(Softgoal_2018);
-			KNOWN_ELEMENT_TYPES.add(Resource_2019);
-			KNOWN_ELEMENT_TYPES.add(Task_2020);
 			KNOWN_ELEMENT_TYPES.add(Dependency_3001);
-			KNOWN_ELEMENT_TYPES.add(AndDecomposition_3002);
-			KNOWN_ELEMENT_TYPES.add(OrDecomposition_3003);
-			KNOWN_ELEMENT_TYPES.add(Contribution_3004);
+			KNOWN_ELEMENT_TYPES.add(Dependency_3002);
+			KNOWN_ELEMENT_TYPES.add(AndDecomposition_3003);
+			KNOWN_ELEMENT_TYPES.add(OrDecomposition_3004);
+			KNOWN_ELEMENT_TYPES.add(Contribution_3005);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

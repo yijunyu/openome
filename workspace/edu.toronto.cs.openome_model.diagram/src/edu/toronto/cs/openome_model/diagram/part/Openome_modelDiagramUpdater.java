@@ -31,8 +31,6 @@ public class Openome_modelDiagramUpdater {
 			return getPositionPositionCompartment_5003SemanticChildren(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
 			return getRoleRoleCompartment_5004SemanticChildren(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectAspectCompartmentEditPart.VISUAL_ID:
-			return getAspectAspectCompartment_5005SemanticChildren(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.VISUAL_ID:
 			return getModel_79SemanticChildren(view);
 		}
@@ -235,54 +233,6 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAspectAspectCompartment_5005SemanticChildren(View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		edu.toronto.cs.openome_model.Aspect modelElement = (edu.toronto.cs.openome_model.Aspect) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getIntentions().iterator(); it
-				.hasNext();) {
-			edu.toronto.cs.openome_model.Intention childElement = (edu.toronto.cs.openome_model.Intention) it
-					.next();
-			int visualID = edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-					.getNodeVisualID(view, childElement);
-			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID) {
-				result
-						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
-								childElement, visualID));
-				continue;
-			}
-			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID) {
-				result
-						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
-								childElement, visualID));
-				continue;
-			}
-			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID) {
-				result
-						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
-								childElement, visualID));
-				continue;
-			}
-			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID) {
-				result
-						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
-								childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getModel_79SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
@@ -315,12 +265,6 @@ public class Openome_modelDiagramUpdater {
 				continue;
 			}
 			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID) {
-				result
-						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
-								childElement, visualID));
-				continue;
-			}
-			if (visualID == edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID) {
 				result
 						.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor(
 								childElement, visualID));
@@ -377,16 +321,14 @@ public class Openome_modelDiagramUpdater {
 			return getPosition_1003ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID:
 			return getRole_1004ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
-			return getAspect_1005ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
-			return getGoal_1006ContainedLinks(view);
+			return getGoal_1005ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
-			return getSoftgoal_1007ContainedLinks(view);
+			return getSoftgoal_1006ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
-			return getTask_1008ContainedLinks(view);
+			return getTask_1007ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
-			return getResource_1009ContainedLinks(view);
+			return getResource_1008ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
 			return getGoal_2001ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
@@ -419,22 +361,16 @@ public class Openome_modelDiagramUpdater {
 			return getResource_2015ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
 			return getTask_2016ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-			return getGoal_2017ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-			return getSoftgoal_2018ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-			return getResource_2019ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
-			return getTask_2020ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return getDependency_3001ContainedLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
+			return getDependency_3002ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			return getAndDecomposition_3002ContainedLinks(view);
+			return getAndDecomposition_3003ContainedLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			return getOrDecomposition_3003ContainedLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return getContribution_3004ContainedLinks(view);
+			return getOrDecomposition_3004ContainedLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+			return getContribution_3005ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -453,16 +389,14 @@ public class Openome_modelDiagramUpdater {
 			return getPosition_1003IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID:
 			return getRole_1004IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
-			return getAspect_1005IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
-			return getGoal_1006IncomingLinks(view);
+			return getGoal_1005IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
-			return getSoftgoal_1007IncomingLinks(view);
+			return getSoftgoal_1006IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
-			return getTask_1008IncomingLinks(view);
+			return getTask_1007IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
-			return getResource_1009IncomingLinks(view);
+			return getResource_1008IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
 			return getGoal_2001IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
@@ -495,22 +429,16 @@ public class Openome_modelDiagramUpdater {
 			return getResource_2015IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
 			return getTask_2016IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-			return getGoal_2017IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-			return getSoftgoal_2018IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-			return getResource_2019IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
-			return getTask_2020IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return getDependency_3001IncomingLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
+			return getDependency_3002IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			return getAndDecomposition_3002IncomingLinks(view);
+			return getAndDecomposition_3003IncomingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			return getOrDecomposition_3003IncomingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return getContribution_3004IncomingLinks(view);
+			return getOrDecomposition_3004IncomingLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+			return getContribution_3005IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -529,16 +457,14 @@ public class Openome_modelDiagramUpdater {
 			return getPosition_1003OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID:
 			return getRole_1004OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
-			return getAspect_1005OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
-			return getGoal_1006OutgoingLinks(view);
+			return getGoal_1005OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
-			return getSoftgoal_1007OutgoingLinks(view);
+			return getSoftgoal_1006OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
-			return getTask_1008OutgoingLinks(view);
+			return getTask_1007OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
-			return getResource_1009OutgoingLinks(view);
+			return getResource_1008OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
 			return getGoal_2001OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
@@ -571,22 +497,16 @@ public class Openome_modelDiagramUpdater {
 			return getResource_2015OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
 			return getTask_2016OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-			return getGoal_2017OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-			return getSoftgoal_2018OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-			return getResource_2019OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
-			return getTask_2020OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return getDependency_3001OutgoingLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
+			return getDependency_3002OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			return getAndDecomposition_3002OutgoingLinks(view);
+			return getAndDecomposition_3003OutgoingLinks(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			return getOrDecomposition_3003OutgoingLinks(view);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return getContribution_3004OutgoingLinks(view);
+			return getOrDecomposition_3004OutgoingLinks(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+			return getContribution_3005OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -601,11 +521,13 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getContainedTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getContainedTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getContainedTypeModelFacetLinks_Dependency_3002(modelElement));
 		result
-				.addAll(getContainedTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getContainedTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getContainedTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getContainedTypeModelFacetLinks_OrDecomposition_3004(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -640,35 +562,28 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAspect_1005ContainedLinks(View view) {
+	public static List getGoal_1005ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getGoal_1006ContainedLinks(View view) {
+	public static List getSoftgoal_1006ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSoftgoal_1007ContainedLinks(View view) {
+	public static List getTask_1007ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTask_1008ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResource_1009ContainedLinks(View view) {
+	public static List getResource_1008ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -787,34 +702,6 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getGoal_2017ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getSoftgoal_2018ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResource_2019ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getTask_2020ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getDependency_3001ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -822,21 +709,28 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAndDecomposition_3002ContainedLinks(View view) {
+	public static List getDependency_3002ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOrDecomposition_3003ContainedLinks(View view) {
+	public static List getAndDecomposition_3003ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getContribution_3004ContainedLinks(View view) {
+	public static List getOrDecomposition_3004ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getContribution_3005ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -844,7 +738,14 @@ public class Openome_modelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getActor_1001IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
+		edu.toronto.cs.openome_model.Actor modelElement = (edu.toronto.cs.openome_model.Actor) view
+				.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3002(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -871,14 +772,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAspect_1005IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getGoal_1006IncomingLinks(View view) {
+	public static List getGoal_1005IncomingLinks(View view) {
 		edu.toronto.cs.openome_model.Goal modelElement = (edu.toronto.cs.openome_model.Goal) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -886,11 +780,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -898,7 +792,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getSoftgoal_1007IncomingLinks(View view) {
+	public static List getSoftgoal_1006IncomingLinks(View view) {
 		edu.toronto.cs.openome_model.Softgoal modelElement = (edu.toronto.cs.openome_model.Softgoal) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -906,11 +800,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -918,7 +812,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getTask_1008IncomingLinks(View view) {
+	public static List getTask_1007IncomingLinks(View view) {
 		edu.toronto.cs.openome_model.Task modelElement = (edu.toronto.cs.openome_model.Task) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -926,11 +820,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -938,7 +832,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResource_1009IncomingLinks(View view) {
+	public static List getResource_1008IncomingLinks(View view) {
 		edu.toronto.cs.openome_model.Resource modelElement = (edu.toronto.cs.openome_model.Resource) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -946,11 +840,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -966,11 +860,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -986,11 +880,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1006,11 +900,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1026,11 +920,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1046,11 +940,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1066,11 +960,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1086,11 +980,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1106,11 +1000,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1126,11 +1020,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1146,11 +1040,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1166,11 +1060,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1186,11 +1080,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1206,11 +1100,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1226,11 +1120,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1246,11 +1140,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1266,91 +1160,11 @@ public class Openome_modelDiagramUpdater {
 		List result = new LinkedList();
 		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getGoal_2017IncomingLinks(View view) {
-		edu.toronto.cs.openome_model.Goal modelElement = (edu.toronto.cs.openome_model.Goal) view
-				.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getSoftgoal_2018IncomingLinks(View view) {
-		edu.toronto.cs.openome_model.Softgoal modelElement = (edu.toronto.cs.openome_model.Softgoal) view
-				.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResource_2019IncomingLinks(View view) {
-		edu.toronto.cs.openome_model.Resource modelElement = (edu.toronto.cs.openome_model.Resource) view
-				.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getTask_2020IncomingLinks(View view) {
-		edu.toronto.cs.openome_model.Task modelElement = (edu.toronto.cs.openome_model.Task) view
-				.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_Dependency_3001(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AndDecomposition_3002(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_OrDecomposition_3003(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3004(
+		result.addAll(getIncomingTypeModelFacetLinks_Contribution_3005(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -1365,21 +1179,28 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAndDecomposition_3002IncomingLinks(View view) {
+	public static List getDependency_3002IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOrDecomposition_3003IncomingLinks(View view) {
+	public static List getAndDecomposition_3003IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getContribution_3004IncomingLinks(View view) {
+	public static List getOrDecomposition_3004IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getContribution_3005IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1387,7 +1208,12 @@ public class Openome_modelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getActor_1001OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
+		edu.toronto.cs.openome_model.Actor modelElement = (edu.toronto.cs.openome_model.Actor) view
+				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3002(modelElement));
+		return result;
 	}
 
 	/**
@@ -1414,79 +1240,72 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAspect_1005OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getGoal_1006OutgoingLinks(View view) {
+	public static List getGoal_1005OutgoingLinks(View view) {
 		edu.toronto.cs.openome_model.Goal modelElement = (edu.toronto.cs.openome_model.Goal) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getSoftgoal_1007OutgoingLinks(View view) {
+	public static List getSoftgoal_1006OutgoingLinks(View view) {
 		edu.toronto.cs.openome_model.Softgoal modelElement = (edu.toronto.cs.openome_model.Softgoal) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getTask_1008OutgoingLinks(View view) {
+	public static List getTask_1007OutgoingLinks(View view) {
 		edu.toronto.cs.openome_model.Task modelElement = (edu.toronto.cs.openome_model.Task) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getResource_1009OutgoingLinks(View view) {
+	public static List getResource_1008OutgoingLinks(View view) {
 		edu.toronto.cs.openome_model.Resource modelElement = (edu.toronto.cs.openome_model.Resource) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1500,11 +1319,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1518,11 +1337,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1536,11 +1355,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1554,11 +1373,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1572,11 +1391,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1590,11 +1409,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1608,11 +1427,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1626,11 +1445,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1644,11 +1463,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1662,11 +1481,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1680,11 +1499,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1698,11 +1517,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1716,11 +1535,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1734,11 +1553,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1752,11 +1571,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1770,83 +1589,11 @@ public class Openome_modelDiagramUpdater {
 		result
 				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3003(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3004(modelElement));
 		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getGoal_2017OutgoingLinks(View view) {
-		edu.toronto.cs.openome_model.Goal modelElement = (edu.toronto.cs.openome_model.Goal) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getSoftgoal_2018OutgoingLinks(View view) {
-		edu.toronto.cs.openome_model.Softgoal modelElement = (edu.toronto.cs.openome_model.Softgoal) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResource_2019OutgoingLinks(View view) {
-		edu.toronto.cs.openome_model.Resource modelElement = (edu.toronto.cs.openome_model.Resource) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getTask_2020OutgoingLinks(View view) {
-		edu.toronto.cs.openome_model.Task modelElement = (edu.toronto.cs.openome_model.Task) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Dependency_3001(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_AndDecomposition_3002(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_OrDecomposition_3003(modelElement));
-		result
-				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3004(modelElement));
+				.addAll(getOutgoingTypeModelFacetLinks_Contribution_3005(modelElement));
 		return result;
 	}
 
@@ -1860,21 +1607,28 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAndDecomposition_3002OutgoingLinks(View view) {
+	public static List getDependency_3002OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getOrDecomposition_3003OutgoingLinks(View view) {
+	public static List getAndDecomposition_3003OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getContribution_3004OutgoingLinks(View view) {
+	public static List getOrDecomposition_3004OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getContribution_3005OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1912,7 +1666,43 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_AndDecomposition_3002(
+	private static Collection getContainedTypeModelFacetLinks_Dependency_3002(
+			edu.toronto.cs.openome_model.Model container) {
+		Collection result = new LinkedList();
+		for (Iterator links = container.getDependencies().iterator(); links
+				.hasNext();) {
+			Object linkObject = links.next();
+			if (false == linkObject instanceof edu.toronto.cs.openome_model.Dependency) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Dependency link = (edu.toronto.cs.openome_model.Dependency) linkObject;
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			List targets = link.getActorDependencyFrom();
+			Object theTarget = targets.size() == 1 ? targets.get(0) : null;
+			if (false == theTarget instanceof edu.toronto.cs.openome_model.Actor) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Actor dst = (edu.toronto.cs.openome_model.Actor) theTarget;
+			edu.toronto.cs.openome_model.Actor src = link
+					.getActorDependencyTo();
+			result
+					.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelLinkDescriptor(
+							src,
+							dst,
+							link,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002,
+							edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getContainedTypeModelFacetLinks_AndDecomposition_3003(
 			edu.toronto.cs.openome_model.Model container) {
 		Collection result = new LinkedList();
 		for (Iterator links = container.getDecompositions().iterator(); links
@@ -1933,7 +1723,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003,
 							edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -1942,7 +1732,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_OrDecomposition_3003(
+	private static Collection getContainedTypeModelFacetLinks_OrDecomposition_3004(
 			edu.toronto.cs.openome_model.Model container) {
 		Collection result = new LinkedList();
 		for (Iterator links = container.getDecompositions().iterator(); links
@@ -1963,7 +1753,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004,
 							edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -1972,7 +1762,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_Contribution_3004(
+	private static Collection getContainedTypeModelFacetLinks_Contribution_3005(
 			edu.toronto.cs.openome_model.Model container) {
 		Collection result = new LinkedList();
 		for (Iterator links = container.getContributions().iterator(); links
@@ -1982,7 +1772,7 @@ public class Openome_modelDiagramUpdater {
 				continue;
 			}
 			edu.toronto.cs.openome_model.Contribution link = (edu.toronto.cs.openome_model.Contribution) linkObject;
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
@@ -1993,8 +1783,8 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004,
-							edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID));
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005,
+							edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -2035,7 +1825,41 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_AndDecomposition_3002(
+	private static Collection getIncomingTypeModelFacetLinks_Dependency_3002(
+			edu.toronto.cs.openome_model.Actor target, Map crossReferences) {
+		Collection result = new LinkedList();
+		Collection settings = (Collection) crossReferences.get(target);
+		for (Iterator it = settings.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getDependency_ActorDependencyFrom()
+					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.Dependency) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Dependency link = (edu.toronto.cs.openome_model.Dependency) setting
+					.getEObject();
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Actor src = link
+					.getActorDependencyTo();
+			result
+					.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelLinkDescriptor(
+							src,
+							target,
+							link,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002,
+							edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getIncomingTypeModelFacetLinks_AndDecomposition_3003(
 			edu.toronto.cs.openome_model.Intention target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -2059,7 +1883,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							target,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003,
 							edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -2068,7 +1892,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_OrDecomposition_3003(
+	private static Collection getIncomingTypeModelFacetLinks_OrDecomposition_3004(
 			edu.toronto.cs.openome_model.Intention target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -2092,7 +1916,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							target,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004,
 							edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -2101,7 +1925,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingTypeModelFacetLinks_Contribution_3004(
+	private static Collection getIncomingTypeModelFacetLinks_Contribution_3005(
 			edu.toronto.cs.openome_model.Intention target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -2115,7 +1939,7 @@ public class Openome_modelDiagramUpdater {
 			}
 			edu.toronto.cs.openome_model.Contribution link = (edu.toronto.cs.openome_model.Contribution) setting
 					.getEObject();
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
@@ -2125,8 +1949,8 @@ public class Openome_modelDiagramUpdater {
 							src,
 							target,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004,
-							edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID));
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005,
+							edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -2181,7 +2005,59 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_AndDecomposition_3002(
+	private static Collection getOutgoingTypeModelFacetLinks_Dependency_3002(
+			edu.toronto.cs.openome_model.Actor source) {
+		edu.toronto.cs.openome_model.Model container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof edu.toronto.cs.openome_model.Model) {
+				container = (edu.toronto.cs.openome_model.Model) element;
+			}
+		}
+		if (container == null) {
+			return Collections.EMPTY_LIST;
+		}
+		Collection result = new LinkedList();
+		for (Iterator links = container.getDependencies().iterator(); links
+				.hasNext();) {
+			Object linkObject = links.next();
+			if (false == linkObject instanceof edu.toronto.cs.openome_model.Dependency) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Dependency link = (edu.toronto.cs.openome_model.Dependency) linkObject;
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			List targets = link.getActorDependencyFrom();
+			Object theTarget = targets.size() == 1 ? targets.get(0) : null;
+			if (false == theTarget instanceof edu.toronto.cs.openome_model.Actor) {
+				continue;
+			}
+			edu.toronto.cs.openome_model.Actor dst = (edu.toronto.cs.openome_model.Actor) theTarget;
+			edu.toronto.cs.openome_model.Actor src = link
+					.getActorDependencyTo();
+			if (src != source) {
+				continue;
+			}
+			result
+					.add(new edu.toronto.cs.openome_model.diagram.part.Openome_modelLinkDescriptor(
+							src,
+							dst,
+							link,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002,
+							edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getOutgoingTypeModelFacetLinks_AndDecomposition_3003(
 			edu.toronto.cs.openome_model.Intention source) {
 		edu.toronto.cs.openome_model.Model container = null;
 		// Find container element for the link.
@@ -2218,7 +2094,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003,
 							edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -2227,7 +2103,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_OrDecomposition_3003(
+	private static Collection getOutgoingTypeModelFacetLinks_OrDecomposition_3004(
 			edu.toronto.cs.openome_model.Intention source) {
 		edu.toronto.cs.openome_model.Model container = null;
 		// Find container element for the link.
@@ -2264,7 +2140,7 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004,
 							edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -2273,7 +2149,7 @@ public class Openome_modelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingTypeModelFacetLinks_Contribution_3004(
+	private static Collection getOutgoingTypeModelFacetLinks_Contribution_3005(
 			edu.toronto.cs.openome_model.Intention source) {
 		edu.toronto.cs.openome_model.Model container = null;
 		// Find container element for the link.
@@ -2296,7 +2172,7 @@ public class Openome_modelDiagramUpdater {
 				continue;
 			}
 			edu.toronto.cs.openome_model.Contribution link = (edu.toronto.cs.openome_model.Contribution) linkObject;
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
@@ -2310,8 +2186,8 @@ public class Openome_modelDiagramUpdater {
 							src,
 							dst,
 							link,
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004,
-							edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID));
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005,
+							edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID));
 		}
 		return result;
 	}

@@ -44,19 +44,19 @@ public class Softgoal2ItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005 == req
 				.getElementType()) {
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionCreateCommand(
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -72,19 +72,19 @@ public class Softgoal2ItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005 == req
 				.getElementType()) {
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionCreateCommand(
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -108,8 +108,8 @@ public class Softgoal2ItemSemanticEditPolicy
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionReorientCommand(
 					req));
-		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionReorientCommand(
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ContributionReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);

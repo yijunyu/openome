@@ -1,7 +1,9 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -14,7 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
+public class RoleRoleCompartmentEditPart extends ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -26,6 +28,13 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 	 */
 	public RoleRoleCompartmentEditPart(View view) {
 		super(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
 	}
 
 	/**

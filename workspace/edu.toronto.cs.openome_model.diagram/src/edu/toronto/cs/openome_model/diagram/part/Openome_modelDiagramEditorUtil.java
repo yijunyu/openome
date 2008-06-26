@@ -76,7 +76,7 @@ public class Openome_modelDiagramEditorUtil {
 		if (workspaceResource instanceof IFile) {
 			IWorkbenchPage page = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage();
-			
+
 			// Open the Properties view when the diagram (.ood) editor opens.
 			try {
 				page.showView("org.eclipse.ui.views.PropertySheet");

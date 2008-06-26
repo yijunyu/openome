@@ -248,16 +248,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ContributionTools17Group_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ContributionTools17Group_desc;
-
-	/**
-	 * @generated
-	 */
 	public static String Actor1CreationTool_title;
 
 	/**
@@ -298,52 +288,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Aspect5CreationTool_title;
+	public static String Hardgoal6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Aspect5CreationTool_desc;
+	public static String Hardgoal6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Hardgoal7CreationTool_title;
+	public static String Softgoal7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Hardgoal7CreationTool_desc;
+	public static String Softgoal7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Softgoal8CreationTool_title;
+	public static String Task8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Softgoal8CreationTool_desc;
+	public static String Task8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Task9CreationTool_title;
+	public static String Resource9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Task9CreationTool_desc;
+	public static String Resource9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Resource10CreationTool_title;
+	public static String ActorDependency11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Resource10CreationTool_desc;
+	public static String ActorDependency11CreationTool_desc;
 
 	/**
 	 * @generated
@@ -378,12 +368,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Contribution1CreationTool_title;
+	public static String Contribution17CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Contribution1CreationTool_desc;
+	public static String Contribution17CreationTool_desc;
 
 	/**
 	 * @generated
@@ -408,11 +398,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String AspectAspectCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -423,42 +408,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_1006_incominglinks;
+	public static String NavigatorGroupName_Actor_1001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_1006_outgoinglinks;
+	public static String NavigatorGroupName_Actor_1001_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_1007_incominglinks;
+	public static String NavigatorGroupName_Goal_1005_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_1007_outgoinglinks;
+	public static String NavigatorGroupName_Goal_1005_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_1008_incominglinks;
+	public static String NavigatorGroupName_Softgoal_1006_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_1008_outgoinglinks;
+	public static String NavigatorGroupName_Softgoal_1006_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_1009_incominglinks;
+	public static String NavigatorGroupName_Task_1007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_1009_outgoinglinks;
+	public static String NavigatorGroupName_Task_1007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_1008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_1008_outgoinglinks;
 
 	/**
 	 * @generated
@@ -623,46 +618,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_2017_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Goal_2017_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Softgoal_2018_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Softgoal_2018_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Resource_2019_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Resource_2019_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Task_2020_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Task_2020_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Dependency_3001_target;
 
 	/**
@@ -673,32 +628,42 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_AndDecomposition_3002_target;
+	public static String NavigatorGroupName_Dependency_3002_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_AndDecomposition_3002_source;
+	public static String NavigatorGroupName_Dependency_3002_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_OrDecomposition_3003_target;
+	public static String NavigatorGroupName_AndDecomposition_3003_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_OrDecomposition_3003_source;
+	public static String NavigatorGroupName_AndDecomposition_3003_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Contribution_3004_target;
+	public static String NavigatorGroupName_OrDecomposition_3004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Contribution_3004_source;
+	public static String NavigatorGroupName_OrDecomposition_3004_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Contribution_3005_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Contribution_3005_source;
 
 	/**
 	 * @generated

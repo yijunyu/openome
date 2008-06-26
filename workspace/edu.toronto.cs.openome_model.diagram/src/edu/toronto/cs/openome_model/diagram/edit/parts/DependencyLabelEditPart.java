@@ -51,7 +51,7 @@ public class DependencyLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4025;
 
 	/**
 	 * @generated

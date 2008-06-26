@@ -55,7 +55,7 @@ public class SoftgoalNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4027;
+	public static final int VISUAL_ID = 4022;
 
 	/**
 	 * @generated
@@ -300,7 +300,7 @@ public class SoftgoalNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1007,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1006,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

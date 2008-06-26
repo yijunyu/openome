@@ -26,7 +26,7 @@ public class ResourceEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1009;
+	public static final int VISUAL_ID = 1008;
 
 	/**
 	 * @generated

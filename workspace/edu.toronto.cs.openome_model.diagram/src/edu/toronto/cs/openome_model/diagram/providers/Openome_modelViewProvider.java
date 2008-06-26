@@ -85,7 +85,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 				case edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
@@ -106,10 +105,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -144,14 +139,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 				case edu.toronto.cs.openome_model.diagram.edit.parts.RoleNameEditPart.VISUAL_ID:
 				case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.AspectNameEditPart.VISUAL_ID:
-				case edu.toronto.cs.openome_model.diagram.edit.parts.AspectAspectCompartmentEditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -297,36 +284,15 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName6EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName6EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName6EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName6EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
 				case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
+					if (edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -346,8 +312,8 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+				case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
+					if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -387,10 +353,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.RoleViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleNameEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.RoleNameViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.AspectViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectNameEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.AspectNameViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.GoalViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalNameEditPart.VISUAL_ID:
@@ -471,22 +433,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.Task5ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.TaskName5ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.Goal6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.GoalName6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.Softgoal6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.SoftgoalName6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.Resource6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.ResourceName6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.Task6ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName6EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.TaskName6ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.ActorActorCompartmentViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart.VISUAL_ID:
@@ -495,16 +441,16 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.PositionPositionCompartmentViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.RoleRoleCompartmentViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.AspectAspectCompartmentEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.AspectAspectCompartmentViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyLabelViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyLabel2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabelViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel2ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel3ViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.LabelViewFactory.class;
 		}
 		return null;
 	}
@@ -545,12 +491,14 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.Dependency2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.AndDecompositionViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.OrDecompositionViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.MakeContributionViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.ContributionViewFactory.class;
 		}
 		return null;
 	}

@@ -58,17 +58,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.RoleCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Aspect_1005 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Containers());
-			}
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AspectCreateCommand(
-					req));
-		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1006 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1005 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -78,7 +68,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1007 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1006 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -88,7 +78,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SoftgoalCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_1008 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_1007 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -98,7 +88,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.TaskCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_1009 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_1008 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

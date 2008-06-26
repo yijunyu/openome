@@ -32,10 +32,6 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getAspect()) {
-			return true;
-		}
-		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContribution()) {
 			return true;
 		}
@@ -93,6 +89,10 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getBelief()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getLink()) {
 			return true;
 		}
 		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE

@@ -64,14 +64,6 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.RoleNameEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.AspectEditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.AspectNameEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.AspectNameEditPart(
-						view);
-
 			case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart(
 						view);
@@ -232,38 +224,6 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.Goal6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.GoalName6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.Resource6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.Task6EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName6EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName6EditPart(
-						view);
-
 			case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart(
 						view);
@@ -280,16 +240,20 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.AspectAspectCompartmentEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.AspectAspectCompartmentEditPart(
-						view);
-
 			case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
@@ -308,12 +272,12 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel3EditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart(
 						view);
 			}
 		}
