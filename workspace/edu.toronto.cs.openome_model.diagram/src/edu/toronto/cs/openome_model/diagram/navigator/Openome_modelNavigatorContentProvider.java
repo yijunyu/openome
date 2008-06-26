@@ -354,6 +354,12 @@ public class Openome_modelNavigatorContentProvider implements
 
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_1002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_1002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart.VISUAL_ID);
@@ -386,11 +392,33 @@ public class Openome_modelNavigatorContentProvider implements
 					edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_1003_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_1003_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart.VISUAL_ID);
@@ -423,11 +451,33 @@ public class Openome_modelNavigatorContentProvider implements
 					edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_1004_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_1004_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID);
@@ -460,6 +510,22 @@ public class Openome_modelNavigatorContentProvider implements
 					edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -1833,9 +1899,39 @@ public class Openome_modelNavigatorContentProvider implements
 					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
 			connectedViews = getLinksSourceByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

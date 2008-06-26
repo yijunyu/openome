@@ -362,8 +362,8 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public static boolean canCreateDependency_3002(
 				edu.toronto.cs.openome_model.Model container,
-				edu.toronto.cs.openome_model.Actor source,
-				edu.toronto.cs.openome_model.Actor target) {
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
 			return canExistDependency_3002(container, source, target);
 		}
 
@@ -412,8 +412,8 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public static boolean canExistDependency_3002(
 				edu.toronto.cs.openome_model.Model container,
-				edu.toronto.cs.openome_model.Actor source,
-				edu.toronto.cs.openome_model.Actor target) {
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
 			return true;
 		}
 

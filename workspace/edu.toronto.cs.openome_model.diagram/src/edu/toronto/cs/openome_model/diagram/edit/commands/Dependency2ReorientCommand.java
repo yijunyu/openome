@@ -58,13 +58,13 @@ public class Dependency2ReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Actor && newEnd instanceof edu.toronto.cs.openome_model.Actor)) {
+		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Container && newEnd instanceof edu.toronto.cs.openome_model.Container)) {
 			return false;
 		}
 		if (getLink().getActorDependencyFrom().size() != 1) {
 			return false;
 		}
-		edu.toronto.cs.openome_model.Actor target = (edu.toronto.cs.openome_model.Actor) getLink()
+		edu.toronto.cs.openome_model.Container target = (edu.toronto.cs.openome_model.Container) getLink()
 				.getActorDependencyFrom().get(0);
 		if (!(getLink().eContainer() instanceof edu.toronto.cs.openome_model.Model)) {
 			return false;
@@ -79,10 +79,10 @@ public class Dependency2ReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Actor && newEnd instanceof edu.toronto.cs.openome_model.Actor)) {
+		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Container && newEnd instanceof edu.toronto.cs.openome_model.Container)) {
 			return false;
 		}
-		edu.toronto.cs.openome_model.Actor source = getLink()
+		edu.toronto.cs.openome_model.Container source = getLink()
 				.getActorDependencyTo();
 		if (!(getLink().eContainer() instanceof edu.toronto.cs.openome_model.Model)) {
 			return false;
@@ -138,28 +138,28 @@ public class Dependency2ReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getOldSource() {
-		return (edu.toronto.cs.openome_model.Actor) oldEnd;
+	protected edu.toronto.cs.openome_model.Container getOldSource() {
+		return (edu.toronto.cs.openome_model.Container) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getNewSource() {
-		return (edu.toronto.cs.openome_model.Actor) newEnd;
+	protected edu.toronto.cs.openome_model.Container getNewSource() {
+		return (edu.toronto.cs.openome_model.Container) newEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getOldTarget() {
-		return (edu.toronto.cs.openome_model.Actor) oldEnd;
+	protected edu.toronto.cs.openome_model.Container getOldTarget() {
+		return (edu.toronto.cs.openome_model.Container) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getNewTarget() {
-		return (edu.toronto.cs.openome_model.Actor) newEnd;
+	protected edu.toronto.cs.openome_model.Container getNewTarget() {
+		return (edu.toronto.cs.openome_model.Container) newEnd;
 	}
 }

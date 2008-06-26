@@ -64,11 +64,11 @@ public class Dependency2CreateCommand extends CreateElementCommand {
 			return false;
 		}
 		if (source != null
-				&& !(source instanceof edu.toronto.cs.openome_model.Actor)) {
+				&& !(source instanceof edu.toronto.cs.openome_model.Container)) {
 			return false;
 		}
 		if (target != null
-				&& !(target instanceof edu.toronto.cs.openome_model.Actor)) {
+				&& !(target instanceof edu.toronto.cs.openome_model.Container)) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -136,15 +136,15 @@ public class Dependency2CreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getSource() {
-		return (edu.toronto.cs.openome_model.Actor) source;
+	protected edu.toronto.cs.openome_model.Container getSource() {
+		return (edu.toronto.cs.openome_model.Container) source;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Actor getTarget() {
-		return (edu.toronto.cs.openome_model.Actor) target;
+	protected edu.toronto.cs.openome_model.Container getTarget() {
+		return (edu.toronto.cs.openome_model.Container) target;
 	}
 
 	/**

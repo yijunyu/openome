@@ -110,12 +110,6 @@ public class Openome_modelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002);
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -125,12 +119,6 @@ public class Openome_modelModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			types
-					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002);
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -143,14 +131,6 @@ public class Openome_modelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-				types
-						.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002);
-			}
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -161,14 +141,6 @@ public class Openome_modelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			if (relationshipType == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002) {
-				types
-						.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001);
-			}
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -179,14 +151,6 @@ public class Openome_modelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
-			List types = new ArrayList();
-			if (relationshipType == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002) {
-				types
-						.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001);
-			}
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
