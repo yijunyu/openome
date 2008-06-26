@@ -9,10 +9,6 @@
         eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="believes" upperBound="-1"
         eType="#//Belief"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyFrom" upperBound="-1"
-        eType="#//Dependency" eOpposite="#//Dependency/actorDependencyTo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
-        eType="#//Dependency" eOpposite="#//Dependency/actorDependencyFrom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="plays" upperBound="-1"
@@ -53,9 +49,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         transient="true" eOpposite="#//Model/dependencies"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actorDependencyFrom" upperBound="-1"
-        eType="#//Actor" eOpposite="#//Actor/dependencyTo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actorDependencyTo" eType="#//Actor"
-        eOpposite="#//Actor/dependencyFrom"/>
+        eType="#//Container" eOpposite="#//Container/dependencyTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actorDependencyTo" eType="#//Container"
+        eOpposite="#//Container/dependencyFrom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Intention">
@@ -139,6 +135,10 @@
         eType="#//Intention" containment="true" resolveProxies="false" eOpposite="#//Intention/container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
         transient="true" eOpposite="#//Model/containers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyFrom" upperBound="-1"
+        eType="#//Dependency" eOpposite="#//Dependency/actorDependencyTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
+        eType="#//Dependency" eOpposite="#//Dependency/actorDependencyFrom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Belief" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EEnum" name="EvaluationLabel">

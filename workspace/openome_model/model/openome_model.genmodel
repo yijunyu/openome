@@ -43,8 +43,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/is_a"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/is_part_of"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/believes"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/dependencyFrom"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Actor/dependencyTo"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Agent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Agent/plays"/>
@@ -126,6 +124,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/sub"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/intentions"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Container/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/dependencyFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Container/dependencyTo"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Belief"/>
     <genClasses image="false" ecoreClass="openome_model.ecore#//Link"/>
