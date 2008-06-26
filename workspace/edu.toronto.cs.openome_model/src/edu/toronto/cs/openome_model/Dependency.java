@@ -176,8 +176,8 @@ public interface Dependency extends Link {
 
 	/**
 	 * Returns the value of the '<em><b>Actor Dependency From</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Actor}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Actor#getDependencyTo <em>Dependency To</em>}'.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Container}.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Container#getDependencyTo <em>Dependency To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actor Dependency From</em>' reference list isn't clear,
@@ -186,15 +186,15 @@ public interface Dependency extends Link {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actor Dependency From</em>' reference list.
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependency_ActorDependencyFrom()
-	 * @see edu.toronto.cs.openome_model.Actor#getDependencyTo
+	 * @see edu.toronto.cs.openome_model.Container#getDependencyTo
 	 * @model opposite="dependencyTo"
 	 * @generated
 	 */
-	EList<Actor> getActorDependencyFrom();
+	EList<Container> getActorDependencyFrom();
 
 	/**
 	 * Returns the value of the '<em><b>Actor Dependency To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Actor#getDependencyFrom <em>Dependency From</em>}'.
+	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Container#getDependencyFrom <em>Dependency From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actor Dependency To</em>' reference isn't clear,
@@ -202,13 +202,13 @@ public interface Dependency extends Link {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actor Dependency To</em>' reference.
-	 * @see #setActorDependencyTo(Actor)
+	 * @see #setActorDependencyTo(Container)
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependency_ActorDependencyTo()
-	 * @see edu.toronto.cs.openome_model.Actor#getDependencyFrom
+	 * @see edu.toronto.cs.openome_model.Container#getDependencyFrom
 	 * @model opposite="dependencyFrom"
 	 * @generated
 	 */
-	Actor getActorDependencyTo();
+	Container getActorDependencyTo();
 
 	/**
 	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}' reference.
@@ -218,6 +218,6 @@ public interface Dependency extends Link {
 	 * @see #getActorDependencyTo()
 	 * @generated
 	 */
-	void setActorDependencyTo(Actor value);
+	void setActorDependencyTo(Container value);
 
 } // Dependency

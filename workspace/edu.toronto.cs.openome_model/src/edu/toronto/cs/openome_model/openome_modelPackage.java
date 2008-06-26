@@ -113,13 +113,31 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER__MODEL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__DEPENDENCY_FROM = 4;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__DEPENDENCY_TO = 5;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 4;
+	int CONTAINER_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -168,6 +186,24 @@ public interface openome_modelPackage extends EPackage {
 	int ACTOR__MODEL = CONTAINER__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Is a</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,31 +231,13 @@ public interface openome_modelPackage extends EPackage {
 	int ACTOR__BELIEVES = CONTAINER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__DEPENDENCY_FROM = CONTAINER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__DEPENDENCY_TO = CONTAINER_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Actor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 5;
+	int ACTOR_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
@@ -266,6 +284,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGENT__MODEL = CONTAINER__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Plays</b></em>' reference list.
@@ -1160,6 +1196,24 @@ public interface openome_modelPackage extends EPackage {
 	int POSITION__MODEL = CONTAINER__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Covers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1467,6 +1521,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE__MODEL = CONTAINER__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -2229,28 +2301,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActor_Believes();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getDependencyFrom <em>Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency From</em>'.
-	 * @see edu.toronto.cs.openome_model.Actor#getDependencyFrom()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EReference getActor_DependencyFrom();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Actor#getDependencyTo <em>Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency To</em>'.
-	 * @see edu.toronto.cs.openome_model.Actor#getDependencyTo()
-	 * @see #getActor()
-	 * @generated
-	 */
-	EReference getActor_DependencyTo();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Agent <em>Agent</em>}'.
@@ -3018,6 +3068,28 @@ public interface openome_modelPackage extends EPackage {
 	EReference getContainer_Model();
 
 	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getDependencyFrom <em>Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency From</em>'.
+	 * @see edu.toronto.cs.openome_model.Container#getDependencyFrom()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_DependencyFrom();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getDependencyTo <em>Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency To</em>'.
+	 * @see edu.toronto.cs.openome_model.Container#getDependencyTo()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_DependencyTo();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Belief <em>Belief</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3164,22 +3236,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTOR__BELIEVES = eINSTANCE.getActor_Believes();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTOR__DEPENDENCY_FROM = eINSTANCE.getActor_DependencyFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTOR__DEPENDENCY_TO = eINSTANCE.getActor_DependencyTo();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AgentImpl <em>Agent</em>}' class.
@@ -3780,6 +3836,22 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__MODEL = eINSTANCE.getContainer_Model();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__DEPENDENCY_FROM = eINSTANCE.getContainer_DependencyFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__DEPENDENCY_TO = eINSTANCE.getContainer_DependencyTo();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BeliefImpl <em>Belief</em>}' class.
