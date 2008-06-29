@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import openome_model.figures.DependencyLineConnection;
+
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
@@ -80,9 +82,9 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class DependencyFigure extends PolylineConnectionEx {
+	public class DependencyFigure extends DependencyLineConnection {
 
 		/**
 		 * @generated
@@ -134,7 +136,7 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public WrapLabel getFigureDependencyLabelFigure() {
-			this.setSmoothness(SMOOTH_NORMAL);
+			//this.setSmoothness(org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx.SMOOTH_NORMAL);
 			return fFigureDependencyLabelFigure;
 		}
 
