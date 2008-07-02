@@ -39,17 +39,5 @@ public class Dependency2ViewFactory extends ConnectionViewFactory {
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
-		IAdaptable eObjectAdapter = null;
-		EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
-		if (eObject != null) {
-			eObjectAdapter = new EObjectAdapter(eObject);
-		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

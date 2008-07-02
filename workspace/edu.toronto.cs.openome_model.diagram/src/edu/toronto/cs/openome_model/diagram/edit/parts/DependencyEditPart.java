@@ -39,29 +39,6 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureDependencyLabelFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -89,55 +66,9 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureDependencyLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public DependencyFigure() {
 			this.setLineWidth(2);
 
-			createContents();
-			setSourceDecoration(createSourceDecoration());
-			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureDependencyLabelFigure = new WrapLabel();
-			fFigureDependencyLabelFigure.setText("<...>");
-
-			this.add(fFigureDependencyLabelFigure);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createSourceDecoration() {
-			openome_model.figures.DepDecoration df = new openome_model.figures.DepDecoration();
-
-			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			openome_model.figures.Dep2Decoration df = new openome_model.figures.Dep2Decoration();
-
-			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureDependencyLabelFigure() {
-			//this.setSmoothness(org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx.SMOOTH_NORMAL);
-			return fFigureDependencyLabelFigure;
 		}
 
 	}

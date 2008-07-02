@@ -244,16 +244,8 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart(
-						view);
-
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart(
-						view);
-
-			case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:

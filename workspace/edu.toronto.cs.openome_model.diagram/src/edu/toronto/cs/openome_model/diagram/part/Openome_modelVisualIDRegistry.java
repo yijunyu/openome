@@ -688,16 +688,6 @@ public class Openome_modelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;

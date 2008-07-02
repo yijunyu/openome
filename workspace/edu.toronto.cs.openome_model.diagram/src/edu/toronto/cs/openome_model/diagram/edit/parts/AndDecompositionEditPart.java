@@ -123,7 +123,6 @@ public class AndDecompositionEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public WrapLabel getFigureAndLabel() {
-			this.setSmoothness(SMOOTH_NORMAL);
 			return fFigureAndLabel;
 		}
 

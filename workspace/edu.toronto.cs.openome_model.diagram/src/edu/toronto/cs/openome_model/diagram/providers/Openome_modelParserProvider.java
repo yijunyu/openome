@@ -541,58 +541,6 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser dependencyLabel_4025Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDependencyLabel_4025Parser() {
-		if (dependencyLabel_4025Parser == null) {
-			dependencyLabel_4025Parser = createDependencyLabel_4025Parser();
-		}
-		return dependencyLabel_4025Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createDependencyLabel_4025Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getDependency_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser dependencyLabel_4026Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDependencyLabel_4026Parser() {
-		if (dependencyLabel_4026Parser == null) {
-			dependencyLabel_4026Parser = createDependencyLabel_4026Parser();
-		}
-		return dependencyLabel_4026Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createDependencyLabel_4026Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getDependency_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser goalName_4021Parser;
 
 	/**
@@ -747,10 +695,6 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getResourceName_4018Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID:
 			return getTaskName_4019Parser();
-		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
-			return getDependencyLabel_4025Parser();
-		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
-			return getDependencyLabel_4026Parser();
 		}
 		return null;
 	}

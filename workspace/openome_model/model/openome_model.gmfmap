@@ -632,13 +632,6 @@
   <links>
     <domainMetaElement
         href="openome_model.ecore#//Dependency"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping">
-      <diagramLabel
-          href="openome_model.gmfgraph#DependencyLabel"/>
-      <features
-          href="openome_model.ecore#//Dependency/label"/>
-    </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/dependencies"/>
     <tool
@@ -656,21 +649,13 @@
   <links>
     <domainMetaElement
         href="openome_model.ecore#//Dependency"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
-        editPattern="">
-      <diagramLabel
-          href="openome_model.gmfgraph#DependencyLabel"/>
-      <features
-          href="openome_model.ecore#//Dependency/label"/>
-    </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/dependencies"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="openome_model.gmftool#//@palette/@tools.0/@tools.10"/>
     <diagramLink
-        href="openome_model.gmfgraph#Dependency"/>
+        href="openome_model.gmfgraph#ActorDependency"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Dependency/actorDependencyTo"/>

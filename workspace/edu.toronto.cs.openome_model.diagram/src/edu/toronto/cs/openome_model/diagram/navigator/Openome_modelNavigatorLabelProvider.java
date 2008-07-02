@@ -862,46 +862,34 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getDependency_3001Text(View view) {
-		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001,
-				(view.getElement() != null ? view.getElement() : view),
-				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+		edu.toronto.cs.openome_model.Dependency domainModelElement = (edu.toronto.cs.openome_model.Dependency) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.getTrust());
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
-					.getInstance().logError(
-							"Parser was not found for label " + 4025); //$NON-NLS-1$
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getDependency_3002Text(View view) {
-		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002,
-				(view.getElement() != null ? view.getElement() : view),
-				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
+		edu.toronto.cs.openome_model.Dependency domainModelElement = (edu.toronto.cs.openome_model.Dependency) view
+				.getElement();
+		if (domainModelElement != null) {
+			return String.valueOf(domainModelElement.getTrust());
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
-					.getInstance().logError(
-							"Parser was not found for label " + 4026); //$NON-NLS-1$
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
-
 	}
 
 	/**

@@ -47,7 +47,7 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/openome_modelDiagramFile.gif"
-  	     category="edu.toronto.cs.openome_model.editor.category"
+  	     category="org.eclipse.ui.Examples"
   	     class="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizard"
   	     id="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
@@ -131,16 +131,6 @@
             class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContributionItemProvider"
             checkPluginLoaded="false">
          <Priority name="Low"/>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>

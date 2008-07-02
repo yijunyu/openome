@@ -205,56 +205,6 @@
       <accessors
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
-    <descriptors
-        name="AspectFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="AspectFigure"
-          outline="false"
-          fill="false"
-          lineWidth="0">
-        <layout
-            xsi:type="gmfgraph:BorderLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="AspectNameFigure"
-            text="&lt;...>">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
-              vertical="true"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Arial"
-              height="12"
-              style="BOLD"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Ellipse"
-            name="AspectBoundaryFigure"
-            lineWidth="3"
-            lineKind="LINE_DASHDOTDOT">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              vertical="true"/>
-          <layout
-              xsi:type="gmfgraph:StackLayout"/>
-          <backgroundColor
-              xsi:type="gmfgraph:RGBColor"
-              red="236"
-              green="236"
-              blue="236"/>
-          <children
-              xsi:type="gmfgraph:CustomFigure"
-              name="AspectSVGFigure"
-              qualifiedClassName="openome_model.figures.AspectSVGFigure"/>
-        </children>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.1"/>
-    </descriptors>
   </figures>
   <figures
       name="Nodes">
@@ -322,16 +272,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="DependencyFigure"
-          lineWidth="2"
-          sourceDecoration="//@figures.4/@figures.0"
-          targetDecoration="//@figures.4/@figures.1">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="DependencyLabelFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.2/@descriptors.0/@actualFigure/@children.0"/>
+          lineWidth="2"/>
     </descriptors>
     <descriptors
         name="AndDecompositionFigure">
@@ -339,7 +280,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="AndDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.4/@figures.2">
+          sourceDecoration="//@figures.4/@figures.0">
         <children
             xsi:type="gmfgraph:Label"
             name="AndLabel"
@@ -354,7 +295,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="OrDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.4/@figures.3">
+          sourceDecoration="//@figures.4/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="OrLabel"
@@ -367,7 +308,7 @@
         name="ContributionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          targetDecoration="//@figures.4/@figures.4">
+          targetDecoration="//@figures.4/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="ContributionLabel"
@@ -375,6 +316,13 @@
       </actualFigure>
       <accessors
           figure="//@figures.2/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ActorDependencyFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ActorDependencyFigure"
+          lineWidth="2"/>
     </descriptors>
   </figures>
   <figures
@@ -416,14 +364,6 @@
       name="LinkDecorations">
     <figures
         xsi:type="gmfgraph:CustomDecoration"
-        name="DepDecoration"
-        qualifiedClassName="openome_model.figures.DepDecoration"/>
-    <figures
-        xsi:type="gmfgraph:CustomDecoration"
-        name="Dep2Decoration"
-        qualifiedClassName="openome_model.figures.Dep2Decoration"/>
-    <figures
-        xsi:type="gmfgraph:CustomDecoration"
         name="AndDecoration"
         qualifiedClassName="openome_model.figures.AndDecoration"/>
     <figures
@@ -438,10 +378,12 @@
   <nodes
       name="Actor"
       figure="ActorFigure"
+      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
       name="Agent"
       figure="AgentFigure"
+      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.1/@accessors.1"/>
   <nodes
       name="Position"
@@ -475,6 +417,9 @@
   <connections
       name="Contribution"
       figure="ContributionFigure"/>
+  <connections
+      name="ActorDependency"
+      figure="ActorDependencyFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -533,15 +478,6 @@
       accessor="//@figures.0/@descriptors.3/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
-  <labels
-      name="DependencyLabel"
-      figure="DependencyFigure"
-      elementIcon="false"
-      accessor="//@figures.2/@descriptors.0/@accessors.0">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"
-        alignment="CENTER"/>
   </labels>
   <labels
       name="GoalLabel"

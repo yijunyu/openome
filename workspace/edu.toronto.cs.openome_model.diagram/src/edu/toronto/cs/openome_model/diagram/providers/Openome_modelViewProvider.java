@@ -284,20 +284,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
-					if (edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
 				case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
@@ -441,10 +427,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.PositionPositionCompartmentViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.RoleRoleCompartmentViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabelEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyLabelViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyLabel2EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyLabel2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabelViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart.VISUAL_ID:
