@@ -14,7 +14,13 @@ public class DependencyLineConnection extends PolylineConnection {
     
     // the size of the 'D' decoration
     // that will be located at the midpoint
-    private static int sizeOfD = 15;
+    private static int sizeOfD = 10;
+    
+    // Options for how the 'D' should look
+    // only one (1) should be turned on
+    private boolean fillArcWithBlack = true;
+    private boolean fillArcWithWhite = false;
+    private boolean fillArcWithTransparent = false;
 	
 	protected void outlineShape(Graphics g) {
 		
@@ -66,9 +72,6 @@ public class DependencyLineConnection extends PolylineConnection {
 		
 		g.drawArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
 		
-		// fill in the arc so that you don't see the link/connector line
-		g.fillArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
-		
 		
 		// --------------
 		// draw the line
@@ -83,9 +86,44 @@ public class DependencyLineConnection extends PolylineConnection {
 		Point linePoint_Two = new Point((int)(midPoint.x-(Math.sin(line_Angle_Radians)*sizeOfD)), 
 										(int)(midPoint.y-(Math.cos(line_Angle_Radians)*sizeOfD)));
 		
-		// render the line
-		g.drawLine(linePoint_One, linePoint_Two);
-
+		
+		if (fillArcWithBlack) {
+			
+			// fill it in completely black
+			completeFill(g, midPoint, sizeOfD, angle, line_Angle_Radians, 180);
+			
+		} else if (fillArcWithWhite) {
+			
+			// fill in the arc (with white) so that you don't see the link/connector line
+			g.fillArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
+			
+			// render the line
+			g.drawLine(linePoint_One, linePoint_Two);
+			
+		} else if (fillArcWithTransparent) {
+			
+			// render the line
+			g.drawLine(linePoint_One, linePoint_Two);
+			
+		}
+	}
+	
+	/**
+	 * Completely fill in the arc with black, by drawing several inner arcs
+	 * @param g
+	 * @param midPoint
+	 * @param sizeOfD_input
+	 * @param angle
+	 * @param lineAngle
+	 * @param length
+	 */
+	private void completeFill(Graphics g, Point midPoint, int sizeOfD_input, int angle, double lineAngle, int length) {
+		int sizeOfD = sizeOfD_input;
+		
+		// draw several inner arcs, to fill in the entire arc with black
+		for (; sizeOfD > 0; sizeOfD--) {
+			g.drawArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
+		}
 	}
 	
 	public Rectangle getBounds() {
