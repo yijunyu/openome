@@ -9,6 +9,8 @@ import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.ConnectionViewFactory;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -27,7 +29,7 @@ public class DependencyViewFactory extends ConnectionViewFactory {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void decorateView(View containerView, View view,
 			IAdaptable semanticAdapter, String semanticHint, int index,
@@ -39,5 +41,9 @@ public class DependencyViewFactory extends ConnectionViewFactory {
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
+		
+		// ensures that the link/connectors have smooth curvature
+		RoutingStyle style = (RoutingStyle) view.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		style.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
 	}
 }
