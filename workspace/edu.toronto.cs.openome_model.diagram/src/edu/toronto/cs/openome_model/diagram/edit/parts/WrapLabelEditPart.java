@@ -51,7 +51,7 @@ public class WrapLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4025;
+	public static final int VISUAL_ID = 6001;
 
 	/**
 	 * @generated
@@ -297,7 +297,7 @@ public class WrapLabelEditPart extends LabelEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_4003,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

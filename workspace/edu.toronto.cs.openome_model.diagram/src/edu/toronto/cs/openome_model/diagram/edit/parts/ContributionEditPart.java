@@ -17,7 +17,7 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3005;
+	public static final int VISUAL_ID = 4005;
 
 	/**
 	 * @generated
@@ -87,6 +87,7 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public ContributionFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

@@ -19,7 +19,7 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 4001;
 
 	/**
 	 * @generated
@@ -48,29 +48,14 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	 */
 
 	protected Connection createConnectionFigure() {
-		return new DependencyFigure();
+		return new DependencyLineConnection();
 	}
 
 	/**
 	 * @generated
 	 */
-	public DependencyFigure getPrimaryShape() {
-		return (DependencyFigure) getFigure();
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	public class DependencyFigure extends DependencyLineConnection {
-
-		/**
-		 * @generated
-		 */
-		public DependencyFigure() {
-			this.setLineWidth(2);
-
-		}
-
+	public DependencyLineConnection getPrimaryShape() {
+		return (DependencyLineConnection) getFigure();
 	}
 
 }

@@ -58,7 +58,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createActor1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_2001);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Actor1CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Actor1CreationTool_desc,
@@ -78,7 +78,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createAgent2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Agent_1002);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Agent_2002);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Agent2CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Agent2CreationTool_desc,
@@ -98,7 +98,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createPosition3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_1003);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_2003);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Position3CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Position3CreationTool_desc,
@@ -118,7 +118,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createRole4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_1004);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_2004);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Role4CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Role4CreationTool_desc,
@@ -138,15 +138,15 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createHardgoal6CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(5);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2001);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3001);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3005);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3009);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3013);
 		types
 				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2005);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2009);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2013);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1005);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Hardgoal6CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Hardgoal6CreationTool_desc,
@@ -166,15 +166,15 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createSoftgoal7CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(5);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2002);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3002);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3006);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3010);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3014);
 		types
 				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2010);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2014);
-		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1006);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Softgoal7CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Softgoal7CreationTool_desc,
@@ -194,15 +194,15 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createTask8CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(5);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2004);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3004);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2008);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3008);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2012);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3012);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2016);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3016);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_1007);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2007);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Task8CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Task8CreationTool_desc,
@@ -222,15 +222,15 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createResource9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(5);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3003);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2007);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3007);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2011);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3011);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2015);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3015);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_1008);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2008);
 		NodeToolEntry entry = new NodeToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Resource9CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Resource9CreationTool_desc,
@@ -250,7 +250,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createActorDependency11CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4002);
 		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.ActorDependency11CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.ActorDependency11CreationTool_desc,
@@ -270,7 +270,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createDependency12CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001);
 		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Dependency12CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Dependency12CreationTool_desc,
@@ -290,7 +290,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createAnd14CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3003);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_4003);
 		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.And14CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.And14CreationTool_desc,
@@ -310,7 +310,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createOr15CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3004);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_4004);
 		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Or15CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Or15CreationTool_desc,
@@ -330,7 +330,7 @@ public class Openome_modelPaletteFactory {
 	private ToolEntry createContribution17CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005);
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_4005);
 		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Contribution17CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Contribution17CreationTool_desc,
