@@ -270,9 +270,9 @@
     <descriptors
         name="DependencyFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
+          xsi:type="gmfgraph:CustomConnection"
           name="DependencyFigure"
-          lineWidth="2"/>
+          qualifiedClassName="DependencyLineConnection"/>
     </descriptors>
     <descriptors
         name="AndDecompositionFigure">
@@ -308,6 +308,7 @@
         name="ContributionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
           targetDecoration="//@figures.4/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
