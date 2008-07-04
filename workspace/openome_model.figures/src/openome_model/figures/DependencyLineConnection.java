@@ -1,13 +1,12 @@
 package openome_model.figures;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
-import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 
-public class DependencyLineConnection extends PolylineConnection {
+public class DependencyLineConnection extends PolylineConnectionEx {
 	
     private static final int stepLine = 6;
     private static final int stepLineMin = 4;
@@ -15,6 +14,9 @@ public class DependencyLineConnection extends PolylineConnection {
     // the size of the 'D' decoration
     // that will be located at the midpoint
     private static int sizeOfD = 10;
+    
+    /** Whether the connection is always straight or not */
+    private boolean isAlwaysStraight = false;
     
     // Options for how the 'D' should look
     // only one (1) should be turned on
@@ -30,6 +32,11 @@ public class DependencyLineConnection extends PolylineConnection {
 		
 		// draw the normal connecting link/connector first
 		super.outlineShape(g);
+		
+		// ensure that the line stays straight, without any curves or bends
+		if (isAlwaysStraight) {
+			straightenLine();
+		}
 		
 		// determine the points of the two ends - the source and target
 		Point sourcePoint = this.getPoints().getFirstPoint();
@@ -105,6 +112,15 @@ public class DependencyLineConnection extends PolylineConnection {
 			// render the line
 			g.drawLine(linePoint_One, linePoint_Two);
 			
+		}
+	}
+	
+	/**
+	 * Straigten the connector so that there are no bends or curves
+	 */
+	public void straightenLine() {
+		if (this.getPoints().size() > 2) {
+			this.removePoint(1);			
 		}
 	}
 	
