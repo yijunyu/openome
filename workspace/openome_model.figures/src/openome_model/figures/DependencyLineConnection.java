@@ -26,14 +26,20 @@ public class DependencyLineConnection extends PolylineConnectionEx {
     private boolean fill_D_WithWhite = false;
     private boolean fill_D_WithTransparent = false;
 	
+    /** The width of the link/connector */
+    private int lineWidth = 2;
+    
 	protected void outlineShape(Graphics g) {
+		
+		// draw the normal connecting link/connector first
+		super.outlineShape(g);
+		
+		// set the line width
+		this.setLineWidth(lineWidth);
 		
 		// ensure that there are no decorations on the ends
 		this.setSourceDecoration(null);
 		this.setTargetDecoration(null);
-		
-		// draw the normal connecting link/connector first
-		super.outlineShape(g);
 		
 		// ensure that the line stays straight, without any curves or bends
 		if (isAlwaysStraight) {
