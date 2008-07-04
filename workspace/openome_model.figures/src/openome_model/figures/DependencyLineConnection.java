@@ -1,5 +1,9 @@
 package openome_model.figures;
 
+import java.util.ArrayList;
+
+import org.eclipse.draw2d.AbsoluteBendpoint;
+import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
@@ -9,20 +13,18 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 public class DependencyLineConnection extends PolylineConnectionEx {
 	
     private static final int stepLine = 6;
-    private static final int stepLineMin = 4;
     
-    // the size of the 'D' decoration
-    // that will be located at the midpoint
+    /**The size of the 'D' decoration that will be located at the midpoint */
     private static int sizeOfD = 10;
     
     /** Whether the connection is always straight or not */
     private boolean isAlwaysStraight = false;
     
     // Options for how the 'D' should look
-    // only one (1) should be turned on
-    private boolean fillArcWithBlack = true;
-    private boolean fillArcWithWhite = false;
-    private boolean fillArcWithTransparent = false;
+    // only one (1) should be turned on at once
+    private boolean fill_D_WithBlack = true;
+    private boolean fill_D_WithWhite = false;
+    private boolean fill_D_WithTransparent = false;
 	
 	protected void outlineShape(Graphics g) {
 		
@@ -42,6 +44,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		Point sourcePoint = this.getPoints().getFirstPoint();
 		Point targetPoint = this.getPoints().getLastPoint();
 		
+		// calculate the angle between the two points
 		int angle = (int)(calcAngle(targetPoint,sourcePoint));
 		angle = angle - 90;
 		angle = angle * -1;
@@ -79,7 +82,6 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		
 		g.drawArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
 		
-		
 		// --------------
 		// draw the line
 		// --------------
@@ -94,12 +96,12 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 										(int)(midPoint.y-(Math.cos(line_Angle_Radians)*sizeOfD)));
 		
 		
-		if (fillArcWithBlack) {
+		if (fill_D_WithBlack) {
 			
 			// fill it in completely black
 			completeFill(g, midPoint, sizeOfD, angle, line_Angle_Radians, 180);
 			
-		} else if (fillArcWithWhite) {
+		} else if (fill_D_WithWhite) {
 			
 			// fill in the arc (with white) so that you don't see the link/connector line
 			g.fillArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
@@ -107,7 +109,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			// render the line
 			g.drawLine(linePoint_One, linePoint_Two);
 			
-		} else if (fillArcWithTransparent) {
+		} else if (fill_D_WithTransparent) {
 			
 			// render the line
 			g.drawLine(linePoint_One, linePoint_Two);
@@ -116,12 +118,22 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 	}
 	
 	/**
-	 * Straigten the connector so that there are no bends or curves
+	 * Straighten the connector so that there are no bends or curves
 	 */
-	public void straightenLine() {
-		if (this.getPoints().size() > 2) {
-			this.removePoint(1);			
-		}
+	private void straightenLine() {
+
+		// straighten the line by simply redefining a brand new routing
+		// constraint, that contains only the source and target points
+		
+		Point sourcePoint = this.getPoints().getFirstPoint();
+		Point targetPoint = this.getPoints().getLastPoint();
+		
+		ArrayList<AbsoluteBendpoint> list = new ArrayList<AbsoluteBendpoint>();
+		
+		list.add(new AbsoluteBendpoint(sourcePoint));
+		list.add(new AbsoluteBendpoint(targetPoint));
+		this.setRoutingConstraint(list);
+
 	}
 	
 	/**
