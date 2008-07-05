@@ -350,57 +350,57 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateDependency_4001(
+		public static boolean canCreateDependency_3001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistDependency_4001(container, source, target);
+			return canExistDependency_3001(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateDependency_4002(
+		public static boolean canCreateDependency_3002(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-			return canExistDependency_4002(container, source, target);
+			return canExistDependency_3002(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateAndDecomposition_4003(
+		public static boolean canCreateAndDecomposition_3003(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistAndDecomposition_4003(container, source, target);
+			return canExistAndDecomposition_3003(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateOrDecomposition_4004(
+		public static boolean canCreateOrDecomposition_3004(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistOrDecomposition_4004(container, source, target);
+			return canExistOrDecomposition_3004(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateContribution_4005(
+		public static boolean canCreateContribution_3005(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistContribution_4005(container, source, target);
+			return canExistContribution_3005(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistDependency_4001(
+		public static boolean canExistDependency_3001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
@@ -410,7 +410,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistDependency_4002(
+		public static boolean canExistDependency_3002(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
@@ -420,7 +420,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistAndDecomposition_4003(
+		public static boolean canExistAndDecomposition_3003(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
@@ -430,7 +430,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistOrDecomposition_4004(
+		public static boolean canExistOrDecomposition_3004(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
@@ -440,7 +440,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistContribution_4005(
+		public static boolean canExistContribution_3005(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {

@@ -51,7 +51,7 @@ public class LabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6003;
+	public static final int VISUAL_ID = 4027;
 
 	/**
 	 * @generated
@@ -297,7 +297,7 @@ public class LabelEditPart extends
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_4005,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3005,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

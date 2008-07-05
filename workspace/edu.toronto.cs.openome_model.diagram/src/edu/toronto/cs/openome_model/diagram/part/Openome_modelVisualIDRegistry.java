@@ -25,7 +25,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Actor_2001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Actor_1001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Actor)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getActor());
@@ -33,10 +33,74 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Agent_2002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Agent_1002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Agent)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAgent());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_1005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Goal)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getGoal());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_1006_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Softgoal)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getSoftgoal());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_1007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Task)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getTask());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_1008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Resource)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getResource());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_2001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Goal)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getGoal());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_2002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Softgoal)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getSoftgoal());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_2003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Resource)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getResource());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_2004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Task)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getTask());
 
 	/**
 	 * @generated
@@ -57,15 +121,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_2007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Task)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_2008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_2007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Resource)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
@@ -73,7 +129,15 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_3001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_2008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+			.getExpression("oclIsKindOf(Task)",
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getTask());
+
+	/**
+	 * @generated
+	 */
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_2009_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Goal)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
@@ -81,7 +145,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_3002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_2010_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Softgoal)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
@@ -89,7 +153,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_3003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_2011_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Resource)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
@@ -97,7 +161,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_3004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_2012_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Task)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
@@ -105,7 +169,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_3005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_2013_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Goal)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
@@ -113,7 +177,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_3006_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_2014_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Softgoal)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
@@ -121,7 +185,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_3007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_2015_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Resource)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
@@ -129,7 +193,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_3008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_2016_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Task)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
@@ -137,71 +201,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_3009_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Goal)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_3010_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_3011_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Resource)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_3012_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Task)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Goal_3013_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Goal)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getGoal());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Softgoal_3014_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Softgoal)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getSoftgoal());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Resource_3015_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Resource)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getResource());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Task_3016_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
-			.getExpression("oclIsKindOf(Task)",
-					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-							.getTask());
-
-	/**
-	 * @generated
-	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression AndDecomposition_4003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression AndDecomposition_3003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(AndDecomposition)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAndDecomposition());
@@ -209,7 +209,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression OrDecomposition_4004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression OrDecomposition_3004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(OrDecomposition)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrDecomposition());
@@ -217,7 +217,7 @@ public class Openome_modelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Contribution_4005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
+	private static final edu.toronto.cs.openome_model.diagram.expressions.Openome_modelAbstractExpression Contribution_3005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 			.getExpression("oclIsKindOf(Contribution)",
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getContribution());
@@ -322,100 +322,100 @@ public class Openome_modelVisualIDRegistry {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Goal_3001_Constraint, domainElement)) {
+					&& evaluate(Goal_2001_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Softgoal_3002_Constraint, domainElement)) {
+					&& evaluate(Softgoal_2002_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Resource_3003_Constraint, domainElement)) {
+					&& evaluate(Resource_2003_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Task_3004_Constraint, domainElement)) {
+					&& evaluate(Task_2004_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Goal_3005_Constraint, domainElement)) {
+					&& evaluate(Goal_2005_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Softgoal_3006_Constraint, domainElement)) {
+					&& evaluate(Softgoal_2006_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Resource_3007_Constraint, domainElement)) {
+					&& evaluate(Resource_2007_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Task_3008_Constraint, domainElement)) {
+					&& evaluate(Task_2008_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Goal_3009_Constraint, domainElement)) {
+					&& evaluate(Goal_2009_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Softgoal_3010_Constraint, domainElement)) {
+					&& evaluate(Softgoal_2010_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Resource_3011_Constraint, domainElement)) {
+					&& evaluate(Resource_2011_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Task_3012_Constraint, domainElement)) {
+					&& evaluate(Task_2012_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Goal_3013_Constraint, domainElement)) {
+					&& evaluate(Goal_2013_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Softgoal_3014_Constraint, domainElement)) {
+					&& evaluate(Softgoal_2014_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Resource_3015_Constraint, domainElement)) {
+					&& evaluate(Resource_2015_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Task_3016_Constraint, domainElement)) {
+					&& evaluate(Task_2016_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getActor().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Actor_2001_Constraint, domainElement)) {
+					&& evaluate(Actor_1001_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getAgent().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Agent_2002_Constraint, domainElement)) {
+					&& evaluate(Agent_1002_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
@@ -428,22 +428,22 @@ public class Openome_modelVisualIDRegistry {
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Goal_2005_Constraint, domainElement)) {
+					&& evaluate(Goal_1005_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Softgoal_2006_Constraint, domainElement)) {
+					&& evaluate(Softgoal_1006_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Task_2007_Constraint, domainElement)) {
+					&& evaluate(Task_1007_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID;
 			}
 			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
-					&& evaluate(Resource_2008_Constraint, domainElement)) {
+					&& evaluate(Resource_1008_Constraint, domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID;
 			}
 			break;
@@ -724,17 +724,17 @@ public class Openome_modelVisualIDRegistry {
 		}
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getAndDecomposition().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(AndDecomposition_4003_Constraint, domainElement)) {
+				&& evaluate(AndDecomposition_3003_Constraint, domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID;
 		}
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getOrDecomposition().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(OrDecomposition_4004_Constraint, domainElement)) {
+				&& evaluate(OrDecomposition_3004_Constraint, domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID;
 		}
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContribution().isSuperTypeOf(domainElement.eClass())
-				&& evaluate(Contribution_4005_Constraint, domainElement)) {
+				&& evaluate(Contribution_3005_Constraint, domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID;
 		}
 		return -1;

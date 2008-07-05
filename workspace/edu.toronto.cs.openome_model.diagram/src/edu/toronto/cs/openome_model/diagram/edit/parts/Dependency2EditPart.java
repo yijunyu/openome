@@ -17,7 +17,7 @@ public class Dependency2EditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 3002;
 
 	/**
 	 * @generated

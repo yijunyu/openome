@@ -403,47 +403,127 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Model_1000_links;
+	public static String NavigatorGroupName_Model_79_links;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Actor_2001_incominglinks;
+	public static String NavigatorGroupName_Actor_1001_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Actor_2001_outgoinglinks;
+	public static String NavigatorGroupName_Actor_1001_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Agent_2002_incominglinks;
+	public static String NavigatorGroupName_Agent_1002_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Agent_2002_outgoinglinks;
+	public static String NavigatorGroupName_Agent_1002_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Position_2003_incominglinks;
+	public static String NavigatorGroupName_Position_1003_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Position_2003_outgoinglinks;
+	public static String NavigatorGroupName_Position_1003_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Role_2004_incominglinks;
+	public static String NavigatorGroupName_Role_1004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Role_2004_outgoinglinks;
+	public static String NavigatorGroupName_Role_1004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Goal_1005_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Goal_1005_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Softgoal_1006_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Softgoal_1006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Task_1007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Task_1007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_1008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_1008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Goal_2001_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Goal_2001_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Softgoal_2002_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Softgoal_2002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_2003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Resource_2003_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Task_2004_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Task_2004_outgoinglinks;
 
 	/**
 	 * @generated
@@ -468,232 +548,152 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_2007_incominglinks;
+	public static String NavigatorGroupName_Resource_2007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_2007_outgoinglinks;
+	public static String NavigatorGroupName_Resource_2007_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_2008_incominglinks;
+	public static String NavigatorGroupName_Task_2008_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_2008_outgoinglinks;
+	public static String NavigatorGroupName_Task_2008_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3001_incominglinks;
+	public static String NavigatorGroupName_Goal_2009_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3001_outgoinglinks;
+	public static String NavigatorGroupName_Goal_2009_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3002_incominglinks;
+	public static String NavigatorGroupName_Softgoal_2010_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3002_outgoinglinks;
+	public static String NavigatorGroupName_Softgoal_2010_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3003_incominglinks;
+	public static String NavigatorGroupName_Resource_2011_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3003_outgoinglinks;
+	public static String NavigatorGroupName_Resource_2011_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3004_incominglinks;
+	public static String NavigatorGroupName_Task_2012_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3004_outgoinglinks;
+	public static String NavigatorGroupName_Task_2012_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3005_incominglinks;
+	public static String NavigatorGroupName_Goal_2013_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3005_outgoinglinks;
+	public static String NavigatorGroupName_Goal_2013_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3006_incominglinks;
+	public static String NavigatorGroupName_Softgoal_2014_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3006_outgoinglinks;
+	public static String NavigatorGroupName_Softgoal_2014_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3007_incominglinks;
+	public static String NavigatorGroupName_Resource_2015_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3007_outgoinglinks;
+	public static String NavigatorGroupName_Resource_2015_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3008_incominglinks;
+	public static String NavigatorGroupName_Task_2016_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3008_outgoinglinks;
+	public static String NavigatorGroupName_Task_2016_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3009_incominglinks;
+	public static String NavigatorGroupName_Dependency_3001_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3009_outgoinglinks;
+	public static String NavigatorGroupName_Dependency_3001_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3010_incominglinks;
+	public static String NavigatorGroupName_Dependency_3002_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Softgoal_3010_outgoinglinks;
+	public static String NavigatorGroupName_Dependency_3002_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3011_incominglinks;
+	public static String NavigatorGroupName_AndDecomposition_3003_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Resource_3011_outgoinglinks;
+	public static String NavigatorGroupName_AndDecomposition_3003_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3012_incominglinks;
+	public static String NavigatorGroupName_OrDecomposition_3004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Task_3012_outgoinglinks;
+	public static String NavigatorGroupName_OrDecomposition_3004_source;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3013_incominglinks;
+	public static String NavigatorGroupName_Contribution_3005_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Goal_3013_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Softgoal_3014_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Softgoal_3014_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Resource_3015_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Resource_3015_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Task_3016_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Task_3016_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Dependency_4001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Dependency_4001_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Dependency_4002_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Dependency_4002_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AndDecomposition_4003_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AndDecomposition_4003_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_OrDecomposition_4004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_OrDecomposition_4004_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Contribution_4005_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Contribution_4005_source;
+	public static String NavigatorGroupName_Contribution_3005_source;
 
 	/**
 	 * @generated

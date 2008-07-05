@@ -55,7 +55,7 @@ public class RoleNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5020;
+	public static final int VISUAL_ID = 4020;
 
 	/**
 	 * @generated
@@ -300,7 +300,7 @@ public class RoleNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_2004,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_1004,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

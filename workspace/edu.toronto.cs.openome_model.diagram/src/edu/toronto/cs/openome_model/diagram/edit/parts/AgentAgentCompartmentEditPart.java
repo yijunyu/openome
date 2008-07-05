@@ -21,7 +21,7 @@ public class AgentAgentCompartmentEditPart extends ListCompartmentEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated

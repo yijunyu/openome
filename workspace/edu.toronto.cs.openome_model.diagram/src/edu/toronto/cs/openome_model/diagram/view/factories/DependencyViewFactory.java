@@ -41,11 +41,9 @@ public class DependencyViewFactory extends ConnectionViewFactory {
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
-
+		
 		// ensures that the link/connectors have smooth curvature
-		RoutingStyle style = (RoutingStyle) view
-				.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
-		style
-				.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
+		RoutingStyle style = (RoutingStyle) view.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		style.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
 	}
 }

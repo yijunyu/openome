@@ -96,6 +96,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart(
 						view);

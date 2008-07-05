@@ -79,7 +79,7 @@ public class DependencyCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateDependency_4001(getContainer(), getSource(),
+				.canCreateDependency_3001(getContainer(), getSource(),
 						getTarget());
 	}
 

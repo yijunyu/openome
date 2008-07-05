@@ -87,7 +87,7 @@ public class ActorItemSemanticEditPolicy
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Dependency2CreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -100,7 +100,7 @@ public class ActorItemSemanticEditPolicy
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3002 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Dependency2CreateCommand(
 					req, req.getSource(), req.getTarget()));

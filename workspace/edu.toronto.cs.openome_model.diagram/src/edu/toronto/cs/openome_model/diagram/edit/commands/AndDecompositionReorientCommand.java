@@ -68,7 +68,7 @@ public class AndDecompositionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAndDecomposition_4003(container, getNewSource(),
+				.canExistAndDecomposition_3003(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class AndDecompositionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAndDecomposition_4003(container, source,
+				.canExistAndDecomposition_3003(container, source,
 						getNewTarget());
 	}
 
