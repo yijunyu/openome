@@ -1431,7 +1431,8 @@
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3"
         title="ActorCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0">
+        node="//@diagram/@topLevelNodes.0"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1452,7 +1453,8 @@
         childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         title="AgentCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1">
+        node="//@diagram/@topLevelNodes.1"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

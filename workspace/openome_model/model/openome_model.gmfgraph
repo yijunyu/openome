@@ -379,12 +379,10 @@
   <nodes
       name="Actor"
       figure="ActorFigure"
-      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
       name="Agent"
       figure="AgentFigure"
-      resizeConstraint="NONE"
       contentPane="//@figures.0/@descriptors.1/@accessors.1"/>
   <nodes
       name="Position"
