@@ -59,7 +59,7 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	public class DependencyFigure extends DependencyLineConnection {
 
