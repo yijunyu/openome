@@ -87,6 +87,7 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 		 * @generated
 		 */
 		public ContributionFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
