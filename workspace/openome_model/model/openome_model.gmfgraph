@@ -272,7 +272,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomConnection"
           name="DependencyFigure"
-          qualifiedClassName="DependencyLineConnection"/>
+          qualifiedClassName="openome_model.figures.DependencyLineConnection"/>
     </descriptors>
     <descriptors
         name="AndDecompositionFigure">
