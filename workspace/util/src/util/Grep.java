@@ -40,6 +40,7 @@
  * intended for use in the design, construction, operation or 
  * maintenance of any nuclear facility. 
  */
+package util; 
 
 import java.io.*;
 import java.nio.*;
