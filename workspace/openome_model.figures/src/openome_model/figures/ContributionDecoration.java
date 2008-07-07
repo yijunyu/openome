@@ -19,23 +19,25 @@ public class ContributionDecoration extends PolygonDecoration {
 	
 	public ContributionDecoration() {
 		setBackgroundColor(this.getBackgroundColor());
+		
+		// line options
 		setFill(true);
 		setFillXOR(false);
-		
 		setOutlineXOR(false);
 		setLineWidth(2);
-		
 		
 		double line_Angle_Radians = this.degrees2Radians(-arrowThickness);
 		double line_Angle_Radians2 = this.degrees2Radians(arrowThickness);
 		Point sourcePoint = this.getPoints().getFirstPoint();
 		
-		//              point 1
+		//         arrowLinePoint_One
 		//                 .
 		//                  \
-		// -------------------
+		//                   \
+		// -------------------. sourcepoint
+		//                   /
 		//                 ./
-		//              point 2
+		//         arrowLinePoint_Two
 		
 		Point arrowLinePoint_One = new Point((int)(sourcePoint.x+(Math.sin(line_Angle_Radians)*arrowLength)), 
 										(int)(sourcePoint.y+(Math.cos(line_Angle_Radians)*arrowLength)));
