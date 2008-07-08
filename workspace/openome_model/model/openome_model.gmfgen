@@ -5,7 +5,7 @@
     xmlns:gmfgen="http://www.eclipse.org/gmf/2006/GenModel" diagramFileExtension="ood"
     domainFileExtension="oom">
   <diagram
-      visualID="79"
+      visualID="1000"
       editPartClassName="ModelEditPart"
       itemSemanticEditPolicyClassName="ModelItemSemanticEditPolicy"
       notationViewFactoryClassName="ModelViewFactory"
@@ -24,7 +24,7 @@
     <domainDiagramElement
         href="openome_model.genmodel#//openome_model/Model"/>
     <childNodes
-        visualID="2001"
+        visualID="3001"
         editPartClassName="Goal2EditPart"
         itemSemanticEditPolicyClassName="Goal2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal2ViewFactory"
@@ -54,7 +54,7 @@
             body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="4001"
+          visualID="5001"
           editPartClassName="GoalName2EditPart"
           itemSemanticEditPolicyClassName="GoalName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName2ViewFactory">
@@ -73,7 +73,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2002"
+        visualID="3002"
         editPartClassName="Softgoal2EditPart"
         itemSemanticEditPolicyClassName="Softgoal2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal2ViewFactory"
@@ -103,7 +103,7 @@
             body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="4002"
+          visualID="5002"
           editPartClassName="SoftgoalName2EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName2ViewFactory">
@@ -122,7 +122,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2003"
+        visualID="3003"
         editPartClassName="Resource2EditPart"
         itemSemanticEditPolicyClassName="Resource2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource2ViewFactory"
@@ -152,7 +152,7 @@
             body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="4003"
+          visualID="5003"
           editPartClassName="ResourceName2EditPart"
           itemSemanticEditPolicyClassName="ResourceName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName2ViewFactory">
@@ -171,7 +171,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2004"
+        visualID="3004"
         editPartClassName="Task2EditPart"
         itemSemanticEditPolicyClassName="Task2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task2ViewFactory"
@@ -201,7 +201,7 @@
             body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="4004"
+          visualID="5004"
           editPartClassName="TaskName2EditPart"
           itemSemanticEditPolicyClassName="TaskName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName2ViewFactory">
@@ -220,7 +220,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2005"
+        visualID="3005"
         editPartClassName="Goal3EditPart"
         itemSemanticEditPolicyClassName="Goal3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal3ViewFactory"
@@ -250,7 +250,7 @@
             body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="4006"
+          visualID="5006"
           editPartClassName="GoalName3EditPart"
           itemSemanticEditPolicyClassName="GoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName3ViewFactory">
@@ -269,7 +269,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2006"
+        visualID="3006"
         editPartClassName="Softgoal3EditPart"
         itemSemanticEditPolicyClassName="Softgoal3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal3ViewFactory"
@@ -299,7 +299,7 @@
             body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="4007"
+          visualID="5007"
           editPartClassName="SoftgoalName3EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName3ViewFactory">
@@ -317,7 +317,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2007"
+        visualID="3007"
         editPartClassName="Resource3EditPart"
         itemSemanticEditPolicyClassName="Resource3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource3ViewFactory"
@@ -347,7 +347,7 @@
             body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="4008"
+          visualID="5008"
           editPartClassName="ResourceName3EditPart"
           itemSemanticEditPolicyClassName="ResourceName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName3ViewFactory">
@@ -366,7 +366,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2008"
+        visualID="3008"
         editPartClassName="Task3EditPart"
         itemSemanticEditPolicyClassName="Task3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task3ViewFactory"
@@ -396,7 +396,7 @@
             body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="4009"
+          visualID="5009"
           editPartClassName="TaskName3EditPart"
           itemSemanticEditPolicyClassName="TaskName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName3ViewFactory">
@@ -415,7 +415,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2009"
+        visualID="3009"
         editPartClassName="Goal4EditPart"
         itemSemanticEditPolicyClassName="Goal4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal4ViewFactory"
@@ -445,7 +445,7 @@
             body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="4011"
+          visualID="5011"
           editPartClassName="GoalName4EditPart"
           itemSemanticEditPolicyClassName="GoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName4ViewFactory">
@@ -464,7 +464,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2010"
+        visualID="3010"
         editPartClassName="Softgoal4EditPart"
         itemSemanticEditPolicyClassName="Softgoal4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal4ViewFactory"
@@ -494,7 +494,7 @@
             body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="4012"
+          visualID="5012"
           editPartClassName="SoftgoalName4EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName4ViewFactory">
@@ -512,7 +512,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2011"
+        visualID="3011"
         editPartClassName="Resource4EditPart"
         itemSemanticEditPolicyClassName="Resource4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource4ViewFactory"
@@ -542,7 +542,7 @@
             body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="4013"
+          visualID="5013"
           editPartClassName="ResourceName4EditPart"
           itemSemanticEditPolicyClassName="ResourceName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName4ViewFactory">
@@ -561,7 +561,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2012"
+        visualID="3012"
         editPartClassName="Task4EditPart"
         itemSemanticEditPolicyClassName="Task4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task4ViewFactory"
@@ -591,7 +591,7 @@
             body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="4014"
+          visualID="5014"
           editPartClassName="TaskName4EditPart"
           itemSemanticEditPolicyClassName="TaskName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName4ViewFactory">
@@ -610,7 +610,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2013"
+        visualID="3013"
         editPartClassName="Goal5EditPart"
         itemSemanticEditPolicyClassName="Goal5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal5ViewFactory"
@@ -640,7 +640,7 @@
             body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="4016"
+          visualID="5016"
           editPartClassName="GoalName5EditPart"
           itemSemanticEditPolicyClassName="GoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName5ViewFactory">
@@ -659,7 +659,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2014"
+        visualID="3014"
         editPartClassName="Softgoal5EditPart"
         itemSemanticEditPolicyClassName="Softgoal5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal5ViewFactory"
@@ -689,7 +689,7 @@
             body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="4017"
+          visualID="5017"
           editPartClassName="SoftgoalName5EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName5ViewFactory">
@@ -707,7 +707,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2015"
+        visualID="3015"
         editPartClassName="Resource5EditPart"
         itemSemanticEditPolicyClassName="Resource5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource5ViewFactory"
@@ -737,7 +737,7 @@
             body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="4018"
+          visualID="5018"
           editPartClassName="ResourceName5EditPart"
           itemSemanticEditPolicyClassName="ResourceName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName5ViewFactory">
@@ -756,7 +756,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2016"
+        visualID="3016"
         editPartClassName="Task5EditPart"
         itemSemanticEditPolicyClassName="Task5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task5ViewFactory"
@@ -786,7 +786,7 @@
             body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="4019"
+          visualID="5019"
           editPartClassName="TaskName5EditPart"
           itemSemanticEditPolicyClassName="TaskName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName5ViewFactory">
@@ -805,7 +805,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="1001"
+        visualID="2001"
         editPartClassName="ActorEditPart"
         itemSemanticEditPolicyClassName="ActorItemSemanticEditPolicy"
         notationViewFactoryClassName="ActorViewFactory"
@@ -822,8 +822,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="ActorFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActorFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureActorBoundaryFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureActorNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActorFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActorBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureActorBoundaryFigure.setLineWidth(3);&#xA;fFigureActorBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureActorBoundaryFigure.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureActorBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigureActorBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.ActorSVGFigure actorSVGFigure1 = new openome_model.figures.ActorSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureActorBoundaryFigure.add(actorSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureActorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureActorNameFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureActorNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureActorBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureActorBoundaryFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureActorNameFigure() {&#xA;&#x9;&#x9;return fFigureActorNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREACTORBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREACTORNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:ResizeConstraints"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -837,7 +835,7 @@
             body="oclIsKindOf(Actor)"/>
       </modelFacet>
       <labels
-          visualID="4005"
+          visualID="5005"
           editPartClassName="ActorNameEditPart"
           itemSemanticEditPolicyClassName="ActorNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ActorNameViewFactory">
@@ -859,7 +857,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1002"
+        visualID="2002"
         editPartClassName="AgentEditPart"
         itemSemanticEditPolicyClassName="AgentItemSemanticEditPolicy"
         notationViewFactoryClassName="AgentViewFactory"
@@ -876,8 +874,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="AgentFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AgentFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureAgentNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureAgentBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AgentFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAgentNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureAgentNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureAgentNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureAgentBoundaryFigure.setLineWidth(3);&#xA;fFigureAgentBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureAgentBoundaryFigure.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureAgentBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigureAgentBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.AgentSVGFigure agentSVGFigure1 = new openome_model.figures.AgentSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure.add(agentSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureAgentNameFigure() {&#xA;&#x9;&#x9;return fFigureAgentNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureAgentBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureAgentBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAGENTNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREAGENTBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
-        <attributes
-            xsi:type="gmfgen:ResizeConstraints"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -891,7 +887,7 @@
             body="oclIsKindOf(Agent)"/>
       </modelFacet>
       <labels
-          visualID="4010"
+          visualID="5010"
           editPartClassName="AgentNameEditPart"
           itemSemanticEditPolicyClassName="AgentNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AgentNameViewFactory">
@@ -913,7 +909,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1003"
+        visualID="2003"
         editPartClassName="PositionEditPart"
         itemSemanticEditPolicyClassName="PositionItemSemanticEditPolicy"
         notationViewFactoryClassName="PositionViewFactory"
@@ -941,7 +937,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4015"
+          visualID="5015"
           editPartClassName="PositionNameEditPart"
           itemSemanticEditPolicyClassName="PositionNameItemSemanticEditPolicy"
           notationViewFactoryClassName="PositionNameViewFactory">
@@ -963,7 +959,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1004"
+        visualID="2004"
         editPartClassName="RoleEditPart"
         itemSemanticEditPolicyClassName="RoleItemSemanticEditPolicy"
         notationViewFactoryClassName="RoleViewFactory"
@@ -991,7 +987,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4020"
+          visualID="5020"
           editPartClassName="RoleNameEditPart"
           itemSemanticEditPolicyClassName="RoleNameItemSemanticEditPolicy"
           notationViewFactoryClassName="RoleNameViewFactory">
@@ -1013,7 +1009,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1005"
+        visualID="2005"
         editPartClassName="GoalEditPart"
         itemSemanticEditPolicyClassName="GoalItemSemanticEditPolicy"
         notationViewFactoryClassName="GoalViewFactory"
@@ -1042,7 +1038,7 @@
             body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="4021"
+          visualID="5021"
           editPartClassName="GoalNameEditPart"
           itemSemanticEditPolicyClassName="GoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalNameViewFactory">
@@ -1061,7 +1057,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1006"
+        visualID="2006"
         editPartClassName="SoftgoalEditPart"
         itemSemanticEditPolicyClassName="SoftgoalItemSemanticEditPolicy"
         notationViewFactoryClassName="SoftgoalViewFactory"
@@ -1090,7 +1086,7 @@
             body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="4022"
+          visualID="5022"
           editPartClassName="SoftgoalNameEditPart"
           itemSemanticEditPolicyClassName="SoftgoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalNameViewFactory">
@@ -1108,7 +1104,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1007"
+        visualID="2007"
         editPartClassName="TaskEditPart"
         itemSemanticEditPolicyClassName="TaskItemSemanticEditPolicy"
         notationViewFactoryClassName="TaskViewFactory"
@@ -1137,7 +1133,7 @@
             body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="4023"
+          visualID="5023"
           editPartClassName="TaskNameEditPart"
           itemSemanticEditPolicyClassName="TaskNameItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskNameViewFactory">
@@ -1156,7 +1152,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="1008"
+        visualID="2008"
         editPartClassName="ResourceEditPart"
         itemSemanticEditPolicyClassName="ResourceItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceViewFactory"
@@ -1185,7 +1181,7 @@
             body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="4024"
+          visualID="5024"
           editPartClassName="ResourceNameEditPart"
           itemSemanticEditPolicyClassName="ResourceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceNameViewFactory">
@@ -1204,7 +1200,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="3001"
+        visualID="4001"
         editPartClassName="DependencyEditPart"
         itemSemanticEditPolicyClassName="DependencyItemSemanticEditPolicy"
         notationViewFactoryClassName="DependencyViewFactory"
@@ -1216,9 +1212,8 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="DependencyEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="DependencyFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DependencyFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DependencyFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="openome_model.figures.DependencyLineConnection">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1236,7 +1231,7 @@
       </modelFacet>
     </links>
     <links
-        visualID="3002"
+        visualID="4002"
         editPartClassName="Dependency2EditPart"
         itemSemanticEditPolicyClassName="Dependency2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Dependency2ViewFactory"
@@ -1268,7 +1263,7 @@
       </modelFacet>
     </links>
     <links
-        visualID="3003"
+        visualID="4003"
         editPartClassName="AndDecompositionEditPart"
         itemSemanticEditPolicyClassName="AndDecompositionItemSemanticEditPolicy"
         notationViewFactoryClassName="AndDecompositionViewFactory"
@@ -1301,7 +1296,7 @@
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="4025"
+          visualID="6001"
           editPartClassName="WrapLabelEditPart"
           itemSemanticEditPolicyClassName="WrapLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="WrapLabelViewFactory"
@@ -1320,7 +1315,7 @@
       </labels>
     </links>
     <links
-        visualID="3004"
+        visualID="4004"
         editPartClassName="OrDecompositionEditPart"
         itemSemanticEditPolicyClassName="OrDecompositionItemSemanticEditPolicy"
         notationViewFactoryClassName="OrDecompositionViewFactory"
@@ -1353,7 +1348,7 @@
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="4026"
+          visualID="6002"
           editPartClassName="WrapLabel2EditPart"
           itemSemanticEditPolicyClassName="WrapLabel2ItemSemanticEditPolicy"
           notationViewFactoryClassName="WrapLabel2ViewFactory"
@@ -1372,7 +1367,7 @@
       </labels>
     </links>
     <links
-        visualID="3005"
+        visualID="4005"
         editPartClassName="ContributionEditPart"
         itemSemanticEditPolicyClassName="ContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="ContributionViewFactory"
@@ -1386,7 +1381,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContributionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureContributionLabel.setText(&quot;Contribution&quot;);&#xA;&#xA;this.add(fFigureContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureContributionLabel() {&#xA;&#x9;&#x9;return fFigureContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureContributionLabel.setText(&quot;Contribution&quot;);&#xA;&#xA;this.add(fFigureContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureContributionLabel() {&#xA;&#x9;&#x9;return fFigureContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1405,7 +1400,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4027"
+          visualID="6003"
           editPartClassName="LabelEditPart"
           itemSemanticEditPolicyClassName="LabelItemSemanticEditPolicy"
           notationViewFactoryClassName="LabelViewFactory"
@@ -1423,7 +1418,7 @@
       </labels>
     </links>
     <compartments
-        visualID="5001"
+        visualID="7001"
         editPartClassName="ActorActorCompartmentEditPart"
         itemSemanticEditPolicyClassName="ActorActorCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ActorActorCompartmentViewFactory"
@@ -1431,8 +1426,7 @@
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3"
         title="ActorCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1445,7 +1439,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5002"
+        visualID="7002"
         editPartClassName="AgentAgentCompartmentEditPart"
         itemSemanticEditPolicyClassName="AgentAgentCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="AgentAgentCompartmentViewFactory"
@@ -1453,8 +1447,7 @@
         childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         title="AgentCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1467,7 +1460,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5003"
+        visualID="7003"
         editPartClassName="PositionPositionCompartmentEditPart"
         itemSemanticEditPolicyClassName="PositionPositionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PositionPositionCompartmentViewFactory"
@@ -1488,7 +1481,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5004"
+        visualID="7004"
         editPartClassName="RoleRoleCompartmentEditPart"
         itemSemanticEditPolicyClassName="RoleRoleCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="RoleRoleCompartmentViewFactory"
