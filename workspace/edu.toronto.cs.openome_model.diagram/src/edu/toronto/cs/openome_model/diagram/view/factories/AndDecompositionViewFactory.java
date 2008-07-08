@@ -53,10 +53,11 @@ public class AndDecompositionViewFactory extends ConnectionViewFactory {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
-		
+
 		// ensures that the link/connector stays straight.. 
 		// this will prevent any bend points from being created
-		RoutingStyle style = (RoutingStyle) view.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		RoutingStyle style = (RoutingStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
 		style.setClosestDistance(true);
 	}
 }

@@ -26,7 +26,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2016;
+	public static final int VISUAL_ID = 3016;
 
 	/**
 	 * @generated

@@ -37,7 +37,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1004;
+	public static final int VISUAL_ID = 2004;
 
 	/**
 	 * @generated
@@ -70,28 +70,28 @@ public class RoleEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2013) {
+								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3013) {
 									EditPart compartmentEditPart = getChildBySemanticHint(edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 											.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2014) {
+								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3014) {
 									EditPart compartmentEditPart = getChildBySemanticHint(edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 											.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2015) {
+								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3015) {
 									EditPart compartmentEditPart = getChildBySemanticHint(edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 											.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
 								}
-								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2016) {
+								if (type == edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3016) {
 									EditPart compartmentEditPart = getChildBySemanticHint(edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 											.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null

@@ -26,7 +26,7 @@ public class Softgoal5EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2014;
+	public static final int VISUAL_ID = 3014;
 
 	/**
 	 * @generated
