@@ -67,6 +67,43 @@ public interface openome_modelPackage extends EPackage {
 	openome_modelPackage eINSTANCE = edu.toronto.cs.openome_model.impl.openome_modelPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DependableImpl <em>Dependable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.DependableImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDependable()
+	 * @generated
+	 */
+	int DEPENDABLE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDABLE__DEPENDENCY_FROM = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDABLE__DEPENDENCY_TO = 1;
+
+	/**
+	 * The number of structural features of the '<em>Dependable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDABLE_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ContainerImpl <em>Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,49 +114,13 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER = 16;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__SUB = 1;
-
-	/**
-	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__INTENTIONS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__MODEL = 3;
-
-	/**
 	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__DEPENDENCY_FROM = 4;
+	int CONTAINER__DEPENDENCY_FROM = DEPENDABLE__DEPENDENCY_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
@@ -128,7 +129,43 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__DEPENDENCY_TO = 5;
+	int CONTAINER__DEPENDENCY_TO = DEPENDABLE__DEPENDENCY_TO;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__NAME = DEPENDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__SUB = DEPENDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__INTENTIONS = DEPENDABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -137,7 +174,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 6;
+	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -148,6 +185,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	int ACTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -184,24 +239,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__MODEL = CONTAINER__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is a</b></em>' reference list.
@@ -250,6 +287,24 @@ public interface openome_modelPackage extends EPackage {
 	int AGENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,24 +339,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGENT__MODEL = CONTAINER__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Plays</b></em>' reference list.
@@ -579,31 +616,13 @@ public interface openome_modelPackage extends EPackage {
 	int DEPENDENCY__MODEL = LINK_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Actor Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPENDENCY__ACTOR_DEPENDENCY_FROM = LINK_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Actor Dependency To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPENDENCY__ACTOR_DEPENDENCY_TO = LINK_FEATURE_COUNT + 6;
-
-	/**
 	 * The number of structural features of the '<em>Dependency</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY_FEATURE_COUNT = LINK_FEATURE_COUNT + 7;
+	int DEPENDENCY_FEATURE_COUNT = LINK_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IntentionImpl <em>Intention</em>}' class.
@@ -616,76 +635,13 @@ public interface openome_modelPackage extends EPackage {
 	int INTENTION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>System</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__SYSTEM = 1;
-
-	/**
-	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__BOUNDARY = 2;
-
-	/**
-	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__EXCLUSIVE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__SEQUENTIAL = 4;
-
-	/**
-	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__PARALLEL = 5;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__PROPERTY = 6;
-
-	/**
 	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DEPENDENCY_FROM = 7;
+	int INTENTION__DEPENDENCY_FROM = DEPENDABLE__DEPENDENCY_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
@@ -694,7 +650,70 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DEPENDENCY_TO = 8;
+	int INTENTION__DEPENDENCY_TO = DEPENDABLE__DEPENDENCY_TO;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__NAME = DEPENDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__SYSTEM = DEPENDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Boundary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__BOUNDARY = DEPENDABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Exclusive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__EXCLUSIVE = DEPENDABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__SEQUENTIAL = DEPENDABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__PARALLEL = DEPENDABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__PROPERTY = DEPENDABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -703,7 +722,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__DECOMPOSITIONS = 9;
+	int INTENTION__DECOMPOSITIONS = DEPENDABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Parent Decompositions</b></em>' reference list.
@@ -712,7 +731,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__PARENT_DECOMPOSITIONS = 10;
+	int INTENTION__PARENT_DECOMPOSITIONS = DEPENDABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -721,7 +740,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTAINER = 11;
+	int INTENTION__CONTAINER = DEPENDABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -730,7 +749,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__MODEL = 12;
+	int INTENTION__MODEL = DEPENDABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
@@ -739,7 +758,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = 13;
+	int INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
@@ -748,7 +767,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = 14;
+	int INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
@@ -757,7 +776,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = 15;
+	int INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = DEPENDABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
@@ -766,7 +785,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = 16;
+	int INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
@@ -775,7 +794,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = 17;
+	int INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = DEPENDABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
@@ -784,7 +803,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = 18;
+	int INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
@@ -793,7 +812,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTRIBUTES_TO = 19;
+	int INTENTION__CONTRIBUTES_TO = DEPENDABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
@@ -802,7 +821,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTRIBUTES_FROM = 20;
+	int INTENTION__CONTRIBUTES_FROM = DEPENDABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of structural features of the '<em>Intention</em>' class.
@@ -811,7 +830,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION_FEATURE_COUNT = 21;
+	int INTENTION_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
@@ -822,6 +841,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	int GOAL = 6;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -885,24 +922,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GOAL__PROPERTY = INTENTION__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -1160,6 +1179,24 @@ public interface openome_modelPackage extends EPackage {
 	int POSITION = 10;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1194,24 +1231,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int POSITION__MODEL = CONTAINER__MODEL;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Covers</b></em>' reference list.
@@ -1279,6 +1298,24 @@ public interface openome_modelPackage extends EPackage {
 	int RESOURCE = 12;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1340,24 +1377,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE__PROPERTY = INTENTION__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -1487,6 +1506,24 @@ public interface openome_modelPackage extends EPackage {
 	int ROLE = 13;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1523,24 +1560,6 @@ public interface openome_modelPackage extends EPackage {
 	int ROLE__MODEL = CONTAINER__MODEL;
 
 	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__DEPENDENCY_FROM = CONTAINER__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__DEPENDENCY_TO = CONTAINER__DEPENDENCY_TO;
-
-	/**
 	 * The number of structural features of the '<em>Role</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1558,6 +1577,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	int SOFTGOAL = 14;
+
+	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1621,24 +1658,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFTGOAL__PROPERTY = INTENTION__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTGOAL__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTGOAL__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -1777,6 +1796,24 @@ public interface openome_modelPackage extends EPackage {
 	int TASK = 15;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1838,24 +1875,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK__PROPERTY = INTENTION__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -1985,6 +2004,24 @@ public interface openome_modelPackage extends EPackage {
 	int BELIEF = 17;
 
 	/**
+	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2046,24 +2083,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BELIEF__PROPERTY = INTENTION__PROPERTY;
-
-	/**
-	 * The feature id for the '<em><b>Dependency From</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BELIEF__DEPENDENCY_FROM = INTENTION__DEPENDENCY_FROM;
-
-	/**
-	 * The feature id for the '<em><b>Dependency To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BELIEF__DEPENDENCY_TO = INTENTION__DEPENDENCY_TO;
 
 	/**
 	 * The feature id for the '<em><b>Decompositions</b></em>' reference list.
@@ -2227,7 +2246,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 20;
+	int EVALUATION_LABEL = 21;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -2237,7 +2256,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 21;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 22;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
@@ -2247,7 +2266,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
 	 * @generated
 	 */
-	int ISTAR_CONTRIBUTION_TYPE = 22;
+	int ISTAR_CONTRIBUTION_TYPE = 23;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -2257,7 +2276,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 23;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 24;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -2540,28 +2559,6 @@ public interface openome_modelPackage extends EPackage {
 	EReference getDependency_Model();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom <em>Actor Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actor Dependency From</em>'.
-	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom()
-	 * @see #getDependency()
-	 * @generated
-	 */
-	EReference getDependency_ActorDependencyFrom();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Actor Dependency To</em>'.
-	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyTo()
-	 * @see #getDependency()
-	 * @generated
-	 */
-	EReference getDependency_ActorDependencyTo();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Goal <em>Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2657,28 +2654,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIntention_Property();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getDependencyFrom <em>Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency From</em>'.
-	 * @see edu.toronto.cs.openome_model.Intention#getDependencyFrom()
-	 * @see #getIntention()
-	 * @generated
-	 */
-	EReference getIntention_DependencyFrom();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getDependencyTo <em>Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency To</em>'.
-	 * @see edu.toronto.cs.openome_model.Intention#getDependencyTo()
-	 * @see #getIntention()
-	 * @generated
-	 */
-	EReference getIntention_DependencyTo();
 
 	/**
 	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Intention#getDecompositions <em>Decompositions</em>}'.
@@ -3068,28 +3043,6 @@ public interface openome_modelPackage extends EPackage {
 	EReference getContainer_Model();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getDependencyFrom <em>Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency From</em>'.
-	 * @see edu.toronto.cs.openome_model.Container#getDependencyFrom()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_DependencyFrom();
-
-	/**
-	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getDependencyTo <em>Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dependency To</em>'.
-	 * @see edu.toronto.cs.openome_model.Container#getDependencyTo()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_DependencyTo();
-
-	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Belief <em>Belief</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3140,6 +3093,38 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCorrelation_Source();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Dependable <em>Dependable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dependable</em>'.
+	 * @see edu.toronto.cs.openome_model.Dependable
+	 * @generated
+	 */
+	EClass getDependable();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Dependable#getDependencyFrom <em>Dependency From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency From</em>'.
+	 * @see edu.toronto.cs.openome_model.Dependable#getDependencyFrom()
+	 * @see #getDependable()
+	 * @generated
+	 */
+	EReference getDependable_DependencyFrom();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Dependable#getDependencyTo <em>Dependency To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependency To</em>'.
+	 * @see edu.toronto.cs.openome_model.Dependable#getDependencyTo()
+	 * @see #getDependable()
+	 * @generated
+	 */
+	EReference getDependable_DependencyTo();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
@@ -3424,22 +3409,6 @@ public interface openome_modelPackage extends EPackage {
 		EReference DEPENDENCY__MODEL = eINSTANCE.getDependency_Model();
 
 		/**
-		 * The meta object literal for the '<em><b>Actor Dependency From</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPENDENCY__ACTOR_DEPENDENCY_FROM = eINSTANCE.getDependency_ActorDependencyFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Actor Dependency To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPENDENCY__ACTOR_DEPENDENCY_TO = eINSTANCE.getDependency_ActorDependencyTo();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3514,22 +3483,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTENTION__PROPERTY = eINSTANCE.getIntention_Property();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTENTION__DEPENDENCY_FROM = eINSTANCE.getIntention_DependencyFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTENTION__DEPENDENCY_TO = eINSTANCE.getIntention_DependencyTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Decompositions</b></em>' reference list feature.
@@ -3838,22 +3791,6 @@ public interface openome_modelPackage extends EPackage {
 		EReference CONTAINER__MODEL = eINSTANCE.getContainer_Model();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__DEPENDENCY_FROM = eINSTANCE.getContainer_DependencyFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__DEPENDENCY_TO = eINSTANCE.getContainer_DependencyTo();
-
-		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BeliefImpl <em>Belief</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3898,6 +3835,32 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CORRELATION__SOURCE = eINSTANCE.getCorrelation_Source();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.DependableImpl <em>Dependable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.DependableImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getDependable()
+		 * @generated
+		 */
+		EClass DEPENDABLE = eINSTANCE.getDependable();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPENDABLE__DEPENDENCY_FROM = eINSTANCE.getDependable_DependencyFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPENDABLE__DEPENDENCY_TO = eINSTANCE.getDependable_DependencyTo();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

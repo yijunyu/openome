@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ContainerItemProvider
-	extends ItemProviderAdapter
+	extends DependableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -74,8 +74,6 @@ public class ContainerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addDependencyFromPropertyDescriptor(object);
-			addDependencyToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,50 +96,6 @@ public class ContainerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dependency From feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDependencyFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Container_dependencyFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Container_dependencyFrom_feature", "_UI_Container_type"),
-				 openome_modelPackage.Literals.CONTAINER__DEPENDENCY_FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dependency To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDependencyToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Container_dependencyTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Container_dependencyTo_feature", "_UI_Container_type"),
-				 openome_modelPackage.Literals.CONTAINER__DEPENDENCY_TO,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

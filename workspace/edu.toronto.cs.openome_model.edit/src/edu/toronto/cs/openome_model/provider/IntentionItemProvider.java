@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class IntentionItemProvider
-	extends ItemProviderAdapter
+	extends DependableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -79,8 +79,6 @@ public class IntentionItemProvider
 			addExclusivePropertyDescriptor(object);
 			addSequentialPropertyDescriptor(object);
 			addParallelPropertyDescriptor(object);
-			addDependencyFromPropertyDescriptor(object);
-			addDependencyToPropertyDescriptor(object);
 			addDecompositionsPropertyDescriptor(object);
 			addParentDecompositionsPropertyDescriptor(object);
 			addQualitativeReasoningCombinedLabelPropertyDescriptor(object);
@@ -223,50 +221,6 @@ public class IntentionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dependency From feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDependencyFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Intention_dependencyFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_dependencyFrom_feature", "_UI_Intention_type"),
-				 openome_modelPackage.Literals.INTENTION__DEPENDENCY_FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dependency To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDependencyToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Intention_dependencyTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_dependencyTo_feature", "_UI_Intention_type"),
-				 openome_modelPackage.Literals.INTENTION__DEPENDENCY_TO,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

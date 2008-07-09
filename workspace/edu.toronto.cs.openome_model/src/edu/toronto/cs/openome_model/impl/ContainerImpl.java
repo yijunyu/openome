@@ -42,14 +42,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getModel <em>Model</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getDependencyFrom <em>Dependency From</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getDependencyTo <em>Dependency To</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ContainerImpl extends EObjectImpl implements Container {
+public abstract class ContainerImpl extends DependableImpl implements Container {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,26 +94,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 	 * @ordered
 	 */
 	protected EList<Intention> intentions;
-
-	/**
-	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependencyFrom()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Dependency> dependencyFrom;
-
-	/**
-	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependencyTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Dependency> dependencyTo;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,30 +205,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Dependency> getDependencyFrom() {
-		if (dependencyFrom == null) {
-			dependencyFrom = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, openome_modelPackage.CONTAINER__DEPENDENCY_FROM, openome_modelPackage.DEPENDENCY__ACTOR_DEPENDENCY_TO);
-		}
-		return dependencyFrom;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Dependency> getDependencyTo() {
-		if (dependencyTo == null) {
-			dependencyTo = new EObjectWithInverseResolvingEList.ManyInverse<Dependency>(Dependency.class, this, openome_modelPackage.CONTAINER__DEPENDENCY_TO, openome_modelPackage.DEPENDENCY__ACTOR_DEPENDENCY_FROM);
-		}
-		return dependencyTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -261,10 +215,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetModel((Model)otherEnd, msgs);
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyFrom()).basicAdd(otherEnd, msgs);
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyTo()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -283,10 +233,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.CONTAINER__MODEL:
 				return basicSetModel(null, msgs);
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				return ((InternalEList<?>)getDependencyFrom()).basicRemove(otherEnd, msgs);
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				return ((InternalEList<?>)getDependencyTo()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -321,10 +267,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 				return getIntentions();
 			case openome_modelPackage.CONTAINER__MODEL:
 				return getModel();
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				return getDependencyFrom();
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				return getDependencyTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -352,14 +294,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 			case openome_modelPackage.CONTAINER__MODEL:
 				setModel((Model)newValue);
 				return;
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				getDependencyFrom().clear();
-				getDependencyFrom().addAll((Collection<? extends Dependency>)newValue);
-				return;
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				getDependencyTo().clear();
-				getDependencyTo().addAll((Collection<? extends Dependency>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -384,12 +318,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 			case openome_modelPackage.CONTAINER__MODEL:
 				setModel((Model)null);
 				return;
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				getDependencyFrom().clear();
-				return;
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				getDependencyTo().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,10 +338,6 @@ public abstract class ContainerImpl extends EObjectImpl implements Container {
 				return intentions != null && !intentions.isEmpty();
 			case openome_modelPackage.CONTAINER__MODEL:
 				return getModel() != null;
-			case openome_modelPackage.CONTAINER__DEPENDENCY_FROM:
-				return dependencyFrom != null && !dependencyFrom.isEmpty();
-			case openome_modelPackage.CONTAINER__DEPENDENCY_TO:
-				return dependencyTo != null && !dependencyTo.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

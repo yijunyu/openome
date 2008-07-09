@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getModel <em>Model</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Container#getDependencyFrom <em>Dependency From</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Container#getDependencyTo <em>Dependency To</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Container extends EObject {
+public interface Container extends Dependable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,41 +123,5 @@ public interface Container extends EObject {
 	 * @generated
 	 */
 	void setModel(Model value);
-
-	/**
-	 * Returns the value of the '<em><b>Dependency From</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyTo <em>Actor Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependency From</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency From</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_DependencyFrom()
-	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyTo
-	 * @model opposite="actorDependencyTo"
-	 * @generated
-	 */
-	EList<Dependency> getDependencyFrom();
-
-	/**
-	 * Returns the value of the '<em><b>Dependency To</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom <em>Actor Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependency To</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency To</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_DependencyTo()
-	 * @see edu.toronto.cs.openome_model.Dependency#getActorDependencyFrom
-	 * @model opposite="actorDependencyFrom"
-	 * @generated
-	 */
-	EList<Dependency> getDependencyTo();
 
 } // Container

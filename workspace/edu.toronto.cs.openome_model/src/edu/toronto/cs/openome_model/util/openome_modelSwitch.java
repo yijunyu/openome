@@ -97,6 +97,7 @@ public class openome_modelSwitch<T> {
 				Actor actor = (Actor)theEObject;
 				T result = caseActor(actor);
 				if (result == null) result = caseContainer(actor);
+				if (result == null) result = caseDependable(actor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,6 +105,7 @@ public class openome_modelSwitch<T> {
 				Agent agent = (Agent)theEObject;
 				T result = caseAgent(agent);
 				if (result == null) result = caseContainer(agent);
+				if (result == null) result = caseDependable(agent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,12 +142,14 @@ public class openome_modelSwitch<T> {
 				Goal goal = (Goal)theEObject;
 				T result = caseGoal(goal);
 				if (result == null) result = caseIntention(goal);
+				if (result == null) result = caseDependable(goal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case openome_modelPackage.INTENTION: {
 				Intention intention = (Intention)theEObject;
 				T result = caseIntention(intention);
+				if (result == null) result = caseDependable(intention);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -167,6 +171,7 @@ public class openome_modelSwitch<T> {
 				Position position = (Position)theEObject;
 				T result = casePosition(position);
 				if (result == null) result = caseContainer(position);
+				if (result == null) result = caseDependable(position);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,6 +185,7 @@ public class openome_modelSwitch<T> {
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
 				if (result == null) result = caseIntention(resource);
+				if (result == null) result = caseDependable(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,6 +193,7 @@ public class openome_modelSwitch<T> {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
 				if (result == null) result = caseContainer(role);
+				if (result == null) result = caseDependable(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,6 +201,7 @@ public class openome_modelSwitch<T> {
 				Softgoal softgoal = (Softgoal)theEObject;
 				T result = caseSoftgoal(softgoal);
 				if (result == null) result = caseIntention(softgoal);
+				if (result == null) result = caseDependable(softgoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -201,12 +209,14 @@ public class openome_modelSwitch<T> {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseIntention(task);
+				if (result == null) result = caseDependable(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case openome_modelPackage.CONTAINER: {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
+				if (result == null) result = caseDependable(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,6 +224,7 @@ public class openome_modelSwitch<T> {
 				Belief belief = (Belief)theEObject;
 				T result = caseBelief(belief);
 				if (result == null) result = caseIntention(belief);
+				if (result == null) result = caseDependable(belief);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,6 +238,12 @@ public class openome_modelSwitch<T> {
 				Correlation correlation = (Correlation)theEObject;
 				T result = caseCorrelation(correlation);
 				if (result == null) result = caseLink(correlation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.DEPENDABLE: {
+				Dependable dependable = (Dependable)theEObject;
+				T result = caseDependable(dependable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -531,6 +548,21 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseCorrelation(Correlation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dependable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dependable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDependable(Dependable object) {
 		return null;
 	}
 

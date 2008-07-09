@@ -6,7 +6,6 @@
 package edu.toronto.cs.openome_model.provider;
 
 
-import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
@@ -24,18 +23,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.Dependency} object.
+ * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.Dependable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DependencyItemProvider
-	extends LinkItemProvider
+public class DependableItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -55,7 +52,7 @@ public class DependencyItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DependencyItemProvider(AdapterFactory adapterFactory) {
+	public DependableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,8 +69,6 @@ public class DependencyItemProvider
 
 			addDependencyFromPropertyDescriptor(object);
 			addDependencyToPropertyDescriptor(object);
-			addTrustPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,9 +84,9 @@ public class DependencyItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Dependency_dependencyFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_dependencyFrom_feature", "_UI_Dependency_type"),
-				 openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_FROM,
+				 getString("_UI_Dependable_dependencyFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dependable_dependencyFrom_feature", "_UI_Dependable_type"),
+				 openome_modelPackage.Literals.DEPENDABLE__DEPENDENCY_FROM,
 				 true,
 				 false,
 				 true,
@@ -111,70 +106,15 @@ public class DependencyItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Dependency_dependencyTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_dependencyTo_feature", "_UI_Dependency_type"),
-				 openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_TO,
+				 getString("_UI_Dependable_dependencyTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Dependable_dependencyTo_feature", "_UI_Dependable_type"),
+				 openome_modelPackage.Literals.DEPENDABLE__DEPENDENCY_TO,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Trust feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTrustPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Dependency_trust_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_trust_feature", "_UI_Dependency_type"),
-				 openome_modelPackage.Literals.DEPENDENCY__TRUST,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Dependency_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_label_feature", "_UI_Dependency_type"),
-				 openome_modelPackage.Literals.DEPENDENCY__LABEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Dependency.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Dependency"));
 	}
 
 	/**
@@ -185,8 +125,7 @@ public class DependencyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Dependency dependency = (Dependency)object;
-		return getString("_UI_Dependency_type") + " " + dependency.getTrust();
+		return getString("_UI_Dependable_type");
 	}
 
 	/**
@@ -199,13 +138,6 @@ public class DependencyItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Dependency.class)) {
-			case openome_modelPackage.DEPENDENCY__TRUST:
-			case openome_modelPackage.DEPENDENCY__LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

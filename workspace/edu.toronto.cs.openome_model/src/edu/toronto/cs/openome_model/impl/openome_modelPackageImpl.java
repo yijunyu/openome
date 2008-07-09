@@ -20,6 +20,7 @@ import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Correlation;
 import edu.toronto.cs.openome_model.Decomposition;
+import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Goal;
@@ -193,6 +194,13 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass correlationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dependableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -529,24 +537,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDependency_ActorDependencyFrom() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDependency_ActorDependencyTo() {
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGoal() {
 		return goalEClass;
 	}
@@ -628,7 +618,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_DependencyFrom() {
+	public EReference getIntention_Decompositions() {
 		return (EReference)intentionEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -637,7 +627,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_DependencyTo() {
+	public EReference getIntention_ParentDecompositions() {
 		return (EReference)intentionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -646,7 +636,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_Decompositions() {
+	public EReference getIntention_Container() {
 		return (EReference)intentionEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -655,7 +645,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_ParentDecompositions() {
+	public EReference getIntention_Model() {
 		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -664,26 +654,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_Container() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIntention_Model() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIntention_QualitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -692,7 +664,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -701,7 +673,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningDenialLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -710,7 +682,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -719,7 +691,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningDeniedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -728,7 +700,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(18);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -737,7 +709,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesTo() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(19);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -746,7 +718,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesFrom() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(20);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -970,24 +942,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_DependencyFrom() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContainer_DependencyTo() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBelief() {
 		return beliefEClass;
 	}
@@ -1026,6 +980,33 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 */
 	public EReference getCorrelation_Source() {
 		return (EReference)correlationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDependable() {
+		return dependableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDependable_DependencyFrom() {
+		return (EReference)dependableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDependable_DependencyTo() {
+		return (EReference)dependableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1123,8 +1104,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(dependencyEClass, DEPENDENCY__TRUST);
 		createEAttribute(dependencyEClass, DEPENDENCY__LABEL);
 		createEReference(dependencyEClass, DEPENDENCY__MODEL);
-		createEReference(dependencyEClass, DEPENDENCY__ACTOR_DEPENDENCY_FROM);
-		createEReference(dependencyEClass, DEPENDENCY__ACTOR_DEPENDENCY_TO);
 
 		goalEClass = createEClass(GOAL);
 
@@ -1136,8 +1115,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(intentionEClass, INTENTION__SEQUENTIAL);
 		createEAttribute(intentionEClass, INTENTION__PARALLEL);
 		createEReference(intentionEClass, INTENTION__PROPERTY);
-		createEReference(intentionEClass, INTENTION__DEPENDENCY_FROM);
-		createEReference(intentionEClass, INTENTION__DEPENDENCY_TO);
 		createEReference(intentionEClass, INTENTION__DECOMPOSITIONS);
 		createEReference(intentionEClass, INTENTION__PARENT_DECOMPOSITIONS);
 		createEReference(intentionEClass, INTENTION__CONTAINER);
@@ -1183,8 +1160,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(containerEClass, CONTAINER__SUB);
 		createEReference(containerEClass, CONTAINER__INTENTIONS);
 		createEReference(containerEClass, CONTAINER__MODEL);
-		createEReference(containerEClass, CONTAINER__DEPENDENCY_FROM);
-		createEReference(containerEClass, CONTAINER__DEPENDENCY_TO);
 
 		beliefEClass = createEClass(BELIEF);
 
@@ -1193,6 +1168,10 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		correlationEClass = createEClass(CORRELATION);
 		createEReference(correlationEClass, CORRELATION__TARGET);
 		createEReference(correlationEClass, CORRELATION__SOURCE);
+
+		dependableEClass = createEClass(DEPENDABLE);
+		createEReference(dependableEClass, DEPENDABLE__DEPENDENCY_FROM);
+		createEReference(dependableEClass, DEPENDABLE__DEPENDENCY_TO);
 
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
@@ -1236,12 +1215,14 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		decompositionEClass.getESuperTypes().add(this.getLink());
 		dependencyEClass.getESuperTypes().add(this.getLink());
 		goalEClass.getESuperTypes().add(this.getIntention());
+		intentionEClass.getESuperTypes().add(this.getDependable());
 		orDecompositionEClass.getESuperTypes().add(this.getDecomposition());
 		positionEClass.getESuperTypes().add(this.getContainer());
 		resourceEClass.getESuperTypes().add(this.getIntention());
 		roleEClass.getESuperTypes().add(this.getContainer());
 		softgoalEClass.getESuperTypes().add(this.getIntention());
 		taskEClass.getESuperTypes().add(this.getIntention());
+		containerEClass.getESuperTypes().add(this.getDependable());
 		beliefEClass.getESuperTypes().add(this.getIntention());
 		correlationEClass.getESuperTypes().add(this.getLink());
 
@@ -1272,13 +1253,11 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getDecomposition_Model(), this.getModel(), this.getModel_Decompositions(), "model", null, 0, 1, Decomposition.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDependency_DependencyFrom(), this.getIntention(), this.getIntention_DependencyTo(), "dependencyFrom", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDependency_DependencyTo(), this.getIntention(), this.getIntention_DependencyFrom(), "dependencyTo", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDependency_DependencyFrom(), this.getDependable(), this.getDependable_DependencyTo(), "dependencyFrom", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDependency_DependencyTo(), this.getDependable(), this.getDependable_DependencyFrom(), "dependencyTo", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDependency_Trust(), ecorePackage.getEFloat(), "trust", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDependency_Label(), ecorePackage.getEString(), "label", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDependency_Model(), this.getModel(), this.getModel_Dependencies(), "model", null, 0, 1, Dependency.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDependency_ActorDependencyFrom(), this.getContainer(), this.getContainer_DependencyTo(), "actorDependencyFrom", null, 0, -1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDependency_ActorDependencyTo(), this.getContainer(), this.getContainer_DependencyFrom(), "actorDependencyTo", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goalEClass, Goal.class, "Goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1290,8 +1269,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEAttribute(getIntention_Sequential(), ecorePackage.getEBooleanObject(), "sequential", "true", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_Parallel(), ecorePackage.getEBooleanObject(), "parallel", "false", 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Property(), this.getProperty(), null, "property", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_DependencyFrom(), this.getDependency(), this.getDependency_DependencyTo(), "dependencyFrom", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_DependencyTo(), this.getDependency(), this.getDependency_DependencyFrom(), "dependencyTo", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Decompositions(), this.getDecomposition(), this.getDecomposition_Source(), "decompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_ParentDecompositions(), this.getDecomposition(), this.getDecomposition_Target(), "parentDecompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Container(), this.getContainer(), this.getContainer_Intentions(), "container", null, 0, 1, Intention.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1337,8 +1314,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_DependencyFrom(), this.getDependency(), this.getDependency_ActorDependencyTo(), "dependencyFrom", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_DependencyTo(), this.getDependency(), this.getDependency_ActorDependencyFrom(), "dependencyTo", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beliefEClass, Belief.class, "Belief", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1347,6 +1322,10 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEClass(correlationEClass, Correlation.class, "Correlation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCorrelation_Target(), this.getIntention(), null, "target", null, 0, 1, Correlation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCorrelation_Source(), this.getIntention(), null, "source", null, 0, 1, Correlation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dependableEClass, Dependable.class, "Dependable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDependable_DependencyFrom(), this.getDependency(), this.getDependency_DependencyTo(), "dependencyFrom", null, 0, -1, Dependable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDependable_DependencyTo(), this.getDependency(), this.getDependency_DependencyFrom(), "dependencyTo", null, 0, -1, Dependable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

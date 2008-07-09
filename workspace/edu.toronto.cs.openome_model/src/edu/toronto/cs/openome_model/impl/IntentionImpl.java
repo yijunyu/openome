@@ -48,8 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getSequential <em>Sequential</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getParallel <em>Parallel</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getDependencyFrom <em>Dependency From</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContainer <em>Container</em>}</li>
@@ -67,7 +65,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class IntentionImpl extends EObjectImpl implements Intention {
+public class IntentionImpl extends DependableImpl implements Intention {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,26 +202,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * @ordered
 	 */
 	protected EList<Property> property;
-
-	/**
-	 * The cached value of the '{@link #getDependencyFrom() <em>Dependency From</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependencyFrom()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Dependency> dependencyFrom;
-
-	/**
-	 * The cached value of the '{@link #getDependencyTo() <em>Dependency To</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependencyTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Dependency> dependencyTo;
 
 	/**
 	 * The cached value of the '{@link #getDecompositions() <em>Decompositions</em>}' reference list.
@@ -547,30 +525,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Dependency> getDependencyFrom() {
-		if (dependencyFrom == null) {
-			dependencyFrom = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, openome_modelPackage.INTENTION__DEPENDENCY_FROM, openome_modelPackage.DEPENDENCY__DEPENDENCY_TO);
-		}
-		return dependencyFrom;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Dependency> getDependencyTo() {
-		if (dependencyTo == null) {
-			dependencyTo = new EObjectWithInverseResolvingEList<Dependency>(Dependency.class, this, openome_modelPackage.INTENTION__DEPENDENCY_TO, openome_modelPackage.DEPENDENCY__DEPENDENCY_FROM);
-		}
-		return dependencyTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Decomposition> getDecompositions() {
 		if (decompositions == null) {
 			decompositions = new EObjectWithInverseResolvingEList<Decomposition>(Decomposition.class, this, openome_modelPackage.INTENTION__DECOMPOSITIONS, openome_modelPackage.DECOMPOSITION__SOURCE);
@@ -831,10 +785,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyFrom()).basicAdd(otherEnd, msgs);
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependencyTo()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDecompositions()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS:
@@ -865,10 +815,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 		switch (featureID) {
 			case openome_modelPackage.INTENTION__PROPERTY:
 				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				return ((InternalEList<?>)getDependencyFrom()).basicRemove(otherEnd, msgs);
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				return ((InternalEList<?>)getDependencyTo()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS:
@@ -923,10 +869,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return getParallel();
 			case openome_modelPackage.INTENTION__PROPERTY:
 				return getProperty();
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				return getDependencyFrom();
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				return getDependencyTo();
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				return getDecompositions();
 			case openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS:
@@ -985,14 +927,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 			case openome_modelPackage.INTENTION__PROPERTY:
 				getProperty().clear();
 				getProperty().addAll((Collection<? extends Property>)newValue);
-				return;
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				getDependencyFrom().clear();
-				getDependencyFrom().addAll((Collection<? extends Dependency>)newValue);
-				return;
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				getDependencyTo().clear();
-				getDependencyTo().addAll((Collection<? extends Dependency>)newValue);
 				return;
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				getDecompositions().clear();
@@ -1067,12 +1001,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 			case openome_modelPackage.INTENTION__PROPERTY:
 				getProperty().clear();
 				return;
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				getDependencyFrom().clear();
-				return;
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				getDependencyTo().clear();
-				return;
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				getDecompositions().clear();
 				return;
@@ -1135,10 +1063,6 @@ public class IntentionImpl extends EObjectImpl implements Intention {
 				return PARALLEL_EDEFAULT == null ? parallel != null : !PARALLEL_EDEFAULT.equals(parallel);
 			case openome_modelPackage.INTENTION__PROPERTY:
 				return property != null && !property.isEmpty();
-			case openome_modelPackage.INTENTION__DEPENDENCY_FROM:
-				return dependencyFrom != null && !dependencyFrom.isEmpty();
-			case openome_modelPackage.INTENTION__DEPENDENCY_TO:
-				return dependencyTo != null && !dependencyTo.isEmpty();
 			case openome_modelPackage.INTENTION__DECOMPOSITIONS:
 				return decompositions != null && !decompositions.isEmpty();
 			case openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS:

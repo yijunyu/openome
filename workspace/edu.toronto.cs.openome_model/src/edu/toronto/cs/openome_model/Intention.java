@@ -24,8 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getSequential <em>Sequential</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getParallel <em>Parallel</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getProperty <em>Property</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getDependencyFrom <em>Dependency From</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getDependencyTo <em>Dependency To</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getContainer <em>Container</em>}</li>
@@ -45,7 +43,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Intention extends EObject {
+public interface Intention extends Dependable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,42 +227,6 @@ public interface Intention extends EObject {
 	 * @generated
 	 */
 	EList<Property> getProperty();
-
-	/**
-	 * Returns the value of the '<em><b>Dependency From</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getDependencyTo <em>Dependency To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependency From</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency From</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_DependencyFrom()
-	 * @see edu.toronto.cs.openome_model.Dependency#getDependencyTo
-	 * @model opposite="dependencyTo"
-	 * @generated
-	 */
-	EList<Dependency> getDependencyFrom();
-
-	/**
-	 * Returns the value of the '<em><b>Dependency To</b></em>' reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Dependency#getDependencyFrom <em>Dependency From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependency To</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency To</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_DependencyTo()
-	 * @see edu.toronto.cs.openome_model.Dependency#getDependencyFrom
-	 * @model opposite="dependencyFrom"
-	 * @generated
-	 */
-	EList<Dependency> getDependencyTo();
 
 	/**
 	 * Returns the value of the '<em><b>Decompositions</b></em>' reference list.
