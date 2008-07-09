@@ -29,7 +29,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(0, "None", "None"),
+	NONE(0, "None", ""),
 
 	/**
 	 * The '<em><b>Plus Plus</b></em>' literal object.
@@ -39,7 +39,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUS_PLUS(1, "PlusPlus", ""), /**
+	PLUS_PLUS(1, "PlusPlus", "++"), /**
 	 * The '<em><b>Plus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,7 +47,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUS(2, "Plus", "Plus"), /**
+	PLUS(2, "Plus", "+"), /**
 	 * The '<em><b>Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +55,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MINUS(3, "Minus", "Minus"), /**
+	MINUS(3, "Minus", "-"), /**
 	 * The '<em><b>Minus Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +63,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MINUS_MINUS(4, "MinusMinus", "MinusMinus");
+	MINUS_MINUS(4, "MinusMinus", "--");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +81,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NONE
-	 * @model name="None"
+	 * @model name="None" literal=""
 	 * @generated
 	 * @ordered
 	 */
@@ -96,7 +96,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PLUS_PLUS
-	 * @model name="PlusPlus" literal=""
+	 * @model name="PlusPlus" literal="++"
 	 * @generated
 	 * @ordered
 	 */
@@ -111,7 +111,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PLUS
-	 * @model name="Plus"
+	 * @model name="Plus" literal="+"
 	 * @generated
 	 * @ordered
 	 */
@@ -126,7 +126,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MINUS
-	 * @model name="Minus"
+	 * @model name="Minus" literal="-"
 	 * @generated
 	 * @ordered
 	 */
@@ -141,7 +141,7 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MINUS_MINUS
-	 * @model name="MinusMinus"
+	 * @model name="MinusMinus" literal="--"
 	 * @generated
 	 * @ordered
 	 */
