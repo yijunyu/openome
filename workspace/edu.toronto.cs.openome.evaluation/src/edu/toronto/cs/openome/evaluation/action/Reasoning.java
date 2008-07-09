@@ -512,7 +512,8 @@ public class Reasoning {
 		}
 		EList<Dependency> dlist = to.getDependencyTo();
 		for (int j=0; j < dlist.size(); j++) {
-			Intention from = (dlist.get(j)).getDependencyTo();			
+			if( dlist.get(j).getDependencyTo() instanceof Container) break;
+			Intention from = (Intention) (dlist.get(j)).getDependencyTo();			 //TODO: dangerous cast
 			if (is_soft_goal(to)) {
 				step4i.append(implies(PS(to), PS(from)));
 			}
