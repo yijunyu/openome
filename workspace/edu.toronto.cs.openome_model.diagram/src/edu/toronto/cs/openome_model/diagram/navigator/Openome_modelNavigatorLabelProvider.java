@@ -937,17 +937,20 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getContribution_4005Text(View view) {
-
 		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
 				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_4005,
 				(view.getElement() != null ? view.getElement() : view),
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID));
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
+			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+					.getInstance().logError(
+							"Parser was not found for label " + 6003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
