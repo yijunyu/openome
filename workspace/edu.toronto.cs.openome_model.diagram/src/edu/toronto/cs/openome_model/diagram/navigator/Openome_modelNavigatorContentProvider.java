@@ -215,7 +215,7 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup links = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Model_1000_links,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Model_79_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -265,12 +265,6 @@ public class Openome_modelNavigatorContentProvider implements
 							false));
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
-			links
-					.addChildren(createNavigatorItems(connectedViews, links,
-							false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
 			links
 					.addChildren(createNavigatorItems(connectedViews, links,
@@ -296,10 +290,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Actor_2001_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Actor_1001_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Actor_2001_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Actor_1001_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -335,12 +329,12 @@ public class Openome_modelNavigatorContentProvider implements
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -355,10 +349,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_2002_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_1002_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_2002_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Agent_1002_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -394,12 +388,12 @@ public class Openome_modelNavigatorContentProvider implements
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -414,10 +408,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_2003_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_1003_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_2003_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Position_1003_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -453,12 +447,12 @@ public class Openome_modelNavigatorContentProvider implements
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -473,10 +467,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_2004_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_1004_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_2004_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Role_1004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -512,12 +506,12 @@ public class Openome_modelNavigatorContentProvider implements
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID);
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -530,6 +524,462 @@ public class Openome_modelNavigatorContentProvider implements
 		}
 
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_1005_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_1005_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_1006_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_1006_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_1007_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_1007_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_1008_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_1008_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2001_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2001_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2003_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2003_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2004_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2004_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
 					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2005_incominglinks,
@@ -586,7 +1036,7 @@ public class Openome_modelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID: {
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
 					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2006_incominglinks,
@@ -643,469 +1093,13 @@ public class Openome_modelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2007_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2007_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2008_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2008_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3001_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3001_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3002_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3002_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3003_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3003_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3004_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3004_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3005_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3005_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3006_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3006_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3007_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2007_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3007_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2007_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1159,10 +1153,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3008_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2008_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3008_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2008_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1216,10 +1210,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3009_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2009_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3009_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2009_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1273,10 +1267,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3010_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2010_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3010_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2010_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1330,10 +1324,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3011_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2011_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3011_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1387,10 +1381,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3012_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2012_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3012_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1444,10 +1438,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3013_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2013_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_3013_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Goal_2013_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1501,10 +1495,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3014_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2014_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_3014_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Softgoal_2014_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1558,10 +1552,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3015_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2015_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_3015_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Resource_2015_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1615,10 +1609,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup incominglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3016_incominglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2016_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup outgoinglinks = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_3016_outgoinglinks,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Task_2016_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
@@ -1672,12 +1666,32 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup target = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_4001_target,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_3001_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup source = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_4001_source,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_3001_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
@@ -1779,6 +1793,26 @@ public class Openome_modelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(
 					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
+					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
@@ -1875,63 +1909,6 @@ public class Openome_modelNavigatorContentProvider implements
 			connectedViews = getLinksSourceByType(
 					Collections.singleton(view),
 					edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup target = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_4002_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup source = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Dependency_4002_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getLinksTargetByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(view),
-					edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {
@@ -1946,10 +1923,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup target = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_AndDecomposition_4003_target,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_AndDecomposition_3002_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup source = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_AndDecomposition_4003_source,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_AndDecomposition_3002_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(
 					Collections.singleton(view),
@@ -2163,10 +2140,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup target = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_OrDecomposition_4004_target,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_OrDecomposition_3003_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup source = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_OrDecomposition_4004_source,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_OrDecomposition_3003_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(
 					Collections.singleton(view),
@@ -2380,10 +2357,10 @@ public class Openome_modelNavigatorContentProvider implements
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup target = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Contribution_4005_target,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Contribution_3004_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup source = new edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup(
-					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Contribution_4005_source,
+					edu.toronto.cs.openome_model.diagram.part.Messages.NavigatorGroupName_Contribution_3004_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(
 					Collections.singleton(view),

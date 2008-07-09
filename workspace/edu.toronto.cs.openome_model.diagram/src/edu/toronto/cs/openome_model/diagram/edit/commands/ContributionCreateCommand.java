@@ -79,7 +79,7 @@ public class ContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateContribution_4005(getContainer(), getSource(),
+				.canCreateContribution_3004(getContainer(), getSource(),
 						getTarget());
 	}
 

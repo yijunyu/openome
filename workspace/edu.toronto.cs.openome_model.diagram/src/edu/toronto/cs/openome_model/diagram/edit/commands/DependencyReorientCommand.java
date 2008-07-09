@@ -58,10 +58,10 @@ public class DependencyReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Intention && newEnd instanceof edu.toronto.cs.openome_model.Intention)) {
+		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Dependable && newEnd instanceof edu.toronto.cs.openome_model.Dependable)) {
 			return false;
 		}
-		edu.toronto.cs.openome_model.Intention target = getLink()
+		edu.toronto.cs.openome_model.Dependable target = getLink()
 				.getDependencyFrom();
 		if (!(getLink().eContainer() instanceof edu.toronto.cs.openome_model.Model)) {
 			return false;
@@ -69,17 +69,17 @@ public class DependencyReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistDependency_4001(container, getNewSource(), target);
+				.canExistDependency_3001(container, getNewSource(), target);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Intention && newEnd instanceof edu.toronto.cs.openome_model.Intention)) {
+		if (!(oldEnd instanceof edu.toronto.cs.openome_model.Dependable && newEnd instanceof edu.toronto.cs.openome_model.Dependable)) {
 			return false;
 		}
-		edu.toronto.cs.openome_model.Intention source = getLink()
+		edu.toronto.cs.openome_model.Dependable source = getLink()
 				.getDependencyTo();
 		if (!(getLink().eContainer() instanceof edu.toronto.cs.openome_model.Model)) {
 			return false;
@@ -87,7 +87,7 @@ public class DependencyReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistDependency_4001(container, source, getNewTarget());
+				.canExistDependency_3001(container, source, getNewTarget());
 	}
 
 	/**
@@ -134,28 +134,28 @@ public class DependencyReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Intention getOldSource() {
-		return (edu.toronto.cs.openome_model.Intention) oldEnd;
+	protected edu.toronto.cs.openome_model.Dependable getOldSource() {
+		return (edu.toronto.cs.openome_model.Dependable) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Intention getNewSource() {
-		return (edu.toronto.cs.openome_model.Intention) newEnd;
+	protected edu.toronto.cs.openome_model.Dependable getNewSource() {
+		return (edu.toronto.cs.openome_model.Dependable) newEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Intention getOldTarget() {
-		return (edu.toronto.cs.openome_model.Intention) oldEnd;
+	protected edu.toronto.cs.openome_model.Dependable getOldTarget() {
+		return (edu.toronto.cs.openome_model.Dependable) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Intention getNewTarget() {
-		return (edu.toronto.cs.openome_model.Intention) newEnd;
+	protected edu.toronto.cs.openome_model.Dependable getNewTarget() {
+		return (edu.toronto.cs.openome_model.Dependable) newEnd;
 	}
 }

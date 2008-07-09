@@ -1,14 +1,8 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
-import openome_model.figures.DependencyLineConnection;
-
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.RotatableDecoration;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -19,7 +13,7 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4001;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	 * @generated
@@ -46,7 +40,6 @@ public class DependencyEditPart extends ConnectionNodeEditPart {
 	 * 
 	 * @generated
 	 */
-
 	protected Connection createConnectionFigure() {
 		return new openome_model.figures.DependencyLineConnection();
 	}

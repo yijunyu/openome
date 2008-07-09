@@ -42,7 +42,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-				.getModel_1000SemanticChildren(viewObject).iterator(); it
+				.getModel_79SemanticChildren(viewObject).iterator(); it
 				.hasNext();) {
 			result
 					.add(((edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor) it
@@ -219,7 +219,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getModel_1000ContainedLinks(view));
+								.getModel_79ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -231,7 +231,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getActor_2001ContainedLinks(view));
+								.getActor_1001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -243,7 +243,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getAgent_2002ContainedLinks(view));
+								.getAgent_1002ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -255,7 +255,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getPosition_2003ContainedLinks(view));
+								.getPosition_1003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -267,7 +267,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getRole_2004ContainedLinks(view));
+								.getRole_1004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -279,7 +279,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getGoal_2005ContainedLinks(view));
+								.getGoal_1005ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -291,7 +291,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getSoftgoal_2006ContainedLinks(view));
+								.getSoftgoal_1006ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -303,7 +303,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getTask_2007ContainedLinks(view));
+								.getTask_1007ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -315,7 +315,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getResource_2008ContainedLinks(view));
+								.getResource_1008ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -327,7 +327,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getGoal_3001ContainedLinks(view));
+								.getGoal_2001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -339,7 +339,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getSoftgoal_3002ContainedLinks(view));
+								.getSoftgoal_2002ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -351,7 +351,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getResource_3003ContainedLinks(view));
+								.getResource_2003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -363,7 +363,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getTask_3004ContainedLinks(view));
+								.getTask_2004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -375,7 +375,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getGoal_3005ContainedLinks(view));
+								.getGoal_2005ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -387,7 +387,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getSoftgoal_3006ContainedLinks(view));
+								.getSoftgoal_2006ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -399,7 +399,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getResource_3007ContainedLinks(view));
+								.getResource_2007ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -411,7 +411,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getTask_3008ContainedLinks(view));
+								.getTask_2008ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -423,7 +423,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getGoal_3009ContainedLinks(view));
+								.getGoal_2009ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -435,7 +435,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getSoftgoal_3010ContainedLinks(view));
+								.getSoftgoal_2010ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -447,7 +447,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getResource_3011ContainedLinks(view));
+								.getResource_2011ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -459,7 +459,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getTask_3012ContainedLinks(view));
+								.getTask_2012ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -471,7 +471,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getGoal_3013ContainedLinks(view));
+								.getGoal_2013ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -483,7 +483,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getSoftgoal_3014ContainedLinks(view));
+								.getSoftgoal_2014ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -495,7 +495,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getResource_3015ContainedLinks(view));
+								.getResource_2015ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -507,7 +507,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getTask_3016ContainedLinks(view));
+								.getTask_2016ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -519,19 +519,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getDependency_4001ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result
-						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getDependency_4002ContainedLinks(view));
+								.getDependency_3001ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -543,7 +531,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getAndDecomposition_4003ContainedLinks(view));
+								.getAndDecomposition_3002ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -555,7 +543,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getOrDecomposition_4004ContainedLinks(view));
+								.getOrDecomposition_3003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -567,7 +555,7 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-								.getContribution_4005ContainedLinks(view));
+								.getContribution_3004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

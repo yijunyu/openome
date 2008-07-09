@@ -17,7 +17,7 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4005;
+	public static final int VISUAL_ID = 3004;
 
 	/**
 	 * @generated
@@ -40,6 +40,11 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart) {
+			((edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureContributionLabel());
+			return true;
+		}
 		return false;
 	}
 

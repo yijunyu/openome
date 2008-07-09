@@ -244,10 +244,6 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart(
-						view);
-
 			case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart(
 						view);
@@ -268,8 +264,8 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart(
 						view);
 			}
 		}

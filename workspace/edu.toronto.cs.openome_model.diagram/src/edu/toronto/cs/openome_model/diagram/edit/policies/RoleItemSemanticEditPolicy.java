@@ -87,9 +87,9 @@ public class RoleItemSemanticEditPolicy
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
 				.getElementType()) {
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Dependency2CreateCommand(
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -100,9 +100,9 @@ public class RoleItemSemanticEditPolicy
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
 				.getElementType()) {
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Dependency2CreateCommand(
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -117,8 +117,8 @@ public class RoleItemSemanticEditPolicy
 	protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
-			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Dependency2ReorientCommand(
+		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);

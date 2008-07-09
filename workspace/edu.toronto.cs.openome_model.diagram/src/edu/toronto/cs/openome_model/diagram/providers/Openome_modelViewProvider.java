@@ -298,7 +298,7 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
+				case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -431,8 +431,8 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabelViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.WrapLabel2ViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.LabelViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.ContributionGoal_model_contributionViewFactory.class;
 		}
 		return null;
 	}
@@ -473,8 +473,6 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.DependencyViewFactory.class;
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Dependency2EditPart.VISUAL_ID:
-			return edu.toronto.cs.openome_model.diagram.view.factories.Dependency2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.AndDecompositionViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:

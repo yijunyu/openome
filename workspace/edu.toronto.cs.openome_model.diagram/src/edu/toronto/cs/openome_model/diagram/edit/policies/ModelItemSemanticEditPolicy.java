@@ -18,7 +18,7 @@ public class ModelItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_2001 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -28,7 +28,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ActorCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Agent_2002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Agent_1002 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -38,7 +38,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AgentCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_2003 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_1003 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -48,7 +48,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PositionCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_2004 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_1004 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -58,7 +58,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.RoleCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2005 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1005 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -68,7 +68,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1006 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -78,7 +78,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SoftgoalCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2007 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_1007 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -88,7 +88,7 @@ public class ModelItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.TaskCreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2008 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_1008 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

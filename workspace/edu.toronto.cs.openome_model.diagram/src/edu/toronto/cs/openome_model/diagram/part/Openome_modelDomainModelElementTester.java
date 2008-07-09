@@ -99,6 +99,10 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 				.getCorrelation()) {
 			return true;
 		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getDependable()) {
+			return true;
+		}
 		return false;
 	}
 
