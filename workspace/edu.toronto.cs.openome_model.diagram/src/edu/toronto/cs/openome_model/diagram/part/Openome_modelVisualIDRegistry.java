@@ -699,7 +699,7 @@ public class Openome_modelVisualIDRegistry {
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID == nodeVisualID) {
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

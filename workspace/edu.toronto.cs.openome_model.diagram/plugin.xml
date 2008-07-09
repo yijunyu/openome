@@ -142,7 +142,7 @@
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart"/>
+            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>

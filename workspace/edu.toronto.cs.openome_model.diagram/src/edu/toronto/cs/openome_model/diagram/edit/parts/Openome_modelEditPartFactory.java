@@ -268,8 +268,8 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.LabelEditPart(
 						view);
 			}
 		}

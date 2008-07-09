@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.notation.View;
  * @generated
  */
 public class PositionPositionCompartmentEditPart extends
-		ListCompartmentEditPart {
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -29,13 +29,6 @@ public class PositionPositionCompartmentEditPart extends
 	 */
 	public PositionPositionCompartmentEditPart(View view) {
 		super(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
 	}
 
 	/**

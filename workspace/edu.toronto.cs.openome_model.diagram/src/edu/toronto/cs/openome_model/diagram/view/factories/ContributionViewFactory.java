@@ -46,10 +46,12 @@ public class ContributionViewFactory extends ConnectionViewFactory {
 		if (eObject != null) {
 			eObjectAdapter = new EObjectAdapter(eObject);
 		}
-		getViewService().createNode(
+		getViewService()
+				.createNode(
 						eObjectAdapter,
 						view,
-						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID),
+						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 
 		// ensures that the link/connectors have smooth curvature

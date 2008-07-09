@@ -645,32 +645,6 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser contributionGoal_model_contribution_type_6003Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getContributionGoal_model_contribution_type_6003Parser() {
-		if (contributionGoal_model_contribution_type_6003Parser == null) {
-			contributionGoal_model_contribution_type_6003Parser = createContributionGoal_model_contribution_type_6003Parser();
-		}
-		return contributionGoal_model_contribution_type_6003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createContributionGoal_model_contribution_type_6003Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getContribution_Goal_model_contribution_type(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID:
@@ -721,8 +695,6 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getResourceName_5018Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID:
 			return getTaskName_5019Parser();
-		case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart.VISUAL_ID:
-			return getContributionGoal_model_contribution_type_6003Parser();
 		}
 		return null;
 	}

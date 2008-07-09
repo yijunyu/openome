@@ -40,11 +40,6 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.ContributionIstar_contribution_typeEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureContributionLabel());
-			return true;
-		}
 		return false;
 	}
 
