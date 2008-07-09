@@ -717,9 +717,14 @@
     <domainSpecialization
         body="oclIsKindOf(Contribution)"/>
     <labelMappings
-        readOnly="true">
+        xsi:type="gmfmap:FeatureLabelMapping"
+        viewPattern=""
+        editorPattern=""
+        editPattern="">
       <diagramLabel
-          href="openome_model.gmfgraph#DiagramHelpLabel"/>
+          href="openome_model.gmfgraph#ContributionLabel"/>
+      <features
+          href="openome_model.ecore#//Contribution/goal_model_contribution_type"/>
     </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/contributions"/>

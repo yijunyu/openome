@@ -280,7 +280,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="AndDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.4/@figures.0">
+          sourceDecoration="//@figures.3/@figures.0">
         <children
             xsi:type="gmfgraph:Label"
             name="AndLabel"
@@ -295,7 +295,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="OrDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.4/@figures.1">
+          sourceDecoration="//@figures.3/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="OrLabel"
@@ -309,7 +309,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           lineWidth="2"
-          targetDecoration="//@figures.4/@figures.2">
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="ContributionLabel"
@@ -325,41 +325,6 @@
           name="ActorDependencyFigure"
           lineWidth="2"/>
     </descriptors>
-  </figures>
-  <figures
-      name="IStarContributionLabels">
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="BreakLabel"
-        text="--">
-      <font
-          xsi:type="gmfgraph:BasicFont"
-          faceName="Courier"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="HurtLabel"
-        text="-">
-      <font
-          xsi:type="gmfgraph:BasicFont"
-          faceName="Courier"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="HelpLabel"
-        text="+"/>
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="MakeLabel"
-        text="++"/>
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="SomePlusLabel"
-        text="Some+"/>
-    <figures
-        xsi:type="gmfgraph:Label"
-        name="SomeMinusLabel"
-        text="Some-"/>
   </figures>
   <figures
       name="LinkDecorations">
@@ -533,27 +498,8 @@
         alignment="END"/>
   </labels>
   <labels
-      name="DiagramHelpLabel"
-      elementIcon="false">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
-  <labels
-      name="DiagramHurtLabel"
-      elementIcon="false">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
-  <labels
-      name="DiagramBreakLabel"
-      elementIcon="false">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
-  <labels
-      name="DiagramMakeLabel"
-      elementIcon="false">
-    <facets
-        xsi:type="gmfgraph:AlignmentFacet"/>
-  </labels>
+      name="ContributionLabel"
+      figure="ContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.3/@accessors.0"/>
 </gmfgraph:Canvas>

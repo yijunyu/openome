@@ -150,11 +150,11 @@
     <eLiterals name="Satisfied"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionType">
-    <eLiterals name="None"/>
-    <eLiterals name="PlusPlus" value="1" literal=""/>
-    <eLiterals name="Plus" value="2"/>
-    <eLiterals name="Minus" value="3"/>
-    <eLiterals name="MinusMinus" value="4"/>
+    <eLiterals name="None" literal=""/>
+    <eLiterals name="PlusPlus" value="1" literal="++"/>
+    <eLiterals name="Plus" value="2" literal="+"/>
+    <eLiterals name="Minus" value="3" literal="-"/>
+    <eLiterals name="MinusMinus" value="4" literal="--"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="IStarContributionType">
     <eLiterals name="None"/>
