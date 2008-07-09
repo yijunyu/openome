@@ -1401,20 +1401,27 @@
       </modelFacet>
       <labels
           visualID="6003"
-          editPartClassName="LabelEditPart"
-          itemSemanticEditPolicyClassName="LabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="LabelViewFactory"
-          readOnly="true"
-          alignment="SOURCE">
+          editPartClassName="ContributionIstar_contribution_typeEditPart"
+          itemSemanticEditPolicyClassName="ContributionIstar_contribution_typeItemSemanticEditPolicy"
+          notationViewFactoryClassName="ContributionIstar_contribution_typeViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
-            xsi:type="gmfgen:FigureViewmap"
-            figureQualifiedClassName="org.eclipse.draw2d.Label">
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureContributionLabel"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"
               y="40"/>
         </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern=""
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/Contribution/goal_model_contribution_type"/>
+        </modelFacet>
       </labels>
     </links>
     <compartments
@@ -1426,8 +1433,7 @@
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3"
         title="ActorCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.0"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1448,8 +1454,7 @@
         childNodes="//@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         title="AgentCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.1"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1470,8 +1475,7 @@
         childNodes="//@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.11"
         title="PositionCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1492,8 +1496,7 @@
         childNodes="//@diagram/@childNodes.12 //@diagram/@childNodes.13 //@diagram/@childNodes.14 //@diagram/@childNodes.15"
         title="RoleCompartment"
         needsTitle="false"
-        node="//@diagram/@topLevelNodes.3"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.3">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1640,10 +1643,7 @@
           kind="Pathmaps"/>
     </preferencePages>
   </diagram>
-  <plugin>
-    <requiredPlugins>openome_model</requiredPlugins>
-    <requiredPlugins>openome_model.figures</requiredPlugins>
-  </plugin>
+  <plugin/>
   <editor/>
   <navigator>
     <childReferences
