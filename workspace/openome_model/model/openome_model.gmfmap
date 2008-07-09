@@ -636,7 +636,7 @@
         href="openome_model.ecore#//Model/dependencies"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.11"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.10"/>
     <diagramLink
         href="openome_model.gmfgraph#Dependency"/>
     <sourceMetaFeature
@@ -645,23 +645,6 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Dependency/dependencyFrom"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="openome_model.ecore#//Dependency"/>
-    <containmentFeature
-        href="openome_model.ecore#//Model/dependencies"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.10"/>
-    <diagramLink
-        href="openome_model.gmfgraph#ActorDependency"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Dependency/actorDependencyTo"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="openome_model.ecore#//Dependency/actorDependencyFrom"/>
   </links>
   <links>
     <domainMetaElement
@@ -677,7 +660,7 @@
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.13"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.12"/>
     <diagramLink
         href="openome_model.gmfgraph#AndDecomposition"/>
     <sourceMetaFeature
@@ -701,7 +684,7 @@
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.14"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.13"/>
     <diagramLink
         href="openome_model.gmfgraph#OrDecomposition"/>
     <sourceMetaFeature
@@ -730,7 +713,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.16"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15"/>
     <diagramLink
         href="openome_model.gmfgraph#Contribution"/>
     <sourceMetaFeature

@@ -118,19 +118,6 @@
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ActorDependency"
-          description="Create new Actor Dependency">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/dependency.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/dependency.gif"
-            bundle="openome_model"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Dependency"
           description="Create new Dependency">
         <smallIcon

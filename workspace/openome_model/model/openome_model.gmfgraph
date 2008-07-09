@@ -318,13 +318,6 @@
       <accessors
           figure="//@figures.2/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors
-        name="ActorDependencyFigure">
-      <actualFigure
-          xsi:type="gmfgraph:PolylineConnection"
-          name="ActorDependencyFigure"
-          lineWidth="2"/>
-    </descriptors>
   </figures>
   <figures
       name="LinkDecorations">
@@ -344,6 +337,7 @@
   <nodes
       name="Actor"
       figure="ActorFigure"
+      resizeConstraint="SOUTH_EAST"
       contentPane="//@figures.0/@descriptors.0/@accessors.0"/>
   <nodes
       name="Agent"
@@ -381,9 +375,6 @@
   <connections
       name="Contribution"
       figure="ContributionFigure"/>
-  <connections
-      name="ActorDependency"
-      figure="ActorDependencyFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
