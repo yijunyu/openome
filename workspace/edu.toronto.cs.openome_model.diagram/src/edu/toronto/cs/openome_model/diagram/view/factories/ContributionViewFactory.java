@@ -29,7 +29,7 @@ public class ContributionViewFactory extends ConnectionViewFactory {
 	}
 
 		/**
- * @generated
+ * @generated NOT
  */
 	protected void decorateView(View containerView, View view,
 			IAdaptable semanticAdapter, String semanticHint, int index, boolean persisted) {
@@ -48,5 +48,10 @@ public class ContributionViewFactory extends ConnectionViewFactory {
 				getViewService().createNode(eObjectAdapter, view,
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID),
 			ViewUtil.APPEND, true, getPreferencesHint());
+				
+				// ensures that the link/connectors have smooth curvature
+				RoutingStyle style = (RoutingStyle) view.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+				style.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
 			}
+	
 	}
