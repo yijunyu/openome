@@ -260,12 +260,52 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionContributionTypeEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionContributionTypeEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionContributionTypeEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionContributionTypeEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart(
 						view);
 			}
 		}

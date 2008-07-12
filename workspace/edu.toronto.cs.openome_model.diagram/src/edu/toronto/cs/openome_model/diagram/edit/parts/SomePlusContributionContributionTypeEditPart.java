@@ -45,13 +45,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class ContributionGoal_model_contributionEditPart extends LabelEditPart
+public class SomePlusContributionContributionTypeEditPart extends LabelEditPart
 		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4027;
+	public static final int VISUAL_ID = 6008;
 
 	/**
 	 * @generated
@@ -79,14 +79,14 @@ public class ContributionGoal_model_contributionEditPart extends LabelEditPart
 	static {
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart.VISUAL_ID),
-				new Point(0, 40));
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionContributionTypeEditPart.VISUAL_ID),
+				new Point(0, 15));
 	}
 
 	/**
 	 * @generated
 	 */
-	public ContributionGoal_model_contributionEditPart(View view) {
+	public SomePlusContributionContributionTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -234,7 +234,7 @@ public class ContributionGoal_model_contributionEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class ContributionGoal_model_contributionEditPart extends LabelEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Contribution_3004,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_4009,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

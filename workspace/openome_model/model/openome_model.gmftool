@@ -160,17 +160,48 @@
       <tools
           xsi:type="gmftool:PaletteSeparator"/>
       <tools
-          xsi:type="gmftool:CreationTool"
-          title="Contribution"
-          description="Create new Contribution">
-        <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/helpcontribution.gif"
-            bundle="openome_model"/>
-        <largeIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/helpcontribution.gif"
-            bundle="openome_model"/>
+          xsi:type="gmftool:ToolGroup"
+          title="Contributions"
+          description="Create a contribution"
+          collapsible="true"
+          active="//@palette/@tools.0/@tools.15">
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Help"
+            description="Create new help contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/helpcontribution.gif"
+              bundle="openome_model"/>
+          <largeIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/helpcontribution.gif"
+              bundle="openome_model"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Hurt"
+            description="Create a hurt contribution."/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Make"
+            description="Create a make contribution."/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Break"
+            description="Create a break contribution."/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Some Plus"
+            description="Create a some plus contribution."/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Some Minus"
+            description="Create a some minus contribution."/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Unknown"
+            description="Create an unknown contribution."/>
       </tools>
     </tools>
   </palette>

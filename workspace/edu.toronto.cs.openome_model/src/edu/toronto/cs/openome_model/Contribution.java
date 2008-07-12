@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getTarget <em>Target</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getSource <em>Source</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type <em>Goal model contribution type</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type <em>Istar contribution type</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry <em>Goal model symmetry</em>}</li>
  * </ul>
  * </p>
@@ -119,64 +117,6 @@ public interface Contribution extends Link {
 	 * @generated
 	 */
 	void setSource(Intention value);
-
-	/**
-	 * Returns the value of the '<em><b>Goal model contribution type</b></em>' attribute.
-	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.GoalModelingContributionType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Goal model contribution type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal model contribution type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.GoalModelingContributionType
-	 * @see #setGoal_model_contribution_type(GoalModelingContributionType)
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Goal_model_contribution_type()
-	 * @model
-	 * @generated
-	 */
-	GoalModelingContributionType getGoal_model_contribution_type();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type <em>Goal model contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goal model contribution type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.GoalModelingContributionType
-	 * @see #getGoal_model_contribution_type()
-	 * @generated
-	 */
-	void setGoal_model_contribution_type(GoalModelingContributionType value);
-
-	/**
-	 * Returns the value of the '<em><b>Istar contribution type</b></em>' attribute.
-	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.IStarContributionType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Istar contribution type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Istar contribution type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.IStarContributionType
-	 * @see #setIstar_contribution_type(IStarContributionType)
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Istar_contribution_type()
-	 * @model
-	 * @generated
-	 */
-	IStarContributionType getIstar_contribution_type();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type <em>Istar contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Istar contribution type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.IStarContributionType
-	 * @see #getIstar_contribution_type()
-	 * @generated
-	 */
-	void setIstar_contribution_type(IStarContributionType value);
 
 	/**
 	 * Returns the value of the '<em><b>Goal model symmetry</b></em>' attribute.

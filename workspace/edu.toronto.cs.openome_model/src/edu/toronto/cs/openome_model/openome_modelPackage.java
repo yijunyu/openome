@@ -525,31 +525,13 @@ public interface openome_modelPackage extends EPackage {
 	int CONTRIBUTION__SOURCE = LINK_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Goal model contribution type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = LINK_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Istar contribution type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = LINK_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__GOAL_MODEL_SYMMETRY = LINK_FEATURE_COUNT + 5;
+	int CONTRIBUTION__GOAL_MODEL_SYMMETRY = LINK_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Contribution</em>' class.
@@ -558,7 +540,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_FEATURE_COUNT = LINK_FEATURE_COUNT + 6;
+	int CONTRIBUTION_FEATURE_COUNT = LINK_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.DependencyImpl <em>Dependency</em>}' class.
@@ -2239,6 +2221,390 @@ public interface openome_modelPackage extends EPackage {
 	int CORRELATION_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.HelpContributionImpl <em>Help Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.HelpContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHelpContribution()
+	 * @generated
+	 */
+	int HELP_CONTRIBUTION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Help Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HELP_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.HurtContributionImpl <em>Hurt Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.HurtContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHurtContribution()
+	 * @generated
+	 */
+	int HURT_CONTRIBUTION = 22;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Hurt Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HURT_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.MakeContributionImpl <em>Make Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.MakeContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getMakeContribution()
+	 * @generated
+	 */
+	int MAKE_CONTRIBUTION = 23;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Make Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAKE_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.BreakContributionImpl <em>Break Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.BreakContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBreakContribution()
+	 * @generated
+	 */
+	int BREAK_CONTRIBUTION = 24;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Break Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.SomePlusContributionImpl <em>Some Plus Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.SomePlusContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSomePlusContribution()
+	 * @generated
+	 */
+	int SOME_PLUS_CONTRIBUTION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Some Plus Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_PLUS_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.SomeMinusContributionImpl <em>Some Minus Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.SomeMinusContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSomeMinusContribution()
+	 * @generated
+	 */
+	int SOME_MINUS_CONTRIBUTION = 26;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Some Minus Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOME_MINUS_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2246,7 +2612,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 21;
+	int EVALUATION_LABEL = 27;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -2256,7 +2622,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 22;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
@@ -2266,7 +2632,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
 	 * @generated
 	 */
-	int ISTAR_CONTRIBUTION_TYPE = 23;
+	int ISTAR_CONTRIBUTION_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -2276,7 +2642,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 24;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 30;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -2416,28 +2782,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContribution_Source();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type <em>Goal model contribution type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Goal model contribution type</em>'.
-	 * @see edu.toronto.cs.openome_model.Contribution#getGoal_model_contribution_type()
-	 * @see #getContribution()
-	 * @generated
-	 */
-	EAttribute getContribution_Goal_model_contribution_type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type <em>Istar contribution type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Istar contribution type</em>'.
-	 * @see edu.toronto.cs.openome_model.Contribution#getIstar_contribution_type()
-	 * @see #getContribution()
-	 * @generated
-	 */
-	EAttribute getContribution_Istar_contribution_type();
 
 	/**
 	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Contribution#getGoal_model_symmetry <em>Goal model symmetry</em>}'.
@@ -3127,6 +3471,132 @@ public interface openome_modelPackage extends EPackage {
 	EReference getDependable_DependencyTo();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.HelpContribution <em>Help Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Help Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.HelpContribution
+	 * @generated
+	 */
+	EClass getHelpContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.HelpContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.HelpContribution#getContributionType()
+	 * @see #getHelpContribution()
+	 * @generated
+	 */
+	EAttribute getHelpContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.HurtContribution <em>Hurt Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Hurt Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.HurtContribution
+	 * @generated
+	 */
+	EClass getHurtContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.HurtContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.HurtContribution#getContributionType()
+	 * @see #getHurtContribution()
+	 * @generated
+	 */
+	EAttribute getHurtContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.MakeContribution <em>Make Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Make Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.MakeContribution
+	 * @generated
+	 */
+	EClass getMakeContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.MakeContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.MakeContribution#getContributionType()
+	 * @see #getMakeContribution()
+	 * @generated
+	 */
+	EAttribute getMakeContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.BreakContribution <em>Break Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Break Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.BreakContribution
+	 * @generated
+	 */
+	EClass getBreakContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.BreakContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.BreakContribution#getContributionType()
+	 * @see #getBreakContribution()
+	 * @generated
+	 */
+	EAttribute getBreakContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.SomePlusContribution <em>Some Plus Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Some Plus Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.SomePlusContribution
+	 * @generated
+	 */
+	EClass getSomePlusContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.SomePlusContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.SomePlusContribution#getContributionType()
+	 * @see #getSomePlusContribution()
+	 * @generated
+	 */
+	EAttribute getSomePlusContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.SomeMinusContribution <em>Some Minus Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Some Minus Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.SomeMinusContribution
+	 * @generated
+	 */
+	EClass getSomeMinusContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.SomeMinusContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.SomeMinusContribution#getContributionType()
+	 * @see #getSomeMinusContribution()
+	 * @generated
+	 */
+	EAttribute getSomeMinusContribution_ContributionType();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3299,22 +3769,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTRIBUTION__SOURCE = eINSTANCE.getContribution_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Goal model contribution type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE = eINSTANCE.getContribution_Goal_model_contribution_type();
-
-		/**
-		 * The meta object literal for the '<em><b>Istar contribution type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getContribution_Istar_contribution_type();
 
 		/**
 		 * The meta object literal for the '<em><b>Goal model symmetry</b></em>' attribute feature.
@@ -3861,6 +4315,114 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPENDABLE__DEPENDENCY_TO = eINSTANCE.getDependable_DependencyTo();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.HelpContributionImpl <em>Help Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.HelpContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHelpContribution()
+		 * @generated
+		 */
+		EClass HELP_CONTRIBUTION = eINSTANCE.getHelpContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HELP_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getHelpContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.HurtContributionImpl <em>Hurt Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.HurtContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHurtContribution()
+		 * @generated
+		 */
+		EClass HURT_CONTRIBUTION = eINSTANCE.getHurtContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HURT_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getHurtContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.MakeContributionImpl <em>Make Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.MakeContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getMakeContribution()
+		 * @generated
+		 */
+		EClass MAKE_CONTRIBUTION = eINSTANCE.getMakeContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAKE_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getMakeContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BreakContributionImpl <em>Break Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.BreakContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getBreakContribution()
+		 * @generated
+		 */
+		EClass BREAK_CONTRIBUTION = eINSTANCE.getBreakContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BREAK_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getBreakContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.SomePlusContributionImpl <em>Some Plus Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.SomePlusContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSomePlusContribution()
+		 * @generated
+		 */
+		EClass SOME_PLUS_CONTRIBUTION = eINSTANCE.getSomePlusContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getSomePlusContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.SomeMinusContributionImpl <em>Some Minus Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.SomeMinusContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getSomeMinusContribution()
+		 * @generated
+		 */
+		EClass SOME_MINUS_CONTRIBUTION = eINSTANCE.getSomeMinusContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOME_MINUS_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getSomeMinusContribution_ContributionType();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

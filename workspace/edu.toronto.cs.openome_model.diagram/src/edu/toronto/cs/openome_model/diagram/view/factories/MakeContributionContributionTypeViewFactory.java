@@ -15,7 +15,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class LabelViewFactory extends AbstractLabelViewFactory {
+public class MakeContributionContributionTypeViewFactory extends
+		AbstractLabelViewFactory {
 
 	/**
 	 * @generated
@@ -29,7 +30,7 @@ public class LabelViewFactory extends AbstractLabelViewFactory {
 		IMapMode mapMode = MeasurementUnitHelper.getMapMode(containerView
 				.getDiagram().getMeasurementUnit());
 		location.setX(mapMode.DPtoLP(0));
-		location.setY(mapMode.DPtoLP(40));
+		location.setY(mapMode.DPtoLP(15));
 		return view;
 	}
 

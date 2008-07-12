@@ -696,26 +696,149 @@
   </links>
   <links>
     <domainMetaElement
-        href="openome_model.ecore#//Contribution"/>
-    <domainSpecialization
-        body="oclIsKindOf(Contribution)"/>
+        href="openome_model.ecore#//HelpContribution"/>
     <labelMappings
         xsi:type="gmfmap:FeatureLabelMapping"
-        viewPattern=""
+        readOnly="true"
         editorPattern=""
         editPattern="">
       <diagramLabel
-          href="openome_model.gmfgraph#ContributionLabel"/>
+          href="openome_model.gmfgraph#HelpContributionLabel"/>
       <features
-          href="openome_model.ecore#//Contribution/goal_model_contribution_type"/>
+          href="openome_model.ecore#//HelpContribution/contributionType"/>
     </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15"/>
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.0"/>
     <diagramLink
-        href="openome_model.gmfgraph#Contribution"/>
+        href="openome_model.gmfgraph#HelpContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//HurtContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="openome_model.gmfgraph#HurtContributionLabel"/>
+      <features
+          href="openome_model.ecore#//HurtContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.1"/>
+    <diagramLink
+        href="openome_model.gmfgraph#HurtContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//MakeContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="openome_model.gmfgraph#MakeContributionLabel"/>
+      <features
+          href="openome_model.ecore#//MakeContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.2"/>
+    <diagramLink
+        href="openome_model.gmfgraph#MakeContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//BreakContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="openome_model.gmfgraph#BreakContributionLabel"/>
+      <features
+          href="openome_model.ecore#//BreakContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.3"/>
+    <diagramLink
+        href="openome_model.gmfgraph#BreakContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//SomePlusContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="openome_model.gmfgraph#SomePlusContributionLabel"/>
+      <features
+          href="openome_model.ecore#//SomePlusContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.4"/>
+    <diagramLink
+        href="openome_model.gmfgraph#SomePlusContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//SomeMinusContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="openome_model.gmfgraph#SomeMinusContributionLabel"/>
+      <features
+          href="openome_model.ecore#//SomeMinusContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.5"/>
+    <diagramLink
+        href="openome_model.gmfgraph#SomeMinusContribution"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Contribution/source"/>

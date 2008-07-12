@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 /**
  * @generated
  */
-public class ContributionCreateCommand extends CreateElementCommand {
+public class HelpContributionCreateCommand extends CreateElementCommand {
 
 	/**
 	 * @generated
@@ -33,7 +33,7 @@ public class ContributionCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	public ContributionCreateCommand(CreateRelationshipRequest request,
+	public HelpContributionCreateCommand(CreateRelationshipRequest request,
 			EObject source, EObject target) {
 		super(request);
 		this.source = source;
@@ -79,7 +79,7 @@ public class ContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateContribution_3004(getContainer(), getSource(),
+				.canCreateHelpContribution_4005(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,9 +87,9 @@ public class ContributionCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.Contribution newElement = (edu.toronto.cs.openome_model.Contribution) super.doDefaultElementCreation();
-		edu.toronto.cs.openome_model.Contribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
-				.createContribution();
+		// edu.toronto.cs.openome_model.HelpContribution newElement = (edu.toronto.cs.openome_model.HelpContribution) super.doDefaultElementCreation();
+		edu.toronto.cs.openome_model.HelpContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
+				.createHelpContribution();
 		getContainer().getContributions().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());

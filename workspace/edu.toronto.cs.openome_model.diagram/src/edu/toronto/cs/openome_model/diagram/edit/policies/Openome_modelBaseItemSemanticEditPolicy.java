@@ -350,47 +350,97 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateDependency_3001(
+		public static boolean canCreateDependency_4001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Dependable source,
 				edu.toronto.cs.openome_model.Dependable target) {
-			return canExistDependency_3001(container, source, target);
+			return canExistDependency_4001(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateAndDecomposition_3002(
+		public static boolean canCreateAndDecomposition_4002(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistAndDecomposition_3002(container, source, target);
+			return canExistAndDecomposition_4002(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateOrDecomposition_3003(
+		public static boolean canCreateOrDecomposition_4003(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistOrDecomposition_3003(container, source, target);
+			return canExistOrDecomposition_4003(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateContribution_3004(
+		public static boolean canCreateHelpContribution_4005(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-			return canExistContribution_3004(container, source, target);
+			return canExistHelpContribution_4005(container, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistDependency_3001(
+		public static boolean canCreateHurtContribution_4006(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistHurtContribution_4006(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateMakeContribution_4007(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistMakeContribution_4007(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateBreakContribution_4008(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistBreakContribution_4008(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateSomePlusContribution_4009(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistSomePlusContribution_4009(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateSomeMinusContribution_4010(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistSomeMinusContribution_4010(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistDependency_4001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Dependable source,
 				edu.toronto.cs.openome_model.Dependable target) {
@@ -400,7 +450,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistAndDecomposition_3002(
+		public static boolean canExistAndDecomposition_4002(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
@@ -410,7 +460,7 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistOrDecomposition_3003(
+		public static boolean canExistOrDecomposition_4003(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
@@ -420,7 +470,57 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistContribution_3004(
+		public static boolean canExistHelpContribution_4005(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistHurtContribution_4006(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistMakeContribution_4007(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistBreakContribution_4008(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistSomePlusContribution_4009(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistSomeMinusContribution_4010(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {

@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 /**
  * @generated
  */
-public class ContributionItemSemanticEditPolicy
+public class MakeContributionItemSemanticEditPolicy
 		extends
 		edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy {
 

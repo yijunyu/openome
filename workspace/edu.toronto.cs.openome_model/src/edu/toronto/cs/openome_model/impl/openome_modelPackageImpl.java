@@ -16,6 +16,7 @@ import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Belief;
+import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Correlation;
@@ -26,9 +27,12 @@ import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Goal;
 import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.GoalModelingContributionType;
+import edu.toronto.cs.openome_model.HelpContribution;
+import edu.toronto.cs.openome_model.HurtContribution;
 import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
+import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.OrDecomposition;
 import edu.toronto.cs.openome_model.Position;
@@ -36,6 +40,8 @@ import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.Resource;
 import edu.toronto.cs.openome_model.Role;
 import edu.toronto.cs.openome_model.Softgoal;
+import edu.toronto.cs.openome_model.SomeMinusContribution;
+import edu.toronto.cs.openome_model.SomePlusContribution;
 import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.Topic;
 import edu.toronto.cs.openome_model.openome_modelFactory;
@@ -201,6 +207,48 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass dependableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass helpContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hurtContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass makeContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass breakContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass somePlusContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass someMinusContributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -420,26 +468,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getContribution_Goal_model_contribution_type() {
-		return (EAttribute)contributionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getContribution_Istar_contribution_type() {
-		return (EAttribute)contributionEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getContribution_Goal_model_symmetry() {
-		return (EAttribute)contributionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)contributionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1014,6 +1044,114 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getHelpContribution() {
+		return helpContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHelpContribution_ContributionType() {
+		return (EAttribute)helpContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHurtContribution() {
+		return hurtContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHurtContribution_ContributionType() {
+		return (EAttribute)hurtContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMakeContribution() {
+		return makeContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMakeContribution_ContributionType() {
+		return (EAttribute)makeContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBreakContribution() {
+		return breakContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBreakContribution_ContributionType() {
+		return (EAttribute)breakContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSomePlusContribution() {
+		return somePlusContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSomePlusContribution_ContributionType() {
+		return (EAttribute)somePlusContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSomeMinusContribution() {
+		return someMinusContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSomeMinusContribution_ContributionType() {
+		return (EAttribute)someMinusContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1089,8 +1227,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(contributionEClass, CONTRIBUTION__TARGET);
 		createEReference(contributionEClass, CONTRIBUTION__MODEL);
 		createEReference(contributionEClass, CONTRIBUTION__SOURCE);
-		createEAttribute(contributionEClass, CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE);
-		createEAttribute(contributionEClass, CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE);
 		createEAttribute(contributionEClass, CONTRIBUTION__GOAL_MODEL_SYMMETRY);
 
 		decompositionEClass = createEClass(DECOMPOSITION);
@@ -1173,6 +1309,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(dependableEClass, DEPENDABLE__DEPENDENCY_FROM);
 		createEReference(dependableEClass, DEPENDABLE__DEPENDENCY_TO);
 
+		helpContributionEClass = createEClass(HELP_CONTRIBUTION);
+		createEAttribute(helpContributionEClass, HELP_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		hurtContributionEClass = createEClass(HURT_CONTRIBUTION);
+		createEAttribute(hurtContributionEClass, HURT_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		makeContributionEClass = createEClass(MAKE_CONTRIBUTION);
+		createEAttribute(makeContributionEClass, MAKE_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		breakContributionEClass = createEClass(BREAK_CONTRIBUTION);
+		createEAttribute(breakContributionEClass, BREAK_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		somePlusContributionEClass = createEClass(SOME_PLUS_CONTRIBUTION);
+		createEAttribute(somePlusContributionEClass, SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		someMinusContributionEClass = createEClass(SOME_MINUS_CONTRIBUTION);
+		createEAttribute(someMinusContributionEClass, SOME_MINUS_CONTRIBUTION__CONTRIBUTION_TYPE);
+
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
 		goalModelingContributionTypeEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_TYPE);
@@ -1225,6 +1379,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		containerEClass.getESuperTypes().add(this.getDependable());
 		beliefEClass.getESuperTypes().add(this.getIntention());
 		correlationEClass.getESuperTypes().add(this.getLink());
+		helpContributionEClass.getESuperTypes().add(this.getContribution());
+		hurtContributionEClass.getESuperTypes().add(this.getContribution());
+		makeContributionEClass.getESuperTypes().add(this.getContribution());
+		breakContributionEClass.getESuperTypes().add(this.getContribution());
+		somePlusContributionEClass.getESuperTypes().add(this.getContribution());
+		someMinusContributionEClass.getESuperTypes().add(this.getContribution());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1243,8 +1403,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getContribution_Target(), this.getIntention(), this.getIntention_ContributesFrom(), "target", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContribution_Model(), this.getModel(), this.getModel_Contributions(), "model", null, 0, 1, Contribution.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContribution_Source(), this.getIntention(), this.getIntention_ContributesTo(), "source", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContribution_Goal_model_contribution_type(), this.getGoalModelingContributionType(), "goal_model_contribution_type", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContribution_Istar_contribution_type(), this.getIStarContributionType(), "istar_contribution_type", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContribution_Goal_model_symmetry(), this.getGoalModelingContributionSymmetry(), "goal_model_symmetry", null, 0, 1, Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(decompositionEClass, Decomposition.class, "Decomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1326,6 +1484,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEClass(dependableEClass, Dependable.class, "Dependable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDependable_DependencyFrom(), this.getDependency(), this.getDependency_DependencyTo(), "dependencyFrom", null, 0, -1, Dependable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDependable_DependencyTo(), this.getDependency(), this.getDependency_DependencyFrom(), "dependencyTo", null, 0, -1, Dependable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(helpContributionEClass, HelpContribution.class, "HelpContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHelpContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "+", 1, 1, HelpContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hurtContributionEClass, HurtContribution.class, "HurtContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHurtContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "-", 1, 1, HurtContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(makeContributionEClass, MakeContribution.class, "MakeContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMakeContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "++", 1, 1, MakeContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(breakContributionEClass, BreakContribution.class, "BreakContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBreakContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "--", 1, 1, BreakContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(somePlusContributionEClass, SomePlusContribution.class, "SomePlusContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSomePlusContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "Some+", 1, 1, SomePlusContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(someMinusContributionEClass, SomeMinusContribution.class, "SomeMinusContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSomeMinusContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "Some-", 1, 1, SomeMinusContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

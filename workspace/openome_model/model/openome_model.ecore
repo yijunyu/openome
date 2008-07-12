@@ -25,10 +25,6 @@
         transient="true" eOpposite="#//Model/contributions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Intention"
         eOpposite="#//Intention/contributesTo"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="goal_model_contribution_type"
-        eType="#//GoalModelingContributionType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="istar_contribution_type"
-        eType="#//IStarContributionType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="goal_model_symmetry" eType="#//GoalModelingContributionSymmetry"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decomposition" eSuperTypes="#//Link">
@@ -169,5 +165,35 @@
         eType="#//Dependency" eOpposite="#//Dependency/dependencyTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencyTo" upperBound="-1"
         eType="#//Dependency" eOpposite="#//Dependency/dependencyFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HelpContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="+"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HurtContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="-"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MakeContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="++"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BreakContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="--"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SomePlusContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="Some+"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SomeMinusContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="Some-"/>
   </eClassifiers>
 </ecore:EPackage>

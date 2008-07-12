@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.GoalModelingContributionType;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
@@ -73,8 +74,6 @@ public class ContributionItemProvider
 
 			addTargetPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
-			addGoal_model_contribution_typePropertyDescriptor(object);
-			addIstar_contribution_typePropertyDescriptor(object);
 			addGoal_model_symmetryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -125,50 +124,6 @@ public class ContributionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Goal model contribution type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGoal_model_contribution_typePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contribution_goal_model_contribution_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_goal_model_contribution_type_feature", "_UI_Contribution_type"),
-				 openome_modelPackage.Literals.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Istar contribution type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIstar_contribution_typePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contribution_istar_contribution_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_istar_contribution_type_feature", "_UI_Contribution_type"),
-				 openome_modelPackage.Literals.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Goal model symmetry feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,7 +164,7 @@ public class ContributionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		GoalModelingContributionType labelValue = ((Contribution)object).getGoal_model_contribution_type();
+		GoalModelingContributionSymmetry labelValue = ((Contribution)object).getGoal_model_symmetry();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Contribution_type") :
@@ -228,8 +183,6 @@ public class ContributionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Contribution.class)) {
-			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
-			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

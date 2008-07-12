@@ -162,6 +162,30 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createDependableAdapter();
 			}
 			@Override
+			public Adapter caseHelpContribution(HelpContribution object) {
+				return createHelpContributionAdapter();
+			}
+			@Override
+			public Adapter caseHurtContribution(HurtContribution object) {
+				return createHurtContributionAdapter();
+			}
+			@Override
+			public Adapter caseMakeContribution(MakeContribution object) {
+				return createMakeContributionAdapter();
+			}
+			@Override
+			public Adapter caseBreakContribution(BreakContribution object) {
+				return createBreakContributionAdapter();
+			}
+			@Override
+			public Adapter caseSomePlusContribution(SomePlusContribution object) {
+				return createSomePlusContributionAdapter();
+			}
+			@Override
+			public Adapter caseSomeMinusContribution(SomeMinusContribution object) {
+				return createSomeMinusContributionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -472,6 +496,90 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDependableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.HelpContribution <em>Help Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.HelpContribution
+	 * @generated
+	 */
+	public Adapter createHelpContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.HurtContribution <em>Hurt Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.HurtContribution
+	 * @generated
+	 */
+	public Adapter createHurtContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.MakeContribution <em>Make Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.MakeContribution
+	 * @generated
+	 */
+	public Adapter createMakeContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.BreakContribution <em>Break Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.BreakContribution
+	 * @generated
+	 */
+	public Adapter createBreakContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.SomePlusContribution <em>Some Plus Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.SomePlusContribution
+	 * @generated
+	 */
+	public Adapter createSomePlusContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.SomeMinusContribution <em>Some Minus Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.SomeMinusContribution
+	 * @generated
+	 */
+	public Adapter createSomeMinusContributionAdapter() {
 		return null;
 	}
 

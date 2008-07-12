@@ -79,7 +79,7 @@ public class OrDecompositionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateOrDecomposition_3003(getContainer(), getSource(),
+				.canCreateOrDecomposition_4003(getContainer(), getSource(),
 						getTarget());
 	}
 

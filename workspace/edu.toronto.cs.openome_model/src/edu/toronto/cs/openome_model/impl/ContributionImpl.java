@@ -34,8 +34,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getSource <em>Source</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getGoal_model_contribution_type <em>Goal model contribution type</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getIstar_contribution_type <em>Istar contribution type</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContributionImpl#getGoal_model_symmetry <em>Goal model symmetry</em>}</li>
  * </ul>
  * </p>
@@ -69,46 +67,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 	 * @ordered
 	 */
 	protected Intention source;
-
-	/**
-	 * The default value of the '{@link #getGoal_model_contribution_type() <em>Goal model contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoal_model_contribution_type()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final GoalModelingContributionType GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT = GoalModelingContributionType.NONE;
-
-	/**
-	 * The cached value of the '{@link #getGoal_model_contribution_type() <em>Goal model contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoal_model_contribution_type()
-	 * @generated
-	 * @ordered
-	 */
-	protected GoalModelingContributionType goal_model_contribution_type = GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIstar_contribution_type() <em>Istar contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIstar_contribution_type()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final IStarContributionType ISTAR_CONTRIBUTION_TYPE_EDEFAULT = IStarContributionType.NONE;
-
-	/**
-	 * The cached value of the '{@link #getIstar_contribution_type() <em>Istar contribution type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIstar_contribution_type()
-	 * @generated
-	 * @ordered
-	 */
-	protected IStarContributionType istar_contribution_type = ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGoal_model_symmetry() <em>Goal model symmetry</em>}' attribute.
@@ -315,48 +273,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GoalModelingContributionType getGoal_model_contribution_type() {
-		return goal_model_contribution_type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGoal_model_contribution_type(GoalModelingContributionType newGoal_model_contribution_type) {
-		GoalModelingContributionType oldGoal_model_contribution_type = goal_model_contribution_type;
-		goal_model_contribution_type = newGoal_model_contribution_type == null ? GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT : newGoal_model_contribution_type;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE, oldGoal_model_contribution_type, goal_model_contribution_type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IStarContributionType getIstar_contribution_type() {
-		return istar_contribution_type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIstar_contribution_type(IStarContributionType newIstar_contribution_type) {
-		IStarContributionType oldIstar_contribution_type = istar_contribution_type;
-		istar_contribution_type = newIstar_contribution_type == null ? ISTAR_CONTRIBUTION_TYPE_EDEFAULT : newIstar_contribution_type;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE, oldIstar_contribution_type, istar_contribution_type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GoalModelingContributionSymmetry getGoal_model_symmetry() {
 		return goal_model_symmetry;
 	}
@@ -445,10 +361,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
-				return getGoal_model_contribution_type();
-			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
-				return getIstar_contribution_type();
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				return getGoal_model_symmetry();
 		}
@@ -471,12 +383,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 				return;
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				setSource((Intention)newValue);
-				return;
-			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
-				setGoal_model_contribution_type((GoalModelingContributionType)newValue);
-				return;
-			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
-				setIstar_contribution_type((IStarContributionType)newValue);
 				return;
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				setGoal_model_symmetry((GoalModelingContributionSymmetry)newValue);
@@ -502,12 +408,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				setSource((Intention)null);
 				return;
-			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
-				setGoal_model_contribution_type(GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT);
-				return;
-			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
-				setIstar_contribution_type(ISTAR_CONTRIBUTION_TYPE_EDEFAULT);
-				return;
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				setGoal_model_symmetry(GOAL_MODEL_SYMMETRY_EDEFAULT);
 				return;
@@ -529,10 +429,6 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 				return getModel() != null;
 			case openome_modelPackage.CONTRIBUTION__SOURCE:
 				return source != null;
-			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_CONTRIBUTION_TYPE:
-				return goal_model_contribution_type != GOAL_MODEL_CONTRIBUTION_TYPE_EDEFAULT;
-			case openome_modelPackage.CONTRIBUTION__ISTAR_CONTRIBUTION_TYPE:
-				return istar_contribution_type != ISTAR_CONTRIBUTION_TYPE_EDEFAULT;
 			case openome_modelPackage.CONTRIBUTION__GOAL_MODEL_SYMMETRY:
 				return goal_model_symmetry != GOAL_MODEL_SYMMETRY_EDEFAULT;
 		}
@@ -549,11 +445,7 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (goal_model_contribution_type: ");
-		result.append(goal_model_contribution_type);
-		result.append(", istar_contribution_type: ");
-		result.append(istar_contribution_type);
-		result.append(", goal_model_symmetry: ");
+		result.append(" (goal_model_symmetry: ");
 		result.append(goal_model_symmetry);
 		result.append(')');
 		return result.toString();

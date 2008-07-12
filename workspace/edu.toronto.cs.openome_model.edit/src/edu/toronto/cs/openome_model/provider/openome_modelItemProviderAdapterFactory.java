@@ -496,6 +496,144 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.HelpContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HelpContributionItemProvider helpContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.HelpContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHelpContributionAdapter() {
+		if (helpContributionItemProvider == null) {
+			helpContributionItemProvider = new HelpContributionItemProvider(this);
+		}
+
+		return helpContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.HurtContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HurtContributionItemProvider hurtContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.HurtContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHurtContributionAdapter() {
+		if (hurtContributionItemProvider == null) {
+			hurtContributionItemProvider = new HurtContributionItemProvider(this);
+		}
+
+		return hurtContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.MakeContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MakeContributionItemProvider makeContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.MakeContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMakeContributionAdapter() {
+		if (makeContributionItemProvider == null) {
+			makeContributionItemProvider = new MakeContributionItemProvider(this);
+		}
+
+		return makeContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.BreakContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BreakContributionItemProvider breakContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.BreakContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBreakContributionAdapter() {
+		if (breakContributionItemProvider == null) {
+			breakContributionItemProvider = new BreakContributionItemProvider(this);
+		}
+
+		return breakContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.SomePlusContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SomePlusContributionItemProvider somePlusContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.SomePlusContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSomePlusContributionAdapter() {
+		if (somePlusContributionItemProvider == null) {
+			somePlusContributionItemProvider = new SomePlusContributionItemProvider(this);
+		}
+
+		return somePlusContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.SomeMinusContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SomeMinusContributionItemProvider someMinusContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.SomeMinusContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSomeMinusContributionAdapter() {
+		if (someMinusContributionItemProvider == null) {
+			someMinusContributionItemProvider = new SomeMinusContributionItemProvider(this);
+		}
+
+		return someMinusContributionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +750,12 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (beliefItemProvider != null) beliefItemProvider.dispose();
 		if (correlationItemProvider != null) correlationItemProvider.dispose();
+		if (helpContributionItemProvider != null) helpContributionItemProvider.dispose();
+		if (hurtContributionItemProvider != null) hurtContributionItemProvider.dispose();
+		if (makeContributionItemProvider != null) makeContributionItemProvider.dispose();
+		if (breakContributionItemProvider != null) breakContributionItemProvider.dispose();
+		if (somePlusContributionItemProvider != null) somePlusContributionItemProvider.dispose();
+		if (someMinusContributionItemProvider != null) someMinusContributionItemProvider.dispose();
 	}
 
 }

@@ -17,7 +17,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3003;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated

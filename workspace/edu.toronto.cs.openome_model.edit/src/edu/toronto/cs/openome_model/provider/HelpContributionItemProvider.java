@@ -6,6 +6,9 @@
 package edu.toronto.cs.openome_model.provider;
 
 
+import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
+import edu.toronto.cs.openome_model.HelpContribution;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,12 +17,15 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.HelpContribution} object.
@@ -63,8 +69,31 @@ public class HelpContributionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContributionTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Contribution Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContributionTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HelpContribution_contributionType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HelpContribution_contributionType_feature", "_UI_HelpContribution_type"),
+				 openome_modelPackage.Literals.HELP_CONTRIBUTION__CONTRIBUTION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,7 +115,11 @@ public class HelpContributionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_HelpContribution_type");
+		GoalModelingContributionSymmetry labelValue = ((HelpContribution)object).getGoal_model_symmetry();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_HelpContribution_type") :
+			getString("_UI_HelpContribution_type") + " " + label;
 	}
 
 	/**
@@ -99,6 +132,12 @@ public class HelpContributionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(HelpContribution.class)) {
+			case openome_modelPackage.HELP_CONTRIBUTION__CONTRIBUTION_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

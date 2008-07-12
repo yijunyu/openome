@@ -427,17 +427,17 @@ public class Reasoning {
 	}
 
 	private boolean is_hurt_contribution(Contribution c){
-		return c.getIstar_contribution_type() == IStarContributionType.HURT;
+		return c instanceof HurtContribution;
 	}
 	
 	private boolean is_make_contribution(Contribution c){
-		return c.getIstar_contribution_type() == IStarContributionType.MAKE;
+		return c instanceof MakeContribution;
 	}
 	private boolean is_help_contribution(Contribution c){
-		return c.getIstar_contribution_type() == IStarContributionType.HELP;
+		return c instanceof HelpContribution;
 	}
 	private boolean is_break_contribution(Contribution c){
-		return c.getIstar_contribution_type() == IStarContributionType.BREAK;		
+		return c instanceof BreakContribution;	
 	}
 
 	private boolean is_soft_goal(Intention from) {

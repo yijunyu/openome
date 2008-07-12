@@ -11,7 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 /**
  * @generated
  */
-public class ContributionReorientCommand extends EditElementCommand {
+public class HelpContributionReorientCommand extends EditElementCommand {
 
 	/**
 	 * @generated
@@ -31,7 +31,7 @@ public class ContributionReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public ContributionReorientCommand(ReorientRelationshipRequest request) {
+	public HelpContributionReorientCommand(ReorientRelationshipRequest request) {
 		super(request.getLabel(), request.getRelationship(), request);
 		reorientDirection = request.getDirection();
 		oldEnd = request.getOldRelationshipEnd();
@@ -42,7 +42,7 @@ public class ContributionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.Contribution)) {
+		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.HelpContribution)) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -68,7 +68,8 @@ public class ContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistContribution_3004(container, getNewSource(), target);
+				.canExistHelpContribution_4005(container, getNewSource(),
+						target);
 	}
 
 	/**
@@ -85,7 +86,8 @@ public class ContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistContribution_3004(container, source, getNewTarget());
+				.canExistHelpContribution_4005(container, source,
+						getNewTarget());
 	}
 
 	/**
@@ -125,8 +127,8 @@ public class ContributionReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.Contribution getLink() {
-		return (edu.toronto.cs.openome_model.Contribution) getElementToEdit();
+	protected edu.toronto.cs.openome_model.HelpContribution getLink() {
+		return (edu.toronto.cs.openome_model.HelpContribution) getElementToEdit();
 	}
 
 	/**

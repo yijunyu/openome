@@ -12,17 +12,17 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class ContributionEditPart extends ConnectionNodeEditPart {
+public class HelpContributionEditPart extends ConnectionNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3004;
+	public static final int VISUAL_ID = 4005;
 
 	/**
 	 * @generated
 	 */
-	public ContributionEditPart(View view) {
+	public HelpContributionEditPart(View view) {
 		super(view);
 	}
 
@@ -33,16 +33,17 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new edu.toronto.cs.openome_model.diagram.edit.policies.ContributionItemSemanticEditPolicy());
+				new edu.toronto.cs.openome_model.diagram.edit.policies.HelpContributionItemSemanticEditPolicy());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.ContributionGoal_model_contributionEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureContributionLabel());
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart) {
+			((edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureHelpContributionLabel());
 			return true;
 		}
 		return false;
@@ -68,30 +69,30 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 	 */
 
 	protected Connection createConnectionFigure() {
-		return new ContributionFigure();
+		return new HelpContributionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ContributionFigure getPrimaryShape() {
-		return (ContributionFigure) getFigure();
+	public HelpContributionFigure getPrimaryShape() {
+		return (HelpContributionFigure) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ContributionFigure extends PolylineConnectionEx {
+	public class HelpContributionFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureContributionLabel;
+		private WrapLabel fFigureHelpContributionLabel;
 
 		/**
 		 * @generated
 		 */
-		public ContributionFigure() {
+		public HelpContributionFigure() {
 			this.setLineWidth(2);
 
 			createContents();
@@ -103,10 +104,10 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureContributionLabel = new WrapLabel();
-			fFigureContributionLabel.setText("Contribution");
+			fFigureHelpContributionLabel = new WrapLabel();
+			fFigureHelpContributionLabel.setText("+");
 
-			this.add(fFigureContributionLabel);
+			this.add(fFigureHelpContributionLabel);
 
 		}
 
@@ -122,8 +123,8 @@ public class ContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureContributionLabel() {
-			return fFigureContributionLabel;
+		public WrapLabel getFigureHelpContributionLabel() {
+			return fFigureHelpContributionLabel;
 		}
 
 	}

@@ -282,14 +282,14 @@ public class MolhadoActions {
 				String source_name = i.getSource().getName();
 				String target_name = i.getTarget().getName();
 				String label = "";
-				if (i.getIstar_contribution_type() == IStarContributionType.HELP)
+				if (i instanceof HelpContribution)
 					label = "+";
-				if (i.getIstar_contribution_type() == IStarContributionType.MAKE)
-					label = "++";
-				if (i.getIstar_contribution_type() == IStarContributionType.HURT)
-					label = "-";
-				if (i.getIstar_contribution_type() == IStarContributionType.BREAK)
-					label = "--";
+//				if (i.getIstar_contribution_type() == IStarContributionType.MAKE)
+//					label = "++";
+//				if (i.getIstar_contribution_type() == IStarContributionType.HURT)
+//					label = "-";
+//				if (i.getIstar_contribution_type() == IStarContributionType.BREAK)
+//					label = "--";
 				IRNode e = gm.createEdge(label);
 				IRNode source = table.get(source_name);
 				IRNode target = table.get(target_name);
@@ -458,26 +458,32 @@ public class MolhadoActions {
 					d.setTarget(gc);
 					m.getDecompositions().add(d);
 				} else if (pre.equals("+")) {
-					Contribution c = f.createContribution();
-					c.setIstar_contribution_type(IStarContributionType.HELP);
+					Contribution c = f.createHelpContribution();
 					c.setSource(g);
 					c.setTarget(gc);
 					m.getContributions().add(c);
 				} else if (pre.equals("++")) {
-					Contribution c = f.createContribution();
-					c.setIstar_contribution_type(IStarContributionType.MAKE);
+					Contribution c = f.createMakeContribution();
 					c.setSource(g);
 					c.setTarget(gc);
 					m.getContributions().add(c);
 				} else if (pre.equals("-")) {
-					Contribution c = f.createContribution();
-					c.setIstar_contribution_type(IStarContributionType.HURT);
+					Contribution c = f.createHurtContribution();
 					c.setSource(g);
 					c.setTarget(gc);
 					m.getContributions().add(c);
 				} else if (pre.equals("--")) {
-					Contribution c = f.createContribution();
-					c.setIstar_contribution_type(IStarContributionType.BREAK);
+					Contribution c = f.createBreakContribution();
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
+				} else if (pre.equals("Some-")) {
+					Contribution c = f.createSomeMinusContribution();
+					c.setSource(g);
+					c.setTarget(gc);
+					m.getContributions().add(c);
+				} else if (pre.equals("Some+")) {
+					Contribution c = f.createSomePlusContribution();
 					c.setSource(g);
 					c.setTarget(gc);
 					m.getContributions().add(c);
@@ -701,10 +707,12 @@ public class MolhadoActions {
 						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
 						String type = gm.getGMNodeName(edge);
 						if (node == n_t	
-								&& (type.equals("+")&& c.getIstar_contribution_type() == IStarContributionType.HELP 
-								|| type.equals("++")&& c.getIstar_contribution_type() == IStarContributionType.MAKE
-								|| type.equals("-") && c.getIstar_contribution_type() == IStarContributionType.HURT
-								|| type.equals("--")&& c.getIstar_contribution_type() == IStarContributionType.BREAK)) { // existing edge
+								&& (type.equals("+")&& c instanceof HelpContribution 
+								|| type.equals("++")&& c instanceof MakeContribution
+								|| type.equals("-") && c instanceof HurtContribution
+								|| type.equals("--")&& c instanceof BreakContribution
+								|| type.equals("Some-")&& c instanceof SomeMinusContribution
+								|| type.equals("Some+")&& c instanceof SomePlusContribution)) { // existing edge
 							//							System.out.println("FOUND!");
 							found = true;
 							existing_edges.add(edge);
@@ -796,13 +804,21 @@ public class MolhadoActions {
 		return edge;
 	}
 
+	/**
+	 * Returns the label for the given contribution.
+	 * Labels can be ++, --, +, -, Some+, Some-, Unknown.
+	 * 
+	 * @param c the contribution object.
+	 * @return the contribution label.
+	 */
 	private String get_label_from_type(Contribution c) {
+		// FIXME: How about the other contribution types? Unknown, Some+, Some-?
 		String type = "+"; //assume help
-		if (c.getIstar_contribution_type() == IStarContributionType.MAKE)
+		if (c instanceof MakeContribution)
 			type = "++";
-		else if (c.getIstar_contribution_type() == IStarContributionType.HURT)
+		else if (c instanceof HurtContribution)
 			type = "-";
-		else if (c.getIstar_contribution_type() == IStarContributionType.BREAK)
+		else if (c instanceof BreakContribution)
 			type = "--";
 		return type;
 	}
@@ -1097,15 +1113,7 @@ public class MolhadoActions {
 	}
 
 	private String getContributionLabel(Contribution it) {
-		String label = "+";	// HELP
-		if (it.getIstar_contribution_type() == IStarContributionType.HURT) {
-			label = "-";
-		} else if (it.getIstar_contribution_type() == IStarContributionType.MAKE) {
-			label = "++";
-		} else if (it.getIstar_contribution_type() == IStarContributionType.BREAK) {
-			label = "--";
-		}
-		return label;
+		return get_label_from_type (it);
 	}
 
 	private void createEdge(GoalModel gm, Hashtable<String, IRNode> table, Decomposition it, Intention v, String label) {
@@ -1256,24 +1264,16 @@ public class MolhadoActions {
 					gm.connect(p, c, e);
 				}
 				//what the 'ell happens if not connected?
-			} else if (o instanceof Contribution ) {
+			} else if (o instanceof Contribution) {
 				System.out.println("add contr");
-				Contribution contrib = (Contribution) o;								
+				Contribution contrib = (Contribution) o;
 				Intention from = contrib.getSource();
 				Intention to = contrib.getTarget();
 				IRNode f = table.get(from.getName());
 				IRNode t = table.get(to.getName());
 				IRNode e;
-				if (contrib.getIstar_contribution_type() == IStarContributionType.HELP) {
-					e = gm.createEdge("+");		
-				} else if (contrib.getIstar_contribution_type() == IStarContributionType.MAKE) {
-					e = gm.createEdge("++");												
-				} else if (contrib.getIstar_contribution_type() == IStarContributionType.HURT) {
-					e = gm.createEdge("-");												
-				} else { // use BREAK
-					e = gm.createEdge("--");												
-				}
-				gm.connect(f, t, e);		
+				e = gm.createEdge(get_label_from_type(contrib));
+				gm.connect(f, t, e);
 				elementCounts.put("add-edge", elementCounts.get("add-edge") + 1);
 			}
 		} 

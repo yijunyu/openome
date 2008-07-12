@@ -103,6 +103,30 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 				.getDependable()) {
 			return true;
 		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getHelpContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getHurtContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getMakeContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getBreakContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getSomePlusContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getSomeMinusContribution()) {
+			return true;
+		}
 		return false;
 	}
 

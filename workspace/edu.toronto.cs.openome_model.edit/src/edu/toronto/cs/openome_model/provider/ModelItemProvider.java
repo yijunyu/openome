@@ -256,6 +256,36 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createHelpContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createHurtContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createMakeContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createBreakContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createSomePlusContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createSomeMinusContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__DEPENDENCIES,
 				 openome_modelFactory.eINSTANCE.createDependency()));
 

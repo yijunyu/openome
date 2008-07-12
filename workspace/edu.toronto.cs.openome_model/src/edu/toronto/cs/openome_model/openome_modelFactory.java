@@ -194,6 +194,60 @@ public interface openome_modelFactory extends EFactory {
 	Correlation createCorrelation();
 
 	/**
+	 * Returns a new object of class '<em>Help Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Help Contribution</em>'.
+	 * @generated
+	 */
+	HelpContribution createHelpContribution();
+
+	/**
+	 * Returns a new object of class '<em>Hurt Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hurt Contribution</em>'.
+	 * @generated
+	 */
+	HurtContribution createHurtContribution();
+
+	/**
+	 * Returns a new object of class '<em>Make Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Make Contribution</em>'.
+	 * @generated
+	 */
+	MakeContribution createMakeContribution();
+
+	/**
+	 * Returns a new object of class '<em>Break Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Break Contribution</em>'.
+	 * @generated
+	 */
+	BreakContribution createBreakContribution();
+
+	/**
+	 * Returns a new object of class '<em>Some Plus Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Some Plus Contribution</em>'.
+	 * @generated
+	 */
+	SomePlusContribution createSomePlusContribution();
+
+	/**
+	 * Returns a new object of class '<em>Some Minus Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Some Minus Contribution</em>'.
+	 * @generated
+	 */
+	SomeMinusContribution createSomeMinusContribution();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

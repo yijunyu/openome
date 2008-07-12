@@ -247,6 +247,54 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case openome_modelPackage.HELP_CONTRIBUTION: {
+				HelpContribution helpContribution = (HelpContribution)theEObject;
+				T result = caseHelpContribution(helpContribution);
+				if (result == null) result = caseContribution(helpContribution);
+				if (result == null) result = caseLink(helpContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.HURT_CONTRIBUTION: {
+				HurtContribution hurtContribution = (HurtContribution)theEObject;
+				T result = caseHurtContribution(hurtContribution);
+				if (result == null) result = caseContribution(hurtContribution);
+				if (result == null) result = caseLink(hurtContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.MAKE_CONTRIBUTION: {
+				MakeContribution makeContribution = (MakeContribution)theEObject;
+				T result = caseMakeContribution(makeContribution);
+				if (result == null) result = caseContribution(makeContribution);
+				if (result == null) result = caseLink(makeContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.BREAK_CONTRIBUTION: {
+				BreakContribution breakContribution = (BreakContribution)theEObject;
+				T result = caseBreakContribution(breakContribution);
+				if (result == null) result = caseContribution(breakContribution);
+				if (result == null) result = caseLink(breakContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: {
+				SomePlusContribution somePlusContribution = (SomePlusContribution)theEObject;
+				T result = caseSomePlusContribution(somePlusContribution);
+				if (result == null) result = caseContribution(somePlusContribution);
+				if (result == null) result = caseLink(somePlusContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: {
+				SomeMinusContribution someMinusContribution = (SomeMinusContribution)theEObject;
+				T result = caseSomeMinusContribution(someMinusContribution);
+				if (result == null) result = caseContribution(someMinusContribution);
+				if (result == null) result = caseLink(someMinusContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -563,6 +611,96 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseDependable(Dependable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Help Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHelpContribution(HelpContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Hurt Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHurtContribution(HurtContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Make Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMakeContribution(MakeContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Break Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBreakContribution(BreakContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Some Plus Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Some Plus Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSomePlusContribution(SomePlusContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Some Minus Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Some Minus Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSomeMinusContribution(SomeMinusContribution object) {
 		return null;
 	}
 

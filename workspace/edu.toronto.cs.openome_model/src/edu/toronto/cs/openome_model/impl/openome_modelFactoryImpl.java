@@ -85,6 +85,12 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.TASK: return createTask();
 			case openome_modelPackage.BELIEF: return createBelief();
 			case openome_modelPackage.CORRELATION: return createCorrelation();
+			case openome_modelPackage.HELP_CONTRIBUTION: return createHelpContribution();
+			case openome_modelPackage.HURT_CONTRIBUTION: return createHurtContribution();
+			case openome_modelPackage.MAKE_CONTRIBUTION: return createMakeContribution();
+			case openome_modelPackage.BREAK_CONTRIBUTION: return createBreakContribution();
+			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: return createSomePlusContribution();
+			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: return createSomeMinusContribution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -310,6 +316,66 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public Correlation createCorrelation() {
 		CorrelationImpl correlation = new CorrelationImpl();
 		return correlation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HelpContribution createHelpContribution() {
+		HelpContributionImpl helpContribution = new HelpContributionImpl();
+		return helpContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HurtContribution createHurtContribution() {
+		HurtContributionImpl hurtContribution = new HurtContributionImpl();
+		return hurtContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MakeContribution createMakeContribution() {
+		MakeContributionImpl makeContribution = new MakeContributionImpl();
+		return makeContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BreakContribution createBreakContribution() {
+		BreakContributionImpl breakContribution = new BreakContributionImpl();
+		return breakContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SomePlusContribution createSomePlusContribution() {
+		SomePlusContributionImpl somePlusContribution = new SomePlusContributionImpl();
+		return somePlusContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SomeMinusContribution createSomeMinusContribution() {
+		SomeMinusContributionImpl someMinusContribution = new SomeMinusContributionImpl();
+		return someMinusContribution;
 	}
 
 	/**

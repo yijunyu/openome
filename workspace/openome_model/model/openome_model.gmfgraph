@@ -305,18 +305,93 @@
           figure="//@figures.2/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="ContributionFigure">
+        name="HelpContributionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
-            name="ContributionLabel"
-            text="Contribution"/>
+            name="HelpContributionLabel"
+            text="+"/>
       </actualFigure>
       <accessors
           figure="//@figures.2/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="HurtContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="HurtContributionLabel"
+            text="-"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureHurtContributionLabel"
+          figure="//@figures.2/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="MakeContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MakeContributionLabel"
+            text="++"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureMakeContributionLabel"
+          figure="//@figures.2/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="BreakContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BreakContributionLabel"
+            text="--"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureBreakContributionLabel"
+          figure="//@figures.2/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SomePlusContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SomePlusContributionLabel"
+            text="Some+"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureSomePlusContributionLabel"
+          figure="//@figures.2/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SomeMinusContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SomeMinusContributionLabel"
+            text="-"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureSomeMinusContributionLabel"
+          figure="//@figures.2/@descriptors.8/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <figures
@@ -373,8 +448,23 @@
       name="OrDecomposition"
       figure="OrDecompositionFigure"/>
   <connections
-      name="Contribution"
-      figure="ContributionFigure"/>
+      name="HelpContribution"
+      figure="HelpContributionFigure"/>
+  <connections
+      name="HurtContribution"
+      figure="HurtContributionFigure"/>
+  <connections
+      name="MakeContribution"
+      figure="MakeContributionFigure"/>
+  <connections
+      name="BreakContribution"
+      figure="BreakContributionFigure"/>
+  <connections
+      name="SomePlusContribution"
+      figure="SomePlusContributionFigure"/>
+  <connections
+      name="SomeMinusContribution"
+      figure="SomeMinusContributionFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -489,8 +579,60 @@
         alignment="END"/>
   </labels>
   <labels
-      name="ContributionLabel"
-      figure="ContributionFigure"
+      name="HelpContributionLabel"
+      figure="HelpContributionFigure"
       elementIcon="false"
-      accessor="//@figures.2/@descriptors.3/@accessors.0"/>
+      accessor="//@figures.2/@descriptors.3/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="CENTER"/>
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
+  <labels
+      name="HurtContributionLabel"
+      figure="HurtContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.4/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
+  <labels
+      name="MakeContributionLabel"
+      figure="MakeContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.5/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
+  <labels
+      name="BreakContributionLabel"
+      figure="BreakContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.6/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
+  <labels
+      name="SomePlusContributionLabel"
+      figure="SomePlusContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.7/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
+  <labels
+      name="SomeMinusContributionLabel"
+      figure="SomeMinusContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.8/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        y="15"/>
+  </labels>
 </gmfgraph:Canvas>

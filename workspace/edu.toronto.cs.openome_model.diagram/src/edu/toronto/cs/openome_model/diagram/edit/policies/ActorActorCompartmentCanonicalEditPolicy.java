@@ -28,7 +28,7 @@ public class ActorActorCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-				.getActorActorCompartment_5001SemanticChildren(viewObject)
+				.getActorActorCompartment_7001SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result
 					.add(((edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor) it

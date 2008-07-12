@@ -54,8 +54,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/target"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/model"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Contribution/source"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/goal_model_contribution_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/istar_contribution_type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Contribution/goal_model_symmetry"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//Decomposition">
@@ -130,6 +128,24 @@
     <genClasses image="false" ecoreClass="openome_model.ecore#//Dependable">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependable/dependencyFrom"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Dependable/dependencyTo"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//HelpContribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//HelpContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//HurtContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//HurtContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//MakeContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//MakeContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//BreakContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//BreakContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//SomePlusContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//SomePlusContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//SomeMinusContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//SomeMinusContribution/contributionType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
