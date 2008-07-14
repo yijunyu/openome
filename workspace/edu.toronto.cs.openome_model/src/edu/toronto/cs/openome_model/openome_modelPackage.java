@@ -2689,16 +2689,6 @@ public interface openome_modelPackage extends EPackage {
 	int GOAL_MODELING_CONTRIBUTION_TYPE = 29;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.IStarContributionType
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
-	 * @generated
-	 */
-	int ISTAR_CONTRIBUTION_TYPE = 30;
-
-	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2706,7 +2696,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 31;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 30;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -3702,16 +3692,6 @@ public interface openome_modelPackage extends EPackage {
 	EEnum getGoalModelingContributionType();
 
 	/**
-	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>IStar Contribution Type</em>'.
-	 * @see edu.toronto.cs.openome_model.IStarContributionType
-	 * @generated
-	 */
-	EEnum getIStarContributionType();
-
-	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4546,16 +4526,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum GOAL_MODELING_CONTRIBUTION_TYPE = eINSTANCE.getGoalModelingContributionType();
-
-		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.IStarContributionType
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
-		 * @generated
-		 */
-		EEnum ISTAR_CONTRIBUTION_TYPE = eINSTANCE.getIStarContributionType();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.

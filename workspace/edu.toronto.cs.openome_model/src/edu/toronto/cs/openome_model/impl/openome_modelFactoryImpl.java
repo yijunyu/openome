@@ -109,8 +109,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 				return createEvaluationLabelFromString(eDataType, initialValue);
 			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
 				return createGoalModelingContributionTypeFromString(eDataType, initialValue);
-			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
-				return createIStarContributionTypeFromString(eDataType, initialValue);
 			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
 				return createGoalModelingContributionSymmetryFromString(eDataType, initialValue);
 			default:
@@ -130,8 +128,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 				return convertEvaluationLabelToString(eDataType, instanceValue);
 			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
 				return convertGoalModelingContributionTypeToString(eDataType, instanceValue);
-			case openome_modelPackage.ISTAR_CONTRIBUTION_TYPE:
-				return convertIStarContributionTypeToString(eDataType, instanceValue);
 			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
 				return convertGoalModelingContributionSymmetryToString(eDataType, instanceValue);
 			default:
@@ -426,26 +422,6 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * @generated
 	 */
 	public String convertGoalModelingContributionTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IStarContributionType createIStarContributionTypeFromString(EDataType eDataType, String initialValue) {
-		IStarContributionType result = IStarContributionType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIStarContributionTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

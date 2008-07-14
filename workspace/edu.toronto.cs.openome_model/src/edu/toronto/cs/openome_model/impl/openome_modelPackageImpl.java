@@ -277,13 +277,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum iStarContributionTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum goalModelingContributionSymmetryEEnum = null;
 
 	/**
@@ -1196,15 +1189,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getIStarContributionType() {
-		return iStarContributionTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getGoalModelingContributionSymmetry() {
 		return goalModelingContributionSymmetryEEnum;
 	}
@@ -1359,7 +1343,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
 		goalModelingContributionTypeEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_TYPE);
-		iStarContributionTypeEEnum = createEEnum(ISTAR_CONTRIBUTION_TYPE);
 		goalModelingContributionSymmetryEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_SYMMETRY);
 	}
 
@@ -1551,16 +1534,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.PLUS);
 		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS);
 		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.MINUS_MINUS);
-
-		initEEnum(iStarContributionTypeEEnum, IStarContributionType.class, "IStarContributionType");
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.NONE);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.UNKNOWN);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.MAKE);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.HELP);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.SOME_PLUS);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.SOME_MINUS);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.HURT);
-		addEEnumLiteral(iStarContributionTypeEEnum, IStarContributionType.BREAK);
 
 		initEEnum(goalModelingContributionSymmetryEEnum, GoalModelingContributionSymmetry.class, "GoalModelingContributionSymmetry");
 		addEEnumLiteral(goalModelingContributionSymmetryEEnum, GoalModelingContributionSymmetry.BOTH);
