@@ -846,6 +846,32 @@
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Contribution/target"/>
   </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//UnknownContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true"
+        editorPattern="">
+      <diagramLabel
+          href="openome_model.gmfgraph#UnknownContributionLabel"/>
+      <features
+          href="openome_model.ecore#//UnknownContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.6"/>
+    <diagramLink
+        href="openome_model.gmfgraph#UnknownContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="openome_model.gmfgraph#openome_model"/>

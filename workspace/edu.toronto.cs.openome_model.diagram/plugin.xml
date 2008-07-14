@@ -171,6 +171,11 @@
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
+         </popupContribution>
       </contributionItemProvider>
    </extension>
 
@@ -645,6 +650,16 @@
             <param name="semanticHint" value="4010"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.UnknownContribution_4011"
+               name="%metatype.name.UnknownContribution_4011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="UnknownContribution"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.UnknownContributionEditHelper">
+            <param name="semanticHint" value="4011"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -691,6 +706,7 @@
          <elementType ref="edu.toronto.cs.openome_model.diagram.BreakContribution_4008"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.SomePlusContribution_4009"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.SomeMinusContribution_4010"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.UnknownContribution_4011"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

@@ -147,5 +147,8 @@
     <genClasses ecoreClass="openome_model.ecore#//SomeMinusContribution">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//SomeMinusContribution/contributionType"/>
     </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//UnknownContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//UnknownContribution/contributionType"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

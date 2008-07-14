@@ -182,6 +182,9 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?SomeMinusContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_4010); //$NON-NLS-1$
+		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http:///edu/toronto/cs/openome_model.ecore?UnknownContribution", edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -306,6 +309,8 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 			return getSomePlusContribution_4009Text(view);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID:
 			return getSomeMinusContribution_4010Text(view);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
+			return getUnknownContribution_4011Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -1069,6 +1074,29 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
 							"Parser was not found for label " + 6009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUnknownContribution_4011Text(View view) {
+		IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011,
+				(view.getElement() != null ? view.getElement() : view),
+				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+					.getInstance().logError(
+							"Parser was not found for label " + 6010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

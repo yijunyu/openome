@@ -436,11 +436,17 @@ public class Openome_modelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createUnknown7CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011);
+		LinkToolEntry entry = new LinkToolEntry(
 				edu.toronto.cs.openome_model.diagram.part.Messages.Unknown7CreationTool_title,
 				edu.toronto.cs.openome_model.diagram.part.Messages.Unknown7CreationTool_desc,
-				null, null) {
-		};
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -248,6 +248,15 @@ public interface openome_modelFactory extends EFactory {
 	SomeMinusContribution createSomeMinusContribution();
 
 	/**
+	 * Returns a new object of class '<em>Unknown Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unknown Contribution</em>'.
+	 * @generated
+	 */
+	UnknownContribution createUnknownContribution();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

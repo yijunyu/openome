@@ -286,6 +286,11 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__CONTRIBUTIONS,
+				 openome_modelFactory.eINSTANCE.createUnknownContribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__DEPENDENCIES,
 				 openome_modelFactory.eINSTANCE.createDependency()));
 

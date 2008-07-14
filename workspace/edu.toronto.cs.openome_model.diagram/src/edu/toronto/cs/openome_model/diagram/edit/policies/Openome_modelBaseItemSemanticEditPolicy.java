@@ -440,6 +440,16 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
+		public static boolean canCreateUnknownContribution_4011(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return canExistUnknownContribution_4011(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public static boolean canExistDependency_4001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Dependable source,
@@ -521,6 +531,16 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 * @generated
 		 */
 		public static boolean canExistSomeMinusContribution_4010(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Intention source,
+				edu.toronto.cs.openome_model.Intention target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistUnknownContribution_4011(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {

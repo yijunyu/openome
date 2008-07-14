@@ -801,6 +801,32 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser unknownContributionContributionType_6010Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getUnknownContributionContributionType_6010Parser() {
+		if (unknownContributionContributionType_6010Parser == null) {
+			unknownContributionContributionType_6010Parser = createUnknownContributionContributionType_6010Parser();
+		}
+		return unknownContributionContributionType_6010Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createUnknownContributionContributionType_6010Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getUnknownContribution_ContributionType(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID:
@@ -863,6 +889,8 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getSomePlusContributionContributionType_6008Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID:
 			return getSomeMinusContributionContributionType_6009Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID:
+			return getUnknownContributionContributionType_6010Parser();
 		}
 		return null;
 	}

@@ -196,4 +196,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="Some-"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnknownContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="?"/>
+  </eClassifiers>
 </ecore:EPackage>

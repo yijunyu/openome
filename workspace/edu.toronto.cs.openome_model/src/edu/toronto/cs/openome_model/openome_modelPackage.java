@@ -2605,6 +2605,70 @@ public interface openome_modelPackage extends EPackage {
 	int SOME_MINUS_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.UnknownContributionImpl <em>Unknown Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.UnknownContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getUnknownContribution()
+	 * @generated
+	 */
+	int UNKNOWN_CONTRIBUTION = 27;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Unknown Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2612,7 +2676,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 27;
+	int EVALUATION_LABEL = 28;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -2622,7 +2686,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 28;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.IStarContributionType <em>IStar Contribution Type</em>}' enum.
@@ -2632,7 +2696,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIStarContributionType()
 	 * @generated
 	 */
-	int ISTAR_CONTRIBUTION_TYPE = 29;
+	int ISTAR_CONTRIBUTION_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -2642,7 +2706,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 30;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 31;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -3597,6 +3661,27 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getSomeMinusContribution_ContributionType();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.UnknownContribution <em>Unknown Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unknown Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.UnknownContribution
+	 * @generated
+	 */
+	EClass getUnknownContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.UnknownContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.UnknownContribution#getContributionType()
+	 * @see #getUnknownContribution()
+	 * @generated
+	 */
+	EAttribute getUnknownContribution_ContributionType();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4423,6 +4508,24 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOME_MINUS_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getSomeMinusContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.UnknownContributionImpl <em>Unknown Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.UnknownContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getUnknownContribution()
+		 * @generated
+		 */
+		EClass UNKNOWN_CONTRIBUTION = eINSTANCE.getUnknownContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNKNOWN_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getUnknownContribution_ContributionType();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

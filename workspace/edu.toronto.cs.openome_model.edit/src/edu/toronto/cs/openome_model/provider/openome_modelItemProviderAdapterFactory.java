@@ -634,6 +634,29 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.UnknownContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnknownContributionItemProvider unknownContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.UnknownContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnknownContributionAdapter() {
+		if (unknownContributionItemProvider == null) {
+			unknownContributionItemProvider = new UnknownContributionItemProvider(this);
+		}
+
+		return unknownContributionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -756,6 +779,7 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (breakContributionItemProvider != null) breakContributionItemProvider.dispose();
 		if (somePlusContributionItemProvider != null) somePlusContributionItemProvider.dispose();
 		if (someMinusContributionItemProvider != null) someMinusContributionItemProvider.dispose();
+		if (unknownContributionItemProvider != null) unknownContributionItemProvider.dispose();
 	}
 
 }

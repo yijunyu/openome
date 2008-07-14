@@ -638,6 +638,31 @@
     <element xmi:type="ecore:EClass" href="openome_model.ecore#//SomeMinusContribution"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xb3pEk-oEd2oO_gCgWxmFA" x="171" y="1184"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_fXNGYFG1Ed2ta8EVYKSX3Q" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_fXNtcFG1Ed2ta8EVYKSX3Q" type="5001"/>
+    <children xmi:type="notation:Node" xmi:id="_fXOUgFG1Ed2ta8EVYKSX3Q" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_hccUkFG1Ed2ta8EVYKSX3Q" type="3001">
+        <element xmi:type="ecore:EAttribute" href="openome_model.ecore#//UnknownContribution/contributionType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hccUkVG1Ed2ta8EVYKSX3Q"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_fXOUgVG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fXOUglG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fXOUg1G1Ed2ta8EVYKSX3Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_fXOUhFG1Ed2ta8EVYKSX3Q" type="7002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_fXOUhVG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fXOUhlG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fXOUh1G1Ed2ta8EVYKSX3Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_fXO7kFG1Ed2ta8EVYKSX3Q" type="7003">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_fXO7kVG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fXO7klG1Ed2ta8EVYKSX3Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fXO7k1G1Ed2ta8EVYKSX3Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_fXNGYVG1Ed2ta8EVYKSX3Q" fontName="Lucida Grande"/>
+    <element xmi:type="ecore:EClass" href="openome_model.ecore#//UnknownContribution"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fXNGYlG1Ed2ta8EVYKSX3Q" x="252" y="1401"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_9FjwsDgOEd2rvpZ-sdUqKw"/>
   <element xmi:type="ecore:EPackage" href="openome_model.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_-CLxADgOEd2rvpZ-sdUqKw" type="4002" source="_924f8DgOEd2rvpZ-sdUqKw" target="_924f8DgOEd2rvpZ-sdUqKw">
@@ -1140,5 +1165,11 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_Z7Ju8k-oEd2oO_gCgWxmFA" fontName="Lucida Grande"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Z7Ju80-oEd2oO_gCgWxmFA" points="[-22, -26, 108, 124]$[-130, -179, 0, -29]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_U36qwFG6Ed2ta8EVYKSX3Q" type="4004" source="_fXNGYFG1Ed2ta8EVYKSX3Q" target="_93MpADgOEd2rvpZ-sdUqKw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_U36qwVG6Ed2ta8EVYKSX3Q"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_U36qwlG6Ed2ta8EVYKSX3Q" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U36qw1G6Ed2ta8EVYKSX3Q" points="[53, -29, -205, 103]$[193, -129, -65, 3]"/>
   </edges>
 </notation:Diagram>

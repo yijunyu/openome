@@ -798,6 +798,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_UnknownContribution_4011_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_UnknownContribution_4011_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**

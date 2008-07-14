@@ -295,6 +295,14 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case openome_modelPackage.UNKNOWN_CONTRIBUTION: {
+				UnknownContribution unknownContribution = (UnknownContribution)theEObject;
+				T result = caseUnknownContribution(unknownContribution);
+				if (result == null) result = caseContribution(unknownContribution);
+				if (result == null) result = caseLink(unknownContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -701,6 +709,21 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseSomeMinusContribution(SomeMinusContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unknown Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unknown Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnknownContribution(UnknownContribution object) {
 		return null;
 	}
 

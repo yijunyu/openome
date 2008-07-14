@@ -91,6 +91,7 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.BREAK_CONTRIBUTION: return createBreakContribution();
 			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: return createSomePlusContribution();
 			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: return createSomeMinusContribution();
+			case openome_modelPackage.UNKNOWN_CONTRIBUTION: return createUnknownContribution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -376,6 +377,16 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public SomeMinusContribution createSomeMinusContribution() {
 		SomeMinusContributionImpl someMinusContribution = new SomeMinusContributionImpl();
 		return someMinusContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnknownContribution createUnknownContribution() {
+		UnknownContributionImpl unknownContribution = new UnknownContributionImpl();
+		return unknownContribution;
 	}
 
 	/**

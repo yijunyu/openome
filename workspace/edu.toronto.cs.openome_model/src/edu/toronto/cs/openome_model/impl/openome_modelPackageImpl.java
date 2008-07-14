@@ -43,6 +43,7 @@ import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.SomeMinusContribution;
 import edu.toronto.cs.openome_model.SomePlusContribution;
 import edu.toronto.cs.openome_model.Task;
+import edu.toronto.cs.openome_model.UnknownContribution;
 import edu.toronto.cs.openome_model.Topic;
 import edu.toronto.cs.openome_model.openome_modelFactory;
 import edu.toronto.cs.openome_model.openome_modelPackage;
@@ -249,6 +250,13 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass someMinusContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unknownContributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1152,6 +1160,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnknownContribution() {
+		return unknownContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUnknownContribution_ContributionType() {
+		return (EAttribute)unknownContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1327,6 +1353,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		someMinusContributionEClass = createEClass(SOME_MINUS_CONTRIBUTION);
 		createEAttribute(someMinusContributionEClass, SOME_MINUS_CONTRIBUTION__CONTRIBUTION_TYPE);
 
+		unknownContributionEClass = createEClass(UNKNOWN_CONTRIBUTION);
+		createEAttribute(unknownContributionEClass, UNKNOWN_CONTRIBUTION__CONTRIBUTION_TYPE);
+
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
 		goalModelingContributionTypeEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_TYPE);
@@ -1385,6 +1414,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		breakContributionEClass.getESuperTypes().add(this.getContribution());
 		somePlusContributionEClass.getESuperTypes().add(this.getContribution());
 		someMinusContributionEClass.getESuperTypes().add(this.getContribution());
+		unknownContributionEClass.getESuperTypes().add(this.getContribution());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1502,6 +1532,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(someMinusContributionEClass, SomeMinusContribution.class, "SomeMinusContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSomeMinusContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "Some-", 1, 1, SomeMinusContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unknownContributionEClass, UnknownContribution.class, "UnknownContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUnknownContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "?", 1, 1, UnknownContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

@@ -84,6 +84,11 @@ public class Resource4ItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -137,6 +142,11 @@ public class Resource4ItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -175,6 +185,9 @@ public class Resource4ItemSemanticEditPolicy
 					req));
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID:
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);
