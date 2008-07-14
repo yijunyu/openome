@@ -112,24 +112,24 @@ public class GoalNameEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
 		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getText();
+			return "   " + ((WrapLabel) figure).getText() + "   ";
 		} else {
-			return ((Label) figure).getText();
+			return "   " + ((Label) figure).getText() + "   ";
 		}
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
 		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setText(text);
+			((WrapLabel) figure).setText("   " + text + "   ");
 		} else {
-			((Label) figure).setText(text);
+			((Label) figure).setText("   " + text + "   ");
 		}
 	}
 

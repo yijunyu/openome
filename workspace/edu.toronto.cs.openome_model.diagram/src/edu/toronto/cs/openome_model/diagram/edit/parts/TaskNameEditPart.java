@@ -195,7 +195,7 @@ public class TaskNameEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected String getLabelText() {
 		String text = null;
@@ -208,13 +208,15 @@ public class TaskNameEditPart extends CompartmentEditPart implements
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
+		text = "    " + text + "    ";
 		return text;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setLabelText(String text) {
+		text = "    " + text + "    ";
 		setLabelTextHelper(getFigure(), text);
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
