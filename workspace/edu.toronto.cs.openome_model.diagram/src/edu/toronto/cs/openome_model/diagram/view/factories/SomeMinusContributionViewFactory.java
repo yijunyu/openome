@@ -9,6 +9,8 @@ import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.ConnectionViewFactory;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -51,5 +53,12 @@ public class SomeMinusContributionViewFactory extends ConnectionViewFactory {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
+		
+		// ensures that the link/connectors have smooth curvature
+		RoutingStyle style = (RoutingStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		style
+				.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
+		
 	}
 }
