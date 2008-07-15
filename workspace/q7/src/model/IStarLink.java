@@ -10,76 +10,84 @@ import util.Computing;
  */
 public class IStarLink {
 	public int id;
-	public String op;
+	public String type;
 	public IStarElement from;
 	public IStarElement to;
+	
 	public IStarLink(String _op, IStarElement _from, IStarElement _to) {
-		op = _op;
+		type = _op;
 		from = _from;
 		to = _to;
 	}
-	public boolean isEqual() {
-		return op.equalsIgnoreCase("Equal");
-	}
+	
 	public boolean isOrDecomposition() {
-		return op.equalsIgnoreCase("Or") || isEqual();
+		return type.equalsIgnoreCase("Or") || type.equalsIgnoreCase("Equal"); // Why "Equal" ???
 	}
+	
 	public boolean isDecomposition() {
-		return op.equalsIgnoreCase("Or") || op.equalsIgnoreCase("And") ||
-			isEqual() ;
+		return isAndDecomposition() || isOrDecomposition();
 	}
+	
 	public boolean isAndDecomposition() {
-		return op.equalsIgnoreCase("And");
+		return type.equalsIgnoreCase("And");
 	}
-	String op2string(String op) {
-		if (op.equalsIgnoreCase("And"))
+	
+	/**
+	 * Helper method for toString.
+	 * @param linkType
+	 * @return
+	 */
+	private String getFullLinkName(String linkType) {
+		if (linkType.equalsIgnoreCase("And"))
 			return "DecompositionLink";
-		if (op.equalsIgnoreCase("Or"))
+		if (linkType.equalsIgnoreCase("Or"))
 			return "MeansEndsLink";			
-		if (op.startsWith("Dep"))
+		if (linkType.startsWith("Dep"))
 			return "DependencyLink";
-		if (op.length() > 4 && (op.startsWith("Help") || op.startsWith("Hurt"))) 
-			return op.substring(0, 4) + "Contribution";
-		return op + "Contribution";
+		if (linkType.length() > 4 && (linkType.startsWith("Help") || linkType.startsWith("Hurt"))) 
+			return linkType.substring(0, 4) + "Contribution";
+		return linkType + "Contribution";
 	}
-	String op2name(String op) {
+	
+	/**
+	 * Helper method for toString.
+	 * Returns the contribution link symbol (++, --, etc.) or "" if the link type is not a contribution link.
+	 * @param linkType Should be "And", "Or", "Help", "Make", "Break", etc.
+	 * @return
+	 */
+	private String getContributionLinkSymbol(String linkType) {
 		if (Computing.propertyHolds("q7.model.IStarLink.op2name.ignore-label")) {
-			if (op.equalsIgnoreCase("And"))
+			if (linkType.equalsIgnoreCase("And"))
 				return "";
-			if (op.equalsIgnoreCase("Or"))
+			if (linkType.equalsIgnoreCase("Or"))
 				return "";
 		}			
-		if (op.equalsIgnoreCase("Help"))
+		if (linkType.equalsIgnoreCase("Help"))
 			return "+";
-		if (op.equalsIgnoreCase("Hurt"))
+		if (linkType.equalsIgnoreCase("Hurt"))
 			return "-";
-		if (op.equalsIgnoreCase("Make"))
+		if (linkType.equalsIgnoreCase("Make"))
 			return "++";
-		if (op.equalsIgnoreCase("Break"))
+		if (linkType.equalsIgnoreCase("Break"))
 			return "--";
-		if (op.equalsIgnoreCase("Dep"))
+		if (linkType.equalsIgnoreCase("Dep"))
 			return "";			
-		return op;
+		return linkType;
 	}	
+	
 	public String toString() {
 		String s;
 		s = "Token Link_" + id + "\n" + "    IN IStar"  
-			+ op2string(op) 
+			+ getFullLinkName(type) 
 				+ "\n"
 				+ "    WITH\n" + "       attribute, name\n          : \""
-				+ op2name(op) + "\"\n"
+				+ getContributionLinkSymbol(type) + "\"\n"
 				+ "       attribute, to\n              : Element_"
 				+ from.id + "\n"
 				+ "       attribute, from\n              : Element_"
 				+ to.id + "\nEND\n";
 		return s;
 	}
-	double degree;
-	public double getDegree() {
-		return degree;
-	}
-	public void setDegree(double d) {
-		degree = d;
-	}
+	
 }
 

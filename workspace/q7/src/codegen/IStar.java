@@ -1363,7 +1363,7 @@ public class IStar {
 		// remove cyclic dependencies
 		for (Enumeration i = links.keys(); i.hasMoreElements();) {
 			IStarLink l = links.get(i.nextElement());
-			if (l.op.equals("Dep")) {
+			if (l.type.equals("Dep")) {
 				IStarElement a = l.to;
 				IStarElement b = l.from;
 				if (a.isAgent && a == b.parent

@@ -33,7 +33,7 @@ public class Computing {
 			else
 				return tmpDir + File.separator + name;
 		}
-		D.o(name);
+		Debugging.o(name);
 		return name;
 	}
 	

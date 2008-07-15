@@ -154,7 +154,7 @@ public class Dot extends IStar {
 		}
 		if (!inside)
 			text += ""+ from + (neato?"--":"->")
-				 + to + "[label=" + GraphLabel(l.op) + "];\n";
+				 + to + "[label=" + GraphLabel(l.type) + "];\n";
 		return text;
 	}
 

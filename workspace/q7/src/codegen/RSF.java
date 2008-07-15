@@ -127,7 +127,7 @@ public class RSF extends IStar {
 			}
 		}
 		if (!inside)
-			text += GraphLabel(l.op) + "\t" + from + "\t" + to + "\n";
+			text += GraphLabel(l.type) + "\t" + from + "\t" + to + "\n";
 		return text;
 	}
 

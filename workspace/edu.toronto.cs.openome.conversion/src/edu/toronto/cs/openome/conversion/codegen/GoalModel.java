@@ -302,7 +302,7 @@ public class GoalModel extends IStar {
 		do {
 			change = false;
 			for (IStarLink s: links.values()) {
-				if (! s.op.startsWith("Dep")) {
+				if (! s.type.startsWith("Dep")) {
 					Intention x = (Intention) hm.get(new Integer(s.from.id));
 					Intention y = (Intention) hm.get(new Integer(s.to.id));
 					if (x!=null && y!=null) {
@@ -337,13 +337,13 @@ public class GoalModel extends IStar {
 			for (int j=0; j<sorted_keys.size(); j++) {
 				IStarElement g2 = table.get((Integer) sorted_keys.get(j));
 				for (Enumeration k = links.keys(); k.hasMoreElements();) {
-					IStarLink s = links.get(k.nextElement());
-					if (g1.id == s.from.id && g2.id == s.to.id) { 
-						Intention x = (Intention) hm.get(new Integer(s.from.id));
-						Intention y = (Intention) hm.get(new Integer(s.to.id));
-						if (s.op.equals("And") || s.op.equals("Or")) {
+					IStarLink link = links.get(k.nextElement());
+					if (g1.id == link.from.id && g2.id == link.to.id) { 
+						Intention x = (Intention) hm.get(new Integer(link.from.id));
+						Intention y = (Intention) hm.get(new Integer(link.to.id));
+						if (link.type.equals("And") || link.type.equals("Or")) {
 							Decomposition d;
-							if (s.op.equals("And")) {
+							if (link.type.equals("And")) {
 								d = f.createAndDecomposition();
 								d.setSource(x);
 								d.setTarget(y);
@@ -351,22 +351,26 @@ public class GoalModel extends IStar {
 								d = f.createOrDecomposition();
 								d.setSource(x);
 								d.setTarget(y);
-								if (s.from.feature!=null && s.from.feature.equals("|")) {
+								if (link.from.feature!=null && link.from.feature.equals("|")) {
 									x.setExclusive(Boolean.TRUE);
 								} else /* default */ {
 									x.setExclusive(Boolean.FALSE);
 								}
 							}
-							if (s.from.control!=null && s.from.control.equals(";")) {
+							if (link.from.control!=null && link.from.control.equals(";")) {
 								x.setSequential(Boolean.TRUE);
-							} else if (s.from.control!=null && s.from.control.equals("||")) {
+							} else if (link.from.control!=null && link.from.control.equals("||")) {
 								x.setParallel(Boolean.TRUE);
 							} else /* default */ {
 								x.setSequential(Boolean.FALSE);
 							}
 							m.getDecompositions().add(d);
-						} else if (! s.op.startsWith("Dep")){
+						} else if (! link.type.startsWith("Dep")){
+							if (link.type.equals("Help")) {
+								
+							}
 							Contribution c = f.createContribution();;
+							
 //							if (s.op.equals("Help")) 
 //								c.setIstar_contribution_type( IStarContributionType.HELP);
 //							else if (s.op.equals("Make")) 
@@ -462,22 +466,22 @@ public class GoalModel extends IStar {
 				//default is no label
 				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 				if (g.label!=null && g.label.equals("FS")
-						|| g.s == 1 && g.d == 0) {
+						|| g.satisfied == 1 && g.denied == 0) {
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
 				} else if(g.label!=null && g.label.equals("FD")
-						|| g.s == 0 && g.d == 1){
+						|| g.satisfied == 0 && g.denied == 1){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);		    			
 				} else if(g.label!=null && g.label.equals("PS")
-						|| g.s > g.d){
+						|| g.satisfied > g.denied){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);  			
 				} else if(g.label!=null && g.label.equals("PD")
-						|| g.s < g.d){
+						|| g.satisfied < g.denied){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);		    			
 				} else if(g.label!=null && g.label.equals("CF")
-						|| g.s == g.d && g.s >= 0.5){
+						|| g.satisfied == g.denied && g.satisfied >= 0.5){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 				} else if(g.label!=null && g.label.equals("UN")
-						|| g.s == g.d && g.s < 0.5){
+						|| g.satisfied == g.denied && g.satisfied < 0.5){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 				}
 				m.getIntentions().add(x);
@@ -641,7 +645,7 @@ public class GoalModel extends IStar {
 	private void remove_self_dependencies() {
 		// remove cyclic dependencies
 		for (IStarLink l: links.values()) {
-			if (l.op.equals("Dep")) {
+			if (l.type.equals("Dep")) {
 				IStarElement a = l.to;
 				IStarElement b = l.from;
 				if (a.isAgent && a == b.parent

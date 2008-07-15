@@ -14,7 +14,7 @@ import java.io.PrintStream;
  * and printing a <code>StackTrace</code> when an <code>Exception</code>
  * occurs.
  */
-public class D {
+public class Debugging {
 	static PrintStream os;
 	static PrintStream er;
 
@@ -26,7 +26,7 @@ public class D {
 	 * All the methods of this class are static and thus this class should never
 	 * be instantiated.
 	 */
-	public D() {
+	public Debugging() {
 	}
 
 	public static void o(int n) {
@@ -90,61 +90,6 @@ public class D {
 		//        the last save, that the doc should be saved to a new file.
 	}
 
-	/**
-	 * Assert the specified boolean is true and otherwise fail.
-	 * 
-	 * @param b
-	 *            the boolean value which we want to assert is true.
-	 */
-	public static void a(boolean b) {
-		if (!b)
-			fail();
-	}
-
-	/**
-	 * Assert the specified long value is non-zero and otherwise fail.
-	 * 
-	 * @param lng
-	 *            the long value which we want to assert is non-zero.
-	 */
-	public static void a(long lng) {
-		if (lng == 0L)
-			fail();
-	}
-
-	/**
-	 * Assert the specified double value is non-zero and otherwise fail.
-	 * 
-	 * @param dbl
-	 *            the double value which we want to assert is non-zero.
-	 */
-	public static void a(double dbl) {
-		if (dbl == 0.0)
-			fail();
-	}
-
-	/**
-	 * Assert the specified reference is non-null and otherwise fail.
-	 * 
-	 * @param ref
-	 *            the reference we want to assert is non-null.
-	 */
-	public static void a(Object ref) {
-		if (ref == null)
-			fail();
-	}
-
-	/**
-	 * Output a stack trace of the specified <code>Exception</code> and then
-	 * fail.
-	 */
-	public static void a(Exception e) {
-		if (e == null)
-			fail(new Exception());
-		else {
-			fail(e);
-		}
-	}
 
 	/**
 	 * Assign output and error streams to the obvious choices if they haven't
