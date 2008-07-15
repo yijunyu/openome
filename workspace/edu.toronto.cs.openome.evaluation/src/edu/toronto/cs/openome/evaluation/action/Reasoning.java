@@ -30,40 +30,39 @@ public class Reasoning {
 	public openome_modelFactory f = null;
 	public Resource resource;
 
-	public Reasoning(Resource r) {		
+	public Reasoning(Resource r) {
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();
 		resource = r;
 	}
-	
-	Vector<Intention> FS_goals = new Vector<Intention>();
-	Vector<Intention> FD_goals = new Vector<Intention>();
-	Vector<Intention> PS_goals = new Vector<Intention>();
-	Vector<Intention> PD_goals = new Vector<Intention>();
-	Vector<Intention> CF_goals = new Vector<Intention>();
-	Vector<Intention> UN_goals = new Vector<Intention>();
+
+	Vector<Intention> fullySatisfied = new Vector<Intention>();
+	Vector<Intention> fullyDenied = new Vector<Intention>();
+	Vector<Intention> partiallySatisifed = new Vector<Intention>();
+	Vector<Intention> partiallyDenied = new Vector<Intention>();
+	Vector<Intention> conflicted = new Vector<Intention>();
+	Vector<Intention> unknown = new Vector<Intention>();
 	Vector<Intention> VAR_goals = new Vector<Intention>();
-	Hashtable<Intention, HashSet<Intention>> configurations 
-		= new Hashtable<Intention, HashSet<Intention> >();  
-	
+	Hashtable<Intention, HashSet<Intention>> configurations = new Hashtable<Intention, HashSet<Intention>>();
+
 	public boolean reasoning() {
 		boolean satisfied = false;
 		StringBuffer graphStr = encode();
 		ISolver solver = SolverFactory.newMiniLearning();
 		solver.setTimeout(3600); // 1 hour timeout
 		DimacsReader reader = new DimacsReader(solver);
-		PrintWriter p;
+		PrintWriter out;
 		try {
 			String filename = "file.txt";
-			p = new PrintWriter(new FileOutputStream(filename), true);
-			p.println(graphStr.toString());
-//			Debug.DEBUG_LOADER = true;
+			out = new PrintWriter(new FileOutputStream(filename), true);
+			out.println(graphStr.toString());
+			// Debug.DEBUG_LOADER = true;
 			reader.parseInstance(filename);
-//			Debug.DEBUG_LOADER = false;
+			// Debug.DEBUG_LOADER = false;
 			if (solver.isSatisfiable()) {
 				System.out.println("satisfiable");
 				String result = reader.decode(solver.model());
-				decode(resource, result);
+				decode(result);
 				satisfied = true;
 			} else
 				satisfied = false;
@@ -83,27 +82,33 @@ public class Reasoning {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return satisfied;		
+		return satisfied;
 	}
 
 	private void update() {
-		for (Intention root: Intentions) {
-			if (FS_goals.contains(root)) {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
-			} else if (FD_goals.contains(root)) {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);
-			} else if (PS_goals.contains(root)) {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
-			} else if (PD_goals.contains(root)) {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
-			} else if (CF_goals.contains(root)) {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
+		for (Intention root : Intentions) {
+			if (fullySatisfied.contains(root)) {
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
+			} else if (fullyDenied.contains(root)) {
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);
+			} else if (partiallySatisifed.contains(root)) {
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
+			} else if (partiallyDenied.contains(root)) {
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
+			} else if (conflicted.contains(root)) {
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 			} else {
-				root.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
+				root
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
 			}
 		}
 	}
-	
+
 	int numClauses = 0;
 	Hashtable<Intention, Integer> goal_ids = new Hashtable<Intention, Integer>();
 	Vector<Intention> Intentions = new Vector<Intention>();
@@ -111,8 +116,8 @@ public class Reasoning {
 	/**
 	 * Create the suitable input in the DiMacs format that SAT4J solver can read
 	 * 
-	 * A hard Intention is encoded into FS for true, and FD for false A softgoal is
-	 * encoded into FS, PS, PD, FD
+	 * A hard Intention is encoded into FS for true, and FD for false A softgoal
+	 * is encoded into FS, PS, PD, FD
 	 * 
 	 * Here the Intention model is converted in 5 steps: 1. The rules to avoid
 	 * conflicts: FS or PS => not PD and not FD 2. The axioms of the label
@@ -133,14 +138,14 @@ public class Reasoning {
 		int numVariables = 0;
 		collect_goals();
 		System.out.println("collected Intentions: n = " + Intentions.size());
-		for (Intention p: Intentions) {
-				step1.append(encode_1(p));
-				step2.append(encode_2(p));
-				step3.append(encode_3(p));
-				step4.append(encode_4(p));
-				// Yijun: to make sure enough literals are created
+		for (Intention p : Intentions) {
+			step1.append(encodeMutualExclusions(p));
+			step2.append(encodeAxiom(p));
+			step3.append(encodeContributionLinks(p));
+			step4.append(encodeDecompositions(p));
+			// Yijun: to make sure enough literals are created
 		}
-		numVariables = Math.max(numVariables, 4 * Intentions.size()+4);
+		numVariables = Math.max(numVariables, 4 * Intentions.size() + 4);
 		step5.append(encode_5());
 		graphStr.append(step1.toString());
 		graphStr.append(step2.toString());
@@ -162,17 +167,17 @@ public class Reasoning {
 	private void collect_goals() {
 		init();
 		for (Object o : resource.getResourceSet().getResources()) {
-	    	if (o instanceof Intention) {
-	    		Intention p = (Intention) o;
-	    		collect_goals(p);
-	    	} else if (o instanceof Container) {
-	    		Container a = (Container) o;
-    			EList<Intention> l = a.getIntentions();
-	    		for (int j =0; j < l.size(); j++) {
-	    			Intention root = l.get(j);
-	    			collect_goals(root);
-	    		}	    		
-	    	}	    	
+			if (o instanceof Intention) {
+				Intention p = (Intention) o;
+				collect_goals(p);
+			} else if (o instanceof Container) {
+				Container a = (Container) o;
+				EList<Intention> l = a.getIntentions();
+				for (int j = 0; j < l.size(); j++) {
+					Intention root = l.get(j);
+					collect_goals(root);
+				}
+			}
 		}
 		report();
 	}
@@ -180,28 +185,28 @@ public class Reasoning {
 	private void init() {
 		Intentions = new Vector<Intention>();
 		goal_ids = new Hashtable<Intention, Integer>();
-		FS_goals = new Vector<Intention>();
-		FD_goals = new Vector<Intention>();
-		PS_goals = new Vector<Intention>();
-		PD_goals = new Vector<Intention>();
-		CF_goals = new Vector<Intention>();
-		UN_goals = new Vector<Intention>();
+		fullySatisfied = new Vector<Intention>();
+		fullyDenied = new Vector<Intention>();
+		partiallySatisifed = new Vector<Intention>();
+		partiallyDenied = new Vector<Intention>();
+		conflicted = new Vector<Intention>();
+		unknown = new Vector<Intention>();
 	}
-	
+
 	private void report() {
-//		System.out.println("no. Intentions = " + Intentions.size());
-//		System.out.println("no. FS Intentions = " + FS_goals.size());
-//		System.out.println("no. FD Intentions = " + FD_goals.size());
-//		System.out.println("no. PS Intentions = " + PS_goals.size());
-//		System.out.println("no. PD Intentions = " + PD_goals.size());
-//		System.out.println("no. CF Intentions = " + CF_goals.size());
-//		System.out.println("no. UN Intentions = " + UN_goals.size());		
-		for (Enumeration<Intention> e = configurations.keys(); e.hasMoreElements(); )
-		{
+		// System.out.println("no. Intentions = " + Intentions.size());
+		// System.out.println("no. FS Intentions = " + FS_goals.size());
+		// System.out.println("no. FD Intentions = " + FD_goals.size());
+		// System.out.println("no. PS Intentions = " + PS_goals.size());
+		// System.out.println("no. PD Intentions = " + PD_goals.size());
+		// System.out.println("no. CF Intentions = " + CF_goals.size());
+		// System.out.println("no. UN Intentions = " + UN_goals.size());
+		for (Enumeration<Intention> e = configurations.keys(); e
+				.hasMoreElements();) {
 			Intention g = e.nextElement();
 			HashSet<Intention> config = configurations.get(g);
 			System.out.println(g.getName() + ":");
-			for (Intention c: config) {
+			for (Intention c : config) {
 				System.out.println(" " + c.getName());
 			}
 			System.out.println();
@@ -210,17 +215,17 @@ public class Reasoning {
 
 	private void configuring_variability_goals() {
 		VAR_goals = new Vector<Intention>();
-		configurations = new Hashtable<Intention, HashSet<Intention> >();  
-		for (Intention g: Intentions) {
+		configurations = new Hashtable<Intention, HashSet<Intention>>();
+		for (Intention g : Intentions) {
 			if (is_or(g) && !is_runtime_or(g)) {
 				VAR_goals.add(g);
 				EList<Decomposition> subgoals = g.getDecompositions();
 				HashSet<Intention> config = new HashSet<Intention>();
-				for (int i=0; i<subgoals.size(); i++) {
+				for (int i = 0; i < subgoals.size(); i++) {
 					Decomposition d = subgoals.get(i);
 					Intention s = d.getTarget();
-					if (FS_goals.contains(s)
-						|| PS_goals.contains(s)) {
+					if (fullySatisfied.contains(s)
+							|| partiallySatisifed.contains(s)) {
 						config.add(s);
 					}
 				}
@@ -228,11 +233,11 @@ public class Reasoning {
 			}
 		}
 	}
-	
+
 	private void collect_goals(Intention root) {
-		add_a_goal(root); 
+		add_a_goal(root);
 		EList<Decomposition> subgoals = root.getDecompositions();
-		for (int j=0; j < subgoals.size(); j++) {
+		for (int j = 0; j < subgoals.size(); j++) {
 			Decomposition d = subgoals.get(j);
 			Intention s = d.getTarget();
 			collect_goals(s);
@@ -243,17 +248,17 @@ public class Reasoning {
 		goal_ids.put(root, Intentions.size());
 		Intentions.add(root);
 		if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.SATISFIED) {
-			FS_goals.add(root);
+			fullySatisfied.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED) {
-			FD_goals.add(root);
+			fullyDenied.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED) {
-			PS_goals.add(root);
+			partiallySatisifed.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED) {
-			PD_goals.add(root);
+			partiallyDenied.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT) {
-			CF_goals.add(root);
+			conflicted.add(root);
 		} else {
-			UN_goals.add(root);
+			unknown.add(root);
 		}
 	}
 
@@ -293,71 +298,71 @@ public class Reasoning {
 		return 4 * g + 4;
 	}
 
-	int FS(Intention p) {
-		return FSID(goal_ids.get(p).intValue());
+	int FS(Intention intention) {
+		return FSID(goal_ids.get(intention).intValue());
 	}
 
 	/**
 	 * return 0 if no such literal for hard Intention
 	 * 
-	 * @param p
+	 * @param intention
 	 * @return
 	 */
-	int PS(Intention p) {
-		if (is_soft_goal(p))
-			return PSID(goal_ids.get(p).intValue());
+	int PS(Intention intention) {
+		if (is_soft_goal(intention))
+			return PSID(goal_ids.get(intention).intValue());
 		return 0;
 	}
 
 	/**
 	 * return -FS for hard Intention
 	 * 
-	 * @param p
+	 * @param intention
 	 * @return
 	 */
-	int FD(Intention p) {
-		return FDID(goal_ids.get(p).intValue());
+	int FD(Intention intention) {
+		return FDID(goal_ids.get(intention).intValue());
 	}
 
 	/**
 	 * return 0 if no such literal for hard Intention
 	 * 
-	 * @param p
+	 * @param intention
 	 * @return
 	 */
-	int PD(Intention p) {
-		if (is_soft_goal(p))
-			return PDID(goal_ids.get(p).intValue());
+	int PD(Intention intention) {
+		if (is_soft_goal(intention))
+			return PDID(goal_ids.get(intention).intValue());
 		return 0;
 	}
-	
+
 	/**
 	 * encode mutual exclusions to avoid conflicts
 	 * 
-	 * @param p
+	 * @param intention
 	 * @return
 	 */
-	private String encode_1(Intention p) {
-		StringBuffer b = new StringBuffer();
+	private String encodeMutualExclusions(Intention intention) {
+		StringBuffer buf = new StringBuffer();
 		if (System.getProperty("Avoid Conflicts") != null
 				|| System.getProperty("Avoid Conflicts Strictly") != null) {
-			b.append(implies(FS(p), -FD(p)));
+			buf.append(implies(FS(intention), -FD(intention)));
 			if (System.getProperty("Avoid Conflicts Strictly") != null) {
-				b.append(implies(FS(p), -PD(p)));
-				b.append(implies(PS(p), -FD(p)));
-				b.append(implies(PS(p), -PD(p)));
+				buf.append(implies(FS(intention), -PD(intention)));
+				buf.append(implies(PS(intention), -FD(intention)));
+				buf.append(implies(PS(intention), -PD(intention)));
 			}
 		}
-		return b.toString();
+		return buf.toString();
 	}
 
 	/**
 	 * encode axiom FS => PS, FD => PD
 	 */
-	private String encode_2(Intention p) {
+	private String encodeAxiom(Intention intention) {
 		StringBuffer b = new StringBuffer();
-		b.append(implies(FS(p), PS(p)));
-		b.append(implies(FD(p), PD(p)));
+		b.append(implies(FS(intention), PS(intention)));
+		b.append(implies(FD(intention), PD(intention)));
 		return b.toString();
 	}
 
@@ -367,77 +372,83 @@ public class Reasoning {
 	 * @param from
 	 * @return
 	 */
-	private String encode_3(Intention from) {
-		StringBuffer b = new StringBuffer();
-		EList<Contribution> list = from.getContributesFrom(); //getRule now getContributesFrom? hope so
-		for (int j=0; j<list.size(); j++) {
+	private String encodeContributionLinks(Intention from) {
+		StringBuffer buf = new StringBuffer();
+		EList<Contribution> list = from.getContributesFrom(); // getRule now
+																// getContributesFrom?
+																// hope so
+		for (int j = 0; j < list.size(); j++) {
 			Contribution c = list.get(j);
 			Intention to = c.getTarget();
 			if (is_make_contribution(c)) {
-				b.append(implies(FS(from), FS(to)));
-				b.append(implies(PS(from), PS(to)));
-				b.append(implies(FS(to), FS(from)));
-				b.append(implies(PS(to), PS(from)));
+				buf.append(implies(FS(from), FS(to)));
+				buf.append(implies(PS(from), PS(to)));
+				buf.append(implies(FS(to), FS(from)));
+				buf.append(implies(PS(to), PS(from)));
 				if (System.getProperty("Balanced contributions") != null) {
-					b.append(implies(FD(from), FD(to)));
-					b.append(implies(PD(from), PD(to)));
-					b.append(implies(FD(to), FD(from)));
-					b.append(implies(PD(to), PD(from)));
+					buf.append(implies(FD(from), FD(to)));
+					buf.append(implies(PD(from), PD(to)));
+					buf.append(implies(FD(to), FD(from)));
+					buf.append(implies(PD(to), PD(from)));
 				}
-			} else if (is_break_contribution(c)) { 
-				b.append(implies(FS(from), FD(to)));
-				b.append(implies(PS(from), PD(to)));
-				b.append(implies(FS(to), FD(from)));
-				b.append(implies(PS(to), PD(from)));
+			} else if (is_break_contribution(c)) {
+				buf.append(implies(FS(from), FD(to)));
+				buf.append(implies(PS(from), PD(to)));
+				buf.append(implies(FS(to), FD(from)));
+				buf.append(implies(PS(to), PD(from)));
 				if (System.getProperty("Balanced contributions") != null) {
-					b.append(implies(PD(from), PS(to)));
-					b.append(implies(FD(from), FS(to)));
-					b.append(implies(PD(to), PS(from)));
-					b.append(implies(FD(to), FS(from)));
+					buf.append(implies(PD(from), PS(to)));
+					buf.append(implies(FD(from), FS(to)));
+					buf.append(implies(PD(to), PS(from)));
+					buf.append(implies(FD(to), FS(from)));
 				}
 			} else if (is_help_contribution(c)) {
-				b.append(implies(FS(from), PS(to)));
+				buf.append(implies(FS(from), PS(to)));
 				if (is_soft_goal(from)) {
-					b.append(implies(PS(to), "" + FS(from) + " " + PS(from)));
-					b.append(implies(PS(from), PS(to)));
+					buf.append(implies(PS(to), "" + FS(from) + " " + PS(from)));
+					buf.append(implies(PS(from), PS(to)));
 				}
 				if (System.getProperty("Balanced contributions") != null) {
-					b.append(implies(FD(from), PD(to)));
+					buf.append(implies(FD(from), PD(to)));
 					if (is_soft_goal(from)) {
-						b.append(implies(PD(to), "" + FD(from) + " " + PD(from)));
-						b.append(implies(PD(from), PD(to)));
+						buf.append(implies(PD(to), "" + FD(from) + " "
+								+ PD(from)));
+						buf.append(implies(PD(from), PD(to)));
 					}
 				}
 			} else if (is_hurt_contribution(c)) {
-				b.append(implies(FS(from), PD(to)));
-				b.append(implies(PS(from), PD(to)));
+				buf.append(implies(FS(from), PD(to)));
+				buf.append(implies(PS(from), PD(to)));
 				if (is_soft_goal(from)) {
-					b.append(implies(PS(to), "" + FD(from) + " " + PD(from)));
+					buf.append(implies(PS(to), "" + FD(from) + " " + PD(from)));
 				}
 				if (System.getProperty("Balanced contributions") != null) {
-					b.append(implies(FD(from), PS(to)));
-					b.append(implies(PD(from), PS(to)));
+					buf.append(implies(FD(from), PS(to)));
+					buf.append(implies(PD(from), PS(to)));
 					if (is_soft_goal(from)) {
-						b.append(implies(PD(to), "" + FS(from) + " " + PS(from)));
+						buf.append(implies(PD(to), "" + FS(from) + " "
+								+ PS(from)));
 					}
 				}
 			}
 		}
-		return b.toString();
+		return buf.toString();
 	}
 
-	private boolean is_hurt_contribution(Contribution c){
+	private boolean is_hurt_contribution(Contribution c) {
 		return c instanceof HurtContribution;
 	}
-	
-	private boolean is_make_contribution(Contribution c){
+
+	private boolean is_make_contribution(Contribution c) {
 		return c instanceof MakeContribution;
 	}
-	private boolean is_help_contribution(Contribution c){
+
+	private boolean is_help_contribution(Contribution c) {
 		return c instanceof HelpContribution;
 	}
-	private boolean is_break_contribution(Contribution c){
-		return c instanceof BreakContribution;	
+
+	private boolean is_break_contribution(Contribution c) {
+		return c instanceof BreakContribution;
 	}
 
 	private boolean is_soft_goal(Intention from) {
@@ -447,15 +458,15 @@ public class Reasoning {
 	/**
 	 * encode AND/OR decompositions
 	 * 
-	 * Exception: when all OR-decomposed children do not contribute to any softgoal, 
-	 * they are regarded as AND-decomposed children for the reasoning.
-	 * This exception can be turned on through a Property 
-	 *     "ome.reasoning.topdown.runtime_or".
-	 *  
+	 * Exception: when all OR-decomposed children do not contribute to any
+	 * softgoal, they are regarded as AND-decomposed children for the reasoning.
+	 * This exception can be turned on through a Property
+	 * "ome.reasoning.topdown.runtime_or".
+	 * 
 	 * @param to
 	 * @return
 	 */
-	private String encode_4(Intention to) {
+	private String encodeDecompositions(Intention to) {
 		StringBuffer b = new StringBuffer();
 		StringBuffer step4i = new StringBuffer();
 		boolean is_and = false;
@@ -465,11 +476,13 @@ public class Reasoning {
 		StringBuffer step4v = new StringBuffer();
 		StringBuffer step4vi = new StringBuffer();
 		EList<Decomposition> list = to.getDecompositions();
-		for (int j=0; j<list.size(); j++) {
+		for (int j = 0; j < list.size(); j++) {
 			Decomposition d = list.get(j);
 			Intention from = d.getTarget();
 			if (is_and(to)
-			  || Computing.propertyHolds("ome.reasoning.topdown.runtime_or") && is_runtime_or(to)) {
+					|| Computing
+							.propertyHolds("ome.reasoning.topdown.runtime_or")
+					&& is_runtime_or(to)) {
 				if (is_soft_goal(to)) {
 					step4i.append(implies(PS(to), PS(from)));
 				}
@@ -511,9 +524,12 @@ public class Reasoning {
 			}
 		}
 		EList<Dependency> dlist = to.getDependencyTo();
-		for (int j=0; j < dlist.size(); j++) {
-			if( dlist.get(j).getDependencyTo() instanceof Container) break;
-			Intention from = (Intention) (dlist.get(j)).getDependencyTo();			 //TODO: dangerous cast
+		for (int j = 0; j < dlist.size(); j++) {
+			if (dlist.get(j).getDependencyTo() instanceof Container)
+				break;
+			Intention from = (Intention) (dlist.get(j)).getDependencyTo(); // TODO:
+																			// dangerous
+																			// cast
 			if (is_soft_goal(to)) {
 				step4i.append(implies(PS(to), PS(from)));
 			}
@@ -533,8 +549,8 @@ public class Reasoning {
 			}
 			is_and = true;
 		}
-	
-	    if (is_and) {
+
+		if (is_and) {
 			step4iii.append(FS(to) + " 0\n");
 			if (is_soft_goal(to)) {
 				step4iv.append(PS(to) + " 0\n");
@@ -568,19 +584,21 @@ public class Reasoning {
 	private boolean is_and(Intention to) {
 		return to instanceof AndDecomposition;
 	}
+
 	private boolean is_or(Intention to) {
 		return to instanceof OrDecomposition;
 	}
 
 	private boolean is_runtime_or(Intention to) {
-		if (is_or(to)) return false;
-		if (System.getProperty("ome.reasoning.topdown.runtime_or")==null)
+		if (is_or(to))
+			return false;
+		if (System.getProperty("ome.reasoning.topdown.runtime_or") == null)
 			return false;
 		boolean isRuntimeOR = true;
 		EList<Decomposition> list = to.getDecompositions();
 		for (int j = 0; j < list.size(); j++) {
-			Decomposition d = (Decomposition) list.get(j);
-			Intention from = d.getTarget();
+			Decomposition decomp = (Decomposition) list.get(j);
+			Intention from = decomp.getTarget();
 			EList<Contribution> contributions = from.getContributesFrom();
 			if (contributions.size() > 0) {
 				isRuntimeOR = false;
@@ -591,58 +609,68 @@ public class Reasoning {
 	}
 
 	private String encode_5() {
-		StringBuffer b = new StringBuffer();
-		for (Intention p: FS_goals) {
-			b.append(FS(p) + " " + "0\n");			
+		StringBuffer buf = new StringBuffer();
+		for (Intention intention : fullySatisfied) {
+			buf.append(FS(intention) + " " + "0\n");
 		}
-		for (Intention p: FD_goals) {
-			b.append(FD(p) + " " + "0\n");
+		for (Intention intention: fullyDenied) {
+			buf.append(FD(intention) + " " + "0\n");
 		}
-		for (Intention p: CF_goals) {
-			b.append(FS(p) + " 0\n");
-			b.append(FD(p) + " 0\n");
+		for (Intention intention: conflicted) {
+			buf.append(FS(intention) + " 0\n");
+			buf.append(FD(intention) + " 0\n");
 		}
-		for (Intention p: PS_goals) {
-			b.append(PS(p) + " " + "0\n");
-			b.append(-FS(p) + " " + "0\n");
+		for (Intention intention: partiallySatisifed) {
+			buf.append(PS(intention) + " " + "0\n");
+			buf.append(-FS(intention) + " " + "0\n");
 		}
-		for (Intention p: PD_goals) {
-			b.append(PD(p) + " " + "0\n");
-			b.append(-FD(p) + " " + "0\n");
+		for (Intention intention: partiallyDenied) {
+			buf.append(PD(intention) + " " + "0\n");
+			buf.append(-FD(intention) + " " + "0\n");
 		}
-		return b.toString();
+		return buf.toString();
 	}
 
-	private void decode(Resource resource, String result) {
+	/**
+	 * Determines which intentions are fully satisfied, fully denied, partially
+	 * satisfied, partially denied, conflicted or unknown.
+	 * 
+	 * @param result
+	 */
+	private void decode(String result) {
 		List<String> values = Arrays.asList(result.split(" "));
-		FS_goals = new Vector<Intention>();
-		FD_goals = new Vector<Intention>();
-		PS_goals = new Vector<Intention>();
-		FD_goals = new Vector<Intention>();
-		CF_goals = new Vector<Intention>();
-		UN_goals = new Vector<Intention>();
-		for (Intention p: Intentions) {
-			float s =0,  d = 0;
-			if (is_soft_goal(p) && values.contains(String.valueOf(PS(p))))
-				s = 0.5f;
-			if (is_soft_goal(p) && values.contains(String.valueOf(PD(p))))
-				d = 0.5f;
-			if (values.contains(String.valueOf(FS(p))))
-				s = 1;
-			if (values.contains(String.valueOf(FD(p))))
-				d = 1;
-			if(s == 1 && d == 0) {
-				FS_goals.add(p);		    			
-			} else if(s == 0 && d == 1){
-				FD_goals.add(p);
-			} else if(s > d){
-				PS_goals.add(p);
-			} else if(s < d){
-				PD_goals.add(p);
-			} else if(s == d && s >= 0.5){
-				CF_goals.add(p);
-			} else if(s == d && s < 0.5){
-				UN_goals.add(p);
+		fullySatisfied = new Vector<Intention>();
+		fullyDenied = new Vector<Intention>();
+		partiallySatisifed = new Vector<Intention>();
+		partiallyDenied = new Vector<Intention>();
+		conflicted = new Vector<Intention>();
+		unknown = new Vector<Intention>();
+		float satisfied = 0, denied = 0;
+		for (Intention intention : Intentions) {
+			satisfied = 0;
+			denied = 0;
+			if (is_soft_goal(intention)
+					&& values.contains(String.valueOf(PS(intention))))
+				satisfied = 0.5f;
+			if (is_soft_goal(intention)
+					&& values.contains(String.valueOf(PD(intention))))
+				denied = 0.5f;
+			if (values.contains(String.valueOf(FS(intention))))
+				satisfied = 1;
+			if (values.contains(String.valueOf(FD(intention))))
+				denied = 1;
+			if (satisfied == 1 && denied == 0) {
+				fullySatisfied.add(intention);
+			} else if (satisfied == 0 && denied == 1) {
+				fullyDenied.add(intention);
+			} else if (satisfied > denied) {
+				partiallySatisifed.add(intention);
+			} else if (denied > satisfied) {
+				partiallyDenied.add(intention);
+			} else if (satisfied == denied && satisfied >= 0.5) {
+				conflicted.add(intention);
+			} else if (satisfied == denied && satisfied < 0.5) {
+				unknown.add(intention);
 			}
 		}
 	}
