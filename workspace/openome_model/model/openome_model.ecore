@@ -140,16 +140,6 @@
     <eLiterals name="Minus" value="3" literal="-"/>
     <eLiterals name="MinusMinus" value="4" literal="--"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="IStarContributionType">
-    <eLiterals name="None"/>
-    <eLiterals name="Unknown" value="1" literal="UnknownContribution"/>
-    <eLiterals name="Make" value="2"/>
-    <eLiterals name="Help" value="3"/>
-    <eLiterals name="SomePlus" value="4"/>
-    <eLiterals name="SomeMinus" value="5"/>
-    <eLiterals name="Hurt" value="6"/>
-    <eLiterals name="Break" value="7"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionSymmetry">
     <eLiterals name="Both" value="2"/>
     <eLiterals name="Sat"/>
@@ -200,5 +190,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="?"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="and"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrContribution" eSuperTypes="#//Contribution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="or"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -24,16 +24,6 @@
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/Minus"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/MinusMinus"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//IStarContributionType">
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/None"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Unknown"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Make"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Help"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/SomePlus"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/SomeMinus"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Hurt"/>
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//IStarContributionType/Break"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//GoalModelingContributionSymmetry">
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionSymmetry/Both"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionSymmetry/Sat"/>
@@ -149,6 +139,12 @@
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//UnknownContribution">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//UnknownContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//AndContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//AndContribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//OrContribution">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//OrContribution/contributionType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

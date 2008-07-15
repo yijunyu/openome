@@ -408,6 +408,36 @@
           accessor="getFigureUnknownContributionLabel"
           figure="//@figures.2/@descriptors.9/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="AndContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AndContributionLabel"
+            text="and"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureAndContributionLabel"
+          figure="//@figures.2/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="OrContributionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
+          targetDecoration="//@figures.3/@figures.2">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OrContributionLabel"
+            text="or"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureOrContributionLabel"
+          figure="//@figures.2/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <figures
       name="LinkDecorations">
@@ -483,6 +513,12 @@
   <connections
       name="UnknownContribution"
       figure="UnknownContributionFigure"/>
+  <connections
+      name="AndContribution"
+      figure="AndContributionFigure"/>
+  <connections
+      name="OrContribution"
+      figure="OrContributionFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -602,11 +638,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.3/@accessors.0">
     <facets
-        xsi:type="gmfgraph:AlignmentFacet"
-        alignment="CENTER"/>
-    <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="HurtContributionLabel"
@@ -614,8 +646,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.4/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="MakeContributionLabel"
@@ -623,8 +654,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.5/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="BreakContributionLabel"
@@ -632,8 +662,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.6/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="SomePlusContributionLabel"
@@ -641,8 +670,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.7/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="SomeMinusContributionLabel"
@@ -650,8 +678,7 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.8/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
   <labels
       name="UnknownContributionLabel"
@@ -659,7 +686,22 @@
       elementIcon="false"
       accessor="//@figures.2/@descriptors.9/@accessors.0">
     <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        y="15"/>
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="AndContributionLabel"
+      figure="AndContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.10/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="OrContributionLabel"
+      figure="OrContributionFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.11/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>
 </gmfgraph:Canvas>

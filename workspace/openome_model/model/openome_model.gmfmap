@@ -872,6 +872,60 @@
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Contribution/target"/>
   </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//AndContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true"
+        viewPattern=""
+        editPattern="">
+      <diagramLabel
+          href="openome_model.gmfgraph#AndContributionLabel"/>
+      <features
+          href="openome_model.ecore#//AndContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.7"/>
+    <diagramLink
+        href="openome_model.gmfgraph#AndContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//OrContribution"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true"
+        viewPattern=""
+        editPattern="">
+      <diagramLabel
+          href="openome_model.gmfgraph#OrContributionLabel"/>
+      <features
+          href="openome_model.ecore#//OrContribution/contributionType"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/contributions"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.8"/>
+    <diagramLink
+        href="openome_model.gmfgraph#OrContribution"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Contribution/target"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="openome_model.gmfgraph#openome_model"/>
