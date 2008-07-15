@@ -92,6 +92,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: return createSomePlusContribution();
 			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: return createSomeMinusContribution();
 			case openome_modelPackage.UNKNOWN_CONTRIBUTION: return createUnknownContribution();
+			case openome_modelPackage.AND_CONTRIBUTION: return createAndContribution();
+			case openome_modelPackage.OR_CONTRIBUTION: return createOrContribution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -383,6 +385,26 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public UnknownContribution createUnknownContribution() {
 		UnknownContributionImpl unknownContribution = new UnknownContributionImpl();
 		return unknownContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AndContribution createAndContribution() {
+		AndContributionImpl andContribution = new AndContributionImpl();
+		return andContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrContribution createOrContribution() {
+		OrContributionImpl orContribution = new OrContributionImpl();
+		return orContribution;
 	}
 
 	/**

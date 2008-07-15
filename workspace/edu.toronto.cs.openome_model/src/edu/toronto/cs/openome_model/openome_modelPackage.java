@@ -2669,6 +2669,134 @@ public interface openome_modelPackage extends EPackage {
 	int UNKNOWN_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AndContributionImpl <em>And Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.AndContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAndContribution()
+	 * @generated
+	 */
+	int AND_CONTRIBUTION = 28;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>And Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OrContributionImpl <em>Or Contribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.OrContributionImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOrContribution()
+	 * @generated
+	 */
+	int OR_CONTRIBUTION = 29;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION__TARGET = CONTRIBUTION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Model</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION__MODEL = CONTRIBUTION__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION__SOURCE = CONTRIBUTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Goal model symmetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION__GOAL_MODEL_SYMMETRY = CONTRIBUTION__GOAL_MODEL_SYMMETRY;
+
+	/**
+	 * The feature id for the '<em><b>Contribution Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION__CONTRIBUTION_TYPE = CONTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Or Contribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2676,7 +2804,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 28;
+	int EVALUATION_LABEL = 30;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -2686,7 +2814,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 29;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -2696,7 +2824,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 30;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 32;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -3672,6 +3800,48 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getUnknownContribution_ContributionType();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.AndContribution <em>And Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>And Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.AndContribution
+	 * @generated
+	 */
+	EClass getAndContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.AndContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.AndContribution#getContributionType()
+	 * @see #getAndContribution()
+	 * @generated
+	 */
+	EAttribute getAndContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OrContribution <em>Or Contribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Or Contribution</em>'.
+	 * @see edu.toronto.cs.openome_model.OrContribution
+	 * @generated
+	 */
+	EClass getOrContribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.OrContribution#getContributionType <em>Contribution Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contribution Type</em>'.
+	 * @see edu.toronto.cs.openome_model.OrContribution#getContributionType()
+	 * @see #getOrContribution()
+	 * @generated
+	 */
+	EAttribute getOrContribution_ContributionType();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4506,6 +4676,42 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNKNOWN_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getUnknownContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AndContributionImpl <em>And Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.AndContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAndContribution()
+		 * @generated
+		 */
+		EClass AND_CONTRIBUTION = eINSTANCE.getAndContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AND_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getAndContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OrContributionImpl <em>Or Contribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.OrContributionImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOrContribution()
+		 * @generated
+		 */
+		EClass OR_CONTRIBUTION = eINSTANCE.getOrContribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribution Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OR_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getOrContribution_ContributionType();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

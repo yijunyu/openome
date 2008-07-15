@@ -80,7 +80,7 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID),
-				new Point(0, 15));
+				new Point(0, 0));
 	}
 
 	/**

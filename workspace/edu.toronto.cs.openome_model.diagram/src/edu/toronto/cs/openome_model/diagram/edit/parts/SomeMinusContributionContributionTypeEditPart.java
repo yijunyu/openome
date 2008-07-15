@@ -80,7 +80,7 @@ public class SomeMinusContributionContributionTypeEditPart extends
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID),
-				new Point(0, 15));
+				new Point(0, 0));
 	}
 
 	/**

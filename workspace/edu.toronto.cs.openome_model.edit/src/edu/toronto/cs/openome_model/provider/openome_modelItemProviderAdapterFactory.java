@@ -657,6 +657,52 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.AndContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AndContributionItemProvider andContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.AndContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAndContributionAdapter() {
+		if (andContributionItemProvider == null) {
+			andContributionItemProvider = new AndContributionItemProvider(this);
+		}
+
+		return andContributionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.OrContribution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OrContributionItemProvider orContributionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.OrContribution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOrContributionAdapter() {
+		if (orContributionItemProvider == null) {
+			orContributionItemProvider = new OrContributionItemProvider(this);
+		}
+
+		return orContributionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -780,6 +826,8 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (somePlusContributionItemProvider != null) somePlusContributionItemProvider.dispose();
 		if (someMinusContributionItemProvider != null) someMinusContributionItemProvider.dispose();
 		if (unknownContributionItemProvider != null) unknownContributionItemProvider.dispose();
+		if (andContributionItemProvider != null) andContributionItemProvider.dispose();
+		if (orContributionItemProvider != null) orContributionItemProvider.dispose();
 	}
 
 }

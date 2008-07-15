@@ -303,6 +303,22 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case openome_modelPackage.AND_CONTRIBUTION: {
+				AndContribution andContribution = (AndContribution)theEObject;
+				T result = caseAndContribution(andContribution);
+				if (result == null) result = caseContribution(andContribution);
+				if (result == null) result = caseLink(andContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.OR_CONTRIBUTION: {
+				OrContribution orContribution = (OrContribution)theEObject;
+				T result = caseOrContribution(orContribution);
+				if (result == null) result = caseContribution(orContribution);
+				if (result == null) result = caseLink(orContribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -724,6 +740,36 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnknownContribution(UnknownContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>And Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>And Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAndContribution(AndContribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Or Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Or Contribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrContribution(OrContribution object) {
 		return null;
 	}
 

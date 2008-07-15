@@ -257,6 +257,24 @@ public interface openome_modelFactory extends EFactory {
 	UnknownContribution createUnknownContribution();
 
 	/**
+	 * Returns a new object of class '<em>And Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>And Contribution</em>'.
+	 * @generated
+	 */
+	AndContribution createAndContribution();
+
+	/**
+	 * Returns a new object of class '<em>Or Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Or Contribution</em>'.
+	 * @generated
+	 */
+	OrContribution createOrContribution();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

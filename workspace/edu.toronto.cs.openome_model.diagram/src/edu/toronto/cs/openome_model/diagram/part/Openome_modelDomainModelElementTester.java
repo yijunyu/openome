@@ -131,6 +131,14 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 				.getUnknownContribution()) {
 			return true;
 		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getAndContribution()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOrContribution()) {
+			return true;
+		}
 		return false;
 	}
 

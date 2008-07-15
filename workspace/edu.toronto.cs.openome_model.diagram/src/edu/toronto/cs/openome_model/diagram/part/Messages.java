@@ -438,6 +438,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String And8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String And8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Or9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Or9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ActorActorCompartmentEditPart_title;
 
 	/**
@@ -804,6 +824,26 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_UnknownContribution_4011_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AndContribution_4012_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AndContribution_4012_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OrContribution_4013_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OrContribution_4013_source;
 
 	/**
 	 * @generated

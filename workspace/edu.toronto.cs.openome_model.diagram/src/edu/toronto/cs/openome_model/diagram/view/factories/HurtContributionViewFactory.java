@@ -53,10 +53,12 @@ public class HurtContributionViewFactory extends ConnectionViewFactory {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionContributionTypeEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
-		
+
 		// ensures that the link/connectors have smooth curvature
-		RoutingStyle style = (RoutingStyle) view.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
-		style.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
-		
+		RoutingStyle style = (RoutingStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		style
+				.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
+
 	}
 }

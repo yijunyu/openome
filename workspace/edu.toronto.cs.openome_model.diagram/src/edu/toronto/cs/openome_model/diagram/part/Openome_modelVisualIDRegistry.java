@@ -725,6 +725,16 @@ public class Openome_modelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		}
 		return false;
 	}
@@ -779,6 +789,14 @@ public class Openome_modelVisualIDRegistry {
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getUnknownContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getAndContribution().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOrContribution().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

@@ -187,6 +187,16 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType AndContribution_4012 = getElementType("edu.toronto.cs.openome_model.diagram.AndContribution_4012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OrContribution_4013 = getElementType("edu.toronto.cs.openome_model.diagram.OrContribution_4013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -434,6 +444,14 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			elements.put(UnknownContribution_4011,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getUnknownContribution());
+
+			elements.put(AndContribution_4012,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getAndContribution());
+
+			elements.put(OrContribution_4013,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getOrContribution());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -486,6 +504,8 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(SomePlusContribution_4009);
 			KNOWN_ELEMENT_TYPES.add(SomeMinusContribution_4010);
 			KNOWN_ELEMENT_TYPES.add(UnknownContribution_4011);
+			KNOWN_ELEMENT_TYPES.add(AndContribution_4012);
+			KNOWN_ELEMENT_TYPES.add(OrContribution_4013);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

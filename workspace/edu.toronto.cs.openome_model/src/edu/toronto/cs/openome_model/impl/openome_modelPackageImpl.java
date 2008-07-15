@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
+import edu.toronto.cs.openome_model.AndContribution;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Belief;
 import edu.toronto.cs.openome_model.BreakContribution;
@@ -34,6 +35,7 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
 import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.OrContribution;
 import edu.toronto.cs.openome_model.OrDecomposition;
 import edu.toronto.cs.openome_model.Position;
 import edu.toronto.cs.openome_model.Property;
@@ -257,6 +259,20 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass unknownContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass andContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orContributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1171,6 +1187,42 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAndContribution() {
+		return andContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAndContribution_ContributionType() {
+		return (EAttribute)andContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOrContribution() {
+		return orContributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOrContribution_ContributionType() {
+		return (EAttribute)orContributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1340,6 +1392,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		unknownContributionEClass = createEClass(UNKNOWN_CONTRIBUTION);
 		createEAttribute(unknownContributionEClass, UNKNOWN_CONTRIBUTION__CONTRIBUTION_TYPE);
 
+		andContributionEClass = createEClass(AND_CONTRIBUTION);
+		createEAttribute(andContributionEClass, AND_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		orContributionEClass = createEClass(OR_CONTRIBUTION);
+		createEAttribute(orContributionEClass, OR_CONTRIBUTION__CONTRIBUTION_TYPE);
+
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
 		goalModelingContributionTypeEEnum = createEEnum(GOAL_MODELING_CONTRIBUTION_TYPE);
@@ -1398,6 +1456,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		somePlusContributionEClass.getESuperTypes().add(this.getContribution());
 		someMinusContributionEClass.getESuperTypes().add(this.getContribution());
 		unknownContributionEClass.getESuperTypes().add(this.getContribution());
+		andContributionEClass.getESuperTypes().add(this.getContribution());
+		orContributionEClass.getESuperTypes().add(this.getContribution());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1518,6 +1578,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(unknownContributionEClass, UnknownContribution.class, "UnknownContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnknownContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "?", 1, 1, UnknownContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(andContributionEClass, AndContribution.class, "AndContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAndContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "and", 1, 1, AndContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(orContributionEClass, OrContribution.class, "OrContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOrContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "or", 1, 1, OrContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

@@ -94,6 +94,16 @@ public class SoftgoalItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -152,6 +162,16 @@ public class SoftgoalItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -193,6 +213,12 @@ public class SoftgoalItemSemanticEditPolicy
 					req));
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);

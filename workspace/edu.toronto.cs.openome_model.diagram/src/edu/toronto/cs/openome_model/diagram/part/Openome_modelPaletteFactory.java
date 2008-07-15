@@ -9,6 +9,7 @@ import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.PaletteSeparator;
+import org.eclipse.gef.palette.PaletteStack;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
@@ -67,6 +68,8 @@ public class Openome_modelPaletteFactory {
 		paletteContainer.add(createSomePlus5CreationTool());
 		paletteContainer.add(createSomeMinus6CreationTool());
 		paletteContainer.add(createUnknown7CreationTool());
+		paletteContainer.add(createAnd8CreationTool());
+		paletteContainer.add(createOr9CreationTool());
 		return paletteContainer;
 	}
 
@@ -446,6 +449,42 @@ public class Openome_modelPaletteFactory {
 		entry
 				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
 						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAnd8CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.And8CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.And8CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOr9CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Or9CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.Or9CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

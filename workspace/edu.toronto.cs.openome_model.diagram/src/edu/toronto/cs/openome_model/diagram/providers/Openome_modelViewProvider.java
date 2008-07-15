@@ -347,6 +347,20 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID:
+					if (edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
+					if (edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -487,6 +501,10 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.SomeMinusContributionContributionTypeViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.UnknownContributionContributionTypeViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.AndContributionContributionTypeViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.OrContributionContributionTypeViewFactory.class;
 		}
 		return null;
 	}
@@ -545,6 +563,10 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.SomeMinusContributionViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.UnknownContributionViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.AndContributionViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.OrContributionViewFactory.class;
 		}
 		return null;
 	}

@@ -827,6 +827,58 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser andContributionContributionType_6011Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getAndContributionContributionType_6011Parser() {
+		if (andContributionContributionType_6011Parser == null) {
+			andContributionContributionType_6011Parser = createAndContributionContributionType_6011Parser();
+		}
+		return andContributionContributionType_6011Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createAndContributionContributionType_6011Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getAndContribution_ContributionType(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser orContributionContributionType_6012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOrContributionContributionType_6012Parser() {
+		if (orContributionContributionType_6012Parser == null) {
+			orContributionContributionType_6012Parser = createOrContributionContributionType_6012Parser();
+		}
+		return orContributionContributionType_6012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createOrContributionContributionType_6012Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOrContribution_ContributionType(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID:
@@ -891,6 +943,10 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getSomeMinusContributionContributionType_6009Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID:
 			return getUnknownContributionContributionType_6010Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID:
+			return getAndContributionContributionType_6011Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
+			return getOrContributionContributionType_6012Parser();
 		}
 		return null;
 	}
