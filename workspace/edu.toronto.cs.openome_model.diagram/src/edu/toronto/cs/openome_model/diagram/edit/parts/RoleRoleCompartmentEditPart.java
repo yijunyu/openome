@@ -38,12 +38,17 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
+		
+		// removes the annoying border line at the top of the compartment
+		// this fix is for ticket #115
+		result.setBorder(null); 
+		
 		return result;
 	}
 
