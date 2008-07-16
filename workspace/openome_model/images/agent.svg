@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -12,9 +12,10 @@
    height="115.88871"
    id="svg10205"
    sodipodi:version="0.32"
-   inkscape:version="0.45"
-   sodipodi:modified="true"
-   version="1.0">
+   inkscape:version="0.45+devel"
+   version="1.0"
+   sodipodi:docname="agent.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs10207" />
   <sodipodi:namedview
@@ -27,15 +28,16 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="6.6788212"
-     inkscape:cx="57.944357"
+     inkscape:zoom="2.3613199"
+     inkscape:cx="98.193236"
      inkscape:cy="57.944353"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="1280"
-     inkscape:window-height="993"
+     inkscape:window-height="980"
      inkscape:window-x="0"
-     inkscape:window-y="0" />
+     inkscape:window-y="22"
+     showgrid="false" />
   <metadata
      id="metadata10210">
     <rdf:RDF>
@@ -54,16 +56,17 @@
      transform="translate(-42.055643,-51.560686)">
     <path
        sodipodi:type="arc"
-       style="fill:#ececec;fill-opacity:1;stroke:#000000;stroke-width:1.60300004;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#ececec;fill-opacity:1;stroke:#000000;stroke-width:2.36508791;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path10213"
        sodipodi:cx="100"
        sodipodi:cy="109.50504"
        sodipodi:rx="57.142857"
        sodipodi:ry="57.142857"
-       d="M 157.14286 109.50504 A 57.142857 57.142857 0 1 1  42.857143,109.50504 A 57.142857 57.142857 0 1 1  157.14286 109.50504 z" />
+       d="M 157.14286,109.50504 A 57.142857,57.142857 0 1 1 42.857143,109.50504 A 57.142857,57.142857 0 1 1 157.14286,109.50504 z"
+       transform="matrix(0.9685573,0,0,0.976418,2.8448134,2.4326216)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 51.367818,78.523323 L 147.33591,78.462569 L 147.98774,78.462569"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 53.763449,78.523323 L 144.37773,78.462569 L 144.9932,78.462569"
        id="path11184"
        sodipodi:nodetypes="ccc" />
   </g>

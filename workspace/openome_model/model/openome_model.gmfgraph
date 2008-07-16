@@ -213,7 +213,7 @@
       <actualFigure
           xsi:type="gmfgraph:CustomFigure"
           name="GoalFigure"
-          qualifiedClassName="openome_model.figures.GoalFigure">
+          qualifiedClassName="openome_model.figures.GoalSVGFigure">
         <children
             xsi:type="gmfgraph:Label"
             name="GoalNameFigure"
