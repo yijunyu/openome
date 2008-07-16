@@ -44,11 +44,11 @@ public class PositionPositionCompartmentEditPart extends
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
-		
+
 		// removes the annoying border line at the top of the compartment
 		// this fix is for ticket #115
-		result.setBorder(null); 
-		
+		result.setBorder(null);
+
 		result.setTitleVisibility(false);
 		return result;
 	}

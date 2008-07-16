@@ -44,11 +44,11 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(false);
-		
+
 		// removes the annoying border line at the top of the compartment
 		// this fix is for ticket #115
-		result.setBorder(null); 
-		
+		result.setBorder(null);
+
 		return result;
 	}
 

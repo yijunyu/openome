@@ -209,7 +209,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class GoalFigure extends openome_model.figures.GoalFigure {
+	public class GoalFigure extends openome_model.figures.GoalSVGFigure {
 
 		/**
 		 * @generated
