@@ -1,16 +1,15 @@
 package openome_model.figures;
 
-import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.PositionConstants;
 
 public class GoalSVGFigure extends NodeSVGFigure {
-
+	
 	public GoalSVGFigure() {
 		super("goal");
-		setLayoutManager(new StackLayout());
+		setLayoutManager(new OpenOmeElementLayoutManager());
 	}
 	public GoalSVGFigure(String name) {
-		super("goal");
-		setLayoutManager(new StackLayout());
+		super("goal");		
+		setLayoutManager(new OpenOmeElementLayoutManager());
 	}
-
 }
