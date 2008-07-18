@@ -375,8 +375,8 @@ public class Openome_modelPaletteFactory {
 				edu.toronto.cs.openome_model.diagram.part.Messages.Make3CreationTool_desc,
 				types);
 		entry
-				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
-						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_4007));
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/makecontribution.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -411,8 +411,8 @@ public class Openome_modelPaletteFactory {
 				edu.toronto.cs.openome_model.diagram.part.Messages.SomePlus5CreationTool_desc,
 				types);
 		entry
-				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
-						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_4009));
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/somepluscontribution.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -429,8 +429,8 @@ public class Openome_modelPaletteFactory {
 				edu.toronto.cs.openome_model.diagram.part.Messages.SomeMinus6CreationTool_desc,
 				types);
 		entry
-				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
-						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_4010));
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/someminuscontribution.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -447,9 +447,11 @@ public class Openome_modelPaletteFactory {
 				edu.toronto.cs.openome_model.diagram.part.Messages.Unknown7CreationTool_desc,
 				types);
 		entry
-				.setSmallIcon(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
-						.getImageDescriptor(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011));
-		entry.setLargeIcon(entry.getSmallIcon());
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/unknowncontribution.png")); //$NON-NLS-1$
+		entry
+				.setLargeIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/unknowncontribution.png")); //$NON-NLS-1$
 		return entry;
 	}
 

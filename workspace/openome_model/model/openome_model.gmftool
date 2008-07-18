@@ -185,7 +185,12 @@
         <tools
             xsi:type="gmftool:CreationTool"
             title="Make"
-            description="Create a make contribution."/>
+            description="Create a make contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/makecontribution.png"
+              bundle="openome_model"/>
+        </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="Break"
@@ -193,15 +198,34 @@
         <tools
             xsi:type="gmftool:CreationTool"
             title="Some Plus"
-            description="Create a some plus contribution."/>
+            description="Create a some plus contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/somepluscontribution.png"
+              bundle="openome_model"/>
+        </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="Some Minus"
-            description="Create a some minus contribution."/>
+            description="Create a some minus contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/someminuscontribution.png"
+              bundle="openome_model"/>
+        </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="Unknown"
-            description="Create an unknown contribution."/>
+            description="Create an unknown contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/unknowncontribution.png"
+              bundle="openome_model"/>
+          <largeIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/unknowncontribution.png"
+              bundle="openome_model"/>
+        </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="And"

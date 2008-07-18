@@ -2018,6 +2018,7 @@
               xsi:type="gmfgen:ToolEntry"
               title="Make"
               description="Create a make contribution."
+              smallIconPath="/openome_model/icons/makecontribution.png"
               genLinks="//@diagram/@links.5"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
@@ -2028,16 +2029,20 @@
               xsi:type="gmfgen:ToolEntry"
               title="Some Plus"
               description="Create a some plus contribution."
+              smallIconPath="/openome_model/icons/somepluscontribution.png"
               genLinks="//@diagram/@links.7"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Some Minus"
               description="Create a some minus contribution."
+              smallIconPath="/openome_model/icons/someminuscontribution.png"
               genLinks="//@diagram/@links.8"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Unknown"
               description="Create an unknown contribution."
+              largeIconPath="/openome_model/icons/unknowncontribution.png"
+              smallIconPath="/openome_model/icons/unknowncontribution.png"
               genLinks="//@diagram/@links.9"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
