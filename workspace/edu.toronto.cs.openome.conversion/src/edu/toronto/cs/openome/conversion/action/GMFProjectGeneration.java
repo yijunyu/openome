@@ -77,7 +77,7 @@ public class GMFProjectGeneration implements IGenerator {
 			return;
 		Resource resource2 = loadGenDiagram(file2);
 		GenEditorGenerator geg = (GenEditorGenerator) resource2.getContents().get(0);
-		CodegenEmitters b = new CodegenEmitters(false, null);
+		CodegenEmitters b = new CodegenEmitters(false, null, false);
 		Generator gen = new Generator(geg, b);
 		gen.run();
 		EMFProjectsGeneration.overwrite_projects(w, project, overwrite);

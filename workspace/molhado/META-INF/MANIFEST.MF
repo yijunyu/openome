@@ -9,8 +9,6 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.toronto.cs.openome_model,
  org.eclipse.ui,
  org.eclipse.ocl.ecore,
- org.eclipse.ocl.uml,
- org.eclipse.emf.query.ocl,
  log4j
 Export-Package: fluid,
  fluid.control,
