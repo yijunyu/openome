@@ -366,19 +366,17 @@ public class GoalModel extends IStar {
 							}
 							m.getDecompositions().add(d);
 						} else if (! link.type.startsWith("Dep")){
-							if (link.type.equals("Help")) {
-								
-							}
-							Contribution c = f.createContribution();;
+							Contribution c;
 							
-//							if (s.op.equals("Help")) 
-//								c.setIstar_contribution_type( IStarContributionType.HELP);
-//							else if (s.op.equals("Make")) 
-//								c.setIstar_contribution_type( IStarContributionType.MAKE);
-//							else if (s.op.equals("Hurt")) 
-//								c.setIstar_contribution_type( IStarContributionType.HURT);
-//							else if (s.op.equals("Break")) 
-//								c.setIstar_contribution_type( IStarContributionType.BREAK);
+							if (link.type.equals("Help")) 
+								c = f.createHelpContribution();
+							else if (link.type.equals("Make")) 
+								c = f.createMakeContribution();
+							else if (link.type.equals("Hurt")) 
+								c = f.createHurtContribution();
+							else if (link.type.equals("Break")) 
+								c = f.createBreakContribution();
+							else c = f.createContribution();
 							c.setSource(y);
 							c.setTarget(x);
 							m.getContributions().add(c);
