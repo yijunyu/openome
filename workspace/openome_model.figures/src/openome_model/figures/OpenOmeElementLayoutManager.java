@@ -77,10 +77,12 @@ public class OpenOmeElementLayoutManager extends AbstractHintLayout
 		IFigure child;
 		for (int i = 0; i < children.size(); i++) {
 			child = (IFigure)children.get(i);
-			
-			// ensure that the wrapped text is center aligned when
-			// they are pushed onto subsequent rows
-			((WrappingLabel)child).setTextWrap(true);
+
+			// ensure that the wrapped text is center aligned when			
+			// they are pushed onto subsequent rows (see ticket #120)
+			if (!(System.getProperty("os.name").equals("Mac OS X") && System.getProperty("os.version").startsWith("10.5"))) { 
+				((WrappingLabel) child).setTextWrap(true);
+			}
 			((WrappingLabel)child).setTextJustification(PositionConstants.CENTER);
 			((WrappingLabel)child).setAlignment(PositionConstants.CENTER);
 			
@@ -94,28 +96,9 @@ public class OpenOmeElementLayoutManager extends AbstractHintLayout
 			// depending on how many rows the text has been wrapped to, adjust
 			// the height by 6 units per row
 			
-			// edit: This was for Europa (Eclipse 3.3) and is no longer needed
-			
-			//adjustHeight((WrappingLabel)child);
-			
 		}
 	}
 	
-	/**
-	 * Adjust the height of the text so that it is vertically centered.
-	 * @param child the wrap label that contains the text to adjust.
-	 */
-	private void adjustHeight(WrappingLabel child) {
-		// deprecated function
-		String textWrappedText = "";
-		//String textWrappedText = ((WrappingLabel)child).getSubStringText();
-		int numRows = numRowsInTextWrappedString(textWrappedText);
-		int newXLocation = ((WrappingLabel)child).getLocation().x;
-		int newYLocation = ((WrappingLabel)child).getLocation().y - ((numRows-1) * 6);
-		
-		Point p = new Point(newXLocation, newYLocation);
-		((WrappingLabel)child).setLocation(p);
-	}
 	
 	/**
 	 * Count the number of rows in a string, by counting the number 
