@@ -202,15 +202,4 @@ public class ContributionItemProvider
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return openome_modelEditPlugin.INSTANCE;
-	}
-
 }

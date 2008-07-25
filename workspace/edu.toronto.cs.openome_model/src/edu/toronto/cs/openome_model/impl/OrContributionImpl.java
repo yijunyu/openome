@@ -39,7 +39,7 @@ public class OrContributionImpl extends ContributionImpl implements OrContributi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "or";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "OR";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.

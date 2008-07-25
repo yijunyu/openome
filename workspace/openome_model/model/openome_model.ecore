@@ -159,22 +159,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="HelpContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="+"/>
+        defaultValueLiteral="Help"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HurtContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="-"/>
+        defaultValueLiteral="Hurt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MakeContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="++"/>
+        defaultValueLiteral="Make"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BreakContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="--"/>
+        defaultValueLiteral="Break"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SomePlusContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
@@ -189,16 +189,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnknownContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="?"/>
+        defaultValueLiteral="Unknown"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AndContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="and"/>
+        defaultValueLiteral="AND"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrContribution" eSuperTypes="#//Contribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="or"/>
+        defaultValueLiteral="OR"/>
   </eClassifiers>
 </ecore:EPackage>

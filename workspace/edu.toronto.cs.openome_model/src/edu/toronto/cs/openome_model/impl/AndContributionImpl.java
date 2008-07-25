@@ -39,7 +39,7 @@ public class AndContributionImpl extends ContributionImpl implements AndContribu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "and";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "AND";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.

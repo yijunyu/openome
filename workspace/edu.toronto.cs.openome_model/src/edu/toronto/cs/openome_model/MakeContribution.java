@@ -32,7 +32,7 @@ public interface MakeContribution extends Contribution {
 
 	/**
 	 * Returns the value of the '<em><b>Contribution Type</b></em>' attribute.
-	 * The default value is <code>"++"</code>.
+	 * The default value is <code>"Make"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contribution Type</em>' attribute isn't clear,
@@ -41,7 +41,7 @@ public interface MakeContribution extends Contribution {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contribution Type</em>' attribute.
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getMakeContribution_ContributionType()
-	 * @model default="++" required="true" changeable="false"
+	 * @model default="Make" required="true" changeable="false"
 	 * @generated
 	 */
 	String getContributionType();

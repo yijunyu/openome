@@ -41,7 +41,7 @@ public class HelpContributionImpl extends ContributionImpl implements HelpContri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "+";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "Help";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.

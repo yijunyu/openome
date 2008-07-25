@@ -39,7 +39,7 @@ public class BreakContributionImpl extends ContributionImpl implements BreakCont
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "--";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "Break";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.

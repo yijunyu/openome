@@ -39,7 +39,7 @@ public class UnknownContributionImpl extends ContributionImpl implements Unknown
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "?";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "Unknown";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.

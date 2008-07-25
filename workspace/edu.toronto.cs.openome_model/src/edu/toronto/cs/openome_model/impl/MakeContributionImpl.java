@@ -39,7 +39,7 @@ public class MakeContributionImpl extends ContributionImpl implements MakeContri
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "++";
+	protected static final String CONTRIBUTION_TYPE_EDEFAULT = "Make";
 
 	/**
 	 * The cached value of the '{@link #getContributionType() <em>Contribution Type</em>}' attribute.
