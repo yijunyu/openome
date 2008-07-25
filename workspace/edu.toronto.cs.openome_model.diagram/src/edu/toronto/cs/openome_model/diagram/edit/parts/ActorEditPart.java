@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -39,7 +39,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 1001;
 
 	/**
 	 * @generated
@@ -263,7 +263,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureActorNameFigure;
+		private WrappingLabel fFigureActorNameFigure;
 
 		/**
 		 * @generated
@@ -291,14 +291,13 @@ public class ActorEditPart extends ShapeNodeEditPart {
 					.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK);
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
-
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
 
 			openome_model.figures.ActorSVGFigure actorSVGFigure1 = new openome_model.figures.ActorSVGFigure();
 
 			fFigureActorBoundaryFigure.add(actorSVGFigure1);
 
-			fFigureActorNameFigure = new WrapLabel();
+			fFigureActorNameFigure = new WrappingLabel();
 			fFigureActorNameFigure.setText("");
 
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
@@ -336,7 +335,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureActorNameFigure() {
+		public WrappingLabel getFigureActorNameFigure() {
 			return fFigureActorNameFigure;
 		}
 

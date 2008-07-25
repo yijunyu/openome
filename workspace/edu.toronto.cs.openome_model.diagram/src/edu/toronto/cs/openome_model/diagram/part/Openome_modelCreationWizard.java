@@ -110,7 +110,20 @@ public class Openome_modelCreationWizard extends Wizard implements INewWizard {
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardPage(
-				"DomainModelFile", getSelection(), "oom"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DomainModelFile", getSelection(), "oom") { //$NON-NLS-1$ //$NON-NLS-2$
+
+			public void setVisible(boolean visible) {
+				if (visible) {
+					String fileName = diagramModelFilePage.getFileName();
+					fileName = fileName.substring(0, fileName.length()
+							- ".ood".length()); //$NON-NLS-1$
+					setFileName(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
+							.getUniqueFileName(getContainerFullPath(),
+									fileName, "oom")); //$NON-NLS-1$
+				}
+				super.setVisible(visible);
+			}
+		};
 		domainModelFilePage
 				.setTitle(edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage

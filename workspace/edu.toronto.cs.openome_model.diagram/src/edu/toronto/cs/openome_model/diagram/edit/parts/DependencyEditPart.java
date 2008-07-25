@@ -2,18 +2,20 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class DependencyEditPart extends ConnectionNodeEditPart {
+public class DependencyEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4001;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	 * @generated

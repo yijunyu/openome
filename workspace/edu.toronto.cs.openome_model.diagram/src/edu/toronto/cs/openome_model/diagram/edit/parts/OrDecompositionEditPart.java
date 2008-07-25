@@ -4,20 +4,22 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class OrDecompositionEditPart extends ConnectionNodeEditPart {
+public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4003;
+	public static final int VISUAL_ID = 3003;
 
 	/**
 	 * @generated
@@ -40,8 +42,8 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart) childEditPart)
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) {
+			((edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureOrLabel());
 			return true;
 		}
@@ -86,7 +88,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureOrLabel;
+		private WrappingLabel fFigureOrLabel;
 
 		/**
 		 * @generated
@@ -103,7 +105,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureOrLabel = new WrapLabel();
+			fFigureOrLabel = new WrappingLabel();
 			fFigureOrLabel.setText("OR");
 
 			this.add(fFigureOrLabel);
@@ -122,7 +124,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureOrLabel() {
+		public WrappingLabel getFigureOrLabel() {
 			return fFigureOrLabel;
 		}
 

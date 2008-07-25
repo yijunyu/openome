@@ -21,22 +21,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser actorName_5005Parser;
+	private IParser actorName_4005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getActorName_5005Parser() {
-		if (actorName_5005Parser == null) {
-			actorName_5005Parser = createActorName_5005Parser();
+	private IParser getActorName_4005Parser() {
+		if (actorName_4005Parser == null) {
+			actorName_4005Parser = createActorName_4005Parser();
 		}
-		return actorName_5005Parser;
+		return actorName_4005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createActorName_5005Parser() {
+	protected IParser createActorName_4005Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -47,22 +47,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser agentName_5010Parser;
+	private IParser agentName_4010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAgentName_5010Parser() {
-		if (agentName_5010Parser == null) {
-			agentName_5010Parser = createAgentName_5010Parser();
+	private IParser getAgentName_4010Parser() {
+		if (agentName_4010Parser == null) {
+			agentName_4010Parser = createAgentName_4010Parser();
 		}
-		return agentName_5010Parser;
+		return agentName_4010Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAgentName_5010Parser() {
+	protected IParser createAgentName_4010Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -73,22 +73,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser positionName_5015Parser;
+	private IParser positionName_4015Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPositionName_5015Parser() {
-		if (positionName_5015Parser == null) {
-			positionName_5015Parser = createPositionName_5015Parser();
+	private IParser getPositionName_4015Parser() {
+		if (positionName_4015Parser == null) {
+			positionName_4015Parser = createPositionName_4015Parser();
 		}
-		return positionName_5015Parser;
+		return positionName_4015Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createPositionName_5015Parser() {
+	protected IParser createPositionName_4015Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -99,22 +99,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser roleName_5020Parser;
+	private IParser roleName_4020Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRoleName_5020Parser() {
-		if (roleName_5020Parser == null) {
-			roleName_5020Parser = createRoleName_5020Parser();
+	private IParser getRoleName_4020Parser() {
+		if (roleName_4020Parser == null) {
+			roleName_4020Parser = createRoleName_4020Parser();
 		}
-		return roleName_5020Parser;
+		return roleName_4020Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createRoleName_5020Parser() {
+	protected IParser createRoleName_4020Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getContainer_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -125,22 +125,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser goalName_5021Parser;
+	private IParser goalName_4021Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_5021Parser() {
-		if (goalName_5021Parser == null) {
-			goalName_5021Parser = createGoalName_5021Parser();
+	private IParser getGoalName_4021Parser() {
+		if (goalName_4021Parser == null) {
+			goalName_4021Parser = createGoalName_4021Parser();
 		}
-		return goalName_5021Parser;
+		return goalName_4021Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_5021Parser() {
+	protected IParser createGoalName_4021Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -151,22 +151,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_5022Parser;
+	private IParser softgoalName_4022Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_5022Parser() {
-		if (softgoalName_5022Parser == null) {
-			softgoalName_5022Parser = createSoftgoalName_5022Parser();
+	private IParser getSoftgoalName_4022Parser() {
+		if (softgoalName_4022Parser == null) {
+			softgoalName_4022Parser = createSoftgoalName_4022Parser();
 		}
-		return softgoalName_5022Parser;
+		return softgoalName_4022Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_5022Parser() {
+	protected IParser createSoftgoalName_4022Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -177,22 +177,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser taskName_5023Parser;
+	private IParser taskName_4023Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_5023Parser() {
-		if (taskName_5023Parser == null) {
-			taskName_5023Parser = createTaskName_5023Parser();
+	private IParser getTaskName_4023Parser() {
+		if (taskName_4023Parser == null) {
+			taskName_4023Parser = createTaskName_4023Parser();
 		}
-		return taskName_5023Parser;
+		return taskName_4023Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_5023Parser() {
+	protected IParser createTaskName_4023Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -203,22 +203,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_5024Parser;
+	private IParser resourceName_4024Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_5024Parser() {
-		if (resourceName_5024Parser == null) {
-			resourceName_5024Parser = createResourceName_5024Parser();
+	private IParser getResourceName_4024Parser() {
+		if (resourceName_4024Parser == null) {
+			resourceName_4024Parser = createResourceName_4024Parser();
 		}
-		return resourceName_5024Parser;
+		return resourceName_4024Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_5024Parser() {
+	protected IParser createResourceName_4024Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -229,22 +229,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser goalName_5001Parser;
+	private IParser goalName_4001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_5001Parser() {
-		if (goalName_5001Parser == null) {
-			goalName_5001Parser = createGoalName_5001Parser();
+	private IParser getGoalName_4001Parser() {
+		if (goalName_4001Parser == null) {
+			goalName_4001Parser = createGoalName_4001Parser();
 		}
-		return goalName_5001Parser;
+		return goalName_4001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_5001Parser() {
+	protected IParser createGoalName_4001Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -255,22 +255,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_5002Parser;
+	private IParser softgoalName_4002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_5002Parser() {
-		if (softgoalName_5002Parser == null) {
-			softgoalName_5002Parser = createSoftgoalName_5002Parser();
+	private IParser getSoftgoalName_4002Parser() {
+		if (softgoalName_4002Parser == null) {
+			softgoalName_4002Parser = createSoftgoalName_4002Parser();
 		}
-		return softgoalName_5002Parser;
+		return softgoalName_4002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_5002Parser() {
+	protected IParser createSoftgoalName_4002Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -281,22 +281,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_5003Parser;
+	private IParser resourceName_4003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_5003Parser() {
-		if (resourceName_5003Parser == null) {
-			resourceName_5003Parser = createResourceName_5003Parser();
+	private IParser getResourceName_4003Parser() {
+		if (resourceName_4003Parser == null) {
+			resourceName_4003Parser = createResourceName_4003Parser();
 		}
-		return resourceName_5003Parser;
+		return resourceName_4003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_5003Parser() {
+	protected IParser createResourceName_4003Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -307,22 +307,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser taskName_5004Parser;
+	private IParser taskName_4004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_5004Parser() {
-		if (taskName_5004Parser == null) {
-			taskName_5004Parser = createTaskName_5004Parser();
+	private IParser getTaskName_4004Parser() {
+		if (taskName_4004Parser == null) {
+			taskName_4004Parser = createTaskName_4004Parser();
 		}
-		return taskName_5004Parser;
+		return taskName_4004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_5004Parser() {
+	protected IParser createTaskName_4004Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -333,22 +333,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser goalName_5006Parser;
+	private IParser goalName_4006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_5006Parser() {
-		if (goalName_5006Parser == null) {
-			goalName_5006Parser = createGoalName_5006Parser();
+	private IParser getGoalName_4006Parser() {
+		if (goalName_4006Parser == null) {
+			goalName_4006Parser = createGoalName_4006Parser();
 		}
-		return goalName_5006Parser;
+		return goalName_4006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_5006Parser() {
+	protected IParser createGoalName_4006Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -359,22 +359,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_5007Parser;
+	private IParser softgoalName_4007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_5007Parser() {
-		if (softgoalName_5007Parser == null) {
-			softgoalName_5007Parser = createSoftgoalName_5007Parser();
+	private IParser getSoftgoalName_4007Parser() {
+		if (softgoalName_4007Parser == null) {
+			softgoalName_4007Parser = createSoftgoalName_4007Parser();
 		}
-		return softgoalName_5007Parser;
+		return softgoalName_4007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_5007Parser() {
+	protected IParser createSoftgoalName_4007Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -385,22 +385,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_5008Parser;
+	private IParser resourceName_4008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_5008Parser() {
-		if (resourceName_5008Parser == null) {
-			resourceName_5008Parser = createResourceName_5008Parser();
+	private IParser getResourceName_4008Parser() {
+		if (resourceName_4008Parser == null) {
+			resourceName_4008Parser = createResourceName_4008Parser();
 		}
-		return resourceName_5008Parser;
+		return resourceName_4008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_5008Parser() {
+	protected IParser createResourceName_4008Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -411,22 +411,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser taskName_5009Parser;
+	private IParser taskName_4009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_5009Parser() {
-		if (taskName_5009Parser == null) {
-			taskName_5009Parser = createTaskName_5009Parser();
+	private IParser getTaskName_4009Parser() {
+		if (taskName_4009Parser == null) {
+			taskName_4009Parser = createTaskName_4009Parser();
 		}
-		return taskName_5009Parser;
+		return taskName_4009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_5009Parser() {
+	protected IParser createTaskName_4009Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -437,22 +437,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser goalName_5011Parser;
+	private IParser goalName_4011Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_5011Parser() {
-		if (goalName_5011Parser == null) {
-			goalName_5011Parser = createGoalName_5011Parser();
+	private IParser getGoalName_4011Parser() {
+		if (goalName_4011Parser == null) {
+			goalName_4011Parser = createGoalName_4011Parser();
 		}
-		return goalName_5011Parser;
+		return goalName_4011Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_5011Parser() {
+	protected IParser createGoalName_4011Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -463,22 +463,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_5012Parser;
+	private IParser softgoalName_4012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_5012Parser() {
-		if (softgoalName_5012Parser == null) {
-			softgoalName_5012Parser = createSoftgoalName_5012Parser();
+	private IParser getSoftgoalName_4012Parser() {
+		if (softgoalName_4012Parser == null) {
+			softgoalName_4012Parser = createSoftgoalName_4012Parser();
 		}
-		return softgoalName_5012Parser;
+		return softgoalName_4012Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_5012Parser() {
+	protected IParser createSoftgoalName_4012Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -489,22 +489,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_5013Parser;
+	private IParser resourceName_4013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_5013Parser() {
-		if (resourceName_5013Parser == null) {
-			resourceName_5013Parser = createResourceName_5013Parser();
+	private IParser getResourceName_4013Parser() {
+		if (resourceName_4013Parser == null) {
+			resourceName_4013Parser = createResourceName_4013Parser();
 		}
-		return resourceName_5013Parser;
+		return resourceName_4013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_5013Parser() {
+	protected IParser createResourceName_4013Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -515,22 +515,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser taskName_5014Parser;
+	private IParser taskName_4014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_5014Parser() {
-		if (taskName_5014Parser == null) {
-			taskName_5014Parser = createTaskName_5014Parser();
+	private IParser getTaskName_4014Parser() {
+		if (taskName_4014Parser == null) {
+			taskName_4014Parser = createTaskName_4014Parser();
 		}
-		return taskName_5014Parser;
+		return taskName_4014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_5014Parser() {
+	protected IParser createTaskName_4014Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -541,22 +541,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser goalName_5016Parser;
+	private IParser goalName_4016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGoalName_5016Parser() {
-		if (goalName_5016Parser == null) {
-			goalName_5016Parser = createGoalName_5016Parser();
+	private IParser getGoalName_4016Parser() {
+		if (goalName_4016Parser == null) {
+			goalName_4016Parser = createGoalName_4016Parser();
 		}
-		return goalName_5016Parser;
+		return goalName_4016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createGoalName_5016Parser() {
+	protected IParser createGoalName_4016Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -567,22 +567,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser softgoalName_5017Parser;
+	private IParser softgoalName_4017Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSoftgoalName_5017Parser() {
-		if (softgoalName_5017Parser == null) {
-			softgoalName_5017Parser = createSoftgoalName_5017Parser();
+	private IParser getSoftgoalName_4017Parser() {
+		if (softgoalName_4017Parser == null) {
+			softgoalName_4017Parser = createSoftgoalName_4017Parser();
 		}
-		return softgoalName_5017Parser;
+		return softgoalName_4017Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSoftgoalName_5017Parser() {
+	protected IParser createSoftgoalName_4017Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -593,22 +593,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser resourceName_5018Parser;
+	private IParser resourceName_4018Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceName_5018Parser() {
-		if (resourceName_5018Parser == null) {
-			resourceName_5018Parser = createResourceName_5018Parser();
+	private IParser getResourceName_4018Parser() {
+		if (resourceName_4018Parser == null) {
+			resourceName_4018Parser = createResourceName_4018Parser();
 		}
-		return resourceName_5018Parser;
+		return resourceName_4018Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createResourceName_5018Parser() {
+	protected IParser createResourceName_4018Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -619,22 +619,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser taskName_5019Parser;
+	private IParser taskName_4019Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getTaskName_5019Parser() {
-		if (taskName_5019Parser == null) {
-			taskName_5019Parser = createTaskName_5019Parser();
+	private IParser getTaskName_4019Parser() {
+		if (taskName_4019Parser == null) {
+			taskName_4019Parser = createTaskName_4019Parser();
 		}
-		return taskName_5019Parser;
+		return taskName_4019Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createTaskName_5019Parser() {
+	protected IParser createTaskName_4019Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getIntention_Name(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -645,22 +645,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser helpContributionContributionType_6004Parser;
+	private IParser helpContributionContributionType_4027Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getHelpContributionContributionType_6004Parser() {
-		if (helpContributionContributionType_6004Parser == null) {
-			helpContributionContributionType_6004Parser = createHelpContributionContributionType_6004Parser();
+	private IParser getHelpContributionContributionType_4027Parser() {
+		if (helpContributionContributionType_4027Parser == null) {
+			helpContributionContributionType_4027Parser = createHelpContributionContributionType_4027Parser();
 		}
-		return helpContributionContributionType_6004Parser;
+		return helpContributionContributionType_4027Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createHelpContributionContributionType_6004Parser() {
+	protected IParser createHelpContributionContributionType_4027Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getHelpContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -671,22 +671,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser hurtContributionContributionType_6005Parser;
+	private IParser hurtContributionContributionType_4028Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getHurtContributionContributionType_6005Parser() {
-		if (hurtContributionContributionType_6005Parser == null) {
-			hurtContributionContributionType_6005Parser = createHurtContributionContributionType_6005Parser();
+	private IParser getHurtContributionContributionType_4028Parser() {
+		if (hurtContributionContributionType_4028Parser == null) {
+			hurtContributionContributionType_4028Parser = createHurtContributionContributionType_4028Parser();
 		}
-		return hurtContributionContributionType_6005Parser;
+		return hurtContributionContributionType_4028Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createHurtContributionContributionType_6005Parser() {
+	protected IParser createHurtContributionContributionType_4028Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getHurtContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -697,22 +697,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser makeContributionContributionType_6006Parser;
+	private IParser makeContributionContributionType_4029Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMakeContributionContributionType_6006Parser() {
-		if (makeContributionContributionType_6006Parser == null) {
-			makeContributionContributionType_6006Parser = createMakeContributionContributionType_6006Parser();
+	private IParser getMakeContributionContributionType_4029Parser() {
+		if (makeContributionContributionType_4029Parser == null) {
+			makeContributionContributionType_4029Parser = createMakeContributionContributionType_4029Parser();
 		}
-		return makeContributionContributionType_6006Parser;
+		return makeContributionContributionType_4029Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createMakeContributionContributionType_6006Parser() {
+	protected IParser createMakeContributionContributionType_4029Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getMakeContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -723,22 +723,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser breakContributionContributionType_6007Parser;
+	private IParser breakContributionContributionType_4030Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBreakContributionContributionType_6007Parser() {
-		if (breakContributionContributionType_6007Parser == null) {
-			breakContributionContributionType_6007Parser = createBreakContributionContributionType_6007Parser();
+	private IParser getBreakContributionContributionType_4030Parser() {
+		if (breakContributionContributionType_4030Parser == null) {
+			breakContributionContributionType_4030Parser = createBreakContributionContributionType_4030Parser();
 		}
-		return breakContributionContributionType_6007Parser;
+		return breakContributionContributionType_4030Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createBreakContributionContributionType_6007Parser() {
+	protected IParser createBreakContributionContributionType_4030Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getBreakContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -749,22 +749,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser somePlusContributionContributionType_6008Parser;
+	private IParser somePlusContributionContributionType_4031Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSomePlusContributionContributionType_6008Parser() {
-		if (somePlusContributionContributionType_6008Parser == null) {
-			somePlusContributionContributionType_6008Parser = createSomePlusContributionContributionType_6008Parser();
+	private IParser getSomePlusContributionContributionType_4031Parser() {
+		if (somePlusContributionContributionType_4031Parser == null) {
+			somePlusContributionContributionType_4031Parser = createSomePlusContributionContributionType_4031Parser();
 		}
-		return somePlusContributionContributionType_6008Parser;
+		return somePlusContributionContributionType_4031Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSomePlusContributionContributionType_6008Parser() {
+	protected IParser createSomePlusContributionContributionType_4031Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getSomePlusContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -775,22 +775,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser someMinusContributionContributionType_6009Parser;
+	private IParser someMinusContributionContributionType_4032Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSomeMinusContributionContributionType_6009Parser() {
-		if (someMinusContributionContributionType_6009Parser == null) {
-			someMinusContributionContributionType_6009Parser = createSomeMinusContributionContributionType_6009Parser();
+	private IParser getSomeMinusContributionContributionType_4032Parser() {
+		if (someMinusContributionContributionType_4032Parser == null) {
+			someMinusContributionContributionType_4032Parser = createSomeMinusContributionContributionType_4032Parser();
 		}
-		return someMinusContributionContributionType_6009Parser;
+		return someMinusContributionContributionType_4032Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createSomeMinusContributionContributionType_6009Parser() {
+	protected IParser createSomeMinusContributionContributionType_4032Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getSomeMinusContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -801,22 +801,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser unknownContributionContributionType_6010Parser;
+	private IParser unknownContributionContributionType_4033Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getUnknownContributionContributionType_6010Parser() {
-		if (unknownContributionContributionType_6010Parser == null) {
-			unknownContributionContributionType_6010Parser = createUnknownContributionContributionType_6010Parser();
+	private IParser getUnknownContributionContributionType_4033Parser() {
+		if (unknownContributionContributionType_4033Parser == null) {
+			unknownContributionContributionType_4033Parser = createUnknownContributionContributionType_4033Parser();
 		}
-		return unknownContributionContributionType_6010Parser;
+		return unknownContributionContributionType_4033Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createUnknownContributionContributionType_6010Parser() {
+	protected IParser createUnknownContributionContributionType_4033Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getUnknownContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -827,22 +827,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser andContributionContributionType_6011Parser;
+	private IParser andContributionContributionType_4034Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAndContributionContributionType_6011Parser() {
-		if (andContributionContributionType_6011Parser == null) {
-			andContributionContributionType_6011Parser = createAndContributionContributionType_6011Parser();
+	private IParser getAndContributionContributionType_4034Parser() {
+		if (andContributionContributionType_4034Parser == null) {
+			andContributionContributionType_4034Parser = createAndContributionContributionType_4034Parser();
 		}
-		return andContributionContributionType_6011Parser;
+		return andContributionContributionType_4034Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAndContributionContributionType_6011Parser() {
+	protected IParser createAndContributionContributionType_4034Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getAndContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -853,22 +853,22 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser orContributionContributionType_6012Parser;
+	private IParser orContributionContributionType_4035Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getOrContributionContributionType_6012Parser() {
-		if (orContributionContributionType_6012Parser == null) {
-			orContributionContributionType_6012Parser = createOrContributionContributionType_6012Parser();
+	private IParser getOrContributionContributionType_4035Parser() {
+		if (orContributionContributionType_4035Parser == null) {
+			orContributionContributionType_4035Parser = createOrContributionContributionType_4035Parser();
 		}
-		return orContributionContributionType_6012Parser;
+		return orContributionContributionType_4035Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createOrContributionContributionType_6012Parser() {
+	protected IParser createOrContributionContributionType_4035Parser() {
 		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getOrContribution_ContributionType(), };
 		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
@@ -882,71 +882,71 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID:
-			return getActorName_5005Parser();
+			return getActorName_4005Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentNameEditPart.VISUAL_ID:
-			return getAgentName_5010Parser();
+			return getAgentName_4010Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionNameEditPart.VISUAL_ID:
-			return getPositionName_5015Parser();
+			return getPositionName_4015Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleNameEditPart.VISUAL_ID:
-			return getRoleName_5020Parser();
+			return getRoleName_4020Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalNameEditPart.VISUAL_ID:
-			return getGoalName_5021Parser();
+			return getGoalName_4021Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID:
-			return getSoftgoalName_5022Parser();
+			return getSoftgoalName_4022Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskNameEditPart.VISUAL_ID:
-			return getTaskName_5023Parser();
+			return getTaskName_4023Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart.VISUAL_ID:
-			return getResourceName_5024Parser();
+			return getResourceName_4024Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart.VISUAL_ID:
-			return getGoalName_5001Parser();
+			return getGoalName_4001Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName2EditPart.VISUAL_ID:
-			return getSoftgoalName_5002Parser();
+			return getSoftgoalName_4002Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName2EditPart.VISUAL_ID:
-			return getResourceName_5003Parser();
+			return getResourceName_4003Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName2EditPart.VISUAL_ID:
-			return getTaskName_5004Parser();
+			return getTaskName_4004Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName3EditPart.VISUAL_ID:
-			return getGoalName_5006Parser();
+			return getGoalName_4006Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName3EditPart.VISUAL_ID:
-			return getSoftgoalName_5007Parser();
+			return getSoftgoalName_4007Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName3EditPart.VISUAL_ID:
-			return getResourceName_5008Parser();
+			return getResourceName_4008Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName3EditPart.VISUAL_ID:
-			return getTaskName_5009Parser();
+			return getTaskName_4009Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName4EditPart.VISUAL_ID:
-			return getGoalName_5011Parser();
+			return getGoalName_4011Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName4EditPart.VISUAL_ID:
-			return getSoftgoalName_5012Parser();
+			return getSoftgoalName_4012Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName4EditPart.VISUAL_ID:
-			return getResourceName_5013Parser();
+			return getResourceName_4013Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName4EditPart.VISUAL_ID:
-			return getTaskName_5014Parser();
+			return getTaskName_4014Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName5EditPart.VISUAL_ID:
-			return getGoalName_5016Parser();
+			return getGoalName_4016Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName5EditPart.VISUAL_ID:
-			return getSoftgoalName_5017Parser();
+			return getSoftgoalName_4017Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName5EditPart.VISUAL_ID:
-			return getResourceName_5018Parser();
+			return getResourceName_4018Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID:
-			return getTaskName_5019Parser();
-		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID:
-			return getHelpContributionContributionType_6004Parser();
+			return getTaskName_4019Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart.VISUAL_ID:
+			return getHelpContributionContributionType_4027Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionContributionTypeEditPart.VISUAL_ID:
-			return getHurtContributionContributionType_6005Parser();
+			return getHurtContributionContributionType_4028Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionContributionTypeEditPart.VISUAL_ID:
-			return getMakeContributionContributionType_6006Parser();
+			return getMakeContributionContributionType_4029Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionContributionTypeEditPart.VISUAL_ID:
-			return getBreakContributionContributionType_6007Parser();
+			return getBreakContributionContributionType_4030Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionContributionTypeEditPart.VISUAL_ID:
-			return getSomePlusContributionContributionType_6008Parser();
+			return getSomePlusContributionContributionType_4031Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID:
-			return getSomeMinusContributionContributionType_6009Parser();
+			return getSomeMinusContributionContributionType_4032Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID:
-			return getUnknownContributionContributionType_6010Parser();
+			return getUnknownContributionContributionType_4033Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID:
-			return getAndContributionContributionType_6011Parser();
+			return getAndContributionContributionType_4034Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
-			return getOrContributionContributionType_6012Parser();
+			return getOrContributionContributionType_4035Parser();
 		}
 		return null;
 	}

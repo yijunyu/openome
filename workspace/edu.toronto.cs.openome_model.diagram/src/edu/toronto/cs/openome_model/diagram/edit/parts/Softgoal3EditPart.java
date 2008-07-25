@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -26,7 +26,7 @@ public class Softgoal3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3006;
+	public static final int VISUAL_ID = 2006;
 
 	/**
 	 * @generated
@@ -215,7 +215,7 @@ public class Softgoal3EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureSoftgoalNameFigure;
+		private WrappingLabel fFigureSoftgoalNameFigure;
 
 		/**
 		 * @generated
@@ -230,7 +230,7 @@ public class Softgoal3EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureSoftgoalNameFigure = new WrapLabel();
+			fFigureSoftgoalNameFigure = new WrappingLabel();
 			fFigureSoftgoalNameFigure.setText("");
 
 			this.add(fFigureSoftgoalNameFigure);
@@ -259,7 +259,7 @@ public class Softgoal3EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureSoftgoalNameFigure() {
+		public WrappingLabel getFigureSoftgoalNameFigure() {
 			return fFigureSoftgoalNameFigure;
 		}
 

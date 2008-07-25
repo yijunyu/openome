@@ -4,20 +4,22 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class UnknownContributionEditPart extends ConnectionNodeEditPart {
+public class UnknownContributionEditPart extends ConnectionNodeEditPart
+		implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4011;
+	public static final int VISUAL_ID = 3010;
 
 	/**
 	 * @generated
@@ -87,7 +89,7 @@ public class UnknownContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureUnknownContributionLabel;
+		private WrappingLabel fFigureUnknownContributionLabel;
 
 		/**
 		 * @generated
@@ -104,7 +106,7 @@ public class UnknownContributionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureUnknownContributionLabel = new WrapLabel();
+			fFigureUnknownContributionLabel = new WrappingLabel();
 			fFigureUnknownContributionLabel.setText("Unknown");
 
 			this.add(fFigureUnknownContributionLabel);
@@ -123,7 +125,7 @@ public class UnknownContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureUnknownContributionLabel() {
+		public WrappingLabel getFigureUnknownContributionLabel() {
 			return fFigureUnknownContributionLabel;
 		}
 

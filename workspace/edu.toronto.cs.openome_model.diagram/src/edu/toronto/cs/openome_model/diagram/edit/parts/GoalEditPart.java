@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -26,7 +26,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2005;
+	public static final int VISUAL_ID = 1005;
 
 	/**
 	 * @generated
@@ -214,7 +214,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureGoalNameFigure;
+		private WrappingLabel fFigureGoalNameFigure;
 
 		/**
 		 * @generated
@@ -229,7 +229,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureGoalNameFigure = new WrapLabel();
+			fFigureGoalNameFigure = new WrappingLabel();
 			fFigureGoalNameFigure.setText("");
 
 			this.add(fFigureGoalNameFigure);
@@ -258,7 +258,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureGoalNameFigure() {
+		public WrappingLabel getFigureGoalNameFigure() {
 			return fFigureGoalNameFigure;
 		}
 

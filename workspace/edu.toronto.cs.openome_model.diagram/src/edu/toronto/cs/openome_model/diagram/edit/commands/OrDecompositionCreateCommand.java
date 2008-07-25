@@ -64,11 +64,11 @@ public class OrDecompositionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		if (source != null
-				&& !(source instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == source instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (target != null
-				&& !(target instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == target instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -79,7 +79,7 @@ public class OrDecompositionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateOrDecomposition_4003(getContainer(), getSource(),
+				.canCreateOrDecomposition_3003(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,7 +87,6 @@ public class OrDecompositionCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.OrDecomposition newElement = (edu.toronto.cs.openome_model.OrDecomposition) super.doDefaultElementCreation();
 		edu.toronto.cs.openome_model.OrDecomposition newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createOrDecomposition();
 		getContainer().getDecompositions().add(newElement);

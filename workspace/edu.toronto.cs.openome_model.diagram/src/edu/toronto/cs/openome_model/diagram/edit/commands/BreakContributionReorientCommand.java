@@ -42,7 +42,7 @@ public class BreakContributionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.BreakContribution)) {
+		if (false == getElementToEdit() instanceof edu.toronto.cs.openome_model.BreakContribution) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -68,7 +68,7 @@ public class BreakContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistBreakContribution_4008(container, getNewSource(),
+				.canExistBreakContribution_3007(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class BreakContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistBreakContribution_4008(container, source,
+				.canExistBreakContribution_3007(container, source,
 						getNewTarget());
 	}
 

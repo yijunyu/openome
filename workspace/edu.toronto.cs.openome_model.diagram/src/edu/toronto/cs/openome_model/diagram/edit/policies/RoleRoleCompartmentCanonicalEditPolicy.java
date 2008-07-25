@@ -27,7 +27,7 @@ public class RoleRoleCompartmentCanonicalEditPolicy extends CanonicalEditPolicy 
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-				.getRoleRoleCompartment_7004SemanticChildren(viewObject)
+				.getRoleRoleCompartment_5004SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result
 					.add(((edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor) it
@@ -47,10 +47,9 @@ public class RoleRoleCompartmentCanonicalEditPolicy extends CanonicalEditPolicy 
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

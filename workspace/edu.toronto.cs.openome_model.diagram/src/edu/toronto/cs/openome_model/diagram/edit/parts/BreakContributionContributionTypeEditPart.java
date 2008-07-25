@@ -28,7 +28,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
@@ -51,7 +51,7 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6007;
+	public static final int VISUAL_ID = 4030;
 
 	/**
 	 * @generated
@@ -110,8 +110,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getText();
+		if (figure instanceof WrappingLabel) {
+			return ((WrappingLabel) figure).getText();
 		} else {
 			return ((Label) figure).getText();
 		}
@@ -121,8 +121,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setText(text);
+		if (figure instanceof WrappingLabel) {
+			((WrappingLabel) figure).setText(text);
 		} else {
 			((Label) figure).setText(text);
 		}
@@ -132,8 +132,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected Image getLabelIconHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getIcon();
+		if (figure instanceof WrappingLabel) {
+			return ((WrappingLabel) figure).getIcon();
 		} else {
 			return ((Label) figure).getIcon();
 		}
@@ -143,8 +143,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setIcon(icon);
+		if (figure instanceof WrappingLabel) {
+			((WrappingLabel) figure).setIcon(icon);
 		} else {
 			((Label) figure).setIcon(icon);
 		}
@@ -153,7 +153,7 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -295,7 +295,7 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_4008,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -416,8 +416,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	protected void refreshUnderline() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextUnderline(style.isUnderline());
+		if (style != null && getFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getFigure()).setTextUnderline(style.isUnderline());
 		}
 	}
 
@@ -427,8 +427,8 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	protected void refreshStrikeThrough() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextStrikeThrough(style
+		if (style != null && getFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getFigure()).setTextStrikeThrough(style
 					.isStrikeThrough());
 		}
 	}

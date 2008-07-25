@@ -42,7 +42,7 @@ public class AndDecompositionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(getElementToEdit() instanceof edu.toronto.cs.openome_model.AndDecomposition)) {
+		if (false == getElementToEdit() instanceof edu.toronto.cs.openome_model.AndDecomposition) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -68,7 +68,7 @@ public class AndDecompositionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAndDecomposition_4002(container, getNewSource(),
+				.canExistAndDecomposition_3002(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class AndDecompositionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAndDecomposition_4002(container, source,
+				.canExistAndDecomposition_3002(container, source,
 						getNewTarget());
 	}
 

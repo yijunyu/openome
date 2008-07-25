@@ -8,7 +8,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
 import org.eclipse.gef.tools.CellEditorLocator;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
@@ -248,24 +248,24 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabel2EditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
@@ -349,8 +349,8 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 	 */
 	public static CellEditorLocator getTextCellEditorLocator(
 			ITextAwareEditPart source) {
-		if (source.getFigure() instanceof WrapLabel)
-			return new TextCellEditorLocator((WrapLabel) source.getFigure());
+		if (source.getFigure() instanceof WrappingLabel)
+			return new TextCellEditorLocator((WrappingLabel) source.getFigure());
 		else {
 			return new LabelCellEditorLocator((Label) source.getFigure());
 		}
@@ -364,19 +364,19 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 		/**
 		 * @generated
 		 */
-		private WrapLabel wrapLabel;
+		private WrappingLabel wrapLabel;
 
 		/**
 		 * @generated
 		 */
-		public TextCellEditorLocator(WrapLabel wrapLabel) {
+		public TextCellEditorLocator(WrappingLabel wrapLabel) {
 			this.wrapLabel = wrapLabel;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getWrapLabel() {
+		public WrappingLabel getWrapLabel() {
 			return wrapLabel;
 		}
 
@@ -387,7 +387,7 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 			Text text = (Text) celleditor.getControl();
 			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
 			getWrapLabel().translateToAbsolute(rect);
-			if (getWrapLabel().isTextWrapped()
+			if (getWrapLabel().isTextWrapOn()
 					&& getWrapLabel().getText().length() > 0) {
 				rect.setSize(new Dimension(text.computeSize(rect.width,
 						SWT.DEFAULT)));
@@ -401,7 +401,6 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);
 			}
 		}
-
 	}
 
 	/**

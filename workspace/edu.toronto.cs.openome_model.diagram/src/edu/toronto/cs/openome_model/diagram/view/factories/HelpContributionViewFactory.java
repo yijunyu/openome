@@ -51,7 +51,7 @@ public class HelpContributionViewFactory extends ConnectionViewFactory {
 						eObjectAdapter,
 						view,
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID),
+								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 
 		// ensures that the link/connectors have smooth curvature

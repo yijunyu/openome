@@ -51,7 +51,7 @@ public class AndDecompositionViewFactory extends ConnectionViewFactory {
 						eObjectAdapter,
 						view,
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrapLabelEditPart.VISUAL_ID),
+								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 
 		// ensures that the link/connector stays straight.. 

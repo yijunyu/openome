@@ -167,50 +167,33 @@
           active="//@palette/@tools.0/@tools.15">
         <tools
             xsi:type="gmftool:CreationTool"
-            title="Help"
-            description="Create new help contribution.">
-          <smallIcon
-              xsi:type="gmftool:BundleImage"
-              path="/icons/helpcontribution.gif"
-              bundle="openome_model"/>
-          <largeIcon
-              xsi:type="gmftool:BundleImage"
-              path="/icons/helpcontribution.gif"
-              bundle="openome_model"/>
-        </tools>
-        <tools
-            xsi:type="gmftool:CreationTool"
-            title="Hurt"
-            description="Create a hurt contribution."/>
-        <tools
-            xsi:type="gmftool:CreationTool"
             title="Make"
             description="Create a make contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
-              path="icons/makecontribution.png"
+              path="icons/contribution.png"
               bundle="openome_model"/>
         </tools>
         <tools
             xsi:type="gmftool:CreationTool"
-            title="Break"
-            description="Create a break contribution."/>
-        <tools
-            xsi:type="gmftool:CreationTool"
-            title="Some Plus"
+            title="Some+"
             description="Create a some plus contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
-              path="icons/somepluscontribution.png"
+              path="icons/contribution.png"
               bundle="openome_model"/>
         </tools>
         <tools
             xsi:type="gmftool:CreationTool"
-            title="Some Minus"
-            description="Create a some minus contribution.">
+            title="Help"
+            description="Create new help contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
-              path="icons/someminuscontribution.png"
+              path="/icons/contribution.png"
+              bundle="openome_model"/>
+          <largeIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/contribution.png"
               bundle="openome_model"/>
         </tools>
         <tools
@@ -219,21 +202,58 @@
             description="Create an unknown contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
-              path="icons/unknowncontribution.png"
+              path="icons/contribution.png"
               bundle="openome_model"/>
           <largeIcon
               xsi:type="gmftool:BundleImage"
-              path="icons/unknowncontribution.png"
+              path="icons/contribution.png"
+              bundle="openome_model"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Hurt"
+            description="Create a hurt contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/contribution.png"
+              bundle="openome_model"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Some-"
+            description="Create a some minus contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/contribution.png"
+              bundle="openome_model"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Break"
+            description="Create a break contribution.">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/contribution.png"
               bundle="openome_model"/>
         </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="And"
-            description="Create an And Contribution"/>
+            description="Create an And Contribution">
+        <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/contribution.png"
+              bundle="openome_model"/>
+        </tools>
         <tools
             xsi:type="gmftool:CreationTool"
             title="Or"
-            description="Create an Or Contribution"/>
+            description="Create an Or Contribution">        
+        <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/contribution.png"
+              bundle="openome_model"/>
+        </tools>
       </tools>
     </tools>
   </palette>

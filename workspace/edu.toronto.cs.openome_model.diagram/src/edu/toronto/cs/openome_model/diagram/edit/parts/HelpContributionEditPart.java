@@ -4,20 +4,22 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class HelpContributionEditPart extends ConnectionNodeEditPart {
+public class HelpContributionEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4005;
+	public static final int VISUAL_ID = 3004;
 
 	/**
 	 * @generated
@@ -40,8 +42,8 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart) childEditPart)
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart) {
+			((edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureHelpContributionLabel());
 			return true;
@@ -87,7 +89,7 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureHelpContributionLabel;
+		private WrappingLabel fFigureHelpContributionLabel;
 
 		/**
 		 * @generated
@@ -104,7 +106,7 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureHelpContributionLabel = new WrapLabel();
+			fFigureHelpContributionLabel = new WrappingLabel();
 			fFigureHelpContributionLabel.setText("+");
 
 			this.add(fFigureHelpContributionLabel);
@@ -123,7 +125,7 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureHelpContributionLabel() {
+		public WrappingLabel getFigureHelpContributionLabel() {
 			return fFigureHelpContributionLabel;
 		}
 

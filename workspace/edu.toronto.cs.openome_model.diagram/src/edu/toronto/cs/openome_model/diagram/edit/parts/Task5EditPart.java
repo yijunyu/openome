@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -26,7 +26,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3016;
+	public static final int VISUAL_ID = 2016;
 
 	/**
 	 * @generated
@@ -214,7 +214,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureTaskNameFigure;
+		private WrappingLabel fFigureTaskNameFigure;
 
 		/**
 		 * @generated
@@ -229,7 +229,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureTaskNameFigure = new WrapLabel();
+			fFigureTaskNameFigure = new WrappingLabel();
 			fFigureTaskNameFigure.setText("");
 
 			this.add(fFigureTaskNameFigure);
@@ -258,7 +258,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureTaskNameFigure() {
+		public WrappingLabel getFigureTaskNameFigure() {
 			return fFigureTaskNameFigure;
 		}
 

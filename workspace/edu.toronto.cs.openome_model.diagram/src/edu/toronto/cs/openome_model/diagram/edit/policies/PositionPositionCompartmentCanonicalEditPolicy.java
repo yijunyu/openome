@@ -28,7 +28,7 @@ public class PositionPositionCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-				.getPositionPositionCompartment_7003SemanticChildren(viewObject)
+				.getPositionPositionCompartment_5003SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result
 					.add(((edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor) it
@@ -48,10 +48,9 @@ public class PositionPositionCompartmentCanonicalEditPolicy extends
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

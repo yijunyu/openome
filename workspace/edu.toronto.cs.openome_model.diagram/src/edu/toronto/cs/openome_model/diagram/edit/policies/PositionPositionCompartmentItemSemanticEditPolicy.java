@@ -14,7 +14,7 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3009 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2009 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -24,7 +24,7 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Goal4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3010 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2010 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -34,7 +34,7 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Softgoal4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3011 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2011 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
@@ -44,7 +44,7 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Resource4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3012 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2012 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

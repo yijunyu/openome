@@ -64,11 +64,11 @@ public class UnknownContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		if (source != null
-				&& !(source instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == source instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (target != null
-				&& !(target instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == target instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -79,7 +79,7 @@ public class UnknownContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateUnknownContribution_4011(getContainer(), getSource(),
+				.canCreateUnknownContribution_3010(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,7 +87,6 @@ public class UnknownContributionCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.UnknownContribution newElement = (edu.toronto.cs.openome_model.UnknownContribution) super.doDefaultElementCreation();
 		edu.toronto.cs.openome_model.UnknownContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createUnknownContribution();
 		getContainer().getContributions().add(newElement);

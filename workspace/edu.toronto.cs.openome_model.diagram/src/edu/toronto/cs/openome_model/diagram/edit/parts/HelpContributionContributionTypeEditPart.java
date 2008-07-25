@@ -28,7 +28,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
@@ -45,13 +45,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class HelpContributionNameEditPart extends LabelEditPart implements
-		ITextAwareEditPart {
+public class HelpContributionContributionTypeEditPart extends LabelEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6004;
+	public static final int VISUAL_ID = 4027;
 
 	/**
 	 * @generated
@@ -79,14 +79,14 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionNameEditPart.VISUAL_ID),
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart.VISUAL_ID),
 				new Point(0, 0));
 	}
 
 	/**
 	 * @generated
 	 */
-	public HelpContributionNameEditPart(View view) {
+	public HelpContributionContributionTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -110,8 +110,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getText();
+		if (figure instanceof WrappingLabel) {
+			return ((WrappingLabel) figure).getText();
 		} else {
 			return ((Label) figure).getText();
 		}
@@ -121,8 +121,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setText(text);
+		if (figure instanceof WrappingLabel) {
+			((WrappingLabel) figure).setText(text);
 		} else {
 			((Label) figure).setText(text);
 		}
@@ -132,8 +132,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIconHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getIcon();
+		if (figure instanceof WrappingLabel) {
+			return ((WrappingLabel) figure).getIcon();
 		} else {
 			return ((Label) figure).getIcon();
 		}
@@ -143,8 +143,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setIcon(icon);
+		if (figure instanceof WrappingLabel) {
+			((WrappingLabel) figure).setIcon(icon);
 		} else {
 			((Label) figure).setIcon(icon);
 		}
@@ -153,7 +153,7 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -295,7 +295,7 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_4005,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_3004,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -416,8 +416,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	protected void refreshUnderline() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextUnderline(style.isUnderline());
+		if (style != null && getFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getFigure()).setTextUnderline(style.isUnderline());
 		}
 	}
 
@@ -427,8 +427,8 @@ public class HelpContributionNameEditPart extends LabelEditPart implements
 	protected void refreshStrikeThrough() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextStrikeThrough(style
+		if (style != null && getFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getFigure()).setTextStrikeThrough(style
 					.isStrikeThrough());
 		}
 	}

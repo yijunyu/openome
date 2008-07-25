@@ -2,10 +2,10 @@
 <gmfgen:GenEditorGenerator xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2006/GenModel" diagramFileExtension="ood"
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2008/GenModel" diagramFileExtension="ood"
     domainFileExtension="oom">
   <diagram
-      visualID="1000"
+      visualID="79"
       editPartClassName="ModelEditPart"
       itemSemanticEditPolicyClassName="ModelItemSemanticEditPolicy"
       notationViewFactoryClassName="ModelViewFactory"
@@ -24,7 +24,7 @@
     <domainDiagramElement
         href="openome_model.genmodel#//openome_model/Model"/>
     <childNodes
-        visualID="3001"
+        visualID="2001"
         editPartClassName="Goal2EditPart"
         itemSemanticEditPolicyClassName="Goal2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal2ViewFactory"
@@ -40,21 +40,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="GoalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.1">
         <metaClass
             href="openome_model.genmodel#//openome_model/Goal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="4001"
           editPartClassName="GoalName2EditPart"
           itemSemanticEditPolicyClassName="GoalName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName2ViewFactory">
@@ -63,7 +62,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureGoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -73,7 +72,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3002"
+        visualID="2002"
         editPartClassName="Softgoal2EditPart"
         itemSemanticEditPolicyClassName="Softgoal2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal2ViewFactory"
@@ -89,21 +88,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SoftGoalSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.2">
         <metaClass
             href="openome_model.genmodel#//openome_model/Softgoal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="4002"
           editPartClassName="SoftgoalName2EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName2ViewFactory">
@@ -112,7 +110,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSoftgoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -122,7 +120,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3003"
+        visualID="2003"
         editPartClassName="Resource2EditPart"
         itemSemanticEditPolicyClassName="Resource2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource2ViewFactory"
@@ -138,21 +136,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ResourceSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.3">
         <metaClass
             href="openome_model.genmodel#//openome_model/Resource"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="4003"
           editPartClassName="ResourceName2EditPart"
           itemSemanticEditPolicyClassName="ResourceName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName2ViewFactory">
@@ -161,7 +158,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureResourceNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -171,7 +168,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3004"
+        visualID="2004"
         editPartClassName="Task2EditPart"
         itemSemanticEditPolicyClassName="Task2ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task2ViewFactory"
@@ -187,21 +184,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TaskSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.4">
         <metaClass
             href="openome_model.genmodel#//openome_model/Task"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="5004"
+          visualID="4004"
           editPartClassName="TaskName2EditPart"
           itemSemanticEditPolicyClassName="TaskName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName2ViewFactory">
@@ -210,7 +206,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureTaskNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -220,7 +216,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3005"
+        visualID="2005"
         editPartClassName="Goal3EditPart"
         itemSemanticEditPolicyClassName="Goal3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal3ViewFactory"
@@ -236,21 +232,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="GoalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.6">
         <metaClass
             href="openome_model.genmodel#//openome_model/Goal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="5006"
+          visualID="4006"
           editPartClassName="GoalName3EditPart"
           itemSemanticEditPolicyClassName="GoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName3ViewFactory">
@@ -259,7 +254,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureGoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -269,7 +264,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3006"
+        visualID="2006"
         editPartClassName="Softgoal3EditPart"
         itemSemanticEditPolicyClassName="Softgoal3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal3ViewFactory"
@@ -285,21 +280,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SoftGoalSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.7">
         <metaClass
             href="openome_model.genmodel#//openome_model/Softgoal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="5007"
+          visualID="4007"
           editPartClassName="SoftgoalName3EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName3ViewFactory">
@@ -308,7 +302,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSoftgoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
@@ -317,7 +311,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3007"
+        visualID="2007"
         editPartClassName="Resource3EditPart"
         itemSemanticEditPolicyClassName="Resource3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource3ViewFactory"
@@ -333,21 +327,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ResourceSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.8">
         <metaClass
             href="openome_model.genmodel#//openome_model/Resource"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="5008"
+          visualID="4008"
           editPartClassName="ResourceName3EditPart"
           itemSemanticEditPolicyClassName="ResourceName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName3ViewFactory">
@@ -356,7 +349,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureResourceNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -366,7 +359,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3008"
+        visualID="2008"
         editPartClassName="Task3EditPart"
         itemSemanticEditPolicyClassName="Task3ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task3ViewFactory"
@@ -382,21 +375,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TaskSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.9">
         <metaClass
             href="openome_model.genmodel#//openome_model/Task"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="5009"
+          visualID="4009"
           editPartClassName="TaskName3EditPart"
           itemSemanticEditPolicyClassName="TaskName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName3ViewFactory">
@@ -405,7 +397,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureTaskNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -415,7 +407,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3009"
+        visualID="2009"
         editPartClassName="Goal4EditPart"
         itemSemanticEditPolicyClassName="Goal4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal4ViewFactory"
@@ -431,21 +423,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="GoalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.10">
         <metaClass
             href="openome_model.genmodel#//openome_model/Goal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="5011"
+          visualID="4011"
           editPartClassName="GoalName4EditPart"
           itemSemanticEditPolicyClassName="GoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName4ViewFactory">
@@ -454,7 +445,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureGoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -464,7 +455,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3010"
+        visualID="2010"
         editPartClassName="Softgoal4EditPart"
         itemSemanticEditPolicyClassName="Softgoal4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal4ViewFactory"
@@ -480,21 +471,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SoftGoalSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.11">
         <metaClass
             href="openome_model.genmodel#//openome_model/Softgoal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="5012"
+          visualID="4012"
           editPartClassName="SoftgoalName4EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName4ViewFactory">
@@ -503,7 +493,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSoftgoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
@@ -512,7 +502,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3011"
+        visualID="2011"
         editPartClassName="Resource4EditPart"
         itemSemanticEditPolicyClassName="Resource4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource4ViewFactory"
@@ -528,21 +518,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ResourceSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.12">
         <metaClass
             href="openome_model.genmodel#//openome_model/Resource"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="5013"
+          visualID="4013"
           editPartClassName="ResourceName4EditPart"
           itemSemanticEditPolicyClassName="ResourceName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName4ViewFactory">
@@ -551,7 +540,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureResourceNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -561,7 +550,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3012"
+        visualID="2012"
         editPartClassName="Task4EditPart"
         itemSemanticEditPolicyClassName="Task4ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task4ViewFactory"
@@ -577,21 +566,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TaskSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.13">
         <metaClass
             href="openome_model.genmodel#//openome_model/Task"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="5014"
+          visualID="4014"
           editPartClassName="TaskName4EditPart"
           itemSemanticEditPolicyClassName="TaskName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName4ViewFactory">
@@ -600,7 +588,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureTaskNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -610,7 +598,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3013"
+        visualID="2013"
         editPartClassName="Goal5EditPart"
         itemSemanticEditPolicyClassName="Goal5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Goal5ViewFactory"
@@ -626,21 +614,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="GoalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.14">
         <metaClass
             href="openome_model.genmodel#//openome_model/Goal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="5016"
+          visualID="4016"
           editPartClassName="GoalName5EditPart"
           itemSemanticEditPolicyClassName="GoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName5ViewFactory">
@@ -649,7 +636,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureGoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -659,7 +646,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3014"
+        visualID="2014"
         editPartClassName="Softgoal5EditPart"
         itemSemanticEditPolicyClassName="Softgoal5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Softgoal5ViewFactory"
@@ -675,21 +662,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SoftGoalSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.15">
         <metaClass
             href="openome_model.genmodel#//openome_model/Softgoal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="5017"
+          visualID="4017"
           editPartClassName="SoftgoalName5EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName5ViewFactory">
@@ -698,7 +684,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSoftgoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
@@ -707,7 +693,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3015"
+        visualID="2015"
         editPartClassName="Resource5EditPart"
         itemSemanticEditPolicyClassName="Resource5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Resource5ViewFactory"
@@ -723,21 +709,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ResourceSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.16">
         <metaClass
             href="openome_model.genmodel#//openome_model/Resource"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="5018"
+          visualID="4018"
           editPartClassName="ResourceName5EditPart"
           itemSemanticEditPolicyClassName="ResourceName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName5ViewFactory">
@@ -746,7 +731,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureResourceNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -756,7 +741,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3016"
+        visualID="2016"
         editPartClassName="Task5EditPart"
         itemSemanticEditPolicyClassName="Task5ItemSemanticEditPolicy"
         notationViewFactoryClassName="Task5ViewFactory"
@@ -772,21 +757,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TaskSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.17">
         <metaClass
             href="openome_model.genmodel#//openome_model/Task"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="5019"
+          visualID="4019"
           editPartClassName="TaskName5EditPart"
           itemSemanticEditPolicyClassName="TaskName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName5ViewFactory">
@@ -795,7 +779,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureTaskNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -805,7 +789,7 @@
       </labels>
     </childNodes>
     <topLevelNodes
-        visualID="2001"
+        visualID="1001"
         editPartClassName="ActorEditPart"
         itemSemanticEditPolicyClassName="ActorItemSemanticEditPolicy"
         notationViewFactoryClassName="ActorViewFactory"
@@ -821,24 +805,23 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ActorFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActorFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureActorBoundaryFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureActorNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActorFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActorBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureActorBoundaryFigure.setLineWidth(3);&#xA;fFigureActorBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureActorBoundaryFigure.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureActorBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigureActorBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.ActorSVGFigure actorSVGFigure1 = new openome_model.figures.ActorSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureActorBoundaryFigure.add(actorSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureActorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureActorNameFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureActorNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureActorBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureActorBoundaryFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureActorNameFigure() {&#xA;&#x9;&#x9;return fFigureActorNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREACTORBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREACTORNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActorFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureActorBoundaryFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActorNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActorBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureActorBoundaryFigure.setLineWidth(3);&#xA;fFigureActorBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureActorBoundaryFigure.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureActorBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;fFigureActorBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.ActorSVGFigure actorSVGFigure1 = new openome_model.figures.ActorSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureActorBoundaryFigure.add(actorSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureActorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActorNameFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureActorNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureActorBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureActorBoundaryFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActorNameFigure() {&#xA;&#x9;&#x9;return fFigureActorNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREACTORBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREACTORNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"
             resizeHandles="20"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.0">
         <metaClass
             href="openome_model.genmodel#//openome_model/Actor"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/containers"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/containers"/>
-        <modelElementSelector
-            body="oclIsKindOf(Actor)"/>
       </modelFacet>
       <labels
-          visualID="5005"
+          visualID="4005"
           editPartClassName="ActorNameEditPart"
           itemSemanticEditPolicyClassName="ActorNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ActorNameViewFactory">
@@ -847,7 +830,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureActorNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedFont="true"/>
@@ -860,7 +843,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
+        visualID="1002"
         editPartClassName="AgentEditPart"
         itemSemanticEditPolicyClassName="AgentItemSemanticEditPolicy"
         notationViewFactoryClassName="AgentViewFactory"
@@ -876,21 +859,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AgentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AgentFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureAgentNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureAgentBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AgentFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAgentNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureAgentNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureAgentNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureAgentBoundaryFigure.setLineWidth(3);&#xA;fFigureAgentBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureAgentBoundaryFigure.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureAgentBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigureAgentBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.AgentSVGFigure agentSVGFigure1 = new openome_model.figures.AgentSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure.add(agentSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureAgentNameFigure() {&#xA;&#x9;&#x9;return fFigureAgentNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureAgentBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureAgentBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAGENTNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREAGENTBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AgentFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAgentNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureAgentBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AgentFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAgentNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureAgentNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureAgentNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureAgentBoundaryFigure.setLineWidth(3);&#xA;fFigureAgentBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureAgentBoundaryFigure.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureAgentBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;fFigureAgentBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.AgentSVGFigure agentSVGFigure1 = new openome_model.figures.AgentSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureAgentBoundaryFigure.add(agentSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAgentNameFigure() {&#xA;&#x9;&#x9;return fFigureAgentNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureAgentBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureAgentBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREAGENTNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREAGENTBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.5">
         <metaClass
             href="openome_model.genmodel#//openome_model/Agent"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/containers"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/containers"/>
-        <modelElementSelector
-            body="oclIsKindOf(Agent)"/>
       </modelFacet>
       <labels
-          visualID="5010"
+          visualID="4010"
           editPartClassName="AgentNameEditPart"
           itemSemanticEditPolicyClassName="AgentNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AgentNameViewFactory">
@@ -899,7 +881,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureAgentNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedFont="true"/>
@@ -912,7 +894,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="1003"
         editPartClassName="PositionEditPart"
         itemSemanticEditPolicyClassName="PositionItemSemanticEditPolicy"
         notationViewFactoryClassName="PositionViewFactory"
@@ -928,7 +910,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="PositionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PositionFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigurePositionNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigurePositionBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PositionFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePositionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigurePositionNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePositionNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigurePositionBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigurePositionBoundaryFigure.setLineWidth(3);&#xA;fFigurePositionBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigurePositionBoundaryFigure.setBackgroundColor(FFIGUREPOSITIONBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigurePositionBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigurePositionBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.PositionSVGFigure positionSVGFigure1 = new openome_model.figures.PositionSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigurePositionBoundaryFigure.add(positionSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigurePositionNameFigure() {&#xA;&#x9;&#x9;return fFigurePositionNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigurePositionBoundaryFigure() {&#xA;&#x9;&#x9;return fFigurePositionBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSITIONNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREPOSITIONBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PositionFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePositionNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigurePositionBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PositionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePositionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigurePositionNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigurePositionNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigurePositionBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigurePositionBoundaryFigure.setLineWidth(3);&#xA;fFigurePositionBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigurePositionBoundaryFigure.setBackgroundColor(FFIGUREPOSITIONBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigurePositionBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;fFigurePositionBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.PositionSVGFigure positionSVGFigure1 = new openome_model.figures.PositionSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigurePositionBoundaryFigure.add(positionSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePositionNameFigure() {&#xA;&#x9;&#x9;return fFigurePositionNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigurePositionBoundaryFigure() {&#xA;&#x9;&#x9;return fFigurePositionBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREPOSITIONNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREPOSITIONBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -940,7 +922,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="5015"
+          visualID="4015"
           editPartClassName="PositionNameEditPart"
           itemSemanticEditPolicyClassName="PositionNameItemSemanticEditPolicy"
           notationViewFactoryClassName="PositionNameViewFactory">
@@ -949,7 +931,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigurePositionNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedFont="true"/>
@@ -962,7 +944,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2004"
+        visualID="1004"
         editPartClassName="RoleEditPart"
         itemSemanticEditPolicyClassName="RoleItemSemanticEditPolicy"
         notationViewFactoryClassName="RoleViewFactory"
@@ -978,7 +960,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="RoleFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoleFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureRoleNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureRoleBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoleFigure() {&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRoleNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureRoleNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureRoleNameFigure.setFont(FFIGUREROLENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureRoleNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureRoleBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureRoleBoundaryFigure.setLineWidth(3);&#xA;fFigureRoleBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureRoleBoundaryFigure.setBackgroundColor(FFIGUREROLEBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureRoleBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;&#xA;fFigureRoleBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.RoleSVGFigure roleSVGFigure1 = new openome_model.figures.RoleSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureRoleBoundaryFigure.add(roleSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureRoleNameFigure() {&#xA;&#x9;&#x9;return fFigureRoleNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureRoleBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureRoleBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREROLENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREROLEBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RoleFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRoleNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureRoleBoundaryFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RoleFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRoleNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRoleNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureRoleNameFigure.setFont(FFIGUREROLENAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureRoleNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#xA;fFigureRoleBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureRoleBoundaryFigure.setLineWidth(3);&#xA;fFigureRoleBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureRoleBoundaryFigure.setBackgroundColor(FFIGUREROLEBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureRoleBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;fFigureRoleBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.RoleSVGFigure roleSVGFigure1 = new openome_model.figures.RoleSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureRoleBoundaryFigure.add(roleSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRoleNameFigure() {&#xA;&#x9;&#x9;return fFigureRoleNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureRoleBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureRoleBoundaryFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREROLENAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREROLEBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet>
@@ -990,7 +972,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="5020"
+          visualID="4020"
           editPartClassName="RoleNameEditPart"
           itemSemanticEditPolicyClassName="RoleNameItemSemanticEditPolicy"
           notationViewFactoryClassName="RoleNameViewFactory">
@@ -999,7 +981,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureRoleNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedFont="true"/>
@@ -1012,7 +994,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2005"
+        visualID="1005"
         editPartClassName="GoalEditPart"
         itemSemanticEditPolicyClassName="GoalItemSemanticEditPolicy"
         notationViewFactoryClassName="GoalViewFactory"
@@ -1027,21 +1009,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="GoalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalFigure extends openome_model.figures.GoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureGoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureGoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureGoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalNameFigure() {&#xA;&#x9;&#x9;return fFigureGoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.18">
         <metaClass
             href="openome_model.genmodel#//openome_model/Goal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Goal)"/>
       </modelFacet>
       <labels
-          visualID="5021"
+          visualID="4021"
           editPartClassName="GoalNameEditPart"
           itemSemanticEditPolicyClassName="GoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalNameViewFactory">
@@ -1050,7 +1031,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureGoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -1060,7 +1041,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2006"
+        visualID="1006"
         editPartClassName="SoftgoalEditPart"
         itemSemanticEditPolicyClassName="SoftgoalItemSemanticEditPolicy"
         notationViewFactoryClassName="SoftgoalViewFactory"
@@ -1075,21 +1056,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SoftGoalSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SoftGoalSVGFigure extends openome_model.figures.SoftGoalSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSoftgoalNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SoftGoalSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSoftgoalNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSoftgoalNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureSoftgoalNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSoftgoalNameFigure() {&#xA;&#x9;&#x9;return fFigureSoftgoalNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.19">
         <metaClass
             href="openome_model.genmodel#//openome_model/Softgoal"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Softgoal)"/>
       </modelFacet>
       <labels
-          visualID="5022"
+          visualID="4022"
           editPartClassName="SoftgoalNameEditPart"
           itemSemanticEditPolicyClassName="SoftgoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalNameViewFactory">
@@ -1098,7 +1078,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSoftgoalNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeatures
@@ -1107,7 +1087,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2007"
+        visualID="1007"
         editPartClassName="TaskEditPart"
         itemSemanticEditPolicyClassName="TaskItemSemanticEditPolicy"
         notationViewFactoryClassName="TaskViewFactory"
@@ -1122,21 +1102,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="TaskSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskSVGFigure extends openome_model.figures.TaskSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureTaskNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNameFigure() {&#xA;&#x9;&#x9;return fFigureTaskNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.20">
         <metaClass
             href="openome_model.genmodel#//openome_model/Task"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Task)"/>
       </modelFacet>
       <labels
-          visualID="5023"
+          visualID="4023"
           editPartClassName="TaskNameEditPart"
           itemSemanticEditPolicyClassName="TaskNameItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskNameViewFactory">
@@ -1145,7 +1124,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureTaskNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -1155,7 +1134,7 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2008"
+        visualID="1008"
         editPartClassName="ResourceEditPart"
         itemSemanticEditPolicyClassName="ResourceItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceViewFactory"
@@ -1170,21 +1149,20 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ResourceSVGFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ResourceSVGFigure extends openome_model.figures.ResourceSVGFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureResourceNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ResourceSVGFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureResourceNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureResourceNameFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fFigureResourceNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureResourceNameFigure() {&#xA;&#x9;&#x9;return fFigureResourceNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
+      <modelFacet
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.21">
         <metaClass
             href="openome_model.genmodel#//openome_model/Resource"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
-        <modelElementSelector
-            body="oclIsKindOf(Resource)"/>
       </modelFacet>
       <labels
-          visualID="5024"
+          visualID="4024"
           editPartClassName="ResourceNameEditPart"
           itemSemanticEditPolicyClassName="ResourceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceNameViewFactory">
@@ -1193,7 +1171,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureResourceNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -1203,7 +1181,7 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="3001"
         editPartClassName="DependencyEditPart"
         itemSemanticEditPolicyClassName="DependencyItemSemanticEditPolicy"
         notationViewFactoryClassName="DependencyViewFactory"
@@ -1234,7 +1212,7 @@
       </modelFacet>
     </links>
     <links
-        visualID="4002"
+        visualID="3002"
         editPartClassName="AndDecompositionEditPart"
         itemSemanticEditPolicyClassName="AndDecompositionItemSemanticEditPolicy"
         notationViewFactoryClassName="AndDecompositionViewFactory"
@@ -1248,29 +1226,28 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AndDecompositionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureAndLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAndLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureAndLabel.setText(&quot;AND&quot;);&#xA;&#xA;this.add(fFigureAndLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;openome_model.figures.AndDecoration df = new openome_model.figures.AndDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureAndLabel() {&#xA;&#x9;&#x9;return fFigureAndLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAndLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAndLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureAndLabel.setText(&quot;AND&quot;);&#xA;&#xA;this.add(fFigureAndLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;openome_model.figures.AndDecoration df = new openome_model.figures.AndDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAndLabel() {&#xA;&#x9;&#x9;return fFigureAndLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet">
+          xsi:type="gmfgen:TypeLinkModelFacet"
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.22">
         <metaClass
             href="openome_model.genmodel#//openome_model/AndDecomposition"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/decompositions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/decompositions"/>
-        <modelElementSelector
-            body="oclIsKindOf(AndDecomposition)"/>
         <sourceMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/source"/>
         <targetMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="6001"
-          editPartClassName="WrapLabelEditPart"
-          itemSemanticEditPolicyClassName="WrapLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrapLabelViewFactory"
+          visualID="4025"
+          editPartClassName="WrappingLabelEditPart"
+          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrappingLabelViewFactory"
           readOnly="true"
           alignment="TARGET">
         <diagramRunTimeClass
@@ -1278,7 +1255,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureAndLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"
               y="40"/>
@@ -1286,7 +1263,7 @@
       </labels>
     </links>
     <links
-        visualID="4003"
+        visualID="3003"
         editPartClassName="OrDecompositionEditPart"
         itemSemanticEditPolicyClassName="OrDecompositionItemSemanticEditPolicy"
         notationViewFactoryClassName="OrDecompositionViewFactory"
@@ -1300,29 +1277,28 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="OrDecompositionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureOrLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOrLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureOrLabel.setText(&quot;OR&quot;);&#xA;&#xA;this.add(fFigureOrLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureOrLabel() {&#xA;&#x9;&#x9;return fFigureOrLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOrLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOrLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOrLabel.setText(&quot;OR&quot;);&#xA;&#xA;this.add(fFigureOrLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOrLabel() {&#xA;&#x9;&#x9;return fFigureOrLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet">
+          xsi:type="gmfgen:TypeLinkModelFacet"
+          modelElementSelector="//@expressionProviders/@providers.0/@expressions.23">
         <metaClass
             href="openome_model.genmodel#//openome_model/OrDecomposition"/>
         <containmentMetaFeature
             href="openome_model.genmodel#//openome_model/Model/decompositions"/>
         <childMetaFeature
             href="openome_model.genmodel#//openome_model/Model/decompositions"/>
-        <modelElementSelector
-            body="oclIsKindOf(OrDecomposition)"/>
         <sourceMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/source"/>
         <targetMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="6002"
-          editPartClassName="WrapLabel2EditPart"
-          itemSemanticEditPolicyClassName="WrapLabel2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrapLabel2ViewFactory"
+          visualID="4026"
+          editPartClassName="WrappingLabel2EditPart"
+          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrappingLabel2ViewFactory"
           readOnly="true"
           alignment="TARGET">
         <diagramRunTimeClass
@@ -1330,7 +1306,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureOrLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"
               y="40"/>
@@ -1338,7 +1314,7 @@
       </labels>
     </links>
     <links
-        visualID="4005"
+        visualID="3004"
         editPartClassName="HelpContributionEditPart"
         itemSemanticEditPolicyClassName="HelpContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="HelpContributionViewFactory"
@@ -1352,7 +1328,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="HelpContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HelpContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureHelpContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HelpContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHelpContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureHelpContributionLabel.setText(&quot;+&quot;);&#xA;&#xA;this.add(fFigureHelpContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureHelpContributionLabel() {&#xA;&#x9;&#x9;return fFigureHelpContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HelpContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureHelpContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HelpContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHelpContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureHelpContributionLabel.setText(&quot;+&quot;);&#xA;&#xA;this.add(fFigureHelpContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureHelpContributionLabel() {&#xA;&#x9;&#x9;return fFigureHelpContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1369,17 +1345,17 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6004"
-          editPartClassName="HelpContributionNameEditPart"
-          itemSemanticEditPolicyClassName="HelpContributionNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="HelpContributionNameViewFactory"
+          visualID="4027"
+          editPartClassName="HelpContributionContributionTypeEditPart"
+          itemSemanticEditPolicyClassName="HelpContributionContributionTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="HelpContributionContributionTypeViewFactory"
           readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureHelpContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1393,7 +1369,7 @@
       </labels>
     </links>
     <links
-        visualID="4006"
+        visualID="3005"
         editPartClassName="HurtContributionEditPart"
         itemSemanticEditPolicyClassName="HurtContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="HurtContributionViewFactory"
@@ -1407,7 +1383,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="HurtContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HurtContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureHurtContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HurtContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHurtContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureHurtContributionLabel.setText(&quot;-&quot;);&#xA;&#xA;this.add(fFigureHurtContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureHurtContributionLabel() {&#xA;&#x9;&#x9;return fFigureHurtContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HurtContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureHurtContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HurtContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHurtContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureHurtContributionLabel.setText(&quot;-&quot;);&#xA;&#xA;this.add(fFigureHurtContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureHurtContributionLabel() {&#xA;&#x9;&#x9;return fFigureHurtContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1424,7 +1400,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6005"
+          visualID="4028"
           editPartClassName="HurtContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="HurtContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="HurtContributionContributionTypeViewFactory"
@@ -1434,7 +1410,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureHurtContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1446,7 +1422,7 @@
       </labels>
     </links>
     <links
-        visualID="4007"
+        visualID="3006"
         editPartClassName="MakeContributionEditPart"
         itemSemanticEditPolicyClassName="MakeContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="MakeContributionViewFactory"
@@ -1460,7 +1436,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="MakeContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MakeContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureMakeContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MakeContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureMakeContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureMakeContributionLabel.setText(&quot;++&quot;);&#xA;&#xA;this.add(fFigureMakeContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureMakeContributionLabel() {&#xA;&#x9;&#x9;return fFigureMakeContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MakeContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureMakeContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MakeContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureMakeContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureMakeContributionLabel.setText(&quot;++&quot;);&#xA;&#xA;this.add(fFigureMakeContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureMakeContributionLabel() {&#xA;&#x9;&#x9;return fFigureMakeContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1477,7 +1453,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6006"
+          visualID="4029"
           editPartClassName="MakeContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="MakeContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="MakeContributionContributionTypeViewFactory"
@@ -1487,7 +1463,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureMakeContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1499,7 +1475,7 @@
       </labels>
     </links>
     <links
-        visualID="4008"
+        visualID="3007"
         editPartClassName="BreakContributionEditPart"
         itemSemanticEditPolicyClassName="BreakContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="BreakContributionViewFactory"
@@ -1513,7 +1489,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BreakContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BreakContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureBreakContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BreakContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBreakContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureBreakContributionLabel.setText(&quot;--&quot;);&#xA;&#xA;this.add(fFigureBreakContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureBreakContributionLabel() {&#xA;&#x9;&#x9;return fFigureBreakContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BreakContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBreakContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BreakContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBreakContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureBreakContributionLabel.setText(&quot;--&quot;);&#xA;&#xA;this.add(fFigureBreakContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBreakContributionLabel() {&#xA;&#x9;&#x9;return fFigureBreakContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1530,7 +1506,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6007"
+          visualID="4030"
           editPartClassName="BreakContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="BreakContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="BreakContributionContributionTypeViewFactory"
@@ -1540,7 +1516,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureBreakContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1552,7 +1528,7 @@
       </labels>
     </links>
     <links
-        visualID="4009"
+        visualID="3008"
         editPartClassName="SomePlusContributionEditPart"
         itemSemanticEditPolicyClassName="SomePlusContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="SomePlusContributionViewFactory"
@@ -1566,7 +1542,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SomePlusContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SomePlusContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSomePlusContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SomePlusContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSomePlusContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSomePlusContributionLabel.setText(&quot;Some+&quot;);&#xA;&#xA;this.add(fFigureSomePlusContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSomePlusContributionLabel() {&#xA;&#x9;&#x9;return fFigureSomePlusContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SomePlusContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSomePlusContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SomePlusContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSomePlusContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSomePlusContributionLabel.setText(&quot;Some+&quot;);&#xA;&#xA;this.add(fFigureSomePlusContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSomePlusContributionLabel() {&#xA;&#x9;&#x9;return fFigureSomePlusContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1583,7 +1559,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6008"
+          visualID="4031"
           editPartClassName="SomePlusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomePlusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomePlusContributionContributionTypeViewFactory"
@@ -1593,7 +1569,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSomePlusContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1605,7 +1581,7 @@
       </labels>
     </links>
     <links
-        visualID="4010"
+        visualID="3009"
         editPartClassName="SomeMinusContributionEditPart"
         itemSemanticEditPolicyClassName="SomeMinusContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="SomeMinusContributionViewFactory"
@@ -1619,7 +1595,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SomeMinusContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SomeMinusContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSomeMinusContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SomeMinusContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSomeMinusContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSomeMinusContributionLabel.setText(&quot;-&quot;);&#xA;&#xA;this.add(fFigureSomeMinusContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSomeMinusContributionLabel() {&#xA;&#x9;&#x9;return fFigureSomeMinusContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SomeMinusContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSomeMinusContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SomeMinusContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSomeMinusContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureSomeMinusContributionLabel.setText(&quot;-&quot;);&#xA;&#xA;this.add(fFigureSomeMinusContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSomeMinusContributionLabel() {&#xA;&#x9;&#x9;return fFigureSomeMinusContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1636,7 +1612,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6009"
+          visualID="4032"
           editPartClassName="SomeMinusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomeMinusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomeMinusContributionContributionTypeViewFactory"
@@ -1646,7 +1622,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSomeMinusContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1658,7 +1634,7 @@
       </labels>
     </links>
     <links
-        visualID="4011"
+        visualID="3010"
         editPartClassName="UnknownContributionEditPart"
         itemSemanticEditPolicyClassName="UnknownContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="UnknownContributionViewFactory"
@@ -1672,7 +1648,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="UnknownContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UnknownContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureUnknownContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UnknownContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUnknownContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureUnknownContributionLabel.setText(&quot;Unknown&quot;);&#xA;&#xA;this.add(fFigureUnknownContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureUnknownContributionLabel() {&#xA;&#x9;&#x9;return fFigureUnknownContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class UnknownContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureUnknownContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public UnknownContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureUnknownContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureUnknownContributionLabel.setText(&quot;Unknown&quot;);&#xA;&#xA;this.add(fFigureUnknownContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureUnknownContributionLabel() {&#xA;&#x9;&#x9;return fFigureUnknownContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1689,7 +1665,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6010"
+          visualID="4033"
           editPartClassName="UnknownContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="UnknownContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="UnknownContributionContributionTypeViewFactory"
@@ -1699,7 +1675,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureUnknownContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1712,7 +1688,7 @@
       </labels>
     </links>
     <links
-        visualID="4012"
+        visualID="3011"
         editPartClassName="AndContributionEditPart"
         itemSemanticEditPolicyClassName="AndContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="AndContributionViewFactory"
@@ -1726,7 +1702,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AndContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureAndContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAndContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureAndContributionLabel.setText(&quot;and&quot;);&#xA;&#xA;this.add(fFigureAndContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureAndContributionLabel() {&#xA;&#x9;&#x9;return fFigureAndContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAndContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAndContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureAndContributionLabel.setText(&quot;and&quot;);&#xA;&#xA;this.add(fFigureAndContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAndContributionLabel() {&#xA;&#x9;&#x9;return fFigureAndContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1743,7 +1719,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6011"
+          visualID="4034"
           editPartClassName="AndContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="AndContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="AndContributionContributionTypeViewFactory"
@@ -1753,7 +1729,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureAndContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1767,7 +1743,7 @@
       </labels>
     </links>
     <links
-        visualID="4013"
+        visualID="3012"
         editPartClassName="OrContributionEditPart"
         itemSemanticEditPolicyClassName="OrContributionItemSemanticEditPolicy"
         notationViewFactoryClassName="OrContributionViewFactory"
@@ -1781,7 +1757,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="OrContributionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureOrContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOrContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureOrContributionLabel.setText(&quot;or&quot;);&#xA;&#xA;this.add(fFigureOrContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureOrContributionLabel() {&#xA;&#x9;&#x9;return fFigureOrContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrContributionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOrContributionLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrContributionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOrContributionLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOrContributionLabel.setText(&quot;or&quot;);&#xA;&#xA;this.add(fFigureOrContributionLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOrContributionLabel() {&#xA;&#x9;&#x9;return fFigureOrContributionLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1798,7 +1774,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="6012"
+          visualID="4035"
           editPartClassName="OrContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="OrContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="OrContributionContributionTypeViewFactory"
@@ -1808,7 +1784,7 @@
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureOrContributionLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel">
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"/>
         </viewmap>
@@ -1822,7 +1798,7 @@
       </labels>
     </links>
     <compartments
-        visualID="7001"
+        visualID="5001"
         editPartClassName="ActorActorCompartmentEditPart"
         itemSemanticEditPolicyClassName="ActorActorCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ActorActorCompartmentViewFactory"
@@ -1844,7 +1820,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="5002"
         editPartClassName="AgentAgentCompartmentEditPart"
         itemSemanticEditPolicyClassName="AgentAgentCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="AgentAgentCompartmentViewFactory"
@@ -1866,7 +1842,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="5003"
         editPartClassName="PositionPositionCompartmentEditPart"
         itemSemanticEditPolicyClassName="PositionPositionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="PositionPositionCompartmentViewFactory"
@@ -1888,7 +1864,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7004"
+        visualID="5004"
         editPartClassName="RoleRoleCompartmentEditPart"
         itemSemanticEditPolicyClassName="RoleRoleCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="RoleRoleCompartmentViewFactory"
@@ -2004,55 +1980,59 @@
             collapse="true">
           <entries
               xsi:type="gmfgen:ToolEntry"
-              title="Help"
-              description="Create new help contribution."
-              largeIconPath="/openome_model/icons/helpcontribution.gif"
-              smallIconPath="/openome_model/icons/helpcontribution.gif"
+              title="Make"
+              description="Create a make contribution."
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.3"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
-              title="Hurt"
-              description="Create a hurt contribution."
+              title="Some+"
+              description="Create a some plus contribution."
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.4"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
-              title="Make"
-              description="Create a make contribution."
-              smallIconPath="/openome_model/icons/makecontribution.png"
+              title="Help"
+              description="Create new help contribution."
+              largeIconPath="/openome_model/icons/contribution.png"
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.5"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Break"
-              description="Create a break contribution."
-              genLinks="//@diagram/@links.6"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Some Plus"
-              description="Create a some plus contribution."
-              smallIconPath="/openome_model/icons/somepluscontribution.png"
-              genLinks="//@diagram/@links.7"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Some Minus"
-              description="Create a some minus contribution."
-              smallIconPath="/openome_model/icons/someminuscontribution.png"
-              genLinks="//@diagram/@links.8"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Unknown"
               description="Create an unknown contribution."
-              largeIconPath="/openome_model/icons/unknowncontribution.png"
-              smallIconPath="/openome_model/icons/unknowncontribution.png"
+              largeIconPath="/openome_model/icons/contribution.png"
+              smallIconPath="/openome_model/icons/contribution.png"
+              genLinks="//@diagram/@links.6"/>
+          <entries
+              xsi:type="gmfgen:ToolEntry"
+              title="Hurt"
+              description="Create a hurt contribution."
+              smallIconPath="/openome_model/icons/contribution.png"
+              genLinks="//@diagram/@links.7"/>
+          <entries
+              xsi:type="gmfgen:ToolEntry"
+              title="Some-"
+              description="Create a some minus contribution."
+              smallIconPath="/openome_model/icons/contribution.png"
+              genLinks="//@diagram/@links.8"/>
+          <entries
+              xsi:type="gmfgen:ToolEntry"
+              title="Break"
+              description="Create a break contribution."
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.9"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="And"
               description="Create an And Contribution"
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.10"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Or"
               description="Create an Or Contribution"
+              smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.11"/>
         </entries>
       </groups>
@@ -8106,7 +8086,79 @@
       href="openome_model.genmodel#/"/>
   <expressionProviders>
     <providers
-        xsi:type="gmfgen:GenExpressionInterpreter"
-        expressions="//@diagram/@topLevelNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.0/@modelFacet/@modelElementSelector //@diagram/@childNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.2/@modelFacet/@modelElementSelector //@diagram/@childNodes.3/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.1/@modelFacet/@modelElementSelector //@diagram/@childNodes.4/@modelFacet/@modelElementSelector //@diagram/@childNodes.5/@modelFacet/@modelElementSelector //@diagram/@childNodes.6/@modelFacet/@modelElementSelector //@diagram/@childNodes.7/@modelFacet/@modelElementSelector //@diagram/@childNodes.8/@modelFacet/@modelElementSelector //@diagram/@childNodes.9/@modelFacet/@modelElementSelector //@diagram/@childNodes.10/@modelFacet/@modelElementSelector //@diagram/@childNodes.11/@modelFacet/@modelElementSelector //@diagram/@childNodes.12/@modelFacet/@modelElementSelector //@diagram/@childNodes.13/@modelFacet/@modelElementSelector //@diagram/@childNodes.14/@modelFacet/@modelElementSelector //@diagram/@childNodes.15/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.4/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.5/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.6/@modelFacet/@modelElementSelector //@diagram/@topLevelNodes.7/@modelFacet/@modelElementSelector //@diagram/@links.1/@modelFacet/@modelElementSelector //@diagram/@links.2/@modelFacet/@modelElementSelector"/>
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Actor)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Goal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Softgoal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Resource)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Task)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Agent)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Goal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Softgoal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Resource)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Task)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Goal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Softgoal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Resource)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Task)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Goal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Softgoal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Resource)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Task)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Goal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Softgoal)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Task)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(Resource)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(AndDecomposition)"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="oclIsKindOf(OrDecomposition)"/>
+    </providers>
   </expressionProviders>
 </gmfgen:GenEditorGenerator>

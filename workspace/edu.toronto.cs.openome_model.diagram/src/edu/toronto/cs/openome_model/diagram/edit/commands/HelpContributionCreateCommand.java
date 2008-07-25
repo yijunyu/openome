@@ -64,11 +64,11 @@ public class HelpContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		if (source != null
-				&& !(source instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == source instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (target != null
-				&& !(target instanceof edu.toronto.cs.openome_model.Intention)) {
+				&& false == target instanceof edu.toronto.cs.openome_model.Intention) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -79,7 +79,7 @@ public class HelpContributionCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateHelpContribution_4005(getContainer(), getSource(),
+				.canCreateHelpContribution_3004(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,7 +87,6 @@ public class HelpContributionCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.HelpContribution newElement = (edu.toronto.cs.openome_model.HelpContribution) super.doDefaultElementCreation();
 		edu.toronto.cs.openome_model.HelpContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createHelpContribution();
 		getContainer().getContributions().add(newElement);

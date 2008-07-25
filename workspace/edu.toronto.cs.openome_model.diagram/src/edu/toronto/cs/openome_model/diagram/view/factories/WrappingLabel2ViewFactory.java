@@ -15,7 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class HelpContributionNameViewFactory extends AbstractLabelViewFactory {
+public class WrappingLabel2ViewFactory extends AbstractLabelViewFactory {
 
 	/**
 	 * @generated
@@ -25,6 +25,11 @@ public class HelpContributionNameViewFactory extends AbstractLabelViewFactory {
 			PreferencesHint preferencesHint) {
 		Node view = (Node) super.createView(semanticAdapter, containerView,
 				semanticHint, index, persisted, preferencesHint);
+		Location location = (Location) view.getLayoutConstraint();
+		IMapMode mapMode = MeasurementUnitHelper.getMapMode(containerView
+				.getDiagram().getMeasurementUnit());
+		location.setX(mapMode.DPtoLP(0));
+		location.setY(mapMode.DPtoLP(40));
 		return view;
 	}
 

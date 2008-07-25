@@ -19,7 +19,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -37,7 +37,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 1003;
 
 	/**
 	 * @generated
@@ -244,7 +244,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigurePositionNameFigure;
+		private WrappingLabel fFigurePositionNameFigure;
 		/**
 		 * @generated
 		 */
@@ -269,7 +269,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigurePositionNameFigure = new WrapLabel();
+			fFigurePositionNameFigure = new WrappingLabel();
 			fFigurePositionNameFigure.setText("<...>");
 
 			fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);
@@ -284,7 +284,6 @@ public class PositionEditPart extends ShapeNodeEditPart {
 					.setBackgroundColor(FFIGUREPOSITIONBOUNDARYFIGURE_BACK);
 
 			this.add(fFigurePositionBoundaryFigure, BorderLayout.CENTER);
-
 			fFigurePositionBoundaryFigure.setLayoutManager(new StackLayout());
 
 			openome_model.figures.PositionSVGFigure positionSVGFigure1 = new openome_model.figures.PositionSVGFigure();
@@ -315,7 +314,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigurePositionNameFigure() {
+		public WrappingLabel getFigurePositionNameFigure() {
 			return fFigurePositionNameFigure;
 		}
 

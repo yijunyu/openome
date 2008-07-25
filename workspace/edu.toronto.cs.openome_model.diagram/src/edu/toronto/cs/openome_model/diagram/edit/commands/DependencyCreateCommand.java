@@ -64,11 +64,11 @@ public class DependencyCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		if (source != null
-				&& !(source instanceof edu.toronto.cs.openome_model.Dependable)) {
+				&& false == source instanceof edu.toronto.cs.openome_model.Dependable) {
 			return false;
 		}
 		if (target != null
-				&& !(target instanceof edu.toronto.cs.openome_model.Dependable)) {
+				&& false == target instanceof edu.toronto.cs.openome_model.Dependable) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -79,7 +79,7 @@ public class DependencyCreateCommand extends CreateElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateDependency_4001(getContainer(), getSource(),
+				.canCreateDependency_3001(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -87,7 +87,6 @@ public class DependencyCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// edu.toronto.cs.openome_model.Dependency newElement = (edu.toronto.cs.openome_model.Dependency) super.doDefaultElementCreation();
 		edu.toronto.cs.openome_model.Dependency newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createDependency();
 		getContainer().getDependencies().add(newElement);

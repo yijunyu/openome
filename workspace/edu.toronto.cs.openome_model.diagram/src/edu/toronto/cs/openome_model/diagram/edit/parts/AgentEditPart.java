@@ -19,7 +19,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -37,7 +37,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 1002;
 
 	/**
 	 * @generated
@@ -244,7 +244,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureAgentNameFigure;
+		private WrappingLabel fFigureAgentNameFigure;
 		/**
 		 * @generated
 		 */
@@ -269,7 +269,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureAgentNameFigure = new WrapLabel();
+			fFigureAgentNameFigure = new WrappingLabel();
 			fFigureAgentNameFigure.setText("<...>");
 
 			fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);
@@ -283,7 +283,6 @@ public class AgentEditPart extends ShapeNodeEditPart {
 					.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK);
 
 			this.add(fFigureAgentBoundaryFigure, BorderLayout.CENTER);
-
 			fFigureAgentBoundaryFigure.setLayoutManager(new StackLayout());
 
 			openome_model.figures.AgentSVGFigure agentSVGFigure1 = new openome_model.figures.AgentSVGFigure();
@@ -314,7 +313,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureAgentNameFigure() {
+		public WrappingLabel getFigureAgentNameFigure() {
 			return fFigureAgentNameFigure;
 		}
 

@@ -4,20 +4,22 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class SomeMinusContributionEditPart extends ConnectionNodeEditPart {
+public class SomeMinusContributionEditPart extends ConnectionNodeEditPart
+		implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4010;
+	public static final int VISUAL_ID = 3009;
 
 	/**
 	 * @generated
@@ -87,7 +89,7 @@ public class SomeMinusContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureSomeMinusContributionLabel;
+		private WrappingLabel fFigureSomeMinusContributionLabel;
 
 		/**
 		 * @generated
@@ -104,7 +106,7 @@ public class SomeMinusContributionEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureSomeMinusContributionLabel = new WrapLabel();
+			fFigureSomeMinusContributionLabel = new WrappingLabel();
 			fFigureSomeMinusContributionLabel.setText("-");
 
 			this.add(fFigureSomeMinusContributionLabel);
@@ -123,7 +125,7 @@ public class SomeMinusContributionEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureSomeMinusContributionLabel() {
+		public WrappingLabel getFigureSomeMinusContributionLabel() {
 			return fFigureSomeMinusContributionLabel;
 		}
 

@@ -28,7 +28,7 @@ public class ActorActorCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdater
-				.getActorActorCompartment_7001SemanticChildren(viewObject)
+				.getActorActorCompartment_5001SemanticChildren(viewObject)
 				.iterator(); it.hasNext();) {
 			result
 					.add(((edu.toronto.cs.openome_model.diagram.part.Openome_modelNodeDescriptor) it
@@ -48,10 +48,9 @@ public class ActorActorCompartmentCanonicalEditPolicy extends
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}
