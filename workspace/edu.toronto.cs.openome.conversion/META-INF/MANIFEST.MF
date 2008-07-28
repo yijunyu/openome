@@ -8,7 +8,6 @@ Require-Bundle: q7,
  core,
  util,
  edu.toronto.cs.openome_model,
- org.sat4j,
  org.eclipse.gmf.codegen
 Export-Package: edu.toronto.cs.openome.conversion.action,
  edu.toronto.cs.openome.conversion.codegen,
