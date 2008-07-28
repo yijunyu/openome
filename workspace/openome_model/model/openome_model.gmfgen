@@ -1983,37 +1983,37 @@
               title="Make"
               description="Create a make contribution."
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.3"/>
+              genLinks="//@diagram/@links.5"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Some+"
-              description="Create a some plus contribution."
+              description="Create a Some+ contribution."
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.4"/>
+              genLinks="//@diagram/@links.7"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Help"
               description="Create new help contribution."
               largeIconPath="/openome_model/icons/contribution.png"
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.5"/>
+              genLinks="//@diagram/@links.3"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Unknown"
               description="Create an unknown contribution."
               largeIconPath="/openome_model/icons/contribution.png"
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.6"/>
+              genLinks="//@diagram/@links.9"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Hurt"
               description="Create a hurt contribution."
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.7"/>
+              genLinks="//@diagram/@links.4"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Some-"
-              description="Create a some minus contribution."
+              description="Create a Some- contribution."
               smallIconPath="/openome_model/icons/contribution.png"
               genLinks="//@diagram/@links.8"/>
           <entries
@@ -2021,7 +2021,7 @@
               title="Break"
               description="Create a break contribution."
               smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.9"/>
+              genLinks="//@diagram/@links.6"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="And"

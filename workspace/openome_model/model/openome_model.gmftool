@@ -177,7 +177,7 @@
         <tools
             xsi:type="gmftool:CreationTool"
             title="Some+"
-            description="Create a some plus contribution.">
+            description="Create a Some+ contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
               path="icons/contribution.png"
@@ -221,7 +221,7 @@
         <tools
             xsi:type="gmftool:CreationTool"
             title="Some-"
-            description="Create a some minus contribution.">
+            description="Create a Some- contribution.">
           <smallIcon
               xsi:type="gmftool:BundleImage"
               path="icons/contribution.png"
@@ -240,7 +240,7 @@
             xsi:type="gmftool:CreationTool"
             title="And"
             description="Create an And Contribution">
-        <smallIcon
+          <smallIcon
               xsi:type="gmftool:BundleImage"
               path="icons/contribution.png"
               bundle="openome_model"/>
@@ -248,8 +248,8 @@
         <tools
             xsi:type="gmftool:CreationTool"
             title="Or"
-            description="Create an Or Contribution">        
-        <smallIcon
+            description="Create an Or Contribution">
+          <smallIcon
               xsi:type="gmftool:BundleImage"
               path="icons/contribution.png"
               bundle="openome_model"/>
