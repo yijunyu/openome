@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="openome_model.gmftool#//@palette/@tools.0"/>
       <diagramNode
           href="openome_model.gmfgraph#Actor"/>
       <children
@@ -47,7 +47,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="openome_model.gmftool#//@palette/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
@@ -74,7 +74,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
@@ -101,7 +101,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
@@ -128,7 +128,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -157,7 +157,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="openome_model.gmftool#//@palette/@tools.1"/>
       <diagramNode
           href="openome_model.gmfgraph#Agent"/>
       <children
@@ -182,7 +182,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="openome_model.gmftool#//@palette/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
@@ -208,7 +208,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
@@ -235,7 +235,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
@@ -262,7 +262,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -289,7 +289,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="openome_model.gmftool#//@palette/@tools.2"/>
       <diagramNode
           href="openome_model.gmfgraph#Position"/>
       <children
@@ -314,7 +314,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="openome_model.gmftool#//@palette/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
@@ -340,7 +340,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
@@ -367,7 +367,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
@@ -394,7 +394,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -421,7 +421,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="openome_model.gmftool#//@palette/@tools.3"/>
       <diagramNode
           href="openome_model.gmfgraph#Role"/>
       <children
@@ -446,7 +446,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
+              href="openome_model.gmftool#//@palette/@tools.5"/>
           <diagramNode
               href="openome_model.gmfgraph#Goal"/>
         </ownedChild>
@@ -472,7 +472,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+              href="openome_model.gmftool#//@palette/@tools.6"/>
           <diagramNode
               href="openome_model.gmfgraph#Softgoal"/>
         </ownedChild>
@@ -499,7 +499,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="openome_model.gmftool#//@palette/@tools.8"/>
           <diagramNode
               href="openome_model.gmfgraph#Resource"/>
         </ownedChild>
@@ -526,7 +526,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+              href="openome_model.gmftool#//@palette/@tools.7"/>
           <diagramNode
               href="openome_model.gmfgraph#Task"/>
         </ownedChild>
@@ -556,7 +556,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="openome_model.gmftool#//@palette/@tools.5"/>
       <diagramNode
           href="openome_model.gmfgraph#Goal"/>
     </ownedChild>
@@ -578,7 +578,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="openome_model.gmftool#//@palette/@tools.6"/>
       <diagramNode
           href="openome_model.gmfgraph#Softgoal"/>
     </ownedChild>
@@ -601,7 +601,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="openome_model.gmftool#//@palette/@tools.7"/>
       <diagramNode
           href="openome_model.gmfgraph#Task"/>
     </ownedChild>
@@ -624,7 +624,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="openome_model.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="openome_model.gmftool#//@palette/@tools.8"/>
       <diagramNode
           href="openome_model.gmfgraph#Resource"/>
     </ownedChild>
@@ -636,7 +636,7 @@
         href="openome_model.ecore#//Model/dependencies"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.10"/>
+        href="openome_model.gmftool#//@palette/@tools.10"/>
     <diagramLink
         href="openome_model.gmfgraph#Dependency"/>
     <sourceMetaFeature
@@ -660,7 +660,7 @@
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.12"/>
+        href="openome_model.gmftool#//@palette/@tools.12"/>
     <diagramLink
         href="openome_model.gmfgraph#AndDecomposition"/>
     <sourceMetaFeature
@@ -684,7 +684,7 @@
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.13"/>
+        href="openome_model.gmftool#//@palette/@tools.13"/>
     <diagramLink
         href="openome_model.gmfgraph#OrDecomposition"/>
     <sourceMetaFeature
@@ -711,7 +711,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.2"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.2"/>
     <diagramLink
         href="openome_model.gmfgraph#HelpContribution"/>
     <sourceMetaFeature
@@ -736,7 +736,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.4"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.4"/>
     <diagramLink
         href="openome_model.gmfgraph#HurtContribution"/>
     <sourceMetaFeature
@@ -761,7 +761,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.0"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.0"/>
     <diagramLink
         href="openome_model.gmfgraph#MakeContribution"/>
     <sourceMetaFeature
@@ -786,7 +786,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.6"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.6"/>
     <diagramLink
         href="openome_model.gmfgraph#BreakContribution"/>
     <sourceMetaFeature
@@ -811,7 +811,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.1"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.1"/>
     <diagramLink
         href="openome_model.gmfgraph#SomePlusContribution"/>
     <sourceMetaFeature
@@ -836,7 +836,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.5"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.5"/>
     <diagramLink
         href="openome_model.gmfgraph#SomeMinusContribution"/>
     <sourceMetaFeature
@@ -862,7 +862,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.3"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.3"/>
     <diagramLink
         href="openome_model.gmfgraph#UnknownContribution"/>
     <sourceMetaFeature
@@ -889,7 +889,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.7"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.7"/>
     <diagramLink
         href="openome_model.gmfgraph#AndContribution"/>
     <sourceMetaFeature
@@ -916,7 +916,7 @@
         href="openome_model.ecore#//Model/contributions"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="openome_model.gmftool#//@palette/@tools.0/@tools.15/@tools.8"/>
+        href="openome_model.gmftool#//@palette/@tools.15/@tools.8"/>
     <diagramLink
         href="openome_model.gmfgraph#OrContribution"/>
     <sourceMetaFeature

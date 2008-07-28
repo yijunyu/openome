@@ -22,16 +22,19 @@ public class Openome_modelPaletteFactory {
 	 * @generated
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createOpenome_model1Group());
+		paletteRoot.add(createDefault1Group());
+		paletteRoot.add(createContributions2Group());
 	}
 
 	/**
-	 * Creates "openome_model" palette tool group
+	 * Creates "Default" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createOpenome_model1Group() {
+	private PaletteContainer createDefault1Group() {
 		PaletteGroup paletteContainer = new PaletteGroup(
-				edu.toronto.cs.openome_model.diagram.part.Messages.Openome_model1Group_title);
+				edu.toronto.cs.openome_model.diagram.part.Messages.Default1Group_title);
+		paletteContainer
+				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Default1Group_desc);
 		paletteContainer.add(createActor1CreationTool());
 		paletteContainer.add(createAgent2CreationTool());
 		paletteContainer.add(createPosition3CreationTool());
@@ -47,7 +50,6 @@ public class Openome_modelPaletteFactory {
 		paletteContainer.add(createAnd13CreationTool());
 		paletteContainer.add(createOr14CreationTool());
 		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createContributions16Group());
 		return paletteContainer;
 	}
 
@@ -55,11 +57,11 @@ public class Openome_modelPaletteFactory {
 	 * Creates "Contributions" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createContributions16Group() {
+	private PaletteContainer createContributions2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
-				edu.toronto.cs.openome_model.diagram.part.Messages.Contributions16Group_title);
+				edu.toronto.cs.openome_model.diagram.part.Messages.Contributions2Group_title);
 		paletteContainer
-				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Contributions16Group_desc);
+				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Contributions2Group_desc);
 		paletteContainer.add(createMake1CreationTool());
 		paletteContainer.add(createSome2CreationTool());
 		paletteContainer.add(createHelp3CreationTool());
@@ -67,8 +69,8 @@ public class Openome_modelPaletteFactory {
 		paletteContainer.add(createHurt5CreationTool());
 		paletteContainer.add(createSome6CreationTool());
 		paletteContainer.add(createBreak7CreationTool());
-		paletteContainer.add(createAnd8CreationTool());
-		paletteContainer.add(createOr9CreationTool());
+		paletteContainer.add(createAND8CreationTool());
+		paletteContainer.add(createOR9CreationTool());
 		return paletteContainer;
 	}
 
@@ -457,13 +459,13 @@ public class Openome_modelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAnd8CreationTool() {
+	private ToolEntry createAND8CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_3011);
 		LinkToolEntry entry = new LinkToolEntry(
-				edu.toronto.cs.openome_model.diagram.part.Messages.And8CreationTool_title,
-				edu.toronto.cs.openome_model.diagram.part.Messages.And8CreationTool_desc,
+				edu.toronto.cs.openome_model.diagram.part.Messages.AND8CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.AND8CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
@@ -475,13 +477,13 @@ public class Openome_modelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOr9CreationTool() {
+	private ToolEntry createOR9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_3012);
 		LinkToolEntry entry = new LinkToolEntry(
-				edu.toronto.cs.openome_model.diagram.part.Messages.Or9CreationTool_title,
-				edu.toronto.cs.openome_model.diagram.part.Messages.Or9CreationTool_desc,
+				edu.toronto.cs.openome_model.diagram.part.Messages.OR9CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.OR9CreationTool_desc,
 				types);
 		entry
 				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin

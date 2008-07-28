@@ -243,17 +243,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Openome_model1Group_title;
+	public static String Default1Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Contributions16Group_title;
+	public static String Default1Group_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Contributions16Group_desc;
+	public static String Contributions2Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Contributions2Group_desc;
 
 	/**
 	 * @generated
@@ -438,22 +443,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String And8CreationTool_title;
+	public static String AND8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String And8CreationTool_desc;
+	public static String AND8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Or9CreationTool_title;
+	public static String OR9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Or9CreationTool_desc;
+	public static String OR9CreationTool_desc;
 
 	/**
 	 * @generated

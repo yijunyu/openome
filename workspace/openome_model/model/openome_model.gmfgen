@@ -1887,7 +1887,8 @@
     </compartments>
     <palette>
       <groups
-          title="openome_model">
+          title="Default"
+          description="Holds top-level non-container tools">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Actor"
@@ -1973,68 +1974,67 @@
             genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:Separator"/>
+      </groups>
+      <groups
+          title="Contributions"
+          description="Create a contribution"
+          collapse="true">
         <entries
-            xsi:type="gmfgen:ToolGroup"
-            title="Contributions"
-            description="Create a contribution"
-            collapse="true">
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Make"
-              description="Create a make contribution."
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.5"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Some+"
-              description="Create a Some+ contribution."
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.7"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Help"
-              description="Create new help contribution."
-              largeIconPath="/openome_model/icons/contribution.png"
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.3"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Unknown"
-              description="Create an unknown contribution."
-              largeIconPath="/openome_model/icons/contribution.png"
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.9"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Hurt"
-              description="Create a hurt contribution."
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.4"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Some-"
-              description="Create a Some- contribution."
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.8"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Break"
-              description="Create a break contribution."
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.6"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="And"
-              description="Create an And Contribution"
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.10"/>
-          <entries
-              xsi:type="gmfgen:ToolEntry"
-              title="Or"
-              description="Create an Or Contribution"
-              smallIconPath="/openome_model/icons/contribution.png"
-              genLinks="//@diagram/@links.11"/>
-        </entries>
+            xsi:type="gmfgen:ToolEntry"
+            title="Make"
+            description="Create a make contribution."
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.5"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Some+"
+            description="Create a Some+ contribution."
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.7"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Help"
+            description="Create new help contribution."
+            largeIconPath="/openome_model/icons/contribution.png"
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.3"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Unknown"
+            description="Create an unknown contribution."
+            largeIconPath="/openome_model/icons/contribution.png"
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.9"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Hurt"
+            description="Create a hurt contribution."
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Some-"
+            description="Create a Some- contribution."
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.8"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Break"
+            description="Create a break contribution."
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.6"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="AND"
+            description="Create an And Contribution"
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.10"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="OR"
+            description="Create an Or Contribution"
+            smallIconPath="/openome_model/icons/contribution.png"
+            genLinks="//@diagram/@links.11"/>
       </groups>
     </palette>
     <preferencePages
