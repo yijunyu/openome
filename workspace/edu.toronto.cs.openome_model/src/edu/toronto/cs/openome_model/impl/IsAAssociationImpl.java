@@ -39,7 +39,7 @@ public class IsAAssociationImpl extends AssociationImpl implements IsAAssociatio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String LABEL_EDEFAULT = "ISA";
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.

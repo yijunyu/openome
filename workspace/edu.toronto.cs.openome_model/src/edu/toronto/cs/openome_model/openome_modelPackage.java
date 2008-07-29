@@ -1150,13 +1150,22 @@ public interface openome_modelPackage extends EPackage {
 	int MODEL__CORRELATIONS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Associations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ASSOCIATIONS = 7;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 7;
+	int MODEL_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
@@ -2903,7 +2912,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__SOURCE = 0;
+	int ASSOCIATION__SOURCE = LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -2912,7 +2921,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__TARGET = 1;
+	int ASSOCIATION__TARGET = LINK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Association</em>' class.
@@ -2921,7 +2930,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_FEATURE_COUNT = 2;
+	int ASSOCIATION_FEATURE_COUNT = LINK_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IsAAssociationImpl <em>Is AAssociation</em>}' class.
@@ -3016,14 +3025,14 @@ public interface openome_modelPackage extends EPackage {
 	int COVERS_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl <em>Is Part Of Association</em>}' class.
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IsPartofAssociationImpl <em>Is Partof Association</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl
-	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartOfAssociation()
+	 * @see edu.toronto.cs.openome_model.impl.IsPartofAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartofAssociation()
 	 * @generated
 	 */
-	int IS_PART_OF_ASSOCIATION = 33;
+	int IS_PARTOF_ASSOCIATION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -3032,7 +3041,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IS_PART_OF_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+	int IS_PARTOF_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -3041,7 +3050,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IS_PART_OF_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+	int IS_PARTOF_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -3050,16 +3059,16 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IS_PART_OF_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+	int IS_PARTOF_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Is Part Of Association</em>' class.
+	 * The number of structural features of the '<em>Is Partof Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IS_PART_OF_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+	int IS_PARTOF_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl <em>Occupies Association</em>}' class.
@@ -3228,6 +3237,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 39;
+
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -3804,6 +3814,17 @@ public interface openome_modelPackage extends EPackage {
 	EReference getModel_Correlations();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Model#getAssociations <em>Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Associations</em>'.
+	 * @see edu.toronto.cs.openome_model.Model#getAssociations()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Associations();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OrDecomposition <em>Or Decomposition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4341,25 +4362,25 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getCoversAssociation_Label();
 
 	/**
-	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.IsPartOfAssociation <em>Is Part Of Association</em>}'.
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.IsPartofAssociation <em>Is Partof Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Is Part Of Association</em>'.
-	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation
+	 * @return the meta object for class '<em>Is Partof Association</em>'.
+	 * @see edu.toronto.cs.openome_model.IsPartofAssociation
 	 * @generated
 	 */
-	EClass getIsPartOfAssociation();
+	EClass getIsPartofAssociation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.IsPartOfAssociation#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.IsPartofAssociation#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation#getLabel()
-	 * @see #getIsPartOfAssociation()
+	 * @see edu.toronto.cs.openome_model.IsPartofAssociation#getLabel()
+	 * @see #getIsPartofAssociation()
 	 * @generated
 	 */
-	EAttribute getIsPartOfAssociation_Label();
+	EAttribute getIsPartofAssociation_Label();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OccupiesAssociation <em>Occupies Association</em>}'.
@@ -4919,6 +4940,14 @@ public interface openome_modelPackage extends EPackage {
 		EReference MODEL__CORRELATIONS = eINSTANCE.getModel_Correlations();
 
 		/**
+		 * The meta object literal for the '<em><b>Associations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ASSOCIATIONS = eINSTANCE.getModel_Associations();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5375,14 +5404,14 @@ public interface openome_modelPackage extends EPackage {
 		EAttribute COVERS_ASSOCIATION__LABEL = eINSTANCE.getCoversAssociation_Label();
 
 		/**
-		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl <em>Is Part Of Association</em>}' class.
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IsPartofAssociationImpl <em>Is Partof Association</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl
-		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartOfAssociation()
+		 * @see edu.toronto.cs.openome_model.impl.IsPartofAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartofAssociation()
 		 * @generated
 		 */
-		EClass IS_PART_OF_ASSOCIATION = eINSTANCE.getIsPartOfAssociation();
+		EClass IS_PARTOF_ASSOCIATION = eINSTANCE.getIsPartofAssociation();
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -5390,7 +5419,7 @@ public interface openome_modelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IS_PART_OF_ASSOCIATION__LABEL = eINSTANCE.getIsPartOfAssociation_Label();
+		EAttribute IS_PARTOF_ASSOCIATION__LABEL = eINSTANCE.getIsPartofAssociation_Label();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl <em>Occupies Association</em>}' class.

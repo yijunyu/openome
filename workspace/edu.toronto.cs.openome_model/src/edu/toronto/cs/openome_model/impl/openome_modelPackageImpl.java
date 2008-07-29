@@ -5,13 +5,6 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
 import edu.toronto.cs.openome_model.AndContribution;
@@ -33,10 +26,9 @@ import edu.toronto.cs.openome_model.GoalModelingContributionType;
 import edu.toronto.cs.openome_model.HelpContribution;
 import edu.toronto.cs.openome_model.HurtContribution;
 import edu.toronto.cs.openome_model.INSAssociation;
-import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.IsAAssociation;
-import edu.toronto.cs.openome_model.IsPartOfAssociation;
+import edu.toronto.cs.openome_model.IsPartofAssociation;
 import edu.toronto.cs.openome_model.Link;
 import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
@@ -53,9 +45,16 @@ import edu.toronto.cs.openome_model.SomeMinusContribution;
 import edu.toronto.cs.openome_model.SomePlusContribution;
 import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.UnknownContribution;
-import edu.toronto.cs.openome_model.Topic;
 import edu.toronto.cs.openome_model.openome_modelFactory;
 import edu.toronto.cs.openome_model.openome_modelPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -307,7 +306,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass isPartOfAssociationEClass = null;
+	private EClass isPartofAssociationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -901,6 +900,15 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Associations() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOrDecomposition() {
 		return orDecompositionEClass;
 	}
@@ -1360,8 +1368,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIsPartOfAssociation() {
-		return isPartOfAssociationEClass;
+	public EClass getIsPartofAssociation() {
+		return isPartofAssociationEClass;
 	}
 
 	/**
@@ -1369,8 +1377,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIsPartOfAssociation_Label() {
-		return (EAttribute)isPartOfAssociationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIsPartofAssociation_Label() {
+		return (EAttribute)isPartofAssociationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1543,6 +1551,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(modelEClass, MODEL__DECOMPOSITIONS);
 		createEReference(modelEClass, MODEL__CONTAINERS);
 		createEReference(modelEClass, MODEL__CORRELATIONS);
+		createEReference(modelEClass, MODEL__ASSOCIATIONS);
 
 		orDecompositionEClass = createEClass(OR_DECOMPOSITION);
 
@@ -1619,8 +1628,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		coversAssociationEClass = createEClass(COVERS_ASSOCIATION);
 		createEAttribute(coversAssociationEClass, COVERS_ASSOCIATION__LABEL);
 
-		isPartOfAssociationEClass = createEClass(IS_PART_OF_ASSOCIATION);
-		createEAttribute(isPartOfAssociationEClass, IS_PART_OF_ASSOCIATION__LABEL);
+		isPartofAssociationEClass = createEClass(IS_PARTOF_ASSOCIATION);
+		createEAttribute(isPartofAssociationEClass, IS_PARTOF_ASSOCIATION__LABEL);
 
 		occupiesAssociationEClass = createEClass(OCCUPIES_ASSOCIATION);
 		createEAttribute(occupiesAssociationEClass, OCCUPIES_ASSOCIATION__LABEL);
@@ -1691,9 +1700,10 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		unknownContributionEClass.getESuperTypes().add(this.getContribution());
 		andContributionEClass.getESuperTypes().add(this.getContribution());
 		orContributionEClass.getESuperTypes().add(this.getContribution());
+		associationEClass.getESuperTypes().add(this.getLink());
 		isAAssociationEClass.getESuperTypes().add(this.getAssociation());
 		coversAssociationEClass.getESuperTypes().add(this.getAssociation());
-		isPartOfAssociationEClass.getESuperTypes().add(this.getAssociation());
+		isPartofAssociationEClass.getESuperTypes().add(this.getAssociation());
 		occupiesAssociationEClass.getESuperTypes().add(this.getAssociation());
 		playsAssociationEClass.getESuperTypes().add(this.getAssociation());
 		insAssociationEClass.getESuperTypes().add(this.getAssociation());
@@ -1760,6 +1770,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getModel_Decompositions(), this.getDecomposition(), this.getDecomposition_Model(), "decompositions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Containers(), this.getContainer(), this.getContainer_Model(), "containers", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Correlations(), this.getCorrelation(), null, "correlations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Associations(), this.getAssociation(), null, "associations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orDecompositionEClass, OrDecomposition.class, "OrDecomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1831,22 +1842,22 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getAssociation_Target(), this.getContainer(), null, "target", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(isAAssociationEClass, IsAAssociation.class, "IsAAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIsAAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IsAAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIsAAssociation_Label(), ecorePackage.getEString(), "label", "ISA", 0, 1, IsAAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(coversAssociationEClass, CoversAssociation.class, "CoversAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCoversAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, CoversAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCoversAssociation_Label(), ecorePackage.getEString(), "label", "Covers", 0, 1, CoversAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(isPartOfAssociationEClass, IsPartOfAssociation.class, "IsPartOfAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIsPartOfAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IsPartOfAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(isPartofAssociationEClass, IsPartofAssociation.class, "IsPartofAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIsPartofAssociation_Label(), ecorePackage.getEString(), "label", "Is part of", 0, 1, IsPartofAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(occupiesAssociationEClass, OccupiesAssociation.class, "OccupiesAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOccupiesAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, OccupiesAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOccupiesAssociation_Label(), ecorePackage.getEString(), "label", "Occupies", 0, 1, OccupiesAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(playsAssociationEClass, PlaysAssociation.class, "PlaysAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlaysAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, PlaysAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlaysAssociation_Label(), ecorePackage.getEString(), "label", "Plays", 0, 1, PlaysAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(insAssociationEClass, INSAssociation.class, "INSAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getINSAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, INSAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getINSAssociation_Label(), ecorePackage.getEString(), "label", "INS", 0, 1, INSAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

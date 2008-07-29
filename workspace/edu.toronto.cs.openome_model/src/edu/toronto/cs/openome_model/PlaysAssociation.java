@@ -32,6 +32,7 @@ public interface PlaysAssociation extends Association {
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * The default value is <code>"Plays"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
@@ -40,7 +41,7 @@ public interface PlaysAssociation extends Association {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getPlaysAssociation_Label()
-	 * @model changeable="false"
+	 * @model default="Plays" changeable="false"
 	 * @generated
 	 */
 	String getLabel();

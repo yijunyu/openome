@@ -39,7 +39,9 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUS_PLUS(1, "PlusPlus", "++"), /**
+	PLUS_PLUS(1, "PlusPlus", "++"),
+
+	/**
 	 * The '<em><b>Plus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,7 +49,9 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUS(2, "Plus", "+"), /**
+	PLUS(2, "Plus", "+"),
+
+	/**
 	 * The '<em><b>Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,7 +59,9 @@ public enum GoalModelingContributionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MINUS(3, "Minus", "-"), /**
+	MINUS(3, "Minus", "-"),
+
+	/**
 	 * The '<em><b>Minus Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

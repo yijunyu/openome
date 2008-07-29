@@ -5,6 +5,7 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
+import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Correlation;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getCorrelations <em>Correlations</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getAssociations <em>Associations</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,6 +140,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Correlation> correlations;
+
+	/**
+	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Association> associations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,6 +268,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Association> getAssociations() {
+		if (associations == null) {
+			associations = new EObjectContainmentEList<Association>(Association.class, this, openome_modelPackage.MODEL__ASSOCIATIONS);
+		}
+		return associations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -291,6 +316,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return ((InternalEList<?>)getDecompositions()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.MODEL__CONTAINERS:
 				return ((InternalEList<?>)getContainers()).basicRemove(otherEnd, msgs);
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
+				return ((InternalEList<?>)getAssociations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -317,6 +344,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return getContainers();
 			case openome_modelPackage.MODEL__CORRELATIONS:
 				return getCorrelations();
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
+				return getAssociations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -357,6 +386,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 				getCorrelations().clear();
 				getCorrelations().addAll((Collection<? extends Correlation>)newValue);
 				return;
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
+				getAssociations().clear();
+				getAssociations().addAll((Collection<? extends Association>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -390,6 +423,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 			case openome_modelPackage.MODEL__CORRELATIONS:
 				getCorrelations().clear();
 				return;
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
+				getAssociations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -416,6 +452,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return containers != null && !containers.isEmpty();
 			case openome_modelPackage.MODEL__CORRELATIONS:
 				return correlations != null && !correlations.isEmpty();
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
+				return associations != null && !associations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

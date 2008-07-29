@@ -39,11 +39,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ModelItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +140,7 @@ public class ModelItemProvider
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__DEPENDENCIES);
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__DECOMPOSITIONS);
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__CONTAINERS);
+			childrenFeatures.add(openome_modelPackage.Literals.MODEL__ASSOCIATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -202,6 +203,7 @@ public class ModelItemProvider
 			case openome_modelPackage.MODEL__DEPENDENCIES:
 			case openome_modelPackage.MODEL__DECOMPOSITIONS:
 			case openome_modelPackage.MODEL__CONTAINERS:
+			case openome_modelPackage.MODEL__ASSOCIATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -338,6 +340,41 @@ public class ModelItemProvider
 			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__CONTAINERS,
 				 openome_modelFactory.eINSTANCE.createRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createIsAAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createCoversAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createIsPartofAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createOccupiesAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createPlaysAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
+				 openome_modelFactory.eINSTANCE.createINSAssociation()));
 	}
 
 	/**

@@ -39,7 +39,7 @@ public class INSAssociationImpl extends AssociationImpl implements INSAssociatio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String LABEL_EDEFAULT = "INS";
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.

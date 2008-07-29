@@ -772,26 +772,26 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.IsPartOfAssociation} instances.
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.IsPartofAssociation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IsPartOfAssociationItemProvider isPartOfAssociationItemProvider;
+	protected IsPartofAssociationItemProvider isPartofAssociationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.IsPartOfAssociation}.
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.IsPartofAssociation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIsPartOfAssociationAdapter() {
-		if (isPartOfAssociationItemProvider == null) {
-			isPartOfAssociationItemProvider = new IsPartOfAssociationItemProvider(this);
+	public Adapter createIsPartofAssociationAdapter() {
+		if (isPartofAssociationItemProvider == null) {
+			isPartofAssociationItemProvider = new IsPartofAssociationItemProvider(this);
 		}
 
-		return isPartOfAssociationItemProvider;
+		return isPartofAssociationItemProvider;
 	}
 
 	/**
@@ -992,7 +992,7 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (associationItemProvider != null) associationItemProvider.dispose();
 		if (isAAssociationItemProvider != null) isAAssociationItemProvider.dispose();
 		if (coversAssociationItemProvider != null) coversAssociationItemProvider.dispose();
-		if (isPartOfAssociationItemProvider != null) isPartOfAssociationItemProvider.dispose();
+		if (isPartofAssociationItemProvider != null) isPartofAssociationItemProvider.dispose();
 		if (occupiesAssociationItemProvider != null) occupiesAssociationItemProvider.dispose();
 		if (playsAssociationItemProvider != null) playsAssociationItemProvider.dispose();
 		if (insAssociationItemProvider != null) insAssociationItemProvider.dispose();

@@ -97,7 +97,7 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.ASSOCIATION: return createAssociation();
 			case openome_modelPackage.IS_AASSOCIATION: return createIsAAssociation();
 			case openome_modelPackage.COVERS_ASSOCIATION: return createCoversAssociation();
-			case openome_modelPackage.IS_PART_OF_ASSOCIATION: return createIsPartOfAssociation();
+			case openome_modelPackage.IS_PARTOF_ASSOCIATION: return createIsPartofAssociation();
 			case openome_modelPackage.OCCUPIES_ASSOCIATION: return createOccupiesAssociation();
 			case openome_modelPackage.PLAYS_ASSOCIATION: return createPlaysAssociation();
 			case openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
@@ -449,9 +449,9 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IsPartOfAssociation createIsPartOfAssociation() {
-		IsPartOfAssociationImpl isPartOfAssociation = new IsPartOfAssociationImpl();
-		return isPartOfAssociation;
+	public IsPartofAssociation createIsPartofAssociation() {
+		IsPartofAssociationImpl isPartofAssociation = new IsPartofAssociationImpl();
+		return isPartofAssociation;
 	}
 
 	/**

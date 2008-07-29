@@ -39,7 +39,7 @@ public class CoversAssociationImpl extends AssociationImpl implements CoversAsso
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String LABEL_EDEFAULT = "Covers";
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.

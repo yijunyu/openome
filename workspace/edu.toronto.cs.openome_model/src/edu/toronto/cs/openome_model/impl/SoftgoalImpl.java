@@ -9,7 +9,9 @@ import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -42,6 +44,7 @@ public class SoftgoalImpl extends IntentionImpl implements Softgoal {
 	 * @ordered
 	 */
 	protected static final String TOPIC_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' attribute.
 	 * <!-- begin-user-doc -->

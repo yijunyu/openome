@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class AssociationImpl extends EObjectImpl implements Association {
+public class AssociationImpl extends LinkImpl implements Association {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

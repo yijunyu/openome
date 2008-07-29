@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Association extends EObject {
+public interface Association extends Link {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

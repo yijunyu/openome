@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.provider;
 
 
-import edu.toronto.cs.openome_model.IsPartOfAssociation;
+import edu.toronto.cs.openome_model.IsPartofAssociation;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.IsPartOfAssociation} object.
+ * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.IsPartofAssociation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IsPartOfAssociationItemProvider
+public class IsPartofAssociationItemProvider
 	extends AssociationItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +52,7 @@ public class IsPartOfAssociationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IsPartOfAssociationItemProvider(AdapterFactory adapterFactory) {
+	public IsPartofAssociationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -83,9 +83,9 @@ public class IsPartOfAssociationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IsPartOfAssociation_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IsPartOfAssociation_label_feature", "_UI_IsPartOfAssociation_type"),
-				 openome_modelPackage.Literals.IS_PART_OF_ASSOCIATION__LABEL,
+				 getString("_UI_IsPartofAssociation_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IsPartofAssociation_label_feature", "_UI_IsPartofAssociation_type"),
+				 openome_modelPackage.Literals.IS_PARTOF_ASSOCIATION__LABEL,
 				 false,
 				 false,
 				 false,
@@ -95,14 +95,14 @@ public class IsPartOfAssociationItemProvider
 	}
 
 	/**
-	 * This returns IsPartOfAssociation.gif.
+	 * This returns IsPartofAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IsPartOfAssociation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IsPartofAssociation"));
 	}
 
 	/**
@@ -113,10 +113,10 @@ public class IsPartOfAssociationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IsPartOfAssociation)object).getLabel();
+		String label = ((IsPartofAssociation)object).getLabel();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IsPartOfAssociation_type") :
-			getString("_UI_IsPartOfAssociation_type") + " " + label;
+			getString("_UI_IsPartofAssociation_type") :
+			getString("_UI_IsPartofAssociation_type") + " " + label;
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class IsPartOfAssociationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IsPartOfAssociation.class)) {
-			case openome_modelPackage.IS_PART_OF_ASSOCIATION__LABEL:
+		switch (notification.getFeatureID(IsPartofAssociation.class)) {
+			case openome_modelPackage.IS_PARTOF_ASSOCIATION__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

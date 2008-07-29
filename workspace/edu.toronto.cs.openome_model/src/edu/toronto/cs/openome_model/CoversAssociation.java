@@ -32,6 +32,7 @@ public interface CoversAssociation extends Association {
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * The default value is <code>"Covers"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
@@ -40,7 +41,7 @@ public interface CoversAssociation extends Association {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getCoversAssociation_Label()
-	 * @model changeable="false"
+	 * @model default="Covers" changeable="false"
 	 * @generated
 	 */
 	String getLabel();

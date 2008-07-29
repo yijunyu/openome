@@ -5,20 +5,10 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
-import edu.toronto.cs.openome_model.Actor;
-import edu.toronto.cs.openome_model.Belief;
-import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.Role;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
-import java.util.Collection;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->

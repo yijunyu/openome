@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Model#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getContainers <em>Containers</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getCorrelations <em>Correlations</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Model#getAssociations <em>Associations</em>}</li>
  * </ul>
  * </p>
  *
@@ -170,5 +171,21 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Correlation> getCorrelations();
+
+	/**
+	 * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Association}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Associations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Associations</em>' containment reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Associations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Association> getAssociations();
 
 } // Model

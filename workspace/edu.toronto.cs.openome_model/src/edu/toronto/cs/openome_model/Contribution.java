@@ -5,7 +5,6 @@
  */
 package edu.toronto.cs.openome_model;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

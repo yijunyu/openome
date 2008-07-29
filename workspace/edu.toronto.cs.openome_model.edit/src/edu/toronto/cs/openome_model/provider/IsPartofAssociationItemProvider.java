@@ -6,34 +6,38 @@
 package edu.toronto.cs.openome_model.provider;
 
 
+import edu.toronto.cs.openome_model.IsPartofAssociation;
+import edu.toronto.cs.openome_model.openome_modelPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.DeniedLabel} object.
+ * This is the item provider adapter for a {@link edu.toronto.cs.openome_model.IsPartofAssociation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeniedLabelItemProvider
-	extends TruthLabelItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class IsPartofAssociationItemProvider
+	extends AssociationItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -48,7 +52,7 @@ public class DeniedLabelItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeniedLabelItemProvider(AdapterFactory adapterFactory) {
+	public IsPartofAssociationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,19 +67,42 @@ public class DeniedLabelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns DeniedLabel.gif.
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IsPartofAssociation_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IsPartofAssociation_label_feature", "_UI_IsPartofAssociation_type"),
+				 openome_modelPackage.Literals.IS_PARTOF_ASSOCIATION__LABEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns IsPartofAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DeniedLabel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IsPartofAssociation"));
 	}
 
 	/**
@@ -86,7 +113,10 @@ public class DeniedLabelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DeniedLabel_type");
+		String label = ((IsPartofAssociation)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_IsPartofAssociation_type") :
+			getString("_UI_IsPartofAssociation_type") + " " + label;
 	}
 
 	/**
@@ -99,6 +129,12 @@ public class DeniedLabelItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(IsPartofAssociation.class)) {
+			case openome_modelPackage.IS_PARTOF_ASSOCIATION__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -112,17 +148,6 @@ public class DeniedLabelItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return openome_modelEditPlugin.INSTANCE;
 	}
 
 }

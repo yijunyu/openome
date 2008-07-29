@@ -7,7 +7,6 @@ package edu.toronto.cs.openome_model;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Position</b></em>'.

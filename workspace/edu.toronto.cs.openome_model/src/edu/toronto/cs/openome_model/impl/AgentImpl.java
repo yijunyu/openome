@@ -11,11 +11,16 @@ import edu.toronto.cs.openome_model.Role;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -50,6 +55,7 @@ public class AgentImpl extends ContainerImpl implements Agent {
 	 * @ordered
 	 */
 	protected EList<Role> plays;
+
 	/**
 	 * The cached value of the '{@link #getOccupies() <em>Occupies</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -59,6 +65,7 @@ public class AgentImpl extends ContainerImpl implements Agent {
 	 * @ordered
 	 */
 	protected EList<Position> occupies;
+
 	/**
 	 * The cached value of the '{@link #getIns() <em>Ins</em>}' reference.
 	 * <!-- begin-user-doc -->
