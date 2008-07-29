@@ -1,10 +1,13 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import org.eclipse.draw2d.BorderLayout;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -36,6 +39,11 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	public static final int VISUAL_ID = 1003;
 
 	/**
+	 * @generated NOT
+	 */
+	private ConnectionAnchor anchor;
+	
+	/**
 	 * @generated
 	 */
 	protected IFigure contentPane;
@@ -50,6 +58,48 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	 */
 	public PositionEditPart(View view) {
 		super(view);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	protected ConnectionAnchor getConnectionAnchor() {
+		if (anchor == null) {
+				anchor = new EllipseAnchor(getFigure());
+		}
+		return anchor;
+	}
+	
+	/**
+	 * @generated NOT
+	 */ 
+	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
 	}
 
 	/**
