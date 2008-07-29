@@ -703,6 +703,167 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Association} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssociationItemProvider associationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Association}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssociationAdapter() {
+		if (associationItemProvider == null) {
+			associationItemProvider = new AssociationItemProvider(this);
+		}
+
+		return associationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.IsAAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IsAAssociationItemProvider isAAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.IsAAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIsAAssociationAdapter() {
+		if (isAAssociationItemProvider == null) {
+			isAAssociationItemProvider = new IsAAssociationItemProvider(this);
+		}
+
+		return isAAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.CoversAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CoversAssociationItemProvider coversAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.CoversAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCoversAssociationAdapter() {
+		if (coversAssociationItemProvider == null) {
+			coversAssociationItemProvider = new CoversAssociationItemProvider(this);
+		}
+
+		return coversAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.IsPartOfAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IsPartOfAssociationItemProvider isPartOfAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.IsPartOfAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIsPartOfAssociationAdapter() {
+		if (isPartOfAssociationItemProvider == null) {
+			isPartOfAssociationItemProvider = new IsPartOfAssociationItemProvider(this);
+		}
+
+		return isPartOfAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.OccupiesAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OccupiesAssociationItemProvider occupiesAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.OccupiesAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOccupiesAssociationAdapter() {
+		if (occupiesAssociationItemProvider == null) {
+			occupiesAssociationItemProvider = new OccupiesAssociationItemProvider(this);
+		}
+
+		return occupiesAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.PlaysAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlaysAssociationItemProvider playsAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.PlaysAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlaysAssociationAdapter() {
+		if (playsAssociationItemProvider == null) {
+			playsAssociationItemProvider = new PlaysAssociationItemProvider(this);
+		}
+
+		return playsAssociationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.INSAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected INSAssociationItemProvider insAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.INSAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createINSAssociationAdapter() {
+		if (insAssociationItemProvider == null) {
+			insAssociationItemProvider = new INSAssociationItemProvider(this);
+		}
+
+		return insAssociationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -828,6 +989,13 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (unknownContributionItemProvider != null) unknownContributionItemProvider.dispose();
 		if (andContributionItemProvider != null) andContributionItemProvider.dispose();
 		if (orContributionItemProvider != null) orContributionItemProvider.dispose();
+		if (associationItemProvider != null) associationItemProvider.dispose();
+		if (isAAssociationItemProvider != null) isAAssociationItemProvider.dispose();
+		if (coversAssociationItemProvider != null) coversAssociationItemProvider.dispose();
+		if (isPartOfAssociationItemProvider != null) isPartOfAssociationItemProvider.dispose();
+		if (occupiesAssociationItemProvider != null) occupiesAssociationItemProvider.dispose();
+		if (playsAssociationItemProvider != null) playsAssociationItemProvider.dispose();
+		if (insAssociationItemProvider != null) insAssociationItemProvider.dispose();
 	}
 
 }

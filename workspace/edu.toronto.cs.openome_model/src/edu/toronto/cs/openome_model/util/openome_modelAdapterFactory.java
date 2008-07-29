@@ -198,6 +198,34 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createOrContributionAdapter();
 			}
 			@Override
+			public Adapter caseAssociation(Association object) {
+				return createAssociationAdapter();
+			}
+			@Override
+			public Adapter caseIsAAssociation(IsAAssociation object) {
+				return createIsAAssociationAdapter();
+			}
+			@Override
+			public Adapter caseCoversAssociation(CoversAssociation object) {
+				return createCoversAssociationAdapter();
+			}
+			@Override
+			public Adapter caseIsPartOfAssociation(IsPartOfAssociation object) {
+				return createIsPartOfAssociationAdapter();
+			}
+			@Override
+			public Adapter caseOccupiesAssociation(OccupiesAssociation object) {
+				return createOccupiesAssociationAdapter();
+			}
+			@Override
+			public Adapter casePlaysAssociation(PlaysAssociation object) {
+				return createPlaysAssociationAdapter();
+			}
+			@Override
+			public Adapter caseINSAssociation(INSAssociation object) {
+				return createINSAssociationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -634,6 +662,104 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOrContributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Association <em>Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.Association
+	 * @generated
+	 */
+	public Adapter createAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.IsAAssociation <em>Is AAssociation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.IsAAssociation
+	 * @generated
+	 */
+	public Adapter createIsAAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.CoversAssociation <em>Covers Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.CoversAssociation
+	 * @generated
+	 */
+	public Adapter createCoversAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.IsPartOfAssociation <em>Is Part Of Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation
+	 * @generated
+	 */
+	public Adapter createIsPartOfAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.OccupiesAssociation <em>Occupies Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.OccupiesAssociation
+	 * @generated
+	 */
+	public Adapter createOccupiesAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.PlaysAssociation <em>Plays Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.PlaysAssociation
+	 * @generated
+	 */
+	public Adapter createPlaysAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.INSAssociation <em>INS Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.INSAssociation
+	 * @generated
+	 */
+	public Adapter createINSAssociationAdapter() {
 		return null;
 	}
 

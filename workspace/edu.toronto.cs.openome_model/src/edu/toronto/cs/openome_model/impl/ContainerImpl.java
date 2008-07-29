@@ -6,6 +6,7 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Actor;
+import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.Intention;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -42,6 +44,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getAssociationTo <em>Association To</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getAssociationFrom <em>Association From</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +98,26 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 * @ordered
 	 */
 	protected EList<Intention> intentions;
+
+	/**
+	 * The cached value of the '{@link #getAssociationTo() <em>Association To</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociationTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Association> associationTo;
+
+	/**
+	 * The cached value of the '{@link #getAssociationFrom() <em>Association From</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociationFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Association> associationFrom;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,6 +229,30 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Association> getAssociationTo() {
+		if (associationTo == null) {
+			associationTo = new EObjectResolvingEList<Association>(Association.class, this, openome_modelPackage.CONTAINER__ASSOCIATION_TO);
+		}
+		return associationTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Association> getAssociationFrom() {
+		if (associationFrom == null) {
+			associationFrom = new EObjectResolvingEList<Association>(Association.class, this, openome_modelPackage.CONTAINER__ASSOCIATION_FROM);
+		}
+		return associationFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -267,6 +315,10 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 				return getIntentions();
 			case openome_modelPackage.CONTAINER__MODEL:
 				return getModel();
+			case openome_modelPackage.CONTAINER__ASSOCIATION_TO:
+				return getAssociationTo();
+			case openome_modelPackage.CONTAINER__ASSOCIATION_FROM:
+				return getAssociationFrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +346,14 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 			case openome_modelPackage.CONTAINER__MODEL:
 				setModel((Model)newValue);
 				return;
+			case openome_modelPackage.CONTAINER__ASSOCIATION_TO:
+				getAssociationTo().clear();
+				getAssociationTo().addAll((Collection<? extends Association>)newValue);
+				return;
+			case openome_modelPackage.CONTAINER__ASSOCIATION_FROM:
+				getAssociationFrom().clear();
+				getAssociationFrom().addAll((Collection<? extends Association>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -318,6 +378,12 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 			case openome_modelPackage.CONTAINER__MODEL:
 				setModel((Model)null);
 				return;
+			case openome_modelPackage.CONTAINER__ASSOCIATION_TO:
+				getAssociationTo().clear();
+				return;
+			case openome_modelPackage.CONTAINER__ASSOCIATION_FROM:
+				getAssociationFrom().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +404,10 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 				return intentions != null && !intentions.isEmpty();
 			case openome_modelPackage.CONTAINER__MODEL:
 				return getModel() != null;
+			case openome_modelPackage.CONTAINER__ASSOCIATION_TO:
+				return associationTo != null && !associationTo.isEmpty();
+			case openome_modelPackage.CONTAINER__ASSOCIATION_FROM:
+				return associationFrom != null && !associationFrom.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

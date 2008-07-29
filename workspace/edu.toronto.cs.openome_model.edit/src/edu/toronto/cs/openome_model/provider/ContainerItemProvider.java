@@ -74,6 +74,8 @@ public class ContainerItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addAssociationToPropertyDescriptor(object);
+			addAssociationFromPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +98,50 @@ public class ContainerItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Association To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociationToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Container_associationTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Container_associationTo_feature", "_UI_Container_type"),
+				 openome_modelPackage.Literals.CONTAINER__ASSOCIATION_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Association From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociationFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Container_associationFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Container_associationFrom_feature", "_UI_Container_type"),
+				 openome_modelPackage.Literals.CONTAINER__ASSOCIATION_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

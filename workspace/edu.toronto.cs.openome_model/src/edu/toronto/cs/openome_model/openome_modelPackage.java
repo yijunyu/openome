@@ -168,13 +168,31 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Association To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__ASSOCIATION_TO = DEPENDABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Association From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__ASSOCIATION_FROM = DEPENDABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 4;
+	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -239,6 +257,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__MODEL = CONTAINER__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Association To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__ASSOCIATION_TO = CONTAINER__ASSOCIATION_TO;
+
+	/**
+	 * The feature id for the '<em><b>Association From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__ASSOCIATION_FROM = CONTAINER__ASSOCIATION_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Is a</b></em>' reference list.
@@ -339,6 +375,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGENT__MODEL = CONTAINER__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Association To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__ASSOCIATION_TO = CONTAINER__ASSOCIATION_TO;
+
+	/**
+	 * The feature id for the '<em><b>Association From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__ASSOCIATION_FROM = CONTAINER__ASSOCIATION_FROM;
 
 	/**
 	 * The feature id for the '<em><b>Plays</b></em>' reference list.
@@ -1215,6 +1269,24 @@ public interface openome_modelPackage extends EPackage {
 	int POSITION__MODEL = CONTAINER__MODEL;
 
 	/**
+	 * The feature id for the '<em><b>Association To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__ASSOCIATION_TO = CONTAINER__ASSOCIATION_TO;
+
+	/**
+	 * The feature id for the '<em><b>Association From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__ASSOCIATION_FROM = CONTAINER__ASSOCIATION_FROM;
+
+	/**
 	 * The feature id for the '<em><b>Covers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +1612,24 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE__MODEL = CONTAINER__MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Association To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__ASSOCIATION_TO = CONTAINER__ASSOCIATION_TO;
+
+	/**
+	 * The feature id for the '<em><b>Association From</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__ASSOCIATION_FROM = CONTAINER__ASSOCIATION_FROM;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -2797,6 +2887,319 @@ public interface openome_modelPackage extends EPackage {
 	int OR_CONTRIBUTION_FEATURE_COUNT = CONTRIBUTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AssociationImpl <em>Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.AssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAssociation()
+	 * @generated
+	 */
+	int ASSOCIATION = 30;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__SOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__TARGET = 1;
+
+	/**
+	 * The number of structural features of the '<em>Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IsAAssociationImpl <em>Is AAssociation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.IsAAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsAAssociation()
+	 * @generated
+	 */
+	int IS_AASSOCIATION = 31;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_AASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_AASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_AASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Is AAssociation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_AASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.CoversAssociationImpl <em>Covers Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.CoversAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getCoversAssociation()
+	 * @generated
+	 */
+	int COVERS_ASSOCIATION = 32;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERS_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERS_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERS_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Covers Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COVERS_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl <em>Is Part Of Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartOfAssociation()
+	 * @generated
+	 */
+	int IS_PART_OF_ASSOCIATION = 33;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PART_OF_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PART_OF_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PART_OF_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Is Part Of Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PART_OF_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl <em>Occupies Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOccupiesAssociation()
+	 * @generated
+	 */
+	int OCCUPIES_ASSOCIATION = 34;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCUPIES_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCUPIES_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCUPIES_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Occupies Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCUPIES_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.PlaysAssociationImpl <em>Plays Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.PlaysAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPlaysAssociation()
+	 * @generated
+	 */
+	int PLAYS_ASSOCIATION = 35;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYS_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYS_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYS_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Plays Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYS_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.INSAssociationImpl <em>INS Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.INSAssociationImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getINSAssociation()
+	 * @generated
+	 */
+	int INS_ASSOCIATION = 36;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INS_ASSOCIATION__SOURCE = ASSOCIATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INS_ASSOCIATION__TARGET = ASSOCIATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INS_ASSOCIATION__LABEL = ASSOCIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>INS Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INS_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2804,7 +3207,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 30;
+	int EVALUATION_LABEL = 37;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -2814,7 +3217,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 31;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -2824,7 +3227,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 32;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 39;
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Actor <em>Actor</em>}'.
@@ -3569,6 +3972,28 @@ public interface openome_modelPackage extends EPackage {
 	EReference getContainer_Model();
 
 	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getAssociationTo <em>Association To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Association To</em>'.
+	 * @see edu.toronto.cs.openome_model.Container#getAssociationTo()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_AssociationTo();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Container#getAssociationFrom <em>Association From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Association From</em>'.
+	 * @see edu.toronto.cs.openome_model.Container#getAssociationFrom()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_AssociationFrom();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Belief <em>Belief</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3840,6 +4265,164 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOrContribution_ContributionType();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Association <em>Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Association</em>'.
+	 * @see edu.toronto.cs.openome_model.Association
+	 * @generated
+	 */
+	EClass getAssociation();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Association#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see edu.toronto.cs.openome_model.Association#getSource()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EReference getAssociation_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.toronto.cs.openome_model.Association#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see edu.toronto.cs.openome_model.Association#getTarget()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EReference getAssociation_Target();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.IsAAssociation <em>Is AAssociation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Is AAssociation</em>'.
+	 * @see edu.toronto.cs.openome_model.IsAAssociation
+	 * @generated
+	 */
+	EClass getIsAAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.IsAAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.IsAAssociation#getLabel()
+	 * @see #getIsAAssociation()
+	 * @generated
+	 */
+	EAttribute getIsAAssociation_Label();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.CoversAssociation <em>Covers Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Covers Association</em>'.
+	 * @see edu.toronto.cs.openome_model.CoversAssociation
+	 * @generated
+	 */
+	EClass getCoversAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.CoversAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.CoversAssociation#getLabel()
+	 * @see #getCoversAssociation()
+	 * @generated
+	 */
+	EAttribute getCoversAssociation_Label();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.IsPartOfAssociation <em>Is Part Of Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Is Part Of Association</em>'.
+	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation
+	 * @generated
+	 */
+	EClass getIsPartOfAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.IsPartOfAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation#getLabel()
+	 * @see #getIsPartOfAssociation()
+	 * @generated
+	 */
+	EAttribute getIsPartOfAssociation_Label();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OccupiesAssociation <em>Occupies Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Occupies Association</em>'.
+	 * @see edu.toronto.cs.openome_model.OccupiesAssociation
+	 * @generated
+	 */
+	EClass getOccupiesAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.OccupiesAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.OccupiesAssociation#getLabel()
+	 * @see #getOccupiesAssociation()
+	 * @generated
+	 */
+	EAttribute getOccupiesAssociation_Label();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.PlaysAssociation <em>Plays Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plays Association</em>'.
+	 * @see edu.toronto.cs.openome_model.PlaysAssociation
+	 * @generated
+	 */
+	EClass getPlaysAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.PlaysAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.PlaysAssociation#getLabel()
+	 * @see #getPlaysAssociation()
+	 * @generated
+	 */
+	EAttribute getPlaysAssociation_Label();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.INSAssociation <em>INS Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>INS Association</em>'.
+	 * @see edu.toronto.cs.openome_model.INSAssociation
+	 * @generated
+	 */
+	EClass getINSAssociation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.INSAssociation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see edu.toronto.cs.openome_model.INSAssociation#getLabel()
+	 * @see #getINSAssociation()
+	 * @generated
+	 */
+	EAttribute getINSAssociation_Label();
 
 	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
@@ -4480,6 +5063,22 @@ public interface openome_modelPackage extends EPackage {
 		EReference CONTAINER__MODEL = eINSTANCE.getContainer_Model();
 
 		/**
+		 * The meta object literal for the '<em><b>Association To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__ASSOCIATION_TO = eINSTANCE.getContainer_AssociationTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Association From</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__ASSOCIATION_FROM = eINSTANCE.getContainer_AssociationFrom();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.BeliefImpl <em>Belief</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4712,6 +5311,140 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OR_CONTRIBUTION__CONTRIBUTION_TYPE = eINSTANCE.getOrContribution_ContributionType();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AssociationImpl <em>Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.AssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAssociation()
+		 * @generated
+		 */
+		EClass ASSOCIATION = eINSTANCE.getAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSOCIATION__SOURCE = eINSTANCE.getAssociation_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSOCIATION__TARGET = eINSTANCE.getAssociation_Target();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IsAAssociationImpl <em>Is AAssociation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.IsAAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsAAssociation()
+		 * @generated
+		 */
+		EClass IS_AASSOCIATION = eINSTANCE.getIsAAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IS_AASSOCIATION__LABEL = eINSTANCE.getIsAAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.CoversAssociationImpl <em>Covers Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.CoversAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getCoversAssociation()
+		 * @generated
+		 */
+		EClass COVERS_ASSOCIATION = eINSTANCE.getCoversAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COVERS_ASSOCIATION__LABEL = eINSTANCE.getCoversAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl <em>Is Part Of Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIsPartOfAssociation()
+		 * @generated
+		 */
+		EClass IS_PART_OF_ASSOCIATION = eINSTANCE.getIsPartOfAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IS_PART_OF_ASSOCIATION__LABEL = eINSTANCE.getIsPartOfAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl <em>Occupies Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getOccupiesAssociation()
+		 * @generated
+		 */
+		EClass OCCUPIES_ASSOCIATION = eINSTANCE.getOccupiesAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OCCUPIES_ASSOCIATION__LABEL = eINSTANCE.getOccupiesAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.PlaysAssociationImpl <em>Plays Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.PlaysAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getPlaysAssociation()
+		 * @generated
+		 */
+		EClass PLAYS_ASSOCIATION = eINSTANCE.getPlaysAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYS_ASSOCIATION__LABEL = eINSTANCE.getPlaysAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.INSAssociationImpl <em>INS Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.INSAssociationImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getINSAssociation()
+		 * @generated
+		 */
+		EClass INS_ASSOCIATION = eINSTANCE.getINSAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INS_ASSOCIATION__LABEL = eINSTANCE.getINSAssociation_Label();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

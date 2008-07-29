@@ -16,11 +16,13 @@ import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
 import edu.toronto.cs.openome_model.AndContribution;
 import edu.toronto.cs.openome_model.AndDecomposition;
+import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Belief;
 import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Correlation;
+import edu.toronto.cs.openome_model.CoversAssociation;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
@@ -30,13 +32,18 @@ import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.GoalModelingContributionType;
 import edu.toronto.cs.openome_model.HelpContribution;
 import edu.toronto.cs.openome_model.HurtContribution;
+import edu.toronto.cs.openome_model.INSAssociation;
 import edu.toronto.cs.openome_model.IStarContributionType;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.IsAAssociation;
+import edu.toronto.cs.openome_model.IsPartOfAssociation;
 import edu.toronto.cs.openome_model.Link;
 import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.OccupiesAssociation;
 import edu.toronto.cs.openome_model.OrContribution;
 import edu.toronto.cs.openome_model.OrDecomposition;
+import edu.toronto.cs.openome_model.PlaysAssociation;
 import edu.toronto.cs.openome_model.Position;
 import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.Resource;
@@ -273,6 +280,55 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass orContributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass associationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass isAAssociationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass coversAssociationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass isPartOfAssociationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass occupiesAssociationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass playsAssociationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass insAssociationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -989,6 +1045,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getContainer_AssociationTo() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContainer_AssociationFrom() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBelief() {
 		return beliefEClass;
 	}
@@ -1223,6 +1297,141 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAssociation() {
+		return associationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssociation_Source() {
+		return (EReference)associationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssociation_Target() {
+		return (EReference)associationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIsAAssociation() {
+		return isAAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIsAAssociation_Label() {
+		return (EAttribute)isAAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCoversAssociation() {
+		return coversAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCoversAssociation_Label() {
+		return (EAttribute)coversAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIsPartOfAssociation() {
+		return isPartOfAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIsPartOfAssociation_Label() {
+		return (EAttribute)isPartOfAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOccupiesAssociation() {
+		return occupiesAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOccupiesAssociation_Label() {
+		return (EAttribute)occupiesAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPlaysAssociation() {
+		return playsAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlaysAssociation_Label() {
+		return (EAttribute)playsAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getINSAssociation() {
+		return insAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getINSAssociation_Label() {
+		return (EAttribute)insAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1358,6 +1567,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(containerEClass, CONTAINER__SUB);
 		createEReference(containerEClass, CONTAINER__INTENTIONS);
 		createEReference(containerEClass, CONTAINER__MODEL);
+		createEReference(containerEClass, CONTAINER__ASSOCIATION_TO);
+		createEReference(containerEClass, CONTAINER__ASSOCIATION_FROM);
 
 		beliefEClass = createEClass(BELIEF);
 
@@ -1397,6 +1608,28 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		orContributionEClass = createEClass(OR_CONTRIBUTION);
 		createEAttribute(orContributionEClass, OR_CONTRIBUTION__CONTRIBUTION_TYPE);
+
+		associationEClass = createEClass(ASSOCIATION);
+		createEReference(associationEClass, ASSOCIATION__SOURCE);
+		createEReference(associationEClass, ASSOCIATION__TARGET);
+
+		isAAssociationEClass = createEClass(IS_AASSOCIATION);
+		createEAttribute(isAAssociationEClass, IS_AASSOCIATION__LABEL);
+
+		coversAssociationEClass = createEClass(COVERS_ASSOCIATION);
+		createEAttribute(coversAssociationEClass, COVERS_ASSOCIATION__LABEL);
+
+		isPartOfAssociationEClass = createEClass(IS_PART_OF_ASSOCIATION);
+		createEAttribute(isPartOfAssociationEClass, IS_PART_OF_ASSOCIATION__LABEL);
+
+		occupiesAssociationEClass = createEClass(OCCUPIES_ASSOCIATION);
+		createEAttribute(occupiesAssociationEClass, OCCUPIES_ASSOCIATION__LABEL);
+
+		playsAssociationEClass = createEClass(PLAYS_ASSOCIATION);
+		createEAttribute(playsAssociationEClass, PLAYS_ASSOCIATION__LABEL);
+
+		insAssociationEClass = createEClass(INS_ASSOCIATION);
+		createEAttribute(insAssociationEClass, INS_ASSOCIATION__LABEL);
 
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
@@ -1458,6 +1691,12 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		unknownContributionEClass.getESuperTypes().add(this.getContribution());
 		andContributionEClass.getESuperTypes().add(this.getContribution());
 		orContributionEClass.getESuperTypes().add(this.getContribution());
+		isAAssociationEClass.getESuperTypes().add(this.getAssociation());
+		coversAssociationEClass.getESuperTypes().add(this.getAssociation());
+		isPartOfAssociationEClass.getESuperTypes().add(this.getAssociation());
+		occupiesAssociationEClass.getESuperTypes().add(this.getAssociation());
+		playsAssociationEClass.getESuperTypes().add(this.getAssociation());
+		insAssociationEClass.getESuperTypes().add(this.getAssociation());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1545,6 +1784,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_AssociationTo(), this.getAssociation(), null, "associationTo", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_AssociationFrom(), this.getAssociation(), null, "associationFrom", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beliefEClass, Belief.class, "Belief", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1584,6 +1825,28 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(orContributionEClass, OrContribution.class, "OrContribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrContribution_ContributionType(), ecorePackage.getEString(), "contributionType", "OR", 1, 1, OrContribution.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssociation_Source(), this.getContainer(), null, "source", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssociation_Target(), this.getContainer(), null, "target", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(isAAssociationEClass, IsAAssociation.class, "IsAAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIsAAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IsAAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(coversAssociationEClass, CoversAssociation.class, "CoversAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCoversAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, CoversAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(isPartOfAssociationEClass, IsPartOfAssociation.class, "IsPartOfAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIsPartOfAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IsPartOfAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(occupiesAssociationEClass, OccupiesAssociation.class, "OccupiesAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOccupiesAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, OccupiesAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(playsAssociationEClass, PlaysAssociation.class, "PlaysAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPlaysAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, PlaysAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(insAssociationEClass, INSAssociation.class, "INSAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getINSAssociation_Label(), ecorePackage.getEString(), "label", null, 0, 1, INSAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

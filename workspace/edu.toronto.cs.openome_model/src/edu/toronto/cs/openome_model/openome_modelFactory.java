@@ -275,6 +275,69 @@ public interface openome_modelFactory extends EFactory {
 	OrContribution createOrContribution();
 
 	/**
+	 * Returns a new object of class '<em>Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Association</em>'.
+	 * @generated
+	 */
+	Association createAssociation();
+
+	/**
+	 * Returns a new object of class '<em>Is AAssociation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is AAssociation</em>'.
+	 * @generated
+	 */
+	IsAAssociation createIsAAssociation();
+
+	/**
+	 * Returns a new object of class '<em>Covers Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Covers Association</em>'.
+	 * @generated
+	 */
+	CoversAssociation createCoversAssociation();
+
+	/**
+	 * Returns a new object of class '<em>Is Part Of Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Part Of Association</em>'.
+	 * @generated
+	 */
+	IsPartOfAssociation createIsPartOfAssociation();
+
+	/**
+	 * Returns a new object of class '<em>Occupies Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Occupies Association</em>'.
+	 * @generated
+	 */
+	OccupiesAssociation createOccupiesAssociation();
+
+	/**
+	 * Returns a new object of class '<em>Plays Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plays Association</em>'.
+	 * @generated
+	 */
+	PlaysAssociation createPlaysAssociation();
+
+	/**
+	 * Returns a new object of class '<em>INS Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>INS Association</em>'.
+	 * @generated
+	 */
+	INSAssociation createINSAssociation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

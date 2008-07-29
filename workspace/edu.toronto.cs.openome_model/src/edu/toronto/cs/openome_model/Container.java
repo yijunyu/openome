@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getModel <em>Model</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Container#getAssociationTo <em>Association To</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Container#getAssociationFrom <em>Association From</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,5 +125,37 @@ public interface Container extends Dependable {
 	 * @generated
 	 */
 	void setModel(Model value);
+
+	/**
+	 * Returns the value of the '<em><b>Association To</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Association}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Association To</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Association To</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_AssociationTo()
+	 * @model
+	 * @generated
+	 */
+	EList<Association> getAssociationTo();
+
+	/**
+	 * Returns the value of the '<em><b>Association From</b></em>' reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Association}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Association From</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Association From</em>' reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_AssociationFrom()
+	 * @model
+	 * @generated
+	 */
+	EList<Association> getAssociationFrom();
 
 } // Container

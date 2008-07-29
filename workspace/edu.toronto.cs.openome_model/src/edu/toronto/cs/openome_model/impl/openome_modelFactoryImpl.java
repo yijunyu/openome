@@ -94,6 +94,13 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.UNKNOWN_CONTRIBUTION: return createUnknownContribution();
 			case openome_modelPackage.AND_CONTRIBUTION: return createAndContribution();
 			case openome_modelPackage.OR_CONTRIBUTION: return createOrContribution();
+			case openome_modelPackage.ASSOCIATION: return createAssociation();
+			case openome_modelPackage.IS_AASSOCIATION: return createIsAAssociation();
+			case openome_modelPackage.COVERS_ASSOCIATION: return createCoversAssociation();
+			case openome_modelPackage.IS_PART_OF_ASSOCIATION: return createIsPartOfAssociation();
+			case openome_modelPackage.OCCUPIES_ASSOCIATION: return createOccupiesAssociation();
+			case openome_modelPackage.PLAYS_ASSOCIATION: return createPlaysAssociation();
+			case openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -405,6 +412,76 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public OrContribution createOrContribution() {
 		OrContributionImpl orContribution = new OrContributionImpl();
 		return orContribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Association createAssociation() {
+		AssociationImpl association = new AssociationImpl();
+		return association;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsAAssociation createIsAAssociation() {
+		IsAAssociationImpl isAAssociation = new IsAAssociationImpl();
+		return isAAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CoversAssociation createCoversAssociation() {
+		CoversAssociationImpl coversAssociation = new CoversAssociationImpl();
+		return coversAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsPartOfAssociation createIsPartOfAssociation() {
+		IsPartOfAssociationImpl isPartOfAssociation = new IsPartOfAssociationImpl();
+		return isPartOfAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OccupiesAssociation createOccupiesAssociation() {
+		OccupiesAssociationImpl occupiesAssociation = new OccupiesAssociationImpl();
+		return occupiesAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlaysAssociation createPlaysAssociation() {
+		PlaysAssociationImpl playsAssociation = new PlaysAssociationImpl();
+		return playsAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public INSAssociation createINSAssociation() {
+		INSAssociationImpl insAssociation = new INSAssociationImpl();
+		return insAssociation;
 	}
 
 	/**
