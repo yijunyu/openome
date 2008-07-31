@@ -1,7 +1,6 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
-import openome_model.figures.SoftgoalAnchor;
-
+import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -59,8 +58,8 @@ public class SoftgoalEditPart extends ShapeNodeEditPart {
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-			anchor = new SoftgoalAnchor(getFigure());
-			//anchor = new ChopboxAnchor(getFigure());
+			//anchor = new SoftgoalAnchor(getFigure());
+			anchor = new ChopboxAnchor(getFigure());
 		}
 		return anchor;
 	}
