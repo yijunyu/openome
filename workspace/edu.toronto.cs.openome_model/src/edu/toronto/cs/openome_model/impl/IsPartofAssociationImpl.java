@@ -5,25 +5,25 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
-import edu.toronto.cs.openome_model.IsPartofAssociation;
+import edu.toronto.cs.openome_model.IsPartOfAssociation;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Is Partof Association</b></em>'.
+ * An implementation of the model object '<em><b>Is Part Of Association</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IsPartofAssociationImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IsPartofAssociationImpl extends AssociationImpl implements IsPartofAssociation {
+public class IsPartOfAssociationImpl extends AssociationImpl implements IsPartOfAssociation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +56,7 @@ public class IsPartofAssociationImpl extends AssociationImpl implements IsPartof
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IsPartofAssociationImpl() {
+	protected IsPartOfAssociationImpl() {
 		super();
 	}
 
@@ -67,7 +67,7 @@ public class IsPartofAssociationImpl extends AssociationImpl implements IsPartof
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return openome_modelPackage.Literals.IS_PARTOF_ASSOCIATION;
+		return openome_modelPackage.Literals.IS_PART_OF_ASSOCIATION;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class IsPartofAssociationImpl extends AssociationImpl implements IsPartof
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case openome_modelPackage.IS_PARTOF_ASSOCIATION__LABEL:
+			case openome_modelPackage.IS_PART_OF_ASSOCIATION__LABEL:
 				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -101,7 +101,7 @@ public class IsPartofAssociationImpl extends AssociationImpl implements IsPartof
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case openome_modelPackage.IS_PARTOF_ASSOCIATION__LABEL:
+			case openome_modelPackage.IS_PART_OF_ASSOCIATION__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);
@@ -123,4 +123,4 @@ public class IsPartofAssociationImpl extends AssociationImpl implements IsPartof
 		return result.toString();
 	}
 
-} //IsPartofAssociationImpl
+} //IsPartOfAssociationImpl

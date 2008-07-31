@@ -8,21 +8,21 @@ package edu.toronto.cs.openome_model;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Is Partof Association</b></em>'.
+ * A representation of the model object '<em><b>Is Part Of Association</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.toronto.cs.openome_model.IsPartofAssociation#getLabel <em>Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.IsPartOfAssociation#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.openome_modelPackage#getIsPartofAssociation()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getIsPartOfAssociation()
  * @model
  * @generated
  */
-public interface IsPartofAssociation extends Association {
+public interface IsPartOfAssociation extends Association {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,10 +40,10 @@ public interface IsPartofAssociation extends Association {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIsPartofAssociation_Label()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIsPartOfAssociation_Label()
 	 * @model default="Is part of" changeable="false"
 	 * @generated
 	 */
 	String getLabel();
 
-} // IsPartofAssociation
+} // IsPartOfAssociation
