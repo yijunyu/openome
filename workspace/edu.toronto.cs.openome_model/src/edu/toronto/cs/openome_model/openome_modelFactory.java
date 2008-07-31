@@ -302,13 +302,13 @@ public interface openome_modelFactory extends EFactory {
 	CoversAssociation createCoversAssociation();
 
 	/**
-	 * Returns a new object of class '<em>Is Partof Association</em>'.
+	 * Returns a new object of class '<em>Is Part Of Association</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Is Partof Association</em>'.
+	 * @return a new object of class '<em>Is Part Of Association</em>'.
 	 * @generated
 	 */
-	IsPartofAssociation createIsPartofAssociation();
+	IsPartOfAssociation createIsPartOfAssociation();
 
 	/**
 	 * Returns a new object of class '<em>Occupies Association</em>'.

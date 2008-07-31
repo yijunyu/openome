@@ -359,7 +359,7 @@ public class ModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
-				 openome_modelFactory.eINSTANCE.createIsPartofAssociation()));
+				 openome_modelFactory.eINSTANCE.createIsPartOfAssociation()));
 
 		newChildDescriptors.add
 			(createChildParameter

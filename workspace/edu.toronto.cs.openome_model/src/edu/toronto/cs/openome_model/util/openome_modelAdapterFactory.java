@@ -210,8 +210,8 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 				return createCoversAssociationAdapter();
 			}
 			@Override
-			public Adapter caseIsPartofAssociation(IsPartofAssociation object) {
-				return createIsPartofAssociationAdapter();
+			public Adapter caseIsPartOfAssociation(IsPartOfAssociation object) {
+				return createIsPartOfAssociationAdapter();
 			}
 			@Override
 			public Adapter caseOccupiesAssociation(OccupiesAssociation object) {
@@ -708,16 +708,16 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.IsPartofAssociation <em>Is Partof Association</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.IsPartOfAssociation <em>Is Part Of Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.toronto.cs.openome_model.IsPartofAssociation
+	 * @see edu.toronto.cs.openome_model.IsPartOfAssociation
 	 * @generated
 	 */
-	public Adapter createIsPartofAssociationAdapter() {
+	public Adapter createIsPartOfAssociationAdapter() {
 		return null;
 	}
 

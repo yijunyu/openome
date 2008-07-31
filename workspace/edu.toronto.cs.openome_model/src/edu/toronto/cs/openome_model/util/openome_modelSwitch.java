@@ -342,11 +342,11 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.IS_PARTOF_ASSOCIATION: {
-				IsPartofAssociation isPartofAssociation = (IsPartofAssociation)theEObject;
-				T result = caseIsPartofAssociation(isPartofAssociation);
-				if (result == null) result = caseAssociation(isPartofAssociation);
-				if (result == null) result = caseLink(isPartofAssociation);
+			case openome_modelPackage.IS_PART_OF_ASSOCIATION: {
+				IsPartOfAssociation isPartOfAssociation = (IsPartOfAssociation)theEObject;
+				T result = caseIsPartOfAssociation(isPartOfAssociation);
+				if (result == null) result = caseAssociation(isPartOfAssociation);
+				if (result == null) result = caseLink(isPartOfAssociation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -874,17 +874,17 @@ public class openome_modelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Is Partof Association</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Is Part Of Association</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Is Partof Association</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Is Part Of Association</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIsPartofAssociation(IsPartofAssociation object) {
+	public T caseIsPartOfAssociation(IsPartOfAssociation object) {
 		return null;
 	}
 
