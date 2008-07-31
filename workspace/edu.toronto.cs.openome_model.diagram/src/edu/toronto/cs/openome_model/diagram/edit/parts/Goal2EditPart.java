@@ -1,7 +1,11 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import openome_model.figures.GoalAnchor;
+
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -27,6 +31,11 @@ public class Goal2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 2001;
+	
+	/**
+	 * @generated NOT
+	 */
+	private ConnectionAnchor anchor;
 
 	/**
 	 * @generated
@@ -56,6 +65,48 @@ public class Goal2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	protected ConnectionAnchor getConnectionAnchor() {
+		if (anchor == null) {
+				anchor = new GoalAnchor(getFigure());
+		}
+		return anchor;
+	}
+	
+	/**
+	 * @generated NOT
+	 */ 
+	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
 	}
 
 	/**
