@@ -68,21 +68,19 @@ public class Grep {
 	 * @throws PatternSyntaxException
 	 */
 	private Pattern compile(String pat) throws PatternSyntaxException {
-
 		return pattern = Pattern.compile(pat);
 
 	}
 	
+	/**
+	 * Create a new file parser that will look for the given pattern.
+	 * @param pattern the regular expression to look for.
+	 * @throws PatternSyntaxException
+	 */
 	public Grep (String pattern) throws PatternSyntaxException {
 		compile (pattern);
 	}
 
-	/**
-	 * Returns true if it runs in
-	 * @param f
-	 * @param cb
-	 * @return
-	 */
 	private boolean grep(File f, CharBuffer cb) {
 		Matcher lm = linePattern.matcher(cb); // Line matcher
 		Matcher pm = null; // Pattern matcher
@@ -104,9 +102,8 @@ public class Grep {
 	}
 
 	/**
-	 * Search for occurrences of the input pattern in the given file. The input
-	 * pattern is set in the constructor.
-	 * 
+	 * Search the file f, for occurrences of the input pattern that was set in
+	 * the constructor.
 	 * @param f
 	 *            the file to be searched
 	 * @return true if the pattern was found, false otherwise
@@ -118,8 +115,8 @@ public class Grep {
 		FileChannel fc = fis.getChannel();
 
 		// Get the file's size and then map it into memory
-		int sz = (int) fc.size();
-		MappedByteBuffer bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, sz);
+		int fileSize = (int) fc.size();
+		MappedByteBuffer bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fileSize);
 
 		// Decode the file into a char buffer
 		CharBuffer cb = decoder.decode(bb);

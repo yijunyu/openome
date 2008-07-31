@@ -21,7 +21,6 @@ public class CleanProjects {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		in = new BufferedReader( new InputStreamReader( System.in ) );
 		try {
 			fileParserGeneratedNOT = new Grep ("@generated NOT");
@@ -46,7 +45,7 @@ public class CleanProjects {
 		
 		System.out.println ("Are you sure you want to do this?\nAll the .java files that contain the text @generated will be deleted from the folder " + getFullPath(mainFolder) + " AND FROM ALL OF IT'S SUBFOLDERS. (y/n)");
 		String userInput = getUserInput();
-		if (!userInput.equals("y")) {
+		if (!(userInput.equals("y") || userInput.equals("yes")) ) {
 			System.out.println ("Quitting.");
 			System.exit(0);
 		}
@@ -55,40 +54,27 @@ public class CleanProjects {
 		System.out.println ("\nTotal deleted:  " + totalDeleted);
 		System.out.println ("\nTotal custom classes (not deleted):  " + totalCustomClasses);
 		System.out.println ("\nTotal without @generated / @generated NOT (not deleted):  " + totalNeverGenerated);
+		System.out.println ("\nDon't forget to refresh the Eclipse workspace by right-clicking the project and selecting Refresh.");
+		
+		System.exit(0);
 		
 	}
 	
-	public static void processFolder (ArrayList<File> fileObjectList) {
-		String userInput = null;
+	private static void processFolder (ArrayList<File> fileObjectList) {
 		for (File fileObject : fileObjectList) {
 			if (fileObject.isDirectory()) {
 				// ignore all .svn folders
 				if (fileObject.getName().toLowerCase().equals(".svn")) {
 					continue;
 				}
-//				// ask the user if they want to clean the current folder
-//				while (userInput == null || !(userInput.equals("y") || userInput.equals("n"))) {
-//					System.out.println("Process folder " + getFullPath(fileObject)	+ " ? (y/n)");
-//					userInput = getUserInput();
-//				}
-//				// if user says "no", return
-//				if (userInput.equals ("n")) {
-//					userInput = null;
-//					continue;
-//				} else {
-					// process each file and folder in the current folder.
-					processFolder (new ArrayList<File>(Arrays.asList(fileObject.listFiles())));
-//				}
-//				userInput = "";
-				
-				
+					processFolder (new ArrayList<File>(Arrays.asList(fileObject.listFiles())));			
 			} else if (fileObject.isFile()) {
 				processFile(fileObject);
 			}
 		}
 	}
 	
-	public static String getUserInput() {
+	private static String getUserInput() {
 		String str = "";
 		try {
 			str = in.readLine();
@@ -125,15 +111,15 @@ public class CleanProjects {
 					if (!deletedSuccessfully) {
 						System.err.println ("Could not delete file " + getFullPath(fileObject));
 					} else {
-						System.out.println ("Deleted file:" +  getFullPath(fileObject));
+						System.out.println ("(D) " + fileObject.getName() + " Deleted file:" +  getFullPath(fileObject));
 						totalDeleted++;
 					}
 				} else {
-					System.out.println ("(CC)" +  getFullPath(fileObject));
+					System.out.println ("(CC)" + fileObject.getName() + ", " +  getFullPath(fileObject));
 					totalCustomClasses++;
 				}
 			} else {
-				System.out.println ("(NG)" +  getFullPath(fileObject));
+				System.out.println ("(NG)" + fileObject.getName() + ", " + getFullPath(fileObject));
 				totalNeverGenerated++;
 			}
 		}
