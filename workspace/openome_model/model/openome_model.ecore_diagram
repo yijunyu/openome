@@ -1453,4 +1453,23 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SfdAc1zwEd2oj79r5lnINQ" points="[-17, 26, 79, -125]$[-94, 139, 2, -12]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Sfe1oFzwEd2oj79r5lnINQ" id="(0.5416667,0.23076923)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_e6DZgF2sEd2BhqYV8hELug" type="4003" source="_93e84DgOEd2rvpZ-sdUqKw" target="_2Yl44FzuEd2oj79r5lnINQ">
+    <children xmi:type="notation:Node" xmi:id="_e6DZhF2sEd2BhqYV8hELug" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_e6DZhV2sEd2BhqYV8hELug" y="40"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_e6EAkF2sEd2BhqYV8hELug" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_e6EAkV2sEd2BhqYV8hELug" y="60"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_e6DZgV2sEd2BhqYV8hELug"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_e6DZgl2sEd2BhqYV8hELug" fontName="Lucida Grande"/>
+    <element xmi:type="ecore:EReference" href="openome_model.ecore#//Model/associations"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e6DZg12sEd2BhqYV8hELug" points="[27, 6, -940, -212]$[931, 210, -36, -8]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_hKUSUF20Ed2AS6AYfqcotg" type="4004" source="_2Yl44FzuEd2oj79r5lnINQ" target="_6NX9WU-hEd2p6t68Cc_hcA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_hKUSUV20Ed2AS6AYfqcotg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_hKUSUl20Ed2AS6AYfqcotg" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hKUSU120Ed2AS6AYfqcotg" points="[-7, 8, 583, -614]$[-589, 641, 1, 19]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hKXVoF20Ed2AS6AYfqcotg" id="(0.1388889,0.63461536)"/>
+  </edges>
 </notation:Diagram>

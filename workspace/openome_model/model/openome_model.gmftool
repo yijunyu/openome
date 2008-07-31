@@ -252,5 +252,66 @@
             bundle="openome_model"/>
       </tools>
     </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Associations"
+        description="Create associations."
+        collapsible="true"
+        active="//@palette/@tools.16">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ISA"
+          description="Create an ISA association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Covers"
+          description="Create a covers association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Is part of"
+          description="Create an is part of association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Occupies"
+          description="Create an occupies association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Plays"
+          description="Create a plays association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="INS"
+          description="Create an INS association.">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="icons/association.png"
+            bundle="openome_model"/>
+      </tools>
+    </tools>
   </palette>
 </gmftool:ToolRegistry>

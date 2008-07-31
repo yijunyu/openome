@@ -438,6 +438,20 @@
           accessor="getFigureOrContributionLabel"
           figure="//@figures.2/@descriptors.11/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="IsAAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="IsAAssociationLabel"
+            text="ISA"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureIsAAssociationLabel"
+          figure="//@figures.2/@descriptors.12/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <figures
       name="LinkDecorations">
@@ -519,6 +533,9 @@
   <connections
       name="OrContribution"
       figure="OrContributionFigure"/>
+  <connections
+      name="IsAAssociation"
+      figure="IsAAssociationFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -701,6 +718,14 @@
       figure="OrContributionFigure"
       elementIcon="false"
       accessor="//@figures.2/@descriptors.11/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="IsAAssociationLabel"
+      figure="IsAAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.12/@accessors.0">
     <facets
         xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>

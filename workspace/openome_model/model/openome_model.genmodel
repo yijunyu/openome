@@ -88,6 +88,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/decompositions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/containers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/correlations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/associations"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//OrDecomposition"/>
     <genClasses ecoreClass="openome_model.ecore#//Position">

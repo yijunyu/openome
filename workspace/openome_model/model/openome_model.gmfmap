@@ -926,6 +926,32 @@
         xsi:type="ecore:EReference"
         href="openome_model.ecore#//Contribution/target"/>
   </links>
+  <links>
+    <domainMetaElement
+        href="openome_model.ecore#//IsAAssociation"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        readOnly="true"
+        viewPattern="">
+      <diagramLabel
+          href="openome_model.gmfgraph#IsAAssociationLabel"/>
+      <features
+          href="openome_model.ecore#//IsAAssociation/label"/>
+    </labelMappings>
+    <containmentFeature
+        href="openome_model.ecore#//Model/associations"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="openome_model.gmftool#//@palette/@tools.16/@tools.0"/>
+    <diagramLink
+        href="openome_model.gmfgraph#IsAAssociation"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Association/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="openome_model.ecore#//Association/target"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="openome_model.gmfgraph#openome_model"/>

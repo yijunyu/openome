@@ -1797,6 +1797,60 @@
         </modelFacet>
       </labels>
     </links>
+    <links
+        visualID="3013"
+        editPartClassName="IsAAssociationEditPart"
+        itemSemanticEditPolicyClassName="IsAAssociationItemSemanticEditPolicy"
+        notationViewFactoryClassName="IsAAssociationViewFactory"
+        createCommandClassName="IsAAssociationCreateCommand"
+        reorientCommandClassName="IsAAssociationReorientCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="IsAAssociationEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="IsAAssociationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IsAAssociationFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureIsAAssociationLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IsAAssociationFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureIsAAssociationLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureIsAAssociationLabel.setText(&quot;ISA&quot;);&#xA;&#xA;this.add(fFigureIsAAssociationLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureIsAAssociationLabel() {&#xA;&#x9;&#x9;return fFigureIsAAssociationLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="openome_model.genmodel#//openome_model/IsAAssociation"/>
+        <containmentMetaFeature
+            href="openome_model.genmodel#//openome_model/Model/associations"/>
+        <childMetaFeature
+            href="openome_model.genmodel#//openome_model/Model/associations"/>
+        <sourceMetaFeature
+            href="openome_model.genmodel#//openome_model/Association/source"/>
+        <targetMetaFeature
+            href="openome_model.genmodel#//openome_model/Association/target"/>
+      </modelFacet>
+      <labels
+          visualID="4036"
+          editPartClassName="IsAAssociationLabelEditPart"
+          itemSemanticEditPolicyClassName="IsAAssociationLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="IsAAssociationLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureIsAAssociationLabel"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:LabelOffsetAttributes"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/IsAAssociation/label"/>
+        </modelFacet>
+      </labels>
+    </links>
     <compartments
         visualID="5001"
         editPartClassName="ActorActorCompartmentEditPart"
@@ -2035,6 +2089,42 @@
             description="Create an Or Contribution"
             smallIconPath="/openome_model/icons/contribution.png"
             genLinks="//@diagram/@links.11"/>
+      </groups>
+      <groups
+          title="Associations"
+          description="Create associations."
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ISA"
+            description="Create an ISA association."
+            smallIconPath="/openome_model/icons/association.png"
+            genLinks="//@diagram/@links.12"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Covers"
+            description="Create a covers association."
+            smallIconPath="/openome_model/icons/association.png"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Is part of"
+            description="Create an is part of association."
+            smallIconPath="/openome_model/icons/association.png"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Occupies"
+            description="Create an occupies association."
+            smallIconPath="/openome_model/icons/association.png"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Plays"
+            description="Create a plays association."
+            smallIconPath="/openome_model/icons/association.png"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="INS"
+            description="Create an INS association."
+            smallIconPath="/openome_model/icons/association.png"/>
       </groups>
     </palette>
     <preferencePages
@@ -8058,6 +8148,107 @@
     <childReferences
         parent="//@diagram/@childNodes.15"
         child="//@diagram/@links.11"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.12"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.0"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@links.12"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.1"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.12"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.2"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@links.12"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.3"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@links.12"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.0"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@links.12"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.1"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.1"
+        child="//@diagram/@links.12"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.2"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@links.12"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.12"
+        child="//@diagram/@topLevelNodes.3"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.3"
+        child="//@diagram/@links.12"
         referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>

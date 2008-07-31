@@ -90,7 +90,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
         eType="#//Intention" containment="true" resolveProxies="false" eOpposite="#//Intention/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
-        eType="#//Contribution" containment="true" resolveProxies="false" eOpposite="#//Contribution/model"/>
+        eType="#//Contribution" containment="true" eOpposite="#//Contribution/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
         eType="#//Dependency" containment="true" resolveProxies="false" eOpposite="#//Dependency/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decompositions" upperBound="-1"
@@ -99,6 +99,8 @@
         eType="#//Container" containment="true" resolveProxies="false" eOpposite="#//Container/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correlations" upperBound="-1"
         eType="#//Correlation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
+        eType="#//Association" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrDecomposition" eSuperTypes="#//Decomposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Container">
@@ -205,32 +207,32 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
         defaultValueLiteral="OR"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Association">
+  <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//Link">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Container"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsAAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="ISA"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoversAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="Covers"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsPartOfAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="Is part of"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OccupiesAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="Occupies"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlaysAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="Plays"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="INSAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false"/>
+        changeable="false" defaultValueLiteral="INS"/>
   </eClassifiers>
 </ecore:EPackage>
