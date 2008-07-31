@@ -52,9 +52,6 @@ public Point getLocation(Point reference) {
 	
 	int rWidth = r.width;
 	int rHeight = r.height;
-	
-	double rt_x = ((double)rWidth)/((double)translateX);
-	double rt_y = ((double)rHeight)/((double)translateY);
 
 	/*
 	 * The way the Goal anchor is done is it's simply a copy of the EllipseAnchor 

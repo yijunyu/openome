@@ -8,6 +8,7 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 /**
  * @generated
@@ -44,19 +45,19 @@ public class SoftGoalFigure extends Shape {
 	/**
 	 * @generated
 	 */
-	private WrapLabel fSoftgoalNameFigure;
+	private WrappingLabel fSoftgoalNameFigure;
 
 	/**
 	 * @generated
 	 */
-	public WrapLabel getFigureSoftgoalNameFigure() {
+	public WrappingLabel getFigureSoftgoalNameFigure() {
 		return fSoftgoalNameFigure;
 	}
 
 	/**
 	 * @generated
 	 */
-	private void setFigureSoftgoalNameFigure(WrapLabel fig) {
+	private void setFigureSoftgoalNameFigure(WrappingLabel fig) {
 		fSoftgoalNameFigure = fig;
 	}
 
