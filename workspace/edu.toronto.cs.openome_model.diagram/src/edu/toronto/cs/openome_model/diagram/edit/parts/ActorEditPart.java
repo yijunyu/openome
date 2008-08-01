@@ -1,9 +1,10 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import openome_model.figures.ActorAnchor;
+
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
-import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -67,7 +68,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-			anchor = new EllipseAnchor(getFigure());
+			anchor = new ActorAnchor(getFigure());
 		}
 		return anchor;
 	}

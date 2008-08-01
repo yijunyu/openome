@@ -75,6 +75,8 @@ public Point getLocation(Point reference) {
 		}
 	}
 	
+	//System.out.println("soft result: " + closestPointToReference);//kn
+	
 	// figure out which of the 4 'corners' are are in:
 	// top left, top right, bottom left, or bottom right
 	int xDir = 0;
@@ -102,7 +104,7 @@ public Point getLocation(Point reference) {
 	// the actual number of pixels we should be translating by x and by y
 	int xTranslateAmount = (int) (xDir * (r.preciseWidth()  * xTranslateFactor));
 	int yTranslateAmount = (int) (yDir * (r.preciseHeight() * yTranslateFactor));
-	
+	//System.out.println("trans: " + xTranslateAmount + " " + yTranslateAmount);
 	// tighten the points by translating
 	closestPointToReference = closestPointToReference.translate(xTranslateAmount, yTranslateAmount);
 	
@@ -111,6 +113,8 @@ public Point getLocation(Point reference) {
 	
 	// shift right a little bit
 	closestPointToReference = closestPointToReference.translate((int)(r.preciseWidth()/30), 0);
+	
+	
 	
 	return closestPointToReference;
 }
@@ -128,10 +132,10 @@ final double border = 4;
 private Polygon calculateSoftBoundary(Rectangle rec) {
 	double x[] = new double[6];
 	double y[] = new double[6];
-	x[0] = rec.x + rec.preciseWidth()/skew;
-	y[0] = rec.y + border;
-	x[1] = rec.x + rec.preciseWidth()/2 - border;
-	y[1] = rec.y + rec.preciseHeight()/skew + border;
+	x[0] = rec.preciseX() + rec.preciseWidth()/skew;
+	y[0] = rec.preciseY() + border;
+	x[1] = rec.preciseX() + rec.preciseWidth()/2 - border;
+	y[1] = rec.preciseY() + rec.preciseHeight()/skew + border;
 	x[2] = rec.preciseX() + rec.preciseWidth() - border;
 	y[2] = y[0];
 	x[3] = rec.preciseX() + rec.preciseWidth()*(1-1/skew) - border;
@@ -242,14 +246,17 @@ private Polygon calcCubicPolygon(double[] x, double[] y) {
 //}
 
 private PointList softgoalOutline() {
+	
+	
 	//graphics.setLineWidth(2);
 	//graphics.setForegroundColor(ColorConstants.red);
-	Rectangle b = softgoalAnchorOwner.getBounds();
+	Rectangle b = softgoalAnchorOwner.getBounds();//softgoalAnchorOwner..getBounds();
+	//System.out.println("b: " + b);//kn
 	Polygon p = calculateSoftBoundary(new Rectangle( 
-			1+b.x + (int)((b.preciseWidth()-border) * 0.05f),
-			1+b.y + (int) ((b.preciseHeight()-border)*0.05f), 
-			(int)((b.preciseWidth() - border)*0.9f), 
-			(int) ((b.preciseHeight() - border)*0.9f)));		
+			(int) (1+b.preciseX() + (b.preciseWidth()  - border) * 0.05f),
+			(int) (1+b.preciseY() + (b.preciseHeight() - border) * 0.05f), 
+			                 (int) ((b.preciseWidth()  - border) * 0.9f), 
+			                 (int) ((b.preciseHeight() - border) * 0.9f)));		
 	PointList points2 = p.getPoints();
 	int n = points2.size();
 	//int [] points = new int[n*2];
@@ -260,6 +267,7 @@ private PointList softgoalOutline() {
 		//points[2*i] = point.x;
 		//points[2*i+1] = point.y;
 	}
+	//System.out.println(pl.getLastPoint());//kn
 	
 	return pl;
 	//graphics.drawPolygon(pl);

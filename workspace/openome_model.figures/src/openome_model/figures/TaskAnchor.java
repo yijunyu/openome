@@ -6,12 +6,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
-/**
- * Similar to a {@link org.eclipse.draw2d.ChopboxAnchor}, except this anchor is located on
- * the ellipse defined by the owners bounding box.
- * @author Alex Selkov
- * Created 31.08.2002 23:11:43
- */
 public class TaskAnchor extends AbstractConnectionAnchor {
 
 /**
@@ -126,13 +120,14 @@ public Point getLocation(Point reference) {
 	// and we'll be using it's points and shifting them up or down,
 	// when we are on the corner areas
 	ChopboxAnchor cbAnchor = new ChopboxAnchor(taskAnchorOwner);
+	Point closestPoint = new Point();
 	
 	if ((rt_y < 0) && ((rt_x > xPositionOfA) && (rt_x < xPositionOfB))) {
 		// top (points A - B)
-		return cbAnchor.getLocation(reference);
+		closestPoint = cbAnchor.getLocation(reference);
 	} else if ((rt_y > 0) && ((rt_x > xPositionOfA) && (rt_x < xPositionOfB))) {
 		// bottom (points E - F)
-		return cbAnchor.getLocation(reference);
+		closestPoint = cbAnchor.getLocation(reference);
 	} else if ((rt_y > 0) && (rt_x > xPositionOfB) && (rt_x < xPositionOfD)) {
 		// bottom right (points F - D)
 		
@@ -141,10 +136,11 @@ public Point getLocation(Point reference) {
 		// if we height shift too far, we'll simply just say 
 		// the anchor should be at point D
 		if (heightShiftAmount > rightHeightShiftThreshhold) {
-			return pointD;
+			closestPoint = pointD;
+		} else {
+			int heightShift = (int)(rightXDiff * heightShiftFactor * r.height);
+			closestPoint = cbAnchor.getLocation(reference).translate(0, -heightShift);
 		}
-		int heightShift = (int)(rightXDiff * heightShiftFactor * r.height);
-		return cbAnchor.getLocation(reference).translate(0, -heightShift);
 	} else if ((rt_y > 0) && (rt_x < xPositionOfA) && (rt_x > xPositionOfC)) {
 		// bottom left (points C - E)
 		
@@ -153,11 +149,11 @@ public Point getLocation(Point reference) {
 		// if we height shift too far, we'll simply just say 
 		// the anchor should be at point C
 		if (heightShiftAmount < leftHeightShiftThreshhold) {
-			return pointC;
+			closestPoint = pointC;
+		} else {
+			int heightShift = (int)(leftXDiff * heightShiftFactor * r.height);
+			closestPoint = cbAnchor.getLocation(reference).translate(0, heightShift);
 		}
-		
-		int heightShift = (int)(leftXDiff * heightShiftFactor * r.height);
-		return cbAnchor.getLocation(reference).translate(0, heightShift);
 	} else if ((rt_y < 0) && (rt_x > xPositionOfB) && (rt_x < xPositionOfD)) {
 		// top right (points B - D)
 
@@ -166,11 +162,11 @@ public Point getLocation(Point reference) {
 		// if we height shift too far, we'll simply just say 
 		// the anchor should be at point D
 		if (heightShiftAmount > rightHeightShiftThreshhold) {
-			return pointD;
+			closestPoint = pointD;
+		} else {
+			int heightShift = (int)(rightXDiff * heightShiftFactor * r.height);
+			closestPoint = cbAnchor.getLocation(reference).translate(0, heightShift);
 		}
-		
-		int heightShift = (int)(rightXDiff * heightShiftFactor * r.height);
-		return cbAnchor.getLocation(reference).translate(0, heightShift);
 	} else if ((rt_y < 0) && (rt_x < xPositionOfA) && (rt_x > xPositionOfC)) {
 		// top left (points C - A)
 
@@ -179,16 +175,17 @@ public Point getLocation(Point reference) {
 		// if we height shift too far, we'll simply just say 
 		// the anchor should be at point C
 		if (heightShiftAmount < leftHeightShiftThreshhold) {
-			return pointC;
+			closestPoint = pointC;
+		} else {
+			int heightShift = (int)(leftXDiff * heightShiftFactor * r.height);
+			closestPoint = cbAnchor.getLocation(reference).translate(0, -heightShift);
 		}
-		
-		int heightShift = (int)(leftXDiff * heightShiftFactor * r.height);
-		return cbAnchor.getLocation(reference).translate(0, -heightShift);
 	} else {
-		return cbAnchor.getLocation(reference);
+		closestPoint = cbAnchor.getLocation(reference);
 	}
 	
 	/////////////////////////////////////////////////////////////
-	  
+	//System.out.println("task result: " + closestPoint); //kn
+	return closestPoint;
 }
 }
