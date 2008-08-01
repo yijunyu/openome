@@ -42,7 +42,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	 * @generated NOT
 	 */
 	private ConnectionAnchor anchor;
-	
+
 	/**
 	 * @generated
 	 */
@@ -59,21 +59,22 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	public PositionEditPart(View view) {
 		super(view);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-				anchor = new EllipseAnchor(getFigure());
+			anchor = new EllipseAnchor(getFigure());
 		}
 		return anchor;
 	}
-	
+
 	/**
 	 * @generated NOT
-	 */ 
-	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}
@@ -85,11 +86,12 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}

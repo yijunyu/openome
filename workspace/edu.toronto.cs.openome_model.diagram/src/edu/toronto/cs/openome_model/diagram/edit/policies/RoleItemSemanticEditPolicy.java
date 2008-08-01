@@ -92,6 +92,36 @@ public class RoleItemSemanticEditPolicy
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_3015 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -103,6 +133,36 @@ public class RoleItemSemanticEditPolicy
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_3015 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018 == req
+				.getElementType()) {
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -119,6 +179,24 @@ public class RoleItemSemanticEditPolicy
 		switch (getVisualID(req)) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationReorientCommand(
+					req));
+		case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID:
+			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);

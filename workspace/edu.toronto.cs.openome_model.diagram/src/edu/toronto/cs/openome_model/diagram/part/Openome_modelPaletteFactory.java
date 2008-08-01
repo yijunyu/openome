@@ -24,6 +24,7 @@ public class Openome_modelPaletteFactory {
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createDefault1Group());
 		paletteRoot.add(createContributions2Group());
+		paletteRoot.add(createAssociations3Group());
 	}
 
 	/**
@@ -71,6 +72,24 @@ public class Openome_modelPaletteFactory {
 		paletteContainer.add(createBreak7CreationTool());
 		paletteContainer.add(createAND8CreationTool());
 		paletteContainer.add(createOR9CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Associations" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createAssociations3Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Associations3Group_title);
+		paletteContainer
+				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Associations3Group_desc);
+		paletteContainer.add(createISA1CreationTool());
+		paletteContainer.add(createCovers2CreationTool());
+		paletteContainer.add(createIspartof3CreationTool());
+		paletteContainer.add(createOccupies4CreationTool());
+		paletteContainer.add(createPlays5CreationTool());
+		paletteContainer.add(createINS6CreationTool());
 		return paletteContainer;
 	}
 
@@ -488,6 +507,114 @@ public class Openome_modelPaletteFactory {
 		entry
 				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 						.findImageDescriptor("/openome_model/icons/contribution.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createISA1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.ISA1CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.ISA1CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCovers2CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Covers2CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.Covers2CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createIspartof3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Ispartof3CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.Ispartof3CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createOccupies4CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_3015);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Occupies4CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.Occupies4CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPlays5CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.Plays5CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.Plays5CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createINS6CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018);
+		LinkToolEntry entry = new LinkToolEntry(
+				edu.toronto.cs.openome_model.diagram.part.Messages.INS6CreationTool_title,
+				edu.toronto.cs.openome_model.diagram.part.Messages.INS6CreationTool_desc,
+				types);
+		entry
+				.setSmallIcon(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
+						.findImageDescriptor("/openome_model/icons/association.png")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -31,7 +31,7 @@ public class Task5EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 2016;
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -53,21 +53,22 @@ public class Task5EditPart extends ShapeNodeEditPart {
 	public Task5EditPart(View view) {
 		super(view);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-				anchor = new TaskAnchor(getFigure());
+			anchor = new TaskAnchor(getFigure());
 		}
 		return anchor;
 	}
-	
+
 	/**
 	 * @generated NOT
-	 */ 
-	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}
@@ -79,11 +80,12 @@ public class Task5EditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}

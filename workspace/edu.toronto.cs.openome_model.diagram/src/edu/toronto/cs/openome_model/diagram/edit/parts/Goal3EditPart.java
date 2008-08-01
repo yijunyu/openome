@@ -31,7 +31,7 @@ public class Goal3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 2005;
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -66,21 +66,22 @@ public class Goal3EditPart extends ShapeNodeEditPart {
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-				anchor = new GoalAnchor(getFigure());
+			anchor = new GoalAnchor(getFigure());
 		}
 		return anchor;
 	}
-	
+
 	/**
 	 * @generated NOT
-	 */ 
-	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}
@@ -92,11 +93,12 @@ public class Goal3EditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}

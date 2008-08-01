@@ -879,6 +879,162 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser isAAssociationLabel_4036Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getIsAAssociationLabel_4036Parser() {
+		if (isAAssociationLabel_4036Parser == null) {
+			isAAssociationLabel_4036Parser = createIsAAssociationLabel_4036Parser();
+		}
+		return isAAssociationLabel_4036Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createIsAAssociationLabel_4036Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsAAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser coversAssociationLabel_4037Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCoversAssociationLabel_4037Parser() {
+		if (coversAssociationLabel_4037Parser == null) {
+			coversAssociationLabel_4037Parser = createCoversAssociationLabel_4037Parser();
+		}
+		return coversAssociationLabel_4037Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCoversAssociationLabel_4037Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getCoversAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser occupiesAssociationLabel_4038Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOccupiesAssociationLabel_4038Parser() {
+		if (occupiesAssociationLabel_4038Parser == null) {
+			occupiesAssociationLabel_4038Parser = createOccupiesAssociationLabel_4038Parser();
+		}
+		return occupiesAssociationLabel_4038Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createOccupiesAssociationLabel_4038Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOccupiesAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser isPartOfAssociationLabel_4039Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getIsPartOfAssociationLabel_4039Parser() {
+		if (isPartOfAssociationLabel_4039Parser == null) {
+			isPartOfAssociationLabel_4039Parser = createIsPartOfAssociationLabel_4039Parser();
+		}
+		return isPartOfAssociationLabel_4039Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createIsPartOfAssociationLabel_4039Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsPartOfAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser playsAssociationLabel_4040Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPlaysAssociationLabel_4040Parser() {
+		if (playsAssociationLabel_4040Parser == null) {
+			playsAssociationLabel_4040Parser = createPlaysAssociationLabel_4040Parser();
+		}
+		return playsAssociationLabel_4040Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createPlaysAssociationLabel_4040Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getPlaysAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser iNSAssociationLabel_4041Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getINSAssociationLabel_4041Parser() {
+		if (iNSAssociationLabel_4041Parser == null) {
+			iNSAssociationLabel_4041Parser = createINSAssociationLabel_4041Parser();
+		}
+		return iNSAssociationLabel_4041Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createINSAssociationLabel_4041Parser() {
+		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getINSAssociation_Label(), };
+		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+				features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID:
@@ -947,6 +1103,18 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getAndContributionContributionType_4034Parser();
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
 			return getOrContributionContributionType_4035Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID:
+			return getIsAAssociationLabel_4036Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart.VISUAL_ID:
+			return getCoversAssociationLabel_4037Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationLabelEditPart.VISUAL_ID:
+			return getOccupiesAssociationLabel_4038Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationLabelEditPart.VISUAL_ID:
+			return getIsPartOfAssociationLabel_4039Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationLabelEditPart.VISUAL_ID:
+			return getPlaysAssociationLabel_4040Parser();
+		case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID:
+			return getINSAssociationLabel_4041Parser();
 		}
 		return null;
 	}

@@ -452,6 +452,71 @@
           accessor="getFigureIsAAssociationLabel"
           figure="//@figures.2/@descriptors.12/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="INSAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="INSAssociationLabel"
+            text="INS"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureINSAssociationLabel"
+          figure="//@figures.2/@descriptors.13/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="CoversAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CoversAssociationLabel"
+            text="Covers"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCoversAssociationLabel"
+          figure="//@figures.2/@descriptors.14/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="IsPartOfAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="IsPartOfAssociationLabel"
+            text="Is part of"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureIsPartOfAssociation"
+          figure="//@figures.2/@descriptors.15/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="OccupiesAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OccupiesAssociationLabel"
+            text="Occupies"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureOccupiesAssociation"
+          figure="//@figures.2/@descriptors.16/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="PlaysAssociationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="PlaysAssociation"
+            text="Plays"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigurePlaysAssociation"
+          figure="//@figures.2/@descriptors.17/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <figures
       name="LinkDecorations">
@@ -536,6 +601,21 @@
   <connections
       name="IsAAssociation"
       figure="IsAAssociationFigure"/>
+  <connections
+      name="CoversAssociation"
+      figure="CoversAssociationFigure"/>
+  <connections
+      name="IsPartOfAssociation"
+      figure="IsPartOfAssociationFigure"/>
+  <connections
+      name="OccupiesAssociation"
+      figure="OccupiesAssociationFigure"/>
+  <connections
+      name="PlaysAssociation"
+      figure="PlaysAssociationFigure"/>
+  <connections
+      name="INSAssociation"
+      figure="INSAssociationFigure"/>
   <compartments
       name="ActorCompartment"
       figure="ActorFigure"
@@ -726,6 +806,46 @@
       figure="IsAAssociationFigure"
       elementIcon="false"
       accessor="//@figures.2/@descriptors.12/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="CoversAssociationLabel"
+      figure="CoversAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.14/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="IsPartOfAssociationLabel"
+      figure="IsPartOfAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.15/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="OccupiesAssociationLabel"
+      figure="OccupiesAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.16/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="PlaysAssociationLabel"
+      figure="PlaysAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.17/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="INSAssociationLabel"
+      figure="INSAssociationFigure"
+      elementIcon="false"
+      accessor="//@figures.2/@descriptors.13/@accessors.0">
     <facets
         xsi:type="gmfgraph:LabelOffsetFacet"/>
   </labels>

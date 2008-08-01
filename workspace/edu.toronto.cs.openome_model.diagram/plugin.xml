@@ -628,6 +628,66 @@
             <param name="semanticHint" value="3012"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.IsAAssociation_3013"
+               name="%metatype.name.IsAAssociation_3013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="IsAAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.IsAAssociationEditHelper">
+            <param name="semanticHint" value="3013"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.CoversAssociation_3014"
+               name="%metatype.name.CoversAssociation_3014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CoversAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.CoversAssociationEditHelper">
+            <param name="semanticHint" value="3014"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.OccupiesAssociation_3015"
+               name="%metatype.name.OccupiesAssociation_3015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="OccupiesAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.OccupiesAssociationEditHelper">
+            <param name="semanticHint" value="3015"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.IsPartOfAssociation_3016"
+               name="%metatype.name.IsPartOfAssociation_3016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="IsPartOfAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.IsPartOfAssociationEditHelper">
+            <param name="semanticHint" value="3016"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.PlaysAssociation_3017"
+               name="%metatype.name.PlaysAssociation_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PlaysAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.PlaysAssociationEditHelper">
+            <param name="semanticHint" value="3017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///edu/toronto/cs/openome_model.ecore">
+         <metamodelType
+               id="edu.toronto.cs.openome_model.diagram.INSAssociation_3018"
+               name="%metatype.name.INSAssociation_3018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="INSAssociation"
+               edithelper="edu.toronto.cs.openome_model.diagram.edit.helpers.INSAssociationEditHelper">
+            <param name="semanticHint" value="3018"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -677,6 +737,12 @@
          <elementType ref="edu.toronto.cs.openome_model.diagram.UnknownContribution_3010"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.AndContribution_3011"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.OrContribution_3012"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.IsAAssociation_3013"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.CoversAssociation_3014"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.OccupiesAssociation_3015"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.IsPartOfAssociation_3016"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.PlaysAssociation_3017"/>
+         <elementType ref="edu.toronto.cs.openome_model.diagram.INSAssociation_3018"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

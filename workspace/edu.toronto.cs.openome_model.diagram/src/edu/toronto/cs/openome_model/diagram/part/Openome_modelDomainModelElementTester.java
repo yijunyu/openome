@@ -139,6 +139,34 @@ public class Openome_modelDomainModelElementTester extends PropertyTester {
 				.getOrContribution()) {
 			return true;
 		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsAAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getCoversAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsPartOfAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOccupiesAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getPlaysAssociation()) {
+			return true;
+		}
+		if (eClass == edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getINSAssociation()) {
+			return true;
+		}
 		return false;
 	}
 

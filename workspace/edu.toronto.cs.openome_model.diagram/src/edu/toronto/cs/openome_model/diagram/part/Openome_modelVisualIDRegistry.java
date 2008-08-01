@@ -661,6 +661,36 @@ public class Openome_modelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID:
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		}
 		return false;
 	}
@@ -723,6 +753,30 @@ public class Openome_modelVisualIDRegistry {
 		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 				.getOrContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsAAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getCoversAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getOccupiesAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getIsPartOfAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getPlaysAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID;
+		}
+		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+				.getINSAssociation().isSuperTypeOf(domainElement.eClass())) {
+			return edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

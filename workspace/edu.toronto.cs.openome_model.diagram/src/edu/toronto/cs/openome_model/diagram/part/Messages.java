@@ -263,6 +263,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String Associations3Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Associations3Group_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Actor1CreationTool_title;
 
 	/**
@@ -459,6 +469,66 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String OR9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ISA1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ISA1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Covers2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Covers2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Ispartof3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Ispartof3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Occupies4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Occupies4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Plays5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Plays5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String INS6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String INS6CreationTool_desc;
 
 	/**
 	 * @generated
@@ -849,6 +919,66 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_OrContribution_3012_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IsAAssociation_3013_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IsAAssociation_3013_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CoversAssociation_3014_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CoversAssociation_3014_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OccupiesAssociation_3015_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OccupiesAssociation_3015_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IsPartOfAssociation_3016_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_IsPartOfAssociation_3016_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PlaysAssociation_3017_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PlaysAssociation_3017_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_INSAssociation_3018_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_INSAssociation_3018_source;
 
 	/**
 	 * @generated

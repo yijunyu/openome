@@ -470,6 +470,66 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
+		public static boolean canCreateIsAAssociation_3013(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistIsAAssociation_3013(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateCoversAssociation_3014(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistCoversAssociation_3014(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateOccupiesAssociation_3015(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistOccupiesAssociation_3015(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateIsPartOfAssociation_3016(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistIsPartOfAssociation_3016(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreatePlaysAssociation_3017(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistPlaysAssociation_3017(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateINSAssociation_3018(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+			return canExistINSAssociation_3018(container, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public static boolean canExistDependency_3001(
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Dependable source,
@@ -595,6 +655,72 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistIsAAssociation_3013(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistCoversAssociation_3014(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistOccupiesAssociation_3015(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistIsPartOfAssociation_3016(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistPlaysAssociation_3017(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
+
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistINSAssociation_3018(
+				edu.toronto.cs.openome_model.Model container,
+				edu.toronto.cs.openome_model.Container source,
+				edu.toronto.cs.openome_model.Container target) {
 
 			return true;
 		}

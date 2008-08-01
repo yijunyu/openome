@@ -36,7 +36,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 	 * @generated NOT
 	 */
 	private ConnectionAnchor anchor;
-	
+
 	/**
 	 * @generated
 	 */
@@ -53,21 +53,22 @@ public class GoalEditPart extends ShapeNodeEditPart {
 	public GoalEditPart(View view) {
 		super(view);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-				anchor = new GoalAnchor(getFigure());
+			anchor = new GoalAnchor(getFigure());
 		}
 		return anchor;
 	}
-	
+
 	/**
 	 * @generated NOT
-	 */ 
-	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}
@@ -79,11 +80,12 @@ public class GoalEditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}

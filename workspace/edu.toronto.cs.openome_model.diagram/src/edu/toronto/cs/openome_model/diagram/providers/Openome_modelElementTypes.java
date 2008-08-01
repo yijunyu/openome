@@ -190,6 +190,30 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType OrContribution_3012 = getElementType("edu.toronto.cs.openome_model.diagram.OrContribution_3012"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType IsAAssociation_3013 = getElementType("edu.toronto.cs.openome_model.diagram.IsAAssociation_3013"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CoversAssociation_3014 = getElementType("edu.toronto.cs.openome_model.diagram.CoversAssociation_3014"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType OccupiesAssociation_3015 = getElementType("edu.toronto.cs.openome_model.diagram.OccupiesAssociation_3015"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType IsPartOfAssociation_3016 = getElementType("edu.toronto.cs.openome_model.diagram.IsPartOfAssociation_3016"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType PlaysAssociation_3017 = getElementType("edu.toronto.cs.openome_model.diagram.PlaysAssociation_3017"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType INSAssociation_3018 = getElementType("edu.toronto.cs.openome_model.diagram.INSAssociation_3018"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -449,6 +473,30 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			elements.put(OrContribution_3012,
 					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrContribution());
+
+			elements.put(IsAAssociation_3013,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getIsAAssociation());
+
+			elements.put(CoversAssociation_3014,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getCoversAssociation());
+
+			elements.put(OccupiesAssociation_3015,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getOccupiesAssociation());
+
+			elements.put(IsPartOfAssociation_3016,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getIsPartOfAssociation());
+
+			elements.put(PlaysAssociation_3017,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getPlaysAssociation());
+
+			elements.put(INSAssociation_3018,
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+							.getINSAssociation());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -503,6 +551,12 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(UnknownContribution_3010);
 			KNOWN_ELEMENT_TYPES.add(AndContribution_3011);
 			KNOWN_ELEMENT_TYPES.add(OrContribution_3012);
+			KNOWN_ELEMENT_TYPES.add(IsAAssociation_3013);
+			KNOWN_ELEMENT_TYPES.add(CoversAssociation_3014);
+			KNOWN_ELEMENT_TYPES.add(OccupiesAssociation_3015);
+			KNOWN_ELEMENT_TYPES.add(IsPartOfAssociation_3016);
+			KNOWN_ELEMENT_TYPES.add(PlaysAssociation_3017);
+			KNOWN_ELEMENT_TYPES.add(INSAssociation_3018);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

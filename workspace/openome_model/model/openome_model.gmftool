@@ -161,7 +161,7 @@
         title="Contributions"
         description="Create a contribution"
         collapsible="true"
-        active="//@palette/@tools.15">
+        active="//@palette/@tools.15/@tools.3">
       <tools
           xsi:type="gmftool:CreationTool"
           title="Make"
@@ -257,7 +257,7 @@
         title="Associations"
         description="Create associations."
         collapsible="true"
-        active="//@palette/@tools.16">
+        active="//@palette/@tools.16/@tools.0">
       <tools
           xsi:type="gmftool:CreationTool"
           title="ISA"

@@ -331,6 +331,54 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 			case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart(
 						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationLabelEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart(
+						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
