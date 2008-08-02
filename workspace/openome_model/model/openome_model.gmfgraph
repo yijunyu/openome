@@ -442,7 +442,8 @@
         name="IsAAssociationFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="">
+          name=""
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="IsAAssociationLabel"
@@ -455,7 +456,8 @@
     <descriptors
         name="INSAssociationFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection">
+          xsi:type="gmfgraph:PolylineConnection"
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="INSAssociationLabel"
@@ -468,7 +470,9 @@
     <descriptors
         name="CoversAssociationFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection">
+          xsi:type="gmfgraph:PolylineConnection"
+          name=""
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="CoversAssociationLabel"
@@ -481,7 +485,9 @@
     <descriptors
         name="IsPartOfAssociationFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection">
+          xsi:type="gmfgraph:PolylineConnection"
+          name=""
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="IsPartOfAssociationLabel"
@@ -494,7 +500,9 @@
     <descriptors
         name="OccupiesAssociationFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection">
+          xsi:type="gmfgraph:PolylineConnection"
+          name=""
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="OccupiesAssociationLabel"
@@ -507,7 +515,9 @@
     <descriptors
         name="PlaysAssociationFigure">
       <actualFigure
-          xsi:type="gmfgraph:PolylineConnection">
+          xsi:type="gmfgraph:PolylineConnection"
+          name=""
+          targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
             name="PlaysAssociation"

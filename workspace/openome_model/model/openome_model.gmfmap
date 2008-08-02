@@ -1063,7 +1063,7 @@
         readOnly="true"
         editPattern="">
       <diagramLabel
-          href="openome_model.gmfgraph#PlaysAssociationLabel"/>
+          href="openome_model.gmfgraph#INSAssociationLabel"/>
       <features
           href="openome_model.ecore#//INSAssociation/label"/>
     </labelMappings>

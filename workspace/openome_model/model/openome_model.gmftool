@@ -131,7 +131,7 @@
     <tools
         xsi:type="gmftool:CreationTool"
         title="And"
-        description="Create new AndDecomposition">
+        description="Create Decomposition (AND)">
       <smallIcon
           xsi:type="gmftool:BundleImage"
           path="/icons/anddecomposition.gif"
@@ -144,7 +144,7 @@
     <tools
         xsi:type="gmftool:CreationTool"
         title="Or"
-        description="Create new OrDecomposition">
+        description="Create a Means-Ends (OR) Decomposition">
       <smallIcon
           xsi:type="gmftool:BundleImage"
           path="/icons/ordecomposition.gif"
@@ -264,7 +264,7 @@
           description="Create an ISA association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
       <tools
@@ -273,7 +273,7 @@
           description="Create a covers association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
       <tools
@@ -282,7 +282,7 @@
           description="Create an is part of association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
       <tools
@@ -291,7 +291,7 @@
           description="Create an occupies association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
       <tools
@@ -300,7 +300,7 @@
           description="Create a plays association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
       <tools
@@ -309,7 +309,7 @@
           description="Create an INS association.">
         <smallIcon
             xsi:type="gmftool:BundleImage"
-            path="icons/association.png"
+            path="icons/contribution.png"
             bundle="openome_model"/>
       </tools>
     </tools>

@@ -30,7 +30,7 @@ public class SoftgoalEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 1006;
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -52,7 +52,7 @@ public class SoftgoalEditPart extends ShapeNodeEditPart {
 	public SoftgoalEditPart(View view) {
 		super(view);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -63,11 +63,12 @@ public class SoftgoalEditPart extends ShapeNodeEditPart {
 		}
 		return anchor;
 	}
-	
+
 	/**
 	 * @generated NOT
-	 */ 
-	public ConnectionAnchor getSourceConnectionAnchor(ConnectionEditPart connection) {
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}
@@ -79,11 +80,12 @@ public class SoftgoalEditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public ConnectionAnchor getTargetConnectionAnchor(ConnectionEditPart connection) {
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
 		return getConnectionAnchor();
 	}

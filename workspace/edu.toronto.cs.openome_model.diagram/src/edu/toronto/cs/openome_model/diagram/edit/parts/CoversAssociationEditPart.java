@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
@@ -96,6 +97,7 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 		public CoversAssociationFigure() {
 
 			createContents();
+			setTargetDecoration(createTargetDecoration());
 		}
 
 		/**
@@ -108,6 +110,15 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 
 			this.add(fFigureCoversAssociationLabel);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private RotatableDecoration createTargetDecoration() {
+			openome_model.figures.ContributionDecoration df = new openome_model.figures.ContributionDecoration();
+
+			return df;
 		}
 
 		/**
