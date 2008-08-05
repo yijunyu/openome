@@ -95,6 +95,7 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public CoversAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

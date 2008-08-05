@@ -443,6 +443,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name=""
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
@@ -457,6 +458,7 @@
         name="INSAssociationFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
@@ -472,6 +474,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name=""
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
@@ -487,6 +490,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name=""
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
@@ -502,6 +506,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name=""
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"
@@ -517,6 +522,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name=""
+          lineWidth="2"
           targetDecoration="//@figures.3/@figures.2">
         <children
             xsi:type="gmfgraph:Label"

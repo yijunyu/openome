@@ -94,6 +94,7 @@ public class OccupiesAssociationEditPart extends ConnectionNodeEditPart
 		 * @generated
 		 */
 		public OccupiesAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

@@ -94,6 +94,7 @@ public class IsAAssociationEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public IsAAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

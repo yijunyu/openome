@@ -94,6 +94,7 @@ public class INSAssociationEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public INSAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

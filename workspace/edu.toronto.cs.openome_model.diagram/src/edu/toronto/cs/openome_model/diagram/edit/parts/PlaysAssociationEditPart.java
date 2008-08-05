@@ -94,6 +94,7 @@ public class PlaysAssociationEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public PlaysAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());

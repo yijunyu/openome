@@ -94,6 +94,7 @@ public class IsPartOfAssociationEditPart extends ConnectionNodeEditPart
 		 * @generated
 		 */
 		public IsPartOfAssociationFigure() {
+			this.setLineWidth(2);
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
