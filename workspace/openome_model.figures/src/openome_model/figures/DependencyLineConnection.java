@@ -33,6 +33,10 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		
 		// draw the normal connecting link/connector first
 		super.outlineShape(g);
+
+		// ensures that the link/connectors have smooth curvature,
+		// even if the view settings say otherwise
+		this.setSmoothness(SMOOTH_NORMAL);
 		
 		// set the line width
 		this.setLineWidth(lineWidth);
@@ -57,7 +61,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		double lineAngle = angle+90;
 		
 		// next, get the midpoint of the link/connection
-		PointList pl = this.getPoints();
+		PointList pl = this.getPolygonPoints();
 		Point midPoint = pl.getMidpoint();
 
 		// ===============================================
