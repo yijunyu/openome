@@ -14,6 +14,9 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 	
     private static final int stepLine = 6;
     
+    // the maximum number of added bendpoints allowed
+    private static final int MAX_NUM_BENDPOINTS = 2;
+    
     /**The size of the 'D' decoration that will be located at the midpoint */
     private static int sizeOfD = 10;
     
@@ -37,6 +40,17 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		// ensures that the link/connectors have smooth curvature,
 		// even if the view settings say otherwise
 		this.setSmoothness(SMOOTH_NORMAL);
+		
+		/////////////////////////////////////
+		// get rid of a point if we go over the limit
+		// the -2 is for the two end points, which we shouldn't count
+		// in the number of bendpoints we have..
+		// we'll see if we really need this in the future or not
+		
+//		if (this.getPoints().size() -2 > MAX_NUM_BENDPOINTS) {
+//			this.getPoints().removePoint(1);
+//		}
+		/////////////////////////////////////
 		
 		// set the line width
 		this.setLineWidth(lineWidth);
