@@ -280,7 +280,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="AndDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.3/@figures.0">
+          targetDecoration="//@figures.3/@figures.0">
         <children
             xsi:type="gmfgraph:Label"
             name="AndLabel"
@@ -295,7 +295,7 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="OrDecompositionFigure"
           lineWidth="2"
-          sourceDecoration="//@figures.3/@figures.1">
+          targetDecoration="//@figures.3/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="OrLabel"

@@ -97,7 +97,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 			this.setLineWidth(2);
 
 			createContents();
-			setSourceDecoration(createSourceDecoration());
+			setTargetDecoration(createTargetDecoration());
 		}
 
 		/**
@@ -115,7 +115,7 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		private RotatableDecoration createSourceDecoration() {
+		private RotatableDecoration createTargetDecoration() {
 			openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();
 
 			return df;
