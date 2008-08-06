@@ -10,12 +10,13 @@
   <genPackages prefix="openome_model" basePackage="edu.toronto.cs" disposableProviderFactory="true"
       ecorePackage="openome_model.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//EvaluationLabel">
-      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/Undecided"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/Unknown"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/WeaklyDenied"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/WeaklySatisfied"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/Denied"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/Conflict"/>
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/Satisfied"/>
+      <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//EvaluationLabel/None"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="openome_model.ecore#//GoalModelingContributionType">
       <genEnumLiterals ecoreEnumLiteral="openome_model.ecore#//GoalModelingContributionType/None"/>

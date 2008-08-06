@@ -132,12 +132,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Belief" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EEnum" name="EvaluationLabel">
-    <eLiterals name="Undecided" value="3"/>
-    <eLiterals name="WeaklyDenied" value="4"/>
-    <eLiterals name="WeaklySatisfied" value="1"/>
-    <eLiterals name="Denied" value="5"/>
-    <eLiterals name="Conflict" value="2"/>
-    <eLiterals name="Satisfied"/>
+    <eLiterals name="Unknown" value="4"/>
+    <eLiterals name="WeaklyDenied" value="5"/>
+    <eLiterals name="WeaklySatisfied" value="2"/>
+    <eLiterals name="Denied" value="6"/>
+    <eLiterals name="Conflict" value="3"/>
+    <eLiterals name="Satisfied" value="1"/>
+    <eLiterals name="None" literal="None"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionType">
     <eLiterals name="None" literal=""/>
