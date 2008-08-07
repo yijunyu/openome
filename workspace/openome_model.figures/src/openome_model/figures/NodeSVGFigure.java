@@ -18,6 +18,6 @@ public class NodeSVGFigure extends ScalableImageFigure {
 	public NodeSVGFigure(String name) {
 			super(RenderedImageFactory.getInstance(FileLocator.find(Platform.getBundle("openome_model"), new Path("images/" + name + ".svg"), null)), 
 					true, true, true);
-			setMaintainAspectRatio(true);
+			setMaintainAspectRatio(false);
 	}	
 }

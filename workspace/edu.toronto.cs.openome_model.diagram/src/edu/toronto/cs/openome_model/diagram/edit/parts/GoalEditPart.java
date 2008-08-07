@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.GoalAnchor;
 
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -97,6 +98,16 @@ public class GoalEditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
+	
+	/**
+	 * @generated NOT 
+	 */
+	public EditPolicy getPrimaryDragEditPolicy() {
+		// use the constrained resize shape edit policy
+		// to ensure that aspect ratio is maintained
+		// when the figure is being resized
+		return new ConstrainedResizeShapeEditPolicy(this);
+	}
 
 	/**
 	 * @generated
@@ -108,7 +119,7 @@ public class GoalEditPart extends ShapeNodeEditPart {
 				new edu.toronto.cs.openome_model.diagram.edit.policies.GoalItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		//removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**

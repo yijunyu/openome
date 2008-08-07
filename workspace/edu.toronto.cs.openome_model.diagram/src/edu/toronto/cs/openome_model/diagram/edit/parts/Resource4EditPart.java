@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import openome_model.figures.ConstrainedResizeShapeEditPolicy;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -43,6 +45,16 @@ public class Resource4EditPart extends ShapeNodeEditPart {
 	 */
 	public Resource4EditPart(View view) {
 		super(view);
+	}
+	
+	/**
+	 * @generated NOT 
+	 */
+	public EditPolicy getPrimaryDragEditPolicy() {
+		// use the constrained resize shape edit policy
+		// to ensure that aspect ratio is maintained
+		// when the figure is being resized
+		return new ConstrainedResizeShapeEditPolicy(this);
 	}
 
 	/**
