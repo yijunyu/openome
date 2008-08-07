@@ -48,6 +48,7 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 		Version v1 = Version.getVersion();
 		Version.setVersion(v1); //confused... why this behaviour? seems redundant.
 		String vName = config.getVersionName(v1);
+		System.out.println(vName);
 		ma.unparse_checkout_into_emf(config, vName);
 		return null;
 	}

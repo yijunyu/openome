@@ -17,11 +17,11 @@ import sc.document.GoalModel;
 import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
 import fluid.version.Version;
 
-public class CommitHandler extends MolhadoActionHandler implements IHandler {
+public class EditorCommitHandler extends MolhadoActionHandler implements IHandler {
 
 	openome_modelEditor gme; //override
 	
-	public CommitHandler() {
+	public EditorCommitHandler() {
 		super(); //gets the MolhadoActions instance
 	}
 	
@@ -43,6 +43,7 @@ public class CommitHandler extends MolhadoActionHandler implements IHandler {
 			editingDomain = gme.getEditingDomain();
 			setResourceSet();
 			setModelDetails();
+			super.setGME(gme);
 		    //System.err.println(super.toString());
 
 		    //warn of unsaved changes... but we don't force it.

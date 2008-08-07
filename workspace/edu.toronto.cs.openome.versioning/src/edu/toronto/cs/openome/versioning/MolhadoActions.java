@@ -226,8 +226,8 @@ public class MolhadoActions {
 			if (comp instanceof GoalModel) {
 				GoalModel gm = (GoalModel) comp;
 				String name = gm.getName();
-				System.out.println(name); //TODO no goal model name ... why?
-				name = name.substring(0, name.indexOf(".oom"));
+				//System.out.println(name); //TODO no goal model name ... why?
+				//name = name.substring(0, name.indexOf(".oom"));
 				v1_name = v1_name.substring(v1_name.lastIndexOf("-") + 1);
 				String model_v1 = name + "-" + v1_name + ".oom";
 				URI uri = fetchURI(model_v1);
@@ -402,7 +402,7 @@ public class MolhadoActions {
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		Intention g;
-		if (!name.equals("VIRTUAL_ROOT")) {
+		if (!name.equals("VIRTUAL_ROOT")) { //TODO given a virtual root first...
 			if (prefix.equals("HardGoal"))
 				g = f.createGoal();
 			else

@@ -5,7 +5,7 @@
      <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="edu.toronto.cs.openome.versioning.handlers.CommitHandler"
+            defaultHandler="edu.toronto.cs.openome.versioning.handlers.EditorCommitHandler"
             id="openome_commit4_cmd"
             name="openome_commit4_cmd">
       </command>
