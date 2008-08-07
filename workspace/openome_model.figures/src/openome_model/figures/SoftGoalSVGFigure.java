@@ -10,10 +10,5 @@ public class SoftGoalSVGFigure extends NodeSVGFigure {
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}
-	public SoftGoalSVGFigure(String name) {
-		super("softgoal");
-		setLayoutManager(new OpenOmeElementLayoutManager());
-		setBackgroundColor(ColorConstants.red);
-	}
 
 }

@@ -8,9 +8,5 @@ public class TaskSVG2Figure extends NodeSVGFigure {
 		super("task");
 		setLayoutManager(new StackLayout());
 	}
-	public TaskSVG2Figure(String name) {
-		super("task");
-		setLayoutManager(new StackLayout());
-	}
 
 }

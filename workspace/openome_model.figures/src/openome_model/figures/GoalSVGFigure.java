@@ -8,8 +8,4 @@ public class GoalSVGFigure extends NodeSVGFigure {
 		super("goal");
 		setLayoutManager(new OpenOmeElementLayoutManager());
 	}
-	public GoalSVGFigure(String name) {
-		super("goal");		
-		setLayoutManager(new OpenOmeElementLayoutManager());
-	}
 }

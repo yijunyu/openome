@@ -10,10 +10,4 @@ public class TaskSVGFigure extends NodeSVGFigure {
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}
-	public TaskSVGFigure(String name) {
-		super("task");
-		setLayoutManager(new OpenOmeElementLayoutManager());
-		setBackgroundColor(ColorConstants.red);
-	}
-
 }

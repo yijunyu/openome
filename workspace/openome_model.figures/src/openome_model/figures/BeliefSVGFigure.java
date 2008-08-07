@@ -8,9 +8,5 @@ public class BeliefSVGFigure extends NodeSVGFigure {
 		super("resource");
 		setLayoutManager(new StackLayout());
 	}
-	public BeliefSVGFigure(String name) {
-		super("resource");
-		setLayoutManager(new StackLayout());
-	}
 
 }
