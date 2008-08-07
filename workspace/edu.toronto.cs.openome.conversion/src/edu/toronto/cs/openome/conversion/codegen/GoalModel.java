@@ -462,7 +462,7 @@ public class GoalModel extends IStar {
 				}
 				// see computing.sdtolabel for how numeric values are converted
 				//default is no label
-				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
+				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
 				if (g.label!=null && g.label.equals("FS")
 						|| g.satisfied == 1 && g.denied == 0) {
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
@@ -480,7 +480,7 @@ public class GoalModel extends IStar {
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 				} else if(g.label!=null && g.label.equals("UN")
 						|| g.satisfied == g.denied && g.satisfied < 0.5){
-					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
 				}
 				m.getIntentions().add(x);
 				if (g.parent!=null) {

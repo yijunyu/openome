@@ -22,16 +22,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EvaluationLabel implements Enumerator {
 	/**
-	 * The '<em><b>Undecided</b></em>' literal object.
+	 * The '<em><b>Unknown</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #UNDECIDED_VALUE
+	 * @see #UNKNOWN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	UNDECIDED(3, "Undecided", "Undecided"),
-
-	/**
+	UNKNOWN(4, "Unknown", "Unknown"), /**
 	 * The '<em><b>Weakly Denied</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +37,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WEAKLY_DENIED(4, "WeaklyDenied", "WeaklyDenied"),
+	WEAKLY_DENIED(5, "WeaklyDenied", "WeaklyDenied"),
 
 	/**
 	 * The '<em><b>Weakly Satisfied</b></em>' literal object.
@@ -49,7 +47,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WEAKLY_SATISFIED(1, "WeaklySatisfied", "WeaklySatisfied"),
+	WEAKLY_SATISFIED(2, "WeaklySatisfied", "WeaklySatisfied"),
 
 	/**
 	 * The '<em><b>Denied</b></em>' literal object.
@@ -59,7 +57,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DENIED(5, "Denied", "Denied"),
+	DENIED(6, "Denied", "Denied"),
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal object.
@@ -69,7 +67,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONFLICT(2, "Conflict", "Conflict"),
+	CONFLICT(3, "Conflict", "Conflict"),
 
 	/**
 	 * The '<em><b>Satisfied</b></em>' literal object.
@@ -79,7 +77,15 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SATISFIED(0, "Satisfied", "Satisfied");
+	SATISFIED(1, "Satisfied", "Satisfied"), /**
+	 * The '<em><b>None</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(0, "None", "None");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,19 +95,19 @@ public enum EvaluationLabel implements Enumerator {
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
 
 	/**
-	 * The '<em><b>Undecided</b></em>' literal value.
+	 * The '<em><b>Unknown</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Undecided</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Unknown</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UNDECIDED
-	 * @model name="Undecided"
+	 * @see #UNKNOWN
+	 * @model name="Unknown"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNDECIDED_VALUE = 3;
+	public static final int UNKNOWN_VALUE = 4;
 
 	/**
 	 * The '<em><b>Weakly Denied</b></em>' literal value.
@@ -116,7 +122,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WEAKLY_DENIED_VALUE = 4;
+	public static final int WEAKLY_DENIED_VALUE = 5;
 
 	/**
 	 * The '<em><b>Weakly Satisfied</b></em>' literal value.
@@ -131,7 +137,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WEAKLY_SATISFIED_VALUE = 1;
+	public static final int WEAKLY_SATISFIED_VALUE = 2;
 
 	/**
 	 * The '<em><b>Denied</b></em>' literal value.
@@ -146,7 +152,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DENIED_VALUE = 5;
+	public static final int DENIED_VALUE = 6;
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal value.
@@ -161,7 +167,7 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONFLICT_VALUE = 2;
+	public static final int CONFLICT_VALUE = 3;
 
 	/**
 	 * The '<em><b>Satisfied</b></em>' literal value.
@@ -176,7 +182,22 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SATISFIED_VALUE = 0;
+	public static final int SATISFIED_VALUE = 1;
+
+	/**
+	 * The '<em><b>None</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>None</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model name="None"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 0;
 
 	/**
 	 * An array of all the '<em><b>Evaluation Label</b></em>' enumerators.
@@ -186,12 +207,13 @@ public enum EvaluationLabel implements Enumerator {
 	 */
 	private static final EvaluationLabel[] VALUES_ARRAY =
 		new EvaluationLabel[] {
-			UNDECIDED,
+			UNKNOWN,
 			WEAKLY_DENIED,
 			WEAKLY_SATISFIED,
 			DENIED,
 			CONFLICT,
 			SATISFIED,
+			NONE,
 		};
 
 	/**
@@ -242,12 +264,13 @@ public enum EvaluationLabel implements Enumerator {
 	 */
 	public static EvaluationLabel get(int value) {
 		switch (value) {
-			case UNDECIDED_VALUE: return UNDECIDED;
+			case UNKNOWN_VALUE: return UNKNOWN;
 			case WEAKLY_DENIED_VALUE: return WEAKLY_DENIED;
 			case WEAKLY_SATISFIED_VALUE: return WEAKLY_SATISFIED;
 			case DENIED_VALUE: return DENIED;
 			case CONFLICT_VALUE: return CONFLICT;
 			case SATISFIED_VALUE: return SATISFIED;
+			case NONE_VALUE: return NONE;
 		}
 		return null;
 	}

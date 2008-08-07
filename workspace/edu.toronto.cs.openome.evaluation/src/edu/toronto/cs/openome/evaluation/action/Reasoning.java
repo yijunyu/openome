@@ -104,7 +104,7 @@ public class Reasoning {
 						.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 			} else {
 				root
-						.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNDECIDED);
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
 			}
 		}
 	}
