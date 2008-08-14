@@ -345,12 +345,12 @@ public class GoalModel extends IStar {
 							Decomposition d;
 							if (link.type.equals("And")) {
 								d = f.createAndDecomposition();
-								d.setSource(x);
-								d.setTarget(y);
+								d.setSource(y);
+								d.setTarget(x); //nernst: changed to reflect Jennifer's understanding in i*, and below 2 lines
 							} else {
 								d = f.createOrDecomposition();
-								d.setSource(x);
-								d.setTarget(y);
+								d.setSource(y);
+								d.setTarget(x);
 								if (link.from.feature!=null && link.from.feature.equals("|")) {
 									x.setExclusive(Boolean.TRUE);
 								} else /* default */ {
@@ -422,8 +422,7 @@ public class GoalModel extends IStar {
 	private void create_goal_elements(HashMap<Integer, EObject> hm) {
 		SortArrayList sorted_keys = new SortArrayList();
 		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
-		for (Enumeration<IStarElement> i = elements.elements(); i.hasMoreElements(); ) {
-			IStarElement p = i.nextElement();
+		for (IStarElement p: elements.values()) {
 			sorted_keys.add(p.id);
 			table.put(p.id, p);
 		}		
@@ -462,7 +461,7 @@ public class GoalModel extends IStar {
 				}
 				// see computing.sdtolabel for how numeric values are converted
 				//default is no label
-				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
+				x.setQualitativeReasoningCombinedLabel(EvaluationLabel.NONE);
 				if (g.label!=null && g.label.equals("FS")
 						|| g.satisfied == 1 && g.denied == 0) {
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
@@ -479,9 +478,9 @@ public class GoalModel extends IStar {
 						|| g.satisfied == g.denied && g.satisfied >= 0.5){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
 				} else if(g.label!=null && g.label.equals("UN")
-						|| g.satisfied == g.denied && g.satisfied < 0.5){
+						|| g.satisfied == g.denied && g.satisfied < 0.5 && g.satisfied != 0.0){ //nernst: prevent the case where both are 0.0
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
-				}
+				} 
 				m.getIntentions().add(x);
 				if (g.parent!=null) {
 					Container a = (Container) hm.get(new Integer(g.parent.id));
