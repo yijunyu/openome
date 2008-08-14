@@ -1861,13 +1861,13 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.NONE);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.UNKNOWN);
-		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_DENIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.SATISFIED);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_SATISFIED);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.DENIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_DENIED);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.CONFLICT);
-		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.SATISFIED);
-		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.NONE);
 
 		initEEnum(goalModelingContributionTypeEEnum, GoalModelingContributionType.class, "GoalModelingContributionType");
 		addEEnumLiteral(goalModelingContributionTypeEEnum, GoalModelingContributionType.NONE);

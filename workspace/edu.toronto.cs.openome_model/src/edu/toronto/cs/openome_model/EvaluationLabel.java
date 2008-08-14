@@ -22,62 +22,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EvaluationLabel implements Enumerator {
 	/**
-	 * The '<em><b>Unknown</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UNKNOWN_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UNKNOWN(4, "Unknown", "Unknown"), /**
-	 * The '<em><b>Weakly Denied</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_DENIED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	WEAKLY_DENIED(5, "WeaklyDenied", "WeaklyDenied"),
-
-	/**
-	 * The '<em><b>Weakly Satisfied</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_SATISFIED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	WEAKLY_SATISFIED(2, "WeaklySatisfied", "WeaklySatisfied"),
-
-	/**
-	 * The '<em><b>Denied</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DENIED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DENIED(6, "Denied", "Denied"),
-
-	/**
-	 * The '<em><b>Conflict</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #CONFLICT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CONFLICT(3, "Conflict", "Conflict"),
-
-	/**
-	 * The '<em><b>Satisfied</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SATISFIED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SATISFIED(1, "Satisfied", "Satisfied"), /**
 	 * The '<em><b>None</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,7 +29,55 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(0, "None", "None");
+	NONE(0, "None", "None"), /**
+	 * The '<em><b>Unknown</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNKNOWN(0, "Unknown", "Unknown"), /**
+	 * The '<em><b>Satisfied</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SATISFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SATISFIED(0, "Satisfied", "Satisfied"), /**
+	 * The '<em><b>Weakly Satisfied</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WEAKLY_SATISFIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WEAKLY_SATISFIED(0, "WeaklySatisfied", "WeaklySatisfied"), /**
+	 * The '<em><b>Denied</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DENIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DENIED(0, "Denied", "Denied"), /**
+	 * The '<em><b>Weakly Denied</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WEAKLY_DENIED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WEAKLY_DENIED(0, "WeaklyDenied", "WeaklyDenied"), /**
+	 * The '<em><b>Conflict</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CONFLICT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CONFLICT(0, "Conflict", "Conflict");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,96 +85,6 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
-	/**
-	 * The '<em><b>Unknown</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Unknown</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #UNKNOWN
-	 * @model name="Unknown"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int UNKNOWN_VALUE = 4;
-
-	/**
-	 * The '<em><b>Weakly Denied</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Weakly Denied</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_DENIED
-	 * @model name="WeaklyDenied"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int WEAKLY_DENIED_VALUE = 5;
-
-	/**
-	 * The '<em><b>Weakly Satisfied</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Weakly Satisfied</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_SATISFIED
-	 * @model name="WeaklySatisfied"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int WEAKLY_SATISFIED_VALUE = 2;
-
-	/**
-	 * The '<em><b>Denied</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Denied</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #DENIED
-	 * @model name="Denied"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int DENIED_VALUE = 6;
-
-	/**
-	 * The '<em><b>Conflict</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Conflict</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #CONFLICT
-	 * @model name="Conflict"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CONFLICT_VALUE = 3;
-
-	/**
-	 * The '<em><b>Satisfied</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Satisfied</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #SATISFIED
-	 * @model name="Satisfied"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SATISFIED_VALUE = 1;
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -200,6 +102,96 @@ public enum EvaluationLabel implements Enumerator {
 	public static final int NONE_VALUE = 0;
 
 	/**
+	 * The '<em><b>Unknown</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Unknown</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNKNOWN
+	 * @model name="Unknown"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNKNOWN_VALUE = 0;
+
+	/**
+	 * The '<em><b>Satisfied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Satisfied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SATISFIED
+	 * @model name="Satisfied"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SATISFIED_VALUE = 0;
+
+	/**
+	 * The '<em><b>Weakly Satisfied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Weakly Satisfied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WEAKLY_SATISFIED
+	 * @model name="WeaklySatisfied"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WEAKLY_SATISFIED_VALUE = 0;
+
+	/**
+	 * The '<em><b>Denied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Denied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DENIED
+	 * @model name="Denied"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DENIED_VALUE = 0;
+
+	/**
+	 * The '<em><b>Weakly Denied</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Weakly Denied</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WEAKLY_DENIED
+	 * @model name="WeaklyDenied"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WEAKLY_DENIED_VALUE = 0;
+
+	/**
+	 * The '<em><b>Conflict</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Conflict</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CONFLICT
+	 * @model name="Conflict"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CONFLICT_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Evaluation Label</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,13 +199,13 @@ public enum EvaluationLabel implements Enumerator {
 	 */
 	private static final EvaluationLabel[] VALUES_ARRAY =
 		new EvaluationLabel[] {
+			NONE,
 			UNKNOWN,
-			WEAKLY_DENIED,
+			SATISFIED,
 			WEAKLY_SATISFIED,
 			DENIED,
+			WEAKLY_DENIED,
 			CONFLICT,
-			SATISFIED,
-			NONE,
 		};
 
 	/**
@@ -264,12 +256,6 @@ public enum EvaluationLabel implements Enumerator {
 	 */
 	public static EvaluationLabel get(int value) {
 		switch (value) {
-			case UNKNOWN_VALUE: return UNKNOWN;
-			case WEAKLY_DENIED_VALUE: return WEAKLY_DENIED;
-			case WEAKLY_SATISFIED_VALUE: return WEAKLY_SATISFIED;
-			case DENIED_VALUE: return DENIED;
-			case CONFLICT_VALUE: return CONFLICT;
-			case SATISFIED_VALUE: return SATISFIED;
 			case NONE_VALUE: return NONE;
 		}
 		return null;

@@ -409,6 +409,34 @@
   <children xmi:type="notation:Node" xmi:id="_94KSUDgOEd2rvpZ-sdUqKw" type="2005">
     <children xmi:type="notation:Node" xmi:id="_94LgcDgOEd2rvpZ-sdUqKw" type="5005"/>
     <children xmi:type="notation:Node" xmi:id="_94MHgDgOEd2rvpZ-sdUqKw" type="7011">
+      <children xmi:type="notation:Node" xmi:id="_NZrTYGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/None"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_NZrTYWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_PoLLQGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/Unknown"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PoLLQWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_RlM4oGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/Satisfied"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RlM4oWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Sn32kGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/WeaklySatisfied"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Sn32kWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_TfGZgGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/Denied"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TfGZgWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UfyacGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/WeaklyDenied"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UfyacWorEd2sJ5dg7aljow"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vv8awGorEd2sJ5dg7aljow" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="openome_model.ecore#//EvaluationLabel/Conflict"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vv8awWorEd2sJ5dg7aljow"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_94MHgTgOEd2rvpZ-sdUqKw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_94MHgjgOEd2rvpZ-sdUqKw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_94MHgzgOEd2rvpZ-sdUqKw"/>

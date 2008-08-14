@@ -228,7 +228,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EvaluationLabel QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT = EvaluationLabel.UNKNOWN;
+	protected static final EvaluationLabel QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT = EvaluationLabel.NONE;
 
 	/**
 	 * The cached value of the '{@link #getQualitativeReasoningCombinedLabel() <em>Qualitative Reasoning Combined Label</em>}' attribute.
@@ -248,7 +248,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EvaluationLabel QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT = EvaluationLabel.UNKNOWN;
+	protected static final EvaluationLabel QUALITATIVE_REASONING_SATISFIED_LABEL_EDEFAULT = EvaluationLabel.NONE;
 
 	/**
 	 * The cached value of the '{@link #getQualitativeReasoningSatisfiedLabel() <em>Qualitative Reasoning Satisfied Label</em>}' attribute.
@@ -268,7 +268,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EvaluationLabel QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT = EvaluationLabel.UNKNOWN;
+	protected static final EvaluationLabel QUALITATIVE_REASONING_DENIAL_LABEL_EDEFAULT = EvaluationLabel.NONE;
 
 	/**
 	 * The cached value of the '{@link #getQualitativeReasoningDenialLabel() <em>Qualitative Reasoning Denial Label</em>}' attribute.
