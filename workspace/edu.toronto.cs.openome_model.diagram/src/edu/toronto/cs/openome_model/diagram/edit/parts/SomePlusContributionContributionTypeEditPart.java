@@ -51,7 +51,7 @@ public class SomePlusContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4031;
+	public static final int VISUAL_ID = 4032;
 
 	/**
 	 * @generated

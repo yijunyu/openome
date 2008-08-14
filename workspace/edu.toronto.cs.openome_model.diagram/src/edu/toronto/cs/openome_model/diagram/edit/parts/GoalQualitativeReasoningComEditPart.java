@@ -4,10 +4,10 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
@@ -21,10 +21,12 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -42,16 +44,19 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.impl.GoalImpl;
+import openome_model.figures.EvaluationIconProvider;
+
 /**
  * @generated
  */
-public class IsAAssociationLabelEditPart extends LabelEditPart implements
-		ITextAwareEditPart {
+public class GoalQualitativeReasoningComEditPart extends LabelEditPart
+		implements ITextAwareEditPart, IBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4037;
+	public static final int VISUAL_ID = 4022;
 
 	/**
 	 * @generated
@@ -79,14 +84,14 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID),
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart.VISUAL_ID),
 				new Point(0, 0));
 	}
 
 	/**
 	 * @generated
 	 */
-	public IsAAssociationLabelEditPart(View view) {
+	public GoalQualitativeReasoningComEditPart(View view) {
 		super(view);
 	}
 
@@ -102,8 +107,40 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
+	public IBorderItemLocator getBorderItemLocator() {
+		IFigure parentFigure = getFigure().getParent();
+		if (parentFigure != null && parentFigure.getLayoutManager() != null) {
+			Object constraint = parentFigure.getLayoutManager().getConstraint(
+					getFigure());
+			return (IBorderItemLocator) constraint;
+		}
+		return null;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public void refreshBounds() {
+		System.err.println("refreshBounds()");
+		//		Image image = getLabelIcon();
+		//		org.eclipse.swt.graphics.Rectangle bounds = image.getBounds();
+		//		
+		//		int x = bounds.x;
+		//		int y = bounds.y;
+		//		
+		//		int width = bounds.width;
+		//		int height = bounds.height;
+		//		
+		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getLocation_X())).intValue();
+		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getLocation_Y())).intValue();
+		int width = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getSize_Width())).intValue();
+		int height = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getSize_Height())).intValue();
+		getBorderItemLocator()
+				.setConstraint(new Rectangle(x, y, width, height));
 	}
 
 	/**
@@ -153,7 +190,7 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrappingLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -175,7 +212,42 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 		return null;
 	}
 
-	/**
+	/**va.lang.StackTraceElement;@4e62cc
+
+
+	!ENTRY org.eclipse.gmf.runtime.draw2d.ui 4 4 2008-08-07 16:47:27.638
+	!MESSAGE Graphic is disposed
+	!STACK 0
+	org.eclipse.swt.SWTException: Graphic is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:3777)
+	at org.eclipse.swt.SWT.error(SWT.java:3695)
+	at org.eclipse.swt.SWT.error(SWT.java:3666)
+	at org.eclipse.swt.graphics.Image.getBounds(Image.java:812)
+	at org.eclipse.gmf.runtime.draw2d.ui.internal.graphics.MapModeGraphics.drawImage(MapModeGraphics.java:53)
+	at org.eclipse.draw2d.Graphics.drawImage(Graphics.java:148)
+	at org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel.paintIcons(WrappingLabel.java:1145)
+	at org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel.paintFigure(WrappingLabel.java:1091)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1049)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.gmf.runtime.diagram.ui.internal.figures.BorderItemContainerFigure.paintClientArea(BorderItemContainerFigure.java:82)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1051)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1119)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1051)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1119)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1051)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1119)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1051)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1119)
+	at org.eclipse.draw2d.Figure.paint(Figure.java:1051)
+	at org.eclipse.draw2d.Figure.paintChildren(Figure.java:1087)
+	at org.eclipse.draw2d.Figure.paintClientArea(Figure.java:1119)
+	at org.eclipse.draw2d.ScalableFreeformLayeredPane.paintClientArea(ScalableFreeformLayeredPane.java:61)
+	at org.eclipse.gmf.runtime.draw2d.ui.internal.graphics.ScalableFreeformLayeredPane.paintClientArea(ScalableFreeformLayeredPane.java:82)
+	at org.eclipse.draw2d.Figure.paint(Figure.ja
 	 * @generated
 	 */
 	protected EObject getParserElement() {
@@ -183,26 +255,32 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			System.err.println("Unknown parser element.");
+			return null;
+		}
+
+		String evaluationLabel = ((GoalImpl) parserElement)
+				.getQualitativeReasoningCombinedLabel().getLiteral();
+
+		if (evaluationLabel.equals("None")) {
+			return null;
+		}
+
+		return EvaluationIconProvider.getEvaluationIcon(evaluationLabel);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT 
+	 * Overwrite this so that the evaluation label does not 
+	 * display the text literal such as "Satisfied" "Denied".
 	 */
 	protected String getLabelText() {
-		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
-		}
-		if (text == null || text.length() == 0) {
-			text = defaultText;
-		}
+		String text = "";
 		return text;
 	}
 
@@ -295,7 +373,7 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1005,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -553,8 +631,42 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new GoalEvaluationLabelFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class GoalEvaluationLabelFigure extends WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureGoalEvalLabel;
+
+		/**
+		 * @generated
+		 */
+		public GoalEvaluationLabelFigure() {
+			this.setText("");
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureGoalEvalLabel() {
+			return fFigureGoalEvalLabel;
+		}
+
 	}
 
 }

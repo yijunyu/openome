@@ -549,6 +549,19 @@
         name="ContributionDecoration"
         qualifiedClassName="openome_model.figures.ContributionDecoration"/>
   </figures>
+  <figures
+      name="Labels">
+    <descriptors
+        name="GoalEvaluationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="GoalEvalLabel"
+          text=""/>
+      <accessors
+          accessor="getFigureGoalEvalLabel"
+          figure="//@figures.4/@descriptors.0/@actualFigure"/>
+    </descriptors>
+  </figures>
   <nodes
       name="Actor"
       figure="ActorFigure"
@@ -864,5 +877,12 @@
       accessor="//@figures.2/@descriptors.13/@accessors.0">
     <facets
         xsi:type="gmfgraph:LabelOffsetFacet"/>
+  </labels>
+  <labels
+      name="GoalEvaluationLabel"
+      figure="GoalEvaluationLabelFigure">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="100"/>
   </labels>
 </gmfgraph:Canvas>

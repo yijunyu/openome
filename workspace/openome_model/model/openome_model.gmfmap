@@ -554,6 +554,17 @@
         <features
             href="openome_model.ecore#//Intention/name"/>
       </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true"
+          viewPattern=""
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="openome_model.gmfgraph#GoalEvaluationLabel"/>
+        <features
+            href="openome_model.ecore#//Intention/QualitativeReasoningCombinedLabel"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="openome_model.gmftool#//@palette/@tools.5"/>

@@ -45,13 +45,13 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class IsAAssociationLabelEditPart extends LabelEditPart implements
+public class WrappingLabel3EditPart extends LabelEditPart implements
 		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4037;
+	public static final int VISUAL_ID = 4027;
 
 	/**
 	 * @generated
@@ -79,14 +79,14 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID),
-				new Point(0, 0));
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart.VISUAL_ID),
+				new Point(0, 40));
 	}
 
 	/**
 	 * @generated
 	 */
-	public IsAAssociationLabelEditPart(View view) {
+	public WrappingLabel3EditPart(View view) {
 		super(view);
 	}
 
@@ -103,7 +103,7 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
+		return ConnectionLocator.TARGET;
 	}
 
 	/**
@@ -179,7 +179,9 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return resolveSemanticElement();
+
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
@@ -295,7 +297,7 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013,
+					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

@@ -31,7 +31,7 @@ public class GoalFigure extends RoundedRectangle {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	private void createContents() {
 		WrapLabel goalNameFigure0 = new WrapLabel();

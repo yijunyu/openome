@@ -72,6 +72,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.GoalNameEditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart(
 						view);
@@ -248,16 +252,16 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart(
 						view);
 
-			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID:
-				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart(
+			case edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:

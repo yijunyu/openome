@@ -51,7 +51,7 @@ public class BreakContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4031;
 
 	/**
 	 * @generated

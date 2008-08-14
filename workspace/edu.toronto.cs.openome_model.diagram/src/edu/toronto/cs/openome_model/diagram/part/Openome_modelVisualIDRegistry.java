@@ -428,6 +428,9 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -607,12 +610,12 @@ public class Openome_modelVisualIDRegistry {
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
