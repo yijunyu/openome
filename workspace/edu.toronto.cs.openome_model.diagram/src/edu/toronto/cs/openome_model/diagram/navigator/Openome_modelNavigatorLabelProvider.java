@@ -388,7 +388,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4005); //$NON-NLS-1$
+							"Parser was not found for label " + 4006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -411,7 +411,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4010); //$NON-NLS-1$
+							"Parser was not found for label " + 4012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -434,7 +434,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4015); //$NON-NLS-1$
+							"Parser was not found for label " + 4018); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -457,7 +457,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4020); //$NON-NLS-1$
+							"Parser was not found for label " + 4024); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -480,7 +480,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4021); //$NON-NLS-1$
+							"Parser was not found for label " + 4025); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -503,7 +503,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4023); //$NON-NLS-1$
+							"Parser was not found for label " + 4027); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -526,7 +526,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4024); //$NON-NLS-1$
+							"Parser was not found for label " + 4028); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -549,7 +549,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4025); //$NON-NLS-1$
+							"Parser was not found for label " + 4029); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -595,7 +595,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4002); //$NON-NLS-1$
+							"Parser was not found for label " + 4003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -618,7 +618,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4003); //$NON-NLS-1$
+							"Parser was not found for label " + 4004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -641,7 +641,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4004); //$NON-NLS-1$
+							"Parser was not found for label " + 4005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -664,7 +664,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4006); //$NON-NLS-1$
+							"Parser was not found for label " + 4007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -687,7 +687,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4007); //$NON-NLS-1$
+							"Parser was not found for label " + 4009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -710,7 +710,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4008); //$NON-NLS-1$
+							"Parser was not found for label " + 4010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -733,7 +733,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4009); //$NON-NLS-1$
+							"Parser was not found for label " + 4011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -756,7 +756,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4011); //$NON-NLS-1$
+							"Parser was not found for label " + 4013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -779,7 +779,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4012); //$NON-NLS-1$
+							"Parser was not found for label " + 4015); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -802,7 +802,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4013); //$NON-NLS-1$
+							"Parser was not found for label " + 4016); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -825,7 +825,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4014); //$NON-NLS-1$
+							"Parser was not found for label " + 4017); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -848,7 +848,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4016); //$NON-NLS-1$
+							"Parser was not found for label " + 4019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -871,7 +871,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4017); //$NON-NLS-1$
+							"Parser was not found for label " + 4021); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -894,7 +894,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4018); //$NON-NLS-1$
+							"Parser was not found for label " + 4022); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -917,7 +917,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4019); //$NON-NLS-1$
+							"Parser was not found for label " + 4023); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -949,7 +949,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002,
 				(view.getElement() != null ? view.getElement() : view),
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID));
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -969,7 +969,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003,
 				(view.getElement() != null ? view.getElement() : view),
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart.VISUAL_ID));
+						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -997,7 +997,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4028); //$NON-NLS-1$
+							"Parser was not found for label " + 4032); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1020,7 +1020,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4029); //$NON-NLS-1$
+							"Parser was not found for label " + 4033); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1043,7 +1043,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4030); //$NON-NLS-1$
+							"Parser was not found for label " + 4034); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1066,7 +1066,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4031); //$NON-NLS-1$
+							"Parser was not found for label " + 4035); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1089,7 +1089,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4032); //$NON-NLS-1$
+							"Parser was not found for label " + 4036); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1112,7 +1112,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4033); //$NON-NLS-1$
+							"Parser was not found for label " + 4037); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1135,7 +1135,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4034); //$NON-NLS-1$
+							"Parser was not found for label " + 4038); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1158,7 +1158,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4035); //$NON-NLS-1$
+							"Parser was not found for label " + 4039); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1181,7 +1181,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4036); //$NON-NLS-1$
+							"Parser was not found for label " + 4040); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1204,7 +1204,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4037); //$NON-NLS-1$
+							"Parser was not found for label " + 4041); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1227,7 +1227,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4038); //$NON-NLS-1$
+							"Parser was not found for label " + 4042); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1250,7 +1250,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4039); //$NON-NLS-1$
+							"Parser was not found for label " + 4043); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1273,7 +1273,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4040); //$NON-NLS-1$
+							"Parser was not found for label " + 4044); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1296,7 +1296,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4041); //$NON-NLS-1$
+							"Parser was not found for label " + 4045); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -1319,7 +1319,7 @@ public class Openome_modelNavigatorLabelProvider extends LabelProvider
 		} else {
 			edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 					.getInstance().logError(
-							"Parser was not found for label " + 4042); //$NON-NLS-1$
+							"Parser was not found for label " + 4046); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

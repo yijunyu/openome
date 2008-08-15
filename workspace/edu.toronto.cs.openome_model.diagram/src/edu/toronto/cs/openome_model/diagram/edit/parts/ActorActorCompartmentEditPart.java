@@ -52,7 +52,7 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 		// the actor/agent/position/role containers
 		result.getScrollPane().getVerticalScrollBar().setVisible(false);
 		result.getScrollPane().getHorizontalScrollBar().setVisible(false);
-		
+
 		result.setTitleVisibility(false);
 		return result;
 	}

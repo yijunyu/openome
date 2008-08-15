@@ -451,6 +451,9 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName2EditPart.VISUAL_ID == nodeVisualID) {
@@ -469,6 +472,9 @@ public class Openome_modelVisualIDRegistry {
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalName3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -491,6 +497,9 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalName4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName4EditPart.VISUAL_ID == nodeVisualID) {
@@ -509,6 +518,9 @@ public class Openome_modelVisualIDRegistry {
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalName5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -610,12 +622,12 @@ public class Openome_modelVisualIDRegistry {
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

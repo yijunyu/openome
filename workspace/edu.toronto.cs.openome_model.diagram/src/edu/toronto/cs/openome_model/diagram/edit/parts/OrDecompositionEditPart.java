@@ -42,8 +42,8 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel3EditPart) childEditPart)
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) {
+			((edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureOrLabel());
 			return true;
 		}

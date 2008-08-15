@@ -70,6 +70,31 @@
               href="openome_model.genmodel#//openome_model/Intention/name"/>
         </modelFacet>
       </labels>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4002"
+          editPartClassName="GoalQualitativeReasoningCom2EditPart"
+          itemSemanticEditPolicyClassName="GoalQualitativeReasoningCom2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="GoalQualitativeReasoningCom2ViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="GoalEvaluationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalEvaluationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalEvalLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalEvaluationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalEvalLabel() {&#xA;&#x9;&#x9;return fFigureGoalEvalLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern=""
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/Intention/QualitativeReasoningCombinedLabel"/>
+        </modelFacet>
+      </labels>
     </childNodes>
     <childNodes
         visualID="2002"
@@ -101,7 +126,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4002"
+          visualID="4003"
           editPartClassName="SoftgoalName2EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName2ViewFactory">
@@ -149,7 +174,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4003"
+          visualID="4004"
           editPartClassName="ResourceName2EditPart"
           itemSemanticEditPolicyClassName="ResourceName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName2ViewFactory">
@@ -197,7 +222,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4004"
+          visualID="4005"
           editPartClassName="TaskName2EditPart"
           itemSemanticEditPolicyClassName="TaskName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName2ViewFactory">
@@ -245,7 +270,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4006"
+          visualID="4007"
           editPartClassName="GoalName3EditPart"
           itemSemanticEditPolicyClassName="GoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName3ViewFactory">
@@ -260,6 +285,31 @@
             editPattern="">
           <metaFeatures
               href="openome_model.genmodel#//openome_model/Intention/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4008"
+          editPartClassName="GoalQualitativeReasoningCom3EditPart"
+          itemSemanticEditPolicyClassName="GoalQualitativeReasoningCom3ItemSemanticEditPolicy"
+          notationViewFactoryClassName="GoalQualitativeReasoningCom3ViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="GoalEvaluationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalEvaluationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalEvalLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalEvaluationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalEvalLabel() {&#xA;&#x9;&#x9;return fFigureGoalEvalLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern=""
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/Intention/QualitativeReasoningCombinedLabel"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -293,7 +343,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4007"
+          visualID="4009"
           editPartClassName="SoftgoalName3EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName3ViewFactory">
@@ -340,7 +390,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4008"
+          visualID="4010"
           editPartClassName="ResourceName3EditPart"
           itemSemanticEditPolicyClassName="ResourceName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName3ViewFactory">
@@ -388,7 +438,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4009"
+          visualID="4011"
           editPartClassName="TaskName3EditPart"
           itemSemanticEditPolicyClassName="TaskName3ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName3ViewFactory">
@@ -436,7 +486,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4011"
+          visualID="4013"
           editPartClassName="GoalName4EditPart"
           itemSemanticEditPolicyClassName="GoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName4ViewFactory">
@@ -451,6 +501,31 @@
             editPattern="">
           <metaFeatures
               href="openome_model.genmodel#//openome_model/Intention/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4014"
+          editPartClassName="GoalQualitativeReasoningCom4EditPart"
+          itemSemanticEditPolicyClassName="GoalQualitativeReasoningCom4ItemSemanticEditPolicy"
+          notationViewFactoryClassName="GoalQualitativeReasoningCom4ViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="GoalEvaluationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalEvaluationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalEvalLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalEvaluationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalEvalLabel() {&#xA;&#x9;&#x9;return fFigureGoalEvalLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern=""
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/Intention/QualitativeReasoningCombinedLabel"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -484,7 +559,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4012"
+          visualID="4015"
           editPartClassName="SoftgoalName4EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName4ViewFactory">
@@ -531,7 +606,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4013"
+          visualID="4016"
           editPartClassName="ResourceName4EditPart"
           itemSemanticEditPolicyClassName="ResourceName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName4ViewFactory">
@@ -579,7 +654,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4014"
+          visualID="4017"
           editPartClassName="TaskName4EditPart"
           itemSemanticEditPolicyClassName="TaskName4ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName4ViewFactory">
@@ -627,7 +702,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4016"
+          visualID="4019"
           editPartClassName="GoalName5EditPart"
           itemSemanticEditPolicyClassName="GoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalName5ViewFactory">
@@ -642,6 +717,31 @@
             editPattern="">
           <metaFeatures
               href="openome_model.genmodel#//openome_model/Intention/name"/>
+        </modelFacet>
+      </labels>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4020"
+          editPartClassName="GoalQualitativeReasoningCom5EditPart"
+          itemSemanticEditPolicyClassName="GoalQualitativeReasoningCom5ItemSemanticEditPolicy"
+          notationViewFactoryClassName="GoalQualitativeReasoningCom5ViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="GoalEvaluationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class GoalEvaluationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureGoalEvalLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public GoalEvaluationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureGoalEvalLabel() {&#xA;&#x9;&#x9;return fFigureGoalEvalLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern=""
+            editorPattern=""
+            editPattern="">
+          <metaFeatures
+              href="openome_model.genmodel#//openome_model/Intention/QualitativeReasoningCombinedLabel"/>
         </modelFacet>
       </labels>
     </childNodes>
@@ -675,7 +775,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4017"
+          visualID="4021"
           editPartClassName="SoftgoalName5EditPart"
           itemSemanticEditPolicyClassName="SoftgoalName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalName5ViewFactory">
@@ -722,7 +822,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4018"
+          visualID="4022"
           editPartClassName="ResourceName5EditPart"
           itemSemanticEditPolicyClassName="ResourceName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceName5ViewFactory">
@@ -770,7 +870,7 @@
             href="openome_model.genmodel#//openome_model/Container/intentions"/>
       </modelFacet>
       <labels
-          visualID="4019"
+          visualID="4023"
           editPartClassName="TaskName5EditPart"
           itemSemanticEditPolicyClassName="TaskName5ItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskName5ViewFactory">
@@ -821,7 +921,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4005"
+          visualID="4006"
           editPartClassName="ActorNameEditPart"
           itemSemanticEditPolicyClassName="ActorNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ActorNameViewFactory">
@@ -872,7 +972,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4010"
+          visualID="4012"
           editPartClassName="AgentNameEditPart"
           itemSemanticEditPolicyClassName="AgentNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AgentNameViewFactory">
@@ -922,7 +1022,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4015"
+          visualID="4018"
           editPartClassName="PositionNameEditPart"
           itemSemanticEditPolicyClassName="PositionNameItemSemanticEditPolicy"
           notationViewFactoryClassName="PositionNameViewFactory">
@@ -972,7 +1072,7 @@
             href="openome_model.genmodel#//openome_model/Model/containers"/>
       </modelFacet>
       <labels
-          visualID="4020"
+          visualID="4024"
           editPartClassName="RoleNameEditPart"
           itemSemanticEditPolicyClassName="RoleNameItemSemanticEditPolicy"
           notationViewFactoryClassName="RoleNameViewFactory">
@@ -1022,7 +1122,7 @@
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
       </modelFacet>
       <labels
-          visualID="4021"
+          visualID="4025"
           editPartClassName="GoalNameEditPart"
           itemSemanticEditPolicyClassName="GoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalNameViewFactory">
@@ -1041,7 +1141,7 @@
       </labels>
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="4022"
+          visualID="4026"
           editPartClassName="GoalQualitativeReasoningComEditPart"
           itemSemanticEditPolicyClassName="GoalQualitativeReasoningComItemSemanticEditPolicy"
           notationViewFactoryClassName="GoalQualitativeReasoningComViewFactory"
@@ -1094,7 +1194,7 @@
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
       </modelFacet>
       <labels
-          visualID="4023"
+          visualID="4027"
           editPartClassName="SoftgoalNameEditPart"
           itemSemanticEditPolicyClassName="SoftgoalNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SoftgoalNameViewFactory">
@@ -1140,7 +1240,7 @@
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
       </modelFacet>
       <labels
-          visualID="4024"
+          visualID="4028"
           editPartClassName="TaskNameEditPart"
           itemSemanticEditPolicyClassName="TaskNameItemSemanticEditPolicy"
           notationViewFactoryClassName="TaskNameViewFactory">
@@ -1187,7 +1287,7 @@
             href="openome_model.genmodel#//openome_model/Model/intentions"/>
       </modelFacet>
       <labels
-          visualID="4025"
+          visualID="4029"
           editPartClassName="ResourceNameEditPart"
           itemSemanticEditPolicyClassName="ResourceNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ResourceNameViewFactory">
@@ -1269,10 +1369,10 @@
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="4026"
-          editPartClassName="WrappingLabel2EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrappingLabel2ViewFactory"
+          visualID="4030"
+          editPartClassName="WrappingLabelEditPart"
+          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrappingLabelViewFactory"
           readOnly="true"
           alignment="TARGET">
         <diagramRunTimeClass
@@ -1320,10 +1420,10 @@
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
       <labels
-          visualID="4027"
-          editPartClassName="WrappingLabel3EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrappingLabel3ViewFactory"
+          visualID="4031"
+          editPartClassName="WrappingLabel2EditPart"
+          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrappingLabel2ViewFactory"
           readOnly="true"
           alignment="TARGET">
         <diagramRunTimeClass
@@ -1370,7 +1470,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4028"
+          visualID="4032"
           editPartClassName="HelpContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="HelpContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="HelpContributionContributionTypeViewFactory"
@@ -1425,7 +1525,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4029"
+          visualID="4033"
           editPartClassName="HurtContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="HurtContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="HurtContributionContributionTypeViewFactory"
@@ -1478,7 +1578,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4030"
+          visualID="4034"
           editPartClassName="MakeContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="MakeContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="MakeContributionContributionTypeViewFactory"
@@ -1531,7 +1631,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4031"
+          visualID="4035"
           editPartClassName="BreakContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="BreakContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="BreakContributionContributionTypeViewFactory"
@@ -1584,7 +1684,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4032"
+          visualID="4036"
           editPartClassName="SomePlusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomePlusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomePlusContributionContributionTypeViewFactory"
@@ -1637,7 +1737,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4033"
+          visualID="4037"
           editPartClassName="SomeMinusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomeMinusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomeMinusContributionContributionTypeViewFactory"
@@ -1690,7 +1790,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4034"
+          visualID="4038"
           editPartClassName="UnknownContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="UnknownContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="UnknownContributionContributionTypeViewFactory"
@@ -1744,7 +1844,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4035"
+          visualID="4039"
           editPartClassName="AndContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="AndContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="AndContributionContributionTypeViewFactory"
@@ -1799,7 +1899,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4036"
+          visualID="4040"
           editPartClassName="OrContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="OrContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="OrContributionContributionTypeViewFactory"
@@ -1854,7 +1954,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4037"
+          visualID="4041"
           editPartClassName="IsAAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="IsAAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IsAAssociationLabelViewFactory"
@@ -1908,7 +2008,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4038"
+          visualID="4042"
           editPartClassName="CoversAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="CoversAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CoversAssociationLabelViewFactory"
@@ -1962,7 +2062,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4039"
+          visualID="4043"
           editPartClassName="OccupiesAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="OccupiesAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="OccupiesAssociationLabelViewFactory"
@@ -2015,7 +2115,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4040"
+          visualID="4044"
           editPartClassName="IsPartOfAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="IsPartOfAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IsPartOfAssociationLabelViewFactory"
@@ -2069,7 +2169,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4041"
+          visualID="4045"
           editPartClassName="PlaysAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="PlaysAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PlaysAssociationLabelViewFactory"
@@ -2123,7 +2223,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4042"
+          visualID="4046"
           editPartClassName="INSAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="INSAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="INSAssociationLabelViewFactory"

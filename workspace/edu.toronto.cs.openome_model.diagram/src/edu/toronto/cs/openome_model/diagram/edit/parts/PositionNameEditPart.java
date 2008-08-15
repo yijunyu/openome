@@ -55,7 +55,7 @@ public class PositionNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4015;
+	public static final int VISUAL_ID = 4018;
 
 	/**
 	 * @generated

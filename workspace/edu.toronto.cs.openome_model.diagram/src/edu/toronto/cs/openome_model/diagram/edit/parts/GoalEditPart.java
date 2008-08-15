@@ -22,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -225,10 +226,10 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
 		if (borderItemEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart) {
-			
-			OpenOMEBorderItemLocator locator = new OpenOMEBorderItemLocator(getMainFigure(),
-					PositionConstants.NORTH_EAST);
-			
+
+			OpenOMEBorderItemLocator locator = new OpenOMEBorderItemLocator(
+					getMainFigure(), PositionConstants.NORTH_EAST);
+
 			locator.setCurrentSideOfParent(PositionConstants.NORTH_EAST);
 			locator.setBorderItemOffset(new Dimension(3, 20));
 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);

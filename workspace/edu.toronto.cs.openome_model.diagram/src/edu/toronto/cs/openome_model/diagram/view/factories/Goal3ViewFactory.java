@@ -50,5 +50,12 @@ public class Goal3ViewFactory extends AbstractShapeViewFactory {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName3EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						eObjectAdapter,
+						view,
+						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom3EditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 }

@@ -47,7 +47,7 @@ public class AgentAgentCompartmentEditPart extends ShapeCompartmentEditPart {
 		// removes the annoying border line at the top of the compartment
 		// this fix is for ticket #115
 		result.setBorder(null);
-		
+
 		// removes the horizontal and vertical scroll bars in
 		// the actor/agent/position/role containers
 		result.getScrollPane().getVerticalScrollBar().setVisible(false);

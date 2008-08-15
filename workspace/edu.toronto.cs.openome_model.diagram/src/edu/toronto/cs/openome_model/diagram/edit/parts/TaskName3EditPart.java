@@ -55,7 +55,7 @@ public class TaskName3EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4009;
+	public static final int VISUAL_ID = 4011;
 
 	/**
 	 * @generated
