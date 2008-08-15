@@ -121,7 +121,7 @@ public class GoalQualitativeReasoningComEditPart extends LabelEditPart
 	 * @generated NOT
 	 */
 	public void refreshBounds() {
-		System.err.println("refreshBounds()");
+		//System.err.println("refreshBounds()");
 		//		Image image = getLabelIcon();
 		//		org.eclipse.swt.graphics.Rectangle bounds = image.getBounds();
 		//		
