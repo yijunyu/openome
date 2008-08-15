@@ -46,7 +46,7 @@ public class Resource4EditPart extends ShapeNodeEditPart {
 	public Resource4EditPart(View view) {
 		super(view);
 	}
-	
+
 	/**
 	 * @generated NOT 
 	 */

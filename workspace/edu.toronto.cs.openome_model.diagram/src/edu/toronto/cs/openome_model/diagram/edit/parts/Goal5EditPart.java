@@ -3,6 +3,7 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.GoalAnchor;
 
+import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -98,7 +99,7 @@ public class Goal5EditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT 
 	 */

@@ -2,6 +2,7 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.GoalAnchor;
+import openome_model.figures.OpenOMEBorderItemLocator;
 
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
@@ -19,10 +20,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -104,7 +103,7 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT 
 	 */
@@ -221,14 +220,17 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
 		if (borderItemEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.SOUTH);
-			locator.setBorderItemOffset(new Dimension(-20, -20));
+			
+			OpenOMEBorderItemLocator locator = new OpenOMEBorderItemLocator(getMainFigure(),
+					PositionConstants.NORTH_EAST);
+			
+			locator.setCurrentSideOfParent(PositionConstants.NORTH_EAST);
+			locator.setBorderItemOffset(new Dimension(3, 20));
 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
 		} else {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);

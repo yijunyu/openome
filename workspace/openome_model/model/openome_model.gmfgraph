@@ -880,9 +880,5 @@
   </labels>
   <labels
       name="GoalEvaluationLabel"
-      figure="GoalEvaluationLabelFigure">
-    <facets
-        xsi:type="gmfgraph:LabelOffsetFacet"
-        x="100"/>
-  </labels>
+      figure="GoalEvaluationLabelFigure"/>
 </gmfgraph:Canvas>

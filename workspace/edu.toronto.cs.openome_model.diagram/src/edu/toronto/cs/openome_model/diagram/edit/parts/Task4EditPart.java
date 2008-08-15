@@ -98,7 +98,7 @@ public class Task4EditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT 
 	 */

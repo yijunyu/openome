@@ -121,16 +121,6 @@ public class GoalQualitativeReasoningComEditPart extends LabelEditPart
 	 * @generated NOT
 	 */
 	public void refreshBounds() {
-		//System.err.println("refreshBounds()");
-		//		Image image = getLabelIcon();
-		//		org.eclipse.swt.graphics.Rectangle bounds = image.getBounds();
-		//		
-		//		int x = bounds.x;
-		//		int y = bounds.y;
-		//		
-		//		int width = bounds.width;
-		//		int height = bounds.height;
-		//		
 		int x = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
 				.getLocation_X())).intValue();
 		int y = ((Integer) getStructuralFeatureValue(NotationPackage.eINSTANCE
