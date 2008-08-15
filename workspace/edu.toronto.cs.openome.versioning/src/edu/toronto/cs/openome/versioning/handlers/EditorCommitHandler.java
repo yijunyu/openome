@@ -44,7 +44,6 @@ public class EditorCommitHandler extends MolhadoActionHandler implements IHandle
 			setResourceSet();
 			setModelDetails();
 			super.setGME(gme);
-		    //System.err.println(super.toString());
 
 		    //warn of unsaved changes... but we don't force it.
 		    //gme.doSave(new ProgressMonitorDialog(getSite().getShell()).run(); defined in openomeModelEditor
@@ -61,7 +60,7 @@ public class EditorCommitHandler extends MolhadoActionHandler implements IHandle
 			Configuration config = ma.configurations.get(project_name);  
 			ma.checkout_last_version(config, model_name); 
 			
-			Version.bumpVersion(); // Tien: important after check out if one wants to modify the mirror 
+			//Version.bumpVersion(); // Tien: important after check out if one wants to modify the mirror 
 			GoalModel the_gm = ma.find_the_gm(file_name, config);
 			//null the_gm implies ... no existing version of this model
 			if (the_gm != null) {
@@ -69,7 +68,6 @@ public class EditorCommitHandler extends MolhadoActionHandler implements IHandle
 				ma.modify_edited_goal_model(the_gm, gme); //algorithm 4
 			}
 			ma.checkin_current_version(config, model_name);
-			//ma.checkOutAllVersionsFromRepository(config, ""); //call this from checkout button
 			//TODO why is this version 2 if there are no existing versions?
 			MessageDialog.openConfirm(null, "Versioning successful", "Current model was stored as version: " + ma.getVersion(project_name, model_name, config));
 		} catch (Exception e) {

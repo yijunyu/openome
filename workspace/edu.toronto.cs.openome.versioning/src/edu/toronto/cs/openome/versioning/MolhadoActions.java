@@ -129,8 +129,9 @@ public class MolhadoActions {
 	}
 
 	protected void checkout_version(Configuration config, String v1_name) {
+		if(config == null) System.out.println("no config in checkout..");
+		assert (v1_name != null);
 		try {
-			if(config== null) System.out.println("no config in checkout..");
 			Version v1 = config.loadVersionByDelta(v1_name,	IRPersistent.fluidFileLocator);
 			Version.setVersion(v1);
 		} catch (IOException e1) {
@@ -231,6 +232,7 @@ public class MolhadoActions {
 				v1_name = v1_name.substring(v1_name.lastIndexOf("-") + 1);
 				String model_v1 = name + "-" + v1_name + ".oom";
 				URI uri = fetchURI(model_v1);
+				System.out.println(uri);
 				Resource resource = resourceSet.createResource(uri);
 				Model m = f.createModel();
 				try {
@@ -343,7 +345,7 @@ public class MolhadoActions {
 	
 	public void update_version(String model_name, int versionNumber) {
 		versions.put(model_name, new Integer(versionNumber));
-		System.err.println(model_name + " = " + versionNumber);
+		//System.err.println(model_name + " = " + versionNumber);
 	}
 	
 	public Configuration loadConfig(String project_name, String property) {
@@ -378,7 +380,7 @@ public class MolhadoActions {
 			int versionNumber = getVersion(project_name, model_name, config);
 			configurations.put(project_name, config);
 			if (versionNumber == 0) {
-				checkInGoalModel(model_name, config, res);
+				//checkInGoalModel(model_name, config, res);
 				update_version(model_name, 1);
 			} else
 				update_version(model_name, versionNumber);
@@ -386,7 +388,7 @@ public class MolhadoActions {
 			SCDirectory project_root = connectToRepository(file_name);
 			Configuration newConfig = new Configuration(project_name, project_root);
 			// create a new goal model and check it in
-			checkInGoalModel(model_name, newConfig, res);
+			//checkInGoalModel(model_name, newConfig, res);
 			configurations.put(project_name, newConfig);
 			update_version(model_name, 1);
 		}
