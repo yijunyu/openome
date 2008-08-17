@@ -92,9 +92,12 @@ public class OpenOmeElementLayoutManager extends AbstractHintLayout
 			// close to the edge
 			child.setBounds(r.getCopy().shrink(20, 0));
 
-			// adjust the height so that the text is vertically centered inside..
-			// depending on how many rows the text has been wrapped to, adjust
-			// the height by 6 units per row
+			// pad the end of the text with white space so that the entire text
+			// is visible while the user is typing in the name of an element..
+			// Without this, the last letter gets cut off and is not visible
+			// while the user is typing.
+			String cushionedString = ((WrappingLabel) child).getText() + " ";
+			((WrappingLabel) child).setText(cushionedString);
 			
 		}
 	}
