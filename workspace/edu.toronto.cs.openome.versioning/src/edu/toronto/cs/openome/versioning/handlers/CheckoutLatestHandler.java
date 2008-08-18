@@ -30,18 +30,12 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		final FileLocator floc = IRPersistent.fluidFileLocator;
-		try {      
-		      // Load the configuration   
-			Configuration.ensureLoaded(); //necessary?
-		      Configuration config = Configuration.loadASCII(new FileReader(System.getProperty("fluid.ir.path") + "/drproject.cfg"),floc);
-		      java.util.Enumeration<String> vs = config.getAllVersionNames();
-		      System.out.println("Here is a list of available versions :");
-		      while (vs.hasMoreElements())
-		        System.out.println("Version : " + (String) vs.nextElement());
-		} catch (Exception e) {e.printStackTrace();}
-		return null;
-		/*gme = (openome_modelEditor) findEditor();
+		final FileLocator floc = IRPersistent.fluidFileLocator;     
+		
+		// Load the configuration   
+		Configuration.ensureLoaded(); //necessary?
+
+		gme = (openome_modelEditor) findEditor();
 		editingDomain = gme.getEditingDomain();
 		setResourceSet();
 		setModelDetails();  //i.e., file_name, editor instance, etc
@@ -59,13 +53,13 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 			versionExists = false;
 	    	throw new ExecutionException("No existing versions");
 		}
-		ma.checkout_last_version(config, model_name);
+		ma.checkout_last_version(config, model_name, versionNumber);
 		Version v1 = Version.getVersion();
 		Version.setVersion(v1); //confused... why this behaviour? seems redundant.
 		String vName = config.getVersionName(v1);
 		System.out.println(vName);
 		ma.unparse_checkout_into_emf(config, vName);
-		return null; */
+		return null; 
 	}
 
 	/** 

@@ -118,13 +118,14 @@ public class MolhadoActions {
 	
 //*********************** These are common to both the Diagram and Editor commands
 
-	public void checkout_last_version(Configuration config, String model_name) {
+	public void checkout_last_version(Configuration config, String model_name, int version) {
 		Integer last = versions.get(model_name);
+		if(last == null) last = new Integer(version); //perhaps the versions map has not been initialized properly
 		if (last != null) {
 			String last_version = model_name + "-v" + last.intValue();
 			checkout_version(config, last_version);
 		} else {
-			System.err.println("expecting to have an initial version number for the configuration "	+ config);
+			System.err.println("expecting to have an initial version number for the configuration "	+ config.getName());
 		}
 	}
 
