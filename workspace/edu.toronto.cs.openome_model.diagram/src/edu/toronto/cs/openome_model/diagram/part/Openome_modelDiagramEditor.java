@@ -280,15 +280,14 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
 		edu.toronto.cs.openome_model.diagram.part.DiagramEditorContextMenuProvider provider = new edu.toronto.cs.openome_model.diagram.part.DiagramEditorContextMenuProvider(
 				this, getDiagramGraphicalViewer());
 		getDiagramGraphicalViewer().setContextMenu(provider);
-		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
-				provider, getDiagramGraphicalViewer());
+		//getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,provider, getDiagramGraphicalViewer());
 	}
 
 }
