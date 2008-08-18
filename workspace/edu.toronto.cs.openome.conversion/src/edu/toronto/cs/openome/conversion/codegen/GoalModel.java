@@ -86,7 +86,7 @@ public class GoalModel extends IStar {
 		generateHowmuch(g, a);
 	}
 	/**
-	 * Recursively generating the subgoals
+	 * Generating the subgoals recursively.
 	 * 
 	 * @param a:
 	 *            Advice
