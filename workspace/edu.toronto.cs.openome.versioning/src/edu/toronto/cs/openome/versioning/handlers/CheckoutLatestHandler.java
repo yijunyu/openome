@@ -1,11 +1,15 @@
 package edu.toronto.cs.openome.versioning.handlers;
 
+import java.io.FileReader;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IFileEditorInput;
 
 import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
+import fluid.ir.IRPersistent;
+import fluid.util.FileLocator;
 import fluid.version.Version;
 
 import sc.document.Configuration;
@@ -26,7 +30,18 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		gme = (openome_modelEditor) findEditor();
+		final FileLocator floc = IRPersistent.fluidFileLocator;
+		try {      
+		      // Load the configuration   
+			Configuration.ensureLoaded(); //necessary?
+		      Configuration config = Configuration.loadASCII(new FileReader(System.getProperty("fluid.ir.path") + "/drproject.cfg"),floc);
+		      java.util.Enumeration<String> vs = config.getAllVersionNames();
+		      System.out.println("Here is a list of available versions :");
+		      while (vs.hasMoreElements())
+		        System.out.println("Version : " + (String) vs.nextElement());
+		} catch (Exception e) {e.printStackTrace();}
+		return null;
+		/*gme = (openome_modelEditor) findEditor();
 		editingDomain = gme.getEditingDomain();
 		setResourceSet();
 		setModelDetails();  //i.e., file_name, editor instance, etc
@@ -50,7 +65,7 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 		String vName = config.getVersionName(v1);
 		System.out.println(vName);
 		ma.unparse_checkout_into_emf(config, vName);
-		return null;
+		return null; */
 	}
 
 	/** 

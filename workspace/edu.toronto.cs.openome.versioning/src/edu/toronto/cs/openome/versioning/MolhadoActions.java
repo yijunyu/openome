@@ -380,7 +380,7 @@ public class MolhadoActions {
 			int versionNumber = getVersion(project_name, model_name, config);
 			configurations.put(project_name, config);
 			if (versionNumber == 0) {
-				//checkInGoalModel(model_name, config, res);
+				checkInGoalModel(model_name, config, res);
 				update_version(model_name, 1);
 			} else
 				update_version(model_name, versionNumber);
@@ -388,7 +388,7 @@ public class MolhadoActions {
 			SCDirectory project_root = connectToRepository(file_name);
 			Configuration newConfig = new Configuration(project_name, project_root);
 			// create a new goal model and check it in
-			//checkInGoalModel(model_name, newConfig, res);
+			checkInGoalModel(model_name, newConfig, res);
 			configurations.put(project_name, newConfig);
 			update_version(model_name, 1);
 		}
