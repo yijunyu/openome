@@ -388,11 +388,9 @@ public class Configuration {
 			IRNode node = (IRNode) en.nextElement();
 			if (node.valueExists(componentAttr)) {
 				Component comp = (Component) node.getSlotValue(componentAttr);
-				System.out.println("SAVING DELTA for \""
-						+ comp.getName(era.getRoot()) + "\" ... (Slots)");
+				//System.out.println("SAVING DELTA for \"" + comp.getName(era.getRoot()) + "\" ... (Slots)");
 				comp.getDelta(era).store(floc);
-				System.out.println("SAVING DELTA for \""
-						+ comp.getName(era.getRoot()) + "\" ...(Attrs)");
+				//System.out.println("SAVING DELTA for \"" + comp.getName(era.getRoot()) + "\" ...(Attrs)");
 				comp.saveDelta(era, floc);
 			} else
 				throw new IOException("Error in storing this configuration");
@@ -803,8 +801,7 @@ public class Configuration {
 			loadComponentDeltaForEras(parent_era, floc);
 		}
 		if (comp_delta_loaded_eras.contains(era) == false) {
-			System.out.println("Loading components' deltas for the era "
-					+ era.getID());
+			//System.out.println("Loading components' deltas for the era " + era.getID());
 			loadComponentDelta(era, era.maxVersionOffset(), floc);
 			comp_delta_loaded_eras.addElement(era);
 		}

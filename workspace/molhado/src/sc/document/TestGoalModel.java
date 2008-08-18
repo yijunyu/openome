@@ -51,7 +51,7 @@ public class TestGoalModel {
 	      config = new Configuration("TestGoalModel", project_root);
 	      
 	      IRNode rootnode = config.getRoot();
-	      tree = config.getTree();
+	      tree = Configuration.getTree();
 	      
 	      // Create a goal model
 	      gm = new GoalModel();
@@ -167,12 +167,12 @@ public class TestGoalModel {
 		      v1 = config.loadVersionByDelta(v1_name,floc);
 		      Version.setVersion(v1);
 		            
-		      tree = config.getTree();
+		      tree = Configuration.getTree();
 		      rootnode = config.getRoot();
 		      
 		      System.out.println("List of components");
 		      System.out.println("==================");
-		      java.util.Enumeration en = tree.depthFirstSearch(rootnode);
+		      java.util.Enumeration<IRNode> en = tree.depthFirstSearch(rootnode);
 		      while (en.hasMoreElements()) {
 		        IRNode node = (IRNode) en.nextElement();
 		        Component comp = config.getComponent(node);
@@ -222,7 +222,7 @@ public class TestGoalModel {
 		  
 		  IRNode rfac = gm.getIthChild(pit, 1);
 		  IRNode e = gm.getGraph().getChildEdge(pit, 1);
-		  gm.setEdgeType(e, gm.AND);
+		  gm.setEdgeType(e, GoalModel.AND);
 		  gm.setHardGoalName(rfac, "Reporting facilities are convenient");
 		  
 		  IRNode spid = gm.createAGoal("Student Progress is displayed", true);
@@ -296,7 +296,7 @@ public class TestGoalModel {
 		      config = Configuration.loadASCII(
 		          new FileReader(System.getProperty("fluid.ir.path") 
 		        		  +"/drproject_v2.cfg"),floc);
-		      java.util.Enumeration vs = config.getAllVersionNames();
+		      java.util.Enumeration<String> vs = config.getAllVersionNames();
 		      System.out.println("Here is a list of available versions :");
 		      while (vs.hasMoreElements())
 		        System.out.println("Version : " + (String) vs.nextElement());
@@ -313,14 +313,14 @@ public class TestGoalModel {
 		      v2 = config.loadVersionByDelta(v2_name,floc);
 		      Version.setVersion(v2);
 		            
-		      tree = config.getTree();
+		      tree = Configuration.getTree();
 		      rootnode = config.getRoot();
 		      
 		      //
 		      
 		      System.out.println("List of components");
 		      System.out.println("==================");
-		      java.util.Enumeration en = tree.depthFirstSearch(rootnode);
+		      java.util.Enumeration<IRNode> en = tree.depthFirstSearch(rootnode);
 		      while (en.hasMoreElements()) {
 		        IRNode node = (IRNode) en.nextElement();
 		        Component comp = config.getComponent(node);

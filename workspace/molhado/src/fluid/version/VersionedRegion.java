@@ -510,6 +510,7 @@ public class VersionedRegion extends IRRegion
 
   protected void read(IRInput in) throws IOException {
     initialEra = (Era) IRPersistent.readReference(in);
+    //System.out.println("Read initial era = " + initialEra);
     if (in.debug())
       LOG.debug("Read initial era = " + initialEra);
   }

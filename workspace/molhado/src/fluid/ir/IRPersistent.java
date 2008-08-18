@@ -199,43 +199,39 @@ public abstract class IRPersistent implements Serializable {
 
   /** Give a byte to name a persistent kind.
    */
-  public static void registerPersistentKind(IRPersistentKind pk,
-					    int reg) {
-    Byte r = getByte(reg);
-    for (int i=0; i<numPersistentKinds; ++i) {
-      if (persistentKinds.elementAt(i).equals(pk)) {
-	throw new FluidError("This PersistentKind already registered.");
-      }
-      if (persistentKindBytes.elementAt(i) == r)
-	throw new FluidError("PersistentKind #" + r + " is registered for " +
-			     persistentKinds.elementAt(i) +
-			     " and cannot be used for " + pk);
-    }
-    persistentKinds.addElement(pk);
-    persistentKindBytes.addElement(r);
-    ++numPersistentKinds;
+  public static void registerPersistentKind(IRPersistentKind pk, int reg) {
+	  Byte r = getByte(reg);
+	  for (int i=0; i<numPersistentKinds; ++i) {
+		  if (persistentKinds.elementAt(i).equals(pk)) {
+			  throw new FluidError("This PersistentKind already registered.");
+		  }
+		  if (persistentKindBytes.elementAt(i) == r)
+			  throw new FluidError("PersistentKind #" + r + " is registered for " +
+					  persistentKinds.elementAt(i) +
+					  " and cannot be used for " + pk);
+	  }
+	  persistentKinds.addElement(pk);
+	  persistentKindBytes.addElement(r);
+	  ++numPersistentKinds;
   }
 
-  protected static
-        IRPersistentKind getRegisteredPersistentKind(int reg) 
-  {
-    Byte r = getByte(reg);
-    for (int i=0; i<numPersistentKinds; ++i) {
-      if (persistentKindBytes.elementAt(i) == r)
-	return (IRPersistentKind)persistentKinds.elementAt(i);
-    }
-    throw new FluidRuntimeException("No PersistentKind registered for " +
-				    r);
+  protected static IRPersistentKind getRegisteredPersistentKind(int reg) {
+	  Byte r = getByte(reg);
+	  //System.out.println(persistentKinds);
+	  for (int i=0; i<numPersistentKinds; ++i) {
+		  if (persistentKindBytes.elementAt(i) == r)
+			  return (IRPersistentKind)persistentKinds.elementAt(i);
+	  }
+	  throw new FluidRuntimeException("No PersistentKind registered for " + r);
   }
 
-  protected static 
-       int getPersistentKindRegistration(IRPersistentKind pk) {
-    for (int i=0; i<numPersistentKinds; ++i) {
-      if (persistentKinds.elementAt(i).equals(pk))
-	return ((Number)persistentKindBytes.elementAt(i)).intValue();
-    }
-    throw new FluidRuntimeException("Persistent kind " + pk +
-				    " not registered!");
+  protected static int getPersistentKindRegistration(IRPersistentKind pk) {
+	  for (int i=0; i<numPersistentKinds; ++i) {
+		  if (persistentKinds.elementAt(i).equals(pk))
+			  return ((Number)persistentKindBytes.elementAt(i)).intValue();
+	  }
+	  throw new FluidRuntimeException("Persistent kind " + pk +
+	  " not registered!");
   }
 
 
@@ -610,12 +606,8 @@ public abstract class IRPersistent implements Serializable {
     String name = getFileName();
     if (name == null) return;
     InputStream s = floc.openFileRead(name);
-    Writer trace = traceIO ?
-      new OutputStreamWriter(floc.openFileWrite(name+".tri")) :
-      null;
-    IRPersistentInputStream ps = traceIO ?
-      new IRTracingInputStream(s,this,trace) :
-      new IRPersistentInputStream(s,this);
+    Writer trace = traceIO ? new OutputStreamWriter(floc.openFileWrite(name+".tri")) :   null;
+    IRPersistentInputStream ps = traceIO ?  new IRTracingInputStream(s,this,trace) : new IRPersistentInputStream(s,this);
     try {
       if (trace != null) System.out.println("Tracing this load");
       readWrapper(ps);
@@ -642,6 +634,7 @@ public abstract class IRPersistent implements Serializable {
       throw new IOException("Wrong magic number on input " +
 			    rmagic + " (expected " + magic2 + ")");
     if (in.debug()) System.out.println("Reading entity " + this);
+    //System.out.println("Reading entity " + this);
     read(in);
     isDefined = true;
     if (in.getRevision() >= 4) {
