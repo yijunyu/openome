@@ -436,14 +436,23 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningComEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningComEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

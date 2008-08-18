@@ -240,7 +240,6 @@ public class GoalQualitativeReasoningCom3EditPart extends LabelEditPart
 		return text;
 	}
 
-
 	/**
 	 * @generated
 	 */

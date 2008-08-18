@@ -153,6 +153,7 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID:
+				case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -160,6 +161,7 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case edu.toronto.cs.openome_model.diagram.edit.parts.TaskNameEditPart.VISUAL_ID:
+				case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningComEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -167,6 +169,7 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart.VISUAL_ID:
+				case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningComEditPart.VISUAL_ID:
 					if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID != edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -452,14 +455,20 @@ public class Openome_modelViewProvider extends AbstractViewProvider {
 			return edu.toronto.cs.openome_model.diagram.view.factories.SoftgoalViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.SoftgoalNameViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.SoftgoalQualitativeReasoningComViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.TaskViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskNameEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.TaskNameViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningComEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.TaskQualitativeReasoningComViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.ResourceViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.ResourceNameViewFactory.class;
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningComEditPart.VISUAL_ID:
+			return edu.toronto.cs.openome_model.diagram.view.factories.ResourceQualitativeReasoningComViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
 			return edu.toronto.cs.openome_model.diagram.view.factories.Goal2ViewFactory.class;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart.VISUAL_ID:

@@ -631,6 +631,17 @@
         <features
             href="openome_model.ecore#//Intention/name"/>
       </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true"
+          viewPattern=""
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="openome_model.gmfgraph#GoalEvaluationLabel"/>
+        <features
+            href="openome_model.ecore#//Intention/QualitativeReasoningCombinedLabel"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="openome_model.gmftool#//@palette/@tools.6"/>
@@ -654,6 +665,17 @@
         <features
             href="openome_model.ecore#//Intention/name"/>
       </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true"
+          viewPattern=""
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="openome_model.gmfgraph#GoalEvaluationLabel"/>
+        <features
+            href="openome_model.ecore#//Intention/QualitativeReasoningCombinedLabel"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="openome_model.gmftool#//@palette/@tools.7"/>
@@ -676,6 +698,17 @@
             href="openome_model.gmfgraph#ResourceLabel"/>
         <features
             href="openome_model.ecore#//Intention/name"/>
+      </labelMappings>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true"
+          viewPattern=""
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="openome_model.gmfgraph#GoalEvaluationLabel"/>
+        <features
+            href="openome_model.ecore#//Intention/QualitativeReasoningCombinedLabel"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
