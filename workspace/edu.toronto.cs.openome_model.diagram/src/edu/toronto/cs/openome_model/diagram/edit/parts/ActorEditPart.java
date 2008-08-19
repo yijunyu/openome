@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ActorAnchor;
+import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -105,6 +106,16 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT 
+	 */
+	public EditPolicy getPrimaryDragEditPolicy() {
+		// use the constrained resize shape edit policy
+		// to ensure that aspect ratio is maintained
+		// when the figure is being resized
+		return new ConstrainedResizeShapeEditPolicy(this);
 	}
 
 	/**
@@ -234,19 +245,6 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public EditPolicy getPrimaryDragEditPolicy() {
-		EditPolicy result = super.getPrimaryDragEditPolicy();
-		if (result instanceof ResizableEditPolicy) {
-			ResizableEditPolicy ep = (ResizableEditPolicy) result;
-			ep.setResizeDirections(PositionConstants.SOUTH
-					| PositionConstants.EAST);
-		}
 		return result;
 	}
 
