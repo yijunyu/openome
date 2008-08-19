@@ -49,11 +49,6 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 		// this fix is for ticket #115
 		result.setBorder(null);
 
-		// removes the horizontal and vertical scroll bars in
-		// the actor/agent/position/role containers
-		result.getScrollPane().getVerticalScrollBar().setVisible(false);
-		result.getScrollPane().getHorizontalScrollBar().setVisible(false);
-
 		return result;
 	}
 
