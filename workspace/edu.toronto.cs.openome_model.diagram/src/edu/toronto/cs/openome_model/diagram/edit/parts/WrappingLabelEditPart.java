@@ -51,7 +51,7 @@ public class WrappingLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4033;
+	public static final int VISUAL_ID = 4045;
 
 	/**
 	 * @generated

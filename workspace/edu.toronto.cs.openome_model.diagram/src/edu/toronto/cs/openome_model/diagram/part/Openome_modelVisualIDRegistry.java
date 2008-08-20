@@ -468,14 +468,23 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskName2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -491,14 +500,23 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskName3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -514,14 +532,23 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskName4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -537,14 +564,23 @@ public class Openome_modelVisualIDRegistry {
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
 			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

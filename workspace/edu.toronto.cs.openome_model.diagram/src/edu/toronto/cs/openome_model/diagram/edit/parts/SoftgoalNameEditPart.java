@@ -55,7 +55,7 @@ public class SoftgoalNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4027;
+	public static final int VISUAL_ID = 4039;
 
 	/**
 	 * @generated

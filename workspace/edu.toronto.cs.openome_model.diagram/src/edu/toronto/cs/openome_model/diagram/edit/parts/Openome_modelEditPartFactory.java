@@ -132,6 +132,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName2EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom2EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart(
 						view);
@@ -140,12 +144,20 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName2EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName2EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName2EditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom2EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom2EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID:
@@ -168,6 +180,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName3EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom3EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom3EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart(
 						view);
@@ -176,12 +192,20 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName3EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom3EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom3EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName3EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName3EditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom3EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom3EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart.VISUAL_ID:
@@ -204,6 +228,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName4EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom4EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom4EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart(
 						view);
@@ -212,12 +240,20 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName4EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom4EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom4EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName4EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName4EditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom4EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom4EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID:
@@ -240,6 +276,10 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName5EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom5EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom5EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart(
 						view);
@@ -248,12 +288,20 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName5EditPart(
 						view);
 
+			case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom5EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom5EditPart(
+						view);
+
 			case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart(
+						view);
+
+			case edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom5EditPart.VISUAL_ID:
+				return new edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom5EditPart(
 						view);
 
 			case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:

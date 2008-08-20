@@ -51,7 +51,7 @@ public class IsAAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4044;
+	public static final int VISUAL_ID = 4056;
 
 	/**
 	 * @generated

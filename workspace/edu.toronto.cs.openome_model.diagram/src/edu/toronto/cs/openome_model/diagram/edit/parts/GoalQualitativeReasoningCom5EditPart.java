@@ -57,7 +57,7 @@ public class GoalQualitativeReasoningCom5EditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4020;
+	public static final int VISUAL_ID = 4029;
 
 	/**
 	 * @generated
@@ -232,8 +232,8 @@ public class GoalQualitativeReasoningCom5EditPart extends LabelEditPart
 
 	/**
 	 * @generated NOT 
-	 * Overwritten so that the evaluation label does not
-	 *            display the text literal such as "Satisfied" "Denied".
+	 * Overwrite this so that the evaluation label does not 
+	 * display the text literal such as "Satisfied" "Denied".
 	 */
 	protected String getLabelText() {
 		String text = "";

@@ -57,7 +57,7 @@ public class GoalQualitativeReasoningCom3EditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4008;
+	public static final int VISUAL_ID = 4011;
 
 	/**
 	 * @generated

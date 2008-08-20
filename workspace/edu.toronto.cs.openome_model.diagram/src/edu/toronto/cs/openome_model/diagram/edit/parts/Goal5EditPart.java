@@ -233,7 +233,7 @@ public class Goal5EditPart extends AbstractBorderedShapeEditPart {
 					getMainFigure(), PositionConstants.NORTH_EAST);
 
 			locator.setCurrentSideOfParent(PositionConstants.NORTH_EAST);
-			locator.setBorderItemOffset(new Dimension(3, 20));
+			locator.setBorderItemOffset(new Dimension(10, 40));
 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
 		} else {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);

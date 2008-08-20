@@ -55,7 +55,7 @@ public class ResourceName5EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4022;
+	public static final int VISUAL_ID = 4032;
 
 	/**
 	 * @generated

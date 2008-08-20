@@ -57,7 +57,7 @@ public class SoftgoalQualitativeReasoningComEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4028;
+	public static final int VISUAL_ID = 4040;
 
 	/**
 	 * @generated
@@ -239,6 +239,7 @@ public class SoftgoalQualitativeReasoningComEditPart extends LabelEditPart
 		String text = "";
 		return text;
 	}
+
 	/**
 	 * @generated
 	 */

@@ -57,7 +57,7 @@ public class TaskQualitativeReasoningComEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4030;
+	public static final int VISUAL_ID = 4042;
 
 	/**
 	 * @generated

@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
+import openome_model.figures.OpenOMEBorderItemLocator;
 
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -32,7 +33,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class Softgoal2EditPart extends ShapeNodeEditPart {
+public class Softgoal2EditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -136,6 +137,9 @@ public class Softgoal2EditPart extends ShapeNodeEditPart {
 		LayoutEditPolicy lep = new LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
+				if (child instanceof IBorderItemEditPart) {
+					return new BorderItemSelectionEditPolicy();
+				}
 				EditPolicy result = child
 						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
@@ -219,6 +223,24 @@ public class Softgoal2EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
+		if (borderItemEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom2EditPart) {
+
+			OpenOMEBorderItemLocator locator = new OpenOMEBorderItemLocator(
+					getMainFigure(), PositionConstants.NORTH_EAST);
+
+			locator.setCurrentSideOfParent(PositionConstants.NORTH_EAST);
+			locator.setBorderItemOffset(new Dimension(10, 43));
+			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
+		} else {
+			super.addBorderItem(borderItemContainer, borderItemEditPart);
+		}
+	}
+
+	/**
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
@@ -235,7 +257,7 @@ public class Softgoal2EditPart extends ShapeNodeEditPart {
 	 * 
 	 * @generated
 	 */
-	protected NodeFigure createNodeFigure() {
+	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
