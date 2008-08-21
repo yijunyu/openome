@@ -33,12 +33,12 @@ public Point getLocation(Point reference) {
 	
 	Point ref = r.getCenter().negate().translate(reference);
 	
-	float dx = (ref.x > 0) ? 0.5f : -0.5f;
-	float dy = (ref.y > 0) ? 0.5f : -0.5f;
+	double dx = (ref.preciseX() > 0) ? 0.5d : -0.5d;
+	double dy = (ref.preciseY() > 0) ? 0.5d : -0.5d;
 	  
 	// ref.x, ref.y, r.width, r.height != 0 => safe to proceed
 	  
-	float k = (float)(ref.y * r.width) / (ref.x * r.height);
+	double k = (ref.preciseY() * r.preciseWidth()) / (ref.preciseX() * r.preciseHeight());
 	k = k * k;
 	//////////////////////////////////////////////////////////////////////
 	
@@ -72,7 +72,7 @@ public Point getLocation(Point reference) {
 	
 	// when we draw the ellipse (or rather, perfect circle), this is the amount
 	// to shrink it by
-	double shrinkAmount = 3.6;
+	double shrinkAmount = 3.55;
 
 	// From the top left corner of the figure, we're going to shift right, and down,
 	// by a certain amount, so that we can pinpoint the centre of the actor figure
@@ -80,7 +80,7 @@ public Point getLocation(Point reference) {
 	int shiftRightAmount = ((int)(r.preciseWidth()/6.8));
 	int shiftDownAmount = ((int)(r.preciseHeight()/6.6));
 	
-	shiftDownAmount = shiftDownAmount + heightOfActorName; // to compensate for the name of the actor
+	//shiftDownAmount = shiftDownAmount + heightOfActorName; // to compensate for the name of the actor
 
 	// this is the centre point of the actor figure!
 	Point centreOfActor = r.getTopLeft().translate(shiftRightAmount, shiftDownAmount);
@@ -88,8 +88,8 @@ public Point getLocation(Point reference) {
 	// now that we've located the centre point of the actor,
 	// we will translate outwards from that point, to form a circle.
 	// how much we translate by is defined by the variable 'shrinkAmount'
-	int xTranslateFromActor = (int)(translateX / 3.6);
-	int yTranslateFromActor = (int)(translateY / 3.6);
+	int xTranslateFromActor = (int)(translateX / shrinkAmount);
+	int yTranslateFromActor = (int)(translateY / shrinkAmount);
 		
 	return centreOfActor.translate(xTranslateFromActor, yTranslateFromActor);
 	

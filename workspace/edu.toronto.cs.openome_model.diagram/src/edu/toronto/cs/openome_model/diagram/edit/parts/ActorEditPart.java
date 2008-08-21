@@ -3,6 +3,7 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 import openome_model.figures.ActorAnchor;
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 
+import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
@@ -10,6 +11,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -17,7 +19,6 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -327,7 +328,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 
@@ -346,11 +347,19 @@ public class ActorEditPart extends ShapeNodeEditPart {
 
 			fFigureActorNameFigure = new WrappingLabel();
 			fFigureActorNameFigure.setText("");
-
+			
+			// if the text is too long, text wrap it
+			fFigureActorNameFigure.setTextWrap(true);
+			
+			// make sure that the text is vertically and horizontally
+			// center aligned
+			fFigureActorNameFigure.setTextJustification(PositionConstants.CENTER);
+			fFigureActorNameFigure.setAlignment(PositionConstants.CENTER);
+			
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
-
-			this.add(fFigureActorNameFigure, BorderLayout.TOP);
-
+			actorSVGFigure1.add(fFigureActorNameFigure);
+			
+			
 		}
 
 		/**
