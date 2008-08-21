@@ -64,12 +64,18 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			straightenLine();
 		}
 		
-		// determine the points of the two ends - the source and target
-		Point sourcePoint = this.getPoints().getFirstPoint();
-		Point targetPoint = this.getPoints().getLastPoint();
+		// determine the two points immediately adjacent to the midpoint
+		// so we can use them to figure out the angle between them
+		
+		int numPoints = this.getPolygonPoints().size();
+		int pointAindex = (int)(Math.floor(numPoints/2));
+		int pointBindex = (int)(Math.floor(numPoints/2)) + 1;
+		
+		Point pointA = this.getPolygonPoints().getPoint(pointAindex);
+		Point pointB = this.getPolygonPoints().getPoint(pointBindex);
 		
 		// calculate the angle between the two points
-		int angle = (int)(calcAngle(targetPoint,sourcePoint));
+		int angle = (int)(calcAngle(pointB,pointA));
 		angle = angle - 90;
 		angle = angle * -1;
 		double lineAngle = angle+90;
