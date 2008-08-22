@@ -51,7 +51,7 @@ public class INSAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4061;
+	public static final int VISUAL_ID = 4059;
 
 	/**
 	 * @generated

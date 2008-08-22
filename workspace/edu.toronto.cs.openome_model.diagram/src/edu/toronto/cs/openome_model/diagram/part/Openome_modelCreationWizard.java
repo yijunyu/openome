@@ -139,10 +139,10 @@ public class Openome_modelCreationWizard extends Wizard implements INewWizard {
 		// we can use it as the filename of the model file (.oom)
 		String fileName = diagramModelFilePage.getFileName();
 		fileName = fileName.substring(0, fileName.length() - ".ood".length());
-		
+
 		// rename the .oom file to match the name of the diagram file
 		domainModelFilePage.setFileName(fileName + ".oom");
-		
+
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)

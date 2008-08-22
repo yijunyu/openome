@@ -19,6 +19,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -108,7 +109,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
 		return getConnectionAnchor();
 	}
-	
+
 	/**
 	 * @generated NOT 
 	 */
@@ -347,19 +348,19 @@ public class ActorEditPart extends ShapeNodeEditPart {
 
 			fFigureActorNameFigure = new WrappingLabel();
 			fFigureActorNameFigure.setText("");
-			
+
 			// if the text is too long, text wrap it
 			fFigureActorNameFigure.setTextWrap(true);
-			
+
 			// make sure that the text is vertically and horizontally
 			// center aligned
-			fFigureActorNameFigure.setTextJustification(PositionConstants.CENTER);
+			fFigureActorNameFigure
+					.setTextJustification(PositionConstants.CENTER);
 			fFigureActorNameFigure.setAlignment(PositionConstants.CENTER);
-			
+
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
 			actorSVGFigure1.add(fFigureActorNameFigure);
-			
-			
+
 		}
 
 		/**

@@ -115,7 +115,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 		// when the figure is being resized
 		return new ConstrainedResizeShapeEditPolicy(this);
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */

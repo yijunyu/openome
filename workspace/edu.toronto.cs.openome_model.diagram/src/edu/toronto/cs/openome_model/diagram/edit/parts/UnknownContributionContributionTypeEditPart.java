@@ -51,7 +51,7 @@ public class UnknownContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4053;
+	public static final int VISUAL_ID = 4051;
 
 	/**
 	 * @generated

@@ -1206,6 +1206,9 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="ActorFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ActorFigure extends org.eclipse.draw2d.Ellipse {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.Ellipse fFigureActorBoundaryFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureActorNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ActorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.BorderLayout layoutThis = new org.eclipse.draw2d.BorderLayout();&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureActorBoundaryFigure = new org.eclipse.draw2d.Ellipse();&#xA;fFigureActorBoundaryFigure.setLineWidth(3);&#xA;fFigureActorBoundaryFigure.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASHDOTDOT);&#xA;&#x9;fFigureActorBoundaryFigure.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK&#xA;);&#xA;&#xA;this.add(fFigureActorBoundaryFigure, org.eclipse.draw2d.BorderLayout.CENTER);&#xA;fFigureActorBoundaryFigure.setLayoutManager(new org.eclipse.draw2d.StackLayout());&#xA;&#xA;&#xA;openome_model.figures.ActorSVGFigure actorSVGFigure1 = new openome_model.figures.ActorSVGFigure();&#xA;&#xA;&#xA;&#xA;fFigureActorBoundaryFigure.add(actorSVGFigure1);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureActorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureActorNameFigure.setText(&quot;&quot;);&#xA;&#xA;fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;this.add(fFigureActorNameFigure, org.eclipse.draw2d.BorderLayout.TOP);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.Ellipse getFigureActorBoundaryFigure() {&#xA;&#x9;&#x9;return fFigureActorBoundaryFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureActorNameFigure() {&#xA;&#x9;&#x9;return fFigureActorNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color FFIGUREACTORBOUNDARYFIGURE_BACK = new org.eclipse.swt.graphics.Color(null, 236, 236, 236);&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGUREACTORNAMEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Arial&quot;, 12, org.eclipse.swt.SWT.BOLD);&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"
+            resizeHandles="20"/>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1723,7 +1726,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AndDecompositionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAndLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAndLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureAndLabel.setText(&quot;AND&quot;);&#xA;&#xA;this.add(fFigureAndLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.AndDecoration df = new openome_model.figures.AndDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAndLabel() {&#xA;&#x9;&#x9;return fFigureAndLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AndDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AndDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.AndDecoration df = new openome_model.figures.AndDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1740,24 +1743,6 @@
         <targetMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
-      <labels
-          visualID="4045"
-          editPartClassName="WrappingLabelEditPart"
-          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrappingLabelViewFactory"
-          readOnly="true"
-          alignment="TARGET">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureAndLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:LabelOffsetAttributes"
-              y="40"/>
-        </viewmap>
-      </labels>
     </links>
     <links
         visualID="3003"
@@ -1774,7 +1759,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="OrDecompositionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOrLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOrLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureOrLabel.setText(&quot;OR&quot;);&#xA;&#xA;this.add(fFigureOrLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOrLabel() {&#xA;&#x9;&#x9;return fFigureOrLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OrDecompositionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OrDecompositionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
@@ -1791,24 +1776,6 @@
         <targetMetaFeature
             href="openome_model.genmodel#//openome_model/Decomposition/target"/>
       </modelFacet>
-      <labels
-          visualID="4046"
-          editPartClassName="WrappingLabel2EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="WrappingLabel2ViewFactory"
-          readOnly="true"
-          alignment="TARGET">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureOrLabel"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:LabelOffsetAttributes"
-              y="40"/>
-        </viewmap>
-      </labels>
     </links>
     <links
         visualID="3004"
@@ -1842,7 +1809,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4047"
+          visualID="4045"
           editPartClassName="HelpContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="HelpContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="HelpContributionContributionTypeViewFactory"
@@ -1897,7 +1864,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4048"
+          visualID="4046"
           editPartClassName="HurtContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="HurtContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="HurtContributionContributionTypeViewFactory"
@@ -1950,7 +1917,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4049"
+          visualID="4047"
           editPartClassName="MakeContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="MakeContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="MakeContributionContributionTypeViewFactory"
@@ -2003,7 +1970,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4050"
+          visualID="4048"
           editPartClassName="BreakContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="BreakContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="BreakContributionContributionTypeViewFactory"
@@ -2056,7 +2023,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4051"
+          visualID="4049"
           editPartClassName="SomePlusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomePlusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomePlusContributionContributionTypeViewFactory"
@@ -2109,7 +2076,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4052"
+          visualID="4050"
           editPartClassName="SomeMinusContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="SomeMinusContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="SomeMinusContributionContributionTypeViewFactory"
@@ -2162,7 +2129,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4053"
+          visualID="4051"
           editPartClassName="UnknownContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="UnknownContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="UnknownContributionContributionTypeViewFactory"
@@ -2216,7 +2183,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4054"
+          visualID="4052"
           editPartClassName="AndContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="AndContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="AndContributionContributionTypeViewFactory"
@@ -2271,7 +2238,7 @@
             href="openome_model.genmodel#//openome_model/Contribution/target"/>
       </modelFacet>
       <labels
-          visualID="4055"
+          visualID="4053"
           editPartClassName="OrContributionContributionTypeEditPart"
           itemSemanticEditPolicyClassName="OrContributionContributionTypeItemSemanticEditPolicy"
           notationViewFactoryClassName="OrContributionContributionTypeViewFactory"
@@ -2326,7 +2293,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4056"
+          visualID="4054"
           editPartClassName="IsAAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="IsAAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IsAAssociationLabelViewFactory"
@@ -2380,7 +2347,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4057"
+          visualID="4055"
           editPartClassName="CoversAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="CoversAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="CoversAssociationLabelViewFactory"
@@ -2434,7 +2401,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4058"
+          visualID="4056"
           editPartClassName="OccupiesAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="OccupiesAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="OccupiesAssociationLabelViewFactory"
@@ -2487,7 +2454,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4059"
+          visualID="4057"
           editPartClassName="IsPartOfAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="IsPartOfAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="IsPartOfAssociationLabelViewFactory"
@@ -2541,7 +2508,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4060"
+          visualID="4058"
           editPartClassName="PlaysAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="PlaysAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="PlaysAssociationLabelViewFactory"
@@ -2595,7 +2562,7 @@
             href="openome_model.genmodel#//openome_model/Association/target"/>
       </modelFacet>
       <labels
-          visualID="4061"
+          visualID="4059"
           editPartClassName="INSAssociationLabelEditPart"
           itemSemanticEditPolicyClassName="INSAssociationLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="INSAssociationLabelViewFactory"

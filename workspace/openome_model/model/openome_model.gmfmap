@@ -871,11 +871,6 @@
         href="openome_model.ecore#//AndDecomposition"/>
     <domainSpecialization
         body="oclIsKindOf(AndDecomposition)"/>
-    <labelMappings
-        readOnly="true">
-      <diagramLabel
-          href="openome_model.gmfgraph#DiagramAndLabel"/>
-    </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/decompositions"/>
     <tool
@@ -895,11 +890,6 @@
         href="openome_model.ecore#//OrDecomposition"/>
     <domainSpecialization
         body="oclIsKindOf(OrDecomposition)"/>
-    <labelMappings
-        readOnly="true">
-      <diagramLabel
-          href="openome_model.gmfgraph#DiagramOrLabel"/>
-    </labelMappings>
     <containmentFeature
         href="openome_model.ecore#//Model/decompositions"/>
     <tool

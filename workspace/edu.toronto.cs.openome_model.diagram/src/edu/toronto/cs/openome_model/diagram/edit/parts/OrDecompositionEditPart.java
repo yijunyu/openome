@@ -39,28 +39,6 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 	}
 
 	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) {
-			((edu.toronto.cs.openome_model.diagram.edit.parts.WrappingLabel2EditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureOrLabel());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -88,28 +66,10 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureOrLabel;
-
-		/**
-		 * @generated
-		 */
 		public OrDecompositionFigure() {
 			this.setLineWidth(2);
 
-			createContents();
 			setTargetDecoration(createTargetDecoration());
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			fFigureOrLabel = new WrappingLabel();
-			fFigureOrLabel.setText("OR");
-
-			this.add(fFigureOrLabel);
-
 		}
 
 		/**
@@ -119,13 +79,6 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 			openome_model.figures.OrDecoration df = new openome_model.figures.OrDecoration();
 
 			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureOrLabel() {
-			return fFigureOrLabel;
 		}
 
 	}

@@ -51,7 +51,7 @@ public class OccupiesAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4058;
+	public static final int VISUAL_ID = 4056;
 
 	/**
 	 * @generated
