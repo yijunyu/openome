@@ -329,7 +329,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
 		private void createContents() {
 
@@ -349,17 +349,9 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorNameFigure = new WrappingLabel();
 			fFigureActorNameFigure.setText("");
 
-			// if the text is too long, text wrap it
-			fFigureActorNameFigure.setTextWrap(true);
-
-			// make sure that the text is vertically and horizontally
-			// center aligned
-			fFigureActorNameFigure
-					.setTextJustification(PositionConstants.CENTER);
-			fFigureActorNameFigure.setAlignment(PositionConstants.CENTER);
-
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
-			actorSVGFigure1.add(fFigureActorNameFigure);
+
+			this.add(fFigureActorNameFigure, BorderLayout.TOP);
 
 		}
 
