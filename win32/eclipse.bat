@@ -1,4 +1,4 @@
-set ECLIPSE_SDK=C:\IDE\sdk\3.2.1
+set ECLIPSE_SDK=C:\IDE\sdk\3.4
 del /y configuration
 mkdir configuration
 copy %ECLIPSE_SDK%\eclipse\configuration\config.ini configuration
