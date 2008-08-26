@@ -12,9 +12,9 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class OrContributionViewFactory extends ConnectionViewFactory {
+public class OrContributionViewFactory extends OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

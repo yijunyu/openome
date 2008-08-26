@@ -14,9 +14,9 @@ import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class OrDecompositionViewFactory extends ConnectionViewFactory {
+public class OrDecompositionViewFactory extends OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

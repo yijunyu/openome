@@ -14,9 +14,9 @@ import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class SomePlusContributionViewFactory extends ConnectionViewFactory {
+public class SomePlusContributionViewFactory extends OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

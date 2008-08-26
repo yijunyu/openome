@@ -7,14 +7,32 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.ShapeStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
 public class Goal2ViewFactory extends AbstractShapeViewFactory {
+	
+	@Override
+	protected void initializeFromPreferences(View view) {
+		super.initializeFromPreferences(view);
+		
+		ShapeStyle shapeStyle = (ShapeStyle) view.getStyle(NotationPackage.Literals.SHAPE_STYLE);
+		if (shapeStyle != null) {
+			shapeStyle.setFillColor(FigureUtilities.colorToInteger(ViewFactoryConstants.SHAPE_FILL_COLOUR));
+			//shapeStyle.setLineColor(FigureUtilities.colorToInteger(ViewFactoryConstants.LINE_COLOUR));
+			shapeStyle.setFontColor(FigureUtilities.colorToInteger(ViewFactoryConstants.SHAPE_FONT_COLOUR));
+		} else {
+			System.err.println ("Error when setting the OME-style color");
+		}
+		
+	}
 
 	/**
 	 * @generated
