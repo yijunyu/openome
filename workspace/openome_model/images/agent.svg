@@ -12,12 +12,20 @@
    height="115.88871"
    id="svg10205"
    sodipodi:version="0.32"
-   inkscape:version="0.45+devel"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docname="agent.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
-     id="defs10207" />
+     id="defs10207">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 57.944355 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="115.88871 : 57.944355 : 1"
+       inkscape:persp3d-origin="57.944355 : 38.62957 : 1"
+       id="perspective9" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -34,9 +42,9 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="1280"
-     inkscape:window-height="980"
+     inkscape:window-height="971"
      inkscape:window-x="0"
-     inkscape:window-y="22"
+     inkscape:window-y="25"
      showgrid="false" />
   <metadata
      id="metadata10210">
@@ -69,5 +77,15 @@
        d="M 53.763449,78.523323 L 144.37773,78.462569 L 144.9932,78.462569"
        id="path11184"
        sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:#d7f4d7;fill-opacity:1"
+       d="M 52.794898,111.9338 C 40.16635,110.8937 27.153446,104.51342 18.436465,95.087719 C 7.0227936,82.746092 1.9142227,66.434151 4.2971951,49.940359 C 5.1306654,44.171551 7.097921,38.12711 9.91388,32.683061 L 12.268703,28.130523 L 57.698994,28.130523 L 103.12926,28.130523 L 105.69061,33.318299 C 107.09936,36.171576 108.74473,40.221218 109.347,42.317504 C 113.24101,55.871178 111.91218,70.198546 105.62048,82.496414 C 95.469802,102.33714 74.970974,113.76023 52.794898,111.93379 L 52.794898,111.9338 z"
+       id="path2382"
+       transform="translate(42.055643,51.560686)" />
+    <path
+       style="fill:#d7f4d7;fill-opacity:1"
+       d="M 15.172922,24.222475 C 16.795603,21.943619 22.756164,16.171969 25.887158,13.847807 C 29.705468,11.013448 35.920708,7.7999653 40.725377,6.175971 C 51.233127,2.6243176 63.881036,2.6221493 74.529538,6.170165 C 84.116075,9.3643489 93.638059,16.021299 99.732218,23.78973 L 101.14414,25.589571 L 57.671801,25.589571 L 14.199462,25.589571 L 15.172922,24.222475 z"
+       id="path2384"
+       transform="translate(42.055643,51.560686)" />
   </g>
 </svg>

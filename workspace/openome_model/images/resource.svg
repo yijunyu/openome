@@ -10,7 +10,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg1938"
    sodipodi:version="0.32"
-   inkscape:version="0.45+devel"
+   inkscape:version="0.46"
    width="117.24015"
    height="58.268478"
    version="1.0"
@@ -29,7 +29,15 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs1941" />
+     id="defs1941">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 29.134239 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="117.24015 : 29.134239 : 1"
+       inkscape:persp3d-origin="58.620075 : 19.422826 : 1"
+       id="perspective7" />
+  </defs>
   <sodipodi:namedview
      inkscape:window-height="869"
      inkscape:window-width="1208"
@@ -56,4 +64,8 @@
      height="51.960823"
      x="2.4806349"
      y="2.7663572" />
+  <path
+     style="fill:#d7f4d7;fill-opacity:1"
+     d="M 3.3142767,28.613957 L 3.3142767,3.3348892 L 58.468606,3.3348892 L 113.62294,3.3348892 L 113.62294,28.613957 L 113.62294,53.893024 L 58.468606,53.893024 L 3.3142767,53.893024 L 3.3142767,28.613957 z"
+     id="path2380" />
 </svg>
