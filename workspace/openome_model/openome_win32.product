@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.4"?>
 
-<product name="%productName" id="org.eclipse.sdk.ide" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="false">
+<product name="%productName" id="openome_model.product" application="org.eclipse.ui.ide.workbench" version="1.0.0" useFeatures="false">
 
    <aboutInfo>
       <image path="eclipse_lg.gif"/>
       <text>
-         %productBlurb
+         The Organization Modelling Environment (OME) is a general, 
+goal-oriented and/or agent-oriented modeling and analysis tool. 
+It provides users with a graphical interface to develop models, 
+and supports access to a powerful knowledge base that allows for 
+sophisticated computer-aided analysis. This tool is intended to 
+provide software developers with a clear link between the 
+requirements, specification and architectural design phases of 
+development. Attention is also being placed on this use of this tool 
+in business process reengineering.
+
+OpenOME integrates an improved version of OME with other tools 
+to support goal-oriented, agent-oriented and aspect-oriented 
+requirements engineering.
       </text>
    </aboutInfo>
 
@@ -17,12 +29,23 @@
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="eclipse.gif" i32="eclipse32.gif" i48="eclipse48.gif" i64="eclipse.png" i128="eclipse32.png"/>
+   <windowImages i16="/openome_model/icons/actor.gif" i32="eclipse32.gif" i48="eclipse48.gif" i64="eclipse.png" i128="eclipse32.png"/>
 
    <splash
-      startupProgressRect="0,500,455,15"
+      location="openome_model"
+      startupProgressRect="0,400,455,15"
       startupMessageRect="7,220,441,20"
-      startupForegroundColor="000000" />
+      startupForegroundColor="8080FF" />
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
 
    <plugins>
       <plugin id="com.ibm.icu"/>
