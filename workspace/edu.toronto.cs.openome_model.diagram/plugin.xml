@@ -884,6 +884,12 @@
          description="%update.diagram.description"
          id="edu.toronto.cs.openome_model.diagram.updateDiagram"
          name="%update.diagram.name"/>
+      <command
+            defaultHandler="edu.toronto.cs.openome_model.diagram.layout.handlers.SquareLayoutHandler"
+            description="Apply a square layout to the nodes"
+            id="edu.toronto.cs.openome_model.diagram.squarelayout"
+            name="SquareLayout">
+      </command>
    </extension>
    
    <extension point="org.eclipse.ui.bindings">
@@ -893,5 +899,30 @@
          contextId="edu.toronto.cs.openome_model.diagram.ui.diagramContext"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="F5"/>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+            class="edu.toronto.cs.openome_model.diagram.layout.provider.SquareLayoutProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+      </layoutProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="edu.toronto.cs.openome_model.diagram.layout.menu"
+               label="Layouts">
+            <command
+                  commandId="edu.toronto.cs.openome_model.diagram.squarelayout"
+                  id="edu.toronto.cs.openome_model.diagram.squarelayout.menu"
+                  label="Layout Square"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
    </extension>
 </plugin>
