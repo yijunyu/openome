@@ -100,12 +100,12 @@ public class CreateExamplesHandler extends ExtensionReader implements org.eclips
 
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public boolean isHandled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public void removeHandlerListener(IHandlerListener handlerListener) {
