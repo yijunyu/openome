@@ -53,8 +53,8 @@
      inkscape:zoom="5.6568542"
      inkscape:cx="51.435372"
      inkscape:cy="50.319769"
-     inkscape:window-x="21"
-     inkscape:window-y="34"
+     inkscape:window-x="244"
+     inkscape:window-y="90"
      inkscape:current-layer="svg1938"
      showgrid="false" />
   <rect
@@ -84,7 +84,7 @@
      d="M 96.329051,55.934032 L 112.49482,29.168867"
      style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="M 96.297805,1.6082832 L 112.49482,29.660745"
      id="path4575" />
   <path
@@ -94,9 +94,9 @@
   <path
      id="path4601"
      d="M 16.530217,55.727947 L 96.733559,55.726741"
-     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+     style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.29999995000000013;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.29999995;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 16.160396,53.442193 C 14.168835,50.037551 1.7145398,28.349674 1.6768368,28.220563 C 1.6551357,28.146245 5.1244138,22.305739 9.3863479,15.241675 L 17.135317,2.3979214 L 56.606676,2.3979214 L 96.078029,2.3979214 L 103.81504,15.788756 C 108.0704,23.153715 111.55452,29.267376 111.55754,29.374669 C 111.56056,29.481966 108.10924,35.305252 103.88797,42.315309 L 96.21291,55.06087 L 56.664906,55.069123 L 17.116904,55.077377 L 16.160396,53.442193 z"
      id="path4603" />
   <path
