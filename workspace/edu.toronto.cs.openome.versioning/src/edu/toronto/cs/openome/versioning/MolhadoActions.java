@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
@@ -37,9 +38,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.ui.IFileEditorInput;
 
-import com.sun.org.apache.bcel.internal.generic.BREAKPOINT;
 
 import sc.document.Component;
 import sc.document.Configuration;
@@ -77,6 +76,7 @@ public class MolhadoActions {
 	openome_modelPackage e = openome_modelPackage.eINSTANCE;
 	openome_modelFactory f = e.getopenome_modelFactory();
 	/** indexed on project_name e.g. 'Examples' */
+	HashSet<IRNode> set;
 	public Hashtable<String, Configuration> configurations = new Hashtable<String, Configuration>();
 	
 	/**
@@ -189,7 +189,7 @@ public class MolhadoActions {
 		// Create a goal model
 		//String model_name = modelName;
 		GoalModel gm = new GoalModel();
-		gm.setName(fileName); //TODO used to be set to the entire path -- is this a problem?
+		gm.setName(fileName); 
 		IRNode gm_node = config.newComponent(gm);
 		tree.appendChild(rootnode, gm_node);
 		buildGoalModel(gm, res);
@@ -232,8 +232,6 @@ public class MolhadoActions {
 			if (comp instanceof GoalModel) {
 				GoalModel gm = (GoalModel) comp;
 				String name = gm.getName();
-				//System.out.println(name); //TODO no goal model name ... why?
-				//name = name.substring(0, name.indexOf(".oom"));
 				v1_name = v1_name.substring(v1_name.lastIndexOf("-") + 1);
 				String model_v1 = name + "-" + v1_name + ".oom";
 				URI uri = fetchURI(model_v1);
@@ -355,9 +353,9 @@ public class MolhadoActions {
 			tables.put(gm, table);
 		}
 		table.put(name, root);
-		int numChildren = gm.graph.numChildren(root);
+		int numChildren = GoalModel.graph.numChildren(root);
 		for (int i = 0; i < numChildren; i++) {
-			IRNode childnode = gm.graph.getChild(root, i);
+			IRNode childnode = GoalModel.graph.getChild(root, i);
 			updateIndex(gm, childnode);
 		}
 	}
@@ -412,7 +410,7 @@ public class MolhadoActions {
 			update_version(model_name, 1);
 		}
 	}
-
+	HashMap<String, Integer> exist = new HashMap<String,Integer>();
 	/*
 	 * nodes will be populated
 	 */
@@ -423,20 +421,23 @@ public class MolhadoActions {
 		String prefix = name.substring(0, name.indexOf("_"));
 		name = name.substring(name.indexOf("_") + 1);
 		Intention g;
+		//the above is a hacky way to make the checkout work properly, since it currently is duplicating nodes for some reason
 		if (!name.equals("VIRTUAL_ROOT")) { //TODO given a virtual root first...
+			if(exist.containsKey(name)) return; //we've already processed this node.
 			if (prefix.equals("HardGoal"))
 				g = f.createGoal();
-			else
+			else 
 				g = f.createSoftgoal();
 			g.setName(name);
+			exist.put(name, 1);
 			System.out.println("traversed node: " + name);
 			m.getIntentions().add(g);
 			nodes.put(name, g);
 		}
 		int numChildren = GoalModel.graph.numChildren(root);
 		for (int i = 0; i < numChildren; i++) {
-			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-			IRNode childnode = gm.graph.getChild(root, i);
+			IRNode childedgenode = GoalModel.graph.getChildEdge(root, i);
+			IRNode childnode = GoalModel.graph.getChild(root, i);
 			traverseGMResourcesForNodes(gm, m, childnode, childedgenode);
 		}
 	}
@@ -459,10 +460,10 @@ public class MolhadoActions {
 		if (!name.equals("VIRTUAL_ROOT")) {
 			g = nodes.get(name);
 		}
-		int numChildren = gm.graph.numChildren(root);
+		int numChildren = GoalModel.graph.numChildren(root);
 		for (int i = 0; i < numChildren; i++) {
-			IRNode childedgenode = gm.graph.getChildEdge(root, i);
-			IRNode childnode = gm.graph.getChild(root, i);
+			IRNode childedgenode = GoalModel.graph.getChildEdge(root, i);
+			IRNode childnode = GoalModel.graph.getChild(root, i);
 			String namec = gm.getGMNodeName(childnode);
 			namec = namec.substring(namec.indexOf("_") + 1);
 			Intention gc = nodes.get(namec);
@@ -606,11 +607,11 @@ public class MolhadoActions {
 		//		for (String name: set) {
 		//			System.err.println("name to compare: " + name);			
 		//		}
-		int numChildren = gm.graph.numChildren(root);
+		int numChildren = GoalModel.graph.numChildren(root);
 		for (int i = 0; i < numChildren; i++) {
-			IRNode g = (IRNode) gm.graph.getChild(root, i);
+			IRNode g = (IRNode) GoalModel.graph.getChild(root, i);
 			String name = get_goal_name(gm, g);
-			String type = get_goal_type(gm, g);
+			//String type = get_goal_type(gm, g);
 			//			System.err.println("compare name: " + name);
 			if (!set.contains(name)) {
 				//System.out.println("delete " + (type + ":" + name));
@@ -619,7 +620,7 @@ public class MolhadoActions {
 		}
 		System.err.println("deleted size= " + delete.size());
 		for (IRNode g : delete) {
-			gm.graph.removeNode(g);
+			GoalModel.graph.removeNode(g);
 			table.remove(g);
 		}
 	}
@@ -628,14 +629,14 @@ public class MolhadoActions {
 			Hashtable<Intention, IRNode> table, HashSet<String> set,
 			IRNode root, HashSet<IRNode> renamed, HashSet<String> to_add,
 			Hashtable<String, Boolean> to_add_type) {
-		for (TreeIterator r = resource.getAllContents(); r.hasNext();) {
+		for (TreeIterator<EObject> r = resource.getAllContents(); r.hasNext();) {
 			Object o = r.next();
 			if (o instanceof Intention) {
 				Intention i = (Intention) o;
 				// origin analysis first for renaming operation:
 				// YY: if the table is still inside memory, chances are the element is still live in memory
 				//     thus can be found by it's object id
-				boolean origin_found = false;
+				//boolean origin_found = false;
 				IRNode g = table.get(i);
 				if (g != null) {
 					String name = get_goal_name(gm, g);
@@ -654,10 +655,10 @@ public class MolhadoActions {
 				} else {
 					String name = i.getName();
 					// fixing origin
-					int numChildren = gm.graph.numChildren(root);
+					int numChildren = GoalModel.graph.numChildren(root);
 					Boolean found = false;
 					for (int j = 0; j < numChildren; j++) {
-						IRNode g1 = (IRNode) gm.graph.getChild(root, j);
+						IRNode g1 = (IRNode) GoalModel.graph.getChild(root, j);
 						String name1 = get_goal_name(gm, g1);
 						if (name.equals(name1)) {
 							found = true;
@@ -723,10 +724,10 @@ public class MolhadoActions {
 				IRNode n_t = table.get(t);
 				if (n_s != null && n_t != null) {
 					boolean found = false;
-					int numChildren = gm.graph.numChildren(n_s);
+					int numChildren = GoalModel.graph.numChildren(n_s);
 					for (int j = 0; j < numChildren; j++) {
-						IRNode node = (IRNode) gm.graph.getChild(n_s, j);
-						IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+						IRNode node = (IRNode) GoalModel.graph.getChild(n_s, j);
+						IRNode edge = (IRNode) GoalModel.graph.getChildEdge(n_s, j);
 						String type = gm.getGMNodeName(edge);
 						if (node == n_t	
 								&& (type.equals("+")&& c instanceof HelpContribution 
@@ -763,10 +764,10 @@ public class MolhadoActions {
 			IRNode n_t = table.get(t);
 			if (n_s != null && n_t != null) {
 				boolean found = false;
-				int numChildren = gm.graph.numChildren(n_s);
+				int numChildren = GoalModel.graph.numChildren(n_s);
 				for (int j = 0; j < numChildren; j++) {
-					IRNode node = (IRNode) gm.graph.getChild(n_s, j);
-					IRNode edge = (IRNode) gm.graph.getChildEdge(n_s, j);
+					IRNode node = (IRNode) GoalModel.graph.getChild(n_s, j);
+					IRNode edge = (IRNode) GoalModel.graph.getChildEdge(n_s, j);
 					String type = get_edge_type(gm, edge);
 					if (node == n_t
 							&& (type.equals("AND")
@@ -799,7 +800,7 @@ public class MolhadoActions {
 		count = 0;
 		/*for (IRNode e : alledges) {
 			if (!existing_edges.contains(e)) {
-				gm.graph.disconnect(e);
+				GoalModel.graph.disconnect(e);
 				count++;
 			}
 		}*/
@@ -819,7 +820,7 @@ public class MolhadoActions {
 		if (edge == null) {
 			IRNode new_e = gm.createEdge(type);
 			if (table.get(s) != null && table.get(t) != null) {
-				gm.graph.connect(new_e, table.get(s), table.get(t));
+				GoalModel.graph.connect(new_e, table.get(s), table.get(t));
 				edge = new_e;
 			}
 		}
@@ -853,7 +854,7 @@ public class MolhadoActions {
 		if (edge == null) {
 			IRNode new_e = gm.createEdge(type);
 			if (table.get(s) != null && table.get(t) != null) {
-				gm.graph.connect(new_e, table.get(s), table.get(t));
+				GoalModel.graph.connect(new_e, table.get(s), table.get(t));
 				//				System.out.println("+ edge: " + s.getName() + ", " + t.getName());
 				edge = new_e;
 			}
@@ -869,9 +870,9 @@ public class MolhadoActions {
 		IRNode new_t = table.get(t);
 		if (new_s == null || new_t == null) {
 			IRNode root = gm.getRoot();
-			int n = gm.graph.numChildren(root);
+			int n = GoalModel.graph.numChildren(root);
 			for (int i = 0; i < n; i++) {
-				IRNode g = gm.graph.getChild(root, i);
+				IRNode g = GoalModel.graph.getChild(root, i);
 				String name = get_goal_name(gm, g);
 				if (name.equals(s.getName())) {
 					table.put(s, g);
@@ -884,10 +885,10 @@ public class MolhadoActions {
 			}
 		}
 		if (new_s != null && new_t != null) {
-			int n = gm.graph.numChildren(new_s);
+			int n = GoalModel.graph.numChildren(new_s);
 			for (int i = 0; i < n; i++) {
-				IRNode g = gm.graph.getChild(new_s, i);
-				IRNode e = gm.graph.getChildEdge(new_s, i);
+				IRNode g = GoalModel.graph.getChild(new_s, i);
+				IRNode e = GoalModel.graph.getChildEdge(new_s, i);
 				String lbl = get_edge_type(gm, e);
 				if (g == new_t && type.equals(lbl)) {
 					edge = e;
@@ -1043,24 +1044,24 @@ public class MolhadoActions {
 			    if (it.getSource() == in) {
 					int numChildren = GoalModel.graph.numChildren(s);
 					for (int i = 0; i < numChildren; i++) {
-						IRNode childedgenode = gm.graph.getChildEdge(s, i);
-						IRNode childnode = gm.graph.getChild(s, i);
+						IRNode childedgenode = GoalModel.graph.getChildEdge(s, i);
+						IRNode childnode = GoalModel.graph.getChild(s, i);
 						IRNode thechild = table.get(it.getTarget().getName());
 						if (childnode == thechild) {
-				    		gm.graph.disconnect(childedgenode);
-				    		gm.graph.connect(childedgenode, t, childnode);									
+				    		GoalModel.graph.disconnect(childedgenode);
+				    		GoalModel.graph.connect(childedgenode, t, childnode);									
 							break;
 						}
 					}					    	
 			    } else if (it.getTarget() == in) {
-					int numParent = gm.graph.numParents(s);
+					int numParent = GoalModel.graph.numParents(s);
 					for (int i = 0; i < numParent; i++) {
-						IRNode parentedge = gm.graph.getParentEdge(s, i);
-						IRNode parent = gm.graph.getParent(s, i);
+						IRNode parentedge = GoalModel.graph.getParentEdge(s, i);
+						IRNode parent = GoalModel.graph.getParent(s, i);
 						IRNode theparent = table.get(it.getSource().getName());								
 						if (parent == theparent) {
-				    		gm.graph.disconnect(parentedge);
-				    		gm.graph.connect(parentedge, parent, t);									
+				    		GoalModel.graph.disconnect(parentedge);
+				    		GoalModel.graph.connect(parentedge, parent, t);									
 							break;
 						}
 					}					    						    	
@@ -1080,26 +1081,26 @@ public class MolhadoActions {
 		    	IRNode s = table.get(in.getName());
 		    	IRNode t = table.get(v.getName());
 			    if (it.getSource() == in) {
-					int numChildren = gm.graph.numChildren(s);
+					int numChildren = GoalModel.graph.numChildren(s);
 					for (int i = 0; i < numChildren; i++) {
-						IRNode childedgenode = gm.graph.getChildEdge(s, i);
-						IRNode childnode = gm.graph.getChild(s, i);
+						IRNode childedgenode = GoalModel.graph.getChildEdge(s, i);
+						IRNode childnode = GoalModel.graph.getChild(s, i);
 						IRNode thechild = table.get(it.getTarget().getName());
 						if (childnode == thechild) {
-				    		gm.graph.disconnect(childedgenode);
-				    		gm.graph.connect(childedgenode, t, childnode);									
+				    		GoalModel.graph.disconnect(childedgenode);
+				    		GoalModel.graph.connect(childedgenode, t, childnode);									
 							break;
 						}
 					}					    	
 			    } else if (it.getTarget() == in) {
-					int numParent = gm.graph.numParents(s);
+					int numParent = GoalModel.graph.numParents(s);
 					for (int i = 0; i < numParent; i++) {
-						IRNode parentedge = gm.graph.getParentEdge(s, i);
-						IRNode parent = gm.graph.getParent(s, i);
+						IRNode parentedge = GoalModel.graph.getParentEdge(s, i);
+						IRNode parent = GoalModel.graph.getParent(s, i);
 						IRNode theparent = table.get(it.getSource().getName());								
 						if (parent == theparent) {
-				    		gm.graph.disconnect(parentedge);
-				    		gm.graph.connect(parentedge, parent, t);									
+				    		GoalModel.graph.disconnect(parentedge);
+				    		GoalModel.graph.connect(parentedge, parent, t);									
 							break;
 						}
 					}					    						    	
@@ -1130,7 +1131,7 @@ public class MolhadoActions {
 		}
 		if (s!=null && t!=null) {
 			IRNode edge = gm.createEdge(label);						
-			gm.graph.connect(edge, s, t);
+			GoalModel.graph.connect(edge, s, t);
 		}
 	}
 
@@ -1155,7 +1156,7 @@ public class MolhadoActions {
 		}
 		if (s!=null && t!=null) {
 			IRNode edge = gm.createEdge(label);						
-			gm.graph.connect(edge, s, t);
+			GoalModel.graph.connect(edge, s, t);
 		}
 	}
 
@@ -1376,31 +1377,30 @@ public class MolhadoActions {
 	 * due to recursive calls
 	 * Neil moved outside loop
 	 */	
-	private HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
+	/*private HashSet<IRNode> getAllEdges(GoalModel gm, IRNode root) {
 		HashSet<IRNode> alledges = new HashSet<IRNode>();
 		set = new HashSet<IRNode>();
 		int numChildren;
-		numChildren = gm.graph.numChildren(root);
+		numChildren = GoalModel.graph.numChildren(root);
 		for (int j = 0; j < numChildren; j++) {
-			IRNode g = gm.graph.getChild(root, j);
+			IRNode g = GoalModel.graph.getChild(root, j);
 			alledges.addAll(allEdges(gm, g));
 			set.clear();
 		}
 		return alledges;
 	}
 	
-	HashSet<IRNode> set;
-	
+
 	private HashSet<IRNode> allEdges(GoalModel gm, IRNode root) {
-		int numChildren = gm.graph.numChildren(root);
+		int numChildren = GoalModel.graph.numChildren(root);
 		for (int j = 0; j < numChildren; j++) {
-			IRNode e = gm.graph.getChildEdge(root, j);
+			IRNode e = GoalModel.graph.getChildEdge(root, j);
 			set.add(e);
-			IRNode g = gm.graph.getChild(root, j);
+			IRNode g = GoalModel.graph.getChild(root, j);
 			set.addAll(allEdges(gm, g));
 		}
 		return set;
-	}
+	} */
 
 	/** 
 	 * replaces old method that used recursion
@@ -1412,17 +1412,17 @@ public class MolhadoActions {
 	 * private HashSet<IRNode> getAllEdgesStack(GoalModel gm, IRNode root) {
 		HashSet<IRNode> alledges = new HashSet<IRNode>();
 		Stack<IRNode> st = new Stack<IRNode>(); //the stack
-		int numChildren = gm.graph.numChildren(root);
+		int numChildren = GoalModel.graph.numChildren(root);
 		for(int i = 0; i < numChildren; i++ ){
-			st.push(gm.graph.getChild(root,i)); //add all children to the stack
+			st.push(GoalModel.graph.getChild(root,i)); //add all children to the stack
 		}
 		IRNode g = st.pop(); //get first child
 		//this for loop is the non-base case operation ... collect this nodes child edges
 		for (int j = 0; j < numChildren; j++) {
-			alledges.add(gm.graph.getChildEdge(g, j));
+			alledges.add(GoalModel.graph.getChildEdge(g, j));
 		}
 		while( g != null) {
-			if(gm.graph.hasChildren(g)) {
+			if(GoalModel.graph.hasChildren(g)) {
 				if(g has a next sibling)
 					st.push(g's next sibling);
 			} else {
