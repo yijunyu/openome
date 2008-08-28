@@ -81,7 +81,8 @@ public class GoalModel extends IStar {
 		generateWhen(a);
 		generateWho(a);
 		IStarElement g = (IStarElement) generateWhy(parent, a);
-		generateWhere(g, parent, a);
+		if(Computing.propertyHolds("q7.codegen.do_weave"))  //nernst: for comparison purposes
+			generateWhere(g, parent, a);
 		generateHow(a);
 		generateHowmuch(g, a);
 	}
@@ -792,7 +793,6 @@ public class GoalModel extends IStar {
 		    }
 		}
 	}
-
 	/**
 	 * 
 	 */
