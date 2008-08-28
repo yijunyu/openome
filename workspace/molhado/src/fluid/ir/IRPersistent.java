@@ -609,7 +609,7 @@ public abstract class IRPersistent implements Serializable {
     Writer trace = traceIO ? new OutputStreamWriter(floc.openFileWrite(name+".tri")) :   null;
     IRPersistentInputStream ps = traceIO ?  new IRTracingInputStream(s,this,trace) : new IRPersistentInputStream(s,this);
     try {
-      if (trace != null) System.out.println("Tracing this load");
+      if (trace != null) //System.out.println("Tracing this load");
       readWrapper(ps);
       if (ps.getRevision() < 4) forceComplete();
     } finally {

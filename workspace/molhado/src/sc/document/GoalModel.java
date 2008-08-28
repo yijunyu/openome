@@ -367,8 +367,10 @@ public class GoalModel extends Component {
       // Create an IRNode within the "region"
       PlainIRNode node = new PlainIRNode(region);
       // Set the name
-      if (hardgoal) setHardGoalName(node, name);
-      else setSoftGoalName(node,name);
+      if (hardgoal) 
+    	  setHardGoalName(node, name);
+      else 
+    	  setSoftGoalName(node,name);
       // Init this irnode within the graph
       graph.initNode(node,~BRANCH_FACTOR,~BRANCH_FACTOR);
       elementCounts.put("add-node", elementCounts.get("add-node") + 1);
@@ -482,7 +484,6 @@ public class GoalModel extends Component {
      */
     public static String getCount() {
     	String s =  elementCounts.toString();
-    	//clearCount(); //make sure it is empty -- this ought to be done by the caller
     	return s;
     }
     
