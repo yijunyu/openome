@@ -116,4 +116,21 @@ public class MolhadoActionHandler implements IHandler {
 		s += "Project name: " + project_name + "\n";
 		return s;
 	}
+	
+	/** 
+	 * get the current EMF i* model elements for commit<br>
+	 * set the various properties, file name &c.
+	 * 
+	 */
+	protected void setModelDetails(Resource res) {
+		//input: 'platform:/resource/Examples/q7/aspects/mediashop.oom'
+		//can't use gme.getEditorInput() because the model file is the underlying oom file 
+		String name = res.getURI().toString();
+		name = name.substring(name.indexOf(":") + 10); //remove the 'platform:/resource/' substring
+		model_name = name.substring(name.lastIndexOf("/")+1, name.indexOf(".oom")); //eg. 'mediashop'
+		//model_name = model_name.substring(0, model_name.indexOf(".oom")); //eg. should be 'mediashop'
+		project_name = name.substring(name.indexOf("/")+1, name.length()); //eg. 'Examples'
+		project_name = project_name.substring(0,project_name.indexOf("/"));
+		file_name = name; // eg. '/Examples/q7/aspects/mediashop.oom'
+	}
 }

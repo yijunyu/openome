@@ -26,16 +26,20 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.ui.IFileEditorInput;
+
+import com.sun.org.apache.bcel.internal.generic.BREAKPOINT;
 
 import sc.document.Component;
 import sc.document.Configuration;
@@ -179,23 +183,23 @@ public class MolhadoActions {
 		}
 	}
 	
-	public void checkInGoalModel(String modelName, Configuration config, ResourceSet res) {
+	public void checkInGoalModel(String fileName, String modelName, Configuration config, ResourceSet res) {
 		IRNode rootnode = config.getRoot();
 		fluid.tree.Tree tree = Configuration.getTree();
 		// Create a goal model
-		String model_name = modelName;
+		//String model_name = modelName;
 		GoalModel gm = new GoalModel();
-		gm.setName(model_name); //TODO used to be set to the entire path -- is this a problem?
+		gm.setName(fileName); //TODO used to be set to the entire path -- is this a problem?
 		IRNode gm_node = config.newComponent(gm);
 		tree.appendChild(rootnode, gm_node);
 		buildGoalModel(gm, res);
-		checkin_current_version(config, model_name);
+		checkin_current_version(config, modelName);
 	}
 	
 	@Deprecated
 	public void checkInGoalModel(Configuration config) {
 		System.err.println("Use checkinGoalModel(name, config, ResourceSet) instead");
-		checkInGoalModel(null,config, null); //should generate error
+		//checkInGoalModel(null,config, null); //should generate error
 	}
 	
 	public void incrementVersion(Configuration config, Version v1, String model_name) {
@@ -206,7 +210,7 @@ public class MolhadoActions {
 		update_version(model_name, versionNumber);
 		String v1_name = model_name + "-v" + versionNumber;
 		config.assignVersionName(v1, v1_name);
-		System.err.println("Saving " + v1_name);
+		//System.err.println("Saving " + v1_name);
 	}
 
 	/**
@@ -233,13 +237,13 @@ public class MolhadoActions {
 				v1_name = v1_name.substring(v1_name.lastIndexOf("-") + 1);
 				String model_v1 = name + "-" + v1_name + ".oom";
 				URI uri = fetchURI(model_v1);
-				System.out.println(uri);
-				Resource resource = resourceSet.createResource(uri);
+				Resource resource = resourceSet.createResource(uri); //uri determines where file is stored
 				Model m = f.createModel();
 				try {
 					IRNode root = gm.getRoot();
 					nodes = new Hashtable<String, Intention>();
 					traverseGMResourcesForNodes(gm, m, root, null);
+					System.out.println("traversing");
 					traverseGMResourcesForEdges(gm, m, root, null);
 					resource.getContents().add(m);
 					resource.save(Collections.EMPTY_MAP);
@@ -261,8 +265,20 @@ public class MolhadoActions {
 		tables.put(gm, table);
 		IRNode root = gm.createAGoal("VIRTUAL_ROOT", true);
 		gm.setRoot(root);
+		XMIResourceImpl xmires = null;
+		for(Resource tmp: resourceSet.getResources()) {
+			if (tmp instanceof XMIResourceImpl) {
+				xmires = (XMIResourceImpl) tmp;
+			}
+		}
+		ModelImpl model = null;
+		for(EObject tmp2: xmires.getContents()){ 
+			if (tmp2 instanceof ModelImpl) 
+				model = (ModelImpl) tmp2; 
+		}
 		// the first pass creates nodes
-		for(Resource o: resourceSet.getResources()) {
+		for(EObject o: model.getIntentions()) {
+			
 			if (o instanceof Intention) {
 				Intention i = (Intention) o;
 				String name = i.getName();
@@ -277,7 +293,7 @@ public class MolhadoActions {
 			}
 		}
 		// the second pass creates edges
-		for(Resource o: resourceSet.getResources()) {
+		for(EObject o: model.getContributions()) {
 			if (o instanceof Contribution) {
 				Contribution i = (Contribution) o;
 				if (i.getSource()==null || i.getTarget()==null)
@@ -287,18 +303,20 @@ public class MolhadoActions {
 				String label = "";
 				if (i instanceof HelpContribution)
 					label = "+";
-//				if (i.getIstar_contribution_type() == IStarContributionType.MAKE)
-//					label = "++";
-//				if (i.getIstar_contribution_type() == IStarContributionType.HURT)
-//					label = "-";
-//				if (i.getIstar_contribution_type() == IStarContributionType.BREAK)
-//					label = "--";
+				if (i instanceof MakeContribution)
+					label = "++";
+				if (i instanceof HurtContribution)
+					label = "-";
+				if (i instanceof BreakContribution)
+					label = "--";
 				IRNode e = gm.createEdge(label);
 				IRNode source = table.get(source_name);
 				IRNode target = table.get(target_name);
 				gm.connect(source, target, e);
 				//System.out.println("Label: " + label);
 			}
+		}
+		for(EObject o: model.getDecompositions()) {
 			if (o instanceof Decomposition) {
 				Decomposition i = (Decomposition) o;
 				if (i.getSource()==null || i.getTarget()==null)
@@ -314,7 +332,7 @@ public class MolhadoActions {
 				IRNode source = table.get(source_name);
 				IRNode target = table.get(target_name);
 				gm.connect(source, target, e);
-				System.out.println("Label: " + label);
+				//System.out.println("Label: " + label);
 			}
 		}
 	}
@@ -381,7 +399,7 @@ public class MolhadoActions {
 			int versionNumber = getVersion(project_name, model_name, config);
 			configurations.put(project_name, config);
 			if (versionNumber == 0) {
-				checkInGoalModel(model_name, config, res);
+				checkInGoalModel(file_name, model_name, config, res);
 				update_version(model_name, 1);
 			} else
 				update_version(model_name, versionNumber);
@@ -389,7 +407,7 @@ public class MolhadoActions {
 			SCDirectory project_root = connectToRepository(file_name);
 			Configuration newConfig = new Configuration(project_name, project_root);
 			// create a new goal model and check it in
-			checkInGoalModel(model_name, newConfig, res);
+			checkInGoalModel(file_name,model_name, newConfig, res);
 			configurations.put(project_name, newConfig);
 			update_version(model_name, 1);
 		}
@@ -411,6 +429,7 @@ public class MolhadoActions {
 			else
 				g = f.createSoftgoal();
 			g.setName(name);
+			System.out.println("traversed node: " + name);
 			m.getIntentions().add(g);
 			nodes.put(name, g);
 		}
@@ -952,7 +971,7 @@ public class MolhadoActions {
 			}
 		}
 		//System.out.println("|S| is " + list.size());
-		System.out.println("Report on save: " + elementCounts.toString());
+		//System.out.println("Report on save: " + elementCounts.toString());
 		gme.getEditingDomain().getCommandStack().flush();
 	}
 

@@ -61,7 +61,7 @@ public class DiagramCommitHandler extends MolhadoActionHandler implements IHandl
 		    }
 		    if (resource == null) throw new Exception("No XMI Resource found");
 
-			setModelDetails(resource);  //i.e., file_name, editor instance, etc
+			super.setModelDetails(resource);  //i.e., file_name, editor instance, etc
 			// Algorithm 3
 		    ma.checkLatestVersion(model_name, project_name, file_name, resourceSet); 
 		    
@@ -76,7 +76,7 @@ public class DiagramCommitHandler extends MolhadoActionHandler implements IHandl
 				System.out.println("Stats for save: " + GoalModel.getCount());
 			} else {
 				GoalModel.clearCount();
-				ma.checkInGoalModel(model_name, config, resourceSet);
+				ma.checkInGoalModel(file_name, model_name, config, resourceSet);
 				ma.update_version(model_name, 1);
 				System.out.println("Stats for save: " + GoalModel.getCount());
 			}
@@ -88,21 +88,10 @@ public class DiagramCommitHandler extends MolhadoActionHandler implements IHandl
 		return null;
 	}
 
-	/** 
-	 * get the current EMF i* model elements for commit<br>
-	 * set the various properties, file name &c.
-	 * 
+	/**
+	 * nernst - set false to disable checkins in Diagram component
 	 */
-	private void setModelDetails(Resource res) {
-		//input: 'platform:/resource/Examples/q7/aspects/mediashop.oom'
-		//can't use gme.getEditorInput() because the model file is the underlying oom file 
-		String name = res.getURI().toString();
-		name = name.substring(name.indexOf(":") + 10); //remove the 'platform:/resource/' substring
-		model_name = name.substring(name.lastIndexOf("/")+1, name.indexOf(".oom")); //eg. 'mediashop'
-		//model_name = model_name.substring(0, model_name.indexOf(".oom")); //eg. should be 'mediashop'
-		project_name = name.substring(name.indexOf("/")+1, name.length()); //eg. 'Examples'
-		project_name = project_name.substring(0,project_name.indexOf("/"));
-		file_name = name; // eg. '/Examples/q7/aspects/mediashop.oom'
+	public boolean isEnabled() {
+		return false;
 	}
-	
 }
