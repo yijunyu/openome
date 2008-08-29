@@ -13,6 +13,14 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 {
+	// *********************************
+	// Please note, the 2 methods - calculateMinimumSize and calculatePreferredSize
+	// were taken directly from draw2d's StackLayout. Only the 'layout'
+	// method was modified (from StackLayout).
+	
+	// the two methods were taken rather than inherited as they were final methods
+	// and thus did not allow inheritance
+	
 	/**
 	 * Returns the minimum size required by the input container. This is the size of the 
 	 * largest child of the container, as all other children fit into this size.
@@ -69,23 +77,57 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 	
 	public void layout(IFigure figure) {
 		
-		Rectangle r = figure.getClientArea();
+		Rectangle rec = figure.getClientArea();
 		List children = figure.getChildren();
 		IFigure child;
 		for (int i = 0; i < children.size(); i++) {
 			child = (IFigure)children.get(i);
-			int boundRestrictAmount = (int)(r.preciseWidth()/2.6);
-			child.setBounds(r.getCopy().shrink(boundRestrictAmount, boundRestrictAmount));
 			
-			// bring the wrapping label to where the 
-			// figure is located
-			child.setLocation(r.getLocation());
+			// radius of the actor symbol
+			int r = 100;
 			
-			// move the label slightly down and slightly to the right
-			int xTranslate = (int)(r.preciseWidth()/40);
-			int yTranslate = (int)(r.preciseHeight()/40);
-			child.translate(xTranslate, yTranslate);
+			// the height (and the width, assuming that the actor figure stays a perfect circle)
+			int figureHeight = rec.height;
 			
+			// determine the offset, used for placing the actor name at a certain spot
+			// within the actor figure
+			float offsetConstant = .700f + (((figureHeight - 250.0f)/100.0f) * 0.025f);
+			
+			//default
+			//float offsetConstant = 0.707f;
+			
+			// if the actor symbol is smaller than the default size of 450 pixels,
+			// we will adjust the offset for the placement of the actor name
+			if (figureHeight < 450) {
+				offsetConstant = 0.677f;
+			}
+			
+			// determine the exact location of where the symbol should be placed
+			int xoffset = (int) (rec.width * (1 - offsetConstant) / 2);
+			int yoffset = (int) (rec.height * (1 - offsetConstant) / 2);
+					
+			// the actor bubble is too small, we will be forced to shrink the actor symbol
+			if (xoffset <= 50 || yoffset <= 50) {
+				r = (int) (Math.min(r, rec.height * (1 - offsetConstant)));
+			}
+			
+			// finally, determine the exact position of where the actor symbol should be placed
+			int x = rec.x + xoffset - r / 2;
+			int y = rec.y + yoffset - r / 2;
+			
+			///////////////////////////////
+			// make the text wrap
+			if (!(System.getProperty("os.name").equals("Mac OS X") && System.getProperty("os.version").startsWith("10.5"))) { 
+				((WrappingLabel) child).setTextWrap(true);
+			}
+			
+			// vertically and horizontally centre align the text
+			((WrappingLabel)child).setTextJustification(PositionConstants.CENTER);
+			((WrappingLabel)child).setAlignment(PositionConstants.CENTER);
+			/////////////////////////////////////
+			
+			child.setBounds(new Rectangle(x, y, r-15, r-15));
+
 		}
 	}	
 }

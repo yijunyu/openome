@@ -19,7 +19,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated NOT
  */
-public class IsPartOfAssociationViewFactory extends OpenomeConnectionViewFactory {
+public class IsPartOfAssociationViewFactory extends
+		OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

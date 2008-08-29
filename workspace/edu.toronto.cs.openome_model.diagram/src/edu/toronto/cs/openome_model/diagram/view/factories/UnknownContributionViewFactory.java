@@ -16,7 +16,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated NOT
  */
-public class UnknownContributionViewFactory extends OpenomeConnectionViewFactory {
+public class UnknownContributionViewFactory extends
+		OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

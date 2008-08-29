@@ -9,6 +9,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -329,19 +330,16 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigurePositionNameFigure = new WrappingLabel();
-			fFigurePositionNameFigure.setText("<...>");
-
-			fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);
-
-			this.add(fFigurePositionNameFigure, BorderLayout.TOP);
-
 			fFigurePositionBoundaryFigure = new Ellipse();
 			fFigurePositionBoundaryFigure.setLineWidth(3);
 			fFigurePositionBoundaryFigure
 					.setLineStyle(Graphics.LINE_DASHDOTDOT);
 			fFigurePositionBoundaryFigure
 					.setBackgroundColor(FFIGUREPOSITIONBOUNDARYFIGURE_BACK);
+			fFigurePositionBoundaryFigure.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
+			fFigurePositionBoundaryFigure.setMinimumSize(new Dimension(
+					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
 
 			this.add(fFigurePositionBoundaryFigure, BorderLayout.CENTER);
 			fFigurePositionBoundaryFigure.setLayoutManager(new StackLayout());
@@ -349,6 +347,13 @@ public class PositionEditPart extends ShapeNodeEditPart {
 			openome_model.figures.PositionSVGFigure positionSVGFigure1 = new openome_model.figures.PositionSVGFigure();
 
 			fFigurePositionBoundaryFigure.add(positionSVGFigure1);
+
+			fFigurePositionNameFigure = new WrappingLabel();
+			fFigurePositionNameFigure.setText("");
+
+			fFigurePositionNameFigure.setFont(FFIGUREPOSITIONNAMEFIGURE_FONT);
+
+			positionSVGFigure1.add(fFigurePositionNameFigure);
 
 		}
 

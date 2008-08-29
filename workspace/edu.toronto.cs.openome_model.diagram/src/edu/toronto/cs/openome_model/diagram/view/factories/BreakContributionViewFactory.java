@@ -20,7 +20,6 @@ import org.eclipse.gmf.runtime.notation.View;
  * @generated NOT
  */
 public class BreakContributionViewFactory extends OpenomeConnectionViewFactory {
-	
 
 	/**
 	 * @generated

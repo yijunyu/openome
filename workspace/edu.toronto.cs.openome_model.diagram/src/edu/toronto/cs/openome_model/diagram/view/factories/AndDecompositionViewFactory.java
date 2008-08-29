@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.notation.View;
  * @generated NOT
  */
 public class AndDecompositionViewFactory extends OpenomeConnectionViewFactory {
-	
+
 	/**
 	 * @generated
 	 */

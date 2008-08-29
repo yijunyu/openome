@@ -16,7 +16,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated NOT
  */
-public class SomeMinusContributionViewFactory extends OpenomeConnectionViewFactory {
+public class SomeMinusContributionViewFactory extends
+		OpenomeConnectionViewFactory {
 
 	/**
 	 * @generated

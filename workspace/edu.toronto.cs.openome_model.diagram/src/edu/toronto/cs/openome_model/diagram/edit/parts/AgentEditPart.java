@@ -9,6 +9,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -329,18 +330,15 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureAgentNameFigure = new WrappingLabel();
-			fFigureAgentNameFigure.setText("<...>");
-
-			fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);
-
-			this.add(fFigureAgentNameFigure, BorderLayout.TOP);
-
 			fFigureAgentBoundaryFigure = new Ellipse();
 			fFigureAgentBoundaryFigure.setLineWidth(3);
 			fFigureAgentBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
 			fFigureAgentBoundaryFigure
 					.setBackgroundColor(FFIGUREAGENTBOUNDARYFIGURE_BACK);
+			fFigureAgentBoundaryFigure.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
+			fFigureAgentBoundaryFigure.setMinimumSize(new Dimension(
+					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
 
 			this.add(fFigureAgentBoundaryFigure, BorderLayout.CENTER);
 			fFigureAgentBoundaryFigure.setLayoutManager(new StackLayout());
@@ -348,6 +346,13 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			openome_model.figures.AgentSVGFigure agentSVGFigure1 = new openome_model.figures.AgentSVGFigure();
 
 			fFigureAgentBoundaryFigure.add(agentSVGFigure1);
+
+			fFigureAgentNameFigure = new WrappingLabel();
+			fFigureAgentNameFigure.setText("");
+
+			fFigureAgentNameFigure.setFont(FFIGUREAGENTNAMEFIGURE_FONT);
+
+			agentSVGFigure1.add(fFigureAgentNameFigure);
 
 		}
 

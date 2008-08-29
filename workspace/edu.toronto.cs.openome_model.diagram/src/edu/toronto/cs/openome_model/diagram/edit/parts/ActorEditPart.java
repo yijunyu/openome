@@ -11,6 +11,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
@@ -338,6 +339,10 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
 			fFigureActorBoundaryFigure
 					.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK);
+			fFigureActorBoundaryFigure.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
+			fFigureActorBoundaryFigure.setMinimumSize(new Dimension(
+					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
@@ -351,7 +356,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
 
-			this.add(fFigureActorNameFigure, BorderLayout.TOP);
+			actorSVGFigure1.add(fFigureActorNameFigure);
 
 		}
 

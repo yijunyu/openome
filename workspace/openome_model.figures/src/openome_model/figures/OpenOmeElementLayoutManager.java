@@ -13,6 +13,15 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 public class OpenOmeElementLayoutManager extends AbstractHintLayout
 {
+	
+	// *********************************
+	// Please note, the 2 methods - calculateMinimumSize and calculatePreferredSize
+	// were taken directly from draw2d's StackLayout. Only the 'layout'
+	// method was modified (from StackLayout).
+	
+	// the two methods were taken rather than inherited as they were final methods
+	// and thus did not allow inheritance
+	
 	/**
 	 * Returns the minimum size required by the input container. This is the size of the 
 	 * largest child of the container, as all other children fit into this size.

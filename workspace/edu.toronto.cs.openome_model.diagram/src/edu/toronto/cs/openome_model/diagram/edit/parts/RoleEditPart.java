@@ -9,6 +9,7 @@ import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -329,18 +330,15 @@ public class RoleEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureRoleNameFigure = new WrappingLabel();
-			fFigureRoleNameFigure.setText("<...>");
-
-			fFigureRoleNameFigure.setFont(FFIGUREROLENAMEFIGURE_FONT);
-
-			this.add(fFigureRoleNameFigure, BorderLayout.TOP);
-
 			fFigureRoleBoundaryFigure = new Ellipse();
 			fFigureRoleBoundaryFigure.setLineWidth(3);
 			fFigureRoleBoundaryFigure.setLineStyle(Graphics.LINE_DASHDOTDOT);
 			fFigureRoleBoundaryFigure
 					.setBackgroundColor(FFIGUREROLEBOUNDARYFIGURE_BACK);
+			fFigureRoleBoundaryFigure.setPreferredSize(new Dimension(
+					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
+			fFigureRoleBoundaryFigure.setMinimumSize(new Dimension(getMapMode()
+					.DPtoLP(150), getMapMode().DPtoLP(150)));
 
 			this.add(fFigureRoleBoundaryFigure, BorderLayout.CENTER);
 			fFigureRoleBoundaryFigure.setLayoutManager(new StackLayout());
@@ -348,6 +346,13 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			openome_model.figures.RoleSVGFigure roleSVGFigure1 = new openome_model.figures.RoleSVGFigure();
 
 			fFigureRoleBoundaryFigure.add(roleSVGFigure1);
+
+			fFigureRoleNameFigure = new WrappingLabel();
+			fFigureRoleNameFigure.setText("");
+
+			fFigureRoleNameFigure.setFont(FFIGUREROLENAMEFIGURE_FONT);
+
+			roleSVGFigure1.add(fFigureRoleNameFigure);
 
 		}
 

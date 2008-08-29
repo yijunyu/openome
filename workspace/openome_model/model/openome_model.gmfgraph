@@ -30,30 +30,33 @@
               red="236"
               green="236"
               blue="236"/>
+          <minimumSize
+              dx="150"
+              dy="150"/>
+          <preferredSize
+              dx="450"
+              dy="450"/>
           <children
               xsi:type="gmfgraph:CustomDecoration"
               name="ActorSVGFigure"
-              qualifiedClassName="openome_model.figures.ActorSVGFigure"/>
-        </children>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ActorNameFigure"
-            text="">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
-              vertical="true"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Arial"
-              height="12"
-              style="BOLD"/>
+              qualifiedClassName="openome_model.figures.ActorSVGFigure">
+            <children
+                xsi:type="gmfgraph:Label"
+                name="ActorNameFigure"
+                text="">
+              <font
+                  xsi:type="gmfgraph:BasicFont"
+                  faceName="Arial"
+                  height="12"
+                  style="BOLD"/>
+            </children>
+          </children>
         </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0/@children.0/@children.0"/>
     </descriptors>
     <descriptors
         name="AgentFigure">
@@ -65,20 +68,6 @@
           lineWidth="0">
         <layout
             xsi:type="gmfgraph:BorderLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="AgentNameFigure"
-            text="&lt;...>">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
-              vertical="true"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Arial"
-              height="12"
-              style="BOLD"/>
-        </children>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="AgentBoundaryFigure"
@@ -94,16 +83,33 @@
               red="236"
               green="236"
               blue="236"/>
+          <minimumSize
+              dx="150"
+              dy="150"/>
+          <preferredSize
+              dx="450"
+              dy="450"/>
           <children
-              xsi:type="gmfgraph:CustomFigure"
+              xsi:type="gmfgraph:CustomDecoration"
               name="AgentSVGFigure"
-              qualifiedClassName="openome_model.figures.AgentSVGFigure"/>
+              qualifiedClassName="openome_model.figures.AgentSVGFigure">
+            <children
+                xsi:type="gmfgraph:Label"
+                name="AgentNameFigure"
+                text="">
+              <font
+                  xsi:type="gmfgraph:BasicFont"
+                  faceName="Arial"
+                  height="12"
+                  style="BOLD"/>
+            </children>
+          </children>
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0/@children.0/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PositionFigure">
@@ -115,20 +121,6 @@
           lineWidth="0">
         <layout
             xsi:type="gmfgraph:BorderLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="PositionNameFigure"
-            text="&lt;...>">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
-              vertical="true"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Arial"
-              height="12"
-              style="BOLD"/>
-        </children>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="PositionBoundaryFigure"
@@ -144,16 +136,33 @@
               red="236"
               green="236"
               blue="236"/>
+          <minimumSize
+              dx="150"
+              dy="150"/>
+          <preferredSize
+              dx="450"
+              dy="450"/>
           <children
-              xsi:type="gmfgraph:CustomFigure"
+              xsi:type="gmfgraph:CustomDecoration"
               name="PositionSVGFigure"
-              qualifiedClassName="openome_model.figures.PositionSVGFigure"/>
+              qualifiedClassName="openome_model.figures.PositionSVGFigure">
+            <children
+                xsi:type="gmfgraph:Label"
+                name="PositionNameFigure"
+                text="">
+              <font
+                  xsi:type="gmfgraph:BasicFont"
+                  faceName="Arial"
+                  height="12"
+                  style="BOLD"/>
+            </children>
+          </children>
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0/@children.0/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="RoleFigure">
@@ -165,20 +174,6 @@
           lineWidth="0">
         <layout
             xsi:type="gmfgraph:BorderLayout"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="RoleNameFigure"
-            text="&lt;...>">
-          <layoutData
-              xsi:type="gmfgraph:BorderLayoutData"
-              alignment="BEGINNING"
-              vertical="true"/>
-          <font
-              xsi:type="gmfgraph:BasicFont"
-              faceName="Arial"
-              height="12"
-              style="BOLD"/>
-        </children>
         <children
             xsi:type="gmfgraph:Ellipse"
             name="RoleBoundaryFigure"
@@ -194,16 +189,33 @@
               red="236"
               green="236"
               blue="236"/>
+          <minimumSize
+              dx="150"
+              dy="150"/>
+          <preferredSize
+              dx="450"
+              dy="450"/>
           <children
-              xsi:type="gmfgraph:CustomFigure"
+              xsi:type="gmfgraph:CustomDecoration"
               name="RoleSVGFigure"
-              qualifiedClassName="openome_model.figures.RoleSVGFigure"/>
+              qualifiedClassName="openome_model.figures.RoleSVGFigure">
+            <children
+                xsi:type="gmfgraph:Label"
+                name="RoleNameFigure"
+                text="">
+              <font
+                  xsi:type="gmfgraph:BasicFont"
+                  faceName="Arial"
+                  height="12"
+                  style="BOLD"/>
+            </children>
+          </children>
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0/@children.0/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <figures

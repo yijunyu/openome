@@ -80,7 +80,7 @@ public Point getLocation(Point reference) {
 	int shiftRightAmount = ((int)(r.preciseWidth()/6.8));
 	int shiftDownAmount = ((int)(r.preciseHeight()/6.6));
 	
-	shiftDownAmount = shiftDownAmount + heightOfActorName; // to compensate for the name of the actor
+	//shiftDownAmount = shiftDownAmount + heightOfActorName; // to compensate for the name of the actor
 
 	// this is the centre point of the actor figure!
 	Point centreOfActor = r.getTopLeft().translate(shiftRightAmount, shiftDownAmount);
