@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?pde version="3.1"?>
+<?pde version="3.4"?>
 
 <product name="OpenOME" id="openome_model.product" application="org.eclipse.ui.ide.workbench" useFeatures="false">
 
@@ -32,7 +32,8 @@ requirements engineering.
       </text>
    </aboutInfo>
 
-   <configIni use="default"/>
+   <configIni use="default">
+   </configIni>
 
    <launcherArgs>
    </launcherArgs>
@@ -55,6 +56,7 @@ requirements engineering.
       <plugin id="edu.toronto.cs.openome_model.editor"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.servlet.jsp"/>
+      <plugin id="javax.xml"/>
       <plugin id="log4j"/>
       <plugin id="molhado"/>
       <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
@@ -67,6 +69,7 @@ requirements engineering.
       <plugin id="org.apache.batik.dom.svg"/>
       <plugin id="org.apache.batik.ext.awt"/>
       <plugin id="org.apache.batik.parser"/>
+      <plugin id="org.apache.batik.pdf"/>
       <plugin id="org.apache.batik.svggen"/>
       <plugin id="org.apache.batik.transcoder"/>
       <plugin id="org.apache.batik.util"/>
@@ -79,10 +82,12 @@ requirements engineering.
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.xerces"/>
       <plugin id="org.apache.xml.resolver"/>
+      <plugin id="org.apache.xml.serializer"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filebuffers"/>
       <plugin id="org.eclipse.core.filesystem"/>
@@ -94,9 +99,11 @@ requirements engineering.
       <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.net"/>
+      <plugin id="org.eclipse.core.net.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
-      <plugin id="org.eclipse.core.resources.win32" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.win32"/>
+      <plugin id="org.eclipse.core.resources.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
       <plugin id="org.eclipse.core.runtime.compatibility"/>
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
@@ -126,6 +133,8 @@ requirements engineering.
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.gef"/>
       <plugin id="org.eclipse.gmf.codegen"/>
       <plugin id="org.eclipse.gmf.common"/>
@@ -133,12 +142,16 @@ requirements engineering.
       <plugin id="org.eclipse.gmf.runtime.common.ui"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.action"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.action.ide"/>
+      <plugin id="org.eclipse.gmf.runtime.common.ui.printing"/>
+      <plugin id="org.eclipse.gmf.runtime.common.ui.printing.win32" fragment="true"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services.action"/>
       <plugin id="org.eclipse.gmf.runtime.common.ui.services.properties"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.core"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.actions"/>
+      <plugin id="org.eclipse.gmf.runtime.diagram.ui.printing"/>
+      <plugin id="org.eclipse.gmf.runtime.diagram.ui.printing.render"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.properties"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.providers"/>
       <plugin id="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
@@ -215,6 +228,7 @@ requirements engineering.
       <plugin id="org.junit"/>
       <plugin id="org.junit4"/>
       <plugin id="org.sat4j"/>
+      <plugin id="org.sat4j.core"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>

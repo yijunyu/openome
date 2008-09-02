@@ -76,7 +76,7 @@
             name="OpenOME">
          <property
                name="windowImages"
-               value="icons/actor.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png">
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png">
          </property>
          <property
                name="aboutText"
@@ -92,7 +92,7 @@
          </property>
          <property
                name="startupProgressRect"
-               value="0,400,455,15">
+               value="0,280,455,15">
          </property>
          <property
                name="startupMessageRect"
