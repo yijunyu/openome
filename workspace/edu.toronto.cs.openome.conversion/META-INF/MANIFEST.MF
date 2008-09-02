@@ -14,3 +14,4 @@ Export-Package: edu.toronto.cs.openome.conversion.action,
  edu.toronto.cs.openome.conversion.convertor,
  edu.toronto.cs.openome.conversion.parser,
  edu.toronto.cs.openome.conversion.service
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

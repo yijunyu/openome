@@ -11,7 +11,7 @@ Require-Bundle: util,
 Eclipse-LazyStart: true
 Export-Package: action,
  codegen,
- parser,
+ convertor,
  model,
- convertor
+ parser
 
