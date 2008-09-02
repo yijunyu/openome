@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension point="core.example">
+        <example file="wbimodel/componenx.q7"/>
+        <example file="wbimodel/lapouchnian05deas.pdf"/>
+        <example file="csc408h/model.q7"/>
+	<example file="Bell-project/123.tel"/>
+	<example file="Bell-project/buyer_SR.tel"/>
+	<example file="Bell-project/expedia.tel"/>
+	<example file="Bell-project/General_IP.tel"/>
+	<example file="Bell-project/is.tel"/>
+	<example file="Bell-project/orbitz.tel"/>
+	<example file="Bell-project/Price-line-role-agent.tel"/>
+	<example file="Bell-project/role-agent.tel"/>
+	<example file="Bell-project/travel%7E1.tel"/>
+	<example file="Bell-project/models/1-priceline1.tel"/>
+	<example file="Bell-project/models/10-competitor-bus-cus-sup.tel"/>
+	<example file="Bell-project/models/11-Hot-bus-cus-sup.tel"/>
+	<example file="Bell-project/models/12-Expe-bus-cus-sup.tel"/>
+	<example file="Bell-project/models/13-technologyMap.tel"/>
+	<example file="Bell-project/models/14-priceline3.tel"/>
+	<example file="Bell-project/models/16-priceIP.tel"/>
+	<example file="Bell-project/models/17-expedia.tel"/>
+	<example file="Bell-project/models/18-acquisition.tel"/>
+	<example file="Bell-project/models/2-priceline2.tel"/>
+	<example file="Bell-project/models/3-selDrSD.tel"/>
+	<example file="Bell-project/models/4-selDrSR.tel"/>
+	<example file="Bell-project/models/5-buyDrSD.tel"/>
+	<example file="Bell-project/models/6-buyDrSR.tel"/>
+	<example file="Bell-project/models/7-role-agent.tel"/>
+	<example file="Bell-project/models/8-PricelineBus.tel"/>
+	<example file="Bell-project/models/9-bus-cus-sup.tel"/>
+	<example file="Bell-project/models/orbitz-for-evaluation.tel"/>
+	<example file="Bell-project/models/orbitz.tel"/>
+	<example file="Bell-project/models/orbitzITA.tel"/>
+	<example file="Bell-project/models/patentRelation.tel"/>
+	<example file="Bell-project/models/patentStruc.tel"/>
+	<example file="Bell-project/models/Bell-project/7-priceline.tel"/>
+	<example file="Bell-project/models/Bell-project/7-priceline0618.tel"/>
+	<example file="Bell-project/models/Bell-project/8-priceline-revenue.tel"/>
+	<example file="Bell-project/models/Bell-project/buyer-seller-mid-re-sd.tel"/>
+	<example file="Bell-project/models/Bell-project/buyer-seller-mid-re.tel"/>
+	<example file="Bell-project/models/Bell-project/buyer-seller-mid.tel"/>
+	<example file="Bell-project/models/Bell-project/buyer-seller-SD.tel"/>
+	<example file="Bell-project/models/Bell-project/buyer-seller.tel"/>
+	<example file="Bell-project/models/Bell-project/F1.TEL"/>
+	<example file="Bell-project/models/Bell-project/F2.TEL"/>
+	<example file="Bell-project/models/Bell-project/F3.tel"/>
+	<example file="Bell-project/models/Bell-project/F4.TEL"/>
+	<example file="Bell-project/models/Bell-project/F5.TEL"/>
+	<example file="Bell-project/models/Bell-project/Fig6.tel"/>
+	<example file="Bell-project/models/Bell-project/General_IP.tel"/>
+	<example file="Bell-project/models/Bell-project/Price-line-role-agent.tel"/>
+	<example file="Bell-project/models/Bell-project/Priceline-Bus-Sr.tel"/>
+	<example file="Bell-project/models/Bell-project/priceline-travel.tel"/>
+	<example file="Bell-project/models/Bell-project/Prive-line-Bus.tel"/>
+	<example file="Bell-project/models/Bell-project/SD.TEL"/>
+	<example file="Bell-project/models/Bell-project/seller-buyer-mid-re-sd.tel"/>
+	<example file="Bell-project/models/Bell-project/seller-buyer-mid-re.tel"/>
+	<example file="Bell-project/models/Bell-project/seller-buyer-mid.tel"/>
+	<example file="Bell-project/models/Bell-project/seller-buyer-sd.tel"/>
+	<example file="Bell-project/models/Bell-project/seller-buyer.tel"/>
+	<example file="Bell-project/models/Bell-project/Seller-SR.tel"/>
+	<example file="Bell-project/models/Bell-project/Seller_SR.tel"/>
+	<example file="Bell-project/models/Bell-project/WAP.TEL"/>
+	<example file="DR.Solomon/Dilemma.tel"/>
+	<example file="DR.Solomon/ModelName.tel"/>
+	<example file="DR.Solomon/evaluation_examples/opposeexample.tel"/>
+	<example file="DR.Solomon/evaluation_examples/opposemodel1.tel"/>
+	<example file="DR.Solomon/evaluation_examples/opposemodel2.tel"/>
+	<example file="grl_samples/GrL-softgoal.tel"/>
+	<example file="grl_samples/GRL.dtd"/>
+	<example file="grl_samples/Z-11.tel"/>
+	<example file="grl_samples/Z-11.xml"/>
+	<example file="grl_samples/Z151-Fig7.xml"/>
+	<example file="healthcare/Fig1-1.tel"/>
+	<example file="healthcare/Fig2-1.tel"/>
+	<example file="healthcare/Fig2-5.tel"/>
+	<example file="healthcare/Fig2-6.tel"/>
+	<example file="healthcare/Fig2-7.tel"/>
+	<example file="healthcare/Fig2-8.tel"/>
+	<example file="healthcare/fig3-1-1.tel"/>
+	<example file="healthcare/fig3-1-2.tel"/>
+	<example file="healthcare/fig3-1.tel"/>
+	<example file="healthcare/Fig3-3.tel"/>
+	<example file="healthcare/fig3-5.tel"/>
+	<example file="istar_samples/Meetingscheduler-SR.tel"/>
+	<example file="istar_samples/smartcard-sd.tel"/>
+	<example file="meeting_scheduler/Fig4-3.tel"/>
+	<example file="meeting_scheduler/Fig4-4.tel"/>
+	<example file="meeting_scheduler/LabeledFig4-3.tel"/>
+	<example file="minqi/B1-new.sml"/>
+	<example file="minqi/B1-new.tel"/>
+	<example file="minqi/B1Marketing.tel"/>
+	<example file="minqi/B1Planning.tel"/>
+	<example file="minqi/B1Planning2.tel"/>
+	<example file="minqi/B1Price.tel"/>
+	<example file="minqi/B1Product.tel"/>
+	<example file="minqi/B1Service.tel"/>
+	<example file="nfr_examples/nfrbook-p191.tel"/>
+	<example file="poster/fig1.tel"/>
+	<example file="poster/fig11.tel"/>
+	<example file="poster/fig2.tel"/>
+	<example file="Smart-Card/configuration1.tel"/>
+	<example file="Smart-Card/j1-trustworthiness.tel"/>
+	<example file="Smart-Card/legend-3p.tel"/>
+	<example file="Smart-Card/legend1.tel"/>
+	<example file="Smart-Card/smartcard-1.tel"/>
+	<example file="Smart-Card/smartcard-2-1.tel"/>
+	<example file="Smart-Card/smartcard-2.tel"/>
+	<example file="Smart-Card/smartcard-3.tel"/>
+	<example file="Smart-Card/smartcard-3GRL.tel"/>
+	<example file="Smart-Card/smartcard-3J.tel"/>
+	<example file="Smart-Card/smartcard-3p.tel"/>
+	<example file="Smart-Card/smartcard-4.tel"/>
+	<example file="Smart-Card/smartcard-5.tel"/>
+	<example file="Smart-Card/smartcard-5j.tel"/>
+	<example file="Smart-Card/smartcard-5j1.tel"/>
+	<example file="Smart-Card/smartcard-5p.tel"/>
+	<example file="Smart-Card/smartcard-6.tel"/>
+	<example file="Smart-Card/smartcard-6j.tel"/>
+	<example file="Smart-Card/smartcard-6j1.tel"/>
+	<example file="Smart-Card/smartcard-6j2.tel"/>
+	<example file="Smart-Card/smartcard-6p.tel"/>
+	<example file="Smart-Card/smartcard-7.tel"/>
+	<example file="Smart-Card/smartcard-7p.tel"/>
+	<example file="Smart-Card/smartcard-8.tel"/>
+	<example file="Smart-Card/smartcard-9-1.tel"/>
+	<example file="Smart-Card/smartcard-9.tel"/>
+	<example file="Trust_security/assurance.tel"/>
+	<example file="Trust_security/cash.tel"/>
+	<example file="Trust_security/cash1.tel"/>
+	<example file="Trust_security/conflict-of-interest.tel"/>
+	<example file="Trust_security/e-commerce.tel"/>
+	<example file="Trust_security/Enforce.tel"/>
+	<example file="Trust_security/fig3-1.tel"/>
+	<example file="Trust_security/fig3-2.tel"/>
+	<example file="Trust_security/fig3-3.tel"/>
+	<example file="Trust_security/Fig3-4.tel"/>
+	<example file="Trust_security/Fig4-0.tel"/>
+	<example file="Trust_security/Fig4-1.tel"/>
+	<example file="Trust_security/Fig4-2.tel"/>
+	<example file="Trust_security/FIPA.tel"/>
+	<example file="Trust_security/Hiding.tel"/>
+	<example file="Trust_security/Maj.tel"/>
+	<example file="Trust_security/ModelName.tel"/>
+	<example file="Trust_security/security-tax.tel"/>
+	<example file="Trust_security/step2.tel"/>
+	<example file="Trust_security/Step3.tel"/>
+	<example file="Trust_security/taxonomy-1999.tel"/>
+	<example file="Trust_security/trustworthiness_SIG.tel"/>
+	<example file="Trust_security/TTP.tel"/>
+	<example file="tutorial/aa.tel"/>
+	<example file="tutorial/actorrelated.tel"/>
+	<example file="tutorial/GRLexa.tel"/>
+	<example file="tutorial/GRLexa0.tel"/>
+	<example file="tutorial/nn.tel"/>
+	<example file="tutorial/Security01.tel"/>
+	<example file="tutorial/securityGT.tel"/>
+	<example file="University/TAEvent.tel"/>
+	<example file="workshop/asd01.tel"/>
+	<example file="workshop/asd02.tel"/>
+	<example file="workshop/asd0201.tel"/>
+	<example file="workshop/asd0202.tel"/>
+	<example file="workshop/asd03.tel"/>
+	<example file="workshop/asd101.tel"/>
+	<example file="workshop/asd102.tel"/>
+	<example file="workshop/figure 4.tel"/>
+	<example file="workshop/figure3.tel"/>
+	<example file="workshop/figure5.tel"/>
+	<example file="workshop/gg01.tel"/>
+	<example file="workshop/gg02.tel"/>
+	<example file="workshop/gg03.tel"/>
+	<example file="workshop/gg04.tel"/>
+	<example file="workshop/STRAWv2.ppt"/>
+   </extension>    
+   <extension point="core.convertor">
+      <convertor id="TelosToWBIModel"
+            class="edu.toronto.cs.ome.convertor.Telos_WBIModel"
+            input="tel" output="xml"/>
+      <convertor id="TelosToQ7"
+            class="edu.toronto.cs.ome.convertor.Telos_Q7"
+            input="tel" output="q7"/>
+      <convertor id="TelosToDot"
+            class="edu.toronto.cs.ome.convertor.Telos_Dot"
+            input="tel" output="dot"/>
+      <convertor id="TelosToDAT"
+            class="edu.toronto.cs.ome.convertor.Telos_DAT"
+            input="tel" output="dat"/>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.tel"
+            id="contribution3">
+         <menu
+               label="Convert the Telos representation into"
+               path="additions"
+               id="menu3">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="edu.toronto.cs.ome.action.Q7"
+               id="edu.toronto.cs.ome.controller.TelosToQ7Action"
+		   icon="icons/q7.gif"
+               label="Q7"
+               menubarPath="menu3/group1"
+               tooltip="a Q7 representation">
+         </action>
+         <action
+               class="edu.toronto.cs.ome.action.DAT"
+               id="edu.toronto.cs.ome.controller.TelosToDATAction"
+		   icon="icons/q7.gif"
+               label="Input for Bottom-Up Label Propagation Reasoning"
+               menubarPath="menu3/group1"
+               tooltip="input for bottom up reasoning algorithm">
+         </action>
+         <action
+               class="edu.toronto.cs.ome.action.Dot"
+		   icon="icons/wbimodel.gif"
+               id="edu.toronto.cs.ome.controller.TelosToDotAction"
+               label="Graphviz's Input"
+               menubarPath="menu3/group1"
+               tooltip="a graphviz input file">
+         </action>
+         <action
+               class="edu.toronto.cs.ome.action.WBIModel"
+		   icon="icons/wbimodel.gif"
+               id="edu.toronto.cs.ome.controller.TelosToWBIModelAction"
+               label="WBI Model"
+               menubarPath="menu3/group1"
+               tooltip="a WBI model">
+         </action>
+      </objectContribution>
+   </extension>
+   <!-- TODO the window does not load up the graph on linux?
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="edu.toronto.cs.ome.eclipse.Editor"
+            contributorClass="edu.toronto.cs.ome.eclipse.EditActionContributor"
+            default="true"
+            extensions="q7,tel,url"
+            icon="icons/goal.gif"
+            id="edu.toronto.cs.ome.eclipse.editor"
+            name="OpenOME Editor">
+      </editor>
+   </extension>
+   -->
+   <extension
+         id="openome"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="Organization Modeling Environment">
+         <property
+               name="aboutText"
+               value="%productBlurb"/>
+         <property
+               name="aboutImage"
+               value="eclipse_lg.gif"/>
+         <property
+               name="startupForegroundColor"
+               value="C8D5EA"/>
+         <property
+               name="startupMessageRect"
+               value="7,220,441,20"/>
+         <property
+               name="startupProgressRect"
+               value="0,280,455,15"/>
+         <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png,eclipse32.png"/>
+      </product>
+   </extension> 
+</plugin>

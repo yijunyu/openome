@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://openome.sourceforge.net">
+      Update site for OpenOME feature.
+   </description>
+   <feature url="features/openome_model.feature_1.0.0.200808191259.jar" id="openome_model.feature" version="1.0.0.200808191259">
+      <category name="OpenOME GMF"/>
+   </feature>
+   <category-def name="OpenOME GMF" label="OpenOME GMF">
+      <description>
+         First release of the GMF version of OpenOME
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xtext:XtextFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtext="http://www.openarchitectureware.org/xtext" name="Advice">
+  <rules xsi:type="xtext:TypeRule" name="Advice">
+    <content>
+      <alternatives xsi:type="xtext:Group" cardinality="OPTIONAL">
+        <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+          <next xsi:type="xtext:Assignment" feature="why" operator="ASSIGN">
+            <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+              <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+                <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+                  <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+                    <firstElement xsi:type="xtext:Alternatives">
+                      <alternatives xsi:type="xtext:Group" cardinality="OPTIONAL">
+                        <next xsi:type="xtext:Group">
+                          <firstElement xsi:type="xtext:Alternatives">
+                            <alternatives xsi:type="xtext:Keyword" value="=>">
+                              <next xsi:type="xtext:Assignment" feature="howmuch" operator="ASSIGN">
+                                <token xsi:type="xtext:RuleName" name="HowMuchRules"/>
+                              </next>
+                            </alternatives>
+                            <alternatives xsi:type="xtext:Keyword" value="==>">
+                              <next xsi:type="xtext:Keyword" value="&lt;">
+                                <next xsi:type="xtext:Assignment" feature="whom" operator="ASSIGN">
+                                  <next xsi:type="xtext:Keyword" value=">"/>
+                                  <token xsi:type="xtext:RuleName" name="Who"/>
+                                </next>
+                              </next>
+                            </alternatives>
+                          </firstElement>
+                        </next>
+                        <firstElement xsi:type="xtext:Alternatives">
+                          <alternatives xsi:type="xtext:Assignment" feature="label" operator="ASSIGN">
+                            <token xsi:type="xtext:RuleName" name="Label"/>
+                          </alternatives>
+                        </firstElement>
+                      </alternatives>
+                    </firstElement>
+                  </next>
+                  <firstElement xsi:type="xtext:Alternatives">
+                    <alternatives xsi:type="xtext:Keyword" value="{">
+                      <next xsi:type="xtext:Assignment" feature="how" operator="ASSIGN">
+                        <next xsi:type="xtext:Keyword" value="}"/>
+                        <token xsi:type="xtext:RuleName" name="How"/>
+                      </next>
+                    </alternatives>
+                  </firstElement>
+                </next>
+                <firstElement xsi:type="xtext:Alternatives">
+                  <alternatives xsi:type="xtext:Keyword" value="&lt;=">
+                    <next xsi:type="xtext:Assignment" feature="where" operator="ASSIGN">
+                      <token xsi:type="xtext:RuleName" name="Where"/>
+                    </next>
+                  </alternatives>
+                </firstElement>
+              </next>
+              <firstElement xsi:type="xtext:Alternatives">
+                <alternatives xsi:type="xtext:Keyword" value="[">
+                  <next xsi:type="xtext:Assignment" feature="what" operator="ASSIGN">
+                    <next xsi:type="xtext:Keyword" value="]"/>
+                    <token xsi:type="xtext:RuleName" name="What"/>
+                  </next>
+                </alternatives>
+              </firstElement>
+            </next>
+            <token xsi:type="xtext:RuleName" name="Why"/>
+          </next>
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Assignment" feature="when" operator="ASSIGN">
+              <next xsi:type="xtext:Keyword" value="()=>"/>
+              <token xsi:type="xtext:RuleName" name="When"/>
+            </alternatives>
+          </firstElement>
+        </next>
+        <firstElement xsi:type="xtext:Alternatives">
+          <alternatives xsi:type="xtext:Assignment" feature="who" operator="ASSIGN">
+            <next xsi:type="xtext:RuleName" name="Who">
+              <next xsi:type="xtext:Keyword" value=">">
+                <next xsi:type="xtext:Keyword" value="::"/>
+              </next>
+            </next>
+            <token xsi:type="xtext:Keyword" value="&lt;"/>
+          </alternatives>
+        </firstElement>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Who">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="actor" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="Actor"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Actor">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="When">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="expr" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="true"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Assignment" feature="expr" operator="ASSIGN">
+        <token xsi:type="xtext:Keyword" value="false"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Why">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="What">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="topics" operator="ADD">
+        <next xsi:type="xtext:Group" cardinality="ANY">
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Keyword" value=",">
+              <next xsi:type="xtext:Assignment" feature="topics" operator="ADD">
+                <token xsi:type="xtext:RuleName" name="Topic"/>
+              </next>
+            </alternatives>
+          </firstElement>
+        </next>
+        <token xsi:type="xtext:RuleName" name="Topic"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Topic">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="ID"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="STRING"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Where">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="op" operator="ASSIGN">
+        <next xsi:type="xtext:Assignment" feature="name" operator="ASSIGN">
+          <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+            <firstElement xsi:type="xtext:Alternatives">
+              <alternatives xsi:type="xtext:Keyword" value="[">
+                <next xsi:type="xtext:Assignment" feature="topics" operator="ASSIGN">
+                  <next xsi:type="xtext:Keyword" value="]"/>
+                  <token xsi:type="xtext:RuleName" name="What"/>
+                </next>
+              </alternatives>
+            </firstElement>
+          </next>
+          <token xsi:type="xtext:RuleName" name="Why"/>
+        </next>
+        <token xsi:type="xtext:RuleName" name="Op"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="How">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="op" operator="ASSIGN">
+        <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+          <next xsi:type="xtext:Group" cardinality="ONEORMORE">
+            <firstElement xsi:type="xtext:Alternatives">
+              <alternatives xsi:type="xtext:Assignment" feature="advices" operator="ADD">
+                <token xsi:type="xtext:RuleName" name="Advice"/>
+              </alternatives>
+            </firstElement>
+          </next>
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Assignment" feature="enrich" operator="ASSIGN">
+              <token xsi:type="xtext:RuleName" name="Enrichment"/>
+            </alternatives>
+          </firstElement>
+        </next>
+        <token xsi:type="xtext:RuleName" name="DecompositionType"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="Op">
+    <literals keyword="+" name="HELP"/>
+    <literals keyword="HELP" name="HELP2"/>
+    <literals keyword="-" name="HURT"/>
+    <literals keyword="HURT" name="HURT2"/>
+    <literals keyword="++" name="MAKE"/>
+    <literals keyword="MAKE" name="MAKE2"/>
+    <literals keyword="--" name="BREAK"/>
+    <literals keyword="BREAK" name="BREAK2"/>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="DecompositionType">
+    <literals keyword="AND" name="AND"/>
+    <literals keyword="&amp;" name="AND1"/>
+    <literals keyword="OR" name="OR"/>
+    <literals keyword="|" name="OR1"/>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="Enrichment">
+    <literals keyword="SEQ" name="SEQUENTIAL"/>
+    <literals keyword=";" name="SEQUENTIAL1"/>
+    <literals keyword="PAR" name="PARALLEL"/>
+    <literals keyword="||" name="PARALLEL1"/>
+    <literals keyword="XOR" name="XOR"/>
+    <literals keyword="/" name="XOR1"/>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="HowMuchRules">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="howmuch" operator="ADD">
+        <next xsi:type="xtext:Group" cardinality="ANY">
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Keyword" value=",">
+              <next xsi:type="xtext:Assignment" feature="howmuch" operator="ADD">
+                <token xsi:type="xtext:RuleName" name="HowMuch"/>
+              </next>
+            </alternatives>
+          </firstElement>
+        </next>
+        <token xsi:type="xtext:RuleName" name="HowMuch"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="HowMuch">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="op" operator="ASSIGN">
+        <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+          <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+            <next xsi:type="xtext:Assignment" feature="why" operator="ASSIGN">
+              <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+                <firstElement xsi:type="xtext:Alternatives">
+                  <alternatives xsi:type="xtext:Keyword" value="[">
+                    <next xsi:type="xtext:Assignment" feature="what" operator="ASSIGN">
+                      <next xsi:type="xtext:Keyword" value="]"/>
+                      <token xsi:type="xtext:RuleName" name="What"/>
+                    </next>
+                  </alternatives>
+                </firstElement>
+              </next>
+              <token xsi:type="xtext:RuleName" name="Why"/>
+            </next>
+            <firstElement xsi:type="xtext:Alternatives">
+              <alternatives xsi:type="xtext:Keyword" value="&lt;">
+                <next xsi:type="xtext:Assignment" feature="who" operator="ASSIGN">
+                  <next xsi:type="xtext:Keyword" value=">">
+                    <next xsi:type="xtext:Keyword" value="::"/>
+                  </next>
+                  <token xsi:type="xtext:RuleName" name="Who"/>
+                </next>
+              </alternatives>
+            </firstElement>
+          </next>
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Assignment" feature="strength" operator="ASSIGN">
+              <token xsi:type="xtext:RuleName" name="FLOAT"/>
+            </alternatives>
+          </firstElement>
+        </next>
+        <token xsi:type="xtext:RuleName" name="Op"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Keyword" value="~">
+        <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+          <next xsi:type="xtext:Keyword" value="&lt;">
+            <next xsi:type="xtext:Assignment" feature="who" operator="ASSIGN">
+              <next xsi:type="xtext:Keyword" value=">">
+                <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+                  <firstElement xsi:type="xtext:Alternatives">
+                    <alternatives xsi:type="xtext:Keyword" value="::">
+                      <next xsi:type="xtext:Assignment" feature="why" operator="ASSIGN">
+                        <next xsi:type="xtext:Group">
+                          <firstElement xsi:type="xtext:Alternatives">
+                            <alternatives xsi:type="xtext:Keyword" value="[">
+                              <next xsi:type="xtext:Assignment" feature="what" operator="ASSIGN">
+                                <next xsi:type="xtext:Keyword" value="]"/>
+                                <token xsi:type="xtext:RuleName" name="What"/>
+                              </next>
+                            </alternatives>
+                          </firstElement>
+                        </next>
+                        <token xsi:type="xtext:RuleName" name="Why"/>
+                      </next>
+                    </alternatives>
+                  </firstElement>
+                </next>
+              </next>
+              <token xsi:type="xtext:RuleName" name="Who"/>
+            </next>
+          </next>
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Assignment" feature="trust" operator="ASSIGN">
+              <token xsi:type="xtext:RuleName" name="FLOAT"/>
+            </alternatives>
+          </firstElement>
+        </next>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="Label">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="label" operator="ASSIGN">
+        <token xsi:type="xtext:RuleName" name="LabelEnumerator"/>
+      </alternatives>
+      <alternatives xsi:type="xtext:Group">
+        <firstElement xsi:type="xtext:Alternatives">
+          <alternatives xsi:type="xtext:Assignment" feature="sat" operator="ASSIGN">
+            <next xsi:type="xtext:Keyword" value=",">
+              <next xsi:type="xtext:Assignment" feature="den" operator="ASSIGN">
+                <token xsi:type="xtext:RuleName" name="FLOAT"/>
+              </next>
+            </next>
+            <token xsi:type="xtext:RuleName" name="FLOAT"/>
+          </alternatives>
+        </firstElement>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:EnumRule" name="LabelEnumerator">
+    <literals keyword="FS" name="FULLY_SATISFIED"/>
+    <literals keyword="PS" name="PARTIALLY_SATISFIED"/>
+    <literals keyword="FD" name="FULLY_DENIED"/>
+    <literals keyword="PD" name="PARTIALLY_DENIED"/>
+    <literals keyword="CF" name="CONFLICT"/>
+    <literals keyword="UN" name="UNKNOWN"/>
+  </rules>
+  <rules xsi:type="xtext:TypeRule" name="FLOAT">
+    <content>
+      <alternatives xsi:type="xtext:Assignment" feature="integral" operator="ASSIGN">
+        <next xsi:type="xtext:Group" cardinality="OPTIONAL">
+          <firstElement xsi:type="xtext:Alternatives">
+            <alternatives xsi:type="xtext:Keyword" value=".">
+              <next xsi:type="xtext:Assignment" feature="decimal" operator="ASSIGN">
+                <token xsi:type="xtext:RuleName" name="INT"/>
+              </next>
+            </alternatives>
+          </firstElement>
+        </next>
+        <token xsi:type="xtext:RuleName" name="INT"/>
+      </alternatives>
+    </content>
+  </rules>
+  <rules xsi:type="xtext:NativeLexerRule" name="ID"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="STRING"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="INT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="WS"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="ML_COMMENT"/>
+  <rules xsi:type="xtext:NativeLexerRule" name="SL_COMMENT"/>
+</xtext:XtextFile>
