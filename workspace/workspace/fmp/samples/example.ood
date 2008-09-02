@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="__0Ju0BrLEd2uT9OwoZPt1Q" type="openome_model" measurementUnit="Pixel">
-  <styles xmi:type="notation:DiagramStyle" xmi:id="__0Ju0RrLEd2uT9OwoZPt1Q"/>
-  <element xmi:type="edu.toronto.cs.openome_model:Model" href="example.oom#/"/>
-</notation:Diagram>

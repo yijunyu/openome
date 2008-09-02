@@ -1,5 +1,0 @@
-String label(emf::EObject this) :
-	metaType.getProperty("name")!=null ? metaType.getProperty("name").get(this) : null;
-	
-String image(emf::EObject this) :
-	"default.gif";
