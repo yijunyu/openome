@@ -54,6 +54,10 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 		list.add(createHandle(PositionConstants.NORTH_EAST));
 		list.add(createHandle(PositionConstants.SOUTH_WEST));
 		list.add(createHandle(PositionConstants.SOUTH_EAST));
+		list.add(createHandle(PositionConstants.NORTH));
+		list.add(createHandle(PositionConstants.EAST));
+		list.add(createHandle(PositionConstants.SOUTH));
+		list.add(createHandle(PositionConstants.WEST));
 
 		return list;
 	}
