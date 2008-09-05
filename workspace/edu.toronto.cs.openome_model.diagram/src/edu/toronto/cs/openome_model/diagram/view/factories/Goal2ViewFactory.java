@@ -19,24 +19,6 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class Goal2ViewFactory extends AbstractShapeViewFactory {
 
-	@Override
-	protected void initializeFromPreferences(View view) {
-		super.initializeFromPreferences(view);
-
-		ShapeStyle shapeStyle = (ShapeStyle) view
-				.getStyle(NotationPackage.Literals.SHAPE_STYLE);
-		if (shapeStyle != null) {
-			shapeStyle.setFillColor(FigureUtilities
-					.colorToInteger(ViewFactoryConstants.SHAPE_FILL_COLOUR));
-			//shapeStyle.setLineColor(FigureUtilities.colorToInteger(ViewFactoryConstants.LINE_COLOUR));
-			shapeStyle.setFontColor(FigureUtilities
-					.colorToInteger(ViewFactoryConstants.SHAPE_FONT_COLOUR));
-		} else {
-			System.err.println("Error when setting the OME-style color");
-		}
-
-	}
-
 	/**
 	 * @generated
 	 */
