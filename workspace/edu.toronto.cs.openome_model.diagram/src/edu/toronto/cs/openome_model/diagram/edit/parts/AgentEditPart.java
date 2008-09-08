@@ -338,7 +338,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			fFigureAgentBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigureAgentBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
+					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
 
 			this.add(fFigureAgentBoundaryFigure, BorderLayout.CENTER);
 			fFigureAgentBoundaryFigure.setLayoutManager(new StackLayout());

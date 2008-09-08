@@ -338,7 +338,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			fFigureRoleBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigureRoleBoundaryFigure.setMinimumSize(new Dimension(getMapMode()
-					.DPtoLP(150), getMapMode().DPtoLP(150)));
+					.DPtoLP(100), getMapMode().DPtoLP(100)));
 
 			this.add(fFigureRoleBoundaryFigure, BorderLayout.CENTER);
 			fFigureRoleBoundaryFigure.setLayoutManager(new StackLayout());

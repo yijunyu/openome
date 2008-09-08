@@ -3,16 +3,13 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 import openome_model.figures.ActorAnchor;
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 
-import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -20,7 +17,6 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -29,6 +25,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -48,7 +45,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated NOT
 	 */
-	private ConnectionAnchor anchor;
+	private ConnectionAnchor actorAnchor;
 
 	/**
 	 * @generated
@@ -70,11 +67,24 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated NOT
 	 */
+	public boolean isActorBodyCompartmentCollapsed() {
+		IGraphicalEditPart actorCompartment = getChildBySemanticHint(Integer
+				.toString(ActorActorCompartmentEditPart.VISUAL_ID));
+		return actorCompartment != null
+				&& ((Boolean) actorCompartment
+						.getStructuralFeatureValue(NotationPackage.eINSTANCE
+								.getDrawerStyle_Collapsed())).booleanValue();
+
+	}
+
+	/**
+	 * @generated NOT
+	 */
 	protected ConnectionAnchor getConnectionAnchor() {
-		if (anchor == null) {
-			anchor = new ActorAnchor(getFigure());
+		if (actorAnchor == null) {
+			actorAnchor = new ActorAnchor(getFigure());
 		}
-		return anchor;
+		return actorAnchor;
 	}
 
 	/**
@@ -342,7 +352,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigureActorBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
+					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
@@ -357,7 +367,6 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
 
 			actorSVGFigure1.add(fFigureActorNameFigure);
-
 		}
 
 		/**

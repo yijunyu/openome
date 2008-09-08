@@ -339,7 +339,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 			fFigurePositionBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigurePositionBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(150), getMapMode().DPtoLP(150)));
+					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
 
 			this.add(fFigurePositionBoundaryFigure, BorderLayout.CENTER);
 			fFigurePositionBoundaryFigure.setLayoutManager(new StackLayout());

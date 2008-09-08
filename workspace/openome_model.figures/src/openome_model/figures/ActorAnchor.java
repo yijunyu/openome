@@ -1,6 +1,7 @@
 package openome_model.figures;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -18,6 +19,8 @@ public ActorAnchor() { }
 public ActorAnchor(IFigure owner) {
 	super(owner);
 }
+
+private EllipseAnchor ellipseAnchor;
 
 /**
  * Returns a point on the ellipse (defined by the owner's bounding box) where the
@@ -41,6 +44,16 @@ public Point getLocation(Point reference) {
 	double k = (ref.preciseY() * r.preciseWidth()) / (ref.preciseX() * r.preciseHeight());
 	k = k * k;
 	//////////////////////////////////////////////////////////////////////
+	
+	// this is for when the actor figure is collapsed, we want the anchor points
+	// to be just the elliptical anchor points
+	if ((r.width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD) 
+	 && (r.height <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)) {
+		if (ellipseAnchor == null) {
+			ellipseAnchor = new EllipseAnchor(this.getOwner());
+		}
+		return ellipseAnchor.getLocation(reference);
+	}
 	
 	/*
 	 * The way the Actor anchor works is:

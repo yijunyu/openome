@@ -13,7 +13,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableShapeEditPolicy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 
-
 /**
  * A subclass of {@link ResizableShapeEditPolicy} that allows only constrained
  * resizing (with regard to the aspect ratio). This class was originally written
@@ -40,8 +39,8 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected List createSelectionHandles() {
+		
 		List list = super.createSelectionHandles();
-
 		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
 			Object o = (Object) iterator.next();
 
@@ -50,16 +49,29 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 			}
 		}
 
-		list.add(createHandle(PositionConstants.NORTH_WEST));
-		list.add(createHandle(PositionConstants.NORTH_EAST));
-		list.add(createHandle(PositionConstants.SOUTH_WEST));
-		list.add(createHandle(PositionConstants.SOUTH_EAST));
-		list.add(createHandle(PositionConstants.NORTH));
-		list.add(createHandle(PositionConstants.EAST));
-		list.add(createHandle(PositionConstants.SOUTH));
-		list.add(createHandle(PositionConstants.WEST));
-
-		return list;
+		// if the figure is collapsed
+		if ((editPart.getFigure().getSize().height) <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD 
+		 && (editPart.getFigure().getSize().width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)) {
+			// return the empty list with no resizable points
+			return list;
+		} else {
+			// the figure isn't  collapsed, but we want the aspect ratio to be preserved
+			// when the user is resizing
+			
+			list.add(createHandle(PositionConstants.NORTH_WEST));
+			list.add(createHandle(PositionConstants.NORTH_EAST));
+			list.add(createHandle(PositionConstants.SOUTH_WEST));
+			list.add(createHandle(PositionConstants.SOUTH_EAST));
+	
+			// if we want to adjust the shape of the figure, we will allow
+			// them to resize north, east, south, or west
+			list.add(createHandle(PositionConstants.NORTH));
+			list.add(createHandle(PositionConstants.EAST));
+			list.add(createHandle(PositionConstants.SOUTH));
+			list.add(createHandle(PositionConstants.WEST));
+	
+			return list;
+		}
 	}
 
 	private ResizeHandle createHandle(final int direction) {
