@@ -56,11 +56,11 @@ public class IStar {
         }    	
     }
 	public ArrayList<Advice> advices;
-	protected Hashtable<Advice, IStarElement> elements = new Hashtable<Advice, IStarElement>();
-	protected Hashtable<String, IStarLink> links = new Hashtable<String, IStarLink>();
-	protected ArrayList<String> serialized_tokens = new ArrayList<String>();
-	protected Hashtable<String, Advice> goals = new Hashtable<String, Advice>();
-	protected PrintStream out = System.out;
+	public Hashtable<Advice, IStarElement> elements = new Hashtable<Advice, IStarElement>();
+	public Hashtable<String, IStarLink> links = new Hashtable<String, IStarLink>();
+	public ArrayList<String> serialized_tokens = new ArrayList<String>();
+	public Hashtable<String, Advice> intentions = new Hashtable<String, Advice>();
+	public PrintStream out = System.out;
 	/**
 	 * @param a -- advices
 	 */
@@ -1102,34 +1102,32 @@ public class IStar {
 			}
 			String op = e.op;
 			boolean isAspect = (e.e.who==null);
+//			System.out.println(isAspect);
 			IStarElement agent = create_agent_for_new_who(a, e);
-			IStarElement g1 = add_goal(e.e.who==null?a.e.who:e.e.who, 
-					e.e.why == null? a.e.why: e.e.why, 
-							e.e.why==null? a.e.what : e.e.what);
+			IStarElement g1 = add_goal(e.e.who,	e.e.why, e.e.what);
+//			System.out.println(g1.name + " created");
 			if (!op.equals("~")) {
-				if (g1!=null)
+				if (g1!=null) {
   				    g1.setSoftGoal();
+  				    if (!Computing.propertyHolds("q7.codegen.istar.create_aspects")) {
+  				    	g1.parent = g.parent;
+  				    	g.parent.children.add(g1);
+  				    }
+				}
 			}
 			if (agent!=null) {
+//				System.out.println(agent.name + " created");
 				agent.isAspect = isAspect;
 				g1.parent = agent;
 				agent.children.add(g1);
 			}
-			if (g.parent!=g1.parent 
-					&& (g.parent!=null && g.parent.isAspect 
-					|| g1.parent!=null && g1.parent.isAspect)) {
-			} else if (g.parent!=null && g.parent!=g1.parent) {
-			  if (Computing.propertyHolds("q7.codegen.creating_dependencies")) {
+			if (g.parent!=null && g.parent!=g1.parent) {
+			  if (op.equals("~") 
+					  && Computing.propertyHolds("q7.codegen.creating_dependencies")) {
 				IStarElement g2 = add_goal("", e.e.why ==null? a.e.why: e.e.why, e.e.why==null? a.e.what : e.e.what);
 				g2.parent = null;
 				g2.isSoftGoal = g1.isSoftGoal;
-				if (!op.equals("~")) { 
-					IStarElement g3 = add_goal(Computing.strip_type_prefixes(types, g.parent.name), e.e.why, e.e.what);
-					g3.parent = g.parent;
-					g3.parent.children.add(g3);
-					g3.isSoftGoal = g1.isSoftGoal;
-				}
-		}
+			  } 
 			}
 		}
 	}
@@ -1138,9 +1136,10 @@ public class IStar {
 	 * @param who, why, what
 	 * @return
 	 */
-	private IStarElement add_goal(String who, String why, String what) {
+	protected IStarElement add_goal(String who, String why, String what) {
+//		System.out.println(who + why + what);
 		String rest = Computing.unique_goal_name(who, why, what);
-		Advice ad = goals.get(rest);
+		Advice ad = intentions.get(rest);
 		if (ad == null) {
 			ad = new Advice("", who, why, what, null, null, null, null, null, null);
 			int m = elements.size();
@@ -1148,7 +1147,7 @@ public class IStar {
 			IStarElement g1 = new IStarElement(m, rest, "");
 			elements.put(ad, g1);
 			g1.isAgent = false;
-			goals.put(rest, ad);
+			intentions.put(rest, ad);
 			serialize_the_token(m, false, false);
 			return g1;
 		} else {
@@ -1272,7 +1271,7 @@ public class IStar {
 	/**
 	 * @param a
 	 */
-	private void generateWhenForElement(IStarElement g, Advice a) {
+	protected void generateWhenForElement(IStarElement g, Advice a) {
 		if (a.when!=null) {
 			IStarElement g1 = add_goal(null, "Claim: " + a.when, null); // the claim
 			add_link(g, g1, a.op);
@@ -1285,9 +1284,9 @@ public class IStar {
 	}
 
 	private void mark_prefixed_subgoals() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null) {
@@ -1303,9 +1302,9 @@ public class IStar {
 	 * If a goal has more than one parents, then it will be duplicated
 	 */
 	private void duplicate_high_fan_in_goals() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && ! g.isSoftGoal) {
@@ -1323,7 +1322,7 @@ public class IStar {
 						while (j.hasMoreElements()) {
 //							D.o("found a high fan in goal");
 							IStarLink s = j.nextElement();
-							Advice ad = goals.get(s.to.name);
+							Advice ad = intentions.get(s.to.name);
 							IStarElement e = 
 								add_goal(ad.e.who, ad.e.why + "#" + cnt, ad.e.what);
 							s.to = e;
@@ -1475,9 +1474,9 @@ public class IStar {
 	protected void create_aspect() {
 		boolean change;
 		// root softgoals will be used to create an aspect
-		 for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		 for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
  			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && g.isSoftGoal) {
@@ -1537,9 +1536,9 @@ public class IStar {
      * leaf goals are operationalized into tasks
 	 */
 	private void mark_leaf_or_ANDdecomposed_goal_as_task() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && !g.isSoftGoal && !g.isAgent && !g.isAspect) {
@@ -1575,9 +1574,9 @@ public class IStar {
 		// subgoals of tasks are also tasks 
 		do {
 			change = false;
-			for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+			for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 				String k = i.nextElement();
-			    Advice a = goals.get(k);
+			    Advice a = intentions.get(k);
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
@@ -1602,9 +1601,9 @@ public class IStar {
 		// subgoals of tasks are also tasks 
 		do {
 			change = false;
-			for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+			for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 				String k = i.nextElement();
-			    Advice a = goals.get(k);
+			    Advice a = intentions.get(k);
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
@@ -1628,17 +1627,14 @@ public class IStar {
 	protected void generateHowmuch(IStarElement ag, Advice a) {
 		if (a.how_much != null && a.how_much.size() > 0) {
 			int n = a.how_much.size();
-//			for (int i = n-1; i >=0 ; i--) {
 			for (int i = 0; i < n ; i++) {
 				Effect e = (Effect) a.how_much.get(i);
 				if (e.e.alias!=null) {
 					e.e.why = (String) Entity.aliases.get(e.e.alias);
 				}
 				String op = e.op;
-				IStarElement g1 = get_goal(e.e.who==null?a.e.who:e.e.who, 
-						e.e.why==null? a.e.why : e.e.why, 
-								e.e.why==null? a.e.what: e.e.what);
-				if (ag.parent==g1.parent) {
+				IStarElement g1 = get_goal(e.e.who, e.e.why, e.e.what);
+				if (g1!=null && (ag.parent==g1.parent || Computing.propertyHolds("q7.codegen.istar.create_aspects"))) {
 					add_link(g1, ag, op);
 				} else if (op.equals("~") && Computing.propertyHolds("q7.codegen.creating_dependencies")){
 					if (ag.parent==null || g1.parent==null 
@@ -1669,6 +1665,7 @@ public class IStar {
 						}
 					}
 				} else {
+//					System.out.println("link added: " + g1.name + op + ag.name);
 					add_link(g1, ag, op);							
 				}
 			}
@@ -1680,17 +1677,17 @@ public class IStar {
 	 * @param pa -- the current advice
 	 * @param a -- the pointcut advice
 	 */
-	private void generateWhere(IStarElement sg, Advice pa, Advice a) {
+	protected void generateWhere(IStarElement sg, Advice pa, Advice a) {
 		if (a.where == null || a.where.size()==0) {
 			return;
 		}
 		if (sg == null) {
 			return;
 		}
-		for (Enumeration<String> e = goals.keys(); e.hasMoreElements(); ) {
+		for (Enumeration<String> e = intentions.keys(); e.hasMoreElements(); ) {
 			String k = e.nextElement();
 			if (k!=null) {
-				Advice ad = goals.get(k);
+				Advice ad = intentions.get(k);
 				for (int i=0; i<a.where.size(); i++) {
 					Pointcut p = (Pointcut) a.where.get(i);
 					/* still quite simple */
@@ -1859,7 +1856,7 @@ public class IStar {
 	 */
 	protected IStarElement get_goal(String who, String why, String what) {
 		String name = Computing.unique_goal_name(who, why, what);
-		Advice ad = goals.get(name);
+		Advice ad = intentions.get(name);
 		if (ad==null) {
 			return null;
 		}

@@ -81,7 +81,7 @@ public class GoalModel extends IStar {
 		generateWhen(a);
 		generateWho(a);
 		IStarElement g = (IStarElement) generateWhy(parent, a);
-		if(Computing.propertyHolds("q7.codegen.do_weave"))  //nernst: for comparison purposes
+		if(Computing.propertyHolds("q7.codegen.istar.do_weave"))  //nernst: for comparison purposes
 			generateWhere(g, parent, a);
 		generateHow(a);
 		generateHowmuch(g, a);
@@ -103,27 +103,28 @@ public class GoalModel extends IStar {
 		generateHowmuchForElement(g, a);
 	}	
 
-	/**
-	 * @param who, why, what
-	 * @return
-	 */
-	private IStarElement add_goal(String who, String why, String what) {
-		String rest = Computing.unique_goal_name(who, why, what);
-		Advice ad = goals.get(rest);
-		if (ad == null) {
-			ad = new Advice("", who, why, what, null, null, null, null, null, null);
-			int m = elements.size();
-			ad.setID(m);
-			IStarElement g1 = new IStarElement(m, rest, "");
-			elements.put(ad, g1);
-			g1.isAgent = false;
-			goals.put(rest, ad);
-			serialize_the_token(m, false, false);
-			return g1;
-		} else {
-			return elements.get(ad);
-		}
-	}
+//	/**
+//	 * @param who, why, what
+//	 * @return
+//	 */
+//	private IStarElement add_goal(String who, String why, String what) {
+//		String rest = Computing.unique_goal_name(who, why, what);
+//		Advice ad = intentions.get(rest);
+//		if (ad == null) {
+//			ad = new Advice("", who, why, what, null, null, null, null, null, null);
+//			int m = elements.size();
+//			ad.setID(m);
+//			IStarElement g1 = new IStarElement(m, rest, "");
+//			
+//			elements.put(ad, g1);
+//			g1.isAgent = false;
+//			intentions.put(rest, ad);
+//			serialize_the_token(m, false, false);
+//			return g1;
+//		} else {
+//			return elements.get(ad);
+//		}
+//	}
 
 	/**
 	 * @param a
@@ -229,26 +230,23 @@ public class GoalModel extends IStar {
 	private void generateWhoForElement(Advice a) {
 	}
 
-	/**
-	 * @param a
-	 */
-	private void generateWhenForElement(IStarElement g, Advice a) {
-		if (a.when!=null) {
-			IStarElement g1 = add_goal(null, "Claim: " + a.when, null); // the claim
-			add_link(g, g1, a.op);
-		}
+	public void generateGoalModel(String out_file) {
+		generateGoalModelContent();
+		output_to_xmi(out_file);	
 	}
 
-	public void generateGoalModel(String out_file) {
+	void generateGoalModelContent() {
 		if (advices == null) {
 			System.out.println("No model parsed?");
 			return;
 		}
 		preprocess();		
-		create_elements_and_links(out_file);		
+		create_elements_and_links();		
 		mark_prefixed_subgoals();
-		mark_parent_goal_of_softgoal_as_softgoal();
-		mark_subgoal_of_softgoal_as_softgoal();
+		if (Computing.propertyHolds("q7.codegen.istar.mark_softgoal")) {
+			mark_parent_goal_of_softgoal_as_softgoal();
+			mark_subgoal_of_softgoal_as_softgoal();
+		}
 		if (Computing.propertyHolds("q7.codegen.istar.create_aspects"))
 			create_aspect();
 		if (Computing.propertyHolds("q7.codegen.istar.marking_istar_tasks")) {
@@ -260,24 +258,25 @@ public class GoalModel extends IStar {
 		}
 		if (Computing.propertyHolds("q7.codegen.creating_dependencies"))
 			create_dependencies();
-		output_to_xmi(out_file);	
 	}
 
-	@SuppressWarnings("unchecked")
+	void generateGoalModel(Model m) {
+		HashMap<Integer, EObject> hm = new HashMap<Integer, EObject>();
+		create_actor_elements(hm, m);
+		create_goal_elements(hm, m);
+		create_relationships(hm, m);
+	}
 	private void output_to_xmi(String out_file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
 	    		Resource.Factory.Registry.DEFAULT_EXTENSION, 
 	    		new XMIResourceFactoryImpl());
+//	    System.out.println(out_file);
 	    URI uri = fetchURI(out_file);		
-	    // Create a resource for this file.
 	    resource = resourceSet.createResource(uri);
-		HashMap<Integer, EObject> hm = new HashMap<Integer, EObject>();
 		m = f.createModel();
 		m.setName(out_file);
-		create_actor_elements(hm);
-		create_goal_elements(hm);
-		create_relationships(hm);
+		generateGoalModel(m);
 		try {
 			resource.getContents().add(m);
 		    resource.save(Collections.EMPTY_MAP);
@@ -287,14 +286,16 @@ public class GoalModel extends IStar {
 		}
 	}
 
+	
 	/**
 	 *  Get the URI of the file.
 	 */
 	public static URI fetchURI(String name) {
-		File file = new File(name);
-		URI uri = file.isFile() ? 
-				URI.createFileURI(file.getAbsolutePath()): 
-				URI.createURI(name);
+		URI uri = URI.createFileURI(name); 
+//		File file = new File(name);
+//		URI uri = file.isFile() ? 
+//				URI.createFileURI(new File(file.getAbsolutePath()).toURI().toString()): 
+//				URI.createURI(name);
 		return uri;
 	}
 
@@ -322,7 +323,7 @@ public class GoalModel extends IStar {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void create_relationships(HashMap<Integer, EObject> hm) {
+	private void create_relationships(HashMap<Integer, EObject> hm, Model m) {
 		// sorting is necessary to maintain the ordering
 		// of the subgoals, though it is much less efficient
 		SortArrayList sorted_keys = new SortArrayList();
@@ -334,7 +335,6 @@ public class GoalModel extends IStar {
 		}
 		for (int i=0; i<sorted_keys.size(); i++) {
 			IStarElement g1 = table.get((Integer) sorted_keys.get(i));
-//			System.err.println(g1.id + " " + g1.name);
 			for (int j=0; j<sorted_keys.size(); j++) {
 				IStarElement g2 = table.get((Integer) sorted_keys.get(j));
 				for (Enumeration k = links.keys(); k.hasMoreElements();) {
@@ -342,6 +342,7 @@ public class GoalModel extends IStar {
 					if (g1.id == link.from.id && g2.id == link.to.id) { 
 						Intention x = (Intention) hm.get(new Integer(link.from.id));
 						Intention y = (Intention) hm.get(new Integer(link.to.id));
+//						System.out.println(link.type);
 						if (link.type.equals("And") || link.type.equals("Or")) {
 							Decomposition d;
 							if (link.type.equals("And")) {
@@ -367,8 +368,7 @@ public class GoalModel extends IStar {
 							}
 							m.getDecompositions().add(d);
 						} else if (! link.type.startsWith("Dep")){
-							Contribution c;
-							
+							Contribution c;							
 							if (link.type.equals("Help")) 
 								c = f.createHelpContribution();
 							else if (link.type.equals("Make")) 
@@ -395,7 +395,7 @@ public class GoalModel extends IStar {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void create_actor_elements(HashMap<Integer, EObject> hm) {
+	private void create_actor_elements(HashMap<Integer, EObject> hm, Model m) {
 		for (Enumeration<Advice> i = elements.keys(); i.hasMoreElements();) {
 			IStarElement g = elements.get(i.nextElement());
 			if ((g.isAgent) && g.name!=null && !g.name.equals("")) {
@@ -420,17 +420,21 @@ public class GoalModel extends IStar {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	private void create_goal_elements(HashMap<Integer, EObject> hm) {
+	private void create_goal_elements(HashMap<Integer, EObject> hm, Model m) {
 		SortArrayList sorted_keys = new SortArrayList();
 		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
 		for (IStarElement p: elements.values()) {
 			sorted_keys.add(p.id);
 			table.put(p.id, p);
 		}		
+		String[] types = { "Claim:", "Provide:", "Do", "May", "Agent", "Role",
+				"Position", "Actor", "Aspect" };
 		for (int i=0; i<sorted_keys.size(); i++) {
 			IStarElement g = table.get((Integer) sorted_keys.get(i));
 			if (!g.isAgent && !g.isAspect && 
 					g.name!=null && !g.name.equals("")) {
+				// System.out.println(g.getType(g.name));
+				g.name = Computing.strip_type_prefixes(types, g.name);
 				Intention x = f.createIntention();
 				if (g.isSoftGoal)
 					x = f.createSoftgoal();
@@ -568,14 +572,17 @@ public class GoalModel extends IStar {
 //	}
 
 	private void mark_prefixed_subgoals() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null) {
 			    	if (g.name.indexOf("May ")>=0) {
 			    		g.setSoftGoal();
+			    	}
+			    	if (g.name.indexOf("Do ")>=0) {
+			    		g.isTask = true;
 			    	}
 			    }
 		    }
@@ -586,9 +593,9 @@ public class GoalModel extends IStar {
 	 * If a Intention has more than one parents, then it will be duplicated
 	 */
 	private void duplicate_high_fan_in_goals() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && ! g.isSoftGoal) {
@@ -605,7 +612,7 @@ public class GoalModel extends IStar {
 						while (j.hasMoreElements()) {
 //							D.o("found a high fan in Intention");
 							IStarLink s = j.nextElement();
-							Advice ad = goals.get(s.to.name);
+							Advice ad = intentions.get(s.to.name);
 							IStarElement e = 
 								add_goal(ad.e.who, ad.e.why + "#" + cnt, ad.e.what);
 							s.to = e;
@@ -658,16 +665,7 @@ public class GoalModel extends IStar {
 	/**
 	 * @param out_file
 	 */
-	protected void create_elements_and_links(String out_file) {
-		try {
-//			File file = new File(out_file);
-//			URI uri = file.isFile() ? 
-//					URI.createFileURI(file.getAbsolutePath()): 
-//					URI.createURI(out_file);					
-			out = new PrintStream(out_file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+	protected void create_elements_and_links() {
         // Mar 11, 2005 Yijun: to offset the elements id by one as Visio does not support a shape with
 		// a zero id.
 		elements.put(new Advice(null, null, null, null, null, null, null, null, null, null), 
@@ -708,9 +706,9 @@ public class GoalModel extends IStar {
 	protected void create_aspect() {
 		boolean change;
 		// root softgoals will be used to create an aspect
-		 for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		 for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
  			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && g.isSoftGoal) {
@@ -767,9 +765,9 @@ public class GoalModel extends IStar {
      * leaf Intentions are operationalized into tasks
 	 */
 	private void mark_leaf_or_ANDdecomposed_goal_as_task() {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 			String k = i.nextElement();
-		    Advice a = goals.get(k);
+		    Advice a = intentions.get(k);
 		    if (a!=null) {
 		    	IStarElement g = elements.get(a);
 			    if (g!=null && !g.isSoftGoal && !g.isAgent && !g.isAspect) {
@@ -801,9 +799,9 @@ public class GoalModel extends IStar {
 		// subgoals of tasks are also tasks 
 		do {
 			change = false;
-			for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+			for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 				String k = i.nextElement();
-			    Advice a = goals.get(k);
+			    Advice a = intentions.get(k);
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
@@ -827,9 +825,9 @@ public class GoalModel extends IStar {
 		// subgoals of tasks are also tasks 
 		do {
 			change = false;
-			for (Enumeration<String> i = goals.keys(); i.hasMoreElements();) {
+			for (Enumeration<String> i = intentions.keys(); i.hasMoreElements();) {
 				String k = i.nextElement();
-			    Advice a = goals.get(k);
+			    Advice a = intentions.get(k);
 			    if (a!=null) {
 			    	IStarElement g = elements.get(a);
 				    if (g!=null) {
@@ -851,59 +849,30 @@ public class GoalModel extends IStar {
 	 * @param pa -- the current advice
 	 * @param a -- the pointcut advice
 	 */
-	private void generateWhere(IStarElement sg, Advice pa, Advice a) {
+	protected void generateWhere(IStarElement sg, Advice pa, Advice a) {
 		if (a.where == null || a.where.size()==0) return;
 		if (sg == null) return;
-		for (Enumeration<String> e = goals.keys(); e.hasMoreElements(); ) {
+		for (Enumeration<String> e = intentions.keys(); e.hasMoreElements(); ) {
 			String k = e.nextElement();
 			if (k!=null) {
-				Advice ad = goals.get(k);
+				Advice ad = intentions.get(k);
 				for (int i=0; i<a.where.size(); i++) {
 					Pointcut p = (Pointcut) a.where.get(i);
 					/* still quite simple */
 					if (p!=null
-						&& (ad.e.who!=null && (p.e.who.equals("*") || ad.e.who.equalsIgnoreCase(p.e.who))
+						&& (ad.e.who!=null && (p.e.who.equals("*") || Computing.strip_quote(ad.e.who).equalsIgnoreCase(Computing.strip_quote(p.e.who)))
 								|| ad.e.who == null && p.e.who.equals("*"))
-					    && ad.e.why!=null && (p.e.why.equals("*") || ad.e.why.equalsIgnoreCase(p.e.why))
-						&& (ad.e.what!=null && (p.e.what.equals("*") || ad.e.what.equalsIgnoreCase(p.e.what))
+					    && ad.e.why!=null && (p.e.why.equals("*") || Computing.strip_quote(ad.e.why).equalsIgnoreCase(Computing.strip_quote(p.e.why)))
+						&& (ad.e.what!=null && (p.e.what.equals("*") || Computing.strip_quote(ad.e.what).equalsIgnoreCase(Computing.strip_quote(p.e.what)))
 							    || ad.e.what == null && p.e.what.equals("*")))
 					{
 						// weaving when matched: create link from hg to sg
 						IStarElement hg = elements.get(ad);
-						if (p.op.equals("&") || p.op.equals("|")) { 
-							 // aspects can be functional
-							sg.isSoftGoal = hg.isSoftGoal;
-							add_link(hg, sg, p.op); 
-						} else { // aspects are non-functional 
-							sg.setSoftGoal();
-							if (hg.parent!=null && hg.parent.name.indexOf("Aspect ")<0 
-									&& Computing.propertyHolds("q7.codegen.creating_dependencies")) { 
-								// crosscutting a component (agent), not an aspect
-								IStarElement g2 = get_goal("", a.e.why, a.e.what);
-								if (g2==null || g2 == sg) {
-									g2 = add_goal("", a.e.why, a.e.what);
-									g2.parent = null;
-									g2.setSoftGoal();
-								} 
-								IStarElement g3 = get_goal(hg.parent.name, a.e.why, a.e.what);
-								if (g3==null) {
-									g3 = add_goal(hg.parent.name, a.e.why, a.e.what);
-									g3.parent = hg.parent;
-									hg.parent.children.add(g3);
-								}								
-								g3.setSoftGoal();
-								add_link(g3, hg, p.op);
-								if (g2!=sg) {
-									add_link(g2, sg, "~");
-									add_link(g3, g2, "~");									
-								} else
-									add_link(g3, sg, "~");
-							} else {
-								add_link(sg, hg, p.op);								
-							}
-						}
-						break;
-					}					
+						if (p.op.equals("+") || p.op.equals("-") || p.op.equals("++") || p.op.equals("--") )
+							sg.isSoftGoal = true;
+						add_link(sg, hg, p.op); 
+					}
+					break;
 				}
 			}
 		}				
@@ -1015,7 +984,7 @@ public class GoalModel extends IStar {
 	 */
 	protected IStarElement get_goal(String who, String why, String what) {
 		String name = Computing.unique_goal_name(who, why, what);
-		Advice ad = goals.get(name);
+		Advice ad = intentions.get(name);
 		if (ad==null) {
 			return null;
 		}
@@ -1033,9 +1002,9 @@ public class GoalModel extends IStar {
 		if (to.id == from.id)
 			return;
 		String op = "";
-		if (rule.equalsIgnoreCase("&"))
+		if (rule.equalsIgnoreCase("&") || rule.equalsIgnoreCase("AND"))
 			op = "And";
-		else if (rule.equalsIgnoreCase("|"))
+		else if (rule.equalsIgnoreCase("|") || rule.equalsIgnoreCase("OR"))
 			op = "Or";
 		else if (rule.equalsIgnoreCase("++"))
 			op = "Make";

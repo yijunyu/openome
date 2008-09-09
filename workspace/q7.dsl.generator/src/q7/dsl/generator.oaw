@@ -11,4 +11,4 @@
      <expand value='q7::dsl::Main::main FOR theModel'/>
      <genPath value='${targetDir}'/>
   </component>
-s</workflow>
+</workflow>

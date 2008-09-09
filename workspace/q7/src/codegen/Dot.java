@@ -54,8 +54,8 @@ public class Dot extends IStar {
 		return text;
 	}
 	private String output_nodes(String text, Vector<Sub> subs) {
-		for (Enumeration<String> i = goals.keys(); i.hasMoreElements(); ) {
-			Advice a = goals.get(i.nextElement());
+		for (Enumeration<String> i = intentions.keys(); i.hasMoreElements(); ) {
+			Advice a = intentions.get(i.nextElement());
 			IStarElement g = elements.get(a);
 			String nodeName = "";
 			Sub newSub = new Sub();
