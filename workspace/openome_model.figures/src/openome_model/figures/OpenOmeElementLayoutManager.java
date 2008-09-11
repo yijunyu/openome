@@ -89,6 +89,8 @@ public class OpenOmeElementLayoutManager extends AbstractHintLayout
 
 			// ensure that the wrapped text is center aligned when			
 			// they are pushed onto subsequent rows (see ticket #120)
+			// For some strange reason, this crashes under Mac OSX Leopard (10.5), we should
+			// only call this method only if we're not on Leopard
 			if (!(System.getProperty("os.name").equals("Mac OS X") && System.getProperty("os.version").startsWith("10.5"))) { 
 				((WrappingLabel) child).setTextWrap(true);
 			}
@@ -99,14 +101,7 @@ public class OpenOmeElementLayoutManager extends AbstractHintLayout
 			// the text doesn't get a chance to 'bleed' onto the edge..
 			// Instead, it gets word wrapped to a new row if it gets too
 			// close to the edge
-			child.setBounds(r.getCopy().shrink(20, 0));
-
-			// pad the end of the text with white space so that the entire text
-			// is visible while the user is typing in the name of an element..
-			// Without this, the last letter gets cut off and is not visible
-			// while the user is typing.
-			String cushionedString = ((WrappingLabel) child).getText() + " ";
-			((WrappingLabel) child).setText(cushionedString);
+			child.setBounds(r.getCopy().shrink(15, 0));
 			
 		}
 	}

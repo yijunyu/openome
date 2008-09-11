@@ -1,7 +1,6 @@
 package openome_model.figures;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
-import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -19,8 +18,6 @@ public ActorAnchor() { }
 public ActorAnchor(IFigure owner) {
 	super(owner);
 }
-
-private EllipseAnchor ellipseAnchor;
 
 /**
  * Returns a point on the ellipse (defined by the owner's bounding box) where the
@@ -45,16 +42,6 @@ public Point getLocation(Point reference) {
 	k = k * k;
 	//////////////////////////////////////////////////////////////////////
 	
-	// this is for when the actor figure is collapsed, we want the anchor points
-	// to be just the elliptical anchor points
-	if ((r.width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD) 
-	 && (r.height <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)) {
-		if (ellipseAnchor == null) {
-			ellipseAnchor = new EllipseAnchor(this.getOwner());
-		}
-		return ellipseAnchor.getLocation(reference);
-	}
-	
 	/*
 	 * The way the Actor anchor works is:
 	 * we know that the 'entire' actor figure contains
@@ -73,38 +60,42 @@ public Point getLocation(Point reference) {
 	// we calculate the min of the 'entire' figure's width of height, and
 	// we use whichever one is smaller
 	
-	double minOfWidthAndHeight = Math.min(r.preciseWidth(), r.preciseHeight());
-	double translateX = (minOfWidthAndHeight  * dx / Math.sqrt(1 + k));
-	double translateY = (minOfWidthAndHeight * dy / Math.sqrt(1 + 1 / k));
-
+	int actorSymbolSize = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 	
-	// this is approximately how tall (in pixels) the name of the actor
-	// takes up.. we want this to be a constant number so that we can
-	// just shift it down by that amount
-	int heightOfActorName = 11;
+	double translateX = (actorSymbolSize * dx / Math.sqrt(1 + k));
+	double translateY = (actorSymbolSize * dy / Math.sqrt(1 + 1 / k));
 	
-	// when we draw the ellipse (or rather, perfect circle), this is the amount
-	// to shrink it by
-	double shrinkAmount = 3.55;
-
 	// From the top left corner of the figure, we're going to shift right, and down,
 	// by a certain amount, so that we can pinpoint the centre of the actor figure
+	int shiftRightAmount;
+	int shiftDownAmount;
 
-	int shiftRightAmount = ((int)(r.preciseWidth()/6.8));
-	int shiftDownAmount = ((int)(r.preciseHeight()/6.6));
+	// if the entire actor figure (symbol + bubble) is small enough, then the actor symbol is
+	// simply placed at the top left corner, rather than calculating the exact point (done by
+	// ContainerSVGFigure) and so we should calculate the center of the actor symbol as:
+	// top left corner + half of size of the actor symbol to the right + half of the actor symbol
+	// size down
+	int actorSymbolThreshold = ContainerSVGFigure.SIZE_OF_ACTOR_FOR_FIXED_SYMBOL;
 	
-	//shiftDownAmount = shiftDownAmount + heightOfActorName; // to compensate for the name of the actor
-
+	if ((r.preciseWidth() <= actorSymbolThreshold) || (r.preciseHeight() <= actorSymbolThreshold)) {
+		shiftRightAmount = actorSymbolSize/2;
+		shiftDownAmount = actorSymbolSize/2;
+	} else {
+		// else, we have to calculate the exact point of the actor symbol based
+		// on the height and width of the figure
+		shiftRightAmount = ((int)(r.preciseWidth()/6.75));
+		shiftDownAmount = ((int)(r.preciseHeight()/6.75));	
+	}
+	
 	// this is the centre point of the actor figure!
 	Point centreOfActor = r.getTopLeft().translate(shiftRightAmount, shiftDownAmount);
 	
 	// now that we've located the centre point of the actor,
 	// we will translate outwards from that point, to form a circle.
 	// how much we translate by is defined by the variable 'shrinkAmount'
-	int xTranslateFromActor = (int)(translateX / shrinkAmount);
-	int yTranslateFromActor = (int)(translateY / shrinkAmount);
+	int xTranslateFromActor = (int)(translateX);
+	int yTranslateFromActor = (int)(translateY);
 		
 	return centreOfActor.translate(xTranslateFromActor, yTranslateFromActor);
-	
-}
+	}
 }

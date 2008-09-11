@@ -6,8 +6,8 @@ import org.eclipse.draw2d.AbstractHintLayout;
 import org.eclipse.draw2d.AbstractLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
@@ -82,9 +82,9 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 		// when the actor is collapsed
 		if ((rec.width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD) 
 		 || (rec.height <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)) {
-			// do nothing
-			// OpenOmeElementLayoutManager ooelm = new OpenOmeElementLayoutManager();
-			// ooelm.layout(figure);
+			
+			OpenOmeElementLayoutManager a = new OpenOmeElementLayoutManager();
+			a.layout(figure);
 		} else {
 		
 			List children = figure.getChildren();
@@ -93,10 +93,11 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 				child = (IFigure)children.get(i);
 				
 				// radius of the actor symbol
-				int r = 100;
+				int r = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 				
 				// the height (and the width, assuming that the actor figure stays a perfect circle)
 				float figureHeight = (float)(rec.preciseHeight());
+				float figureWidth = (float)(rec.preciseWidth());
 				
 				// determine the offset, used for placing the actor name at a certain spot
 				// within the actor figure
@@ -105,27 +106,27 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 				//default
 				//float offsetConstant = 0.707f;
 				
-				// if the actor symbol is smaller than the default size of 450 pixels,
-				// we will adjust the offset for the placement of the actor name
-				if (figureHeight < 450) {
-					offsetConstant = 0.677f;
-				}
-				
 				// determine the exact location of where the symbol should be placed
 				int xoffset = (int) (rec.width * (1 - offsetConstant) / 2);
 				int yoffset = (int) (rec.height * (1 - offsetConstant) / 2);
-						
-				// the actor bubble is too small, we will be forced to shrink the actor symbol
-				if (xoffset <= 50 || yoffset <= 50) {
-					r = (int) (Math.min(r, rec.height * (1 - offsetConstant)));
-				}
 				
 				// finally, determine the exact position of where the actor symbol should be placed
 				int x = rec.x + xoffset - r / 2;
 				int y = rec.y + yoffset - r / 2;
 				
+				// if the entire actor figure (symbol + bubble) is small enough, then the actor symbol is simply 
+				// placed at the top left corner (done by ContainerSVGFigure), so we will place
+				// the actor name snuggly into this area
+				int actorSymbolThreshold = ContainerSVGFigure.SIZE_OF_ACTOR_FOR_FIXED_SYMBOL;
+				
+				if ((figureHeight <= actorSymbolThreshold) || (figureWidth <= actorSymbolThreshold)) {
+					x = rec.getTopLeft().x + 8;
+					y = rec.getTopLeft().y + 8;
+				}
+				
 				///////////////////////////////
-				// make the text wrap
+				// make the text wrap.. for some strange reason, this crashes under Mac OSX Leopard (10.5), we should
+				// only call this method only if we're not on Leopard
 				if (!(System.getProperty("os.name").equals("Mac OS X") && System.getProperty("os.version").startsWith("10.5"))) { 
 					((WrappingLabel) child).setTextWrap(true);
 				}
@@ -136,7 +137,6 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 				/////////////////////////////////////
 				
 				child.setBounds(new Rectangle(x, y, r-15, r-15));
-	
 			}
 		}	
 	}

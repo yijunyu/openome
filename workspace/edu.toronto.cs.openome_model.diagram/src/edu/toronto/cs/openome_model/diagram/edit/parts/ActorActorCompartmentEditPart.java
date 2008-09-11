@@ -81,8 +81,8 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			// that link to any intentions inside of the actor
 			super.handleNotificationEvent(event);
 
-			int collapsedWidth = ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT;
-			int collapsedHeight = ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT;
+			int collapsedWidth = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
+			int collapsedHeight = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 
 			int xLocation = this.getFigure().getBounds().x;
 			int yLocation = this.getFigure().getBounds().y;
