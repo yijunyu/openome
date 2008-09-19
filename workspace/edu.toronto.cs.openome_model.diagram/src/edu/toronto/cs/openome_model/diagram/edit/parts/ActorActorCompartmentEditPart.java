@@ -5,6 +5,7 @@ import openome_model.figures.ContainerSVGFigure;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ScrollPane;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
@@ -33,11 +34,17 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	public static final int VISUAL_ID = 5001;
 
 	/**
+	 * The stored width of the actor figure.
+	 * This is used for restoring (expanding) the actor
+	 * figure when it's collapsed.
 	 * @generated NOT
 	 */
 	int storedWidth = 450;
 
 	/**
+	 * The stored width of the actor figure.
+	 * This is used for restoring (expanding) the actor
+	 * figure when it's collapsed.
 	 * @generated NOT
 	 */
 	int storedHeight = 450;
@@ -67,6 +74,10 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 
+		// ensures that the scroll bars never show up
+		this.getCompartmentFigure().getScrollPane().setVerticalScrollBarVisibility(ScrollPane.NEVER);
+		this.getCompartmentFigure().getScrollPane().setHorizontalScrollBarVisibility(ScrollPane.NEVER);
+		
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)
 				|| NotationPackage.eINSTANCE.getSize_Height().equals(feature)) {
@@ -80,7 +91,7 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			// connections
 			// that link to any intentions inside of the actor
 			super.handleNotificationEvent(event);
-
+			
 			int collapsedWidth = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 			int collapsedHeight = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 
@@ -88,7 +99,6 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			int yLocation = this.getFigure().getBounds().y;
 
 			if (isCollapsed) {
-				
 				// store the original width and height of the figure
 				// so we can use it in the future when restoring
 				
@@ -158,6 +168,11 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
+		
+		// removes the scroll bars from the actor figure.. (ticket #114)
+		// unfortunately, for some unknown reason, the vertical scrollbar is still visible
+		result.getScrollPane().setVerticalScrollBarVisibility(ScrollPane.NEVER);
+		result.getScrollPane().setHorizontalScrollBarVisibility(ScrollPane.NEVER);
 
 		// removes the annoying border line at the top of the compartment
 		// this fix is for ticket #115
