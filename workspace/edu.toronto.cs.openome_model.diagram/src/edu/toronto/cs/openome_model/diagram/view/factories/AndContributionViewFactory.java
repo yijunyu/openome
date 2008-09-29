@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.LineStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -31,7 +32,7 @@ public class AndContributionViewFactory extends OpenomeConnectionViewFactory {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void decorateView(View containerView, View view,
 			IAdaptable semanticAdapter, String semanticHint, int index,
@@ -55,5 +56,11 @@ public class AndContributionViewFactory extends OpenomeConnectionViewFactory {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 								.getType(edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
+		
+		// ensures that the link/connectors have smooth curvature
+		RoutingStyle style = (RoutingStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getRoutingStyle());
+		style
+				.setSmoothness(org.eclipse.gmf.runtime.notation.Smoothness.NORMAL_LITERAL);
 	}
 }
