@@ -1,12 +1,18 @@
 package openome_model.figures;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 public class GoalAnchor extends AbstractConnectionAnchor {
 
+	private IFigure originalOwner;
+	private boolean isCollapsed = false;
+	private ConnectionAnchor actorBubbleAnchor;
+	
 /**
  * @see org.eclipse.draw2d.AbstractConnectionAnchor#AbstractConnectionAnchor()
  */
@@ -17,6 +23,25 @@ public GoalAnchor() { }
  */
 public GoalAnchor(IFigure owner) {
 	super(owner);
+	originalOwner = owner;
+	
+	// create an actor ellipse anchor, so that we can switch to it and use it instead
+	// when we want anchor points to be redirected to it instead..
+	
+	// owner is the figure of the intention, and you must get it's grandparent
+	// to get the figure of the actor
+	actorBubbleAnchor = new EllipseAnchor(owner.getParent().getParent());
+}
+
+/**
+ * Tells anchor points to point to the collapsed actor symbol instead (if the
+ * intention is within an actor), rather than having them point to the intention as usual.
+ * 
+ * @param isCollapsed whether the actor that harbours this intention is now collapsed
+ * or not.
+ */
+public void setIsCollapsed(boolean isCollapsed) {
+	this.isCollapsed = isCollapsed;
 }
 
 /**
@@ -25,6 +50,13 @@ public GoalAnchor(IFigure owner) {
  * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(Point)
  */
 public Point getLocation(Point reference) {
+	
+	// if the goal is inside of a collapsed actor, we want all of it's
+	// anchor points to point to the actor instead now, rather than the goal
+	if (isCollapsed) {
+		return actorBubbleAnchor.getLocation(reference);
+	}
+	
 	Rectangle r = Rectangle.SINGLETON;
 	r.setBounds(getOwner().getBounds());
 	r.translate(-1, -1);
