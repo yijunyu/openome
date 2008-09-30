@@ -79,7 +79,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		// to be just the start of the line (which is also the end
 		// of the line).. this is for the case when we have
 		// 2 hardgoals (for example) within an actor, and the actor
-		// collapses.. the dependency connectin will have the same
+		// collapses.. the dependency connection will have the same
 		// start and end point, namely, the same actor
 		if (numPoints < 2) {
 			pointA = this.getStart();
