@@ -3,7 +3,6 @@ package openome_model.figures;
 import java.util.ArrayList;
 
 import org.eclipse.draw2d.AbsoluteBendpoint;
-import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
@@ -71,8 +70,25 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		int pointAindex = (int)(Math.floor(numPoints/2));
 		int pointBindex = (int)(Math.floor(numPoints/2)) + 1;
 		
-		Point pointA = this.getPolygonPoints().getPoint(pointAindex);
-		Point pointB = this.getPolygonPoints().getPoint(pointBindex);
+		Point pointA;
+		Point pointB;
+		
+		// if there are less than 2 points, that means that there is
+		// just 1 point on the line.. which means it's just a point
+		// and not a line.. as such, we will want point A and B
+		// to be just the start of the line (which is also the end
+		// of the line).. this is for the case when we have
+		// 2 hardgoals (for example) within an actor, and the actor
+		// collapses.. the dependency connectin will have the same
+		// start and end point, namely, the same actor
+		if (numPoints < 2) {
+			pointA = this.getStart();
+			pointB = this.getEnd();
+		} else {
+			// else, calculate the 2 adjacent points to the midpoint
+			pointA = this.getPolygonPoints().getPoint(pointAindex);
+			pointB = this.getPolygonPoints().getPoint(pointBindex);
+		}
 		
 		// calculate the angle between the two points
 		int angle = (int)(calcAngle(pointB,pointA));
@@ -82,7 +98,17 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		
 		// next, get the midpoint of the link/connection
 		PointList pl = this.getPolygonPoints();
-		Point midPoint = pl.getMidpoint();
+		Point midPoint;
+		
+		// if the list is empty, getMipoint will throw an 
+		// IndexOutOfBoundsException.. if it does, just set
+		// the midpoint to be the start of the line (also
+		// the end of the line)
+		try {
+			midPoint = pl.getMidpoint();
+		} catch (IndexOutOfBoundsException e) {
+			midPoint = this.getStart();
+		}
 
 		// ===============================================
 		// PLAN A: load and draw an image at the midpoint
