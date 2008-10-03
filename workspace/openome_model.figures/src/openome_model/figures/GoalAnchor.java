@@ -10,7 +10,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class GoalAnchor extends AbstractConnectionAnchor {
 
 	private IFigure originalOwner;
-	private boolean isCollapsed = false;
+	private boolean isInsideCollapsedCompartment = false;
 	private ConnectionAnchor actorBubbleAnchor;
 	
 /**
@@ -41,7 +41,7 @@ public GoalAnchor(IFigure owner) {
  * or not.
  */
 public void setIsCollapsed(boolean isCollapsed) {
-	this.isCollapsed = isCollapsed;
+	this.isInsideCollapsedCompartment = isCollapsed;
 }
 
 /**
@@ -53,7 +53,7 @@ public Point getLocation(Point reference) {
 	
 	// if the goal is inside of a collapsed actor, we want all of it's
 	// anchor points to point to the actor instead now, rather than the goal
-	if (isCollapsed) {
+	if (isInsideCollapsedCompartment) {
 		return actorBubbleAnchor.getLocation(reference);
 	}
 	
@@ -111,5 +111,22 @@ public Point getLocation(Point reference) {
 	/////////////////////////////////////////////////////////////
 	
 	return r.getCenter().translate(translateX, translateY);
+}
+
+public boolean isCollapsed() {
+	return this.isInsideCollapsedCompartment;
+}
+
+public boolean equals(Object o) {
+	if (o instanceof GoalAnchor) {
+		boolean haveSameActor = (((GoalAnchor)o).getOwner().getParent().getParent()).equals(this.getOwner().getParent().getParent());
+		boolean areBothCollapsed = ((((GoalAnchor)o).isCollapsed() && this.isCollapsed()));
+		
+		// both goals are collapsed in the same actor
+		return haveSameActor && areBothCollapsed;
+		
+	} else {
+		return super.equals(o);
+	}
 }
 }

@@ -1,8 +1,10 @@
 package openome_model.figures;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.draw2d.AbsoluteBendpoint;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
@@ -33,24 +35,12 @@ public class DependencyLineConnection extends PolylineConnectionEx {
     
 	protected void outlineShape(Graphics g) {
 		
-		// draw the normal connecting link/connector first
-		super.outlineShape(g);
+		
 
 		// ensures that the link/connectors have smooth curvature,
 		// even if the view settings say otherwise
 		this.setSmoothness(SMOOTH_NORMAL);
-		
-		/////////////////////////////////////
-		// get rid of a point if we go over the limit
-		// the -2 is for the two end points, which we shouldn't count
-		// in the number of bendpoints we have..
-		// we'll see if we really need this in the future or not
-		
-//		if (this.getPoints().size() -2 > MAX_NUM_BENDPOINTS) {
-//			this.getPoints().removePoint(1);
-//		}
-		/////////////////////////////////////
-		
+				
 		// set the line width
 		this.setLineWidth(lineWidth);
 		
@@ -62,6 +52,28 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		if (isAlwaysStraight) {
 			straightenLine();
 		}
+		
+		
+		ConnectionAnchor sourceAnchor = this.getSourceAnchor();
+		ConnectionAnchor targetAnchor = this.getTargetAnchor();
+		
+		if (!(sourceAnchor.equals(targetAnchor))) {
+			//the dependency link and the 'D' decoration should be visible
+			
+			// draw the normal connecting link/connector first
+			super.outlineShape(g);
+			
+			// draw the 'D' decoration
+			draw_D_Decoration(g);
+		}
+		
+	}
+	
+	/**
+	 * Draw the 'D' decoration with a line, and an arc, and if we need to fill it,
+	 * draw multiple arcs on the inside.
+	 */
+	private void draw_D_Decoration(Graphics g) {
 		
 		// determine the two points immediately adjacent to the midpoint
 		// so we can use them to figure out the angle between them
@@ -137,6 +149,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 		// ------------
 		
 		g.drawArc(midPoint.x-sizeOfD, midPoint.y-sizeOfD, sizeOfD*2, sizeOfD*2, angle, 180);
+		
 		
 		// --------------
 		// draw the line

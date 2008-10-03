@@ -1,6 +1,10 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import java.util.List;
+
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
@@ -126,6 +130,47 @@ public class AndContributionEditPart extends ConnectionNodeEditPart implements
 		 */
 		public WrappingLabel getFigureAndContributionLabel() {
 			return fFigureAndContributionLabel;
+		}
+		
+		/**
+		 * @generated NOT
+		 */
+		public void outlineShape(Graphics g) {
+			
+			// determine if the link/connector is pointing to the same
+			// container on both ends (in the case when the actor/container)
+			// is collapsed
+			ConnectionAnchor sourceAnchor = this.getSourceAnchor();
+			ConnectionAnchor targetAnchor = this.getTargetAnchor();
+			
+			// if both ends are indeed pointing to same container, don't
+			// draw the line/connector, and hide the decoration
+			if ((sourceAnchor.equals(targetAnchor))) {
+				this.getTargetDecoration().setVisible(false);
+				
+				// search for the contribution text (wrapping label), and hide it 
+				List listOfChildren = this.getChildren();
+				for (int i = 0; i < listOfChildren.size(); i++) {
+					Object currentChild = listOfChildren.get(i); 
+					if (currentChild instanceof WrappingLabel) {
+						((WrappingLabel)currentChild).setVisible(false);
+					}
+				}
+				
+			} else {
+				// else, draw the line/connector and the decoration
+				super.outlineShape(g);
+				this.getTargetDecoration().setVisible(true);
+				
+				// search for the contribution text (wrapping label), and make it visible 
+				List listOfChildren = this.getChildren();
+				for (int i = 0; i < listOfChildren.size(); i++) {
+					Object currentChild = listOfChildren.get(i); 
+					if (currentChild instanceof WrappingLabel) {
+						((WrappingLabel)currentChild).setVisible(true);
+					}
+				}	
+			}
 		}
 
 	}
