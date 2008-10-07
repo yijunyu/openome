@@ -2,11 +2,16 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.OpenOMEBorderItemLocator;
+import openome_model.figures.ResourceAnchor;
+import openome_model.figures.TaskAnchor;
 
+import org.eclipse.draw2d.ChopboxAnchor;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -17,10 +22,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -36,6 +39,11 @@ public class Resource2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 2003;
+	
+	/**
+	 * @generated NOT
+	 */
+	private ConnectionAnchor anchor;
 
 	/**
 	 * @generated
@@ -52,6 +60,61 @@ public class Resource2EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public Resource2EditPart(View view) {
 		super(view);
+	}
+	
+	/**
+	 * Tells this intention figure to redirect it's anchor points to the actor
+	 * symbol, rather than the intention.
+	 * @generated NOT
+	 */
+	public void setIsCollapsed(boolean isCollapsed) {
+		// if the goal is inside of a collapsed actor, we want all of it's
+		// anchor points to point to the actor symbol instead now, rather than the intention
+		((ResourceAnchor)(this.getConnectionAnchor())).setIsCollapsed(isCollapsed);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	protected ConnectionAnchor getConnectionAnchor() {
+		if (anchor == null) {
+			anchor = new ResourceAnchor(getFigure());
+		}
+		return anchor;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getSourceConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(
+			ConnectionEditPart connection) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.ConnectionEditPart)
+		return getConnectionAnchor();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(Request request) {
+		//@see org.eclipse.gef.NodeEditPart#getTargetConnectionAnchor(org.eclipse.gef.Request)
+		return getConnectionAnchor();
 	}
 
 	/**

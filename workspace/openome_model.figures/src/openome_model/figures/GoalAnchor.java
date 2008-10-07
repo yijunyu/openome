@@ -30,7 +30,7 @@ public GoalAnchor(IFigure owner) {
 	
 	// owner is the figure of the intention, and you must get it's grandparent
 	// to get the figure of the actor
-	actorBubbleAnchor = new EllipseAnchor(owner.getParent().getParent());
+	actorBubbleAnchor = new ActorSymbolAnchor(owner.getParent().getParent());
 }
 
 /**

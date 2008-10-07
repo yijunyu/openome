@@ -1,11 +1,14 @@
 package openome_model.figures;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Polygon;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.ChopboxAnchor;
 
 public class SoftgoalAnchor extends AbstractConnectionAnchor {
 
@@ -15,6 +18,10 @@ public class SoftgoalAnchor extends AbstractConnectionAnchor {
 public SoftgoalAnchor() { }
 
 private IFigure softgoalAnchorOwner;
+private boolean isInsideCollapsedCompartment = false;
+private ConnectionAnchor actorBubbleAnchor;
+
+private ChopboxAnchor outlineAnchor;
 
 /**
  * @see org.eclipse.draw2d.AbstractConnectionAnchor#AbstractConnectionAnchor(IFigure)
@@ -22,6 +29,28 @@ private IFigure softgoalAnchorOwner;
 public SoftgoalAnchor(IFigure owner) {
 	super(owner);
 	softgoalAnchorOwner = owner;
+	
+	// create an actor ellipse anchor, so that we can switch to it and use it instead
+	// when we want anchor points to be redirected to it instead..
+	
+	// owner is the figure of the intention, and you must get it's grandparent
+	// to get the figure of the actor
+	actorBubbleAnchor = new ActorSymbolAnchor(owner.getParent().getParent());
+	
+	// this is temporarily used as the softgoal anchor instead.. since the
+	// softgoal anchor doesn't work properly at the moment
+	outlineAnchor = new ChopboxAnchor(owner);
+}
+
+/**
+ * Tells anchor points to point to the collapsed actor symbol instead (if the
+ * intention is within an actor), rather than having them point to the intention as usual.
+ * 
+ * @param isCollapsed whether the actor that harbours this intention is now collapsed
+ * or not.
+ */
+public void setIsCollapsed(boolean isCollapsed) {
+	this.isInsideCollapsedCompartment = isCollapsed;
 }
 
 /**
@@ -31,92 +60,101 @@ public SoftgoalAnchor(IFigure owner) {
  */
 public Point getLocation(Point reference) {
 	
-	Rectangle r = Rectangle.SINGLETON;
-	r.setBounds(getOwner().getBounds());
-	r.translate(-1, -1);
-	r.resize(1, 1);
-	getOwner().translateToAbsolute(r);
-	
-	Point ref = r.getCenter().negate().translate(reference);
-	
-	float dx = (ref.x > 0) ? 0.5f : -0.5f;
-	float dy = (ref.y > 0) ? 0.5f : -0.5f;
-	  
-	// ref.x, ref.y, r.width, r.height != 0 => safe to proceed
-	  
-	double k = (float)(ref.y * r.preciseWidth()) / (ref.x * r.preciseHeight());
-	k = k * k;
-
-	int translateX = (int)(r.preciseWidth()  * dx / Math.sqrt(1 + k));
-	int translateY = (int)(r.preciseHeight() * dy / Math.sqrt(1 + 1 / k));
-	
-	
-	double rWidth = r.preciseWidth();
-	double rHeight = r.preciseHeight();
-	
-	double rt_x = ((double)translateX)/((double)rWidth);
-	double rt_y = ((double)translateY)/((double)rHeight);
-	
-	//////////////////////////////////////////////////////////
-	// obtain the list of points that would draw the softgoal figure
-	// and then determine the point in that list that is closest to
-	// the reference point.. that point will be our anchor point
-	
-	PointList pl = this.softgoalOutline();
-	Point closestPointToReference = pl.getFirstPoint();
-	double minDistanceRecord = reference.getDistance(closestPointToReference);
-	
-	for (int i = 0; i < pl.size(); i++) {
-		Point pl_Point = pl.getPoint(i);
-		double examinedDistance = reference.getDistance(pl_Point);
-		if (examinedDistance < minDistanceRecord) {
-			closestPointToReference = pl_Point;
-			minDistanceRecord = examinedDistance;
-		}
+	// if the goal is inside of a collapsed actor, we want all of it's
+	// anchor points to point to the actor instead now, rather than the goal
+	if (isInsideCollapsedCompartment) {
+		return actorBubbleAnchor.getLocation(reference);
+	} else {
+		return outlineAnchor.getLocation(reference);
 	}
 	
-	//System.out.println("soft result: " + closestPointToReference);//kn
 	
-	// figure out which of the 4 'corners' are are in:
-	// top left, top right, bottom left, or bottom right
-	int xDir = 0;
-	int yDir = 0;
-	
-	if (rt_x > 0) {
-		xDir = 1;
-	}
-	else if (rt_x < 0) {
-		xDir = -1;
-	}
-	
-	if (rt_y > 0) {
-		yDir = 1;
-	}
-	else if (rt_y < 0) {
-		yDir = -1;
-	}
-	
-	// these hardcoded numbers represent how much we whould be translating
-	// the x and y points by
-	double xTranslateFactor = (double)1/23;
-	double yTranslateFactor = (double)1/7;
-	
-	// the actual number of pixels we should be translating by x and by y
-	int xTranslateAmount = (int) (xDir * (r.preciseWidth()  * xTranslateFactor));
-	int yTranslateAmount = (int) (yDir * (r.preciseHeight() * yTranslateFactor));
-	//System.out.println("trans: " + xTranslateAmount + " " + yTranslateAmount);
-	// tighten the points by translating
-	closestPointToReference = closestPointToReference.translate(xTranslateAmount, yTranslateAmount);
-	
-	// shift up a little bit
-	//closestPointToReference = closestPointToReference.translate(0, (int)(-r.preciseHeight()/40));
-	
-	// shift right a little bit
-	closestPointToReference = closestPointToReference.translate((int)(r.preciseWidth()/30), 0);
-	
-	
-	
-	return closestPointToReference;
+//	Rectangle r = Rectangle.SINGLETON;
+//	r.setBounds(getOwner().getBounds());
+//	r.translate(-1, -1);
+//	r.resize(1, 1);
+//	getOwner().translateToAbsolute(r);
+//	
+//	Point ref = r.getCenter().negate().translate(reference);
+//	
+//	float dx = (ref.x > 0) ? 0.5f : -0.5f;
+//	float dy = (ref.y > 0) ? 0.5f : -0.5f;
+//	  
+//	// ref.x, ref.y, r.width, r.height != 0 => safe to proceed
+//	  
+//	double k = (float)(ref.y * r.preciseWidth()) / (ref.x * r.preciseHeight());
+//	k = k * k;
+//
+//	int translateX = (int)(r.preciseWidth()  * dx / Math.sqrt(1 + k));
+//	int translateY = (int)(r.preciseHeight() * dy / Math.sqrt(1 + 1 / k));
+//	
+//	
+//	double rWidth = r.preciseWidth();
+//	double rHeight = r.preciseHeight();
+//	
+//	double rt_x = ((double)translateX)/((double)rWidth);
+//	double rt_y = ((double)translateY)/((double)rHeight);
+//	
+//	//////////////////////////////////////////////////////////
+//	// obtain the list of points that would draw the softgoal figure
+//	// and then determine the point in that list that is closest to
+//	// the reference point.. that point will be our anchor point
+//	
+//	PointList pl = this.softgoalOutline();
+//	Point closestPointToReference = pl.getFirstPoint();
+//	double minDistanceRecord = reference.getDistance(closestPointToReference);
+//	
+//	for (int i = 0; i < pl.size(); i++) {
+//		Point pl_Point = pl.getPoint(i);
+//		double examinedDistance = reference.getDistance(pl_Point);
+//		if (examinedDistance < minDistanceRecord) {
+//			closestPointToReference = pl_Point;
+//			minDistanceRecord = examinedDistance;
+//		}
+//	}
+//	
+//	//System.out.println("soft result: " + closestPointToReference);//kn
+//	
+//	// figure out which of the 4 'corners' are are in:
+//	// top left, top right, bottom left, or bottom right
+//	int xDir = 0;
+//	int yDir = 0;
+//	
+//	if (rt_x > 0) {
+//		xDir = 1;
+//	}
+//	else if (rt_x < 0) {
+//		xDir = -1;
+//	}
+//	
+//	if (rt_y > 0) {
+//		yDir = 1;
+//	}
+//	else if (rt_y < 0) {
+//		yDir = -1;
+//	}
+//	
+//	// these hardcoded numbers represent how much we whould be translating
+//	// the x and y points by
+//	double xTranslateFactor = (double)1/23;
+//	double yTranslateFactor = (double)1/7;
+//	
+//	// the actual number of pixels we should be translating by x and by y
+//	int xTranslateAmount = (int) (xDir * (r.preciseWidth()  * xTranslateFactor));
+//	int yTranslateAmount = (int) (yDir * (r.preciseHeight() * yTranslateFactor));
+//	//System.out.println("trans: " + xTranslateAmount + " " + yTranslateAmount);
+//	// tighten the points by translating
+//	closestPointToReference = closestPointToReference.translate(xTranslateAmount, yTranslateAmount);
+//	
+//	// shift up a little bit
+//	//closestPointToReference = closestPointToReference.translate(0, (int)(-r.preciseHeight()/40));
+//	
+//	// shift right a little bit
+//	closestPointToReference = closestPointToReference.translate((int)(r.preciseWidth()/30), 0);
+//	
+//	
+//	
+//	return closestPointToReference;
 }
 
 

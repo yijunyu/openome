@@ -8,7 +8,6 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ScrollPane;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
@@ -113,10 +112,13 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 					EditPart ep = (EditPart)(listOfChildren.get(i));
 					if (ep instanceof Goal2EditPart) {
 						((Goal2EditPart)(ep)).setIsCollapsed(true);
-						
-					} else {
-
-					}
+					} else if (ep instanceof Softgoal2EditPart) {
+						((Softgoal2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Task2EditPart) {
+						((Task2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Resource2EditPart) {
+						((Resource2EditPart)(ep)).setIsCollapsed(true);
+					} 
 				}
 				
 				// store the original width and height of the figure
@@ -161,10 +163,13 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 					EditPart ep = (EditPart)(listOfChildren.get(i));
 					if (ep instanceof Goal2EditPart) {
 						((Goal2EditPart)(ep)).setIsCollapsed(false);
-
-					} else {
-
-					}
+					} else if (ep instanceof Softgoal2EditPart) {
+						((Softgoal2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Task2EditPart) {
+						((Task2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Resource2EditPart) {
+						((Resource2EditPart)(ep)).setIsCollapsed(false);
+					} 
 				}
 				
 				
