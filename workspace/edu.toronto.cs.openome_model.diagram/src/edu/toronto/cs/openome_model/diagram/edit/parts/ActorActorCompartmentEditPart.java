@@ -110,14 +110,58 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 				List listOfChildren = this.getChildren();
 				for (int i = 0; i < listOfChildren.size(); i++) {
 					EditPart ep = (EditPart)(listOfChildren.get(i));
-					if (ep instanceof Goal2EditPart) {
+					
+					// if it's a Goal intention:
+					if (ep instanceof GoalEditPart) {
+						((GoalEditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Goal2EditPart) {
 						((Goal2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Goal3EditPart) {
+						((Goal3EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Goal4EditPart) {
+						((Goal4EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Goal5EditPart) {
+						((Goal5EditPart)(ep)).setIsCollapsed(true);
+					}
+					
+					
+					// if it's a Softgoal intention:
+					if (ep instanceof SoftgoalEditPart) {
+						((SoftgoalEditPart)(ep)).setIsCollapsed(true);
 					} else if (ep instanceof Softgoal2EditPart) {
 						((Softgoal2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Softgoal3EditPart) {
+						((Softgoal3EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Softgoal4EditPart) {
+						((Softgoal4EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Softgoal5EditPart) {
+						((Softgoal5EditPart)(ep)).setIsCollapsed(true);
+					} 
+					
+					// if it's a Task intention:
+					if (ep instanceof TaskEditPart) {
+						((TaskEditPart)(ep)).setIsCollapsed(true);
 					} else if (ep instanceof Task2EditPart) {
 						((Task2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Task3EditPart) {
+						((Task3EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Task4EditPart) {
+						((Task4EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Task5EditPart) {
+						((Task5EditPart)(ep)).setIsCollapsed(true);
+					} 
+					
+					// if it's a Resource intention
+					if (ep instanceof ResourceEditPart) {
+						((ResourceEditPart)(ep)).setIsCollapsed(true);
 					} else if (ep instanceof Resource2EditPart) {
 						((Resource2EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Resource3EditPart) {
+						((Resource3EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Resource4EditPart) {
+						((Resource4EditPart)(ep)).setIsCollapsed(true);
+					} else if (ep instanceof Resource5EditPart) {
+						((Resource5EditPart)(ep)).setIsCollapsed(true);
 					} 
 				}
 				
@@ -161,14 +205,57 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 				List listOfChildren = this.getChildren();
 				for (int i = 0; i < listOfChildren.size(); i++) {
 					EditPart ep = (EditPart)(listOfChildren.get(i));
-					if (ep instanceof Goal2EditPart) {
+					// if it's a Goal intention:
+					if (ep instanceof GoalEditPart) {
+						((GoalEditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Goal2EditPart) {
 						((Goal2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Goal3EditPart) {
+						((Goal3EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Goal4EditPart) {
+						((Goal4EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Goal5EditPart) {
+						((Goal5EditPart)(ep)).setIsCollapsed(false);
+					}
+					
+					
+					// if it's a Softgoal intention:
+					if (ep instanceof SoftgoalEditPart) {
+						((SoftgoalEditPart)(ep)).setIsCollapsed(false);
 					} else if (ep instanceof Softgoal2EditPart) {
 						((Softgoal2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Softgoal3EditPart) {
+						((Softgoal3EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Softgoal4EditPart) {
+						((Softgoal4EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Softgoal5EditPart) {
+						((Softgoal5EditPart)(ep)).setIsCollapsed(false);
+					} 
+					
+					// if it's a Task intention:
+					if (ep instanceof TaskEditPart) {
+						((TaskEditPart)(ep)).setIsCollapsed(false);
 					} else if (ep instanceof Task2EditPart) {
 						((Task2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Task3EditPart) {
+						((Task3EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Task4EditPart) {
+						((Task4EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Task5EditPart) {
+						((Task5EditPart)(ep)).setIsCollapsed(false);
+					} 
+					
+					// if it's a Resource intention
+					if (ep instanceof ResourceEditPart) {
+						((ResourceEditPart)(ep)).setIsCollapsed(false);
 					} else if (ep instanceof Resource2EditPart) {
 						((Resource2EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Resource3EditPart) {
+						((Resource3EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Resource4EditPart) {
+						((Resource4EditPart)(ep)).setIsCollapsed(false);
+					} else if (ep instanceof Resource5EditPart) {
+						((Resource5EditPart)(ep)).setIsCollapsed(false);
 					} 
 				}
 				

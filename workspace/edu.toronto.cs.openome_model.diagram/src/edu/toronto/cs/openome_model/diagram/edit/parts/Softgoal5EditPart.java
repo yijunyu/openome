@@ -2,8 +2,8 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.OpenOMEBorderItemLocator;
+import openome_model.figures.SoftgoalAnchor;
 
-import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -20,10 +20,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -63,12 +61,23 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
+	 * Tells this intention figure to redirect it's anchor points to the actor
+	 * symbol, rather than the intention.
+	 * @generated NOT
+	 */
+	public void setIsCollapsed(boolean isCollapsed) {
+		// if the goal is inside of a collapsed actor, we want all of it's
+		// anchor points to point to the actor symbol instead now, rather than the intention
+		((SoftgoalAnchor)(this.getConnectionAnchor())).setIsCollapsed(isCollapsed);
+	}
+	
+	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-			//anchor = new SoftgoalAnchor(getFigure());
-			anchor = new ChopboxAnchor(getFigure());
+			anchor = new SoftgoalAnchor(getFigure());
+			//anchor = new ChopboxAnchor(getFigure());
 		}
 		return anchor;
 	}

@@ -2,6 +2,7 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.OpenOMEBorderItemLocator;
+import openome_model.figures.SoftgoalAnchor;
 
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
@@ -61,14 +62,25 @@ public class Softgoal4EditPart extends AbstractBorderedShapeEditPart {
 	public Softgoal4EditPart(View view) {
 		super(view);
 	}
+	
+	/**
+	 * Tells this intention figure to redirect it's anchor points to the actor
+	 * symbol, rather than the intention.
+	 * @generated NOT
+	 */
+	public void setIsCollapsed(boolean isCollapsed) {
+		// if the goal is inside of a collapsed actor, we want all of it's
+		// anchor points to point to the actor symbol instead now, rather than the intention
+		((SoftgoalAnchor)(this.getConnectionAnchor())).setIsCollapsed(isCollapsed);
+	}
 
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-			//anchor = new SoftgoalAnchor(getFigure());
-			anchor = new ChopboxAnchor(getFigure());
+			anchor = new SoftgoalAnchor(getFigure());
+			//anchor = new ChopboxAnchor(getFigure());
 		}
 		return anchor;
 	}

@@ -75,6 +75,17 @@ public class Goal3EditPart extends AbstractBorderedShapeEditPart {
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
+	
+	/**
+	 * Tells this intention figure to redirect it's anchor points to the actor
+	 * symbol, rather than the intention.
+	 * @generated NOT
+	 */
+	public void setIsCollapsed(boolean isCollapsed) {
+		// if the goal is inside of a collapsed actor, we want all of it's
+		// anchor points to point to the actor symbol instead now, rather than the intention
+		((GoalAnchor)(this.getConnectionAnchor())).setIsCollapsed(isCollapsed);
+	}
 
 	/**
 	 * @generated NOT

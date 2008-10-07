@@ -61,6 +61,17 @@ public class Task4EditPart extends AbstractBorderedShapeEditPart {
 	public Task4EditPart(View view) {
 		super(view);
 	}
+	
+	/**
+	 * Tells this intention figure to redirect it's anchor points to the actor
+	 * symbol, rather than the intention.
+	 * @generated NOT
+	 */
+	public void setIsCollapsed(boolean isCollapsed) {
+		// if the goal is inside of a collapsed actor, we want all of it's
+		// anchor points to point to the actor symbol instead now, rather than the intention
+		((TaskAnchor)(this.getConnectionAnchor())).setIsCollapsed(isCollapsed);
+	}
 
 	/**
 	 * @generated NOT
