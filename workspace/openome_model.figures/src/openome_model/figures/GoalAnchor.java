@@ -2,7 +2,6 @@ package openome_model.figures;
 
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -117,16 +116,30 @@ public boolean isCollapsed() {
 	return this.isInsideCollapsedCompartment;
 }
 
-public boolean equals(Object o) {
+/**
+ * Whether or not both intentions are collapsed within the same container
+ */
+public boolean collapsedInSameContainerAs(Object o) {
+	Object thisContainer = this.getOwner().getParent().getParent();
+	
+	boolean haveSameActor = false;
+	boolean areBothCollapsed = false;
+	
 	if (o instanceof GoalAnchor) {
-		boolean haveSameActor = (((GoalAnchor)o).getOwner().getParent().getParent()).equals(this.getOwner().getParent().getParent());
-		boolean areBothCollapsed = ((((GoalAnchor)o).isCollapsed() && this.isCollapsed()));
-		
-		// both goals are collapsed in the same actor
-		return haveSameActor && areBothCollapsed;
-		
-	} else {
-		return super.equals(o);
-	}
+		haveSameActor = (((GoalAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((GoalAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof SoftgoalAnchor) {
+		haveSameActor = (((SoftgoalAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((SoftgoalAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof ResourceAnchor) {
+		haveSameActor = (((ResourceAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((ResourceAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof TaskAnchor) {
+		haveSameActor = (((TaskAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((TaskAnchor)o).isCollapsed() && this.isCollapsed()));
+	} 
+	
+	// both goals are collapsed in the same actor
+	return haveSameActor && areBothCollapsed;
 }
 }

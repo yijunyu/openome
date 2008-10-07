@@ -53,12 +53,34 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			straightenLine();
 		}
 		
+		// determine whether or not we should draw the line (and decoration) or not..
+		// in the case where the dependency link connects 2 elements within the same
+		// container and the container is collapsed, we DO NOT draw the link
 		
 		ConnectionAnchor sourceAnchor = this.getSourceAnchor();
 		ConnectionAnchor targetAnchor = this.getTargetAnchor();
 		
-		if (!(sourceAnchor.equals(targetAnchor))) {
-			//the dependency link and the 'D' decoration should be visible
+		boolean goalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof GoalAnchor)
+				&& ((GoalAnchor)sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+		
+		boolean softGoalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof SoftgoalAnchor)
+				&& ((SoftgoalAnchor)sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+		
+		boolean TaskAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof TaskAnchor)
+				&& ((TaskAnchor)sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+		
+		boolean ResourceAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof ResourceAnchor)
+				&& ((ResourceAnchor)sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+		
+		
+		
+		if (goalAnchorInSameContainerAsTargetAnchor || softGoalAnchorInSameContainerAsTargetAnchor
+				|| TaskAnchorInSameContainerAsTargetAnchor || ResourceAnchorInSameContainerAsTargetAnchor) {
+			// if any of the checks were triggered (true), then that means that this link/connector
+			// is connecting (any) 2 intentions within the same container, and the container
+			// is collapsed.. so don't do anything (ie, dont' draw the link/connector)
+		} else {
+			// the dependency link and the 'D' decoration should be visible
 			
 			// draw the normal connecting link/connector first
 			super.outlineShape(g);
@@ -66,7 +88,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			// draw the 'D' decoration
 			draw_D_Decoration(g);
 		}
-		
+			
 	}
 	
 	/**

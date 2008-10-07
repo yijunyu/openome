@@ -2,6 +2,11 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import java.util.List;
 
+import openome_model.figures.GoalAnchor;
+import openome_model.figures.ResourceAnchor;
+import openome_model.figures.SoftgoalAnchor;
+import openome_model.figures.TaskAnchor;
+
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Graphics;
@@ -138,39 +143,62 @@ public class SomePlusContributionEditPart extends ConnectionNodeEditPart
 		 */
 		public void outlineShape(Graphics g) {
 			
-			// determine if the link/connector is pointing to the same
-			// container on both ends (in the case when the actor/container)
-			// is collapsed
+			// determine whether or not we should draw the line (and decoration) or not..
+			// in the case where the dependency link connects 2 elements within the same
+			// container and the container is collapsed, we DO NOT draw the link
+
 			ConnectionAnchor sourceAnchor = this.getSourceAnchor();
 			ConnectionAnchor targetAnchor = this.getTargetAnchor();
-			
-			// if both ends are indeed pointing to same container, don't
-			// draw the line/connector, and hide the decoration
-			if ((sourceAnchor.equals(targetAnchor))) {
+
+			boolean goalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof GoalAnchor) 
+					&& ((GoalAnchor) sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+
+			boolean softGoalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof SoftgoalAnchor) 
+					&& ((SoftgoalAnchor) sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+
+			boolean TaskAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof TaskAnchor) 
+					&& ((TaskAnchor) sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+
+			boolean ResourceAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof ResourceAnchor) 
+					&& ((ResourceAnchor) sourceAnchor).collapsedInSameContainerAs(targetAnchor));
+
+			if (goalAnchorInSameContainerAsTargetAnchor
+					|| softGoalAnchorInSameContainerAsTargetAnchor
+					|| TaskAnchorInSameContainerAsTargetAnchor
+					|| ResourceAnchorInSameContainerAsTargetAnchor) {
+				// if any of the checks were triggered (true), then that means
+				// that this link/connector
+				// is connecting (any) 2 intentions within the same container,
+				// and the container
+				// is collapsed.. so don't do anything (ie, dont' draw the
+				// link/connector)
+
 				this.getTargetDecoration().setVisible(false);
-				
-				// search for the contribution text (wrapping label), and hide it 
+
+				// search for the contribution text (wrapping label), and hide
+				// it
 				List listOfChildren = this.getChildren();
 				for (int i = 0; i < listOfChildren.size(); i++) {
-					Object currentChild = listOfChildren.get(i); 
+					Object currentChild = listOfChildren.get(i);
 					if (currentChild instanceof WrappingLabel) {
-						((WrappingLabel)currentChild).setVisible(false);
+						((WrappingLabel) currentChild).setVisible(false);
 					}
 				}
-				
+
 			} else {
 				// else, draw the line/connector and the decoration
 				super.outlineShape(g);
 				this.getTargetDecoration().setVisible(true);
-				
-				// search for the contribution text (wrapping label), and make it visible 
+
+				// search for the contribution text (wrapping label), and make
+				// it visible
 				List listOfChildren = this.getChildren();
 				for (int i = 0; i < listOfChildren.size(); i++) {
-					Object currentChild = listOfChildren.get(i); 
+					Object currentChild = listOfChildren.get(i);
 					if (currentChild instanceof WrappingLabel) {
-						((WrappingLabel)currentChild).setVisible(true);
+						((WrappingLabel) currentChild).setVisible(true);
 					}
-				}	
+				}
 			}
 		}
 

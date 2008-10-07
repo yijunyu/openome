@@ -216,4 +216,36 @@ public Point getLocation(Point reference) {
 	//System.out.println("task result: " + closestPoint); //kn
 	return closestPoint;
 }
+
+public boolean isCollapsed() {
+	return this.isInsideCollapsedCompartment;
+}
+
+/**
+ * Whether or not both intentions are collapsed within the same container
+ */
+public boolean collapsedInSameContainerAs(Object o) {
+	Object thisContainer = this.getOwner().getParent().getParent();
+	
+	boolean haveSameActor = false;
+	boolean areBothCollapsed = false;
+	
+	if (o instanceof GoalAnchor) {
+		haveSameActor = (((GoalAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((GoalAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof SoftgoalAnchor) {
+		haveSameActor = (((SoftgoalAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((SoftgoalAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof ResourceAnchor) {
+		haveSameActor = (((ResourceAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((ResourceAnchor)o).isCollapsed() && this.isCollapsed()));
+	} else if (o instanceof TaskAnchor) {
+		haveSameActor = (((TaskAnchor)o).getOwner().getParent().getParent()).equals(thisContainer);
+		areBothCollapsed = ((((TaskAnchor)o).isCollapsed() && this.isCollapsed()));
+	} 
+	
+	// both goals are collapsed in the same actor
+	return haveSameActor && areBothCollapsed;
+}
+
 }
