@@ -173,6 +173,7 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart implements
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
+				this.setVisible(false);
 				this.getTargetDecoration().setVisible(false);
 
 				// search for the contribution text (wrapping label), and hide
@@ -188,6 +189,7 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart implements
 			} else {
 				// else, draw the line/connector and the decoration
 				super.outlineShape(g);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(true);
 
 				// search for the contribution text (wrapping label), and make

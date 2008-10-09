@@ -79,6 +79,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			// if any of the checks were triggered (true), then that means that this link/connector
 			// is connecting (any) 2 intentions within the same container, and the container
 			// is collapsed.. so don't do anything (ie, dont' draw the link/connector)
+			this.setVisible(false);
 		} else {
 			// the dependency link and the 'D' decoration should be visible
 			
@@ -87,6 +88,8 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 			
 			// draw the 'D' decoration
 			draw_D_Decoration(g);
+			
+			this.setVisible(true);
 		}
 			
 	}

@@ -120,10 +120,12 @@ public class OrDecompositionEditPart extends ConnectionNodeEditPart implements
 				// is connecting (any) 2 intentions within the same container, and the container
 				// is collapsed.. so don't do anything (ie, dont' draw the link/connector)
 			
+				this.setVisible(false);
 				this.getTargetDecoration().setVisible(false);
 			} else {
 				// else, draw the line/connector and the decoration
 				super.outlineShape(g);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(true);
 			}
 			

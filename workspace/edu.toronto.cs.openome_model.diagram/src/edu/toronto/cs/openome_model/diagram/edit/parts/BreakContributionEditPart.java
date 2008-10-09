@@ -162,6 +162,18 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart implements
 			boolean ResourceAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof ResourceAnchor) 
 					&& ((ResourceAnchor) sourceAnchor).collapsedInSameContainerAs(targetAnchor));
 
+			// search for the contribution text (wrapping label)..
+			// depend on whehter it is connecting intentions within the same
+			// collapsed container or not, we will make it visible or hide it
+			List listOfChildren = this.getChildren();
+			WrappingLabel label = new WrappingLabel();
+			for (int i = 0; i < listOfChildren.size(); i++) {
+				Object currentChild = listOfChildren.get(i);
+				if (currentChild instanceof WrappingLabel) {
+					label = (WrappingLabel)currentChild;
+				}
+			}
+			
 			if (goalAnchorInSameContainerAsTargetAnchor
 					|| softGoalAnchorInSameContainerAsTargetAnchor
 					|| TaskAnchorInSameContainerAsTargetAnchor
@@ -173,32 +185,16 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart implements
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
+				this.setVisible(false);
 				this.getTargetDecoration().setVisible(false);
-
-				// search for the contribution text (wrapping label), and hide
-				// it
-				List listOfChildren = this.getChildren();
-				for (int i = 0; i < listOfChildren.size(); i++) {
-					Object currentChild = listOfChildren.get(i);
-					if (currentChild instanceof WrappingLabel) {
-						((WrappingLabel) currentChild).setVisible(false);
-					}
-				}
+				label.setVisible(false);
 
 			} else {
 				// else, draw the line/connector and the decoration
 				super.outlineShape(g);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(true);
-
-				// search for the contribution text (wrapping label), and make
-				// it visible
-				List listOfChildren = this.getChildren();
-				for (int i = 0; i < listOfChildren.size(); i++) {
-					Object currentChild = listOfChildren.get(i);
-					if (currentChild instanceof WrappingLabel) {
-						((WrappingLabel) currentChild).setVisible(true);
-					}
-				}
+				label.setVisible(true);
 			}
 		}
 
