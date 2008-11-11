@@ -80,12 +80,16 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 		list.add(createHandle(PositionConstants.SOUTH_WEST));
 		list.add(createHandle(PositionConstants.SOUTH_EAST));
 
-		// if we want to adjust the shape of the figure, we will allow
-		// them to resize north, east, south, or west
-		list.add(createHandle(PositionConstants.NORTH));
-		list.add(createHandle(PositionConstants.EAST));
-		list.add(createHandle(PositionConstants.SOUTH));
-		list.add(createHandle(PositionConstants.WEST));
+		// only add NESW resize points for actors, but not intentions
+		if (usedForActor) {
+			// if we want to adjust the shape of the figure, we will allow
+			// them to resize north, east, south, or west
+			list.add(createHandle(PositionConstants.NORTH));
+			list.add(createHandle(PositionConstants.EAST));
+			list.add(createHandle(PositionConstants.SOUTH));
+			list.add(createHandle(PositionConstants.WEST));	
+		}
+		
 
 		return list;
 	}
@@ -98,7 +102,14 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 				return new ResizeTracker(getOwner(), direction) {
 					@Override
 					public void mouseDrag(MouseEvent me, EditPartViewer viewer) {
-						me.stateMask |= SWT.SHIFT;
+						// apply the shift mask (to ensure that proportions are retained when resizing)
+						// only when we are resizing intentions, and not actors.. actors should
+						// be allowed to resize while not retaining their intention, but
+						// intentions would look distorted if they didn't retain their proportions
+						// so they must retain their proportions
+						if (!usedForActor) {
+							me.stateMask |= SWT.SHIFT;
+						}
 						super.mouseDrag(me, viewer);
 					}
 				};
