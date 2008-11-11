@@ -23,6 +23,15 @@ import org.eclipse.swt.events.MouseEvent;
  */
 public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 	private final GraphicalEditPart editPart;
+	
+	/**
+	 * Whether or not this edit policy is used for an actor.. if true,
+	 * then we want to return an empty list of resize points (such that
+	 * the user cannot resize the element when the actor is collapsed)
+	 * 
+	 * By default, it's false unless we explicitly say so by calling the setter
+	 */
+	private boolean usedForActor = false;
 
 	/**
 	 * Constructs a new {@link ConstrainedResizeShapeEditPolicy} for the
@@ -34,6 +43,14 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 	 */
 	public ConstrainedResizeShapeEditPolicy(GraphicalEditPart editPart) {
 		this.editPart = editPart;
+	}
+	
+	/**
+	 * Sets the new value for whether or not this edit policy is used for an actor
+	 * @param newValue
+	 */
+	public void setIsUsedForActor(boolean newValue) {
+		usedForActor = newValue;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -49,30 +66,30 @@ public class ConstrainedResizeShapeEditPolicy extends ResizableShapeEditPolicy {
 			}
 		}
 
-		// if the figure is collapsed
+		// if the figure is an actor/agent/position/role and is collapsed
 		if ((editPart.getFigure().getSize().height) <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD 
-		 && (editPart.getFigure().getSize().width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)) {
+		 && (editPart.getFigure().getSize().width <= ContainerSVGFigure.ACTOR_COLLAPSED_WIDTH_AND_HEIGHT_THRESHOLD)
+		 && usedForActor) {
 			// return the empty list with no resizable points
 			return list;
-		} else {
-			// the figure isn't  collapsed, but we want the aspect ratio to be preserved
-			// when the user is resizing
-			
-			list.add(createHandle(PositionConstants.NORTH_WEST));
-			list.add(createHandle(PositionConstants.NORTH_EAST));
-			list.add(createHandle(PositionConstants.SOUTH_WEST));
-			list.add(createHandle(PositionConstants.SOUTH_EAST));
-	
-			// if we want to adjust the shape of the figure, we will allow
-			// them to resize north, east, south, or west
-			list.add(createHandle(PositionConstants.NORTH));
-			list.add(createHandle(PositionConstants.EAST));
-			list.add(createHandle(PositionConstants.SOUTH));
-			list.add(createHandle(PositionConstants.WEST));
-	
-			return list;
 		}
+		
+			
+		list.add(createHandle(PositionConstants.NORTH_WEST));
+		list.add(createHandle(PositionConstants.NORTH_EAST));
+		list.add(createHandle(PositionConstants.SOUTH_WEST));
+		list.add(createHandle(PositionConstants.SOUTH_EAST));
+
+		// if we want to adjust the shape of the figure, we will allow
+		// them to resize north, east, south, or west
+		list.add(createHandle(PositionConstants.NORTH));
+		list.add(createHandle(PositionConstants.EAST));
+		list.add(createHandle(PositionConstants.SOUTH));
+		list.add(createHandle(PositionConstants.WEST));
+
+		return list;
 	}
+
 
 	private ResizeHandle createHandle(final int direction) {
 		return new ResizeHandle(this.editPart, direction) {

@@ -114,7 +114,9 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		// use the constrained resize shape edit policy
 		// to ensure that aspect ratio is maintained
 		// when the figure is being resized
-		return new ConstrainedResizeShapeEditPolicy(this);
+		ConstrainedResizeShapeEditPolicy ep = new ConstrainedResizeShapeEditPolicy(this);
+		ep.setIsUsedForActor(true);
+		return ep;
 	}
 
 	/**
