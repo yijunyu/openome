@@ -63,8 +63,10 @@ public class ContainerSVGFigure extends NodeSVGFigure {
 			// place the actor symbol at the top left corner, rather than calculating the exact point
 			int actorSymbolThreshold = ContainerSVGFigure.SIZE_OF_ACTOR_FOR_FIXED_SYMBOL;
 			
+			// if the entire actor figure is too small to fit the actor symbol (which is fixed)
+			// then ensure that we don't adjust the location
 			if ((getParent().getBounds().preciseHeight() <= actorSymbolThreshold) 
-			 || (getParent().getBounds().preciseHeight()) <= actorSymbolThreshold) {
+			 || (getParent().getBounds().preciseWidth()) <= actorSymbolThreshold) {
 				x = getParent().getBounds().x;
 				y = getParent().getBounds().y;
 				

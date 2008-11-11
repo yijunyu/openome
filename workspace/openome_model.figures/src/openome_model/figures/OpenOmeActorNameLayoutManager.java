@@ -101,14 +101,15 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 				
 				// determine the offset, used for placing the actor name at a certain spot
 				// within the actor figure
-				float offsetConstant = .700f + (((figureHeight - 250.0f)/100.0f) * 0.025f);
+				float yOffsetConstant = .700f + (((figureHeight - 250.0f)/100.0f) * 0.025f);
+				float xOffsetConstant = .700f + (((figureWidth - 250.0f)/100.0f) * 0.025f);
 				
 				//default
 				//float offsetConstant = 0.707f;
 				
 				// determine the exact location of where the symbol should be placed
-				int xoffset = (int) (rec.width * (1 - offsetConstant) / 2);
-				int yoffset = (int) (rec.height * (1 - offsetConstant) / 2);
+				int xoffset = (int) (rec.width * (1 - xOffsetConstant) / 2);
+				int yoffset = (int) (rec.height * (1 - yOffsetConstant) / 2);
 				
 				// finally, determine the exact position of where the actor symbol should be placed
 				int x = rec.x + xoffset - r / 2;
@@ -134,7 +135,7 @@ public class OpenOmeActorNameLayoutManager extends AbstractHintLayout
 				// vertically and horizontally centre align the text
 				((WrappingLabel)child).setTextJustification(PositionConstants.CENTER);
 				((WrappingLabel)child).setAlignment(PositionConstants.CENTER);
-				/////////////////////////////////////
+				/////////////////////////////////////				
 				
 				child.setBounds(new Rectangle(x, y, r-15, r-15));
 			}
