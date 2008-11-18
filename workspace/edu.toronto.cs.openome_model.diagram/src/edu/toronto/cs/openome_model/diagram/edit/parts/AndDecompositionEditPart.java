@@ -76,6 +76,16 @@ public class AndDecompositionEditPart extends ConnectionNodeEditPart implements
 
 			setTargetDecoration(createTargetDecoration());
 		}
+		
+		/**
+		 * *** NOTE: This method has been overridden to prevent
+		 * the link to be hidden. This method will always call super.setVisible(true) ***
+		 * @generated NOT
+		 */
+		public void setVisible(boolean newbool) {
+			super.setVisible(true);
+			this.refreshLine();
+		}
 
 		/**
 		 * @generated

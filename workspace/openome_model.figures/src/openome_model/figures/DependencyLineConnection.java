@@ -212,6 +212,15 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 	}
 	
 	/**
+	 * *** NOTE: This method has been overridden to prevent
+	 * the link to be hidden. This method will always call super.setVisible(true) ***
+	 */
+	public void setVisible(boolean newbool) {
+		super.setVisible(true);
+		this.refreshLine();
+	}
+	
+	/**
 	 * Straighten the connector so that there are no bends or curves
 	 */
 	private void straightenLine() {
