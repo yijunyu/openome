@@ -10,7 +10,7 @@ public class SetSatisfiedLabelAction extends SetEvaluationLabelAction {
 	private EvaluationLabel privateEvalLabel = EvaluationLabel.SATISFIED;
 	private String privateID = "SetSatisfiedLabelAction";
 	private String privateEvalLabelText = "Satisfied";
-	private String imageFile = "SatisfiedEval.png";
+	private String imageFile = "satisfiedEval.png";
 	
 	protected SetSatisfiedLabelAction(IWorkbenchPage workbenchPage) {
 		super(workbenchPage);
