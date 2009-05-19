@@ -46,7 +46,7 @@ public class OpenOMEBorderItemLocator extends BorderItemLocator {
 	 *            recursion count to avoid an infinite loop
 	 * @return point
 	 */
-	private Point locateOnBorder(Point suggestedLocation, int suggestedSide, int circuitCount, IFigure borderItem) {
+	protected Point locateOnBorder(Point suggestedLocation, int suggestedSide, int circuitCount, IFigure borderItem) {
 		Point recommendedLocation = locateOnParent(suggestedLocation,
 			suggestedSide, borderItem);
 
@@ -108,7 +108,7 @@ public class OpenOMEBorderItemLocator extends BorderItemLocator {
 	 * @param suggestedSide a PositionConstant indicating the suggested side.
 	 * @return point the absolute coordinates of where the item will be located.
 	 */
-	private Point locateOnParent(Point suggestedLocation, int suggestedSide,
+	protected Point locateOnParent(Point suggestedLocation, int suggestedSide,
 			IFigure borderItem) {
 		Rectangle bounds = getParentBorder();
 		int parentFigureWidth = bounds.width;
