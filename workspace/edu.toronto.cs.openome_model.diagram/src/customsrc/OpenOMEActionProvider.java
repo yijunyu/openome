@@ -29,6 +29,7 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
         	return new SetDeniedLabelAction(workbenchPage);
         } else if (actionId.equals("SetUnknownLabelAction")) {
         	return new SetUnknownLabelAction(workbenchPage);
+        // Enable right click popmenu for lines
         } else if (actionId.equals("StraightenLinesAction")) {
         	return new StraightenLinesAction(workbenchPage);
         }else {

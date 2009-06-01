@@ -4,8 +4,7 @@ import org.eclipse.ui.IWorkbenchPage;
 
 public class StraightenLinesAction extends SetLineConnectionAction {
 	
-	//private EvaluationLabel privateEvalLabel = EvaluationLabel.CONFLICT;
-	private String privateID = "StraightenLinesAction";
+	private String privateID = "StraightenLinesAction"; // this is how plugin.xml recognize us
 	private String privateCommandLabelText = "Straighten Line";
 	
 	protected StraightenLinesAction(IWorkbenchPage workbenchPage) {
