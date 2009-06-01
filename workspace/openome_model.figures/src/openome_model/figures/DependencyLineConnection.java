@@ -223,7 +223,7 @@ public class DependencyLineConnection extends PolylineConnectionEx {
 	/**
 	 * Straighten the connector so that there are no bends or curves
 	 */
-	private void straightenLine() {
+	public void straightenLine() {
 
 		// straighten the line by simply redefining a brand new routing
 		// constraint, that contains only the source and target points
