@@ -67,7 +67,7 @@
                label="%loadResourceActionLabel"
                menubarPath="additions">
          </action>
-      </objectContribution>
+      </objectContribution>           
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
@@ -692,14 +692,14 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
       <?gmfgen generated="true"?>
-      <clientContext id="openome_modelClientContext">
+      <clientContext id="edu.toronto.cs.openome_model.diagram.TypeContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="edu.toronto.cs.openome_model.diagram.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="openome_modelClientContext">
+      <binding context="edu.toronto.cs.openome_model.diagram.TypeContext">
          <elementType ref="edu.toronto.cs.openome_model.diagram.Model_79"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Actor_1001"/>
          <elementType ref="edu.toronto.cs.openome_model.diagram.Agent_1002"/>
@@ -884,12 +884,6 @@
          description="%update.diagram.description"
          id="edu.toronto.cs.openome_model.diagram.updateDiagram"
          name="%update.diagram.name"/>
-      <command
-            defaultHandler="edu.toronto.cs.openome_model.diagram.layout.handlers.SquareLayoutHandler"
-            description="Apply a square layout to the nodes"
-            id="edu.toronto.cs.openome_model.diagram.squarelayout"
-            name="SquareLayout">
-      </command>
    </extension>
    
    <extension point="org.eclipse.ui.bindings">
@@ -1027,6 +1021,71 @@
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart">
             </popupStructuredContributionCriteria></popupContribution>
+         <popupContribution
+               class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupAction
+                  id="StraightenLinesAction"
+                  path="/additionsGroup">
+            </popupAction>
+            <popupActionGroup
+                  id="LineConnectionTypes"
+                  path="/additionsGroup">
+            </popupActionGroup>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart">
+            </popupStructuredContributionCriteria>
+         </popupContribution>
       </contributionItemProvider>
    </extension>
    

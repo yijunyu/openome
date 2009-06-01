@@ -29,7 +29,9 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
         	return new SetDeniedLabelAction(workbenchPage);
         } else if (actionId.equals("SetUnknownLabelAction")) {
         	return new SetUnknownLabelAction(workbenchPage);
-        } else {
+        } else if (actionId.equals("StraightenLinesAction")) {
+        	return new StraightenLinesAction(workbenchPage);
+        }else {
         	return null;        	
         }
 	}

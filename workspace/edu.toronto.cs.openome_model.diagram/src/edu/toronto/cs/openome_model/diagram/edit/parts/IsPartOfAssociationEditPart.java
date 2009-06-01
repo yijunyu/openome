@@ -1,7 +1,11 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import java.util.ArrayList;
+
+import org.eclipse.draw2d.AbsoluteBendpoint;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.RotatableDecoration;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
@@ -98,6 +102,25 @@ public class IsPartOfAssociationEditPart extends ConnectionNodeEditPart
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
+		}
+		
+		/**
+		 * Straighten the connector so that there are no bends or curves
+		 */
+		public void straightenLine() {
+
+			// straighten the line by simply redefining a brand new routing
+			// constraint, that contains only the source and target points
+			
+			Point sourcePoint = this.getPoints().getFirstPoint();
+			Point targetPoint = this.getPoints().getLastPoint();
+			
+			ArrayList<AbsoluteBendpoint> list = new ArrayList<AbsoluteBendpoint>();
+			
+			list.add(new AbsoluteBendpoint(sourcePoint));
+			list.add(new AbsoluteBendpoint(targetPoint));
+			this.setRoutingConstraint(list);
+
 		}
 
 		/**
