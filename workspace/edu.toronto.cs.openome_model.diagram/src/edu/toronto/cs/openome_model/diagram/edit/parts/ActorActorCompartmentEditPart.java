@@ -8,6 +8,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ScrollPane;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
@@ -16,6 +17,7 @@ import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.listener.NotificationUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -25,6 +27,8 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.ActorFigure;
 
 /**
  * @generated
@@ -51,7 +55,13 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	 * @generated NOT
 	 */
 	int storedHeight = 450;
-
+	
+	/**
+	 * The minimum size of the actor compartment in order
+	 * to keep it from moving the elements inside it
+	 * while contracting - see ticket #171
+	 */
+	Dimension minimumContraction = new Dimension(0, 0);
 	/**
 	 * @generated
 	 */
@@ -65,6 +75,14 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	public String getCompartmentName() {
 		return edu.toronto.cs.openome_model.diagram.part.Messages.ActorActorCompartmentEditPart_title;
 	}
+	
+	/**
+	 * 
+	 * @return the minimum size that the compartment may contract to
+	 */
+	public Dimension getMinimumContraction(){
+		return minimumContraction;
+	}
 
 	/**
 	 * Refreshes the connections inside the shape compartment if the supplied
@@ -76,20 +94,159 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	 * @generated NOT
 	 */
 	protected void handleNotificationEvent(Notification event) {
-
 		// ensures that the scroll bars never show up
 		this.getCompartmentFigure().getScrollPane().setVerticalScrollBarVisibility(ScrollPane.NEVER);
 		this.getCompartmentFigure().getScrollPane().setHorizontalScrollBarVisibility(ScrollPane.NEVER);
 		
 		Object feature = event.getFeature();
+		
+		// Handling a resize event
 		if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)
 				|| NotationPackage.eINSTANCE.getSize_Height().equals(feature)) {
+			
+			/*
+			 * Before proceeding with the resize, 
+			 * we should calculate how far the compartment can be shrunk
+			 * 
+			 * What we want to do is look into our compartment
+			 * and calculate the size of all its element
+			 * 
+			 * We can then find the elements lying closest to the boundary
+			 * and set a constraint that we cannot contract farther than
+			 * those elements' coordinates
+			 * */
+			
+			List children = this.getChildren();
+			int maxx = 0, maxy = 0;
+			int padding = 30; 
+			Rectangle currentRect;
+			for (int i = 0; i < children.size(); i++) {
+				EditPart ep = (EditPart)(children.get(i));
+				
+				// if it's a Goal intention:
+				if (ep instanceof GoalEditPart) {
+					currentRect = ((GoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal2EditPart) {
+					currentRect = ((Goal2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal3EditPart) {
+					currentRect = ((Goal3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal4EditPart) {
+					currentRect = ((Goal4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal5EditPart) {
+					currentRect = ((GoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				}
+				
+				
+				// if it's a Softgoal intention:
+				if (ep instanceof SoftgoalEditPart) {
+					currentRect = ((SoftgoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal2EditPart) {
+					currentRect = ((Softgoal2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal3EditPart) {
+					currentRect = ((Softgoal3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal4EditPart) {
+					currentRect = ((Softgoal4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal5EditPart) {
+					currentRect = ((Softgoal5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+				
+				// if it's a Task intention:
+				if (ep instanceof TaskEditPart) {
+					currentRect = ((TaskEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task2EditPart) {
+					currentRect = ((Task2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task3EditPart) {
+					currentRect = ((Task3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task4EditPart) {
+					currentRect = ((Task4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task5EditPart) {
+					currentRect = ((Task5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+				
+				// if it's a Resource intention
+				if (ep instanceof ResourceEditPart) {
+					currentRect = ((ResourceEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource2EditPart) {
+					currentRect = ((Resource2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource3EditPart) {
+					currentRect = ((Resource3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource4EditPart) {
+					currentRect = ((Resource4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource5EditPart) {
+					currentRect = ((Resource5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+			}
+			
+			// Calculate and set the shrinking bound
+			minimumContraction = (new Dimension(getMapMode().DPtoLP(maxx + padding), getMapMode().DPtoLP(maxy + padding)));
+			IGraphicalEditPart actorEdit = (IGraphicalEditPart) getParent();
+			((ActorEditPart) actorEdit).getPrimaryShape().setMinimumContraction(minimumContraction);
+
 			refreshConnections();
 		} else if (NotationPackage.eINSTANCE.getDrawerStyle_Collapsed().equals(
 				feature)) {
 			boolean isCollapsed = ((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
 					.getDrawerStyle_Collapsed())).booleanValue();
-
 			// normally, we would call this method to hide the intentions
 			// within the actor, but when you make the intentions not visible,
 			// you also make the links/connects connected to the intention
@@ -102,7 +259,7 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 
 			int xLocation = this.getFigure().getBounds().x;
 			int yLocation = this.getFigure().getBounds().y;
-
+			
 			if (isCollapsed) {
 				
 				// determine which type of intention it is, then redirect it's

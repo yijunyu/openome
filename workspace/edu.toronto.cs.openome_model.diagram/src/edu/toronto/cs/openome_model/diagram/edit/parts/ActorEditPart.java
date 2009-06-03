@@ -354,7 +354,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigureActorBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
+					getMapMode().DPtoLP(200), getMapMode().DPtoLP(200)));
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
@@ -369,6 +369,13 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorNameFigure.setFont(FFIGUREACTORNAMEFIGURE_FONT);
 
 			actorSVGFigure1.add(fFigureActorNameFigure);
+		}
+		
+		/*
+		 * Sets the minimum size that the container may contract to
+		 */
+		public void setMinimumContraction(Dimension d){
+			fFigureActorBoundaryFigure.setMinimumSize(d);
 		}
 
 		/**
