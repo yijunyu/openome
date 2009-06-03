@@ -55,6 +55,7 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	 * @generated NOT
 	 */
 	int storedHeight = 450;
+
 	
 	/**
 	 * The minimum size of the actor compartment in order
@@ -117,9 +118,11 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			 * */
 			
 			List children = this.getChildren();
-			int maxx = 0, maxy = 0;
+			int maxx = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
+			int maxy = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 			int padding = 30; 
 			Rectangle currentRect;
+			
 			for (int i = 0; i < children.size(); i++) {
 				EditPart ep = (EditPart)(children.get(i));
 				
@@ -241,6 +244,15 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			minimumContraction = (new Dimension(getMapMode().DPtoLP(maxx + padding), getMapMode().DPtoLP(maxy + padding)));
 			IGraphicalEditPart actorEdit = (IGraphicalEditPart) getParent();
 			((ActorEditPart) actorEdit).getPrimaryShape().setMinimumContraction(minimumContraction);
+			
+			// We would like the new bound to not interfere with collapsing 
+			// or resizing with no elements
+			if(((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
+					.getDrawerStyle_Collapsed())).booleanValue() || 
+					children.size() == 0){
+				((ActorEditPart) actorEdit).getPrimaryShape().setMinimumContraction(
+						new Dimension(ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL, ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL));
+			}
 
 			refreshConnections();
 		} else if (NotationPackage.eINSTANCE.getDrawerStyle_Collapsed().equals(

@@ -354,7 +354,7 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			fFigureActorBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
 			fFigureActorBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(200), getMapMode().DPtoLP(200)));
+					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
