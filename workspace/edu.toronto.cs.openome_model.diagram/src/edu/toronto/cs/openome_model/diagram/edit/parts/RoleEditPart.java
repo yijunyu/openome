@@ -357,6 +357,13 @@ public class RoleEditPart extends ShapeNodeEditPart {
 			roleSVGFigure1.add(fFigureRoleNameFigure);
 
 		}
+		
+		/*
+		 * Sets the minimum size that the container may contract to
+		 */
+		public void setMinimumContraction(Dimension d){
+			fFigureRoleBoundaryFigure.setMinimumSize(d);
+		}
 
 		/**
 		 * @generated

@@ -357,6 +357,13 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			agentSVGFigure1.add(fFigureAgentNameFigure);
 
 		}
+		
+		/*
+		 * Sets the minimum size that the container may contract to
+		 */
+		public void setMinimumContraction(Dimension d){
+			fFigureAgentBoundaryFigure.setMinimumSize(d);
+		}
 
 		/**
 		 * @generated

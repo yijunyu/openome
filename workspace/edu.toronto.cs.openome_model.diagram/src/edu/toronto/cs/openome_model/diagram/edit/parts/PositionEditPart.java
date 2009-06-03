@@ -358,6 +358,13 @@ public class PositionEditPart extends ShapeNodeEditPart {
 			positionSVGFigure1.add(fFigurePositionNameFigure);
 
 		}
+		
+		/*
+		 * Sets the minimum size that the container may contract to
+		 */
+		public void setMinimumContraction(Dimension d){
+			fFigurePositionBoundaryFigure.setMinimumSize(d);
+		}
 
 		/**
 		 * @generated

@@ -8,6 +8,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ScrollPane;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
@@ -16,6 +17,7 @@ import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.listener.NotificationUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -87,6 +89,154 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 		if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)
 				|| NotationPackage.eINSTANCE.getSize_Height().equals(feature)) {
 			refreshConnections();
+			/*
+			 * Before proceeding with the resize, 
+			 * we should calculate how far the compartment can be shrunk
+			 * 
+			 * What we want to do is look into our compartment
+			 * and calculate the size of all its element
+			 * 
+			 * We can then find the elements lying closest to the boundary
+			 * and set a constraint that we cannot contract farther than
+			 * those elements' coordinates
+			 * */
+			
+			List children = this.getChildren();
+			int maxx = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
+			int maxy = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
+			int padding = 30; 
+			Rectangle currentRect;
+			
+			for (int i = 0; i < children.size(); i++) {
+				EditPart ep = (EditPart)(children.get(i));
+				
+				// if it's a Goal intention:
+				if (ep instanceof GoalEditPart) {
+					currentRect = ((GoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal2EditPart) {
+					currentRect = ((Goal2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal3EditPart) {
+					currentRect = ((Goal3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal4EditPart) {
+					currentRect = ((Goal4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Goal5EditPart) {
+					currentRect = ((GoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				}
+				
+				
+				// if it's a Softgoal intention:
+				if (ep instanceof SoftgoalEditPart) {
+					currentRect = ((SoftgoalEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal2EditPart) {
+					currentRect = ((Softgoal2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal3EditPart) {
+					currentRect = ((Softgoal3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal4EditPart) {
+					currentRect = ((Softgoal4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Softgoal5EditPart) {
+					currentRect = ((Softgoal5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+				
+				// if it's a Task intention:
+				if (ep instanceof TaskEditPart) {
+					currentRect = ((TaskEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task2EditPart) {
+					currentRect = ((Task2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task3EditPart) {
+					currentRect = ((Task3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task4EditPart) {
+					currentRect = ((Task4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Task5EditPart) {
+					currentRect = ((Task5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+				
+				// if it's a Resource intention
+				if (ep instanceof ResourceEditPart) {
+					currentRect = ((ResourceEditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource2EditPart) {
+					currentRect = ((Resource2EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource3EditPart) {
+					currentRect = ((Resource3EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource4EditPart) {
+					currentRect = ((Resource4EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} else if (ep instanceof Resource5EditPart) {
+					currentRect = ((Resource5EditPart)(ep)).getPrimaryShape().getBounds();
+					maxx = Math.max(currentRect.x + currentRect.width, maxx);
+					maxy = Math.max(currentRect.y + currentRect.height, maxy);
+					
+				} 
+			}
+			
+			// Calculate and set the shrinking bound
+			Dimension minimumContraction = (new Dimension(getMapMode().DPtoLP(maxx + padding), getMapMode().DPtoLP(maxy + padding)));
+			IGraphicalEditPart roleEdit = (IGraphicalEditPart) getParent();
+			((RoleEditPart) roleEdit).getPrimaryShape().setMinimumContraction(minimumContraction);
+			
+			// We would like the new bound to not interfere with collapsing 
+			// or resizing with no elements
+			if(((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
+					.getDrawerStyle_Collapsed())).booleanValue() || 
+					children.size() == 0){
+				((RoleEditPart) roleEdit).getPrimaryShape().setMinimumContraction(
+						new Dimension(ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL, ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL));
+			}
 		} else if (NotationPackage.eINSTANCE.getDrawerStyle_Collapsed().equals(
 				feature)) {
 			boolean isCollapsed = ((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
