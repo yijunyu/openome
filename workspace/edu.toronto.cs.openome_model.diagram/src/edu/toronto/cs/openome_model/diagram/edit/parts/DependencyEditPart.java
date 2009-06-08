@@ -1,9 +1,13 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.draw2d.Connection;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -11,7 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class DependencyEditPart extends ConnectionNodeEditPart implements
 		ITreeBranchEditPart {
-
+	
 	/**
 	 * @generated
 	 */
@@ -51,6 +55,24 @@ public class DependencyEditPart extends ConnectionNodeEditPart implements
 	 */
 	public openome_model.figures.DependencyLineConnection getPrimaryShape() {
 		return (openome_model.figures.DependencyLineConnection) getFigure();
+	}
+	
+	/**
+	 * Make this line straight
+	 */
+	public void straightenLine(){
+		// Straighten the connector figure
+		getPrimaryShape().straightenLine();
+		
+		// Now update the Bendpoints list to 0, since a  straight line has no bendpoint
+		// otherwise next time the line get refreshed the straight effect would be nullified
+		RelativeBendpoints bendpoints = (RelativeBendpoints) getEdge().getBendpoints();
+		ArrayList <RelativeBendpoints> emptyList = new ArrayList<RelativeBendpoints>();
+		
+		// Update the Bendpoint collection in such a way that no odd notification is given
+		bendpoints.eSetDeliver(false);
+		bendpoints.setPoints(emptyList);
+		bendpoints.eSetDeliver(true);
 	}
 
 }

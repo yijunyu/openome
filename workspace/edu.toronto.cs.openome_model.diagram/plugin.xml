@@ -1062,12 +1062,6 @@
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart">
             </popupStructuredContributionCriteria>
             <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart">
             </popupStructuredContributionCriteria>
             <popupStructuredContributionCriteria

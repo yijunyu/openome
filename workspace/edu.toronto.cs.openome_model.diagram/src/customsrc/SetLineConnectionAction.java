@@ -75,64 +75,56 @@ public class SetLineConnectionAction extends AbstractActionHandler {
 			// DEPENDENCY
 			
 			if (connection instanceof DependencyEditPart) {
-				((DependencyLineConnection)((DependencyEditPart) connection).getFigure()).straightenLine();
+				((DependencyEditPart) connection).straightenLine();
 			} 
 			
-			// DECOMPOSITIONS
-			else if (connection instanceof AndDecompositionEditPart) {				
-				((AndDecompositionFigure)((AndDecompositionEditPart) connection).getFigure()).straightenLine();
-			}
-			else if (connection instanceof OrDecompositionEditPart) {				
-				((OrDecompositionFigure)((OrDecompositionEditPart) connection).getFigure()).straightenLine();
-			}
-			
 			// CONTRIBUTIONS
-			else if (connection instanceof AndContributionEditPart) {				
-				((AndContributionFigure)((AndContributionEditPart) connection).getFigure()).straightenLine();
+			else if (connection instanceof AndContributionEditPart) {
+				((AndContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof BreakContributionEditPart) {				
-				((BreakContributionFigure)((BreakContributionEditPart) connection).getFigure()).straightenLine();
+				((BreakContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof HelpContributionEditPart) {				
-				((HelpContributionFigure)((HelpContributionEditPart) connection).getFigure()).straightenLine();
+				((HelpContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof HurtContributionEditPart) {				
-				((HurtContributionFigure)((HurtContributionEditPart) connection).getFigure()).straightenLine();
+				((HurtContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof MakeContributionEditPart) {				
-				((MakeContributionFigure)((MakeContributionEditPart) connection).getFigure()).straightenLine();
+				((MakeContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof OrContributionEditPart) {				
-				((OrContributionFigure)((OrContributionEditPart) connection).getFigure()).straightenLine();
+				((OrContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof SomePlusContributionEditPart) {				
-				((SomePlusContributionFigure)((SomePlusContributionEditPart) connection).getFigure()).straightenLine();
+				((SomePlusContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof SomeMinusContributionEditPart) {				
-				((SomeMinusContributionFigure)((SomeMinusContributionEditPart) connection).getFigure()).straightenLine();
+				((SomeMinusContributionEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof UnknownContributionEditPart) {				
-				((UnknownContributionFigure)((UnknownContributionEditPart) connection).getFigure()).straightenLine();
+				((UnknownContributionEditPart) connection).straightenLine();
 			}
 			
 			// ASSOCIATIONS
 			else if (connection instanceof CoversAssociationEditPart) {				
-				((CoversAssociationFigure)((CoversAssociationEditPart) connection).getFigure()).straightenLine();
+				((CoversAssociationEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof INSAssociationEditPart) {				
-				((INSAssociationFigure)((INSAssociationEditPart) connection).getFigure()).straightenLine();
+				((INSAssociationEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof IsAAssociationEditPart) {				
-				((IsAAssociationFigure)((IsAAssociationEditPart) connection).getFigure()).straightenLine();
+				((IsAAssociationEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof IsPartOfAssociationEditPart) {				
-				((IsPartOfAssociationFigure)((IsPartOfAssociationEditPart) connection).getFigure()).straightenLine();
+				((IsPartOfAssociationEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof OccupiesAssociationEditPart) {				
-				((OccupiesAssociationFigure)((OccupiesAssociationEditPart) connection).getFigure()).straightenLine();
+				((OccupiesAssociationEditPart) connection).straightenLine();
 			}
 			else if (connection instanceof PlaysAssociationEditPart) {				
-				((PlaysAssociationFigure)((PlaysAssociationEditPart) connection).getFigure()).straightenLine();
+				((PlaysAssociationEditPart) connection).straightenLine();
 			}
 		}
 	}

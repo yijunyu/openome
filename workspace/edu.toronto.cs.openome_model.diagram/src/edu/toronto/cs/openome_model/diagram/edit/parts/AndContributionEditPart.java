@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.notation.RelativeBendpoints;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -91,6 +92,24 @@ public class AndContributionEditPart extends ConnectionNodeEditPart implements
 	public AndContributionFigure getPrimaryShape() {
 		return (AndContributionFigure) getFigure();
 	}
+	
+	/**
+	 * Make this line straight
+	 */
+	public void straightenLine(){
+		// Straighten the connector figure
+		getPrimaryShape().straightenLine();
+		
+		// Now update the Bendpoints list to 0, since a  straight line has no bendpoint
+		// otherwise next time the line get refreshed the straight effect would be nullified
+		RelativeBendpoints bendpoints = (RelativeBendpoints) getEdge().getBendpoints();
+		ArrayList <RelativeBendpoints> emptyList = new ArrayList<RelativeBendpoints>();
+		
+		// Update the Bendpoint collection in such a way that no odd notification is given
+		bendpoints.eSetDeliver(false);
+		bendpoints.setPoints(emptyList);
+		bendpoints.eSetDeliver(true);
+	}
 
 	/**
 	 * @generated
@@ -128,6 +147,7 @@ public class AndContributionEditPart extends ConnectionNodeEditPart implements
 			list.add(new AbsoluteBendpoint(sourcePoint));
 			list.add(new AbsoluteBendpoint(targetPoint));
 			this.setRoutingConstraint(list);
+
 
 		}
 
