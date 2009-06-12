@@ -67,7 +67,26 @@
                label="%loadResourceActionLabel"
                menubarPath="additions">
          </action>
-      </objectContribution>           
+      </objectContribution>
+      <objectContribution
+            id="edu.toronto.cs.openome_model.diagram.contribution1"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="edu.toronto.cs.openome_model.diagram.menu1"
+               label="New Submenu"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="edu.toronto.cs.openome_model.diagram.popup.actions.NewAction"
+               enablesFor="multiple"
+               id="edu.toronto.cs.openome_model.diagram.newAction"
+               label="New Action"
+               menubarPath="edu.toronto.cs.openome_model.diagram.menu1/group1">
+         </action>
+      </objectContribution>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
@@ -929,38 +948,14 @@
          </Priority>
          <popupContribution
                class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupAction
-                  id="SetNoneLabelAction"
+            <popupMenu
+                  id="IntentionGoalLabelTypeMenu"
                   path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetSatisfiedLabelAction"
+            </popupMenu>
+            <popupMenu
+                  id="IntentionTypeMenu"
                   path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetWeaklySatisfiedLabelAction"
-                  path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetConflictLabelAction"
-                  path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetWeaklyDeniedLabelAction"
-                  path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetDeniedLabelAction"
-                  path="/additionsGroup">
-            </popupAction>
-            <popupAction
-                  id="SetUnknownLabelAction"
-                  path="/additionsGroup">
-            </popupAction>
-            <popupActionGroup
-                  id="EvalLabelTypes"
-                  path="/additionsGroup">
-            </popupActionGroup>
+            </popupMenu>
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart">
             </popupStructuredContributionCriteria>
@@ -1027,19 +1022,10 @@
                   id="StraightenLinesAction"
                   path="/additionsGroup">
             </popupAction>
-            <popupActionGroup
-                  id="LineConnectionTypes"
+            <popupMenu
+                  id="ContributionLineTypeMenu"
                   path="/additionsGroup">
-            </popupActionGroup>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart">
-            </popupStructuredContributionCriteria>
+            </popupMenu>tParkContributionEditPart">
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart">
             </popupStructuredContributionCriteria>
@@ -1061,6 +1047,55 @@
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart">
             </popupStructuredContributionCriteria>
+         </popupContribution>
+         <popupContribution
+               class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupAction
+                  id="StraightenLinesAction"
+                  path="/additionsGroup">
+            </popupAction>
+            <popupMenu
+                  id="DecompositionLineTypeMenu"
+                  path="/additionsGroup">
+            </popupMenu>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart">
+            </popupStructuredContributionCriteria>
+         </popupContribution>
+         <popupContribution
+               class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupMenu
+                  id="ActorTypeMenu"
+                  path="/additionsGroup">
+            </popupMenu>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart"></popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart">
+            </popupStructuredContributionCriteria>
+         </popupContribution>
+         <popupContribution
+               class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupAction
+                  id="StraightenLinesAction"
+                  path="/additionsGroup">
+            </popupAction>
+            <popupMenu
+                  id="AssociationLineTypeMenu"
+                  path="/additionsGroup">
+            </popupMenu>
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart">
             </popupStructuredContributionCriteria>

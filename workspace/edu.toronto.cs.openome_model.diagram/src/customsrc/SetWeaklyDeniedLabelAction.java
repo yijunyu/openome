@@ -17,6 +17,7 @@ public class SetWeaklyDeniedLabelAction extends SetEvaluationLabelAction {
 		this.evalField = privateEvalLabel;
 		this.ID = privateID; //$NON-NLS-1$
 		this.evalLabel = privateEvalLabelText;
+		init();
 	}
 	
 	

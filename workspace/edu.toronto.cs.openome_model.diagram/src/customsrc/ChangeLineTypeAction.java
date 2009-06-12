@@ -2,12 +2,12 @@ package customsrc;
 
 import org.eclipse.ui.IWorkbenchPage;
 
-public class StraightenLinesAction extends SetLineConnectionAction {
+public class ChangeLineTypeAction extends SetLineTypeAction {
 	
-	private String privateID = "StraightenLinesAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Straighten Line";
+	private String privateID = "ChangeLineTypeAction"; // this is how plugin.xml recognize us
+	private String privateCommandLabelText = "Change Type";
 	
-	protected StraightenLinesAction(IWorkbenchPage workbenchPage) {
+	protected ChangeLineTypeAction(IWorkbenchPage workbenchPage) {
 		super(workbenchPage);
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
