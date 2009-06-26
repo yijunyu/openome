@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToSomePlusContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToSomePlusContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "SomePlus Contribution";;
+	private String privateCommandLabelText = "Some+";;
 
 	
 	protected ChangeToSomePlusContributionAction(IWorkbenchPage workbenchPage) {

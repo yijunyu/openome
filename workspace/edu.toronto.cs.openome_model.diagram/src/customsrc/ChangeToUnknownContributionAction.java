@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToUnknownContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToUnknownContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Unknown Contribution";;
+	private String privateCommandLabelText = "Unknown";;
 
 	
 	protected ChangeToUnknownContributionAction(IWorkbenchPage workbenchPage) {

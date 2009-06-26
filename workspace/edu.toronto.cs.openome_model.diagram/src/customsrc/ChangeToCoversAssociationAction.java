@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToCoversAssociationAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToCoversAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Covers Association";;
+	private String privateCommandLabelText = "Covers";;
 
 	
 	protected ChangeToCoversAssociationAction(IWorkbenchPage workbenchPage) {

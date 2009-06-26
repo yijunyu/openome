@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToHurtContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToHurtContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Hurt Contribution";;
+	private String privateCommandLabelText = "Hurt";;
 
 	
 	protected ChangeToHurtContributionAction(IWorkbenchPage workbenchPage) {

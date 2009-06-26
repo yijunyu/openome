@@ -32,7 +32,7 @@ public class AndDecompositionImpl extends DecompositionImpl implements AndDecomp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AndDecompositionImpl() {
+	public AndDecompositionImpl() {
 		super();
 	}
 

@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToPlaysAssociationAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToPlaysAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Plays Association";;
+	private String privateCommandLabelText = "Plays";;
 
 	
 	protected ChangeToPlaysAssociationAction(IWorkbenchPage workbenchPage) {

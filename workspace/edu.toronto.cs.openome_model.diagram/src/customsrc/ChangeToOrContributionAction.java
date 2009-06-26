@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToOrContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToOrContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Or Contribution";;
+	private String privateCommandLabelText = "OR";;
 
 	
 	protected ChangeToOrContributionAction(IWorkbenchPage workbenchPage) {

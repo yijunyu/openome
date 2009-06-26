@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToINSAssociationAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToINSAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "INS Association";;
+	private String privateCommandLabelText = "INS";;
 
 	
 	protected ChangeToINSAssociationAction(IWorkbenchPage workbenchPage) {

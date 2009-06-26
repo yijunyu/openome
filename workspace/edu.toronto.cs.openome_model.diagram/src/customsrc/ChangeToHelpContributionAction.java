@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToHelpContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToHelpContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Help Contribution";;
+	private String privateCommandLabelText = "Help";;
 
 	
 	protected ChangeToHelpContributionAction(IWorkbenchPage workbenchPage) {

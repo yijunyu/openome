@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToBreakContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToBreakContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Break Contribution";;
+	private String privateCommandLabelText = "Break";;
 
 	
 	protected ChangeToBreakContributionAction(IWorkbenchPage workbenchPage) {

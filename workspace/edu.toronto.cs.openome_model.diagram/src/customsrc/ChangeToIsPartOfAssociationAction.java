@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToIsPartOfAssociationAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToIsPartOfAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "IsPartOf Association";;
+	private String privateCommandLabelText = "Is part of";;
 
 	
 	protected ChangeToIsPartOfAssociationAction(IWorkbenchPage workbenchPage) {

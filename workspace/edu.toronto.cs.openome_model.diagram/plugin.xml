@@ -1047,6 +1047,12 @@
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart">
             </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart">
+            </popupStructuredContributionCriteria>
+            <popupStructuredContributionCriteria
+                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart">
+            </popupStructuredContributionCriteria>
          </popupContribution>
          <popupContribution
                class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">

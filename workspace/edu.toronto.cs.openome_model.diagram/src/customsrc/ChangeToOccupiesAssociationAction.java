@@ -4,8 +4,8 @@ import org.eclipse.ui.IWorkbenchPage;
 
 public class ChangeToOccupiesAssociationAction extends SetLineTypeAction {
 	
-	private String privateID = "ChangeToCoversAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Covers Association";;
+	private String privateID = "ChangeToOccupiesAssociationAction"; // this is how plugin.xml recognize us
+	private String privateCommandLabelText = "Occupies";;
 
 	
 	protected ChangeToOccupiesAssociationAction(IWorkbenchPage workbenchPage) {

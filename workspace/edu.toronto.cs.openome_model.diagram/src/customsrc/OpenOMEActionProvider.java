@@ -111,7 +111,7 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
 			menu.add(createAction("ChangeToOrDecompositionAction", partDescriptor));
 			
 			// adding a sub-submenu to change to contributions
-			IMenuManager submenu =  new ChangeTypeMenuManager("Other");
+			IMenuManager submenu =  new ChangeTypeMenuManager("Contributions");
 			submenu.add(createAction("ChangeToMakeContributionAction", partDescriptor));
 			submenu.add(createAction("ChangeToSomePlusContributionAction", partDescriptor));
 			submenu.add(createAction("ChangeToHelpContributionAction", partDescriptor));
@@ -141,7 +141,7 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
 			menu.add(createAction("ChangeToOrContributionAction", partDescriptor));
 			
 			// adding a sub-submenu to change to decompositions
-			IMenuManager submenu =  new ChangeTypeMenuManager("Other");
+			IMenuManager submenu =  new ChangeTypeMenuManager("Decompositions");
 			submenu.add(createAction("ChangeToDependencyAction", partDescriptor));
 			submenu.add(createAction("ChangeToAndDecompositionAction", partDescriptor));
 			submenu.add(createAction("ChangeToOrDecompositionAction", partDescriptor));

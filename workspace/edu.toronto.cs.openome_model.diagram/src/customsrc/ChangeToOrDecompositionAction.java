@@ -6,9 +6,9 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 
 public class ChangeToOrDecompositionAction extends SetLineTypeAction {
 	
-	private String privateID = "ChangeToDependencyAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Or Decomposition";;
-	private String imageFile = "anddecomposition.gif";
+	private String privateID = "ChangeToOrDecompositionAction"; // this is how plugin.xml recognize us
+	private String privateCommandLabelText = "Or";;
+	private String imageFile = "ordecomposition.gif";
 	
 	protected ChangeToOrDecompositionAction(IWorkbenchPage workbenchPage) {
 		super(workbenchPage);
