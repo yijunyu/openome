@@ -14,6 +14,18 @@ import edu.toronto.cs.openome.conversion.parser.GoalModelReader;
 import edu.toronto.cs.openome.core.convertor.IConvertor;
 import edu.toronto.cs.openome.evaluation.action.Reasoning;
 
+/**
+ * <!-- begin-user-doc -->
+ * What does this code do?
+ * It reads a goal model using GoalModelReader, passes it to resource, passes resource to reasoning.
+ * Reasoning reasons, but then I don't know what happens to reasoning. 
+ * Somehow it should be producing a result and sending it the model, but I don't know how this happens.
+ * 
+ * I don't think this works anyway, because the warnings all say they can't access the various classes 
+ * it uses.  
+ * Nothing is included other than java.io.File, so I'm not sure where it is finding IConverter, Resource, Reasoning, etc.
+ * <!-- end-user-doc -->
+ */
 public class Reasoning_GoalModel implements IConvertor {
 
 	public void convert(String input, String output) {

@@ -3,12 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Evaluation Plug-in
 Bundle-SymbolicName: edu.toronto.cs.openome.evaluation;singleton:=true
 Bundle-Version: 1.0.0
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- q7,
- core,
- util,
- edu.toronto.cs.openome_model,
- org.eclipse.gmf.codegen,
- edu.toronto.cs.openome.conversion,
- org.sat4j.core;bundle-version="2.0.0"
+Require-Bundle: org.sat4j.core;bundle-version="2.0.0",
+ edu.toronto.cs.openome_model.diagram;bundle-version="1.0.0",
+ edu.toronto.cs.openome_model.editor;bundle-version="1.0.0",
+ log4j;bundle-version="1.2.5",
+ org.eclipse.gmf.runtime.diagram.core;bundle-version="1.1.0",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.1.0",
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide;bundle-version="1.1.0",
+ org.eclipse.core.runtime.source;bundle-version="3.4.0",
+ org.eclipse.core.resources.source;bundle-version="3.4.0",
+ edu.toronto.cs.openome.conversion;bundle-version="1.0.0",
+ util;bundle-version="1.0.0"
+Import-Package: edu.toronto.cs.openome.core.convertor

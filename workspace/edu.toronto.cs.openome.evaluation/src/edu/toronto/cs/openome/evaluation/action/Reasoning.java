@@ -24,6 +24,15 @@ import util.Computing;
 
 import edu.toronto.cs.openome_model.*;
 
+
+/**
+ * <!-- begin-user-doc -->
+ * Of course there are no comments here either.
+ * 
+ * I believe this is the code used to implement the Tropos style of reasoning.  It sort of worked for a while on 
+ * goal models, but didn't work completely.
+ * <!-- end-user-doc -->
+ */
 public class Reasoning {
 
 	public openome_modelPackage e = null;
