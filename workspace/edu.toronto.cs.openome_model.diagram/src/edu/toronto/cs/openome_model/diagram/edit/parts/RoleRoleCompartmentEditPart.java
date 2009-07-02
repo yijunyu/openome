@@ -132,7 +132,7 @@ public class RoleRoleCompartmentEditPart extends ShapeCompartmentEditPart {
 					maxy = Math.max(currentRect.y + currentRect.height, maxy);
 					
 				} else if (ep instanceof Goal5EditPart) {
-					currentRect = ((GoalEditPart)(ep)).getPrimaryShape().getBounds();
+					currentRect = ((Goal5EditPart)(ep)).getPrimaryShape().getBounds();
 					maxx = Math.max(currentRect.x + currentRect.width, maxx);
 					maxy = Math.max(currentRect.y + currentRect.height, maxy);
 					
