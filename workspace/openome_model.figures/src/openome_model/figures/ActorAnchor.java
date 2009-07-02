@@ -17,8 +17,11 @@ public ActorAnchor() { }
  */
 private double zoom;
 
+/**
+ * updates zoom value
+ */
 public void updateZoom(){
-	
+	// Nothing here, it's up to subclass to implement
 }
 
 public void setZoom(double zoom) {

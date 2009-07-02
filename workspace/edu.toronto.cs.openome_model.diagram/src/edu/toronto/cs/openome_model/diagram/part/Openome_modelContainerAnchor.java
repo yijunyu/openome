@@ -10,12 +10,20 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.RoleFigure;
 
 import openome_model.figures.ActorAnchor;
 
+/**
+ * a ConnectionAnchor for containers that take into account the zoom level of the diagram
+ * @author johan
+ *
+ */
 public class Openome_modelContainerAnchor extends ActorAnchor {
 
 	public Openome_modelContainerAnchor(IFigure owner) {
 		super(owner);
 	}
 	
+	/**
+	 * Updates zoom value
+	 */
 	public void updateZoom(){
 		IFigure figure = (IFigure) this.getOwner().getChildren().get(0);
 		
