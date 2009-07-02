@@ -21,6 +21,7 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -30,6 +31,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelContainerAnchor;
 
 /**
  * @generated
@@ -62,14 +65,21 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	public AgentEditPart(View view) {
 		super(view);
 	}
+	
+	public double getZoomLevel(){
+		double zoom = ((RenderedDiagramRootEditPart) this.getParent().getParent()).getZoomManager().getZoom();
+		return zoom;
+	}
 
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (anchor == null) {
-			anchor = new ActorAnchor(getFigure());
+			anchor = new Openome_modelContainerAnchor(getFigure());
 		}
+		double zoom = getZoomLevel();
+		((Openome_modelContainerAnchor) anchor).setZoom(zoom);
 		return anchor;
 	}
 
@@ -163,6 +173,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure createNodeShape() {
 		AgentFigure figure = new AgentFigure();
+		figure.setEditPart(this);
 		return primaryShape = figure;
 	}
 
@@ -303,6 +314,8 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class AgentFigure extends Ellipse {
+		
+		private AgentEditPart myEditPart;
 
 		/**
 		 * @generated
@@ -325,6 +338,14 @@ public class AgentEditPart extends ShapeNodeEditPart {
 			this.setOutline(false);
 			this.setLineWidth(0);
 			createContents();
+		}
+		
+		public void setEditPart(AgentEditPart ep){
+			myEditPart = ep;
+		}
+		
+		public AgentEditPart getEditPart(){
+			return myEditPart;
 		}
 
 		/**

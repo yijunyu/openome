@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -244,6 +245,17 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			minimumContraction = (new Dimension(getMapMode().DPtoLP(maxx + padding), getMapMode().DPtoLP(maxy + padding)));
 			IGraphicalEditPart actorEdit = (IGraphicalEditPart) getParent();
 			((ActorEditPart) actorEdit).getPrimaryShape().setMinimumContraction(minimumContraction);
+			
+			////////////////////////////EXPERIMENTAL////////////////////////////////////////
+			// take into account the zoom level
+			RenderedDiagramRootEditPart renderRoot = (RenderedDiagramRootEditPart) ((ActorEditPart) actorEdit).getParent().getParent();
+			double zoom = renderRoot.getZoomManager().getZoom();
+			if (zoom < 1.0) {
+				Dimension zoomedContraction = minimumContraction.getScaled(zoom);
+				((ActorEditPart) actorEdit).getPrimaryShape().setMinimumContraction(zoomedContraction);
+			}
+			////////////////////////////////////////////////////////////////////////////////
+
 			
 			// We would like the new bound to not interfere with collapsing 
 			// or resizing with no elements

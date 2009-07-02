@@ -21,6 +21,7 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -31,6 +32,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
+
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelContainerAnchor;
 
 /**
  * @generated
@@ -76,14 +80,21 @@ public class ActorEditPart extends ShapeNodeEditPart {
 								.getDrawerStyle_Collapsed())).booleanValue();
 
 	}
+	
+	public double getZoomLevel(){
+		double zoom = ((RenderedDiagramRootEditPart) this.getParent().getParent()).getZoomManager().getZoom();
+		return zoom;
+	}
 
 	/**
 	 * @generated NOT
 	 */
 	protected ConnectionAnchor getConnectionAnchor() {
 		if (actorAnchor == null) {
-			actorAnchor = new ActorAnchor(getFigure());
+			actorAnchor = new Openome_modelContainerAnchor(getFigure());
 		}
+		double zoom = getZoomLevel();
+		((Openome_modelContainerAnchor) actorAnchor).setZoom(zoom);
 		return actorAnchor;
 	}
 
@@ -173,10 +184,11 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
 		ActorFigure figure = new ActorFigure();
+		figure.setEditPart(this);
 		return primaryShape = figure;
 	}
 
@@ -317,6 +329,8 @@ public class ActorEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public class ActorFigure extends Ellipse {
+		
+		private ActorEditPart myEditPart;
 
 		/**
 		 * @generated
@@ -326,6 +340,12 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureActorNameFigure;
+		
+		/**
+		 * This Container's minimum contraction
+		 * default 100x100
+		 */
+		private Dimension contraction = new Dimension(100, 100);
 
 		/**
 		 * @generated
@@ -340,6 +360,14 @@ public class ActorEditPart extends ShapeNodeEditPart {
 			this.setLineWidth(0);
 			createContents();
 		}
+		
+		public void setEditPart(ActorEditPart ep){
+			myEditPart = ep;
+		}
+		
+		public ActorEditPart getEditPart(){
+			return myEditPart;
+		}
 
 		/**
 		 * @generated
@@ -353,8 +381,9 @@ public class ActorEditPart extends ShapeNodeEditPart {
 					.setBackgroundColor(FFIGUREACTORBOUNDARYFIGURE_BACK);
 			fFigureActorBoundaryFigure.setPreferredSize(new Dimension(
 					getMapMode().DPtoLP(450), getMapMode().DPtoLP(450)));
-			fFigureActorBoundaryFigure.setMinimumSize(new Dimension(
-					getMapMode().DPtoLP(100), getMapMode().DPtoLP(100)));
+			
+			//Set Default contraction
+			fFigureActorBoundaryFigure.setMinimumSize(contraction);
 
 			this.add(fFigureActorBoundaryFigure, BorderLayout.CENTER);
 			fFigureActorBoundaryFigure.setLayoutManager(new StackLayout());
@@ -375,6 +404,11 @@ public class ActorEditPart extends ShapeNodeEditPart {
 		 * Sets the minimum size that the container may contract to
 		 */
 		public void setMinimumContraction(Dimension d){
+			contraction = d;
+			
+			// get the zoom level
+			
+			// set the minimum size
 			fFigureActorBoundaryFigure.setMinimumSize(d);
 		}
 

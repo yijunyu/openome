@@ -13,6 +13,24 @@ public class ActorAnchor extends AbstractConnectionAnchor {
 public ActorAnchor() { }
 
 /**
+ * The current zoom level we are using to calculate anchor coordinates
+ */
+private double zoom;
+
+public void updateZoom(){
+	
+}
+
+public void setZoom(double zoom) {
+	this.zoom = zoom;
+}
+
+public double getZoom() {
+	return zoom;
+}
+
+
+/**
  * @see org.eclipse.draw2d.AbstractConnectionAnchor#AbstractConnectionAnchor(IFigure)
  */
 public ActorAnchor(IFigure owner) {
@@ -25,6 +43,7 @@ public ActorAnchor(IFigure owner) {
  * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(Point)
  */
 public Point getLocation(Point reference) {
+	updateZoom();
 	Rectangle r = Rectangle.SINGLETON;
 	r.setBounds(getOwner().getBounds());
 	r.translate(-1, -1);
@@ -60,7 +79,7 @@ public Point getLocation(Point reference) {
 	// we calculate the min of the 'entire' figure's width of height, and
 	// we use whichever one is smaller
 	
-	int actorSymbolSize = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
+	int actorSymbolSize = (int) (zoom * ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL);
 	
 	double translateX = (actorSymbolSize * dx / Math.sqrt(1 + k));
 	double translateY = (actorSymbolSize * dy / Math.sqrt(1 + 1 / k));
@@ -75,7 +94,7 @@ public Point getLocation(Point reference) {
 	// ContainerSVGFigure) and so we should calculate the center of the actor symbol as:
 	// top left corner + half of size of the actor symbol to the right + half of the actor symbol
 	// size down
-	int actorSymbolThreshold = ContainerSVGFigure.SIZE_OF_ACTOR_FOR_FIXED_SYMBOL;
+	int actorSymbolThreshold = (int) (zoom * ContainerSVGFigure.SIZE_OF_ACTOR_FOR_FIXED_SYMBOL);
 	
 	if ((r.preciseWidth() <= actorSymbolThreshold) || (r.preciseHeight() <= actorSymbolThreshold)) {
 		shiftRightAmount = actorSymbolSize/2;
@@ -89,7 +108,7 @@ public Point getLocation(Point reference) {
 	
 	// this is the centre point of the actor figure!
 	Point centreOfActor = r.getTopLeft().translate(shiftRightAmount, shiftDownAmount);
-	
+
 	// now that we've located the centre point of the actor,
 	// we will translate outwards from that point, to form a circle.
 	// how much we translate by is defined by the variable 'shrinkAmount'
@@ -97,5 +116,6 @@ public Point getLocation(Point reference) {
 	int yTranslateFromActor = (int)(translateY);
 		
 	return centreOfActor.translate(xTranslateFromActor, yTranslateFromActor);
+	
 	}
 }
