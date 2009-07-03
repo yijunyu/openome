@@ -43,6 +43,9 @@ public class Openome_modelContainerAnchor extends ActorAnchor {
 			RenderedDiagramRootEditPart root = (RenderedDiagramRootEditPart) ((PositionFigure) figure).getEditPart().getParent().getParent();
 			setZoom(root.getZoomManager().getZoom());
 		}
+		else {
+			System.out.println(figure);
+		}
 		
 	}
 }
