@@ -131,7 +131,7 @@
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
-            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            class="edu.toronto.cs.openome_model.diagram.part.Openome_modelGlobalActionHandlerProvider"
             id="openome_modelRender">
          <Priority name="Lowest"/>
          <ViewId id="edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorID">
