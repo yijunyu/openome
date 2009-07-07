@@ -42,6 +42,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
@@ -79,6 +80,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		if (actionId.equals(GlobalActionId.DELETE)) {
 			//visibility problem
 			super.getCommand(cntxt);
+			
 		} else if (actionId.equals(GlobalActionId.COPY)) {
 			command = getCopyCommand(cntxt, diagramPart, false);
 			
@@ -139,37 +141,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 
 		return command;
 	}
-
-	/**
-	 * Duplicates a model element by creating a new element of the same type and fine tuning it
-	 */
-	public CreateElementCommand getDuplicateCommand(EditPart ep){
-		System.out.println("EditPart: " + ep);
-		final EObject object = ((IGraphicalEditPart) ep).getNotationView().getElement();
-		return getDuplicateCommand(object, ((IGraphicalEditPart) ep).getEditingDomain());
-	}
-	
-	/**
-	 * Given a model object, create a command to create another object with the same properties
-	 * @param object
-	 * @return
-	 */
-	private CreateElementCommand getDuplicateCommand(EObject object, TransactionalEditingDomain domain){
-		EObject container = null;
-		if (object instanceof ModelImpl){
-			container = object;
-			//this will only copy the first intention to appear in the model
-			object = ((ModelImpl) object).getIntentions().get(0);
-		}
-		
-		if (object instanceof GoalImpl){
-			System.out.println("object is a goal");
-			CreateElementRequest createReq = new CreateElementRequest(container, Openome_modelElementTypes.Goal_1005);
-			return new GoalCreateCommand(createReq);
-		}
-		System.out.println(object);
-		return null;
-	}
 	
 	/**
 	 * Duplicates an element by a command
@@ -185,13 +156,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 * @return
 	 */
 	private DuplicateEObjectsCommand getTrueDuplicateCommand(EObject object, TransactionalEditingDomain domain){
-		
-		//of course it will be model, that's where we right click to paste!
-//		if (object instanceof ModelImpl){
-//			//this will only copy the first intention to appear in the model
-//			// solution: get the object to be copied from the clipboard?
-//			object = ((ModelImpl) object).getIntentions().get(0);
-//		}
 		
 		List copyMe = new ArrayList();
 		for (EditPart ep: editPartClipboard){
