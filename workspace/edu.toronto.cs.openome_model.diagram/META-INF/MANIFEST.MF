@@ -40,4 +40,5 @@ Require-Bundle: org.eclipse.core.expressions,
  openome_model,
  org.eclipse.ui
 Eclipse-LazyStart: true
-Import-Package: org.eclipse.gmf.runtime.notation
+Import-Package: junit.framework,
+ org.eclipse.gmf.runtime.notation
