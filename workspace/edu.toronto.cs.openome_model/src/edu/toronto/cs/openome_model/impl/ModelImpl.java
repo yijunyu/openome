@@ -16,10 +16,13 @@ import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
+import java.util.Iterator;
+
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -201,6 +204,35 @@ public class ModelImpl extends EObjectImpl implements Model {
 			intentions = new EObjectContainmentWithInverseEList<Intention>(Intention.class, this, openome_modelPackage.MODEL__INTENTIONS, openome_modelPackage.INTENTION__MODEL);
 		}
 		return intentions;
+	}
+	
+	/** @author jenhork
+	 * The default getIntentions method only returns dependums.  This one should return all intentions in the model.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Intention> getAllIntentions() {
+			
+		//this only gets dependums, the intentions not inside an actor
+		//I can't just call getIntentions because I don't want that list of intentions, I want a new one 
+		EList<Intention> allints = new BasicEList<Intention>(getIntentions());			
+		
+		//get the model containers, which are the actors.  
+		//I could just use the containers variable, but getContainers instantiates it if it doesn't exist
+		EList<Container> conts = getContainers();
+		
+		Iterator<Container> contsit = conts.iterator();
+		
+		while (contsit.hasNext()) {
+			Container cont = contsit.next();
+			
+			//each container might have some intentions in it
+			EList<Intention> ints = cont.getIntentions();
+			
+			allints.addAll(ints);
+		}
+		
+		return allints;
 	}
 
 	/**
