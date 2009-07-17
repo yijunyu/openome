@@ -216,7 +216,7 @@ public class SoftgoalQualitativeReasoningCom2EditPart extends LabelEditPart
 	protected Image getLabelIcon() {
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
-			System.err.println("Unknown parser element.");
+			System.err.println("SoftgoalQualitativeReasoningCom2EditPart: Unknown parser element.");
 			return null;
 		}
 

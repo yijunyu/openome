@@ -216,7 +216,7 @@ public class TaskQualitativeReasoningComEditPart extends LabelEditPart
 	protected Image getLabelIcon() {
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
-			System.err.println("Unknown parser element.");
+			System.err.println("TaskQualitativeReasoningComEditPart: Unknown parser element.");
 			return null;
 		}
 

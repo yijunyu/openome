@@ -250,7 +250,7 @@ public class GoalQualitativeReasoningComEditPart extends LabelEditPart
 	protected Image getLabelIcon() {
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
-			System.err.println("Unknown parser element.");
+			System.err.println("GoalQualitativeReasoningComEditPart: Unknown parser element.");
 			return null;
 		}
 
