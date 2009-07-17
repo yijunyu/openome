@@ -7,9 +7,10 @@ import org.eclipse.emf.common.command.Command;
 import edu.toronto.cs.openome_model.impl.ActorImpl;
 import edu.toronto.cs.openome_model.impl.AgentImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.PositionImpl;
 import edu.toronto.cs.openome_model.impl.openome_modelFactoryImpl;
 
-public class AgentImplCreateCommand implements Command {
+public class PositionImplCreateCommand implements Command {
 	
 	/*
 	 * The model we are going to be creating an actor in
@@ -30,7 +31,7 @@ public class AgentImplCreateCommand implements Command {
 	 * Command to add an actor inside a model
 	 * @param model
 	 */
-	public AgentImplCreateCommand(ModelImpl m){
+	public PositionImplCreateCommand(ModelImpl m){
 		model = m;
 	}
 	
@@ -38,7 +39,7 @@ public class AgentImplCreateCommand implements Command {
 	 * Command to add an actor inside a model
 	 * @param model
 	 */
-	public AgentImplCreateCommand(ModelImpl m, String name){
+	public PositionImplCreateCommand(ModelImpl m, String name){
 		model = m;
 		actorName = name;
 	}
@@ -71,10 +72,10 @@ public class AgentImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		AgentImpl agent = (AgentImpl) factory.createAgent();
-		agent.setModel(model);
-		agent.setName(actorName);
-		model.getContainers().add(agent);
+		PositionImpl pos = (PositionImpl) factory.createPosition();
+		pos.setModel(model);
+		pos.setName(actorName);
+		model.getContainers().add(pos);
 
 	}
 
@@ -92,7 +93,7 @@ public class AgentImplCreateCommand implements Command {
 
 	@Override
 	public String getLabel() {
-		return "Create Agent model";
+		return "Create Position model";
 	}
 
 	@Override
