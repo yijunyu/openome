@@ -1,17 +1,17 @@
 package edu.toronto.cs.openome.evaluation.commands;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.command.Command;
-
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 
 public class SetQualitativeEvaluationLabelCommand implements Command {
 	private Intention intention;
+	private EvaluationLabel label;
 	
-	public SetQualitativeEvaluationLabelCommand(Intention i) {
+	public SetQualitativeEvaluationLabelCommand(Intention i, EvaluationLabel l) {
 		intention = i;
+		label = l;
 	}
 
 	@Override
@@ -40,9 +40,7 @@ public class SetQualitativeEvaluationLabelCommand implements Command {
 
 	@Override
 	public void execute() {
-		System.out.println("Execute");
-		
-		intention.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
+		intention.setQualitativeReasoningCombinedLabel(label);
 		// TODO Auto-generated method stub
 		
 	}
