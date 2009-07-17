@@ -80,17 +80,24 @@ public class TestAddActorGMF{
 	 */
 	@Test
 	public void actorIsEmpty(){
+		assertFalse(model.getContainers().isEmpty());
 		assertTrue(model.getContainers().get(0).getIntentions().isEmpty());
 	}
+	
 	
 	/**
 	 * Tests that a new actor initially has no connecting line to any other objects
 	 */
 	@Test
 	public void actorIsNotLinked(){
+		//At this point, the model should have one actor inside
+		assertFalse(model.getContainers().isEmpty());
+		
+		// test that the one actor has no links
 		assertTrue(model.getContainers().get(0).getAssociationFrom().isEmpty());
 		assertTrue(model.getContainers().get(0).getAssociationTo().isEmpty());
 		assertTrue(model.getContainers().get(0).getDependencyFrom().isEmpty());
 		assertTrue(model.getContainers().get(0).getAssociationTo().isEmpty());
 	}
+
 }
