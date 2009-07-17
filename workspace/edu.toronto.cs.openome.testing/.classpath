@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.jtelos"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome_model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome_model.diagram"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome_model.edit"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome_model.editor"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome.conversion"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome.evaluation"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.toronto.cs.openome.versioning"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/log4j"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/molhado"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/openome_model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/openome_model.figures"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/q7"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/util"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
