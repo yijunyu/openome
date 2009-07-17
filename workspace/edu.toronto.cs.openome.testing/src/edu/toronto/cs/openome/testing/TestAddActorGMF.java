@@ -53,7 +53,7 @@ public class TestAddActorGMF{
 		cs = domain.getCommandStack();
 	}
 	
-	/*
+	/**
 	 * Tests that a new actor can be created
 	 */
 	@Test
@@ -74,7 +74,7 @@ public class TestAddActorGMF{
 		
 	}
 	
-	/*
+	/**
 	 * Tests that a new actor is originally empty
 	 * i.e. contains no intentions
 	 */
