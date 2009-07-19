@@ -234,6 +234,8 @@ public interface Intention extends Dependable {
 	 * <p>
 	 * If the meaning of the '<em>Decompositions</em>' reference list isn't clear,
 	 * there really should be more of a description here...
+	 * 
+	 * This doesn't seem to work, it won't return child decompositions
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Decompositions</em>' reference list.
@@ -252,6 +254,8 @@ public interface Intention extends Dependable {
 	 * <p>
 	 * If the meaning of the '<em>Parent Decompositions</em>' reference list isn't clear,
 	 * there really should be more of a description here...
+	 * 
+	 * This doesn't do what you think it will do, it seems to just return null.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Decompositions</em>' reference list.
@@ -518,5 +522,20 @@ public interface Intention extends Dependable {
 	 * @generated
 	 */
 	EList<Contribution> getContributesFrom();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Decomposition> getDecompositionsFrom();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Decomposition> getDecompositionsTo();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Decomposition> getAllDecompositions();
 
 } // Intention

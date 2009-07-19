@@ -36,6 +36,8 @@ public class Reasoner {
 		SetQualitativeEvaluationLabelCommand setLabel = new SetQualitativeEvaluationLabelCommand(i, l);
 		
 		cs.execute(setLabel);
+		
+		//put something here to slow it down?
 	}
 	
 }

@@ -329,8 +329,8 @@ public class GoalModel extends IStar {
 		SortArrayList sorted_keys = new SortArrayList();
 		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
 		for (Enumeration<IStarElement> i = elements.elements(); i.hasMoreElements(); ) {
-			IStarElement p = i.nextElement();
-			sorted_keys.add(p.id);
+			IStarElement p = i.nextElement();			
+			sorted_keys.addComparable(p.id);
 			table.put(p.id, p);
 		}
 		for (int i=0; i<sorted_keys.size(); i++) {
@@ -424,7 +424,7 @@ public class GoalModel extends IStar {
 		SortArrayList sorted_keys = new SortArrayList();
 		Hashtable<Integer, IStarElement> table = new Hashtable<Integer, IStarElement>();  
 		for (IStarElement p: elements.values()) {
-			sorted_keys.add(p.id);
+			sorted_keys.addComparable(p.id);
 			table.put(p.id, p);
 		}		
 		String[] types = { "Claim:", "Provide:", "Do", "May", "Agent", "Role",

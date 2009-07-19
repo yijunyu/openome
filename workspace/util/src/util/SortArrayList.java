@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class SortArrayList extends ArrayList<Object> {
 	private static final long serialVersionUID = 1L;
 	
-	public void add(Comparable o) {
+	public void addComparable(Comparable o) {
 		boolean inserted = false;
 		for (int i=0; i<size(); i++) {
 			Comparable s = (Comparable) get(i);

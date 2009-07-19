@@ -322,7 +322,6 @@ public enum EvaluationLabel implements Enumerator {
 	}
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -330,6 +329,73 @@ public enum EvaluationLabel implements Enumerator {
 	@Override
 	public String toString() {
 		return literal;
+	}
+	
+	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
+	 * Uses the following order
+	 * Sat > WeaklySat > Conflict > Unknown > WeaklyDenied > Denied > None
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Boolean isGreaterThan(EvaluationLabel l) {
+		if (this == EvaluationLabel.NONE)
+			return false;
+		
+		if (this == EvaluationLabel.SATISFIED) {
+			if (l == EvaluationLabel.SATISFIED)
+				return false;
+			else
+				return true;
+		}
+		if (this == EvaluationLabel.WEAKLY_SATISFIED) {
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED)
+				return false;
+			else
+				return true;
+		}
+		
+		if (this == EvaluationLabel.CONFLICT) {
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED 
+					|| l == EvaluationLabel.CONFLICT)
+				return false;
+			else
+				return true;
+		}
+		
+		if (this == EvaluationLabel.UNKNOWN) {
+			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.WEAKLY_DENIED)
+				return true;
+			else
+				return false;
+		}
+		
+		if (this == EvaluationLabel.WEAKLY_DENIED) {
+			if (l == EvaluationLabel.DENIED)
+				return true;
+			else
+				return false;
+		}
+		
+		if (this == EvaluationLabel.DENIED) {
+			if (l == EvaluationLabel.NONE)
+				return true;
+			else
+				return false;
+		}
+		
+		return false;				
+	}
+	
+	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Boolean isLessThan(EvaluationLabel l) {
+		return !this.isGreaterThan(l);
 	}
 	
 } //EvaluationLabel

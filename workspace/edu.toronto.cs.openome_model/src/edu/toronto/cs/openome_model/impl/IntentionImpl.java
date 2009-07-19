@@ -19,6 +19,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -519,20 +520,53 @@ public class IntentionImpl extends DependableImpl implements Intention {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This will only get decompositions that the element is a source of, the opposite of what I thought it would do
+	 * 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Decomposition> getDecompositions() {
 		if (decompositions == null) {
 			decompositions = new EObjectWithInverseResolvingEList<Decomposition>(Decomposition.class, this, openome_modelPackage.INTENTION__DECOMPOSITIONS, openome_modelPackage.DECOMPOSITION__SOURCE);
 		}
-		return decompositions;
+		return decompositions;		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Decomposition> getAllDecompositions() {
+		EList<Decomposition> decomps = new BasicEList<Decomposition>(getDecompositionsTo());	
+		decomps.addAll(getDecompositionsFrom());
+		
+		return decomps;		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Decomposition> getDecompositionsTo() {				
+		return getParentDecompositions();		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Decomposition> getDecompositionsFrom() {		
+
+		return getDecompositions();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Decomposition> getParentDecompositions() {
 		if (parentDecompositions == null) {

@@ -56,41 +56,44 @@ public class Reasoning {
 
 	public boolean reasoning() {
 		boolean satisfied = false;
-		StringBuffer graphStr = encode();
-		ISolver solver = SolverFactory.newMiniLearning();
-		solver.setTimeout(3600); // 1 hour timeout
-		DimacsReader reader = new DimacsReader(solver);
-		PrintWriter out;
-		try {
-			String filename = "file.txt";
-			out = new PrintWriter(new FileOutputStream(filename), true);
-			out.println(graphStr.toString());
-			// Debug.DEBUG_LOADER = true;
-			reader.parseInstance(filename);
-			// Debug.DEBUG_LOADER = false;
-			if (solver.isSatisfiable()) {
-				System.out.println("satisfiable");
-				String result = reader.decode(solver.model());
-				decode(result);
-				satisfied = true;
-			} else
-				satisfied = false;
-			configuring_variability_goals();
-			update();
-			report();
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		} catch (ParseFormatException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ContradictionException e) {
-			e.printStackTrace();
-		} catch (TimeoutException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//ISolver line didn't compile with new Eclipse.  I've commented it out.  This code isn't used at the moment anyway 
+		
+		
+//		StringBuffer graphStr = encode();
+//		ISolver solver = SolverFactory.newMiniLearning();
+//		solver.setTimeout(3600); // 1 hour timeout
+//		DimacsReader reader = new DimacsReader(solver);
+//		PrintWriter out;
+//		try {
+//			String filename = "file.txt";
+//			out = new PrintWriter(new FileOutputStream(filename), true);
+//			out.println(graphStr.toString());
+//			// Debug.DEBUG_LOADER = true;
+//			reader.parseInstance(filename);
+//			// Debug.DEBUG_LOADER = false;
+//			if (solver.isSatisfiable()) {
+//				System.out.println("satisfiable");
+//				String result = reader.decode(solver.model());
+//				decode(result);
+//				satisfied = true;
+//			} else
+//				satisfied = false;
+//			configuring_variability_goals();
+//			update();
+//			report();
+//		} catch (FileNotFoundException e1) {
+//			e1.printStackTrace();
+//		} catch (ParseFormatException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		} catch (ContradictionException e) {
+//			e.printStackTrace();
+//		} catch (TimeoutException e) {
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return satisfied;
 	}
 

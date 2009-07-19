@@ -75,14 +75,19 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	 * Return and remove the head of the queue
 	 */
 	public IntQualIntentionWrapper poll() {
+		//System.out.println(currentSize + " " + front + " " + back);
 		if( isEmpty( ) )
             throw new UnderflowException( "ArrayQueue dequeue" );
         currentSize--;
-
+        
         IntQualIntentionWrapper returnValue = theArray[ front ];
         front = increment( front );
+        
+        //System.out.println(currentSize + " " + front + " " + back);
+        
+        //System.out.println(returnValue.getIntention().getName());
+        
         return returnValue;
-
 	}
 
 	@Override
@@ -221,8 +226,13 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     }
         
     public void print() {
+    	int oldfront = front;
     	 for( int i = 0; i < currentSize; i++, front = increment( front ) )
-             System.out.println(theArray[i].getIntention().getName());
+             System.out.print(theArray[i].getIntention().getName() + ", ");
+    	 
+    	 System.out.println("");
+    	 
+    	 front = oldfront;
     	
     }
 

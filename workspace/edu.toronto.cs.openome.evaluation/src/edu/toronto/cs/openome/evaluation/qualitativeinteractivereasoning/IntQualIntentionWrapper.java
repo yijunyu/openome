@@ -19,9 +19,10 @@ public class IntQualIntentionWrapper {
 	public IntQualIntentionWrapper(Intention i) {
 		intnt = i;		
 		initialEvaluationLabel = EvaluationLabel.NONE;
+		lb = new LabelBag();
 	}
 	
-	public void setInitialEvaluationLable(EvaluationLabel l) {
+	public void setInitialEvaluationLabel(EvaluationLabel l) {
 		initialEvaluationLabel = l;
 	}
 	
