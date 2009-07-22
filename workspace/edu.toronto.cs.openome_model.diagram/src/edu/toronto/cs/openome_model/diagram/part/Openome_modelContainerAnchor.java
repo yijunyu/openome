@@ -46,6 +46,5 @@ public class Openome_modelContainerAnchor extends ActorAnchor {
 		else {
 			System.out.println(figure);
 		}
-		
 	}
 }

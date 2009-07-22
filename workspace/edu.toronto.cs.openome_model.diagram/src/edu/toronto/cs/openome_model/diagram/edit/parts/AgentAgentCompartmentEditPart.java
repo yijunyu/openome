@@ -11,6 +11,8 @@ import org.eclipse.draw2d.ScrollPane;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.EAttributeImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
@@ -28,6 +30,8 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.DrawerStyleImpl;
+import org.eclipse.gmf.runtime.notation.impl.NotationFactoryImpl;
 
 /**
  * @generated
@@ -60,6 +64,28 @@ public class AgentAgentCompartmentEditPart extends ShapeCompartmentEditPart {
 	 */
 	public AgentAgentCompartmentEditPart(View view) {
 		super(view);
+	}
+	
+	/**
+	 * If this compartment is closed, forcefully redirect all intentions' anchor points
+	 * to point to the green actor figure instead
+	 */
+	public void forceRedirect(){
+		boolean isCollapsed = ((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getDrawerStyle_Collapsed())).booleanValue();
+		
+		if(isCollapsed){			
+			EAttributeImpl feature = (EAttributeImpl) NotationPackage.eINSTANCE.getDrawerStyle_Collapsed();
+		
+			NotationFactoryImpl notifierFactory = new NotationFactoryImpl();
+			DrawerStyleImpl notifier = (DrawerStyleImpl) notifierFactory.createDrawerStyle();
+			notifier.setCollapsed(true);
+			
+			ENotificationImpl notification = new ENotificationImpl(notifier, Notification.SET ,feature, null, null);
+			
+			//Notify the compartment that anchor points have not been redirected yet
+			this.handleNotificationEvent(notification);
+		}
 	}
 
 	/**

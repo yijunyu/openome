@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome_model.diagram.part;
 
+import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -12,10 +14,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
@@ -41,6 +45,15 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
 
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
+
 /**
  * @generated
  */
@@ -63,6 +76,42 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	public Openome_modelDiagramEditor() {
 		super(true);
 	}
+	
+    /**
+     * Initialize the content of the diagram
+     */
+    protected void initializeGraphicalViewerContents() {
+        super.initializeGraphicalViewerContents();
+        List children = getDiagramEditPart().getChildren();
+        
+        //Make sure that collapsed actors are drawn properly
+        // fix for ticket #187
+        for(Object o : children){
+        	if (o instanceof ActorEditPart){        		
+        		IGraphicalEditPart actorCompartment = ((ActorEditPart) o).getChildBySemanticHint(Integer
+        				.toString(ActorActorCompartmentEditPart.VISUAL_ID));
+        		((ActorActorCompartmentEditPart) actorCompartment).forceRedirect();
+        	}
+        	else if (o instanceof AgentEditPart){
+        		IGraphicalEditPart agentCompartment = ((AgentEditPart) o).getChildBySemanticHint(Integer
+        				.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
+        		
+        		((AgentAgentCompartmentEditPart) agentCompartment).forceRedirect();
+        	}
+        	else if(o instanceof RoleEditPart){
+        		IGraphicalEditPart roleCompartment = ((RoleEditPart) o).getChildBySemanticHint(Integer
+        				.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
+        		
+        		((RoleRoleCompartmentEditPart) roleCompartment).forceRedirect();
+        	}
+        	else if (o instanceof PositionEditPart){
+        		IGraphicalEditPart posCompartment = ((PositionEditPart) o).getChildBySemanticHint(Integer
+        				.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
+        		
+        		((PositionPositionCompartmentEditPart) posCompartment).forceRedirect();
+        	}
+        }
+    }
 
 	/**
 	 * @generated

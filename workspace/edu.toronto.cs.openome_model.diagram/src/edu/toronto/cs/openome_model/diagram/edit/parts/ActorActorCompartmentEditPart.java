@@ -11,6 +11,9 @@ import org.eclipse.draw2d.ScrollPane;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.EAttributeImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EcoreFactoryImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
@@ -28,6 +31,8 @@ import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEd
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.DrawerStyleImpl;
+import org.eclipse.gmf.runtime.notation.impl.NotationFactoryImpl;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.ActorFigure;
 
@@ -70,6 +75,29 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 	public ActorActorCompartmentEditPart(View view) {
 		super(view);
 	}
+	
+	/**
+	 * If this compartment is closed, forcefully redirect all intentions' anchor points
+	 * to point to the green actor figure instead
+	 */
+	public void forceRedirect(){
+		boolean isCollapsed = ((Boolean) getStructuralFeatureValue(NotationPackage.eINSTANCE
+				.getDrawerStyle_Collapsed())).booleanValue();
+		
+		if(isCollapsed){
+			
+			EAttributeImpl feature = (EAttributeImpl) NotationPackage.eINSTANCE.getDrawerStyle_Collapsed();
+		
+			NotationFactoryImpl notifierFactory = new NotationFactoryImpl();
+			DrawerStyleImpl notifier = (DrawerStyleImpl) notifierFactory.createDrawerStyle();
+			notifier.setCollapsed(true);
+			
+			ENotificationImpl notification = new ENotificationImpl(notifier, Notification.SET ,feature, null, null);
+			
+			//Notify the compartment that anchor points have not been redirected yet
+			this.handleNotificationEvent(notification);
+		}
+	}
 
 	/**
 	 * @generated
@@ -105,7 +133,6 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 		// Handling a resize event
 		if (NotationPackage.eINSTANCE.getSize_Width().equals(feature)
 				|| NotationPackage.eINSTANCE.getSize_Height().equals(feature)) {
-			
 			/*
 			 * Before proceeding with the resize, 
 			 * we should calculate how far the compartment can be shrunk
@@ -285,7 +312,6 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 			int yLocation = this.getFigure().getBounds().y;
 			
 			if (isCollapsed) {
-				
 				// determine which type of intention it is, then redirect it's
 				// anchor points to point to the actor instead
 				List listOfChildren = this.getChildren();
@@ -380,7 +406,6 @@ public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
 				// we all of the contained intentions to be visible. Without
 				// this call, the figure will expand but the intentions will not show
 				super.handleNotificationEvent(event);
-				
 				// determine which type of intention it is, then redirect it's
 				// anchor points from the actor symbol to point back at the intention			
 				List listOfChildren = this.getChildren();
