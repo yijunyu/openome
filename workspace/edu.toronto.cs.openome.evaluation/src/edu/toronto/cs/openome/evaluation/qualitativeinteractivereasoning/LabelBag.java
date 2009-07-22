@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
+import java.util.ListIterator;
 import java.util.Vector;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -22,13 +23,21 @@ public class LabelBag {
 		catch (Exception e)  {
 			System.out.println("Couldn't add items to tuple array");
 		}
-				
-		try {
-			bag.add(anArray);	
+		
+		int index = find(i);
+		
+		if (index < 0) {
+			try {
+				bag.add(anArray);	
+			}
+			catch (Exception e){
+				System.out.println("Couldn't add tuple to bag");
+			}
 		}
-		catch (Exception e){
-			System.out.println("Couldn't add tuple to bag");
-		}		
+		//overwrite existing entry for that intention
+		else {
+			bag.add(index, anArray);			
+		}			
 	}
 	
 	public void printBag() {
@@ -38,4 +47,28 @@ public class LabelBag {
 			System.out.println("");
 		}
 	}
+	
+	private int find(Intention i) {
+		for (Object ob: bag) {
+			Object [] ar = (Object[]) ob;
+			if (((Intention)ar[0]).equals(i)) {
+				return bag.indexOf(ob);
+			}
+		}
+		return -1;
+		
+	}
+	
+	public int size() {
+		return bag.size();
+	}
+	
+	public ListIterator<Object> listIterator() {	
+		return bag.listIterator();
+	}
+	
+	public Object[] getFirst() {
+		return (Object[]) bag.firstElement();
+	}
+	
 }

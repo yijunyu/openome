@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Vector;
 
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
@@ -28,14 +29,14 @@ import edu.toronto.cs.openome_model.EvaluationLabel;
 public class InteractiveQualReasoner extends Reasoner {
 	
 	private LabelQueue lq;
-	private SoftgoalsToResolve softgoalsToResolve;
+	private SoftgoalWrappers softgoalWrappers;
 	private Vector<Intention> resolvedHardIntentions;
 
 	public InteractiveQualReasoner(ModelImpl m, CommandStack com) {
 		super(m, com);
 		
 		lq = new LabelQueue();
-		softgoalsToResolve = new SoftgoalsToResolve();
+		softgoalWrappers = new SoftgoalWrappers();
 		resolvedHardIntentions = null;
 	}
 	
@@ -54,21 +55,23 @@ public class InteractiveQualReasoner extends Reasoner {
 		System.out.println("Label Queue");
 		lq.print();
 				
-//		while (lq.size() > 0)  {
+		while (lq.size() > 0)  {
 			step1();
 			
 			System.out.println("Softgoals to resolve");
 			
-			for(IntQualIntentionWrapper w: softgoalsToResolve.getSet()) {
-				System.out.println(w.getIntention().getName());
-				w.lb.printBag();			
+			for(IntQualIntentionWrapper w: softgoalWrappers.getSet()) {
+				if (w.needResolve()) {
+					System.out.println(w.getIntention().getName());
+					w.printLabelBag();		
+				}
 			}
 			
 			System.out.println("Label Queue");
 			lq.print();
 			
 			step2();
-//		}
+		}
 	}
 	
 	/*
@@ -95,7 +98,7 @@ public class InteractiveQualReasoner extends Reasoner {
 				if (i instanceof Softgoal) {
 					try {
 						//For initial values, the source element in the label bag is the element itself
-						iqi.lb.addToBag(i, initvalue);
+						iqi.addtoLabelBag(i, initvalue);
 					}
 					catch (Exception e) {
 						System.out.println("couldn't add to bag");
@@ -135,7 +138,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			
 			propagateDecompositions(current);
 			
-			//propagateDependencies(current);
+			propagateDependencies(current);
 			
 		}
 	}
@@ -149,46 +152,52 @@ public class InteractiveQualReasoner extends Reasoner {
 			
 			//System.out.println(softgoalsToResolve.size());
 			
-			IntQualIntentionWrapper targetWrapper = null;
-			
-			try {
-				targetWrapper = softgoalsToResolve.findIntention(target);
-			}
-			catch (Exception e) {
-				System.out.println("Find Intention exception");
-			}
-			
-			if (targetWrapper == null)
-				targetWrapper = new IntQualIntentionWrapper(target);
-			
 			EvaluationLabel result = applyContributionRules(c, intention.getQualitativeReasoningCombinedLabel());
 			
 			//System.out.println("Result: " + result.getName());
 			
-			try {
-				targetWrapper.lb.addToBag(intention, result);
-			}
-			catch (Exception e) {
-				System.out.println("Can't add to bag");
-			}
-			
-			//will only add it if it's not already there, as it's a Set
-			try {
-				softgoalsToResolve.add(targetWrapper);	
-				
-			}
-			catch (Exception e) {
-				System.out.println("Can't add to list of softgoals to resolve");
-				if (e instanceof UnsupportedOperationException)
-					System.out.println("unsupported operation");
-				if (e instanceof NullPointerException)
-					System.out.println("NullPointerException");
-				if (e instanceof ClassCastException)
-					System.out.println("ClassCastException");
-				if (e instanceof IllegalArgumentException)
-					System.out.println("IllegalArgumentException");
-			}
+			addSoftgoalToResolve(target, intention, result);			
 		}
+	}
+	
+	private void addSoftgoalToResolve(Intention target, Intention source, EvaluationLabel result) {
+		IntQualIntentionWrapper targetWrapper = null;
+		
+		//find existing wrapper in the list of softgoals to resolve, if there is one
+		try {
+			targetWrapper = softgoalWrappers.findIntention(target);
+			System.out.println("Found wrapper: " + targetWrapper.getIntention().getName());
+		}
+		catch (Exception e) {
+			System.out.println("Find Intention exception");
+		}
+		
+		if (targetWrapper == null)
+			targetWrapper = new IntQualIntentionWrapper(target);
+		
+		try {
+			targetWrapper.addtoLabelBag(source, result);
+		}
+		catch (Exception e) {
+			System.out.println("Can't add to bag");
+		}
+		
+		//will only add it if it's not already there, as it's a Set
+		try {
+			softgoalWrappers.add(targetWrapper);				
+		}
+		catch (Exception e) {
+			System.out.println("Can't add to list of softgoals to resolve");
+			if (e instanceof UnsupportedOperationException)
+				System.out.println("unsupported operation");
+			if (e instanceof NullPointerException)
+				System.out.println("NullPointerException");
+			if (e instanceof ClassCastException)
+				System.out.println("ClassCastException");
+			if (e instanceof IllegalArgumentException)
+				System.out.println("IllegalArgumentException");
+		}
+			
 	}
 	
 	private EvaluationLabel applyContributionRules(Contribution c, EvaluationLabel l) {	
@@ -232,29 +241,34 @@ public class InteractiveQualReasoner extends Reasoner {
 	}
 	
 	private void propagateDecompositions(Intention intention) {
-		System.out.println("Propagating Decompositions for " + intention.getName());
+		//System.out.println("Propagating Decompositions for " + intention.getName());
 		for (Decomposition d: intention.getDecompositionsFrom()) {
 			Intention target = d.getTarget();			
 			if (!resolvedHardIntentions.contains(target)) {
-				System.out.println("Finding label for " + target.getName());
+				//System.out.println("Finding label for " + target.getName());
 				resolvedHardIntentions.add(target);			
-				resolveDecompositionsAndDependencies(target);		
+				resolveDecompositionsAndDependencies(target, intention);		
 			}
 		}
 	}
 	
 	private void propagateDependencies(Intention intention) {
-		for (Dependency d: intention.getDependencyFrom()) {
+		//System.out.println("Propagating Dependencies for " + intention.getName());
+		for (Dependency d: intention.getDependencyTo()) {
 			Dependable dependable = d.getDependencyTo();
-			
 			if (!(dependable instanceof Container)) {
-				resolveDecompositionsAndDependencies((Intention) dependable);
+				if (!resolvedHardIntentions.contains(dependable)) {
+					//System.out.println("Finding label for " + ((Intention) dependable).getName());
+					resolveDecompositionsAndDependencies((Intention) dependable, intention);
+					resolvedHardIntentions.add((Intention) dependable);	
+				}
+				
 			}
 		}
 	}
 	
-	private void resolveDecompositionsAndDependencies(Intention target){
-		IntQualIntentionWrapper targetWrapper = new IntQualIntentionWrapper(target);
+	private void resolveDecompositionsAndDependencies(Intention target, Intention source){
+		EvaluationLabel result;
 		
 		Vector<EvaluationLabel> ANDDecomps = new Vector<EvaluationLabel>();
 		Vector<EvaluationLabel> ORDecomps = new Vector<EvaluationLabel>();
@@ -267,20 +281,25 @@ public class InteractiveQualReasoner extends Reasoner {
 				ORDecomps.add(dc.getSource().getQualitativeReasoningCombinedLabel());
 			}
 		}
-		System.out.println(ANDDecomps.toString());
-		System.out.println(ORDecomps.toString());
+		//System.out.println(ANDDecomps.toString());
+		//System.out.println(ORDecomps.toString());
 		
 		Vector<EvaluationLabel> dependencies = new Vector<EvaluationLabel>();
 		for (Dependency dep: target.getDependencyFrom()) {
-			Dependable dependable = dep.getDependencyTo();
+			Dependable dependable = dep.getDependencyFrom();
 			
 			if (!(dependable instanceof Container)) {
-				dependencies.add(((Intention) dependable).getQualitativeReasoningCombinedLabel());
+				result = ((Intention) dependable).getQualitativeReasoningCombinedLabel();
+				dependencies.add(result);
+				
+				if (target instanceof Softgoal) {
+					addSoftgoalToResolve(target, (Intention) dependable, result);
+				}
 			}
 		}
 				
-		System.out.println(dependencies.toString());
-		System.out.println(ANDDecomps.size() + ", " + ORDecomps.size() + ", " + dependencies.size());
+		//System.out.println(dependencies.toString());
+		//System.out.println(ANDDecomps.size() + ", " + ORDecomps.size() + ", " + dependencies.size());
 		
 		//An element probably shouldn't have both an AND and an OR Decomposition, doesn't
 		//make much sense, but, in case it does, I will do something.  I will AND the results
@@ -293,16 +312,30 @@ public class InteractiveQualReasoner extends Reasoner {
 		if (ORDecomps.size() > 0) {
 			both.add(resolveOR(ORDecomps));
 		}
-		if (dependencies.size() > 0) {
-			both.add(resolveAND(dependencies));
-		}		
 		
-		EvaluationLabel result = resolveAND(both);
-		System.out.println(result.getName());
+		if (target instanceof Softgoal) {
+			if (both.size() > 0)  {
+				result = resolveAND(both);
+			
+				addSoftgoalToResolve(target, source, result);
+			}
+		}
+		else {
+			if (dependencies.size() > 0) {
+				both.add(resolveAND(dependencies));
+			}	
+			
+			result = resolveAND(both);
+			
+			setQualCombinedLabel(target, result);
+			
+			IntQualIntentionWrapper targetWrapper = new IntQualIntentionWrapper(target);
+			
+			lq.add(targetWrapper);
+			
+			//System.out.println(result.getName());
+		}
 		
-		setQualCombinedLabel(target, result);
-		
-		lq.add(targetWrapper);
 	}
 	
 	private EvaluationLabel resolveAND(Vector<EvaluationLabel> list) {
@@ -313,12 +346,12 @@ public class InteractiveQualReasoner extends Reasoner {
 		EvaluationLabel smallest = EvaluationLabel.SATISFIED;
 		
 		for (EvaluationLabel l: list) {
-			System.out.println("Is " + l.getName() + " less than " + smallest.getName() + "?");
+			//System.out.println("Is " + l.getName() + " less than " + smallest.getName() + "?");
 			if (l.isLessThan(smallest)) {
-				System.out.println("Yes");
+				//System.out.println("Yes");
 				smallest = l;
 			}
-			else {System.out.println("No");}
+			//else {System.out.println("No");}
 		}
 		
 		return smallest;
@@ -332,12 +365,12 @@ public class InteractiveQualReasoner extends Reasoner {
 		EvaluationLabel biggest = EvaluationLabel.NONE;
 		
 		for (EvaluationLabel l: list) {
-			System.out.println("Is " + l.getName() + " greater than " + biggest.getName() + "?");
+			//System.out.println("Is " + l.getName() + " greater than " + biggest.getName() + "?");
 			if (l.isGreaterThan(biggest)) {
-				System.out.println("Yes");
+				//System.out.println("Yes");
 				biggest = l;
 			}
-			else {System.out.println("No");}
+			//else {System.out.println("No");}
 		}
 		
 		return biggest;
@@ -345,6 +378,143 @@ public class InteractiveQualReasoner extends Reasoner {
 	
 	private void step2() {
 		System.out.println("Step 2");
+		EvaluationLabel result; 
 		
+		for (IntQualIntentionWrapper w: softgoalWrappers.getSet())  {
+			if (w.needResolve()) {
+				result = applyAutomaticSoftgoalCases(w);
+				System.out.println("Resolving: " + w.getIntention().getName());
+				if (result != null) System.out.println("Automatic result: " + result.getName());
+				
+				if (result == null)  {				
+					//get human judgement, somehow....
+					result = resolveOtherCases(w);
+					
+					System.out.println("Less automatic result: " + result.getName());
+				}
+			
+				setQualCombinedLabel(w.getIntention(), result);
+								
+				lq.add(w);		
+				
+				w.resolved();
+			}
+		}		
+		
+		softgoalWrappers.empty();
+	}
+	
+	private EvaluationLabel applyAutomaticSoftgoalCases(IntQualIntentionWrapper w) {
+		//case 1
+		if (w.bagSize() == 1) {
+			Object[] array = w.getFirstFromBag();
+			return (EvaluationLabel) array[1];
+		}
+		
+		//case 2 & 3
+		ListIterator<Object> it = w.bagListIterator();
+		
+		boolean hasNeg = false;
+		boolean hasPos = false;
+		boolean hasFullPos = false;
+		boolean hasFullNeg = false;
+		boolean hasUnOrCon = false;
+		
+		while (it.hasNext()) {
+			Object[] array = (Object[]) it.next();
+			EvaluationLabel label = (EvaluationLabel) array[1];
+			
+			if (label == EvaluationLabel.SATISFIED) {
+				hasFullPos = true;
+				hasPos = true;
+			}
+			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
+				hasPos = true;
+			}
+			if (label == EvaluationLabel.CONFLICT || label == EvaluationLabel.UNKNOWN) {
+				hasUnOrCon = true;
+			}
+			if (label == EvaluationLabel.WEAKLY_DENIED) {
+				hasNeg = true;
+			}
+			if (label == EvaluationLabel.DENIED) {
+				hasFullNeg = true;
+				hasNeg = true;
+			}
+		}
+		
+		if (hasFullPos && !hasNeg && !hasUnOrCon)
+			return EvaluationLabel.SATISFIED;
+		if (hasFullNeg && !hasPos && !hasUnOrCon)
+			return EvaluationLabel.DENIED;
+		
+		//case 4, null if it doesn't apply
+		return case4(w);
+				
+	}
+	
+	private EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+		
+		ListIterator<Object> it = w.bagListIterator();
+		
+		int FSCount = 0;
+		int PSCount = 0;
+		int CCount = 0;
+		int UCount = 0;
+		int PDCount = 0;
+		int FDCount = 0;
+		
+		while (it.hasNext()) {
+			Object[] array = (Object[]) it.next();
+			EvaluationLabel label = (EvaluationLabel) array[1];
+			
+			if (label == EvaluationLabel.SATISFIED) {
+				FSCount++;
+			}
+			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
+				PSCount++;
+			}
+			if (label == EvaluationLabel.CONFLICT) {
+				CCount++;
+			}
+			if (label == EvaluationLabel.UNKNOWN) {
+				UCount++;
+			}
+			if (label == EvaluationLabel.WEAKLY_DENIED) {
+				PDCount++;
+			}
+			if (label == EvaluationLabel.DENIED) {
+				FDCount++;
+			}
+		}
+		
+		double sum = FSCount + PSCount + CCount + UCount + PDCount + FDCount;
+		
+		double FSPerc = FSCount/sum;
+		double PSPerc = PSCount/sum;
+		double CPerc = CCount/sum;
+		double UPerc = UCount/sum;
+		double PDPerc = PDCount/sum;
+		double FDPerc = FDCount/sum;
+		
+		//System.out.println(FSPerc + ", " + PSPerc + ", " + CPerc + ", " + UPerc + ", " + PDPerc + ", " + FDPerc);
+		
+		//I'm pulling these numbers out of my ass
+		if (UPerc > 0.4)
+			return EvaluationLabel.UNKNOWN;
+		if ((FSPerc + PSPerc) > 0.9)
+			return EvaluationLabel.SATISFIED;
+		if ((FSPerc + PSPerc) > 0.7)
+			return EvaluationLabel.WEAKLY_SATISFIED;
+		if ((FDPerc + PDPerc) > 0.9)
+			return EvaluationLabel.DENIED;
+		if ((FDPerc + PDPerc) > 0.7)
+			return EvaluationLabel.WEAKLY_DENIED;
+		
+		return EvaluationLabel.CONFLICT;
+	}
+	
+	private EvaluationLabel case4(IntQualIntentionWrapper w) {
+		return null;
 	}
 }

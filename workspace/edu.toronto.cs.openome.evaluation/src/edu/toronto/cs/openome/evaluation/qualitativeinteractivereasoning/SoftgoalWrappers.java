@@ -16,10 +16,10 @@ import edu.toronto.cs.openome_model.Intention;
  * which I didn't need.  Having an internal vector is uglier but easier.
  *
  */
-public class SoftgoalsToResolve {
+public class SoftgoalWrappers {
 	Vector<IntQualIntentionWrapper> set;
 
-	public SoftgoalsToResolve() {
+	public SoftgoalWrappers() {
 		set = new Vector<IntQualIntentionWrapper>();
 	}
 	
@@ -47,6 +47,10 @@ public class SoftgoalsToResolve {
 	
 	public int size() {
 		return set.size();		
+	}
+	
+	public void empty() {
+		set.clear();
 	}
 
 }
