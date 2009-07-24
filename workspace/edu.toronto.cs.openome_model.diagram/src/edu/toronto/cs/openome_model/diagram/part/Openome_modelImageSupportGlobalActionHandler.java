@@ -52,7 +52,9 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartme
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.impl.ContainerImpl;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGlobalActionHandler {
@@ -191,11 +193,11 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
 		}
 		else if (ep instanceof RoleEditPart){
-			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
+			ep = ((RoleEditPart) ep).getChildBySemanticHint(Integer
 					.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
 		}
 		else if (ep instanceof PositionEditPart){
-			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
+			ep = ((PositionEditPart) ep).getChildBySemanticHint(Integer
 					.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
 		}
 		
@@ -213,6 +215,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		List copyMe = new ArrayList();
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+			//((IntentionImpl) o).setContainer((ContainerImpl) object);
 			copyMe.add(o);
 		}
 		
