@@ -411,39 +411,21 @@ public class InteractiveQualReasoner extends Reasoner {
 				
 				if (result == null)  {				
 					//get human judgement, somehow....
-					result = resolveOtherCases(w);
-					
-					System.out.println("Less automatic result: " + result.getName());
+					//result = resolveOtherCases(w);					
 					
 					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-					
-					//PopupMenuCommand pmc = new PopupMenuCommand("My window", ar[0]); 
-					
+														
 					for (Shell s: ar) {
 						System.out.println(s.toString());
 					}
 					
-					//InputWindow window = new InputWindow("My Window", ar[0]);
-					
-					InputWindowCommand wincom = new InputWindowCommand(ar[0]);
-					
-					
-					//ICommandProxy command = new ICommandProxy(wincom);
-//					List l = new ArrayList();
-//					
-//					l.add(Openome_modelElementTypes.Goal_1005);
-//					l.add(Openome_modelElementTypes.Dependency_3001);
-//					l.add(Openome_modelElementTypes.BreakContribution_3007);
-//					
-//					CreateOrSelectElementCommand com = new CreateOrSelectElementCommand(ar[0], l);
-//					
-//					ICommandProxy command2 = new ICommandProxy(com);
-					//System.out.println("Should execute now");
+					InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
+										
 					cs.execute(wincom);
-					//dcs.execute(command);
 					
+					result = wincom.getEvalResult();
 					
-					
+					System.out.println("Less automatic result: " + result.getName());
 					
 				}
 			

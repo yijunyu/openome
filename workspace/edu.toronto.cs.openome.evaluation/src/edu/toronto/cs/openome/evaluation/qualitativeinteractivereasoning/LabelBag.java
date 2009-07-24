@@ -68,4 +68,9 @@ public class LabelBag {
 		return (Object[]) bag.firstElement();
 	}
 	
+	public Object[] toArray() {
+		return bag.toArray();
+	}
+	
+	
 }

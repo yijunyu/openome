@@ -18,6 +18,7 @@ public class IntQualIntentionWrapper {
 		initialEvaluationLabel = EvaluationLabel.NONE;
 		lb = new LabelBag();
 		toResolve = false;
+		
 	}
 	
 	public IntQualIntentionWrapper(Intention i) {
@@ -75,5 +76,9 @@ public class IntQualIntentionWrapper {
 	public Object[] getFirstFromBag() {
 		return (Object[]) lb.getFirst();
 	} 
+	
+	public Object[] bagToArray() {
+		return lb.toArray();
+	}
 
 }
