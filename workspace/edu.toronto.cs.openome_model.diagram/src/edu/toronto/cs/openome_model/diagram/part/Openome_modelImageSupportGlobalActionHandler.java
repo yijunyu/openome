@@ -124,7 +124,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					cs.execute(duplicate);
 					
 					//Adds to the diagram
-					cs.execute(paste);
+					//cs.execute(paste);
 					diagramPart.getDiagramEditPart().getFigure().invalidate();
 					diagramPart.getDiagramEditPart().getFigure().validate();
 					selectAddedObject(diagramPart.getDiagramGraphicalViewer(),
