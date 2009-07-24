@@ -40,6 +40,7 @@ public class SetQualitativeEvaluationLabelCommand implements Command {
 
 	@Override
 	public void execute() {
+		
 		intention.setQualitativeReasoningCombinedLabel(label);
 		// TODO Auto-generated method stub
 		

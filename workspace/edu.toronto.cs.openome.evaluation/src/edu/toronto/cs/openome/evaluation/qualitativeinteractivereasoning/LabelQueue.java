@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Queue;
 import java.util.Iterator;
 
@@ -24,12 +25,17 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     private int        currentSize;
     private int        front;
     private int        back;
+    
+    private HashMap map;
+    
+    private final int maxProp = 5;
 
     private static final int DEFAULT_CAPACITY = 20;
 
     public LabelQueue() {
     	theArray = new IntQualIntentionWrapper[ DEFAULT_CAPACITY ];
         clear( );
+        map = new HashMap();
     }
     
      @Override
@@ -51,13 +57,28 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	 * Add an Intention, if the array is getting full, double the length
 	 */
 	public boolean offer(IntQualIntentionWrapper arg0) {
-		if( currentSize == theArray.length )
-            doubleQueue( );
-        back = increment( back );
-        theArray[ back ] = arg0;
-        currentSize++;
+		if (!contains(arg0)) {
+			Integer count = (Integer) map.get(arg0.getIntention());
+			
+			if (count == null)
+				count = 0;
+			
+			if (count <= maxProp)  {
+				if( currentSize == theArray.length )
+		            doubleQueue( );
+		        back = increment( back );
+		        theArray[ back ] = arg0;
+		        currentSize++;
+	        	
+		        count++;
+		        
+		        map.put(arg0.getIntention(), count);
+	        
+	        	return true;
+			}
+		}
         
-        return true;
+        return false;
 	}
 
 	@Override
@@ -126,13 +147,16 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 
 	@Override
 	public boolean contains(Object o) {
-		for (int i = 0; i < theArray.length; i++) {
-			Intention intnt = (Intention) o;
-			
-			if (intnt.equals(theArray[i]))
-				return true;
-		}
-		return false;
+		int oldfront = front;
+				
+   	 	for( int i = 0; i < currentSize; i++, front = increment( front ) )  {
+   	 		if (o.equals(theArray[front]))  {
+   	 			front = oldfront;
+   	 			return true;
+   	 		}
+   	 	}
+   	 	front = oldfront;
+		return false;   	 	
 	}
 
 	@Override
@@ -228,7 +252,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     public void print() {
     	int oldfront = front;
     	 for( int i = 0; i < currentSize; i++, front = increment( front ) )
-             System.out.print(theArray[i].getIntention().getName() + ", ");
+             System.out.print(theArray[front].getIntention().getName() + ", ");
     	 
     	 System.out.println("");
     	 

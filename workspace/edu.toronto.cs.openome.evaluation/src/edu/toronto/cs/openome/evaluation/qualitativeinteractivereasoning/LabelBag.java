@@ -25,19 +25,14 @@ public class LabelBag {
 		}
 		
 		int index = find(i);
+		//System.out.println("Found intention in bag with index: " + index);
 		
-		if (index < 0) {
-			try {
-				bag.add(anArray);	
-			}
-			catch (Exception e){
-				System.out.println("Couldn't add tuple to bag");
-			}
+		if (index >= 0) {
+			bag.removeElementAt(index);
 		}
-		//overwrite existing entry for that intention
 		else {
-			bag.add(index, anArray);			
-		}			
+			bag.add(anArray);	
+		}	
 	}
 	
 	public void printBag() {
@@ -51,7 +46,9 @@ public class LabelBag {
 	private int find(Intention i) {
 		for (Object ob: bag) {
 			Object [] ar = (Object[]) ob;
-			if (((Intention)ar[0]).equals(i)) {
+			Intention i2 = (Intention) ar[0];
+			//System.out.println("Compare: " + i.getName() + " and " + i2.getName());
+			if (i2.equals(i)) {
 				return bag.indexOf(ob);
 			}
 		}

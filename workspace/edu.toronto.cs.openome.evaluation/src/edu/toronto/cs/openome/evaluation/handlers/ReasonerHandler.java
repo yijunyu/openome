@@ -5,14 +5,21 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
+import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
+import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
@@ -22,6 +29,8 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
 public class ReasonerHandler implements IHandler {
 	
 	private Openome_modelDiagramEditor mDE;
+	
+	private DiagramCommandStack dcs;
 
 	public ReasonerHandler() {
 		mDE = null;
@@ -76,14 +85,20 @@ public class ReasonerHandler implements IHandler {
 				
 		ResourceSet resourceSet = editingDomain.getResourceSet();
 		
+		
+		
 		XMIResourceImpl xmires = null;
+		GMFResource gr = null;
 		
 		for(Resource tmp: resourceSet.getResources()) {
+			System.out.println(tmp.toString());
 			if (tmp instanceof XMIResourceImpl) {
 				xmires = (XMIResourceImpl) tmp;
 			}
+			
 		}
 		
+			
 		ModelImpl model = null;
 						
 		for(EObject tmp2: xmires.getContents()){ 
@@ -110,11 +125,26 @@ public class ReasonerHandler implements IHandler {
 			
 			mDE = (Openome_modelDiagramEditor) iep; //
 			
+			
+	
+			
+			
+			
+			
 					}
 		catch (Exception e) {
 			System.out.println("Exception getting modelEditor");
 		}
 		 
+	}
+	
+	public DiagramCommandStack getDiagramCommandStack() {
+		IWorkbenchWindow iww = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		
+		IWorkbenchPage iwp = iww.getActivePage(); //assume correct page is showing ... dubious
+		IWorkbenchPart part = iwp.getActivePart();
+		IDiagramWorkbenchPart diagramPart = (IDiagramWorkbenchPart) part;
+		return diagramPart.getDiagramEditDomain().getDiagramCommandStack();
 	}
 	
 	public CommandStack getCommandStack() {

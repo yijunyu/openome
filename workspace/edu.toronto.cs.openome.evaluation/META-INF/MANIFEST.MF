@@ -10,7 +10,9 @@ Require-Bundle: org.sat4j.core,
  util,
  org.eclipse.gmf.runtime.diagram.core,
  org.eclipse.gmf.runtime.diagram.ui;visibility:=reexport,
- org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
+ org.eclipse.core.runtime,
+ org.eclipse.ui
 Eclipse-LazyStart: false
 Import-Package: edu.toronto.cs.openome.core.action,
  edu.toronto.cs.openome.core.convertor

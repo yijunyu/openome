@@ -32,5 +32,13 @@
    			</menu>
 		</menuContribution>
 	</extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="edu.toronto.cs.openome.evaluation.windows.evaluationPopUpWindow"
+            id="edu.toronto.cs.openome.evaluation.windows.evaluationPopUpWindow"
+            name="User Evaluation Input">
+      </page>
+   </extension>
 
 </plugin>

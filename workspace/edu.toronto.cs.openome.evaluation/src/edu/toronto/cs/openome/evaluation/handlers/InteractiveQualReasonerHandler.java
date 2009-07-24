@@ -5,6 +5,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
 //Imports of our stuff
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
@@ -41,7 +42,9 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
 		
-		Reasoning reasoning = new Reasoning(new InteractiveQualReasoner(mi, cs));
+		DiagramCommandStack dcs = getDiagramCommandStack();
+		
+		Reasoning reasoning = new Reasoning(new InteractiveQualReasoner(mi, cs, dcs));
 		
 		reasoning.reason();
 		

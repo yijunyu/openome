@@ -1,9 +1,13 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 
+import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
@@ -19,9 +23,19 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.OrDecomposition;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.UnknownContribution;
+import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -31,9 +45,12 @@ public class InteractiveQualReasoner extends Reasoner {
 	private LabelQueue lq;
 	private SoftgoalWrappers softgoalWrappers;
 	private Vector<Intention> resolvedHardIntentions;
+	private DiagramCommandStack dcs;
 
-	public InteractiveQualReasoner(ModelImpl m, CommandStack com) {
+	public InteractiveQualReasoner(ModelImpl m, CommandStack com, DiagramCommandStack d) {
 		super(m, com);
+		
+		dcs = d;
 		
 		lq = new LabelQueue();
 		softgoalWrappers = new SoftgoalWrappers();
@@ -67,10 +84,14 @@ public class InteractiveQualReasoner extends Reasoner {
 				}
 			}
 			
-			System.out.println("Label Queue");
-			lq.print();
+			//System.out.println("Label Queue");
+			//lq.print();
 			
 			step2();
+			
+			System.out.println("Label Queue");
+			lq.print();
+			System.out.println(lq.size());
 		}
 	}
 	
@@ -113,12 +134,12 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		int starting_size = lq.size();
 		
-		System.out.println(starting_size);
+		//System.out.println(starting_size);
 		
 		resolvedHardIntentions = new Vector<Intention>();
 		
 		for (int i = 0; i < starting_size; i++) {
-			System.out.println("At: " + i);
+			//System.out.println("At: " + i);
 			
 			IntQualIntentionWrapper currWrapper = null;
 			
@@ -144,7 +165,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	}
 	
 	private void propagateContributions(Intention intention) {
-		//System.out.println("propagate Contributions for " + intention.getName());
+		System.out.println("propagate Contributions for " + intention.getName());
 		for (Contribution c: intention.getContributesTo())  {
 			Intention target = c.getTarget();
 			
@@ -166,7 +187,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		//find existing wrapper in the list of softgoals to resolve, if there is one
 		try {
 			targetWrapper = softgoalWrappers.findIntention(target);
-			System.out.println("Found wrapper: " + targetWrapper.getIntention().getName());
+			
 		}
 		catch (Exception e) {
 			System.out.println("Find Intention exception");
@@ -174,6 +195,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		if (targetWrapper == null)
 			targetWrapper = new IntQualIntentionWrapper(target);
+		else
+			System.out.println("Found wrapper: " + targetWrapper.getIntention().getName());
 		
 		try {
 			targetWrapper.addtoLabelBag(source, result);
@@ -391,6 +414,37 @@ public class InteractiveQualReasoner extends Reasoner {
 					result = resolveOtherCases(w);
 					
 					System.out.println("Less automatic result: " + result.getName());
+					
+					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+					
+					//PopupMenuCommand pmc = new PopupMenuCommand("My window", ar[0]); 
+					
+					for (Shell s: ar) {
+						System.out.println(s.toString());
+					}
+					
+					//InputWindow window = new InputWindow("My Window", ar[0]);
+					
+					InputWindowCommand wincom = new InputWindowCommand(ar[0]);
+					
+					
+					//ICommandProxy command = new ICommandProxy(wincom);
+//					List l = new ArrayList();
+//					
+//					l.add(Openome_modelElementTypes.Goal_1005);
+//					l.add(Openome_modelElementTypes.Dependency_3001);
+//					l.add(Openome_modelElementTypes.BreakContribution_3007);
+//					
+//					CreateOrSelectElementCommand com = new CreateOrSelectElementCommand(ar[0], l);
+//					
+//					ICommandProxy command2 = new ICommandProxy(com);
+					//System.out.println("Should execute now");
+					cs.execute(wincom);
+					//dcs.execute(command);
+					
+					
+					
+					
 				}
 			
 				setQualCombinedLabel(w.getIntention(), result);
@@ -401,7 +455,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			}
 		}		
 		
-		softgoalWrappers.empty();
+		//softgoalWrappers.empty();
 	}
 	
 	private EvaluationLabel applyAutomaticSoftgoalCases(IntQualIntentionWrapper w) {
