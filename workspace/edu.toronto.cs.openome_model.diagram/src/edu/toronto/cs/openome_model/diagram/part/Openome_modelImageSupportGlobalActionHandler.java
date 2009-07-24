@@ -42,7 +42,15 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
@@ -109,14 +117,39 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			/* Get the selected edit parts */
 			Object[] objects = ((IStructuredSelection) cntxt.getSelection())
 				.toArray();
-
+			
 			if (objects.length == 1) {
-				/* Send the request to the currently selected part */
-				Command paste = ((EditPart) objects[0]).getCommand(pasteReq);
+				
+				Command paste;
+				
+				/* Send the request to the currently selected part, however if the selection is a container
+				 * then we must redirect the request to its compartment */
+				
+				if ( objects[0] instanceof ActorEditPart){
+					EditPart ep = ((ActorEditPart) objects[0]).getChildBySemanticHint(Integer
+							.toString(ActorActorCompartmentEditPart.VISUAL_ID));
+					paste = ep.getCommand(pasteReq);
+				} else if ( objects[0] instanceof AgentEditPart){
+					EditPart ep = ((AgentEditPart) objects[0]).getChildBySemanticHint(Integer
+							.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
+					paste = ep.getCommand(pasteReq);
+				} else if ( objects[0] instanceof RoleEditPart){
+					EditPart ep = ((RoleEditPart) objects[0]).getChildBySemanticHint(Integer
+							.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
+					paste = ep.getCommand(pasteReq);
+				} else if ( objects[0] instanceof PositionEditPart){
+					EditPart ep = ((PositionEditPart) objects[0]).getChildBySemanticHint(Integer
+							.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
+					paste = ep.getCommand(pasteReq);
+				} else{
+					paste = ((EditPart) objects[0]).getCommand(pasteReq);
+				}
+				
 				if (paste != null) {
 					/* Set the command */
 					CommandStack cs = diagramPart.getDiagramEditDomain()
 						.getDiagramCommandStack();
+					
 					
 					//Adds to the model (the oom file)
 					DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand((EditPart) objects[0]);
@@ -124,7 +157,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					cs.execute(duplicate);
 					
 					//Adds to the diagram
-					//cs.execute(paste);
+					//cs.execute(paste); // we don't want to have double paste
 					diagramPart.getDiagramEditPart().getFigure().invalidate();
 					diagramPart.getDiagramEditPart().getFigure().validate();
 					selectAddedObject(diagramPart.getDiagramGraphicalViewer(),
@@ -146,6 +179,26 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 * Duplicates an element by a command
 	 */
 	public DuplicateEObjectsCommand getTrueDuplicateCommand(EditPart ep){
+		
+		// if it is a compartment, redirect to its compartment edit part
+		// this way pasting "into" a compartment makes sense
+		if (ep instanceof ActorEditPart){
+			ep = ((ActorEditPart) ep).getChildBySemanticHint(Integer
+					.toString(ActorActorCompartmentEditPart.VISUAL_ID));
+		} 
+		else if (ep instanceof AgentEditPart){
+			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
+					.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
+		}
+		else if (ep instanceof RoleEditPart){
+			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
+					.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
+		}
+		else if (ep instanceof PositionEditPart){
+			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
+					.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
+		}
+		
 		final EObject object = ((IGraphicalEditPart) ep).getNotationView().getElement();
 		return getTrueDuplicateCommand(object, ((IGraphicalEditPart) ep).getEditingDomain());
 	}
