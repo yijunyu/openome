@@ -1,6 +1,8 @@
 package edu.toronto.cs.openome_model.diagram.part;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
@@ -24,6 +26,8 @@ import org.eclipse.gmf.runtime.common.ui.services.action.global.IGlobalActionCon
 import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
@@ -31,6 +35,7 @@ import org.eclipse.gmf.runtime.diagram.ui.render.clipboard.AWTClipboardHelper;
 import org.eclipse.gmf.runtime.diagram.ui.render.internal.commands.CopyImageCommand;
 import org.eclipse.gmf.runtime.diagram.ui.render.internal.providers.ImageSupportGlobalActionHandler;
 import org.eclipse.gmf.runtime.diagram.ui.requests.PasteViewRequest;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
@@ -41,6 +46,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
+import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
@@ -125,22 +132,25 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				Command paste;
 				
 				/* Send the request to the currently selected part, however if the selection is a container
-				 * then we must redirect the request to its compartment */
-				
+				 * then we must redirect the request to its compartment
+				 * 
+				 *  This enables us to just select a container and click paste on it
+				 */
+				EditPart ep = (EditPart) objects[0];
 				if ( objects[0] instanceof ActorEditPart){
-					EditPart ep = ((ActorEditPart) objects[0]).getChildBySemanticHint(Integer
+					ep = ((ActorEditPart) objects[0]).getChildBySemanticHint(Integer
 							.toString(ActorActorCompartmentEditPart.VISUAL_ID));
 					paste = ep.getCommand(pasteReq);
 				} else if ( objects[0] instanceof AgentEditPart){
-					EditPart ep = ((AgentEditPart) objects[0]).getChildBySemanticHint(Integer
+					ep = ((AgentEditPart) objects[0]).getChildBySemanticHint(Integer
 							.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
 					paste = ep.getCommand(pasteReq);
 				} else if ( objects[0] instanceof RoleEditPart){
-					EditPart ep = ((RoleEditPart) objects[0]).getChildBySemanticHint(Integer
+					ep = ((RoleEditPart) objects[0]).getChildBySemanticHint(Integer
 							.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
 					paste = ep.getCommand(pasteReq);
 				} else if ( objects[0] instanceof PositionEditPart){
-					EditPart ep = ((PositionEditPart) objects[0]).getChildBySemanticHint(Integer
+					ep = ((PositionEditPart) objects[0]).getChildBySemanticHint(Integer
 							.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
 					paste = ep.getCommand(pasteReq);
 				} else{
@@ -157,6 +167,14 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand((EditPart) objects[0]);
 					ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
 					cs.execute(duplicate);
+					
+					// Assign new container to the duplicated element
+					for (EditPart e : editPartClipboard){
+						final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
+						EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);					
+						setContainer((IntentionImpl) duplicated, ep, cs);
+					}
+					
 					
 					//Adds to the diagram
 					//cs.execute(paste); // we don't want to have double paste
@@ -177,6 +195,30 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		return command;
 	}
 	
+	/**
+	 * Changes the container of an intention
+	 * @param duplicated
+	 * @param object
+	 * @param cs
+	 */
+	private void setContainer(IntentionImpl duplicated, Object object, CommandStack cs) {
+		if (object instanceof ModelEditPart){
+			final EObject model = ((IGraphicalEditPart) object).getNotationView().getElement();
+			TransactionalEditingDomain domain = ((ModelEditPart) object).getEditingDomain();
+			ChangeModelCommand command = new ChangeModelCommand(domain, duplicated, (ModelImpl) model);
+			ICommandProxy change = new ICommandProxy(command);
+			cs.execute(change);
+		}
+		else if (object instanceof ShapeCompartmentEditPart){
+			final EObject compartmentImpl = ((IGraphicalEditPart) object).getNotationView().getElement();
+			TransactionalEditingDomain domain = ((ShapeCompartmentEditPart) object).getEditingDomain();
+			ChangeContainerCommand command = new ChangeContainerCommand( domain, duplicated, (ContainerImpl) compartmentImpl);
+			ICommandProxy change = new ICommandProxy(command);
+			cs.execute(change);
+		}
+		
+	}
+
 	/**
 	 * Duplicates an element by a command
 	 */
@@ -227,6 +269,8 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 */
 	private static class DuplicateAnythingCommand extends
 			DuplicateEObjectsCommand {
+		
+		private DuplicateElementsRequest request;
 
 		public DuplicateAnythingCommand(
 				TransactionalEditingDomain editingDomain,
@@ -234,8 +278,75 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			super(editingDomain, req.getLabel(), req
 					.getElementsToBeDuplicated(), req
 					.getAllDuplicatedElementsMap());
+			
+			request = req;
+		}
+		
+		public DuplicateElementsRequest getRequest(){
+			return request;
+		}
+		
+		public HashMap getAllDuplicatedObjects(){
+			return (HashMap) super.getAllDuplicatedObjectsMap();
 		}
 
+	}
+	
+	/**
+	 * A Command to change the container of an intention
+	 * @author johan
+	 */
+	private static class ChangeContainerCommand extends AbstractTransactionalCommand {
+		
+		private IntentionImpl intention;
+		private ContainerImpl container;
+		
+		public ChangeContainerCommand(TransactionalEditingDomain domain, IntentionImpl i, ContainerImpl c){
+			super(domain, "change container", new ArrayList());
+			intention = i;
+			container = c;
+		}
+
+		@Override
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
+			// TODO Auto-generated method stub
+			// Remove from old container
+			if (intention.getContainer() != null){
+				intention.getContainer().getIntentions().remove(intention);
+			}
+			
+			// Adds to new container
+			container.getIntentions().add(intention);
+			return CommandResult.newOKCommandResult();
+		}
+		
+	}
+	
+	/**
+	 * A Command to change the model of an intention
+	 * @author johan
+	 */
+	private static class ChangeModelCommand extends AbstractTransactionalCommand {
+		
+		private IntentionImpl intention;
+		private ModelImpl model;
+		
+		public ChangeModelCommand(TransactionalEditingDomain domain, IntentionImpl i, ModelImpl m){
+			super(domain, "change container", new ArrayList());
+			intention = i;
+			model = m;
+		}
+
+		@Override
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
+			// TODO Auto-generated method stub
+			intention.setModel(model);
+			intention.getModel().getIntentions().add(intention);
+			return CommandResult.newOKCommandResult();
+		}
+		
 	}
 
 	
