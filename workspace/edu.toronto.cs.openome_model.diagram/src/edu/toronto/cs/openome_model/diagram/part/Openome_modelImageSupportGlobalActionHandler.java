@@ -178,7 +178,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					
 					
 					//Adds to the model (the oom file)
-					DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand((EditPart) objects[0]);
+					DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
 					ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
 					cs.execute(duplicate);
 					
@@ -189,9 +189,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 						if (duplicated instanceof IntentionImpl){
 							setContainer((IntentionImpl) duplicated, ep, cs);
 						}
-						
 					}
-					
 					
 					//Adds to the diagram
 					//cs.execute(paste); // we don't want to have double paste
@@ -240,26 +238,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 * Duplicates an element by a command
 	 */
 	public DuplicateEObjectsCommand getTrueDuplicateCommand(EditPart ep){
-		
-		// if it is a compartment, redirect to its compartment edit part
-		// this way pasting "into" a compartment makes sense
-		if (ep instanceof ActorEditPart){
-			ep = ((ActorEditPart) ep).getChildBySemanticHint(Integer
-					.toString(ActorActorCompartmentEditPart.VISUAL_ID));
-		} 
-		else if (ep instanceof AgentEditPart){
-			ep = ((AgentEditPart) ep).getChildBySemanticHint(Integer
-					.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
-		}
-		else if (ep instanceof RoleEditPart){
-			ep = ((RoleEditPart) ep).getChildBySemanticHint(Integer
-					.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
-		}
-		else if (ep instanceof PositionEditPart){
-			ep = ((PositionEditPart) ep).getChildBySemanticHint(Integer
-					.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
-		}
-		
 		final EObject object = ((IGraphicalEditPart) ep).getNotationView().getElement();
 		return getTrueDuplicateCommand(object, ((IGraphicalEditPart) ep).getEditingDomain());
 	}
@@ -270,7 +248,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 * @return
 	 */
 	private DuplicateEObjectsCommand getTrueDuplicateCommand(EObject object, TransactionalEditingDomain domain){
-		
 		List copyMe = new ArrayList();
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
