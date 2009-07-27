@@ -171,8 +171,11 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					// Assign new container to the duplicated element
 					for (EditPart e : editPartClipboard){
 						final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
-						EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);					
-						setContainer((IntentionImpl) duplicated, ep, cs);
+						EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
+						if (duplicated instanceof IntentionImpl){
+							setContainer((IntentionImpl) duplicated, ep, cs);
+						}
+						
 					}
 					
 					
