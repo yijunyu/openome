@@ -63,6 +63,8 @@ import edu.toronto.cs.openome_model.impl.ContainerImpl;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGlobalActionHandler {
 	
@@ -176,20 +178,44 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					CommandStack cs = diagramPart.getDiagramEditDomain()
 						.getDiagramCommandStack();
 					
-					
-					//Adds to the model (the oom file)
-					DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
-					ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
-					cs.execute(duplicate);
-					
-					// Assign new container to the duplicated element
-					for (EditPart e : editPartClipboard){
-						final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
-						EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
-						if (duplicated instanceof IntentionImpl){
-							setContainer((IntentionImpl) duplicated, ep, cs);
+					TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
+					TransactionalEditingDomain pasteToDomain = ((IGraphicalEditPart) ep).getEditingDomain();
+
+					if (copyFromDomain.equals(pasteToDomain)){
+						/*This means we are pasting within the same diagram
+						 * This means it's safe to simply duplicate
+						 */
+						
+						//Adds to the model (the oom file)
+						DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
+						ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
+						cs.execute(duplicate);
+						
+						// Assign new container to the duplicated element
+						for (EditPart e : editPartClipboard){
+							final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
+							EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
+							if (duplicated instanceof IntentionImpl){
+								setContainer((IntentionImpl) duplicated, ep, cs);
+							}
 						}
 					}
+					else {
+						// This means we are pasting across two distinct diagrams
+						System.out.println("WARNING: Editing domains are not the same");
+						
+						// So since we cannot duplicate, we should add to the destination diagram
+						EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
+						List<CreateElementCommand> commandList = getCreateCommandList(pasteToDomain, container);
+						
+						for (CreateElementCommand c : commandList){
+							ICommandProxy create = new ICommandProxy(c);
+							cs.execute(create);
+							// Now need to replicate names, labels, etc
+						}
+					}
+					
+					
 					
 					//Adds to the diagram
 					//cs.execute(paste); // we don't want to have double paste
@@ -210,6 +236,34 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		return command;
 	}
 	
+	private List<CreateElementCommand> getCreateCommandList(TransactionalEditingDomain domain, EObject container) {
+		List<CreateElementCommand> commandList = new ArrayList<CreateElementCommand>();
+		for (EditPart ep: editPartClipboard){
+			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+			commandList.add(getCreateCommand(domain, (IntentionImpl) o, container));
+		}
+		return commandList;
+		
+	}
+
+	private CreateElementCommand getCreateCommand(TransactionalEditingDomain domain, IntentionImpl intention, EObject container) {
+		CreateElementRequest req = null;
+		if (intention instanceof GoalImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Goal_2001);
+		}
+		else if (intention instanceof TaskImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Task_1007);
+		}
+		else if (intention instanceof SoftgoalImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Softgoal_1006);
+		} 
+		else {
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Resource_1008);
+		}			
+		
+		return new CreateElementCommand(req);
+	}
+
 	/**
 	 * Changes the container of an intention
 	 * @param duplicated
@@ -247,15 +301,16 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 * @param object
 	 * @return
 	 */
-	private DuplicateEObjectsCommand getTrueDuplicateCommand(EObject object, TransactionalEditingDomain domain){
+	private DuplicateEObjectsCommand getTrueDuplicateCommand(EObject object, TransactionalEditingDomain pasteToDomain){
 		List copyMe = new ArrayList();
+		TransactionalEditingDomain copyFromDomain = null;
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-			//((IntentionImpl) o).setContainer((ContainerImpl) object);
+			copyFromDomain = ((IGraphicalEditPart) ep).getEditingDomain();
 			copyMe.add(o);
 		}
 		
-		return new DuplicateAnythingCommand(domain, new DuplicateElementsRequest(copyMe));
+		return new DuplicateAnythingCommand(pasteToDomain, new DuplicateElementsRequest(copyMe));
 	}
 	
 	/**
