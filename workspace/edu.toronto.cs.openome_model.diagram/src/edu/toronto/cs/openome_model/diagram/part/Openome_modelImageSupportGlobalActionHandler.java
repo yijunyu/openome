@@ -76,6 +76,20 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	}
 	
 	/**
+	 * Modified version of canCopy that allows copying of an Actor
+	 */
+	protected boolean canCopy(IGlobalActionContext cntxt){	
+		// allows copying of a compartment
+		for(Object o : ((IStructuredSelection) cntxt.getSelection()).toArray()){
+			if (o instanceof ShapeCompartmentEditPart){
+				return true;
+			}
+		}	
+		return super.canCopy(cntxt);
+		
+	}
+	
+	/**
 	 * Provides the commmand
 	 * We shall modify it a bit to modify behaviour of paste
 	 */
