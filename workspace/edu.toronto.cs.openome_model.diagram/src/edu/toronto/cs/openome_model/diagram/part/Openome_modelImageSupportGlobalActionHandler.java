@@ -50,6 +50,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
 import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
@@ -65,19 +66,47 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPa
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.ActorImpl;
 import edu.toronto.cs.openome_model.impl.AgentImpl;
+import edu.toronto.cs.openome_model.impl.AndContributionImpl;
+import edu.toronto.cs.openome_model.impl.AndDecompositionImpl;
+import edu.toronto.cs.openome_model.impl.AssociationImpl;
+import edu.toronto.cs.openome_model.impl.BreakContributionImpl;
 import edu.toronto.cs.openome_model.impl.ContainerImpl;
+import edu.toronto.cs.openome_model.impl.ContributionImpl;
+import edu.toronto.cs.openome_model.impl.CoversAssociationImpl;
+import edu.toronto.cs.openome_model.impl.DecompositionImpl;
+import edu.toronto.cs.openome_model.impl.DependencyImpl;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.HelpContributionImpl;
+import edu.toronto.cs.openome_model.impl.HurtContributionImpl;
+import edu.toronto.cs.openome_model.impl.INSAssociationImpl;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
+import edu.toronto.cs.openome_model.impl.IsAAssociationImpl;
+import edu.toronto.cs.openome_model.impl.IsPartOfAssociationImpl;
+import edu.toronto.cs.openome_model.impl.LinkImpl;
+import edu.toronto.cs.openome_model.impl.MakeContributionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.OccupiesAssociationImpl;
+import edu.toronto.cs.openome_model.impl.OrContributionImpl;
+import edu.toronto.cs.openome_model.impl.OrDecompositionImpl;
+import edu.toronto.cs.openome_model.impl.PlaysAssociationImpl;
 import edu.toronto.cs.openome_model.impl.PositionImpl;
 import edu.toronto.cs.openome_model.impl.ResourceImpl;
 import edu.toronto.cs.openome_model.impl.RoleImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.SomeMinusContributionImpl;
+import edu.toronto.cs.openome_model.impl.SomePlusContributionImpl;
 import edu.toronto.cs.openome_model.impl.TaskImpl;
+import edu.toronto.cs.openome_model.impl.UnknownContributionImpl;
 
 public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGlobalActionHandler {
 	
 	protected static List<EditPart> editPartClipboard = new ArrayList<EditPart>();
+	
+	/**
+	 * Maps original elements to duplicated element
+	 * for use in cross-diagram paste only
+	 */
+	protected static HashMap<EObject, EObject> map = new HashMap<EObject, EObject>(); 
 	
 	/**
 	 * Constructor
@@ -216,10 +245,14 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 						EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
 						List<CreateElementCommand> commandList = getCreateCommandList(pasteToDomain, container);
 						
+						map.clear();
+						
 						// "Duplicate" all the selected elements
 						for (CreateElementCommand c : commandList){
 							ICommandProxy create = new ICommandProxy(c);
 							cs.execute(create);
+							map.put(((CreateDuplicateElementCommand) c).getOriginal(), 
+									((CreateDuplicateElementCommand) c).getDuplicate()); 
 						}
 					}
 					
@@ -252,11 +285,95 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	 */
 	private List<CreateElementCommand> getCreateCommandList(TransactionalEditingDomain domain, EObject container) {
 		List<CreateElementCommand> commandList = new ArrayList<CreateElementCommand>();
+		CreateElementCommand c;
+		
+		// First append the commands to create actors and intentions
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-			commandList.add(getCreateCommand(domain, o, container));
+			if (o instanceof LinkImpl){
+				continue;
+			}
+			c =  getCreateCommand(domain, o, container);
+			if (c != null)
+				commandList.add(c);
+		}
+
+		// then append the commands to create links
+		for (EditPart ep: editPartClipboard){
+			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+
+			if (o instanceof LinkImpl){
+				
+				c = getCreateLinkCommand(domain, o, container);
+				if (c != null)
+					commandList.add(c);
+			}
 		}
 		return commandList;
+		
+	}
+
+	private CreateElementCommand getCreateLinkCommand(TransactionalEditingDomain domain, EObject o, EObject container) {
+		CreateElementRequest req = null;
+		if (o instanceof AndDecompositionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.AndDecomposition_3002);
+		}
+		else if (o instanceof OrDecompositionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.OrDecomposition_3003);
+		}
+		else if (o instanceof DependencyImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Dependency_3001);
+		}
+		else if (o instanceof MakeContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.MakeContribution_3006);
+		}
+		else if (o instanceof SomePlusContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.SomePlusContribution_3008);
+		}
+		else if (o instanceof HelpContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.HelpContribution_3004);
+		}
+		else if (o instanceof UnknownContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.UnknownContribution_3010);
+		}
+		else if (o instanceof HurtContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.HurtContribution_3005);
+		}
+		else if (o instanceof SomeMinusContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.SomeMinusContribution_3009);
+		}
+		else if (o instanceof BreakContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.BreakContribution_3007);
+		}
+		else if (o instanceof AndContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.AndContribution_3011);
+		}
+		else if (o instanceof OrContributionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.OrContribution_3012);
+		}
+		else if (o instanceof CoversAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.CoversAssociation_3014);
+		}
+		else if (o instanceof INSAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.INSAssociation_3018);
+		}
+		else if (o instanceof IsAAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.IsAAssociation_3013);
+		}
+		else if (o instanceof IsPartOfAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.IsPartOfAssociation_3016);
+		}
+		else if (o instanceof PlaysAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.PlaysAssociation_3017);
+		}
+		else if (o instanceof OccupiesAssociationImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.OccupiesAssociation_3015);
+		}
+		else {
+			return null;
+		}
+		
+		return new CreateDuplicateElementCommand(req, o);
 		
 	}
 
@@ -285,6 +402,9 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		}
 		else if (o instanceof PositionImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Position_1003);
+		}
+		else {
+			return null;
 		}
 		
 		return new CreateDuplicateElementCommand(req, o);
@@ -451,6 +571,14 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			oldElement = original;
 		}
 		
+		public EObject getOriginal(){
+			return oldElement;
+		}
+		
+		public EObject getDuplicate(){
+			return getCreateRequest().getNewElement();
+		}
+		
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 	            IAdaptable info)
 	        throws ExecutionException {
@@ -492,6 +620,51 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					CreateElementCommand createChild = getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
 					createChild.execute(monitor, info);
 				}
+	        }
+	        else if(newElement instanceof LinkImpl){
+	        	EObject source = null;
+	        	EObject target = null;
+	        	
+	        	if (oldElement instanceof DecompositionImpl){
+					source = ((DecompositionImpl) oldElement).getSource();
+					target = ((DecompositionImpl) oldElement).getTarget();
+				}
+				else if (oldElement instanceof ContributionImpl){
+					source = ((ContributionImpl) oldElement).getSource();
+					target = ((ContributionImpl) oldElement).getTarget();
+				}
+				else if (oldElement instanceof AssociationImpl){
+					source = ((AssociationImpl) oldElement).getSource();
+					target = ((AssociationImpl) oldElement).getTarget();
+				}
+				else if (oldElement instanceof DependencyImpl){
+					// the order is inverted because of the definition of a Dependency relation
+					target = ((DependencyImpl) oldElement).getDependencyFrom();
+					source = ((DependencyImpl) oldElement).getDependencyTo();
+				}
+	        	
+	        	// Get the source and target in the destination diagram
+	        	// preconditions: the duplicated source and target already exists in the destination diagram
+	        	source = map.get(source);
+	        	target = map.get(target);
+	        	
+	        	if (newElement instanceof DecompositionImpl){
+					((DecompositionImpl) newElement).setSource((Intention)source);
+					((DecompositionImpl) newElement).setTarget((Intention)target);
+				} 
+				else if (newElement instanceof ContributionImpl){
+					((ContributionImpl) newElement).setSource((Intention) source);
+					((ContributionImpl) newElement).setTarget((Intention) target);
+				}
+				else if (newElement instanceof AssociationImpl){
+					((AssociationImpl) newElement).setSource((Container) source);
+					((AssociationImpl) newElement).setTarget((Container) target);
+				}
+				else if (newElement instanceof DependencyImpl){
+					((DependencyImpl) newElement).setDependencyFrom((Dependable) target);
+					((DependencyImpl) newElement).setDependencyTo((Dependable) source);
+				}
+	        	
 	        }
 
 	        // Put the newly created element in the request so that the
