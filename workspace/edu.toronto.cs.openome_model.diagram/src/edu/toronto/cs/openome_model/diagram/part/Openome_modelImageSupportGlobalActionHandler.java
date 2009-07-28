@@ -9,6 +9,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -38,7 +39,9 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.PasteViewRequest;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.eclipse.gmf.runtime.emf.ui.properties.actions.PropertyPageViewAction;
@@ -47,6 +50,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
 import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
@@ -59,10 +63,15 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartme
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.impl.ActorImpl;
+import edu.toronto.cs.openome_model.impl.AgentImpl;
 import edu.toronto.cs.openome_model.impl.ContainerImpl;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.PositionImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
+import edu.toronto.cs.openome_model.impl.RoleImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.TaskImpl;
 
@@ -202,16 +211,15 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					}
 					else {
 						// This means we are pasting across two distinct diagrams
-						System.out.println("WARNING: Editing domains are not the same");
 						
 						// So since we cannot duplicate, we should add to the destination diagram
 						EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
 						List<CreateElementCommand> commandList = getCreateCommandList(pasteToDomain, container);
 						
+						// "Duplicate" all the selected elements
 						for (CreateElementCommand c : commandList){
 							ICommandProxy create = new ICommandProxy(c);
 							cs.execute(create);
-							// Now need to replicate names, labels, etc
 						}
 					}
 					
@@ -236,32 +244,50 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		return command;
 	}
 	
+	/**
+	 * Returns a list of CreateElementCommand that can create every element in the clipboard
+	 * @param domain
+	 * @param container
+	 * @return
+	 */
 	private List<CreateElementCommand> getCreateCommandList(TransactionalEditingDomain domain, EObject container) {
 		List<CreateElementCommand> commandList = new ArrayList<CreateElementCommand>();
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-			commandList.add(getCreateCommand(domain, (IntentionImpl) o, container));
+			commandList.add(getCreateCommand(domain, o, container));
 		}
 		return commandList;
 		
 	}
 
-	private CreateElementCommand getCreateCommand(TransactionalEditingDomain domain, IntentionImpl intention, EObject container) {
+	private static CreateElementCommand getCreateCommand(TransactionalEditingDomain domain, EObject o, EObject container) {
 		CreateElementRequest req = null;
-		if (intention instanceof GoalImpl){
+		if (o instanceof GoalImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Goal_2001);
 		}
-		else if (intention instanceof TaskImpl){
+		else if (o instanceof TaskImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Task_1007);
 		}
-		else if (intention instanceof SoftgoalImpl){
+		else if (o instanceof SoftgoalImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Softgoal_1006);
 		} 
-		else {
+		else if (o instanceof ResourceImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Resource_1008);
-		}			
+		}
+		else if (o instanceof ActorImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Actor_1001);
+		}
+		else if (o instanceof AgentImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Agent_1002);
+		}
+		else if (o instanceof RoleImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Role_1004);
+		}
+		else if (o instanceof PositionImpl){
+			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.Position_1003);
+		}
 		
-		return new CreateElementCommand(req);
+		return new CreateDuplicateElementCommand(req, o);
 	}
 
 	/**
@@ -394,6 +420,87 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			intention.setModel(model);
 			intention.getModel().getIntentions().add(intention);
 			return CommandResult.newOKCommandResult();
+		}
+		
+	}
+	
+	/**
+	 * A Command to add a model element to a diagram, based on an existing element
+	 * @author johan
+	 */
+	private static class CreateDuplicateElementCommand extends CreateElementCommand{
+		
+		/**
+		 * The newly created element.
+		 */
+		private EObject newElement;
+		
+		/**
+		 * The element the duplicate is based on
+		 */
+		private EObject oldElement;
+		
+		/**
+		 * The element type to be created.
+		 */
+		private final IElementType elementType;
+
+		public CreateDuplicateElementCommand(CreateElementRequest request, EObject original) {
+			super(request);
+			elementType = request.getElementType();
+			oldElement = original;
+		}
+		
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+	            IAdaptable info)
+	        throws ExecutionException {
+
+	        // Do the default element creation
+	        newElement = doDefaultElementCreation();
+	        
+	        if (!getDefaultElementCreationStatus().isOK()) {
+	        	return new CommandResult(getDefaultElementCreationStatus());
+	        }
+
+	        // Configure the new element
+	        ConfigureRequest configureRequest = createConfigureRequest();
+
+	        ICommand configureCommand = elementType
+	            .getEditCommand(configureRequest);
+	        
+	        IStatus configureStatus = null;
+	        
+	        if (configureCommand != null && configureCommand.canExecute()) {
+	        	configureStatus = configureCommand.execute(monitor, info);
+	        }
+	        
+	        //Copy the metadata
+	        if (newElement instanceof IntentionImpl){
+	        	((IntentionImpl) newElement).setName(((IntentionImpl) oldElement).getName());
+	        	((IntentionImpl) newElement).setQualitativeReasoningCombinedLabel(((IntentionImpl) oldElement).getQualitativeReasoningCombinedLabel());
+	        	((IntentionImpl) newElement).setQualitativeReasoningDenialLabel(((IntentionImpl) oldElement).getQualitativeReasoningDenialLabel());
+	        	((IntentionImpl) newElement).setQualitativeReasoningSatisfiedLabel(((IntentionImpl) oldElement).getQualitativeReasoningSatisfiedLabel());
+	        	((IntentionImpl) newElement).setQuantitativeReasoningCombinedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningCombinedLabel());
+	        	((IntentionImpl) newElement).setQuantitativeReasoningDeniedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningDeniedLabel());
+	        	((IntentionImpl) newElement).setQuantitativeReasoningSatisfiedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningSatisfiedLabel());
+	        } 
+	        else if (newElement instanceof ContainerImpl){
+	        	((ContainerImpl) newElement).setName( ((ContainerImpl)oldElement).getName());
+	        	
+	        	//Create the intentions within this actor
+				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+					CreateElementCommand createChild = getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
+					createChild.execute(monitor, info);
+				}
+	        }
+
+	        // Put the newly created element in the request so that the
+	        // 'after' commands have access to it.
+	        getCreateRequest().setNewElement(newElement);
+
+	        return (configureStatus == null) ? 
+	        		CommandResult.newOKCommandResult(newElement) : 
+	        		new CommandResult(configureStatus, newElement);
 		}
 		
 	}
