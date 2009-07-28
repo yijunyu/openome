@@ -382,7 +382,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 			return new DependencyCreateCommand(createReq, source, target);	
 		}
 		else if (changeTo.equals("Make")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.Dependency_3001);
+			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.MakeContribution_3006);
 			createReq.setEditingDomain(oldPart.getEditingDomain());
 			return new MakeContributionCreateCommand(createReq, source, target);	
 		}
