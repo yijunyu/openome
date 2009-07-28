@@ -49,8 +49,12 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
+import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependable;
+import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
@@ -299,6 +303,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		}
 
 		// then append the commands to create links
+		// this is because it does not make sense to create links without the sources and targets
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
 
@@ -313,7 +318,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		
 	}
 
-	private CreateElementCommand getCreateLinkCommand(TransactionalEditingDomain domain, EObject o, EObject container) {
+	private static CreateElementCommand getCreateLinkCommand(TransactionalEditingDomain domain, EObject o, EObject container) {
 		CreateElementRequest req = null;
 		if (o instanceof AndDecompositionImpl){
 			req = new CreateElementRequest(domain, container, Openome_modelElementTypes.AndDecomposition_3002);
@@ -617,11 +622,31 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	        	
 	        	//Create the intentions within this actor
 				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
-					CreateElementCommand createChild = getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
+					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
 					createChild.execute(monitor, info);
+					map.put(createChild.getOriginal(), createChild.getDuplicate());
+					}
+				
+				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+					
+					//Create the links within the actor
+					for(Contribution contribution : intention.getContributesTo()){
+						CreateElementCommand createContribution = getCreateLinkCommand(getCreateRequest().getEditingDomain(), contribution, newElement.eContainer());
+						createContribution.execute(monitor, info);
+					}
+					for(Decomposition decomposition : intention.getDecompositionsTo()){
+						CreateElementCommand createDecomposition= getCreateLinkCommand(getCreateRequest().getEditingDomain(), decomposition, newElement.eContainer());
+						createDecomposition.execute(monitor, info);
+					}
+					for(Dependency dependency : intention.getDependencyFrom()){
+						CreateElementCommand createDependency= getCreateLinkCommand(getCreateRequest().getEditingDomain(), dependency, newElement.eContainer());
+						createDependency.execute(monitor, info);
+					}
 				}
+				
 	        }
 	        else if(newElement instanceof LinkImpl){
+	        	
 	        	EObject source = null;
 	        	EObject target = null;
 	        	
@@ -664,7 +689,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					((DependencyImpl) newElement).setDependencyFrom((Dependable) target);
 					((DependencyImpl) newElement).setDependencyTo((Dependable) source);
 				}
-	        	
+	        	System.out.println("Pasted link: " + newElement);
 	        }
 
 	        // Put the newly created element in the request so that the
