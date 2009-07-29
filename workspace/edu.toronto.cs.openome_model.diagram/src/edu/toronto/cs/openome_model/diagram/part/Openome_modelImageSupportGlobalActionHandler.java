@@ -134,6 +134,16 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	}
 	
 	/**
+	 * Modified version of canCut that effectively disables cutting
+	 * until we can implement cutting without crashing
+	 * cf. ticket #197
+	 */
+	protected boolean canCut(IGlobalActionContext cntxt){	
+		return false;
+		
+	}
+	
+	/**
 	 * Provides the commmand
 	 * We shall modify it a bit to modify behaviour of paste
 	 */
