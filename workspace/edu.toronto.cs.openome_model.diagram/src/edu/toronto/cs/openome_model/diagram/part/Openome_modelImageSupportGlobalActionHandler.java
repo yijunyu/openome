@@ -223,27 +223,27 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
 					TransactionalEditingDomain pasteToDomain = ((IGraphicalEditPart) ep).getEditingDomain();
 
-					if (copyFromDomain.equals(pasteToDomain)){
-						/*This means we are pasting within the same diagram
-						 * This means it's safe to simply duplicate
-						 */
-						
-						//Adds to the model (the oom file)
-						DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
-						ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
-						cs.execute(duplicate);
-						
-						// Assign new container to the duplicated element
-						for (EditPart e : editPartClipboard){
-							final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
-							EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
-							if (duplicated instanceof IntentionImpl){
-								setContainer((IntentionImpl) duplicated, ep, cs);
-							}
-						}
-					}
-					else {
-						// This means we are pasting across two distinct diagrams
+//					if (copyFromDomain.equals(pasteToDomain)){
+//						/*This means we are pasting within the same diagram
+//						 * This means it's safe to simply duplicate
+//						 */
+//						
+//						//Adds to the model (the oom file)
+//						DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
+//						ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
+//						cs.execute(duplicate);
+//						
+//						// Assign new container to the duplicated element
+//						for (EditPart e : editPartClipboard){
+//							final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
+//							EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
+//							if (duplicated instanceof IntentionImpl){
+//								setContainer((IntentionImpl) duplicated, ep, cs);
+//							}
+//						}
+//					}
+//					else {
+//						// This means we are pasting across two distinct diagrams
 						
 						// So since we cannot duplicate, we should add to the destination diagram
 						EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
@@ -258,7 +258,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 							map.put(((CreateDuplicateElementCommand) c).getOriginal(), 
 									((CreateDuplicateElementCommand) c).getDuplicate()); 
 						}
-					}
+//					}
 					
 					
 					
