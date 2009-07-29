@@ -689,7 +689,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					((DependencyImpl) newElement).setDependencyFrom((Dependable) target);
 					((DependencyImpl) newElement).setDependencyTo((Dependable) source);
 				}
-	        	System.out.println("Pasted link: " + newElement);
 	        }
 
 	        // Put the newly created element in the request so that the
