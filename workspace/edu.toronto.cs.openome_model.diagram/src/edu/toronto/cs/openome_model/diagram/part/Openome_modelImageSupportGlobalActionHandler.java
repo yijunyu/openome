@@ -120,6 +120,15 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	}
 	
 	/**
+	 * Modified version of canCut that effectively disables cutting
+	 * until we can implement cutting without crashing
+	 * cf. ticket #197
+	 */
+	protected boolean canCut(IGlobalActionContext cntxt){	
+		return false;
+	}
+	
+	/**
 	 * Modified version of canCopy that allows copying of an Actor
 	 */
 	protected boolean canCopy(IGlobalActionContext cntxt){	
@@ -175,7 +184,16 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			
 			
 		} else if (actionId.equals(GlobalActionId.CUT)) {
+			// This command changes position of a graphic part
+			// and does not affect the model
 			command = getCutCommand(cntxt, diagramPart);
+			
+			/* Get the selected edit parts */
+			Object[] objects = ((IStructuredSelection) cntxt.getSelection())
+				.toArray();
+			
+			System.out.println("Cut: selected " + cntxt.getSelection());
+			
 			
 		} else if (actionId.equals(GlobalActionId.OPEN)) {
 			// Open command: use the previously cached command.
@@ -624,6 +642,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	        else if (newElement instanceof ContainerImpl){
 	        	((ContainerImpl) newElement).setName( ((ContainerImpl)oldElement).getName());
 	        	
+	        	/*THIS COPIES THE CONTENT OF THE ACTOR AS WELL*/
 //	        	//Create the intentions within this actor
 //				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
 //					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
