@@ -129,18 +129,12 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				return true;
 			}
 		}	
-		return super.canCopy(cntxt);
-		
+		return super.canCopy(cntxt);	
 	}
 	
-	/**
-	 * Modified version of canCut that effectively disables cutting
-	 * until we can implement cutting without crashing
-	 * cf. ticket #197
-	 */
-	protected boolean canCut(IGlobalActionContext cntxt){	
-		return false;
-		
+	protected ICommand getCopyCommand(IGlobalActionContext cntxt,
+			IDiagramWorkbenchPart diagramPart, final boolean isUndoable){
+		return super.getCopyCommand(cntxt, diagramPart, isUndoable);
 	}
 	
 	/**
@@ -630,29 +624,29 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	        else if (newElement instanceof ContainerImpl){
 	        	((ContainerImpl) newElement).setName( ((ContainerImpl)oldElement).getName());
 	        	
-	        	//Create the intentions within this actor
-				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
-					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
-					createChild.execute(monitor, info);
-					map.put(createChild.getOriginal(), createChild.getDuplicate());
-					}
-				
-				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
-					
-					//Create the links within the actor
-					for(Contribution contribution : intention.getContributesTo()){
-						CreateElementCommand createContribution = getCreateLinkCommand(getCreateRequest().getEditingDomain(), contribution, newElement.eContainer());
-						createContribution.execute(monitor, info);
-					}
-					for(Decomposition decomposition : intention.getDecompositionsTo()){
-						CreateElementCommand createDecomposition= getCreateLinkCommand(getCreateRequest().getEditingDomain(), decomposition, newElement.eContainer());
-						createDecomposition.execute(monitor, info);
-					}
-					for(Dependency dependency : intention.getDependencyFrom()){
-						CreateElementCommand createDependency= getCreateLinkCommand(getCreateRequest().getEditingDomain(), dependency, newElement.eContainer());
-						createDependency.execute(monitor, info);
-					}
-				}
+//	        	//Create the intentions within this actor
+//				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+//					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
+//					createChild.execute(monitor, info);
+//					map.put(createChild.getOriginal(), createChild.getDuplicate());
+//					}
+//				
+//				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+//					
+//					//Create the links within the actor
+//					for(Contribution contribution : intention.getContributesTo()){
+//						CreateElementCommand createContribution = getCreateLinkCommand(getCreateRequest().getEditingDomain(), contribution, newElement.eContainer());
+//						createContribution.execute(monitor, info);
+//					}
+//					for(Decomposition decomposition : intention.getDecompositionsTo()){
+//						CreateElementCommand createDecomposition= getCreateLinkCommand(getCreateRequest().getEditingDomain(), decomposition, newElement.eContainer());
+//						createDecomposition.execute(monitor, info);
+//					}
+//					for(Dependency dependency : intention.getDependencyFrom()){
+//						CreateElementCommand createDependency= getCreateLinkCommand(getCreateRequest().getEditingDomain(), dependency, newElement.eContainer());
+//						createDependency.execute(monitor, info);
+//					}
+//				}
 				
 	        }
 	        else if(newElement instanceof LinkImpl){
