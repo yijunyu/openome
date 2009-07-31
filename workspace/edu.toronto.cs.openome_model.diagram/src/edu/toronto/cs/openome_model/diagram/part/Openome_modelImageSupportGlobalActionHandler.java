@@ -313,27 +313,46 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		List<CreateElementCommand> commandList = new ArrayList<CreateElementCommand>();
 		CreateElementCommand c;
 		
-		// First append the commands to create actors and intentions
+		List<EObject> tmp = new ArrayList<EObject>();
+		List<EObject> tmp2 = new ArrayList<EObject>();
+		// First get all the actors and intentions
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
 			if (o instanceof LinkImpl){
 				continue;
 			}
-			c =  getCreateCommand(domain, o, container);
+			tmp.add(o);
+			tmp2.add(o);
+		}
+		
+		//then delete all doubled intentions
+		for (EObject o : tmp){
+			if (o instanceof Intention){
+				if (tmp2.contains(o.eContainer())){
+					tmp2.remove(o);
+				}
+			}
+		}
+		
+		// Now create the series of commands
+		for (EObject o : tmp2){
+			c = getCreateCommand(domain, o, container);
 			if (c != null)
 				commandList.add(c);
 		}
+		
+		List<EObject> done = new ArrayList<EObject>();
 
 		// then append the commands to create links
 		// this is because it does not make sense to create links without the sources and targets
 		for (EditPart ep: editPartClipboard){
 			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
 
-			if (o instanceof LinkImpl){
-				
+			if (o instanceof LinkImpl && !done.contains(o)){
 				c = getCreateLinkCommand(domain, o, container);
 				if (c != null)
 					commandList.add(c);
+					done.add(o);
 			}
 		}
 		return commandList;
@@ -643,29 +662,29 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	        	((ContainerImpl) newElement).setName( ((ContainerImpl)oldElement).getName());
 	        	
 	        	/*THIS COPIES THE CONTENT OF THE ACTOR AS WELL*/
-//	        	//Create the intentions within this actor
-//				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
-//					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
-//					createChild.execute(monitor, info);
-//					map.put(createChild.getOriginal(), createChild.getDuplicate());
-//					}
-//				
-//				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
-//					
-//					//Create the links within the actor
-//					for(Contribution contribution : intention.getContributesTo()){
-//						CreateElementCommand createContribution = getCreateLinkCommand(getCreateRequest().getEditingDomain(), contribution, newElement.eContainer());
-//						createContribution.execute(monitor, info);
-//					}
-//					for(Decomposition decomposition : intention.getDecompositionsTo()){
-//						CreateElementCommand createDecomposition= getCreateLinkCommand(getCreateRequest().getEditingDomain(), decomposition, newElement.eContainer());
-//						createDecomposition.execute(monitor, info);
-//					}
-//					for(Dependency dependency : intention.getDependencyFrom()){
-//						CreateElementCommand createDependency= getCreateLinkCommand(getCreateRequest().getEditingDomain(), dependency, newElement.eContainer());
-//						createDependency.execute(monitor, info);
-//					}
-//				}
+	        	//Create the intentions within this actor
+				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+					CreateDuplicateElementCommand createChild = (CreateDuplicateElementCommand) getCreateCommand(getCreateRequest().getEditingDomain(), intention, newElement);
+					createChild.execute(monitor, info);
+					map.put(createChild.getOriginal(), createChild.getDuplicate());
+					}
+				
+				for(Intention intention : ((ContainerImpl)oldElement).getIntentions()){
+					
+					//Create the links within the actor
+					for(Contribution contribution : intention.getContributesTo()){
+						CreateElementCommand createContribution = getCreateLinkCommand(getCreateRequest().getEditingDomain(), contribution, newElement.eContainer());
+						createContribution.execute(monitor, info);
+					}
+					for(Decomposition decomposition : intention.getDecompositionsTo()){
+						CreateElementCommand createDecomposition= getCreateLinkCommand(getCreateRequest().getEditingDomain(), decomposition, newElement.eContainer());
+						createDecomposition.execute(monitor, info);
+					}
+					for(Dependency dependency : intention.getDependencyFrom()){
+						CreateElementCommand createDependency= getCreateLinkCommand(getCreateRequest().getEditingDomain(), dependency, newElement.eContainer());
+						createDependency.execute(monitor, info);
+					}
+				}
 				
 	        }
 	        else if(newElement instanceof LinkImpl){
