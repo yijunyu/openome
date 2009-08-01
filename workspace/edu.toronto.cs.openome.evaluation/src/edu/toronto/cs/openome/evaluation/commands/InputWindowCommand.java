@@ -19,8 +19,9 @@ import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationDialog;
 import edu.toronto.cs.openome.evaluation.gui.LabelBagElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InputWindow.MyLabelProvider;
+
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 
@@ -29,12 +30,13 @@ public class InputWindowCommand implements Command {
 	Shell shell;
 	IntQualIntentionWrapper wrapper;
 	EvaluationLabel result;
+	boolean cancelled;
 	
 	public InputWindowCommand(Shell s, IntQualIntentionWrapper w) {
 		shell = s;
 		wrapper = w;
 		result = EvaluationLabel.NONE;
-		// TODO Auto-generated constructor stub
+		cancelled = false;
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class InputWindowCommand implements Command {
 	@SuppressWarnings("restriction")
 	@Override
 	public void execute() {
-			
+	
 		//InputDialog d = new InputDialog(shell, "a", "b", "c", null);
 		
 		//EvaluationDialog d = new EvaluationDialog(shell);
@@ -91,12 +93,16 @@ public class InputWindowCommand implements Command {
 		
 		ld.setEvalLabelLabelProvider(new EvalLabelElementTypeLabelProvider());
 		ld.setLabelBagLabelProvider(new LabelBagElementTypeLabelProvider());
+
 		 
 		ld.setEvalLabelInput(labellist);
+		
 		ld.setLabelBagInput(wrapper.bagToArray());
+		
 			  
-		ld.setTitle("Sofgoal Resolution for " + wrapper.getIntention().getName());
-		ld.setMessage(wrapper.getIntention().getName()+ " has recieved the following labels.  Please select a resulting label.");
+		String mess = wrapper.getIntention().getName() + " in " + wrapper.getIntention().getContainer().getName();
+		ld.setTitle("Sofgoal Resolution for " + mess);
+		ld.setMessage(mess + " has recieved the following labels.  Please select a resulting label.");
 
 		
 		ld.open();
@@ -104,11 +110,12 @@ public class InputWindowCommand implements Command {
 		if (ld.getReturnCode() == Window.CANCEL) {
 			result = EvaluationLabel.NONE;
 			System.out.println("cancelled");
+			cancelled = true;
 			return;
 		}
 		
 		for (Object ob: ld.getResult()) {
-			System.out.println("Dialog Result: " + ob.toString());
+			//System.out.println("Dialog Result: " + ob.toString());
 			result = EvaluationLabel.getByName(ob.toString());
 			//System.out.println("Dialog Result: " + result.getName());
 		}
@@ -152,6 +159,10 @@ public class InputWindowCommand implements Command {
 	
 	public EvaluationLabel getEvalResult() {
 		return result;
+	}
+	
+	public boolean cancelled() {
+		return cancelled;
 	}
 
 }

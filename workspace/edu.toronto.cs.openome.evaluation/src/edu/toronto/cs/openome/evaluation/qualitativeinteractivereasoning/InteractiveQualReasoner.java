@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
+import org.eclipse.swt.graphics.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +35,8 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
@@ -54,7 +57,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		lq = new LabelQueue();
 		softgoalWrappers = new SoftgoalWrappers();
-		resolvedHardIntentions = null;
+		resolvedHardIntentions = new Vector<Intention>();
 	}
 	
 	public void reason() {
@@ -71,27 +74,36 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		System.out.println("Label Queue");
 		lq.print();
-				
+		
 		while (lq.size() > 0)  {
 			step1();
 			
 			System.out.println("Softgoals to resolve");
 			
 			for(IntQualIntentionWrapper w: softgoalWrappers.getSet()) {
-				if (w.needResolve()) {
+				if (w.bagNeedResolve()) {
 					System.out.println(w.getIntention().getName());
 					w.printLabelBag();		
 				}
 			}
-			
-			//System.out.println("Label Queue");
-			//lq.print();
-			
-			step2();
+						
+			if (!step2())
+				return;
 			
 			System.out.println("Label Queue");
 			lq.print();
 			System.out.println(lq.size());
+			
+			//LQ Dialog for debugging
+//			String [] labels = {"Ok", "Stop"};
+//			Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+//
+//			Image i = new Image(Display.getCurrent(), "C:\\face.gif");
+//
+//			MessageDialog outputD = new MessageDialog(ar[0], "Label Queue", i, lq.toString(), 0, labels, 0);
+//			
+//			outputD.open();
+			
 		}
 	}
 	
@@ -136,7 +148,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		//System.out.println(starting_size);
 		
-		resolvedHardIntentions = new Vector<Intention>();
+		
 		
 		for (int i = 0; i < starting_size; i++) {
 			//System.out.println("At: " + i);
@@ -165,7 +177,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	}
 	
 	private void propagateContributions(Intention intention) {
-		System.out.println("propagate Contributions for " + intention.getName());
+		//System.out.println("propagate Contributions for " + intention.getName());
 		for (Contribution c: intention.getContributesTo())  {
 			Intention target = c.getTarget();
 			
@@ -399,12 +411,12 @@ public class InteractiveQualReasoner extends Reasoner {
 		return biggest;
 	}
 	
-	private void step2() {
+	private boolean step2() {
 		System.out.println("Step 2");
 		EvaluationLabel result; 
 		
 		for (IntQualIntentionWrapper w: softgoalWrappers.getSet())  {
-			if (w.needResolve()) {
+			if (w.bagNeedResolve()) {
 				result = applyAutomaticSoftgoalCases(w);
 				System.out.println("Resolving: " + w.getIntention().getName());
 				if (result != null) System.out.println("Automatic result: " + result.getName());
@@ -414,18 +426,31 @@ public class InteractiveQualReasoner extends Reasoner {
 					//result = resolveOtherCases(w);					
 					
 					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+					
+//					Shell theShell = null;
 														
-					for (Shell s: ar) {
-						System.out.println(s.toString());
-					}
+//					for (Shell s: ar) {
+//						System.out.println(s.toString());
+//						if (s.isFocusControl())  {
+//							theShell = s;
+//							System.out.println("Focus: " + s.toString());
+//						}
+//						
+//					}
 					
 					InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
 										
 					cs.execute(wincom);
 					
-					result = wincom.getEvalResult();
+					if (wincom.cancelled()) {
+						return false;
+					}
 					
-					System.out.println("Less automatic result: " + result.getName());
+					result = wincom.getEvalResult();		
+					
+					w.addHumanJudgement(result);
+					
+					System.out.println("Human Judgement result: " + result.getName());
 					
 				}
 			
@@ -433,65 +458,40 @@ public class InteractiveQualReasoner extends Reasoner {
 								
 				lq.add(w);		
 				
-				w.resolved();
+				w.bagResolved();
 			}
+			
+			
 		}		
+		return true;
 		
-		//softgoalWrappers.empty();
 	}
 	
 	private EvaluationLabel applyAutomaticSoftgoalCases(IntQualIntentionWrapper w) {
 		//case 1
 		if (w.bagSize() == 1) {
-			Object[] array = w.getFirstFromBag();
-			return (EvaluationLabel) array[1];
+			IntentionLabelPair ilp = w.getFirstFromBag();
+			return ilp.getEvaluationLabel();
 		}
 		
-		//case 2 & 3
-		ListIterator<Object> it = w.bagListIterator();
-		
-		boolean hasNeg = false;
-		boolean hasPos = false;
-		boolean hasFullPos = false;
-		boolean hasFullNeg = false;
-		boolean hasUnOrCon = false;
-		
-		while (it.hasNext()) {
-			Object[] array = (Object[]) it.next();
-			EvaluationLabel label = (EvaluationLabel) array[1];
-			
-			if (label == EvaluationLabel.SATISFIED) {
-				hasFullPos = true;
-				hasPos = true;
-			}
-			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
-				hasPos = true;
-			}
-			if (label == EvaluationLabel.CONFLICT || label == EvaluationLabel.UNKNOWN) {
-				hasUnOrCon = true;
-			}
-			if (label == EvaluationLabel.WEAKLY_DENIED) {
-				hasNeg = true;
-			}
-			if (label == EvaluationLabel.DENIED) {
-				hasFullNeg = true;
-				hasNeg = true;
-			}
-		}
-		
-		if (hasFullPos && !hasNeg && !hasUnOrCon)
+		//case 2 & 3		
+		if (w.bagHasSatisfied() && w.isBagPositive())
 			return EvaluationLabel.SATISFIED;
-		if (hasFullNeg && !hasPos && !hasUnOrCon)
+		if (w.bagHasConflict() && w.isBagNegative())
 			return EvaluationLabel.DENIED;
+		//new cases
+		if (w.bagHasUnknown() && !w.isBagPositive() && !w.isBagNegative())
+			return EvaluationLabel.UNKNOWN;
+		if (w.bagHasConflict() && !w.isBagPositive() && !w.isBagNegative())
+			return EvaluationLabel.CONFLICT;
 		
 		//case 4, null if it doesn't apply
-		return case4(w);
-				
+		return w.findExistingResult();				
 	}
 	
 	private EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
 		
-		ListIterator<Object> it = w.bagListIterator();
+		ListIterator<IntentionLabelPair> it = w.bagListIterator();
 		
 		int FSCount = 0;
 		int PSCount = 0;
@@ -501,8 +501,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		int FDCount = 0;
 		
 		while (it.hasNext()) {
-			Object[] array = (Object[]) it.next();
-			EvaluationLabel label = (EvaluationLabel) array[1];
+			IntentionLabelPair ilp =  it.next();
+			EvaluationLabel label = ilp.getEvaluationLabel();
 			
 			if (label == EvaluationLabel.SATISFIED) {
 				FSCount++;
@@ -550,7 +550,5 @@ public class InteractiveQualReasoner extends Reasoner {
 		return EvaluationLabel.CONFLICT;
 	}
 	
-	private EvaluationLabel case4(IntQualIntentionWrapper w) {
-		return null;
-	}
+	
 }

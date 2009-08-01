@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
 import java.util.ListIterator;
+import java.util.Vector;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
@@ -11,20 +12,24 @@ public class IntQualIntentionWrapper {
 	private EvaluationLabel initialEvaluationLabel;
 	private Intention intnt;
 	private LabelBag lb;
-	private boolean toResolve;
+	
+	private Vector<HumanJudgement> hjv;
+	
 	
 	public IntQualIntentionWrapper() {
-		intnt = null;
-		initialEvaluationLabel = EvaluationLabel.NONE;
-		lb = new LabelBag();
-		toResolve = false;
-		
+		init();		
 	}
 	
 	public IntQualIntentionWrapper(Intention i) {
+		init();
 		intnt = i;		
+	}
+	
+	public void init() {
+		intnt = null;		
 		initialEvaluationLabel = EvaluationLabel.NONE;
-		lb = new LabelBag();
+		lb = new LabelBag();		
+		hjv = new Vector<HumanJudgement>();		
 	}
 	
 	public void setInitialEvaluationLabel(EvaluationLabel l) {
@@ -43,22 +48,22 @@ public class IntQualIntentionWrapper {
 		intnt = i;
 	}
 	
-	public void resolved() {
-		toResolve = false;
+	public void bagResolved() {
+		lb.resolved();
 	}
 	
-	public void toResolve() {
-		toResolve = true;
+	public void bagToResolve() {
+		lb.toResolve();
 	}
 	
-	public boolean needResolve()  {
-		return toResolve;
+	public boolean bagNeedResolve()  {
+		return lb.needResolve();
 	}
 	
 	public void addtoLabelBag(Intention i, EvaluationLabel l) {
 		lb.addToBag(i, l);
 		
-		toResolve = true;
+		bagToResolve();
 	}
 	
 	public void printLabelBag() {
@@ -69,16 +74,58 @@ public class IntQualIntentionWrapper {
 		return lb.size();
 	}
 	
-	public ListIterator<Object> bagListIterator() {	
+	public ListIterator<IntentionLabelPair> bagListIterator() {	
 		return lb.listIterator();
 	}
 	
-	public Object[] getFirstFromBag() {
-		return (Object[]) lb.getFirst();
+	public IntentionLabelPair getFirstFromBag() {
+		return lb.getFirst();
 	} 
 	
 	public Object[] bagToArray() {
+		
 		return lb.toArray();
 	}
 
+	public void addHumanJudgement(EvaluationLabel result) {
+		HumanJudgement hj = new HumanJudgement(lb, result);
+		hjv.add(hj);
+		
+	}
+
+	public EvaluationLabel findExistingResult() {
+		EvaluationLabel result = null;
+		for (HumanJudgement hj: hjv)  {
+			result = hj.findOrImplies(lb);
+			if (result != null)
+				return result;
+		}
+		return null;
+	}
+	
+	public boolean isBagPositive() {
+		return lb.isPositive();
+	}
+	
+	public boolean isBagNegative() {
+		return lb.isNegative();
+	}
+	
+	public boolean bagHasSatisfied() {
+		return lb.hasSatisfied();
+	}
+	
+	public boolean bagHasDenied() {
+		return lb.hasDenied();
+	}
+	
+	public boolean bagHasUnknown() {
+		return lb.hasUnknown();
+	}
+	
+	public boolean bagHasConflict() {
+		return lb.hasConflict();
+	}
+	
+	
 }

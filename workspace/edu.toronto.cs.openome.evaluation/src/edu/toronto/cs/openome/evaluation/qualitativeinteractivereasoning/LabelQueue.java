@@ -28,7 +28,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     
     private HashMap map;
     
-    private final int maxProp = 5;
+    private final int maxProp = 3;
 
     private static final int DEFAULT_CAPACITY = 20;
 
@@ -258,6 +258,16 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     	 
     	 front = oldfront;
     	
+    }
+    
+    public String toString() {
+    	String str = "";
+    	int oldfront = front;
+    	 for( int i = 0; i < currentSize; i++, front = increment( front ) )
+             str += theArray[front].getIntention().getName() + ", ";
+    	     	 
+    	front = oldfront;
+    	return str;
     }
 
 	

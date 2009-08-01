@@ -7,49 +7,65 @@ import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 
 public class LabelBag {
-	private Vector<Object> bag;
+	private Vector<IntentionLabelPair> bag;
+	private boolean isPositive;
+	private boolean isNegative;
+	private boolean hasFullPos;
+	private boolean hasFullNeg;
+	private boolean hasUnk;
+	private boolean hasCon;
+	private boolean toResolve;
 	
 	public LabelBag() {
-		bag = new Vector<Object>();
+		bag = new Vector<IntentionLabelPair>();
+		init();
+	}
+
+	public LabelBag(LabelBag b) {
+		bag = (Vector<IntentionLabelPair>) b.bag.clone();
+		init();
+	}
+	
+	private LabelBag(Vector<IntentionLabelPair> v) {
+		bag = v;
+		init();
+	}
+	
+	private void init() {
+		toResolve = true;
+		isPositive = false;
+		isNegative = false;
+		hasFullPos = false;
+		hasFullNeg = false;
+		hasUnk = false;
+		hasCon = false;
 	}
 
 	public void addToBag(Intention i, EvaluationLabel l) {				
-		Object [] anArray = new Object[2];
+				
+		IntentionLabelPair ilp = new IntentionLabelPair(i, l);
 		
-		try {
-			anArray[0] = i;
-			anArray[1] = l;
-		}
-		catch (Exception e)  {
-			System.out.println("Couldn't add items to tuple array");
-		}
-		
-		int index = find(i);
+		int index = findIntention(i);
 		//System.out.println("Found intention in bag with index: " + index);
 		
-		if (index >= 0) {
+		if (index >= 0) 
 			bag.removeElementAt(index);
-		}
-		else {
-			bag.add(anArray);	
-		}	
+		
+		bag.add(ilp);	
+	
 	}
 	
 	public void printBag() {
-		for (Object ob: bag) {
-			Object [] ar = (Object[]) ob;
-			System.out.print("(" + ((Intention)ar[0]).getName() + ", " + ((EvaluationLabel) ar[1]).getName() + "), ");
+		for (IntentionLabelPair ilp: bag) {
+			System.out.print("(" + ilp.getIntention().getName() + ", " + ilp.getEvaluationLabel().getName() + "), ");
 			System.out.println("");
 		}
 	}
 	
-	private int find(Intention i) {
-		for (Object ob: bag) {
-			Object [] ar = (Object[]) ob;
-			Intention i2 = (Intention) ar[0];
-			//System.out.println("Compare: " + i.getName() + " and " + i2.getName());
-			if (i2.equals(i)) {
-				return bag.indexOf(ob);
+	private int findIntention(Intention i) {
+		for (IntentionLabelPair ilp: bag) {
+			if (ilp.getIntention().equals(i)) {
+				return bag.indexOf(ilp);
 			}
 		}
 		return -1;
@@ -60,16 +76,166 @@ public class LabelBag {
 		return bag.size();
 	}
 	
-	public ListIterator<Object> listIterator() {	
+	public ListIterator<IntentionLabelPair> listIterator() {	
 		return bag.listIterator();
 	}
 	
-	public Object[] getFirst() {
-		return (Object[]) bag.firstElement();
+	public IntentionLabelPair getFirst() {
+		return bag.firstElement();
 	}
 	
 	public Object[] toArray() {
-		return bag.toArray();
+		
+		return  bag.toArray();
+	}
+
+	/*
+	 * I would like to do this using removeAll, but it seems to not work, even though it is 
+	 * calling my implementation of equals for IntentionLabelPair, which also works.
+	 * So again, I will do this the hard way.
+	 */
+	public LabelBag diff(LabelBag lb) {
+		Vector<IntentionLabelPair> diff = new Vector<IntentionLabelPair>();
+		boolean found = false;
+		
+		for (IntentionLabelPair ilp: bag)	{
+			found = false;
+			for (IntentionLabelPair ilp2: lb.bag) {
+				if (ilp.equals(ilp2))
+					found = true;
+			}
+			if (!found)
+				diff.add(ilp);
+		}
+		//and again...
+		for (IntentionLabelPair ilp: lb.bag)	{
+			found = false;
+			for (IntentionLabelPair ilp2: bag) {
+				if (ilp.equals(ilp2))
+					found = true;
+			}
+			if (!found)
+				diff.add(ilp);
+		}
+		return new LabelBag(diff);
+	}
+
+	private void assessBag() {
+		
+		if (!toResolve)
+			return;
+		
+		ListIterator<IntentionLabelPair> it = listIterator();		
+		
+		isPositive = true;
+		isNegative = true;
+		hasFullPos = false;
+		hasFullNeg = false;
+		hasCon = false;
+		hasUnk = false;
+		
+		while (it.hasNext()) {
+			IntentionLabelPair ilp = it.next();
+			EvaluationLabel label = ilp.getEvaluationLabel();
+			
+			if (label == EvaluationLabel.SATISFIED) {
+				hasFullPos = true;
+				isNegative = false;
+			}
+			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
+				isNegative = false;
+			}
+			if (label == EvaluationLabel.CONFLICT) {
+				hasCon = true;
+				isNegative = false;
+				isPositive = false;
+			}				
+		    if (label == EvaluationLabel.UNKNOWN) {
+				hasUnk = true;
+				isNegative = false;
+				isPositive = false;
+			}
+			if (label == EvaluationLabel.WEAKLY_DENIED) {
+				isPositive = false;
+			}
+			if (label == EvaluationLabel.DENIED) {
+				hasFullNeg = true;
+				isPositive = false;
+			}
+		}
+		
+	}
+
+	public boolean isPositive() {
+		assessBag();
+		return isPositive;
+	}
+	
+	public boolean isNegative() {
+		assessBag();
+		return isNegative;
+	}
+	
+	public boolean hasSatisfied() {
+		assessBag();
+		return hasFullPos;
+	}
+	
+	public boolean hasDenied() {
+		assessBag();
+		return hasFullNeg;
+	}
+	
+	public boolean hasUnknown() {
+		assessBag();
+		return hasUnk;
+	}
+	
+	public boolean hasConflict() {
+		assessBag();
+		return hasCon;
+	}
+
+	public void resolved() {
+		toResolve = false;
+	}
+
+	public void toResolve() {
+		toResolve = true;		
+	}
+
+	public boolean needResolve() {
+		return toResolve;
+	}
+	
+	/*
+	 * Test for equality without caring about order.
+	 * I can't use the default vector equals or index of because it only checks for object equality 
+	 * and doesn't seem to call my overridden equals function for IntentionLabelPair.
+	 * So I'm doing this the ugly way, annoying
+	 */
+	public boolean equals(LabelBag other) {
+		boolean found = false;
+		for (IntentionLabelPair ilp: bag)	{
+			found = false;
+			for (IntentionLabelPair ilp2: other.bag) {
+				if (ilp.equals(ilp2))
+					found = true;
+			}
+			if (!found)
+				return false;
+		}
+		
+		for (IntentionLabelPair ilp: other.bag)	{
+			found = false;
+			for (IntentionLabelPair ilp2: bag) {
+				if (ilp.equals(ilp2))
+					found = true;
+			}
+			if (!found)
+				return false;
+		}
+		return true;
 	}
 	
 	

@@ -88,7 +88,6 @@ public class ReasonerHandler implements IHandler {
 		
 		
 		XMIResourceImpl xmires = null;
-		GMFResource gr = null;
 		
 		for(Resource tmp: resourceSet.getResources()) {
 			System.out.println(tmp.toString());
