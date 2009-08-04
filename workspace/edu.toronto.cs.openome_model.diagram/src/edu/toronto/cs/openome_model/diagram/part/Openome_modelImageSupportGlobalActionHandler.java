@@ -105,6 +105,7 @@ import edu.toronto.cs.openome_model.impl.UnknownContributionImpl;
 public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGlobalActionHandler {
 	
 	protected static List<EditPart> editPartClipboard = new ArrayList<EditPart>();
+	protected static List<EditPart> cutClipboard = new ArrayList<EditPart>();
 	
 	/**
 	 * Maps original elements to duplicated element
@@ -119,14 +120,14 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		super();
 	}
 	
-	/**
-	 * Modified version of canCut that effectively disables cutting
-	 * until we can implement cutting without crashing
-	 * cf. ticket #197
-	 */
-	protected boolean canCut(IGlobalActionContext cntxt){	
-		return false;
-	}
+//	/**
+//	 * Modified version of canCut that effectively disables cutting
+//	 * until we can implement cutting without crashing
+//	 * cf. ticket #197
+//	 */
+//	protected boolean canCut(IGlobalActionContext cntxt){	
+//		return false;
+//	}
 	
 	/**
 	 * Modified version of canCopy that allows copying of an Actor
@@ -188,12 +189,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			// and does not affect the model
 			command = getCutCommand(cntxt, diagramPart);
 			
-			/* Get the selected edit parts */
-			Object[] objects = ((IStructuredSelection) cntxt.getSelection())
-				.toArray();
-			
-			System.out.println("Cut: selected " + cntxt.getSelection());
-			
 			
 		} else if (actionId.equals(GlobalActionId.OPEN)) {
 			// Open command: use the previously cached command.
@@ -244,46 +239,21 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					
 					TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
 					TransactionalEditingDomain pasteToDomain = ((IGraphicalEditPart) ep).getEditingDomain();
-
-//					if (copyFromDomain.equals(pasteToDomain)){
-//						/*This means we are pasting within the same diagram
-//						 * This means it's safe to simply duplicate
-//						 */
-//						
-//						//Adds to the model (the oom file)
-//						DuplicateAnythingCommand duplicateCommand = (DuplicateAnythingCommand) getTrueDuplicateCommand(ep);
-//						ICommandProxy duplicate = new ICommandProxy(duplicateCommand);
-//						cs.execute(duplicate);
-//						
-//						// Assign new container to the duplicated element
-//						for (EditPart e : editPartClipboard){
-//							final EObject o = ((IGraphicalEditPart) e).getNotationView().getElement();
-//							EObject duplicated = (EObject) duplicateCommand.getAllDuplicatedObjects().get(o);
-//							if (duplicated instanceof IntentionImpl){
-//								setContainer((IntentionImpl) duplicated, ep, cs);
-//							}
-//						}
-//					}
-//					else {
-//						// This means we are pasting across two distinct diagrams
 						
-						// So since we cannot duplicate, we should add to the destination diagram
-						EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
-						List<CreateElementCommand> commandList = getCreateCommandList(pasteToDomain, container);
+					// So since we cannot duplicate, we should add to the destination diagram
+					EObject container = ((IGraphicalEditPart) ep).getNotationView().getElement();
+					List<CreateElementCommand> commandList = getCreateCommandList(pasteToDomain, container);
 						
-						map.clear();
+					map.clear();
 						
-						// "Duplicate" all the selected elements
-						for (CreateElementCommand c : commandList){
-							ICommandProxy create = new ICommandProxy(c);
-							cs.execute(create);
-							map.put(((CreateDuplicateElementCommand) c).getOriginal(), 
+					// "Duplicate" all the selected elements
+					for (CreateElementCommand c : commandList){
+						ICommandProxy create = new ICommandProxy(c);
+						cs.execute(create);
+						map.put(((CreateDuplicateElementCommand) c).getOriginal(), 
 									((CreateDuplicateElementCommand) c).getDuplicate()); 
 						}
-//					}
-					
-					
-					
+
 					//Adds to the diagram
 					//cs.execute(paste); // we don't want to have double paste
 					diagramPart.getDiagramEditPart().getFigure().invalidate();
@@ -478,59 +448,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			cs.execute(change);
 		}
 		
-	}
-
-	/**
-	 * Duplicates an element by a command
-	 */
-	public DuplicateEObjectsCommand getTrueDuplicateCommand(EditPart ep){
-		final EObject object = ((IGraphicalEditPart) ep).getNotationView().getElement();
-		return getTrueDuplicateCommand(object, ((IGraphicalEditPart) ep).getEditingDomain());
-	}
-	
-	/**
-	 * Given a model object, create a command to duplicate the object
-	 * @param object
-	 * @return
-	 */
-	private DuplicateEObjectsCommand getTrueDuplicateCommand(EObject object, TransactionalEditingDomain pasteToDomain){
-		List copyMe = new ArrayList();
-		TransactionalEditingDomain copyFromDomain = null;
-		for (EditPart ep: editPartClipboard){
-			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-			copyFromDomain = ((IGraphicalEditPart) ep).getEditingDomain();
-			copyMe.add(o);
-		}
-		
-		return new DuplicateAnythingCommand(pasteToDomain, new DuplicateElementsRequest(copyMe));
-	}
-	
-	/**
-	 * borrowed from ModelItemSemanticEditPolicy
-	 */
-	private static class DuplicateAnythingCommand extends
-			DuplicateEObjectsCommand {
-		
-		private DuplicateElementsRequest request;
-
-		public DuplicateAnythingCommand(
-				TransactionalEditingDomain editingDomain,
-				DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req
-					.getElementsToBeDuplicated(), req
-					.getAllDuplicatedElementsMap());
-			
-			request = req;
-		}
-		
-		public DuplicateElementsRequest getRequest(){
-			return request;
-		}
-		
-		public HashMap getAllDuplicatedObjects(){
-			return (HashMap) super.getAllDuplicatedObjectsMap();
-		}
-
 	}
 	
 	/**
@@ -743,6 +660,69 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		}
 		
 	}
+	
+	protected ICommand getCutCommand(IGlobalActionContext cntxt,
+			IDiagramWorkbenchPart diagramPart) {
+
+        TransactionalEditingDomain editingDomain = getEditingDomain(diagramPart);
+
+        if (editingDomain == null) {
+            return null;
+        }
+        
+        CompositeTransactionalCommand cut = new CompositeTransactionalCommand(editingDomain, cntxt
+            .getLabel());
+
+		// Add a copy command - the cut must be undoable/redoable
+		cut.compose(getCopyCommand(cntxt, diagramPart, true));
+
+		/* Get the selected edit parts */
+		Object[] objects = ((IStructuredSelection) cntxt.getSelection())
+			.toArray();
+		for (int i = 0; i < objects.length; i++) {
+			/* Get the next part */
+			EditPart editPart = (EditPart) objects[i];
+
+			/* Create the delete request */
+			GroupRequest deleteReq = new GroupRequest(
+				RequestConstants.REQ_DELETE);
+
+			/* Send the request to the edit part */
+			Command deleteCommand = editPart.getCommand(deleteReq);
+
+			/* Add to the compound command */
+			if (deleteCommand != null) {
+				cut.compose(new CommandProxy(deleteCommand));
+			}
+		}
+
+		if (!cut.isEmpty() && cut.canExecute()){
+			/* Get the selected edit parts */
+			//Fill our own clipboard
+			System.out.println("Cut: selected " + cntxt.getSelection());
+			return cut;
+		}
+
+		return null;
+	}
+	
+    private TransactionalEditingDomain getEditingDomain(
+            IDiagramWorkbenchPart part) {
+
+        TransactionalEditingDomain result = null;
+
+        IEditingDomainProvider provider = (IEditingDomainProvider) part
+            .getAdapter(IEditingDomainProvider.class);
+
+        if (provider != null) {
+            EditingDomain domain = provider.getEditingDomain();
+
+            if (domain != null && domain instanceof TransactionalEditingDomain) {
+                result = (TransactionalEditingDomain) domain;
+}        }
+
+        return result;
+    }
 
 	
 }
