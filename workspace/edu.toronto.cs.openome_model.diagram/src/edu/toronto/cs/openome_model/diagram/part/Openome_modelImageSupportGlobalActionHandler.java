@@ -11,9 +11,11 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyToClipboardCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
@@ -46,6 +48,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.eclipse.gmf.runtime.emf.ui.properties.actions.PropertyPageViewAction;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 
@@ -105,7 +108,7 @@ import edu.toronto.cs.openome_model.impl.UnknownContributionImpl;
 public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGlobalActionHandler {
 	
 	protected static List<EditPart> editPartClipboard = new ArrayList<EditPart>();
-	protected static List<EditPart> cutClipboard = new ArrayList<EditPart>();
+	protected static List<EObject> cutClipboard = new ArrayList<EObject>();
 	
 	/**
 	 * Maps original elements to duplicated element
@@ -182,15 +185,14 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			for (Object o : objects){
 				editPartClipboard.add((EditPart) o);
 			}
-			
+			cutClipboard.clear();
 			
 		} else if (actionId.equals(GlobalActionId.CUT)) {
 			// This command changes position of a graphic part
 			// and does not affect the model
 			command = getCutCommand(cntxt, diagramPart);
-			
-			
-		} else if (actionId.equals(GlobalActionId.OPEN)) {
+	
+		}else if (actionId.equals(GlobalActionId.OPEN)) {
 			// Open command: use the previously cached command.
 			// visibility problem
 			super.getCommand(cntxt);
@@ -237,7 +239,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					CommandStack cs = diagramPart.getDiagramEditDomain()
 						.getDiagramCommandStack();
 					
-					TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
+					//TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
 					TransactionalEditingDomain pasteToDomain = ((IGraphicalEditPart) ep).getEditingDomain();
 						
 					// So since we cannot duplicate, we should add to the destination diagram
@@ -268,6 +270,8 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				false);
 		} else if (actionId.equals(GlobalActionId.PROPERTIES)) {
 			new PropertyPageViewAction().run();
+		} else {
+			System.out.println("actionID is : " + actionId);
 		}
 
 		return command;
@@ -293,6 +297,18 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			}
 			tmp.add(o);
 			tmp2.add(o);
+		}
+		
+		if (!cutClipboard.isEmpty()){
+			tmp.clear();
+			tmp2.clear();
+			for (EObject o : cutClipboard){
+				if (o instanceof LinkImpl){
+					continue;
+				}
+				tmp.add(o);
+				tmp2.add(o);
+			}
 		}
 		
 		//then delete all doubled intentions
@@ -424,87 +440,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		}
 		
 		return new CreateDuplicateElementCommand(req, o);
-	}
-
-	/**
-	 * Changes the container of an intention
-	 * @param duplicated
-	 * @param object
-	 * @param cs
-	 */
-	private void setContainer(IntentionImpl duplicated, Object object, CommandStack cs) {
-		if (object instanceof ModelEditPart){
-			final EObject model = ((IGraphicalEditPart) object).getNotationView().getElement();
-			TransactionalEditingDomain domain = ((ModelEditPart) object).getEditingDomain();
-			ChangeModelCommand command = new ChangeModelCommand(domain, duplicated, (ModelImpl) model);
-			ICommandProxy change = new ICommandProxy(command);
-			cs.execute(change);
-		}
-		else if (object instanceof ShapeCompartmentEditPart){
-			final EObject compartmentImpl = ((IGraphicalEditPart) object).getNotationView().getElement();
-			TransactionalEditingDomain domain = ((ShapeCompartmentEditPart) object).getEditingDomain();
-			ChangeContainerCommand command = new ChangeContainerCommand( domain, duplicated, (ContainerImpl) compartmentImpl);
-			ICommandProxy change = new ICommandProxy(command);
-			cs.execute(change);
-		}
-		
-	}
-	
-	/**
-	 * A Command to change the container of an intention
-	 * @author johan
-	 */
-	private static class ChangeContainerCommand extends AbstractTransactionalCommand {
-		
-		private IntentionImpl intention;
-		private ContainerImpl container;
-		
-		public ChangeContainerCommand(TransactionalEditingDomain domain, IntentionImpl i, ContainerImpl c){
-			super(domain, "change container", new ArrayList());
-			intention = i;
-			container = c;
-		}
-
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-				IAdaptable info) throws ExecutionException {
-			// TODO Auto-generated method stub
-			// Remove from old container
-			if (intention.getContainer() != null){
-				intention.getContainer().getIntentions().remove(intention);
-			}
-			
-			// Adds to new container
-			container.getIntentions().add(intention);
-			return CommandResult.newOKCommandResult();
-		}
-		
-	}
-	
-	/**
-	 * A Command to change the model of an intention
-	 * @author johan
-	 */
-	private static class ChangeModelCommand extends AbstractTransactionalCommand {
-		
-		private IntentionImpl intention;
-		private ModelImpl model;
-		
-		public ChangeModelCommand(TransactionalEditingDomain domain, IntentionImpl i, ModelImpl m){
-			super(domain, "change container", new ArrayList());
-			intention = i;
-			model = m;
-		}
-
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-				IAdaptable info) throws ExecutionException {
-			// TODO Auto-generated method stub
-			intention.setModel(model);
-			intention.getModel().getIntentions().add(intention);
-			return CommandResult.newOKCommandResult();
-		}
-		
 	}
 	
 	/**
@@ -663,9 +598,9 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	
 	protected ICommand getCutCommand(IGlobalActionContext cntxt,
 			IDiagramWorkbenchPart diagramPart) {
-
-        TransactionalEditingDomain editingDomain = getEditingDomain(diagramPart);
-
+		
+		TransactionalEditingDomain editingDomain = getEditingDomain(diagramPart);
+		
         if (editingDomain == null) {
             return null;
         }
@@ -695,11 +630,21 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				cut.compose(new CommandProxy(deleteCommand));
 			}
 		}
-
-		if (!cut.isEmpty() && cut.canExecute()){
-			/* Get the selected edit parts */
+        
+		if (cut.canExecute()){
 			//Fill our own clipboard
-			System.out.println("Cut: selected " + cntxt.getSelection());
+			editPartClipboard.clear();
+			cutClipboard.clear();
+			/* Get the selected edit parts */
+			Object[] objects2 = ((IStructuredSelection) cntxt.getSelection())
+				.toArray();
+			
+			for (Object ep : objects2){
+				editPartClipboard.add((EditPart) ep);
+				final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+				cutClipboard.add(o);
+				
+			}
 			return cut;
 		}
 
@@ -723,6 +668,16 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 
         return result;
     }
-
-	
+    
+	protected boolean canCut(IGlobalActionContext cntxt) {
+		String actionId = cntxt.getActionId();
+//		if (actionId.equals(GlobalActionId.CUT)) {
+//			ICommand command = getCommand(cntxt);
+//			if (command != null && command.canExecute()) {
+//				return canCopy(cntxt);
+//			}
+//		}
+//		return false;
+		return true;
+	}
 }
