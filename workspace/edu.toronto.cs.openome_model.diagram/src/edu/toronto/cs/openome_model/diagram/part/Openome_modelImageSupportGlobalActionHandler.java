@@ -129,15 +129,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		super();
 	}
 	
-//	/**
-//	 * Modified version of canCut that effectively disables cutting
-//	 * until we can implement cutting without crashing
-//	 * cf. ticket #197
-//	 */
-//	protected boolean canCut(IGlobalActionContext cntxt){	
-//		return false;
-//	}
-	
 	/**
 	 * Modified version of canCopy that allows copying of an Actor
 	 */
@@ -214,12 +205,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				m.put(o, cutClipboard.get(cutClipboard.indexOf(o)));
 			}
 			cutDeleted = false;
-//			CommandStack cs = diagramPart.getDiagramEditDomain()
-//			.getDiagramCommandStack();
-//			
-//			TransactionalEditingDomain domain = ((IGraphicalEditPart) objects2[0]).getEditingDomain();
-//			//ChangeLinkPointerCommand recalibrate = new ChangeLinkPointerCommand(domain, m);
-//			cs.execute(new ICommandProxy(new ChangeLinkPointerCommand(domain, m, cutClipboard)));
 	
 		}else if (actionId.equals(GlobalActionId.OPEN)) {
 			// Open command: use the previously cached command.
@@ -700,19 +685,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			if (editPart instanceof ShapeCompartmentEditPart){
 				
 			}
-			
-
-//			/* Create the delete request */
-//			GroupRequest deleteReq = new GroupRequest(
-//				RequestConstants.REQ_DELETE);
-//
-//			/* Send the request to the edit part */
-//			Command deleteCommand = editPart.getCommand(deleteReq);
-//
-//			/* Add to the compound command */
-//			if (deleteCommand != null) {
-//				cut.compose(new CommandProxy(deleteCommand));
-//			}
 		}
         
 		if (cut.canExecute()){
@@ -752,71 +724,4 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		return true;
 	}
 	
-	/**
-	 * A command to move links around in case of a cut
-	 * @author johan
-	 *
-	 */
-	private static class ChangeLinkPointerCommand extends AbstractTransactionalCommand {
-		
-		private HashMap m;
-		private List<EObject> clipboard;
-		
-		public ChangeLinkPointerCommand(TransactionalEditingDomain domain, HashMap mapping, List c){
-			super(domain, "move links around", new ArrayList());
-			m = mapping;
-			clipboard = c;
-		}
-		
-		protected CommandResult doExecuteWithResult (IProgressMonitor monitor, IAdaptable info) throws ExecutionException{
-			for (Object o : cutClipboard){
-				if(o instanceof LinkImpl){
-					EObject clipboardLink = (EObject) m.get(o);
-
-					EObject source = null;
-		        	EObject target = null;
-		        	
-		        	if (o instanceof DecompositionImpl){
-						source = ((DecompositionImpl) o).getSource();
-						target = ((DecompositionImpl) o).getTarget();
-					}
-					else if (o instanceof ContributionImpl){
-						source = ((ContributionImpl) o).getSource();
-						target = ((ContributionImpl) o).getTarget();
-					}
-					else if (o instanceof AssociationImpl){
-						source = ((AssociationImpl) o).getSource();
-						target = ((AssociationImpl) o).getTarget();
-					}
-					else if (o instanceof DependencyImpl){
-						// the order is inverted because of the definition of a Dependency relation
-						target = ((DependencyImpl) o).getDependencyFrom();
-						source = ((DependencyImpl) o).getDependencyTo();
-					}
-		        	
-		        	EObject clipboardSource = (EObject) m.get(source);
-		        	EObject clipboardTarget = (EObject) m.get(target);
-		        	
-		        	if (clipboardLink instanceof DecompositionImpl){
-						((DecompositionImpl) clipboardLink).setSource((Intention)clipboardSource);
-						((DecompositionImpl) clipboardLink).setTarget((Intention)clipboardTarget);
-					} 
-					else if (clipboardLink instanceof ContributionImpl){
-						((ContributionImpl) clipboardLink).setSource((Intention) clipboardSource);
-						((ContributionImpl) clipboardLink).setTarget((Intention) clipboardTarget);
-					}
-					else if (clipboardLink instanceof AssociationImpl){
-						((AssociationImpl) clipboardLink).setSource((Container) clipboardSource);
-						((AssociationImpl) clipboardLink).setTarget((Container) clipboardTarget);
-					}
-					else if (clipboardLink instanceof DependencyImpl){
-						((DependencyImpl) clipboardLink).setDependencyFrom((Dependable) clipboardTarget);
-						((DependencyImpl) clipboardLink).setDependencyTo((Dependable) clipboardSource);
-					}
-				}
-			}
-			
-			return CommandResult.newOKCommandResult(); 
-		}
-	}
 }
