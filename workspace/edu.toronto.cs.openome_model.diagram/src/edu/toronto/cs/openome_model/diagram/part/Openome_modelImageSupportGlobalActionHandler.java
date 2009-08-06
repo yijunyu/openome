@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.common.ui.action.global.GlobalActionId;
 import org.eclipse.gmf.runtime.common.ui.services.action.global.IGlobalActionContext;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -43,8 +44,10 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.eclipse.gmf.runtime.emf.ui.properties.actions.PropertyPageViewAction;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -65,6 +68,7 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEdit
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
@@ -109,6 +113,8 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 	
 	protected static List<EditPart> editPartClipboard = new ArrayList<EditPart>();
 	protected static List<EObject> cutClipboard = new ArrayList<EObject>();
+	
+	private boolean cutDeleted = true;
 	
 	/**
 	 * Maps original elements to duplicated element
@@ -178,6 +184,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			
 			//Fill our own clipboard
 			editPartClipboard.clear();
+			cutClipboard.clear();
 			/* Get the selected edit parts */
 			Object[] objects = ((IStructuredSelection) cntxt.getSelection())
 				.toArray();
@@ -185,12 +192,34 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 			for (Object o : objects){
 				editPartClipboard.add((EditPart) o);
 			}
-			cutClipboard.clear();
+			
 			
 		} else if (actionId.equals(GlobalActionId.CUT)) {
-			// This command changes position of a graphic part
-			// and does not affect the model
 			command = getCutCommand(cntxt, diagramPart);
+			
+			// need to keep track of copies correspondence
+			HashMap<EObject, EObject> m = new HashMap<EObject, EObject>(); 
+			
+			//Fill our own clipboard
+			editPartClipboard.clear();
+			cutClipboard.clear();
+			/* Get the selected edit parts */
+			Object[] objects2 = ((IStructuredSelection) cntxt.getSelection())
+				.toArray();
+			
+			for (Object ep : objects2){
+				editPartClipboard.add((EditPart) ep);
+				final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+				cutClipboard.add(o);
+				m.put(o, cutClipboard.get(cutClipboard.indexOf(o)));
+			}
+			cutDeleted = false;
+//			CommandStack cs = diagramPart.getDiagramEditDomain()
+//			.getDiagramCommandStack();
+//			
+//			TransactionalEditingDomain domain = ((IGraphicalEditPart) objects2[0]).getEditingDomain();
+//			//ChangeLinkPointerCommand recalibrate = new ChangeLinkPointerCommand(domain, m);
+//			cs.execute(new ICommandProxy(new ChangeLinkPointerCommand(domain, m, cutClipboard)));
 	
 		}else if (actionId.equals(GlobalActionId.OPEN)) {
 			// Open command: use the previously cached command.
@@ -239,7 +268,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 					CommandStack cs = diagramPart.getDiagramEditDomain()
 						.getDiagramCommandStack();
 					
-					//TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
+					TransactionalEditingDomain copyFromDomain = ((IGraphicalEditPart)editPartClipboard.get(0)).getEditingDomain();
 					TransactionalEditingDomain pasteToDomain = ((IGraphicalEditPart) ep).getEditingDomain();
 						
 					// So since we cannot duplicate, we should add to the destination diagram
@@ -255,6 +284,33 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 						map.put(((CreateDuplicateElementCommand) c).getOriginal(), 
 									((CreateDuplicateElementCommand) c).getDuplicate()); 
 						}
+					
+					// Now delete the invisible elements that had been cut
+					if (!cutClipboard.isEmpty() && !cutDeleted){
+						CompositeTransactionalCommand delete = new CompositeTransactionalCommand(copyFromDomain, cntxt
+					            .getLabel());
+						for (EditPart editPart : editPartClipboard){
+							/* Create the delete request */
+							GroupRequest deleteReq = new GroupRequest(
+								RequestConstants.REQ_DELETE);
+
+							/* Send the request to the edit part */
+							Command deleteCommand = editPart.getCommand(deleteReq);
+
+							/* Add to the compound command */
+							if (deleteCommand != null) {
+								delete.compose(new CommandProxy(deleteCommand));
+							}
+						}
+						
+						// Now we repoint the paste source to the elements we just pasted
+						cutClipboard.clear();
+						for(EObject e :map.keySet()){
+							cutClipboard.add(map.get(e));
+						}
+						cutDeleted = true;
+						return delete;
+					}
 
 					//Adds to the diagram
 					//cs.execute(paste); // we don't want to have double paste
@@ -289,20 +345,19 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		
 		List<EObject> tmp = new ArrayList<EObject>();
 		List<EObject> tmp2 = new ArrayList<EObject>();
-		// First get all the actors and intentions
-		for (EditPart ep: editPartClipboard){
-			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-			if (o instanceof LinkImpl){
-				continue;
-			}
-			tmp.add(o);
-			tmp2.add(o);
-		}
 		
+		// First get all the actors and intentions
 		if (!cutClipboard.isEmpty()){
-			tmp.clear();
-			tmp2.clear();
 			for (EObject o : cutClipboard){
+				if (o instanceof LinkImpl){
+					continue;
+				}
+				tmp.add(o);
+				tmp2.add(o);
+			}
+		} else{
+			for (EditPart ep: editPartClipboard){
+				final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
 				if (o instanceof LinkImpl){
 					continue;
 				}
@@ -331,16 +386,29 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 
 		// then append the commands to create links
 		// this is because it does not make sense to create links without the sources and targets
-		for (EditPart ep: editPartClipboard){
-			final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
+		
+		if (!cutClipboard.isEmpty()){
+			for (EObject o : cutClipboard){
+				if (o instanceof LinkImpl && !done.contains(o)){
+					c = getCreateLinkCommand(domain, o, container);
+					if (c != null)
+						commandList.add(c);
+						done.add(o);
+				}
+			}
+		} else {
+			for (EditPart ep: editPartClipboard){
+				final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
 
-			if (o instanceof LinkImpl && !done.contains(o)){
-				c = getCreateLinkCommand(domain, o, container);
-				if (c != null)
-					commandList.add(c);
-					done.add(o);
+				if (o instanceof LinkImpl && !done.contains(o)){
+					c = getCreateLinkCommand(domain, o, container);
+					if (c != null)
+						commandList.add(c);
+						done.add(o);
+				}
 			}
 		}
+		
 		return commandList;
 		
 	}
@@ -617,34 +685,37 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 		for (int i = 0; i < objects.length; i++) {
 			/* Get the next part */
 			EditPart editPart = (EditPart) objects[i];
-
-			/* Create the delete request */
-			GroupRequest deleteReq = new GroupRequest(
-				RequestConstants.REQ_DELETE);
-
-			/* Send the request to the edit part */
-			Command deleteCommand = editPart.getCommand(deleteReq);
-
-			/* Add to the compound command */
-			if (deleteCommand != null) {
-				cut.compose(new CommandProxy(deleteCommand));
+			
+			//make myself invisible and unselectable
+			((IGraphicalEditPart) editPart).getFigure().setVisible(false);
+			
+			//make all incoming and outgoing links invisible as well
+			for (Object e : ((IGraphicalEditPart) editPart).getSourceConnections()){
+				((ConnectionNodeEditPart) e).getFigure().setVisible(false);
 			}
+			for (Object e : ((IGraphicalEditPart) editPart).getTargetConnections()){
+				((ConnectionNodeEditPart) e).getFigure().setVisible(false);
+			}
+			
+			if (editPart instanceof ShapeCompartmentEditPart){
+				
+			}
+			
+
+//			/* Create the delete request */
+//			GroupRequest deleteReq = new GroupRequest(
+//				RequestConstants.REQ_DELETE);
+//
+//			/* Send the request to the edit part */
+//			Command deleteCommand = editPart.getCommand(deleteReq);
+//
+//			/* Add to the compound command */
+//			if (deleteCommand != null) {
+//				cut.compose(new CommandProxy(deleteCommand));
+//			}
 		}
         
 		if (cut.canExecute()){
-			//Fill our own clipboard
-			editPartClipboard.clear();
-			cutClipboard.clear();
-			/* Get the selected edit parts */
-			Object[] objects2 = ((IStructuredSelection) cntxt.getSelection())
-				.toArray();
-			
-			for (Object ep : objects2){
-				editPartClipboard.add((EditPart) ep);
-				final EObject o = ((IGraphicalEditPart) ep).getNotationView().getElement();
-				cutClipboard.add(o);
-				
-			}
 			return cut;
 		}
 
@@ -670,7 +741,7 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
     }
     
 	protected boolean canCut(IGlobalActionContext cntxt) {
-		String actionId = cntxt.getActionId();
+//		String actionId = cntxt.getActionId();
 //		if (actionId.equals(GlobalActionId.CUT)) {
 //			ICommand command = getCommand(cntxt);
 //			if (command != null && command.canExecute()) {
@@ -679,5 +750,73 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 //		}
 //		return false;
 		return true;
+	}
+	
+	/**
+	 * A command to move links around in case of a cut
+	 * @author johan
+	 *
+	 */
+	private static class ChangeLinkPointerCommand extends AbstractTransactionalCommand {
+		
+		private HashMap m;
+		private List<EObject> clipboard;
+		
+		public ChangeLinkPointerCommand(TransactionalEditingDomain domain, HashMap mapping, List c){
+			super(domain, "move links around", new ArrayList());
+			m = mapping;
+			clipboard = c;
+		}
+		
+		protected CommandResult doExecuteWithResult (IProgressMonitor monitor, IAdaptable info) throws ExecutionException{
+			for (Object o : cutClipboard){
+				if(o instanceof LinkImpl){
+					EObject clipboardLink = (EObject) m.get(o);
+
+					EObject source = null;
+		        	EObject target = null;
+		        	
+		        	if (o instanceof DecompositionImpl){
+						source = ((DecompositionImpl) o).getSource();
+						target = ((DecompositionImpl) o).getTarget();
+					}
+					else if (o instanceof ContributionImpl){
+						source = ((ContributionImpl) o).getSource();
+						target = ((ContributionImpl) o).getTarget();
+					}
+					else if (o instanceof AssociationImpl){
+						source = ((AssociationImpl) o).getSource();
+						target = ((AssociationImpl) o).getTarget();
+					}
+					else if (o instanceof DependencyImpl){
+						// the order is inverted because of the definition of a Dependency relation
+						target = ((DependencyImpl) o).getDependencyFrom();
+						source = ((DependencyImpl) o).getDependencyTo();
+					}
+		        	
+		        	EObject clipboardSource = (EObject) m.get(source);
+		        	EObject clipboardTarget = (EObject) m.get(target);
+		        	
+		        	if (clipboardLink instanceof DecompositionImpl){
+						((DecompositionImpl) clipboardLink).setSource((Intention)clipboardSource);
+						((DecompositionImpl) clipboardLink).setTarget((Intention)clipboardTarget);
+					} 
+					else if (clipboardLink instanceof ContributionImpl){
+						((ContributionImpl) clipboardLink).setSource((Intention) clipboardSource);
+						((ContributionImpl) clipboardLink).setTarget((Intention) clipboardTarget);
+					}
+					else if (clipboardLink instanceof AssociationImpl){
+						((AssociationImpl) clipboardLink).setSource((Container) clipboardSource);
+						((AssociationImpl) clipboardLink).setTarget((Container) clipboardTarget);
+					}
+					else if (clipboardLink instanceof DependencyImpl){
+						((DependencyImpl) clipboardLink).setDependencyFrom((Dependable) clipboardTarget);
+						((DependencyImpl) clipboardLink).setDependencyTo((Dependable) clipboardSource);
+					}
+				}
+			}
+			
+			return CommandResult.newOKCommandResult(); 
+		}
 	}
 }
