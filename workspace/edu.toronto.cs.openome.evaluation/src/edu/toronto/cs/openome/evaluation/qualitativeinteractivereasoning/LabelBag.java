@@ -14,6 +14,8 @@ public class LabelBag {
 	private boolean hasFullNeg;
 	private boolean hasUnk;
 	private boolean hasCon;
+	private boolean isUnk;
+	private boolean isCon;
 	private boolean toResolve;
 	
 	public LabelBag() {
@@ -39,6 +41,8 @@ public class LabelBag {
 		hasFullNeg = false;
 		hasUnk = false;
 		hasCon = false;
+		isUnk = false;
+		isCon = false;
 	}
 
 	public void addToBag(Intention i, EvaluationLabel l) {				
@@ -133,6 +137,8 @@ public class LabelBag {
 		hasFullNeg = false;
 		hasCon = false;
 		hasUnk = false;
+		isCon = true;
+		isUnk = true;
 		
 		while (it.hasNext()) {
 			IntentionLabelPair ilp = it.next();
@@ -141,28 +147,44 @@ public class LabelBag {
 			if (label == EvaluationLabel.SATISFIED) {
 				hasFullPos = true;
 				isNegative = false;
+				isCon = false;
+				isUnk = false;
 			}
 			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
 				isNegative = false;
+				isCon = false;
+				isUnk = false;
 			}
 			if (label == EvaluationLabel.CONFLICT) {
 				hasCon = true;
 				isNegative = false;
 				isPositive = false;
+				isUnk = false;
 			}				
 		    if (label == EvaluationLabel.UNKNOWN) {
 				hasUnk = true;
 				isNegative = false;
 				isPositive = false;
+				isCon = false;
 			}
 			if (label == EvaluationLabel.WEAKLY_DENIED) {
 				isPositive = false;
+				isCon = false;
+				isUnk = false;
 			}
 			if (label == EvaluationLabel.DENIED) {
 				hasFullNeg = true;
 				isPositive = false;
+				isCon = false;
+				isUnk = false;
 			}
 		}
+		if (hasCon && isCon)
+			isCon = true;
+		else isCon = false;
+		if (hasUnk && isUnk)
+			isUnk = true;
+		else isUnk = false;
 		
 	}
 
@@ -195,7 +217,16 @@ public class LabelBag {
 		assessBag();
 		return hasCon;
 	}
-
+	
+	public boolean isUnknown() {
+		assessBag();
+		return isUnk;
+	}
+	
+	public boolean isConflict() {
+		assessBag();
+		return isCon;
+	}
 	public void resolved() {
 		toResolve = false;
 	}

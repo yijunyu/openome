@@ -141,6 +141,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.hasDenied());
 		assertTrue(!lb1.hasConflict());
 		assertTrue(!lb1.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 		
 		lb1.addToBag(elist.get(1), EvaluationLabel.SATISFIED);
 
@@ -150,6 +152,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.hasDenied());
 		assertTrue(!lb1.hasConflict());
 		assertTrue(!lb1.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 		
 		lb1.addToBag(elist.get(1), EvaluationLabel.WEAKLY_DENIED);
 		
@@ -159,6 +163,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.hasDenied());
 		assertTrue(!lb1.hasConflict());
 		assertTrue(!lb1.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 		
 		lb1.addToBag(elist.get(1), EvaluationLabel.UNKNOWN);
 		
@@ -168,6 +174,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.hasDenied());
 		assertTrue(!lb1.hasConflict());
 		assertTrue(lb1.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 				
 		lb2.addToBag(elist.get(0), EvaluationLabel.WEAKLY_DENIED);
 		
@@ -177,6 +185,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb2.hasDenied());
 		assertTrue(!lb2.hasConflict());
 		assertTrue(!lb2.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 		
 		lb2.addToBag(elist.get(1), EvaluationLabel.DENIED);
 		
@@ -186,6 +196,8 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(lb2.hasDenied());
 		assertTrue(!lb2.hasConflict());
 		assertTrue(!lb2.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
 		
 		lb2.addToBag(elist.get(2), EvaluationLabel.CONFLICT);
 		
@@ -195,6 +207,34 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(lb2.hasDenied());
 		assertTrue(lb2.hasConflict());
 		assertTrue(!lb2.hasUnknown());
+		assertTrue(!lb1.isUnknown());
+		assertTrue(!lb1.isConflict());
+		
+		lb2.addToBag(elist.get(0), EvaluationLabel.CONFLICT);
+		lb2.addToBag(elist.get(1), EvaluationLabel.CONFLICT);
+		
+		assertTrue(!lb2.isPositive());
+		assertTrue(!lb2.isNegative());
+		assertTrue(!lb2.hasSatisfied());
+		assertTrue(!lb2.hasDenied());
+		assertTrue(lb2.hasConflict());
+		assertTrue(!lb2.hasUnknown());
+		assertTrue(!lb2.isUnknown());
+		assertTrue(lb2.isConflict());
+		
+		lb2.addToBag(elist.get(0), EvaluationLabel.UNKNOWN);
+		lb2.addToBag(elist.get(1), EvaluationLabel.UNKNOWN);
+		lb2.addToBag(elist.get(2), EvaluationLabel.UNKNOWN);
+		
+		assertTrue(!lb2.isPositive());
+		assertTrue(!lb2.isNegative());
+		assertTrue(!lb2.hasSatisfied());
+		assertTrue(!lb2.hasDenied());
+		assertTrue(!lb2.hasConflict());
+		assertTrue(lb2.hasUnknown());
+		assertTrue(lb2.isUnknown());
+		assertTrue(!lb2.isConflict());
+		
 	}	
 
 	

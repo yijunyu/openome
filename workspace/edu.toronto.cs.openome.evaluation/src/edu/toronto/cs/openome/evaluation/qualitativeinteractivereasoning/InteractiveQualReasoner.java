@@ -9,6 +9,7 @@ import java.util.Vector;
 
 import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
+import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
@@ -418,39 +419,21 @@ public class InteractiveQualReasoner extends Reasoner {
 		for (IntQualIntentionWrapper w: softgoalWrappers.getSet())  {
 			if (w.bagNeedResolve()) {
 				result = applyAutomaticSoftgoalCases(w);
+				
 				System.out.println("Resolving: " + w.getIntention().getName());
 				if (result != null) System.out.println("Automatic result: " + result.getName());
 				
 				if (result == null)  {				
 					//get human judgement, somehow....
-					//result = resolveOtherCases(w);					
-					
-					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-					
-//					Shell theShell = null;
-														
-//					for (Shell s: ar) {
-//						System.out.println(s.toString());
-//						if (s.isFocusControl())  {
-//							theShell = s;
-//							System.out.println("Focus: " + s.toString());
-//						}
-//						
-//					}
-					
-					InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
+					if (this instanceof AutomaticQualReasoner)
+						result = ((AutomaticQualReasoner)this).resolveOtherCases(w);
+					else
+						result = resolveOtherCases(w);
 										
-					cs.execute(wincom);
 					
-					if (wincom.cancelled()) {
+					if (result == null) {
 						return false;
 					}
-					
-					result = wincom.getEvalResult();		
-					
-					w.addHumanJudgement(result);
-					
-					System.out.println("Human Judgement result: " + result.getName());
 					
 				}
 			
@@ -477,12 +460,12 @@ public class InteractiveQualReasoner extends Reasoner {
 		//case 2 & 3		
 		if (w.bagHasSatisfied() && w.isBagPositive())
 			return EvaluationLabel.SATISFIED;
-		if (w.bagHasConflict() && w.isBagNegative())
+		if (w.bagHasDenied() && w.isBagNegative())
 			return EvaluationLabel.DENIED;
 		//new cases
-		if (w.bagHasUnknown() && !w.isBagPositive() && !w.isBagNegative())
+		if (w.bagIsUnknown())
 			return EvaluationLabel.UNKNOWN;
-		if (w.bagHasConflict() && !w.isBagPositive() && !w.isBagNegative())
+		if (w.bagIsConflict())
 			return EvaluationLabel.CONFLICT;
 		
 		//case 4, null if it doesn't apply
@@ -490,64 +473,36 @@ public class InteractiveQualReasoner extends Reasoner {
 	}
 	
 	private EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+	
+		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
-		ListIterator<IntentionLabelPair> it = w.bagListIterator();
+	//	Shell theShell = null;
+											
+	//	for (Shell s: ar) {
+	//		System.out.println(s.toString());
+	//		if (s.isFocusControl())  {
+	//			theShell = s;
+	//			System.out.println("Focus: " + s.toString());
+	//		}
+	//		
+	//	}
 		
-		int FSCount = 0;
-		int PSCount = 0;
-		int CCount = 0;
-		int UCount = 0;
-		int PDCount = 0;
-		int FDCount = 0;
+		InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
+							
+		cs.execute(wincom);
 		
-		while (it.hasNext()) {
-			IntentionLabelPair ilp =  it.next();
-			EvaluationLabel label = ilp.getEvaluationLabel();
-			
-			if (label == EvaluationLabel.SATISFIED) {
-				FSCount++;
-			}
-			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
-				PSCount++;
-			}
-			if (label == EvaluationLabel.CONFLICT) {
-				CCount++;
-			}
-			if (label == EvaluationLabel.UNKNOWN) {
-				UCount++;
-			}
-			if (label == EvaluationLabel.WEAKLY_DENIED) {
-				PDCount++;
-			}
-			if (label == EvaluationLabel.DENIED) {
-				FDCount++;
-			}
+		if (wincom.cancelled()) {
+			return null;
 		}
 		
-		double sum = FSCount + PSCount + CCount + UCount + PDCount + FDCount;
+		EvaluationLabel result = wincom.getEvalResult();		
 		
-		double FSPerc = FSCount/sum;
-		double PSPerc = PSCount/sum;
-		double CPerc = CCount/sum;
-		double UPerc = UCount/sum;
-		double PDPerc = PDCount/sum;
-		double FDPerc = FDCount/sum;
+		w.addHumanJudgement(result);
 		
-		//System.out.println(FSPerc + ", " + PSPerc + ", " + CPerc + ", " + UPerc + ", " + PDPerc + ", " + FDPerc);
+		System.out.println("Human Judgement result: " + result.getName());
 		
-		//I'm pulling these numbers out of my ass
-		if (UPerc > 0.4)
-			return EvaluationLabel.UNKNOWN;
-		if ((FSPerc + PSPerc) > 0.9)
-			return EvaluationLabel.SATISFIED;
-		if ((FSPerc + PSPerc) > 0.7)
-			return EvaluationLabel.WEAKLY_SATISFIED;
-		if ((FDPerc + PDPerc) > 0.9)
-			return EvaluationLabel.DENIED;
-		if ((FDPerc + PDPerc) > 0.7)
-			return EvaluationLabel.WEAKLY_DENIED;
-		
-		return EvaluationLabel.CONFLICT;
+		return result;
+	
 	}
 	
 	

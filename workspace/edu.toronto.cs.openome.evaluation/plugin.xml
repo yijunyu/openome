@@ -9,6 +9,16 @@
             id="openome_IntQualReasoning_cmd"
             name="openome_IntQualReasoning_cmd">
       </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.AutomaticQualReasonerHandler"
+            id="openome_AutoQualReasoning_cmd"
+            name="openome_AutoQualReasoning_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ClearLabelsHandler"
+            id="openome_ClearLabels_cmd"
+            name="openome_ClearLabels_cmd">
+      </command>
       </extension>
 
    <extension 
@@ -31,14 +41,34 @@
 				</command>
    			</menu>
 		</menuContribution>
+  <menuContribution
+        locationURI="menu:openome_top_menu?after=additions">
+     <menu
+           id="openome_reasoning_main_menu"
+           label="Reasoning">
+        <command
+              commandId="openome_AutoQualReasoning_cmd"
+              icon="icons/sample.gif"
+              id="openome_AutoQualReasoning_menu"
+              label="Automatic Qualitative Reasoning"
+              mnemonic="A">
+        </command>
+     </menu>
+  </menuContribution>
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="openome_reasoning_main_menu"
+               label="Reasoning">
+            <command
+                  commandId="openome_ClearLabels_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ClearLabels_menu"
+                  label="Clear All Evaluation Labels"
+                  mnemonic="C">
+            </command>
+         </menu>
+      </menuContribution>
 	</extension>
-   <extension
-         point="org.eclipse.ui.preferencePages">
-      <page
-            class="edu.toronto.cs.openome.evaluation.windows.evaluationPopUpWindow"
-            id="edu.toronto.cs.openome.evaluation.windows.evaluationPopUpWindow"
-            name="User Evaluation Input">
-      </page>
-   </extension>
 
 </plugin>

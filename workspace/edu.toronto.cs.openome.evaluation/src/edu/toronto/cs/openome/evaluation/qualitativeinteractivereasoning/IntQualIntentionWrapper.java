@@ -127,5 +127,13 @@ public class IntQualIntentionWrapper {
 		return lb.hasConflict();
 	}
 	
+	public boolean bagIsUnknown() {
+		return lb.isUnknown();
+	}
+	
+	public boolean bagIsConflict() {
+		return lb.isConflict();
+	}
+	
 	
 }
