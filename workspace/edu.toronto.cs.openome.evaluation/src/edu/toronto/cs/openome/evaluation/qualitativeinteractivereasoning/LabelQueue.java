@@ -38,7 +38,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         map = new HashMap();
     }
     
-     @Override
 	/**
 	 * I don't really need an iterator for this class
 	 */
@@ -47,12 +46,10 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return null;
 	}
 
-	@Override
 	public int size() {
 		return currentSize;
 	}
 
-	@Override
 	/**
 	 * Add an Intention, if the array is getting full, double the length
 	 */
@@ -81,7 +78,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         return false;
 	}
 
-	@Override
 	/**
 	 * Look at the head of the queue without removing
 	 */
@@ -91,7 +87,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         return theArray[ front ];
 	}
 
-	@Override
 	/**
 	 * Return and remove the head of the queue
 	 */
@@ -111,22 +106,18 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         return returnValue;
 	}
 
-	@Override
 	public boolean add(IntQualIntentionWrapper e) {
 		return offer(e);
 	}
 
-	@Override
 	public IntQualIntentionWrapper element() {
 		return peek();
 	}
 
-	@Override
 	public IntQualIntentionWrapper remove() {
 		return poll();
 	}
 
-	@Override
 	public boolean addAll(Collection<? extends IntQualIntentionWrapper> c) {
 		Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
 		
@@ -137,7 +128,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return true;
 	}
 
-	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
 		currentSize = 0;
@@ -145,7 +135,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         back = -1;
 	}
 
-	@Override
 	public boolean contains(Object o) {
 		int oldfront = front;
 				
@@ -159,18 +148,15 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return false;   	 	
 	}
 
-	@Override
 	public boolean containsAll(Collection<?> c) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean isEmpty() {
 		return currentSize == 0;
 	}
 
-	@Override
 	public boolean remove(Object o) {
 		if( isEmpty( ) )
             throw new UnderflowException( "ArrayQueue dequeue" );
@@ -180,7 +166,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         return true;
 	}
 
-	@Override
 	public boolean removeAll(Collection<?> c) {
 		Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
 		
@@ -191,7 +176,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return true;
 	}
 
-	@Override
 	/**
 	 * This is supposed to remove everything except what is in the collection.  I'm not sure why I would ever need it, 
 	 * so I won't bother with it for now.
@@ -201,7 +185,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return false;
 	}
 
-	@Override
 	/**
 	 * Don't return the actual array, return a copy.  Maybe this is done by default?  Can't remember.
 	 */
@@ -209,7 +192,6 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 		return theArray.clone();
 	}
 
-	@Override
 	/**
 	 * I have no idea what this is supposed to do...
 	 */
