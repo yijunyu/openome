@@ -184,7 +184,6 @@ public class Openome_modelImageSupportGlobalActionHandler extends ImageSupportGl
 				editPartClipboard.add((EditPart) o);
 			}
 			
-			
 		} else if (actionId.equals(GlobalActionId.CUT)) {
 			command = getCutCommand(cntxt, diagramPart);
 			
