@@ -813,33 +813,6 @@
             labelProvider="edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorLabelProvider"
             icon="icons/obj16/openome_modelDiagramFile.gif"
             activeByDefault="true">
-         <triggerPoints>
-            <or>
-	           <and>
-    	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="ood"/>
-               </and>
-               <instanceof value="edu.toronto.cs.openome_model.diagram.navigator.Openome_modelAbstractNavigatorItem"/>
-            </or>
-         </triggerPoints>
-         <possibleChildren>
-            <or>
-         	   <instanceof value="edu.toronto.cs.openome_model.diagram.navigator.Openome_modelAbstractNavigatorItem"/>
-            </or>
-         </possibleChildren>
-         <commonSorter 
-               id="edu.toronto.cs.openome_model.diagram.navigatorSorter" 
-               class="edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorSorter">
-            <parentExpression>
-               <or>
-	              <and>
-    	             <instanceof value="org.eclipse.core.resources.IFile"/>
-        	         <test property="org.eclipse.core.resources.extension" value="ood"/>
-                  </and>
-                  <instanceof value="edu.toronto.cs.openome_model.diagram.navigator.Openome_modelAbstractNavigatorItem"/>
-               </or>
-            </parentExpression>
-         </commonSorter>
       </navigatorContent>
       <navigatorContent
             id="edu.toronto.cs.openome_model.diagram.domainResourceContent" 
