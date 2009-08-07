@@ -47,6 +47,7 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 /**
  * @generated
@@ -220,7 +221,7 @@ public class GoalQualitativeReasoningCom2EditPart extends LabelEditPart
 			return null;
 		}
 
-		String evaluationLabel = ((GoalImpl) parserElement)
+		String evaluationLabel = ((IntentionImpl) parserElement)
 				.getQualitativeReasoningCombinedLabel().getLiteral();
 
 		if (evaluationLabel.equals("None")) {

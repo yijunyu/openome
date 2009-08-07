@@ -170,15 +170,16 @@ public class OrContributionEditPart extends ConnectionNodeEditPart implements
 			return df;
 		}
 		
-		/**
-		 * *** NOTE: This method has been overridden to prevent
-		 * the link to be hidden. This method will always call super.setVisible(true) ***
-		 * @generated NOT
-		 */
-		public void setVisible(boolean newbool) {
-			super.setVisible(true);
-			this.refreshLine();
-		}
+//		NOTE: Not sure why links are always set to visible, for now will set it to normal (last revision: changeset 1275)
+//		/**
+//		 * *** NOTE: This method has been overridden to prevent
+//		 * the link to be hidden. This method will always call super.setVisible(true) ***
+//		 * @generated NOT
+//		 */
+//		public void setVisible(boolean newbool) {
+//			super.setVisible(true);
+//			this.refreshLine();
+//		}
 
 		/**
 		 * @generated

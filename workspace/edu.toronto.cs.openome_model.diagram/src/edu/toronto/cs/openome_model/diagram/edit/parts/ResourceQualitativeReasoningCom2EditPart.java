@@ -46,6 +46,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 import edu.toronto.cs.openome_model.impl.ResourceImpl;
 
 /**
@@ -220,7 +221,7 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 			return null;
 		}
 
-		String evaluationLabel = ((ResourceImpl) parserElement)
+		String evaluationLabel = ((IntentionImpl) parserElement)
 				.getQualitativeReasoningCombinedLabel().getLiteral();
 
 		if (evaluationLabel.equals("None")) {
