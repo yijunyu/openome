@@ -219,6 +219,10 @@ public class TaskQualitativeReasoningCom3EditPart extends LabelEditPart
 			System.err.println("TaskQualitativeReasoningCom3EditPart: Unknown parser element.");
 			return null;
 		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof TaskImpl)){
+			return null;
+		}
 
 		String evaluationLabel = ((TaskImpl) parserElement)
 				.getQualitativeReasoningCombinedLabel().getLiteral();

@@ -47,6 +47,7 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 /**
  * @generated
@@ -217,6 +218,10 @@ public class GoalQualitativeReasoningCom4EditPart extends LabelEditPart
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
 			System.err.println("GoalQualitativeReasoningCom4EditPart: Unknown parser element.");
+			return null;
+		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof GoalImpl)){
 			return null;
 		}
 

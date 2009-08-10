@@ -46,6 +46,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 /**
@@ -217,6 +218,10 @@ public class TaskQualitativeReasoningComEditPart extends LabelEditPart
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
 			System.err.println("TaskQualitativeReasoningComEditPart: Unknown parser element.");
+			return null;
+		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof TaskImpl)){
 			return null;
 		}
 

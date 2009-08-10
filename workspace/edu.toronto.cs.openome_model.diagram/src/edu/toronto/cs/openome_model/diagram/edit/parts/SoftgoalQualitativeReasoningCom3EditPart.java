@@ -219,6 +219,10 @@ public class SoftgoalQualitativeReasoningCom3EditPart extends LabelEditPart
 			System.err.println("SoftgoalQualitativeReasoningCom3EditPart: Unknown parser element.");
 			return null;
 		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof SoftgoalImpl)){
+			return null;
+		}
 
 		String evaluationLabel = ((SoftgoalImpl) parserElement)
 				.getQualitativeReasoningCombinedLabel().getLiteral();

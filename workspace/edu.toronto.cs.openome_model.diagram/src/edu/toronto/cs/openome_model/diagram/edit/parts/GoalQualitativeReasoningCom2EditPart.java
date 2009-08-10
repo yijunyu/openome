@@ -48,6 +48,7 @@ import org.eclipse.swt.graphics.Image;
 
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 /**
  * @generated
@@ -218,6 +219,10 @@ public class GoalQualitativeReasoningCom2EditPart extends LabelEditPart
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
 			System.err.println("GoalQualitativeReasoningCom2EditPart: Unknown parser element.");
+			return null;
+		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof GoalImpl)){
 			return null;
 		}
 

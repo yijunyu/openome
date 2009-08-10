@@ -9,10 +9,14 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.RequestConstants;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -200,10 +204,19 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateIntentionCommand(originalImpl, domain);
 		dcs.execute(new ICommandProxy(create));
-
+		
 //		//Delete old element
-//		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
-//		dcs.execute(new ICommandProxy(destroy));
+//		/* Create the delete request */
+//		GroupRequest deleteReq = new GroupRequest(
+//			RequestConstants.REQ_DELETE);
+//
+//		/* Send the request to the edit part */
+//		Command deleteCommand = ((IGraphicalEditPart)originalEditPart).getCommand(deleteReq);
+//		dcs.execute(deleteCommand);
+
+		//Delete old element
+		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
+		dcs.execute(new ICommandProxy(destroy));
 	}
 
 	/**

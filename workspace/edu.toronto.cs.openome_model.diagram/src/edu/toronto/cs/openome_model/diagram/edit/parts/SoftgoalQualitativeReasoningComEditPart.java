@@ -46,6 +46,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 
 /**
@@ -217,6 +218,10 @@ public class SoftgoalQualitativeReasoningComEditPart extends LabelEditPart
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
 			System.err.println("SoftgoalQualitativeReasoningComEditPart: Unknown parser element.");
+			return null;
+		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof SoftgoalImpl)){
 			return null;
 		}
 

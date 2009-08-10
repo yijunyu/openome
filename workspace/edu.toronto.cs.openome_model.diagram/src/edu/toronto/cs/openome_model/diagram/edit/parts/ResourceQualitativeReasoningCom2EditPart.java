@@ -47,6 +47,7 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
 import edu.toronto.cs.openome_model.impl.ResourceImpl;
 
 /**
@@ -218,6 +219,10 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
 			System.err.println("ResourceQualitativeReasoningCom2EditPart: Unknown parser element.");
+			return null;
+		}
+		// fix for enabling changing intention type, cf. Ticket #111
+		if(!(parserElement instanceof ResourceImpl)){
 			return null;
 		}
 
