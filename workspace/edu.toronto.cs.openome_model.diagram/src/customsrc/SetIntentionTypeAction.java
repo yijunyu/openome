@@ -97,7 +97,6 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		int selectionSize = intentions.length;
 		
 		for (int i = 0; i < selectionSize; i++) {
-			final EObject object = ((IGraphicalEditPart)intentions[i]).getNotationView().getElement();
 			Object intention = intentions[i];
 			// determine what type of intention it is, then cast it appropriately 
 			// and apply the appropriate label to it
@@ -107,92 +106,6 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 			
 			doTypeSwitch(intention, dcs, progressMonitor);
-			// GOALS
-			
-			if (intention instanceof GoalEditPart) {
-//				GoalEditPart part = (GoalEditPart) selection.getFirstElement();
-//				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-//				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-//				
-//				applyEvalLabel(selection, object, progressMonitor, dcs);
-				
-				System.out.println("Change from Goal to " + changeTo);
-				
-			} else if (intention instanceof Goal2EditPart) {
-				System.out.println("Change from Goal2 to " + changeTo);
-				
-			} else if (intention instanceof Goal3EditPart) {
-				System.out.println("Change from Goal3 to " + changeTo);
-				
-			} else if (intention instanceof Goal4EditPart) {
-				System.out.println("Change from Goal4 to " + changeTo);
-				
-			} else if (intention instanceof Goal5EditPart) {
-				System.out.println("Change from Goal5 to " + changeTo);
-				
-			} 
-			
-			
-			
-			// SOFTGOALS
-			
-			else if (intention instanceof SoftgoalEditPart) {
-				System.out.println("Change from Softgoal to " + changeTo);
-				
-			} else if (intention instanceof Softgoal2EditPart) {
-				System.out.println("Change from Softgoal2 to " + changeTo);
-				
-			} else if (intention instanceof Softgoal3EditPart) {
-				System.out.println("Change from Softgoal3 to " + changeTo);
-				
-			} else if (intention instanceof Softgoal4EditPart) {
-				System.out.println("Change from Softgoal3 to " + changeTo);
-				
-			} else if (intention instanceof Softgoal5EditPart) {
-				System.out.println("Change from Softgoal4 to " + changeTo);
-				
-			} 
-			
-			
-			// TASKS
-			
-			else if (intention instanceof TaskEditPart) {
-				System.out.println("Change from Task to " + changeTo);
-				
-			} else if (intention instanceof Task2EditPart) {
-				System.out.println("Change from Task2 to " + changeTo);
-				
-			} else if (intention instanceof Task3EditPart) {
-				System.out.println("Change from Task3 to " + changeTo);
-				
-			} else if (intention instanceof Task4EditPart) {
-				System.out.println("Change from Task4 to " + changeTo);
-				
-			} else if (intention instanceof Task5EditPart) {
-				System.out.println("Change from Task5 to " + changeTo);
-				
-			} 
-			
-			
-			// RESOURCES
-			
-			else if (intention instanceof ResourceEditPart) {
-				System.out.println("Change from Resource to " + changeTo);
-				
-			} else if (intention instanceof Resource2EditPart) {
-				System.out.println("Change from Resource2 to " + changeTo);
-				
-			} else if (intention instanceof Resource3EditPart) {
-				System.out.println("Change from Resource3 to " + changeTo);
-				
-			} else if (intention instanceof Resource4EditPart) {
-				System.out.println("Change from Resource4 to " + changeTo);
-				
-			} else if (intention instanceof Resource5EditPart) {
-				System.out.println("Change from Resource5 to " + changeTo);
-				
-			} 
-			
 			
 		}
 	}
@@ -238,47 +151,6 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		
 	}
 	
-	/**
-	 * A Command to copy the information of two intentions
-	 * @author johan
-	 */
-	private static class IntentionInfoExchangeCommand extends AbstractTransactionalCommand {
-		
-		private Intention original;
-		private Intention duplicate;
-		
-		public IntentionInfoExchangeCommand(TransactionalEditingDomain domain, Intention o, Intention d){
-			super(domain, "copies information", new ArrayList());
-			original = o;
-			duplicate = d;
-		}
-
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-				IAdaptable info) throws ExecutionException {
-			
-			duplicate.setName(original.getName());
-			
-			duplicate.setQualitativeReasoningCombinedLabel(original.getQualitativeReasoningCombinedLabel());
-        	duplicate.setQualitativeReasoningDenialLabel(original.getQualitativeReasoningDenialLabel());
-        	duplicate.setQualitativeReasoningSatisfiedLabel(original.getQualitativeReasoningSatisfiedLabel());
-        	duplicate.setQuantitativeReasoningCombinedLabel(original.getQuantitativeReasoningCombinedLabel());
-        	duplicate.setQuantitativeReasoningDeniedLabel(original.getQuantitativeReasoningDeniedLabel());
-        	duplicate.setQuantitativeReasoningSatisfiedLabel(original.getQuantitativeReasoningSatisfiedLabel());
-        	
-        	duplicate.getContributesFrom().addAll(original.getContributesFrom());
-        	duplicate.getContributesTo().addAll(original.getContributesTo());
-        	duplicate.getDecompositions().addAll(original.getDecompositions());
-        	duplicate.getDecompositionsFrom().addAll(original.getDecompositionsFrom());
-        	duplicate.getDecompositionsTo().addAll(original.getDecompositionsTo());
-        	duplicate.getDependencyFrom().addAll(original.getDependencyFrom());
-        	duplicate.getDependencyTo().addAll(original.getDependencyTo());
-
-        	return CommandResult.newOKCommandResult();
-		}
-		
-	}
-	
 	private static class CreateNewIntentionTypeCommand extends CreateElementCommand{
 		/**
 		 * The newly created element.
@@ -299,10 +171,6 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			super(request);
 			elementType = request.getElementType();
 			oldElement = original;
-		}
-		
-		public EObject getOriginal(){
-			return oldElement;
 		}
 		
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
