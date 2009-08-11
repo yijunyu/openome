@@ -204,15 +204,6 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateIntentionCommand(originalImpl, domain);
 		dcs.execute(new ICommandProxy(create));
-		
-//		//Delete old element
-//		/* Create the delete request */
-//		GroupRequest deleteReq = new GroupRequest(
-//			RequestConstants.REQ_DELETE);
-//
-//		/* Send the request to the edit part */
-//		Command deleteCommand = ((IGraphicalEditPart)originalEditPart).getCommand(deleteReq);
-//		dcs.execute(deleteCommand);
 
 		//Delete old element
 		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
