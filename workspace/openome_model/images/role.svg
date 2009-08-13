@@ -11,12 +11,7 @@
    width="115.88871"
    height="115.88871"
    id="svg10205"
-   sodipodi:version="0.32"
-   inkscape:version="0.46"
-   version="1.0"
-   sodipodi:docbase="/home/nernst/Desktop"
-   sodipodi:docname="role.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   version="1.0">
   <defs
      id="defs10207">
     <inkscape:perspective
@@ -59,25 +54,17 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-42.055643,-51.560686)">
     <path
-       sodipodi:type="arc"
        style="fill:#ececec;fill-opacity:1;stroke:#000000;stroke-width:2.36192095;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path10213"
-       sodipodi:cx="100"
-       sodipodi:cy="109.50504"
-       sodipodi:rx="57.142857"
-       sodipodi:ry="57.142857"
        d="M 157.14286,109.50504 A 57.142857,57.142857 0 1 1 42.857143,109.50504 A 57.142857,57.142857 0 1 1 157.14286,109.50504 z"
        transform="matrix(0.9685573,0,0,0.9790382,3.4437215,2.594875)" />
     <path
        style="fill:#ececec;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:2.29999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 148.38751,137.65372 C 105.78727,162.95758 53.310854,139.15099 53.310854,139.15099"
-       id="path11186"
-       sodipodi:nodetypes="cc" />
+       id="path11186"/>
     <path
        style="fill:#d7f4d7;fill-opacity:1"
        d="M 54.638231,96.27342 C 41.564068,95.376148 28.776769,92.679334 16.457841,88.221254 C 14.316744,87.446407 12.341773,86.614204 12.069015,86.371895 C 11.42106,85.796269 8.718993,80.238058 7.5910215,77.160568 C 3.7512631,66.684435 3.2429039,54.146444 6.2302934,43.600508 C 7.6488162,38.592921 9.6938507,33.800995 12.023909,30.02493 C 20.655504,16.03665 33.913816,6.985628 49.697239,4.3065294 C 53.796097,3.6107839 62.664474,3.6105084 66.76612,4.3059994 C 78.106315,6.2288776 88.113869,11.394556 96.238057,19.518738 C 106.62184,29.902495 112.16668,43.393376 112.16668,58.273756 C 112.16668,67.059783 110.47491,74.458436 106.6378,82.453179 L 105.30747,85.224914 L 101.75813,87.070877 C 92.831977,91.713274 83.28664,94.548523 72.156292,95.86351 C 69.358284,96.194071 57.518838,96.471114 54.638231,96.27342 z"
