@@ -17,7 +17,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * @generated
+ * @generated NOT
  */
 public class Openome_modelElementTypes extends ElementInitializers {
 
@@ -43,55 +43,55 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	private static Set KNOWN_ELEMENT_TYPES;
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Model_79 = getElementType("edu.toronto.cs.openome_model.diagram.Model_79"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Actor_1001 = getElementType("edu.toronto.cs.openome_model.diagram.Actor_1001"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Agent_1002 = getElementType("edu.toronto.cs.openome_model.diagram.Agent_1002"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Position_1003 = getElementType("edu.toronto.cs.openome_model.diagram.Position_1003"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Role_1004 = getElementType("edu.toronto.cs.openome_model.diagram.Role_1004"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Goal_1005 = getElementType("edu.toronto.cs.openome_model.diagram.Goal_1005"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Softgoal_1006 = getElementType("edu.toronto.cs.openome_model.diagram.Softgoal_1006"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Task_1007 = getElementType("edu.toronto.cs.openome_model.diagram.Task_1007"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Resource_1008 = getElementType("edu.toronto.cs.openome_model.diagram.Resource_1008"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Goal_2001 = getElementType("edu.toronto.cs.openome_model.diagram.Goal_2001"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Softgoal_2002 = getElementType("edu.toronto.cs.openome_model.diagram.Softgoal_2002"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Resource_2003 = getElementType("edu.toronto.cs.openome_model.diagram.Resource_2003"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Task_2004 = getElementType("edu.toronto.cs.openome_model.diagram.Task_2004"); //$NON-NLS-1$
 	/**
@@ -143,15 +143,15 @@ public class Openome_modelElementTypes extends ElementInitializers {
 	 */
 	public static final IElementType Task_2016 = getElementType("edu.toronto.cs.openome_model.diagram.Task_2016"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType Dependency_3001 = getElementType("edu.toronto.cs.openome_model.diagram.Dependency_3001"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType AndDecomposition_3002 = getElementType("edu.toronto.cs.openome_model.diagram.AndDecomposition_3002"); //$NON-NLS-1$
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static final IElementType OrDecomposition_3003 = getElementType("edu.toronto.cs.openome_model.diagram.OrDecomposition_3003"); //$NON-NLS-1$
 	/**

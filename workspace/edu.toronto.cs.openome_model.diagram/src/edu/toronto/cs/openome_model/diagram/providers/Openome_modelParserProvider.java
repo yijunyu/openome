@@ -1310,7 +1310,7 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static class HintAdapter extends ParserHintAdapter {
 
