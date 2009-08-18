@@ -14,6 +14,14 @@ public class IsPartOfAssociationItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public IsPartOfAssociationItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

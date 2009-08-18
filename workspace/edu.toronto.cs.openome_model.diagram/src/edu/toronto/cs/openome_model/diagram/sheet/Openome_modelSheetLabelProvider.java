@@ -3,44 +3,41 @@ package edu.toronto.cs.openome_model.diagram.sheet;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.viewers.BaseLabelProvider;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
 
 /**
  * @generated
  */
-public class Openome_modelSheetLabelProvider extends DecoratingLabelProvider {
-
-	/**
-	 * @generated
-	 */
-	public Openome_modelSheetLabelProvider() {
-		super(
-				new AdapterFactoryLabelProvider(
-						edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
-								.getInstance().getItemProvidersAdapterFactory()),
-				null);
-	}
+public class Openome_modelSheetLabelProvider extends BaseLabelProvider
+		implements ILabelProvider {
 
 	/**
 	 * @generated
 	 */
 	public String getText(Object element) {
-		Object selected = unwrap(element);
-		if (selected instanceof edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup) {
-			return ((edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup) selected)
+		element = unwrap(element);
+		if (element instanceof edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup) {
+			return ((edu.toronto.cs.openome_model.diagram.navigator.Openome_modelNavigatorGroup) element)
 					.getGroupName();
 		}
-		return super.getText(selected);
+		IElementType etype = getElementType(getView(element));
+		return etype == null ? "" : etype.getDisplayName();
 	}
 
 	/**
 	 * @generated
 	 */
 	public Image getImage(Object element) {
-		return super.getImage(unwrap(element));
+		IElementType etype = getElementType(getView(unwrap(element)));
+		return etype == null ? null
+				: edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+						.getImage(etype);
 	}
 
 	/**
@@ -48,16 +45,7 @@ public class Openome_modelSheetLabelProvider extends DecoratingLabelProvider {
 	 */
 	private Object unwrap(Object element) {
 		if (element instanceof IStructuredSelection) {
-			return unwrap(((IStructuredSelection) element).getFirstElement());
-		}
-		if (element instanceof EditPart) {
-			return unwrapEditPart((EditPart) element);
-		}
-		if (element instanceof IAdaptable) {
-			View view = (View) ((IAdaptable) element).getAdapter(View.class);
-			if (view != null) {
-				return unwrapView(view);
-			}
+			return ((IStructuredSelection) element).getFirstElement();
 		}
 		return element;
 	}
@@ -65,18 +53,33 @@ public class Openome_modelSheetLabelProvider extends DecoratingLabelProvider {
 	/**
 	 * @generated
 	 */
-	private Object unwrapEditPart(EditPart p) {
-		if (p.getModel() instanceof View) {
-			return unwrapView((View) p.getModel());
+	private View getView(Object element) {
+		if (element instanceof View) {
+			return (View) element;
 		}
-		return p.getModel();
+		if (element instanceof IAdaptable) {
+			return (View) ((IAdaptable) element).getAdapter(View.class);
+		}
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	private Object unwrapView(View view) {
-		return view.getElement() == null ? view : view.getElement();
+	private IElementType getElementType(View view) {
+		// For intermediate views climb up the containment hierarchy to find the one associated with an element type.
+		while (view != null) {
+			int vid = edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(view);
+			IElementType etype = edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+					.getElementType(vid);
+			if (etype != null) {
+				return etype;
+			}
+			view = view.eContainer() instanceof View ? (View) view.eContainer()
+					: null;
+		}
+		return null;
 	}
 
 }

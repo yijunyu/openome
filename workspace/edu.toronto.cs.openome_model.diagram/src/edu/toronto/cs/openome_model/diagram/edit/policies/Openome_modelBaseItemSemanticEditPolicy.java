@@ -12,6 +12,7 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
@@ -52,6 +53,18 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
 
 	/**
+	 * @generated
+	 */
+	private final IElementType myElementType;
+
+	/**
+	 * @generated
+	 */
+	protected Openome_modelBaseItemSemanticEditPolicy(IElementType elementType) {
+		myElementType = elementType;
+	}
+
+	/**
 	 * Extended request data key to hold editpart visual id.
 	 * Add visual id of edited editpart to extended data of the request
 	 * so command switch can decide what kind of diagram element is being edited.
@@ -89,62 +102,74 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 	 */
 	protected Command getSemanticCommand(IEditCommandRequest request) {
 		IEditCommandRequest completedRequest = completeRequest(request);
-		Object editHelperContext = completedRequest.getEditHelperContext();
-		if (editHelperContext instanceof View
-				|| (editHelperContext instanceof IEditHelperContext && ((IEditHelperContext) editHelperContext)
-						.getEObject() instanceof View)) {
-			// no semantic commands are provided for pure design elements
-			return null;
-		}
-		if (editHelperContext == null) {
-			editHelperContext = ViewUtil
-					.resolveSemanticElement((View) getHost().getModel());
-		}
-		IElementType elementType = ElementTypeRegistry.getInstance()
-				.getElementType(editHelperContext);
-		if (elementType == ElementTypeRegistry.getInstance().getType(
-				"org.eclipse.gmf.runtime.emf.type.core.default")) { //$NON-NLS-1$ 
-			elementType = null;
-		}
 		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (semanticCommand != null) {
-			ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
+		semanticCommand = getEditHelperCommand(completedRequest,
+				semanticCommand);
+		if (completedRequest instanceof DestroyRequest) {
+			DestroyRequest destroyRequest = (DestroyRequest) completedRequest;
+			return shouldProceed(destroyRequest) ? addDeleteViewCommand(
+					semanticCommand, destroyRequest) : null;
+		}
+		return semanticCommand;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command addDeleteViewCommand(Command mainCommand,
+			DestroyRequest completedRequest) {
+		Command deleteViewCommand = getGEFWrapper(new DeleteCommand(
+				getEditingDomain(), (View) getHost().getModel()));
+		return mainCommand == null ? deleteViewCommand : mainCommand
+				.chain(deleteViewCommand);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Command getEditHelperCommand(IEditCommandRequest request,
+			Command editPolicyCommand) {
+		if (editPolicyCommand != null) {
+			ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
 					.getICommand()
-					: new CommandProxy(semanticCommand);
-			completedRequest
+					: new CommandProxy(editPolicyCommand);
+			request
 					.setParameter(
 							edu.toronto.cs.openome_model.diagram.edit.helpers.Openome_modelBaseEditHelper.EDIT_POLICY_COMMAND,
 							command);
 		}
-		if (elementType != null) {
-			ICommand command = elementType.getEditCommand(completedRequest);
-			if (command != null) {
-				if (!(command instanceof CompositeTransactionalCommand)) {
-					TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-							.getEditingDomain();
-					command = new CompositeTransactionalCommand(editingDomain,
-							command.getLabel()).compose(command);
-				}
-				semanticCommand = new ICommandProxy(command);
+		IElementType requestContextElementType = getContextElementType(request);
+		request
+				.setParameter(
+						edu.toronto.cs.openome_model.diagram.edit.helpers.Openome_modelBaseEditHelper.CONTEXT_ELEMENT_TYPE,
+						requestContextElementType);
+		ICommand command = requestContextElementType.getEditCommand(request);
+		request
+				.setParameter(
+						edu.toronto.cs.openome_model.diagram.edit.helpers.Openome_modelBaseEditHelper.EDIT_POLICY_COMMAND,
+						null);
+		request
+				.setParameter(
+						edu.toronto.cs.openome_model.diagram.edit.helpers.Openome_modelBaseEditHelper.CONTEXT_ELEMENT_TYPE,
+						null);
+		if (command != null) {
+			if (!(command instanceof CompositeTransactionalCommand)) {
+				command = new CompositeTransactionalCommand(getEditingDomain(),
+						command.getLabel()).compose(command);
 			}
+			return new ICommandProxy(command);
 		}
-		boolean shouldProceed = true;
-		if (completedRequest instanceof DestroyRequest) {
-			shouldProceed = shouldProceed((DestroyRequest) completedRequest);
-		}
-		if (shouldProceed) {
-			if (completedRequest instanceof DestroyRequest) {
-				TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-						.getEditingDomain();
-				Command deleteViewCommand = new ICommandProxy(
-						new DeleteCommand(editingDomain, (View) getHost()
-								.getModel()));
-				semanticCommand = semanticCommand == null ? deleteViewCommand
-						: semanticCommand.chain(deleteViewCommand);
-			}
-			return semanticCommand;
-		}
-		return null;
+		return editPolicyCommand;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IElementType getContextElementType(IEditCommandRequest request) {
+		IElementType requestContextElementType = edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes
+				.getElementType(getVisualID(request));
+		return requestContextElementType != null ? requestContextElementType
+				: myElementType;
 	}
 
 	/**
@@ -264,22 +289,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 	}
 
 	/**
-	 * @deprecated use getGEFWrapper() instead
-	 * @generated
-	 */
-	protected final Command getMSLWrapper(ICommand cmd) {
-		// XXX deprecated: use getGEFWrapper() instead
-		return getGEFWrapper(cmd);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected EObject getSemanticElement() {
-		return ViewUtil.resolveSemanticElement((View) getHost().getModel());
-	}
-
-	/**
 	 * Returns editing domain from the host edit part.
 	 * 
 	 * @generated
@@ -289,51 +298,18 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 	}
 
 	/**
-	 * Creates command to destroy the link.
-	 * 
+	 * Clean all shortcuts to the host element from the same diagram
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(View view) {
-		EditPart editPart = (EditPart) getHost().getViewer()
-				.getEditPartRegistry().get(view);
-		DestroyElementRequest request = new DestroyElementRequest(
-				getEditingDomain(), false);
-		return editPart.getCommand(new EditCommandRequestWrapper(request,
-				Collections.EMPTY_MAP));
-	}
-
-	/**
-	 * Creates commands to destroy all host incoming and outgoing links.
-	 * 
-	 * @generated
-	 */
-	protected CompoundCommand getDestroyEdgesCommand() {
-		CompoundCommand cmd = new CompoundCommand();
-		View view = (View) getHost().getModel();
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			cmd.add(getDestroyElementCommand((Edge) it.next()));
-		}
-		return cmd;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addDestroyShortcutsCommand(CompoundCommand command) {
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return;
-		}
+	protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
+		assert view.getEAnnotation("Shortcut") == null; //$NON-NLS-1$
 		for (Iterator it = view.getDiagram().getChildren().iterator(); it
 				.hasNext();) {
 			View nextView = (View) it.next();
 			if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
 				continue;
 			}
-			command.add(getDestroyElementCommand(nextView));
+			cmd.add(new DeleteCommand(getEditingDomain(), nextView));
 		}
 	}
 
@@ -534,7 +510,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Dependable source,
 				edu.toronto.cs.openome_model.Dependable target) {
-
 			return true;
 		}
 
@@ -545,7 +520,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -556,7 +530,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -567,7 +540,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -578,7 +550,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -589,7 +560,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -600,7 +570,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -611,7 +580,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -622,7 +590,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -633,7 +600,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -644,7 +610,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -655,7 +620,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Intention source,
 				edu.toronto.cs.openome_model.Intention target) {
-
 			return true;
 		}
 
@@ -666,7 +630,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 
@@ -677,7 +640,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 
@@ -688,7 +650,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 
@@ -699,7 +660,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 
@@ -710,7 +670,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 
@@ -721,7 +680,6 @@ public class Openome_modelBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				edu.toronto.cs.openome_model.Model container,
 				edu.toronto.cs.openome_model.Container source,
 				edu.toronto.cs.openome_model.Container target) {
-
 			return true;
 		}
 	}

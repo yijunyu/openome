@@ -69,7 +69,8 @@ public class Openome_modelNewDiagramFileWizard extends Wizard {
 								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelNewDiagramFileWizard_CreationPageDescription,
 								edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.MODEL_ID));
 		IPath filePath;
-		String fileName = domainModelURI.trimFileExtension().lastSegment();
+		String fileName = URI.decode(domainModelURI.trimFileExtension()
+				.lastSegment());
 		if (domainModelURI.isPlatformResource()) {
 			filePath = new Path(domainModelURI.trimSegments(1)
 					.toPlatformString(true));

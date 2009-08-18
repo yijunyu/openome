@@ -34,7 +34,7 @@ public class Openome_modelModelingAssistantProvider extends
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(4);
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2001);
 			types
@@ -46,7 +46,7 @@ public class Openome_modelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(4);
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2005);
 			types
@@ -58,7 +58,7 @@ public class Openome_modelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(4);
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2009);
 			types
@@ -70,7 +70,7 @@ public class Openome_modelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(4);
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2013);
 			types
@@ -82,7 +82,7 @@ public class Openome_modelModelingAssistantProvider extends
 			return types;
 		}
 		if (editPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart) {
-			List types = new ArrayList();
+			ArrayList types = new ArrayList(8);
 			types
 					.add(edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001);
 			types
@@ -110,6 +110,102 @@ public class Openome_modelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -119,6 +215,102 @@ public class Openome_modelModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -131,6 +323,102 @@ public class Openome_modelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -141,6 +429,102 @@ public class Openome_modelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -151,6 +535,102 @@ public class Openome_modelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) {
+			return ((edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 

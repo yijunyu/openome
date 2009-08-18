@@ -14,6 +14,14 @@ public class BreakContributionItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public BreakContributionItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

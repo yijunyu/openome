@@ -14,6 +14,14 @@ public class IsAAssociationItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public IsAAssociationItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

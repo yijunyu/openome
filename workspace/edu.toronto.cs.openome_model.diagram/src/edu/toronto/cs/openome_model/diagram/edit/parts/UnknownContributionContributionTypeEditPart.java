@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
@@ -25,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableLabelEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -97,6 +100,19 @@ public class UnknownContributionContributionTypeEditPart extends LabelEditPart
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(
+				EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new NonResizableLabelEditPolicy() {
+
+					protected List createSelectionHandles() {
+						MoveHandle mh = new MoveHandle(
+								(GraphicalEditPart) getHost());
+						mh.setBorder(null);
+						return Collections.singletonList(mh);
+					}
+				});
 	}
 
 	/**
@@ -216,6 +232,11 @@ public class UnknownContributionContributionTypeEditPart extends LabelEditPart
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -293,11 +314,12 @@ public class UnknownContributionContributionTypeEditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_3010,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
+					.getParser(
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_3010,
+							getParserElement(),
+							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -406,6 +428,11 @@ public class UnknownContributionContributionTypeEditPart extends LabelEditPart
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

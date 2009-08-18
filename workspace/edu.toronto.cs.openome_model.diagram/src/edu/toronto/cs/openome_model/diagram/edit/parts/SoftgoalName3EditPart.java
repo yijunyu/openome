@@ -17,6 +17,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
@@ -89,6 +90,9 @@ public class SoftgoalName3EditPart extends CompartmentEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(
+				EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -98,6 +102,7 @@ public class SoftgoalName3EditPart extends CompartmentEditPart implements
 						List handles = new ArrayList();
 						NonResizableHandleKit.addMoveHandle(
 								(GraphicalEditPart) getHost(), handles);
+						((MoveHandle) handles.get(0)).setBorder(null);
 						return handles;
 					}
 
@@ -221,6 +226,11 @@ public class SoftgoalName3EditPart extends CompartmentEditPart implements
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
 					.refreshFeedback();
 		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
+					.refreshFeedback();
+		}
 	}
 
 	/**
@@ -298,11 +308,12 @@ public class SoftgoalName3EditPart extends CompartmentEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
+					.getParser(
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2006,
+							getParserElement(),
+							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName3EditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -411,6 +422,11 @@ public class SoftgoalName3EditPart extends CompartmentEditPart implements
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

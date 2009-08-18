@@ -451,6 +451,7 @@ public class Openome_modelEditPartFactory implements EditPartFactory {
 			case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID:
 				return new edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart(
 						view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

@@ -10,17 +10,12 @@ public class Openome_modelNodeDescriptor {
 	/**
 	 * @generated
 	 */
-	private EObject myModelElement;
+	private final EObject myModelElement;
 
 	/**
 	 * @generated
 	 */
-	private int myVisualID;
-
-	/**
-	 * @generated
-	 */
-	private String myType;
+	private final int myVisualID;
 
 	/**
 	 * @generated
@@ -42,17 +37,6 @@ public class Openome_modelNodeDescriptor {
 	 */
 	public int getVisualID() {
 		return myVisualID;
-	}
-
-	/**
-	 * @generated
-	 */
-	public String getType() {
-		if (myType == null) {
-			myType = edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
-					.getType(getVisualID());
-		}
-		return myType;
 	}
 
 }

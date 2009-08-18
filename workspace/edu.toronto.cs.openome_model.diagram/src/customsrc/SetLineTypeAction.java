@@ -39,6 +39,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
@@ -322,7 +323,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 			source = ((DependencyImpl) object).getDependencyTo();
 		}
 		
-		CreateElementCommand createNew = selectCreateCommand(oldPart, source, target);
+		EditElementCommand createNew = selectCreateCommand(oldPart, source, target);
 		ICommandProxy createNewCommand = new ICommandProxy(createNew);
 		
 		
@@ -333,29 +334,10 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		//command to delete the old element's view
 		DeleteCommand delete = new DeleteCommand(oldPart.getNotationView());
 		ICommandProxy deleteOld = new ICommandProxy(delete);
- 
-		////////////////////////////////////////DELETE ME///////////////////////////////////////
-		AbstractBorderedShapeEditPart sourcePart = (AbstractBorderedShapeEditPart) oldPart.getSource();
-		AbstractBorderedShapeEditPart targetPart = (AbstractBorderedShapeEditPart) oldPart.getTarget();
-		Map registry = oldPart.getViewer().getEditPartRegistry();
-		TransactionalEditingDomain editDomain = oldPart.getEditingDomain();
-		///////////////////////////////////////////////////////////////////////////////////////////////
 		
 		// Execute all the commands, so create new and destroy old element
 		dcs.execute(deleteOld.chain(destroyOld), progressMonitor);
 		dcs.execute(createNewCommand, progressMonitor);
-		
-		///////////////////////////////////////DELETE ME////////////////////////////////////////////
-		//PlatformUI.getWorkbench().getDisplay().readAndDispatch()
-		ResourceSetChangeEvent event = new ResourceSetChangeEvent(editDomain);
-		// and refresh
-		EObject newElement = createNew.getNewElement();
-		ToggleCanonicalModeCommand toggle = new ToggleCanonicalModeCommand(newElement, true);
-		toggle.setDomain(editDomain);
-		toggle.execute();
-		//dcs.execute(toggle, progressMonitor);
-		sourcePart.refresh();
-		//////////////////////////////////////////////////////////////////////////////////////////////
 	}
 	
 	/**
@@ -365,7 +347,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 	 * @param target
 	 * @return
 	 */
-	private CreateElementCommand selectCreateCommand(ConnectionNodeEditPart oldPart, EObject source, EObject target){
+	private EditElementCommand selectCreateCommand(ConnectionNodeEditPart oldPart, EObject source, EObject target){
 		if (changeTo.equals("And")){
 			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.AndDecomposition_3002);
 			createReq.setEditingDomain(oldPart.getEditingDomain());

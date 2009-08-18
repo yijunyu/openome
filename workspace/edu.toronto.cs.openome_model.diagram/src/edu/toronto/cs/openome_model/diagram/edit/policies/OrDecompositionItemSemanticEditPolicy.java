@@ -14,6 +14,14 @@ public class OrDecompositionItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public OrDecompositionItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

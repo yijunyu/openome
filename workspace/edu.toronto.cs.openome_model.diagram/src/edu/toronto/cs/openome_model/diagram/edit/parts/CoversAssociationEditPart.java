@@ -67,6 +67,26 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 	}
 
 	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -85,19 +105,20 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 	public CoversAssociationFigure getPrimaryShape() {
 		return (CoversAssociationFigure) getFigure();
 	}
-	
+
 	/**
 	 * Make this line straight
 	 */
-	public void straightenLine(){
+	public void straightenLine() {
 		// Straighten the connector figure
 		getPrimaryShape().straightenLine();
-		
+
 		// Now update the Bendpoints list to 0, since a  straight line has no bendpoint
 		// otherwise next time the line get refreshed the straight effect would be nullified
-		RelativeBendpoints bendpoints = (RelativeBendpoints) getEdge().getBendpoints();
-		ArrayList <RelativeBendpoints> emptyList = new ArrayList<RelativeBendpoints>();
-		
+		RelativeBendpoints bendpoints = (RelativeBendpoints) getEdge()
+				.getBendpoints();
+		ArrayList<RelativeBendpoints> emptyList = new ArrayList<RelativeBendpoints>();
+
 		// Update the Bendpoint collection in such a way that no odd notification is given
 		bendpoints.eSetDeliver(false);
 		bendpoints.setPoints(emptyList);
@@ -123,7 +144,7 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 			createContents();
 			setTargetDecoration(createTargetDecoration());
 		}
-		
+
 		/**
 		 * Straighten the connector so that there are no bends or curves
 		 */
@@ -131,12 +152,12 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 
 			// straighten the line by simply redefining a brand new routing
 			// constraint, that contains only the source and target points
-			
+
 			Point sourcePoint = this.getPoints().getFirstPoint();
 			Point targetPoint = this.getPoints().getLastPoint();
-			
+
 			ArrayList<AbsoluteBendpoint> list = new ArrayList<AbsoluteBendpoint>();
-			
+
 			list.add(new AbsoluteBendpoint(sourcePoint));
 			list.add(new AbsoluteBendpoint(targetPoint));
 			this.setRoutingConstraint(list);

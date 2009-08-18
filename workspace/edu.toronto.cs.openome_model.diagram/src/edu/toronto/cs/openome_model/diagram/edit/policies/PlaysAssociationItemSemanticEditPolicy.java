@@ -14,6 +14,14 @@ public class PlaysAssociationItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public PlaysAssociationItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

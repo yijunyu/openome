@@ -14,6 +14,14 @@ public class AndContributionItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public AndContributionItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_3011);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getGEFWrapper(new DestroyElementCommand(req));
 	}

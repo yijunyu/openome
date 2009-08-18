@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
@@ -28,20 +29,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getActorName_4009Parser() {
 		if (actorName_4009Parser == null) {
-			actorName_4009Parser = createActorName_4009Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getContainer_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			actorName_4009Parser = parser;
 		}
 		return actorName_4009Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createActorName_4009Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getContainer_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -54,20 +48,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getAgentName_4018Parser() {
 		if (agentName_4018Parser == null) {
-			agentName_4018Parser = createAgentName_4018Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getContainer_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			agentName_4018Parser = parser;
 		}
 		return agentName_4018Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createAgentName_4018Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getContainer_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -80,20 +67,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPositionName_4027Parser() {
 		if (positionName_4027Parser == null) {
-			positionName_4027Parser = createPositionName_4027Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getContainer_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			positionName_4027Parser = parser;
 		}
 		return positionName_4027Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createPositionName_4027Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getContainer_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -106,20 +86,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getRoleName_4036Parser() {
 		if (roleName_4036Parser == null) {
-			roleName_4036Parser = createRoleName_4036Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getContainer_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			roleName_4036Parser = parser;
 		}
 		return roleName_4036Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createRoleName_4036Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getContainer_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -132,20 +105,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalName_4037Parser() {
 		if (goalName_4037Parser == null) {
-			goalName_4037Parser = createGoalName_4037Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalName_4037Parser = parser;
 		}
 		return goalName_4037Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalName_4037Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -158,20 +124,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalQualitativeReasoningCombinedLabel_4038Parser() {
 		if (goalQualitativeReasoningCombinedLabel_4038Parser == null) {
-			goalQualitativeReasoningCombinedLabel_4038Parser = createGoalQualitativeReasoningCombinedLabel_4038Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalQualitativeReasoningCombinedLabel_4038Parser = parser;
 		}
 		return goalQualitativeReasoningCombinedLabel_4038Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalQualitativeReasoningCombinedLabel_4038Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -184,20 +143,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalName_4039Parser() {
 		if (softgoalName_4039Parser == null) {
-			softgoalName_4039Parser = createSoftgoalName_4039Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalName_4039Parser = parser;
 		}
 		return softgoalName_4039Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalName_4039Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -210,20 +162,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalQualitativeReasoningCombinedLabel_4040Parser() {
 		if (softgoalQualitativeReasoningCombinedLabel_4040Parser == null) {
-			softgoalQualitativeReasoningCombinedLabel_4040Parser = createSoftgoalQualitativeReasoningCombinedLabel_4040Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalQualitativeReasoningCombinedLabel_4040Parser = parser;
 		}
 		return softgoalQualitativeReasoningCombinedLabel_4040Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalQualitativeReasoningCombinedLabel_4040Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -236,20 +181,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskName_4041Parser() {
 		if (taskName_4041Parser == null) {
-			taskName_4041Parser = createTaskName_4041Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskName_4041Parser = parser;
 		}
 		return taskName_4041Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskName_4041Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -262,20 +200,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskQualitativeReasoningCombinedLabel_4042Parser() {
 		if (taskQualitativeReasoningCombinedLabel_4042Parser == null) {
-			taskQualitativeReasoningCombinedLabel_4042Parser = createTaskQualitativeReasoningCombinedLabel_4042Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskQualitativeReasoningCombinedLabel_4042Parser = parser;
 		}
 		return taskQualitativeReasoningCombinedLabel_4042Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskQualitativeReasoningCombinedLabel_4042Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -288,20 +219,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceName_4043Parser() {
 		if (resourceName_4043Parser == null) {
-			resourceName_4043Parser = createResourceName_4043Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceName_4043Parser = parser;
 		}
 		return resourceName_4043Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceName_4043Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -314,20 +238,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceQualitativeReasoningCombinedLabel_4044Parser() {
 		if (resourceQualitativeReasoningCombinedLabel_4044Parser == null) {
-			resourceQualitativeReasoningCombinedLabel_4044Parser = createResourceQualitativeReasoningCombinedLabel_4044Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceQualitativeReasoningCombinedLabel_4044Parser = parser;
 		}
 		return resourceQualitativeReasoningCombinedLabel_4044Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceQualitativeReasoningCombinedLabel_4044Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -340,20 +257,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalName_4001Parser() {
 		if (goalName_4001Parser == null) {
-			goalName_4001Parser = createGoalName_4001Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalName_4001Parser = parser;
 		}
 		return goalName_4001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalName_4001Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -366,20 +276,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalQualitativeReasoningCombinedLabel_4002Parser() {
 		if (goalQualitativeReasoningCombinedLabel_4002Parser == null) {
-			goalQualitativeReasoningCombinedLabel_4002Parser = createGoalQualitativeReasoningCombinedLabel_4002Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalQualitativeReasoningCombinedLabel_4002Parser = parser;
 		}
 		return goalQualitativeReasoningCombinedLabel_4002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalQualitativeReasoningCombinedLabel_4002Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -392,20 +295,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalName_4003Parser() {
 		if (softgoalName_4003Parser == null) {
-			softgoalName_4003Parser = createSoftgoalName_4003Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalName_4003Parser = parser;
 		}
 		return softgoalName_4003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalName_4003Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -418,20 +314,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalQualitativeReasoningCombinedLabel_4004Parser() {
 		if (softgoalQualitativeReasoningCombinedLabel_4004Parser == null) {
-			softgoalQualitativeReasoningCombinedLabel_4004Parser = createSoftgoalQualitativeReasoningCombinedLabel_4004Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalQualitativeReasoningCombinedLabel_4004Parser = parser;
 		}
 		return softgoalQualitativeReasoningCombinedLabel_4004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalQualitativeReasoningCombinedLabel_4004Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -444,20 +333,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceName_4005Parser() {
 		if (resourceName_4005Parser == null) {
-			resourceName_4005Parser = createResourceName_4005Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceName_4005Parser = parser;
 		}
 		return resourceName_4005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceName_4005Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -470,20 +352,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceQualitativeReasoningCombinedLabel_4006Parser() {
 		if (resourceQualitativeReasoningCombinedLabel_4006Parser == null) {
-			resourceQualitativeReasoningCombinedLabel_4006Parser = createResourceQualitativeReasoningCombinedLabel_4006Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceQualitativeReasoningCombinedLabel_4006Parser = parser;
 		}
 		return resourceQualitativeReasoningCombinedLabel_4006Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceQualitativeReasoningCombinedLabel_4006Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -496,20 +371,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskName_4007Parser() {
 		if (taskName_4007Parser == null) {
-			taskName_4007Parser = createTaskName_4007Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskName_4007Parser = parser;
 		}
 		return taskName_4007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskName_4007Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -522,20 +390,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskQualitativeReasoningCombinedLabel_4008Parser() {
 		if (taskQualitativeReasoningCombinedLabel_4008Parser == null) {
-			taskQualitativeReasoningCombinedLabel_4008Parser = createTaskQualitativeReasoningCombinedLabel_4008Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskQualitativeReasoningCombinedLabel_4008Parser = parser;
 		}
 		return taskQualitativeReasoningCombinedLabel_4008Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskQualitativeReasoningCombinedLabel_4008Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -548,20 +409,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalName_4010Parser() {
 		if (goalName_4010Parser == null) {
-			goalName_4010Parser = createGoalName_4010Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalName_4010Parser = parser;
 		}
 		return goalName_4010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalName_4010Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -574,20 +428,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalQualitativeReasoningCombinedLabel_4011Parser() {
 		if (goalQualitativeReasoningCombinedLabel_4011Parser == null) {
-			goalQualitativeReasoningCombinedLabel_4011Parser = createGoalQualitativeReasoningCombinedLabel_4011Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalQualitativeReasoningCombinedLabel_4011Parser = parser;
 		}
 		return goalQualitativeReasoningCombinedLabel_4011Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalQualitativeReasoningCombinedLabel_4011Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -600,20 +447,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalName_4012Parser() {
 		if (softgoalName_4012Parser == null) {
-			softgoalName_4012Parser = createSoftgoalName_4012Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalName_4012Parser = parser;
 		}
 		return softgoalName_4012Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalName_4012Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -626,20 +466,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalQualitativeReasoningCombinedLabel_4013Parser() {
 		if (softgoalQualitativeReasoningCombinedLabel_4013Parser == null) {
-			softgoalQualitativeReasoningCombinedLabel_4013Parser = createSoftgoalQualitativeReasoningCombinedLabel_4013Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalQualitativeReasoningCombinedLabel_4013Parser = parser;
 		}
 		return softgoalQualitativeReasoningCombinedLabel_4013Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalQualitativeReasoningCombinedLabel_4013Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -652,20 +485,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceName_4014Parser() {
 		if (resourceName_4014Parser == null) {
-			resourceName_4014Parser = createResourceName_4014Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceName_4014Parser = parser;
 		}
 		return resourceName_4014Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceName_4014Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -678,20 +504,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceQualitativeReasoningCombinedLabel_4015Parser() {
 		if (resourceQualitativeReasoningCombinedLabel_4015Parser == null) {
-			resourceQualitativeReasoningCombinedLabel_4015Parser = createResourceQualitativeReasoningCombinedLabel_4015Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceQualitativeReasoningCombinedLabel_4015Parser = parser;
 		}
 		return resourceQualitativeReasoningCombinedLabel_4015Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceQualitativeReasoningCombinedLabel_4015Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -704,20 +523,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskName_4016Parser() {
 		if (taskName_4016Parser == null) {
-			taskName_4016Parser = createTaskName_4016Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskName_4016Parser = parser;
 		}
 		return taskName_4016Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskName_4016Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -730,20 +542,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskQualitativeReasoningCombinedLabel_4017Parser() {
 		if (taskQualitativeReasoningCombinedLabel_4017Parser == null) {
-			taskQualitativeReasoningCombinedLabel_4017Parser = createTaskQualitativeReasoningCombinedLabel_4017Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskQualitativeReasoningCombinedLabel_4017Parser = parser;
 		}
 		return taskQualitativeReasoningCombinedLabel_4017Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskQualitativeReasoningCombinedLabel_4017Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -756,20 +561,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalName_4019Parser() {
 		if (goalName_4019Parser == null) {
-			goalName_4019Parser = createGoalName_4019Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalName_4019Parser = parser;
 		}
 		return goalName_4019Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalName_4019Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -782,20 +580,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalQualitativeReasoningCombinedLabel_4020Parser() {
 		if (goalQualitativeReasoningCombinedLabel_4020Parser == null) {
-			goalQualitativeReasoningCombinedLabel_4020Parser = createGoalQualitativeReasoningCombinedLabel_4020Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalQualitativeReasoningCombinedLabel_4020Parser = parser;
 		}
 		return goalQualitativeReasoningCombinedLabel_4020Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalQualitativeReasoningCombinedLabel_4020Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -808,20 +599,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalName_4021Parser() {
 		if (softgoalName_4021Parser == null) {
-			softgoalName_4021Parser = createSoftgoalName_4021Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalName_4021Parser = parser;
 		}
 		return softgoalName_4021Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalName_4021Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -834,20 +618,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalQualitativeReasoningCombinedLabel_4022Parser() {
 		if (softgoalQualitativeReasoningCombinedLabel_4022Parser == null) {
-			softgoalQualitativeReasoningCombinedLabel_4022Parser = createSoftgoalQualitativeReasoningCombinedLabel_4022Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalQualitativeReasoningCombinedLabel_4022Parser = parser;
 		}
 		return softgoalQualitativeReasoningCombinedLabel_4022Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalQualitativeReasoningCombinedLabel_4022Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -860,20 +637,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceName_4023Parser() {
 		if (resourceName_4023Parser == null) {
-			resourceName_4023Parser = createResourceName_4023Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceName_4023Parser = parser;
 		}
 		return resourceName_4023Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceName_4023Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -886,20 +656,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceQualitativeReasoningCombinedLabel_4024Parser() {
 		if (resourceQualitativeReasoningCombinedLabel_4024Parser == null) {
-			resourceQualitativeReasoningCombinedLabel_4024Parser = createResourceQualitativeReasoningCombinedLabel_4024Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceQualitativeReasoningCombinedLabel_4024Parser = parser;
 		}
 		return resourceQualitativeReasoningCombinedLabel_4024Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceQualitativeReasoningCombinedLabel_4024Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -912,20 +675,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskName_4025Parser() {
 		if (taskName_4025Parser == null) {
-			taskName_4025Parser = createTaskName_4025Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskName_4025Parser = parser;
 		}
 		return taskName_4025Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskName_4025Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -938,20 +694,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskQualitativeReasoningCombinedLabel_4026Parser() {
 		if (taskQualitativeReasoningCombinedLabel_4026Parser == null) {
-			taskQualitativeReasoningCombinedLabel_4026Parser = createTaskQualitativeReasoningCombinedLabel_4026Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskQualitativeReasoningCombinedLabel_4026Parser = parser;
 		}
 		return taskQualitativeReasoningCombinedLabel_4026Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskQualitativeReasoningCombinedLabel_4026Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -964,20 +713,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalName_4028Parser() {
 		if (goalName_4028Parser == null) {
-			goalName_4028Parser = createGoalName_4028Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalName_4028Parser = parser;
 		}
 		return goalName_4028Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalName_4028Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -990,20 +732,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getGoalQualitativeReasoningCombinedLabel_4029Parser() {
 		if (goalQualitativeReasoningCombinedLabel_4029Parser == null) {
-			goalQualitativeReasoningCombinedLabel_4029Parser = createGoalQualitativeReasoningCombinedLabel_4029Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			goalQualitativeReasoningCombinedLabel_4029Parser = parser;
 		}
 		return goalQualitativeReasoningCombinedLabel_4029Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createGoalQualitativeReasoningCombinedLabel_4029Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1016,20 +751,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalName_4030Parser() {
 		if (softgoalName_4030Parser == null) {
-			softgoalName_4030Parser = createSoftgoalName_4030Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalName_4030Parser = parser;
 		}
 		return softgoalName_4030Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalName_4030Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1042,20 +770,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSoftgoalQualitativeReasoningCombinedLabel_4031Parser() {
 		if (softgoalQualitativeReasoningCombinedLabel_4031Parser == null) {
-			softgoalQualitativeReasoningCombinedLabel_4031Parser = createSoftgoalQualitativeReasoningCombinedLabel_4031Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			softgoalQualitativeReasoningCombinedLabel_4031Parser = parser;
 		}
 		return softgoalQualitativeReasoningCombinedLabel_4031Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSoftgoalQualitativeReasoningCombinedLabel_4031Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1068,20 +789,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceName_4032Parser() {
 		if (resourceName_4032Parser == null) {
-			resourceName_4032Parser = createResourceName_4032Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceName_4032Parser = parser;
 		}
 		return resourceName_4032Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceName_4032Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1094,20 +808,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getResourceQualitativeReasoningCombinedLabel_4033Parser() {
 		if (resourceQualitativeReasoningCombinedLabel_4033Parser == null) {
-			resourceQualitativeReasoningCombinedLabel_4033Parser = createResourceQualitativeReasoningCombinedLabel_4033Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			resourceQualitativeReasoningCombinedLabel_4033Parser = parser;
 		}
 		return resourceQualitativeReasoningCombinedLabel_4033Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createResourceQualitativeReasoningCombinedLabel_4033Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1120,20 +827,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskName_4034Parser() {
 		if (taskName_4034Parser == null) {
-			taskName_4034Parser = createTaskName_4034Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_Name() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskName_4034Parser = parser;
 		}
 		return taskName_4034Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskName_4034Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_Name(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1146,20 +846,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getTaskQualitativeReasoningCombinedLabel_4035Parser() {
 		if (taskQualitativeReasoningCombinedLabel_4035Parser == null) {
-			taskQualitativeReasoningCombinedLabel_4035Parser = createTaskQualitativeReasoningCombinedLabel_4035Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIntention_QualitativeReasoningCombinedLabel() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			taskQualitativeReasoningCombinedLabel_4035Parser = parser;
 		}
 		return taskQualitativeReasoningCombinedLabel_4035Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createTaskQualitativeReasoningCombinedLabel_4035Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIntention_QualitativeReasoningCombinedLabel(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1172,20 +865,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getHelpContributionContributionType_4045Parser() {
 		if (helpContributionContributionType_4045Parser == null) {
-			helpContributionContributionType_4045Parser = createHelpContributionContributionType_4045Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getHelpContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			helpContributionContributionType_4045Parser = parser;
 		}
 		return helpContributionContributionType_4045Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createHelpContributionContributionType_4045Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHelpContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1198,20 +884,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getHurtContributionContributionType_4046Parser() {
 		if (hurtContributionContributionType_4046Parser == null) {
-			hurtContributionContributionType_4046Parser = createHurtContributionContributionType_4046Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getHurtContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			hurtContributionContributionType_4046Parser = parser;
 		}
 		return hurtContributionContributionType_4046Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createHurtContributionContributionType_4046Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getHurtContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1224,20 +903,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getMakeContributionContributionType_4047Parser() {
 		if (makeContributionContributionType_4047Parser == null) {
-			makeContributionContributionType_4047Parser = createMakeContributionContributionType_4047Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getMakeContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			makeContributionContributionType_4047Parser = parser;
 		}
 		return makeContributionContributionType_4047Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createMakeContributionContributionType_4047Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getMakeContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1250,20 +922,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getBreakContributionContributionType_4048Parser() {
 		if (breakContributionContributionType_4048Parser == null) {
-			breakContributionContributionType_4048Parser = createBreakContributionContributionType_4048Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getBreakContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			breakContributionContributionType_4048Parser = parser;
 		}
 		return breakContributionContributionType_4048Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createBreakContributionContributionType_4048Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getBreakContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1276,20 +941,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSomePlusContributionContributionType_4049Parser() {
 		if (somePlusContributionContributionType_4049Parser == null) {
-			somePlusContributionContributionType_4049Parser = createSomePlusContributionContributionType_4049Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getSomePlusContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			somePlusContributionContributionType_4049Parser = parser;
 		}
 		return somePlusContributionContributionType_4049Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSomePlusContributionContributionType_4049Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getSomePlusContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1302,20 +960,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSomeMinusContributionContributionType_4050Parser() {
 		if (someMinusContributionContributionType_4050Parser == null) {
-			someMinusContributionContributionType_4050Parser = createSomeMinusContributionContributionType_4050Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getSomeMinusContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			someMinusContributionContributionType_4050Parser = parser;
 		}
 		return someMinusContributionContributionType_4050Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSomeMinusContributionContributionType_4050Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getSomeMinusContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1328,20 +979,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getUnknownContributionContributionType_4051Parser() {
 		if (unknownContributionContributionType_4051Parser == null) {
-			unknownContributionContributionType_4051Parser = createUnknownContributionContributionType_4051Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getUnknownContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			unknownContributionContributionType_4051Parser = parser;
 		}
 		return unknownContributionContributionType_4051Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createUnknownContributionContributionType_4051Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getUnknownContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1354,20 +998,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getAndContributionContributionType_4052Parser() {
 		if (andContributionContributionType_4052Parser == null) {
-			andContributionContributionType_4052Parser = createAndContributionContributionType_4052Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getAndContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			andContributionContributionType_4052Parser = parser;
 		}
 		return andContributionContributionType_4052Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createAndContributionContributionType_4052Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getAndContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1380,20 +1017,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getOrContributionContributionType_4053Parser() {
 		if (orContributionContributionType_4053Parser == null) {
-			orContributionContributionType_4053Parser = createOrContributionContributionType_4053Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getOrContribution_ContributionType() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			orContributionContributionType_4053Parser = parser;
 		}
 		return orContributionContributionType_4053Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createOrContributionContributionType_4053Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getOrContribution_ContributionType(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1406,20 +1036,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getIsAAssociationLabel_4054Parser() {
 		if (isAAssociationLabel_4054Parser == null) {
-			isAAssociationLabel_4054Parser = createIsAAssociationLabel_4054Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIsAAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			isAAssociationLabel_4054Parser = parser;
 		}
 		return isAAssociationLabel_4054Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createIsAAssociationLabel_4054Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIsAAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1432,20 +1055,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getCoversAssociationLabel_4055Parser() {
 		if (coversAssociationLabel_4055Parser == null) {
-			coversAssociationLabel_4055Parser = createCoversAssociationLabel_4055Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getCoversAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			coversAssociationLabel_4055Parser = parser;
 		}
 		return coversAssociationLabel_4055Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createCoversAssociationLabel_4055Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getCoversAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1458,20 +1074,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getOccupiesAssociationLabel_4056Parser() {
 		if (occupiesAssociationLabel_4056Parser == null) {
-			occupiesAssociationLabel_4056Parser = createOccupiesAssociationLabel_4056Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getOccupiesAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			occupiesAssociationLabel_4056Parser = parser;
 		}
 		return occupiesAssociationLabel_4056Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createOccupiesAssociationLabel_4056Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getOccupiesAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1484,20 +1093,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getIsPartOfAssociationLabel_4057Parser() {
 		if (isPartOfAssociationLabel_4057Parser == null) {
-			isPartOfAssociationLabel_4057Parser = createIsPartOfAssociationLabel_4057Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getIsPartOfAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			isPartOfAssociationLabel_4057Parser = parser;
 		}
 		return isPartOfAssociationLabel_4057Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createIsPartOfAssociationLabel_4057Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getIsPartOfAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1510,20 +1112,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getPlaysAssociationLabel_4058Parser() {
 		if (playsAssociationLabel_4058Parser == null) {
-			playsAssociationLabel_4058Parser = createPlaysAssociationLabel_4058Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getPlaysAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			playsAssociationLabel_4058Parser = parser;
 		}
 		return playsAssociationLabel_4058Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createPlaysAssociationLabel_4058Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getPlaysAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1536,20 +1131,13 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 	 */
 	private IParser getINSAssociationLabel_4059Parser() {
 		if (iNSAssociationLabel_4059Parser == null) {
-			iNSAssociationLabel_4059Parser = createINSAssociationLabel_4059Parser();
+			EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+					.getINSAssociation_Label() };
+			edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
+					features);
+			iNSAssociationLabel_4059Parser = parser;
 		}
 		return iNSAssociationLabel_4059Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createINSAssociationLabel_4059Parser() {
-		EAttribute[] features = new EAttribute[] { edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-				.getINSAssociation_Label(), };
-		edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser parser = new edu.toronto.cs.openome_model.diagram.parsers.MessageFormatParser(
-				features);
-		return parser;
 	}
 
 	/**
@@ -1677,6 +1265,16 @@ public class Openome_modelParserProvider extends AbstractProvider implements
 			return getINSAssociationLabel_4059Parser();
 		}
 		return null;
+	}
+
+	/**
+	 * Utility method that consults ParserService
+	 * @generated
+	 */
+	public static IParser getParser(IElementType type, EObject object,
+			String parserHint) {
+		return ParserService.getInstance().getParser(
+				new HintAdapter(type, object, parserHint));
 	}
 
 	/**

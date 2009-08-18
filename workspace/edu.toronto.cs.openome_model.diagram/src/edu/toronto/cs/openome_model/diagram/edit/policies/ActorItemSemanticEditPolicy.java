@@ -5,10 +5,14 @@ import java.util.Iterator;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
+import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
+import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -22,29 +26,157 @@ public class ActorItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = getDestroyEdgesCommand();
-		addDestroyChildNodesCommand(cc);
-		addDestroyShortcutsCommand(cc);
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			req.setElementToDestroy(view);
-		}
-		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
-		return cc.unwrap();
+	public ActorItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
+	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation != null) {
-			return;
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
+		cmd.setTransactionNestingEnabled(false);
+		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+			Edge incomingLink = (Edge) it.next();
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
-		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
-			Node node = (Node) it.next();
+		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+			Edge outgoingLink = (Edge) it.next();
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+					.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+		}
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation == null) {
+			// there are indirectly referenced children, need extra commands: false
+			addDestroyChildNodesCommand(cmd);
+			addDestroyShortcutsCommand(cmd, view);
+			// delete host element
+			cmd.add(new DestroyElementCommand(req));
+		} else {
+			cmd.add(new DeleteCommand(getEditingDomain(), view));
+		}
+		return getGEFWrapper(cmd.reduce());
+	}
+
+	/**
+	 * @generated
+	 */
+	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
+		View view = (View) getHost().getModel();
+		for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+			Node node = (Node) nit.next();
 			switch (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 					.getVisualID(node)) {
 			case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:
@@ -54,16 +186,928 @@ public class ActorItemSemanticEditPolicy
 					switch (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 							.getVisualID(cnode)) {
 					case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
+						for (Iterator it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
+						for (Iterator it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
+						for (Iterator it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
+						for (Iterator it = cnode.getTargetEdges().iterator(); it
+								.hasNext();) {
+							Edge incomingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(incomingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										incomingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										incomingLink));
+								continue;
+							}
+						}
+						for (Iterator it = cnode.getSourceEdges().iterator(); it
+								.hasNext();) {
+							Edge outgoingLink = (Edge) it.next();
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+							if (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getVisualID(outgoingLink) == edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID) {
+								DestroyElementRequest r = new DestroyElementRequest(
+										outgoingLink.getElement(), false);
+								cmd.add(new DestroyElementCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(),
+										outgoingLink));
+								continue;
+							}
+						}
+						cmd.add(new DestroyElementCommand(
+								new DestroyElementRequest(getEditingDomain(),
+										cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					}
 				}

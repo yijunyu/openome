@@ -85,8 +85,8 @@ public class Openome_modelInitDiagramFileAction implements
 			MessageDialog
 					.openError(
 							getShell(),
-							edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle,
-							edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage);
+							edu.toronto.cs.openome_model.diagram.part.Messages.InitDiagramFile_ResourceErrorDialogTitle,
+							edu.toronto.cs.openome_model.diagram.part.Messages.InitDiagramFile_ResourceErrorDialogMessage);
 			return;
 		}
 		Wizard wizard = new edu.toronto.cs.openome_model.diagram.part.Openome_modelNewDiagramFileWizard(
@@ -94,7 +94,7 @@ public class Openome_modelInitDiagramFileAction implements
 		wizard
 				.setWindowTitle(NLS
 						.bind(
-								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelInitDiagramFileAction_InitDiagramFileWizardTitle,
+								edu.toronto.cs.openome_model.diagram.part.Messages.InitDiagramFile_WizardTitle,
 								edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.MODEL_ID));
 		edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
 				.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$

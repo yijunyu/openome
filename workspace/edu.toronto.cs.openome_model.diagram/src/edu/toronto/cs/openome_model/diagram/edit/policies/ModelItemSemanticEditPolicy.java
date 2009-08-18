@@ -17,84 +17,52 @@ public class ModelItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
+	public ModelItemSemanticEditPolicy() {
+		super(
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Model_79);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Actor_1001 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Containers());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ActorCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Agent_1002 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Containers());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AgentCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_1003 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Containers());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PositionCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Role_1004 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Containers());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.RoleCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_1005 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Intentions());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_1006 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Intentions());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SoftgoalCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_1007 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Intentions());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.TaskCreateCommand(
 					req));
 		}
 		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_1008 == req
 				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
-								.getModel_Intentions());
-			}
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.ResourceCreateCommand(
 					req));
 		}

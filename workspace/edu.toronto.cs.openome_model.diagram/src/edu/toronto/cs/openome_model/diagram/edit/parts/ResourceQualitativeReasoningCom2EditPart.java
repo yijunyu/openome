@@ -105,6 +105,9 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(
+				EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());
 	}
 
 	/**
@@ -218,11 +221,12 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 	protected Image getLabelIcon() {
 		EObject parserElement = getParserElement();
 		if (parserElement == null) {
-			System.err.println("ResourceQualitativeReasoningCom2EditPart: Unknown parser element.");
+			System.err
+					.println("ResourceQualitativeReasoningCom2EditPart: Unknown parser element.");
 			return null;
 		}
 		// fix for enabling changing intention type, cf. Ticket #111
-		if(!(parserElement instanceof ResourceImpl)){
+		if (!(parserElement instanceof ResourceImpl)) {
 			return null;
 		}
 
@@ -254,6 +258,11 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}
@@ -333,11 +342,12 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			IAdaptable hintAdapter = new edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider.HintAdapter(
-					edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003,
-					getParserElement(), parserHint);
-			parser = ParserService.getInstance().getParser(hintAdapter);
+			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
+					.getParser(
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003,
+							getParserElement(),
+							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
+									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -446,6 +456,11 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 		if (pdEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
 			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) pdEditPolicy)
+					.refreshFeedback();
+		}
+		Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
+		if (sfEditPolicy instanceof edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) {
+			((edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy) sfEditPolicy)
 					.refreshFeedback();
 		}
 	}

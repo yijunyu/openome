@@ -99,7 +99,7 @@ public abstract class Openome_modelAbstractExpression {
 			} catch (Exception e) {
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 						.getInstance().logError(
-								"Expression evaluation failure: " + body(), e);//$NON-NLS-1$
+								"Expression evaluation failure: " + body(), e); //$NON-NLS-1$
 			}
 		}
 		return null;
