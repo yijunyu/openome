@@ -3,19 +3,29 @@ package customsrc;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
+import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
@@ -46,6 +56,8 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
+import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 public class SetActorTypeAction extends AbstractActionHandler {
 	
@@ -82,86 +94,116 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		int selectionSize = actors.length;
 		
 		for (int i = 0; i < selectionSize; i++) {
-			final EObject object = ((IGraphicalEditPart)actors[i]).getNotationView().getElement();
 			Object actor = actors[i];
 			// determine what type of actor it is, then cast it appropriately 
 			// and apply the appropriate label to it
+			
+			GraphicalEditPart part = (GraphicalEditPart) selection.getFirstElement();
+			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
+			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
+			
+			doTypeSwitch(actor, dcs, progressMonitor);
+			
+		}
+		
+	}
+	
+	private void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs,	IProgressMonitor progressMonitor) {
+		final EObject originalImpl = ((IGraphicalEditPart)originalEditPart).getNotationView().getElement();
+		TransactionalEditingDomain domain = ((IGraphicalEditPart)originalEditPart).getEditingDomain();
+		
+		//Create new element (automatically sync info as well)
+		CreateElementCommand create = selectCreateActorCommand(originalImpl, domain);
+		dcs.execute(new ICommandProxy(create));
 
-			// GOALS
+		//Delete old element
+		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
+		dcs.execute(new ICommandProxy(destroy));
+		
+	}
+
+	private CreateElementCommand selectCreateActorCommand(
+			EObject originalImpl, TransactionalEditingDomain domain) {
+		CreateElementRequest req = null;
+		
+		if (changeTo.equals("Actor")){
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Actor_1001);
+		}
+		else if (changeTo.equals("Agent")){
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Agent_1002);
+		}
+		else if (changeTo.equals("Position")){
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Position_1003);
+		}
+		else if (changeTo.equals("Role")){
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Role_1004);
+		}
+		return new CreateNewActorTypeCommand(req, originalImpl);
+	}
+	
+	private static class CreateNewActorTypeCommand extends CreateElementCommand {
+		/**
+		 * The newly created element.
+		 */
+		private EObject newElement;
+		
+		/**
+		 * The element the duplicate is based on
+		 */
+		private EObject oldElement;
+		
+		/**
+		 * The element type to be created.
+		 */
+		private final IElementType elementType;
+
+		public CreateNewActorTypeCommand(CreateElementRequest request, EObject original) {
+			super(request);
+			elementType = request.getElementType();
+			oldElement = original;
+		}
+		
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+	            IAdaptable info)
+	        throws ExecutionException {
 			
-			if (actor instanceof ActorEditPart) {
-//				GoalEditPart part = (GoalEditPart) selection.getFirstElement();
-//				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-//				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-//				
-//				applyEvalLabel(selection, object, progressMonitor, dcs);
-				
-				System.out.println("Change from Actor to " + changeTo);
-				
-			} else if (actor instanceof AgentEditPart) {
-				System.out.println("Change from Agent to " + changeTo);
-				
-			} else if (actor instanceof RoleEditPart) {
-				System.out.println("Change from Role to " + changeTo);
-				
-			} else if (actor instanceof PositionEditPart) {
-				System.out.println("Change from Position to " + changeTo);
-				
-			} else if (actor instanceof ActorActorCompartmentEditPart) {
-				System.out.println("Change from ActorActorCompartment to " + changeTo);
-				
-			} else if (actor instanceof AgentAgentCompartmentEditPart) {
-				System.out.println("Change from AgentAgentCompartment to " + changeTo);
-				
-			} else if (actor instanceof RoleRoleCompartmentEditPart) {
-				System.out.println("Change from RoleRoleCompartment to " + changeTo);
-				
-			} else if (actor instanceof PositionPositionCompartmentEditPart) {
-				System.out.println("Change from PositionPositionCompartment to " + changeTo);
-				
-			}  else {
-				System.out.println("Cannot recognize EditPart: " + actor);
-			}
-			
+			 // Do the default element creation
+	        newElement = doDefaultElementCreation();
+	        
+	        if (!getDefaultElementCreationStatus().isOK()) {
+	        	return new CommandResult(getDefaultElementCreationStatus());
+	        }
+
+	        // Configure the new element
+	        ConfigureRequest configureRequest = createConfigureRequest();
+
+	        ICommand configureCommand = elementType
+	            .getEditCommand(configureRequest);
+	        
+	        IStatus configureStatus = null;
+	        
+	        if (configureCommand != null && configureCommand.canExecute()) {
+	        	configureStatus = configureCommand.execute(monitor, info);
+	        }
+	        
+	        //Copy the metadata
+	        ((Container) newElement).setName(((Container) oldElement).getName());
+	        
+	        
+	        // Put the newly created element in the request so that the
+	        // 'after' commands have access to it.
+	        getCreateRequest().setNewElement(newElement);
+	        
+			return (configureStatus == null) ? 
+	        		CommandResult.newOKCommandResult(newElement) : 
+	        		new CommandResult(configureStatus, newElement);
 			
 		}
 	}
-	
-	public void applyEvalLabel(IStructuredSelection selection, final EObject object, IProgressMonitor progressMonitor, DiagramCommandStack dcs) {
-		
-		MyCommand applyLabel = new MyCommand(object) {
 
-			@Override
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
-					throws ExecutionException {
-				if (object instanceof Intention) {
-					((Intention) object).setQualitativeReasoningCombinedLabel(evalField);
-				}
-				return CommandResult.newOKCommandResult();
-			}};
-		
-		ICommandProxy command = new ICommandProxy(applyLabel);
-		dcs.execute(command, progressMonitor);
-		
-
-	}
-	
 	public void refresh() {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	
-
-	
-	private abstract class MyCommand extends AbstractTransactionalCommand {
-		public MyCommand(EObject elt) {
-			super((TransactionalEditingDomain) AdapterFactoryEditingDomain.
-					getEditingDomainFor(elt),
-					evalLabel,
-					getWorkspaceFiles(elt));
-		}
 	}
 
 }
