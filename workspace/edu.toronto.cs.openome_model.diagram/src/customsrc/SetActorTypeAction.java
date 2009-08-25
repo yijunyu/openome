@@ -115,6 +115,8 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateActorCommand(originalImpl, domain);
 		dcs.execute(new ICommandProxy(create));
+		
+		//Before deleting the old element we should copy the children
 
 		//Delete old element
 		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
@@ -188,6 +190,9 @@ public class SetActorTypeAction extends AbstractActionHandler {
 	        
 	        //Copy the metadata
 	        ((Container) newElement).setName(((Container) oldElement).getName());
+	        
+	        // Now we should also copy children 
+	        
 	        
 	        
 	        // Put the newly created element in the request so that the
