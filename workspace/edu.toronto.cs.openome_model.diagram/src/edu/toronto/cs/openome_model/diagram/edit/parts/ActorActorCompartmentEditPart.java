@@ -39,7 +39,7 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.ActorFigure
 /**
  * @generated
  */
-public class ActorActorCompartmentEditPart extends ShapeCompartmentEditPart {
+public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 
 	/**
 	 * @generated
