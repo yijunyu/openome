@@ -59,18 +59,56 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 				if (!source.getFigure().isShowing() || !target.getFigure().isShowing()) {
 					connection.setVisible(false);
 					
-//					CompartmentEditPart sourceCompartment = (CompartmentEditPart) source.getParent();
-//					CompartmentEditPart targetCompartment = (CompartmentEditPart) target.getParent();
 					
-//					if (source.getParent() == target.getParent()){
-//						connection.setVisible(false);
-//					}
+					/*
+					 * if source container is collapsed and target container is collapsed
+					 *		then link is visible
+					 * elif source container is collapsed and target container is not collapsed
+					 * 		if target intention is visible then link is visible
+					 * 		else if target intention is not visible then link is not visible
+					 * elif source container is not collapsed and target container is collapsed
+					 * 		if source intention is visible then link is visible
+					 * 		else if source intention is not visible then link is not visible
+					 * elif source container is not collapsed and target container is not collapsed
+					 * 		then proceed like normal
+					 * 
+					 * if source container is a model and source intention is visible and target container is an actor
+					 * 		if target container is collapsed then link is visible
+					 * 		elif target container is not collapsed, then link visibility depends on visibility of target intention
+					 * elif source container is an actor and target container is a model and target intention is visible
+					 * 		if source container is collapsed then link is visible
+					 * 		elif source container is not collapsed and, then link visibility depends on visibility of source intention
+					 * */
 					
 					if (source.getParent() instanceof CompartmentEditPart && (((CompartmentEditPart) source.getParent()).isCollapsed())){
-						connection.setVisible(true);
+						if (target.getParent() instanceof CompartmentEditPart && (((CompartmentEditPart) target.getParent()).isCollapsed())){
+							connection.setVisible(true);
 						}
-					else if(target.getParent() instanceof CompartmentEditPart && (((CompartmentEditPart) target.getParent()).isCollapsed())){
-						connection.setVisible(true);
+						else if(target.getParent() instanceof CompartmentEditPart && !(((CompartmentEditPart) target.getParent()).isCollapsed())){
+							connection.setVisible(target.getFigure().isShowing());
+						}
+					}
+					else if(source.getParent() instanceof CompartmentEditPart && !(((CompartmentEditPart) source.getParent()).isCollapsed())){
+						if (target.getParent() instanceof CompartmentEditPart && (((CompartmentEditPart) target.getParent()).isCollapsed())){
+							connection.setVisible(source.getFigure().isShowing());
+						}
+					}
+					
+					if (source.getParent() instanceof ModelEditPart && source.getFigure().isShowing()
+							&& target.getParent() instanceof CompartmentEditPart){
+						if (((CompartmentEditPart) target.getParent()).isCollapsed()){
+							connection.setVisible(true);
+						} else{
+							connection.setVisible(target.getFigure().isShowing());
+						}
+					}
+					else if (source.getParent() instanceof CompartmentEditPart && target.getParent() instanceof ModelEditPart &&
+							target.getFigure().isShowing()){
+						if (((CompartmentEditPart) source.getParent()).isCollapsed()){
+							connection.setVisible(true);
+						} else{
+							connection.setVisible(source.getFigure().isShowing());
+						}
 					}
 					
 					continue;
