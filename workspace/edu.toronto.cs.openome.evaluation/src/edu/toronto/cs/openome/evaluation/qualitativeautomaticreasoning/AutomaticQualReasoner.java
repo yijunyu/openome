@@ -26,7 +26,7 @@ public class AutomaticQualReasoner extends InteractiveQualReasoner {
 		// TODO Auto-generated constructor stub
 	}
 	
-public EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
 		
 		ListIterator<IntentionLabelPair> it = w.bagListIterator();
 		

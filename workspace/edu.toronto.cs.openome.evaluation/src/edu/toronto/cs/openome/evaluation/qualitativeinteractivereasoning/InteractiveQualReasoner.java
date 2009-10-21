@@ -425,9 +425,9 @@ public class InteractiveQualReasoner extends Reasoner {
 				
 				if (result == null)  {				
 					//get human judgement, somehow....
-					if (this instanceof AutomaticQualReasoner)
-						result = ((AutomaticQualReasoner)this).resolveOtherCases(w);
-					else
+					//if (this instanceof AutomaticQualReasoner)
+					//	result = ((AutomaticQualReasoner)this).resolveOtherCases(w);
+					//else
 						result = resolveOtherCases(w);
 										
 					
@@ -472,7 +472,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		return w.findExistingResult();				
 	}
 	
-	private EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+	protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
 	
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
