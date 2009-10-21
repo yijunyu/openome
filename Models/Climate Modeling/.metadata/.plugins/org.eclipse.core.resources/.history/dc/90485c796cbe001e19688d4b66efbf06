@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore">
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.0" dependencyTo="//@dependencies.1" name="Energy"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.1"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@intentions.0"/>
+  <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.2/@intentions.0"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Source">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make Point" contributesFrom="//@contributions.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="User Number" contributesTo="//@contributions.0"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Renewable Power Producer">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyTo="//@dependencies.0" name="Produce Power Using Renewables"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Pro Renewable">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.1" name="Use renewable resources"/>
+  </containers>
+</edu.toronto.cs.openome_model:Model>
