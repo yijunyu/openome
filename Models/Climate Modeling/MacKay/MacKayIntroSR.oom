@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore">
   <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.0" dependencyTo="//@dependencies.1" name="Energy"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.3" dependencyTo="//@dependencies.2" name="Energy"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.1/@intentions.2" source="//@containers.1/@intentions.1"/>
   <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.2/@intentions.0"/>
+  <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.3/@intentions.0"/>
+  <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.0" target="//@containers.1/@intentions.1"/>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Source">
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make Point" contributesFrom="//@contributions.0"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="User Number" contributesTo="//@contributions.0"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Renewable Power Producer">
-    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyTo="//@dependencies.0" name="Produce Power Using Renewables"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyTo="//@dependencies.0 //@dependencies.3" name="Produce Power Using Renewables" decompositions="//@decompositions.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Cut greenhouse gasses 60% by 2050" parentDecompositions="//@decompositions.0" contributesTo="//@contributions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Cut greenhouse gas emissions" contributesFrom="//@contributions.1"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Pro Renewable">
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.1" name="Use renewable resources"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Pro Nuclear">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.2" name="Use renewable resources"/>
   </containers>
 </edu.toronto.cs.openome_model:Model>
