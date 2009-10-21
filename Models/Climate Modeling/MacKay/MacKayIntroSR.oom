@@ -16,6 +16,7 @@
   <contributions xsi:type="edu.toronto.cs.openome_model:UnknownContribution" target="//@containers.4/@intentions.3" source="//@containers.4/@intentions.1"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.4/@intentions.4" source="//@containers.4/@intentions.1"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@containers.3/@intentions.4" source="//@containers.3/@intentions.0"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.8/@intentions.1" source="//@containers.8/@intentions.0"/>
   <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.2/@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.3/@intentions.0"/>
@@ -54,7 +55,23 @@
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Short-term solution" contributesFrom="//@contributions.8 //@contributions.10"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Establish Sustainable Development" contributesFrom="//@contributions.11"/>
   </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Politician"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Economist"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Physicist"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Ecological Movement">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Do something urgently" contributesTo="//@contributions.13"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Avoid climate crisis" contributesFrom="//@contributions.13"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Media"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Campaigners"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Future Generations"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="&quot;Untrustworthy&quot; foreigners"/>
   <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.2" target="//@containers.0"/>
   <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.3" target="//@containers.0"/>
   <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.4" target="//@containers.0"/>
+  <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.7" target="//@containers.0"/>
+  <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.6" target="//@containers.0"/>
+  <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.5" target="//@containers.0"/>
+  <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.9" target="//@containers.0"/>
+  <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.10" target="//@containers.0"/>
 </edu.toronto.cs.openome_model:Model>
