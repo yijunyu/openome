@@ -13,7 +13,7 @@
   <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.22" dependencyTo="//@dependencies.21" name="Fossil Fuels"/>
   <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.23" dependencyTo="//@dependencies.24" name="Habitable climate"/>
   <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.25" dependencyTo="//@dependencies.26" name="Emissions"/>
-  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.28" dependencyTo="//@dependencies.27" name="Numbers"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.28" dependencyTo="//@dependencies.27 //@dependencies.31" name="Numbers"/>
   <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.30" dependencyTo="//@dependencies.29" name="Correct Arguments"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.1"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.2/@intentions.2" source="//@containers.2/@intentions.1"/>
@@ -59,6 +59,11 @@
   <contributions xsi:type="edu.toronto.cs.openome_model:SomeMinusContribution" target="//@containers.23/@intentions.2" source="//@containers.23/@intentions.1"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.23/@intentions.0" source="//@containers.23/@intentions.3"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.23/@intentions.3" source="//@containers.23/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.18/@intentions.0" source="//@containers.18/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.18/@intentions.0" source="//@containers.18/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.19/@intentions.22" source="//@containers.19/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@containers.19/@intentions.21" source="//@containers.19/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.19/@intentions.24" source="//@containers.19/@intentions.22"/>
   <dependencies dependencyFrom="//@containers.1/@intentions.0" dependencyTo="//@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.2/@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.3/@intentions.0"/>
@@ -90,6 +95,7 @@
   <dependencies dependencyFrom="//@containers.0/@intentions.1" dependencyTo="//@intentions.13"/>
   <dependencies dependencyFrom="//@intentions.14" dependencyTo="//@containers.19/@intentions.20"/>
   <dependencies dependencyFrom="//@containers.0/@intentions.0" dependencyTo="//@intentions.14"/>
+  <dependencies dependencyFrom="//@intentions.13" dependencyTo="//@containers.19/@intentions.23"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.2/@intentions.0" target="//@containers.2/@intentions.1"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.2" target="//@containers.0/@intentions.1"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.3" target="//@containers.0/@intentions.1"/>
@@ -159,7 +165,9 @@
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Actually address concerns" decompositions="//@decompositions.3" contributesTo="//@contributions.15"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Skeptic">
-    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Deny the energy crisis"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Deny the energy crisis" contributesFrom="//@contributions.44 //@contributions.45"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Argue CO2 flows are insignificant" contributesTo="//@contributions.44"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Arugue C02 is nature" contributesTo="//@contributions.45"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Society (us)">
     <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyFrom="//@dependencies.11" name="Live modern lifestyle" parentDecompositions="//@decompositions.7 //@decompositions.9"/>
@@ -183,6 +191,10 @@
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make good energy decisions" contributesTo="//@contributions.34 //@contributions.35 //@contributions.36 //@contributions.37" contributesFrom="//@contributions.33"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.24" name="Avoid climate change" contributesFrom="//@contributions.38 //@contributions.39 //@contributions.40"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.29" name="Need correct arguments"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Assign responsibility for past and current emissions" contributesTo="//@contributions.46" contributesFrom="//@contributions.47"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Assign responsibility for reduction of future emissions" contributesTo="//@contributions.48" contributesFrom="//@contributions.46"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.31" name="By country per capita historical emissions" contributesTo="//@contributions.47"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Avoid increasing CO2 concentrations" contributesFrom="//@contributions.48"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="China"/>
   <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Britain">
