@@ -37,6 +37,9 @@
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.3" target="//@containers.0/@intentions.1"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.17/@intentions.4" target="//@containers.17/@intentions.2"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.17/@intentions.3" target="//@containers.17/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.19/@intentions.3" target="//@containers.19/@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.19/@intentions.2" target="//@containers.19/@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.19/@intentions.1" target="//@containers.19/@intentions.0"/>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Source">
     <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make Point" contributesFrom="//@contributions.0"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="User Number" parentDecompositions="//@decompositions.1 //@decompositions.2" contributesTo="//@contributions.0"/>
@@ -90,6 +93,15 @@
     <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Adress environmental concerns" parentDecompositions="//@decompositions.3 //@decompositions.4"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Greenwash" decompositions="//@decompositions.4" contributesTo="//@contributions.16"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Actually address concerns" decompositions="//@decompositions.3" contributesTo="//@contributions.15"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Skeptic">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Deny the energy crisis"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Society (us)">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Live modern lifestyle" parentDecompositions="//@decompositions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Choosing energy sources" decompositions="//@decompositions.7" parentDecompositions="//@decompositions.5 //@decompositions.6"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Use fossil fuels" decompositions="//@decompositions.6"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Use Nuclear" decompositions="//@decompositions.5"/>
   </containers>
   <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.2" target="//@containers.0"/>
   <associations xsi:type="edu.toronto.cs.openome_model:IsAAssociation" source="//@containers.3" target="//@containers.0"/>
