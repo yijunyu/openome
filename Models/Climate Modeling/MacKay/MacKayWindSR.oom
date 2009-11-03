@@ -9,6 +9,11 @@
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.1"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.2" source="//@containers.4/@intentions.3"/>
   <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.4/@intentions.1" source="//@containers.4/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.1/@intentions.4" source="//@containers.1/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.1/@intentions.4" source="//@containers.1/@intentions.0"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:BreakContribution" target="//@containers.1/@intentions.7" source="//@containers.1/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.1/@intentions.7" source="//@containers.1/@intentions.5"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.1/@intentions.7" source="//@containers.1/@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.2/@intentions.0"/>
   <dependencies dependencyFrom="//@containers.1/@intentions.1" dependencyTo="//@intentions.0"/>
   <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.1/@intentions.3"/>
@@ -20,14 +25,20 @@
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.2" target="//@containers.1/@intentions.1"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.1/@intentions.0" target="//@containers.1/@intentions.1"/>
   <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.3" target="//@containers.1/@intentions.0"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.6" target="//@containers.1/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.1/@intentions.5" target="//@containers.1/@intentions.2"/>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Renewable Power Producer">
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce Power Using Renewables"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Wind Power Producer">
-    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce power from onshore wind" decompositions="//@decompositions.2" parentDecompositions="//@decompositions.3" contributesTo="//@contributions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce power from onshore wind" decompositions="//@decompositions.2" parentDecompositions="//@decompositions.3" contributesTo="//@contributions.1 //@contributions.7 //@contributions.10"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyTo="//@dependencies.1" name="Produce wind power" parentDecompositions="//@decompositions.1 //@decompositions.2"/>
-    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce power from offshore wind" decompositions="//@decompositions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce power from offshore wind" decompositions="//@decompositions.1" parentDecompositions="//@decompositions.4 //@decompositions.5" contributesTo="//@contributions.6"/>
     <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.2" name="Very large land area" decompositions="//@decompositions.3"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="High power production" contributesFrom="//@contributions.6 //@contributions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce using shallow offshore wind" decompositions="//@decompositions.5" contributesTo="//@contributions.9"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Produce using deep offshore wind" decompositions="//@decompositions.4" contributesTo="//@contributions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Minimize cost" contributesFrom="//@contributions.8 //@contributions.9 //@contributions.10"/>
   </containers>
   <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Society (us)">
     <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.0" name="Use wind power" decompositions="//@decompositions.0"/>
