@@ -1446,7 +1446,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_4TbrocMmEd6racjcX7ASXw" smoothness="Normal" lineColor="13714250"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_4TbrosMmEd6racjcX7ASXw" fontColor="13714250"/>
     <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="MacKayIntroSR.oom#//@contributions.22"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4Tbro8MmEd6racjcX7ASXw" points="[3, -29, -1, 175]$[63, -227, 59, -23]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4Tbro8MmEd6racjcX7ASXw" points="[-7, -30, 17, 138]$[-18, -82, 6, 86]$[-22, -139, 2, 29]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_6__YgMMmEd6racjcX7ASXw" type="3004" source="_RMVUUMMmEd6racjcX7ASXw" target="_5iaAMMMmEd6racjcX7ASXw">
     <children xmi:type="notation:Node" xmi:id="_6__YhMMmEd6racjcX7ASXw" type="4045">
@@ -1749,7 +1749,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_cBowUMMuEd6racjcX7ASXw" smoothness="Normal" lineColor="13714250"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_cBowUcMuEd6racjcX7ASXw" fontColor="13714250"/>
     <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="MacKayIntroSR.oom#//@contributions.39"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cBowUsMuEd6racjcX7ASXw" points="[30, -29, -123, 163]$[212, -167, 59, 25]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cBowUsMuEd6racjcX7ASXw" points="[-36, -30, 312, 330]$[-201, -163, 147, 197]$[-326, -331, 22, 29]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_cpbJEMMuEd6racjcX7ASXw" type="3005" source="_GUUlwMMiEd6racjcX7ASXw" target="__rp2YMMmEd6racjcX7ASXw">
     <children xmi:type="notation:Node" xmi:id="_cpbJFMMuEd6racjcX7ASXw" type="4046">
