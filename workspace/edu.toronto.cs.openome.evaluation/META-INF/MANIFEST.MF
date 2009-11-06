@@ -16,14 +16,11 @@ Require-Bundle: org.sat4j.core,
 Eclipse-LazyStart: true
 Import-Package: edu.toronto.cs.openome.core.action,
  edu.toronto.cs.openome.core.convertor
-Export-Package: edu.toronto.cs.openome.evaluation.action;uses:="org.eclipse.emf.ecore.resource,edu.toronto.cs.openome.core.action,edu.toronto.cs.openome_model",
- edu.toronto.cs.openome.evaluation.astar,
- edu.toronto.cs.openome.evaluation.commands;
+Export-Package: edu.toronto.cs.openome.evaluation.commands;
   uses:="edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning,
    org.eclipse.emf.common.command,
    org.eclipse.swt.widgets,
    edu.toronto.cs.openome_model",
- edu.toronto.cs.openome.evaluation.convertor;uses:="edu.toronto.cs.openome.core.convertor",
  edu.toronto.cs.openome.evaluation.gui;
   uses:="org.eclipse.jface.viewers,
    org.eclipse.swt.graphics,

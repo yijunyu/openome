@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.evaluation.convertor;
+package edu.toronto.cs.openome.evaluation.oldcode;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import edu.toronto.cs.openome.conversion.parser.GoalModelReader;
 import edu.toronto.cs.openome.core.convertor.IConvertor;
-import edu.toronto.cs.openome.evaluation.action.Reasoning;
 
 /**
  * <!-- begin-user-doc -->

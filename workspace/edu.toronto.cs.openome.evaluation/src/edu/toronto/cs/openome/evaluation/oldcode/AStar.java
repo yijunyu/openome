@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.evaluation.astar;
+package edu.toronto.cs.openome.evaluation.oldcode;
 
 /** Author Geert-Jan van Opdorp 
  *  * Copyright (c) 1995 AI Engineering. * 

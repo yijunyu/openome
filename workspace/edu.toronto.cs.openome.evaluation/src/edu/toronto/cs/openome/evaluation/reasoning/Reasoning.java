@@ -4,6 +4,9 @@ package edu.toronto.cs.openome.evaluation.reasoning;
 /**
  * @author jenhork
  * A class in the Strategy pattern.
+ * 
+ * This is the main class that uses a reasoner to do reasoning.
+ * You pass this class a type of reasoner and then tell it to reason.
  */
 public class Reasoning {
 	
@@ -16,7 +19,7 @@ public class Reasoning {
 	 */
 	public Reasoning() {
 		
-		//let's have a default reasoner.  Conveniently it is the one I've created
+		
 		reasoner = null;
 	}
 	 
