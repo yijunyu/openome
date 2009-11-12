@@ -70,5 +70,39 @@
          </menu>
       </menuContribution>
 	</extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="edu.toronto.cs.openome.evaluation.views.AlternativesView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="edu.toronto.cs.openome.evaluation"
+            name="Alternatives"
+            parentCategory="edu.toronto.cs.openome.evaluation">
+      </category>
+      <view
+            category="edu.toronto.cs.openome.evaluation"
+            class="edu.toronto.cs.openome.evaluation.views.AlternativesView"
+            icon="icons/sample.gif"
+            id="edu.toronto.cs.openome.evaluation.views.AlternativesView"
+            name="AlternativesView"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>
