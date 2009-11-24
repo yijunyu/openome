@@ -87,10 +87,14 @@ public class IntQualIntentionWrapper {
 		return lb.toArray();
 	}
 
-	public void addHumanJudgement(EvaluationLabel result) {
+	public HumanJudgement addHumanJudgement(EvaluationLabel result) {
 		HumanJudgement hj = new HumanJudgement(lb, result);
 		hjv.add(hj);
-		
+		return hj;
+	}
+	
+	public Vector<HumanJudgement> getHumanJudgements(){
+		return hjv;
 	}
 
 	public EvaluationLabel findExistingResult() {

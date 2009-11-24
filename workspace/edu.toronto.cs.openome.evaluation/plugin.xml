@@ -100,7 +100,7 @@
             class="edu.toronto.cs.openome.evaluation.views.AlternativesView"
             icon="icons/sample.gif"
             id="edu.toronto.cs.openome.evaluation.views.AlternativesView"
-            name="AlternativesView"
+            name="Alternatives"
             restorable="true">
       </view>
    </extension>

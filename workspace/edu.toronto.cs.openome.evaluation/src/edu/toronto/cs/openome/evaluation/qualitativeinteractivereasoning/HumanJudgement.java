@@ -42,4 +42,12 @@ public class HumanJudgement {
 		return null;
 	}
 	
+	public String toString() {
+		return result.toString();
+	}
+	
+	public EvaluationLabel getJudgement(){
+		return result;
+	}
+	
 }

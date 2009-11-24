@@ -11,6 +11,7 @@ import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
+import edu.toronto.cs.openome.evaluation.views.AlternativesView;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
@@ -37,9 +38,11 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.dialogs.ViewContentProvider;
 
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -678,7 +681,14 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		EvaluationLabel result = wincom.getEvalResult();		
 		
-		w.addHumanJudgement(result);
+		HumanJudgement hj = w.addHumanJudgement(result);
+//		w.getIntention().
+		// update the AlternativeView to reflect the new judgement
+		AlternativesView av = 
+			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(AlternativesView.ID);
+		av.addHumanJudgement(w.getIntention(), hj);
+		// refresh the view everytime a new judgment is added
+		av.refreshView();
 		
 		System.out.println("Human Judgement result: " + result.getName());
 		

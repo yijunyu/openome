@@ -65,13 +65,9 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		//Create a new alternate in the Alternates View
 	
 		AlternativesView av = 
-			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView("edu.toronto.cs.openome.evaluation.views.AlternativesView");
+			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(AlternativesView.ID);
 				
-	
 		av.addAlternative(ad.getName(), ad.getDescription());
-		
-		
-		
 		
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
