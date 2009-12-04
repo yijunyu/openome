@@ -20,15 +20,14 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
 
 
 /**
- * This sample class demonstrates how to plug-in a new
- * workbench view. The view shows data obtained from the
- * model. The sample creates a dummy model on the fly,
+ * This class creates a view model on the fly,
  * but a real implementation would connect to the model
  * available either in this or another plug-in (e.g. the workspace).
  * The view is connected to the model using a content provider.
@@ -103,6 +102,16 @@ public class AlternativesView extends ViewPart {
 		public void setObject(Object obj){
 			this.obj = obj;
 		}
+			public Object getObject(){
+			return this.obj;
+		}
+		public boolean equals(TreeObject to){
+			return ((this.name == to.getName()) 
+						&& (this.obj).equals(to.getObject()));
+		}
+		public boolean equalObject(Object o){
+			return ((this.obj).equals(o));
+		}
 	}
 	
 	// TreeNode represents nodes with children
@@ -125,6 +134,9 @@ public class AlternativesView extends ViewPart {
 		}
 		public boolean hasChildren() {
 			return elements.size()>0;
+		}
+		public int getNumOfChild(){
+			return elements.size();
 		}
 		public Alternative getAlternative() {
 			return (Alternative) this.obj;
@@ -186,9 +198,7 @@ public class AlternativesView extends ViewPart {
 			
 		}
 /*
- * We will set up a dummy model to initialize tree heararchy.
- * In a real code, you will connect to a real model and
- * expose its hierarchy.
+ * Code left in to demonstrate a dummy tree structure
  */
 		private void initialize() {
 //			TreeObject to1 = new TreeObject("Leaf 1");
@@ -232,10 +242,18 @@ public class AlternativesView extends ViewPart {
 			
 		}
 		
-		
+		/**
+		 * Adds child nodes to the specified node by iterating over each given intention
+		 * and creating a new TreeObject for each. 
+		 * @author aftabs
+		 * @param intentions
+		 * @param node
+		 */
 		public void addChildren(EList<Intention> intentions, TreeNode node) {
 			TreeObject to;
 			for (Intention i : intentions){
+				
+				// Add each intention as a new TreeObject as a child
 				to = new TreeObject(i.getName() + " - " + i.getQualitativeReasoningCombinedLabel().getName(), i);
 				node.addChild(to);
 			}
@@ -354,14 +372,43 @@ public class AlternativesView extends ViewPart {
 			public void run() {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection)selection).getFirstElement();
+
+				// Remap all the alternatives if user double clicks on an
+				// alternative
+				if (obj instanceof TreeNode) {
+					showMessage("Double-click detected on " + obj.toString());
+
+					// update labels
+
+					UpdateLabelsHandler updateLabels = new UpdateLabelsHandler(
+							((TreeNode) obj).getAlternative());
+					updateLabels.execute();
+				}
 				
-				if (obj instanceof TreeNode)
-					showMessage("Double-click detected on "+obj.toString());
+				// check if user double clicked on a human judgment
+				// if so, change the label of the intention to this judgment
+				// and propagate the change
+				if (obj instanceof TreeObject){
+					TreeObject to = (TreeObject) obj;
+					if (to.getObject() instanceof HumanJudgement){
+						HumanJudgement judgement = (HumanJudgement) to.getObject();
+						// get the parent, which is the Intention this label is associated with
+						// and change the label
+						if (to.getParent().getObject() instanceof Intention){
+							Intention inten = (Intention) to.getParent().getObject();
+							// TODO: How do you change the label???
+							// TODO: How do you propagate the change??????
+//							inten.setQualitativeReasoningCombinedLabel(label);
+							// DEBUG
+							showMessage("Humanjudgement: " + judgement 
+									+ "\nIntention: " + inten.getName()
+									+ "\nAlternative: " + to.getParent().getParent().getName());
+							return;
+						}
+					}
+				}
 				
-				//change labels
 				
-				UpdateLabelsHandler updateLabels = new UpdateLabelsHandler(((TreeNode)obj).getAlternative());
-				updateLabels.execute();
 				
 			}
 		};
@@ -388,21 +435,66 @@ public class AlternativesView extends ViewPart {
 		viewer.getControl().setFocus();
 	}
 	
+	/**
+	 * Add and show the specified Alternative in the view.
+	 * @author aftabs
+	 * @param alt
+	 */
 	public void addAlternative(Alternative alt) {
+		
+		// Get the content provider
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
 				.getContentProvider();
 
+		
+		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(alt);
 
+		// Add all the intentions in the parent alternative object
 		contentProvider.addChildren(alt.getIntentions(), node);
 
+		// Append the new alterntive in the list of alternatives
 		alternatives.add(alt);
 		
 		refreshView();
 	}
 	
+	/**
+	 * Refresh the view
+	 * @author aftabs
+	 */
 	public void refreshView() {
 
 		viewer.refresh();
 		}
+		
+			public void setCurrAlternative(TreeNode alternative){
+		this.currAlternative = alternative;
+	}
+	
+	public void addHumanJudgement(Intention intension, HumanJudgement judgement){
+		// TODO: get the intention node and add the judgement to it if it exists
+		// otherwise create a new intention node and add the new judgement
+		TreeNode newIntentionNode = null;
+		for (TreeObject to : currAlternative.getChildren()){
+			Object o = to.getObject();
+			if (o instanceof Intention){ // safety check
+				if (((Intention) o).getName() == intension.getName()){
+					if (to instanceof TreeNode) { // safety check
+						// intention found
+						newIntentionNode = (TreeNode) to;
+						break;
+					}
+				}
+			}
+		}
+		if (newIntentionNode == null){
+			// create the new intention in the tree
+			newIntentionNode = new TreeNode(intension.getName(), intension);
+			// add the new intension into the tree
+			currAlternative.addChild(newIntentionNode);
+		}
+		// add the human judgement
+		newIntentionNode.addChild(new TreeObject("[HUMAN JUDGEMENT] " + (newIntentionNode.getNumOfChild() + 1) + ": " + judgement.toString(), judgement));
+	}
 }

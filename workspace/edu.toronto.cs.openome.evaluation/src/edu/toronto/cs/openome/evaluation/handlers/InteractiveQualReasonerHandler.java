@@ -1,33 +1,21 @@
 package edu.toronto.cs.openome.evaluation.handlers;
 
 //Imports of eclipse stuff
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
-
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
-//Imports of our stuff
-import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.gui.AlternateDialog;
-import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
-import edu.toronto.cs.openome.evaluation.gui.LabelBagElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
-import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome.evaluation.views.AlternativesView;
-import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
@@ -60,19 +48,22 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 	
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
-		//Open a dialog box for alternative name and description
+		
 		AlternateDialog ad = new AlternateDialog(ar[0]);
 	
+		// Open a dialog box for alternative name and description
 		ad.open();
 		
+		// User pressed cancel
 		if (ad.getReturnCode() == Window.CANCEL){
 			return null;
 		}
 	
+		// Get the Alternates View 
 		AlternativesView av = 
 			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView("edu.toronto.cs.openome.evaluation.views.AlternativesView");
 			
-		
+		// New alternative given the name and description from the dialog box
 		Alternative alt = new Alternative (ad.getName(), ad.getDescription());
 		
 		ModelImpl mi = getModelImpl();
@@ -84,11 +75,13 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		
 		reasoning.reason();
 
+		// Get a list of all intentions currently in the model
 		EList<Intention> a = mi.getAllIntentions();
 		
-		
+		// Save the intentions in the alternative
 		alt.setIntentions(a);
 		
+		// Populate the Alternate View with the alternative
 		av.addAlternative(alt);
 		
 		
