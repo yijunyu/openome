@@ -22,6 +22,9 @@ public class Alternative {
 	// Intentions in the model. 
 	// TODO: change this to a list of eval labels
 	private EList<Intention> intentions;
+	
+	// softgoalWrapper keeps track of all the intentions with human judgments
+	private SoftgoalWrappers softgoalWrappers;
 
 	public Alternative(String name, String des) {
 		this.name = name;
@@ -73,6 +76,14 @@ public class Alternative {
 	 */
 	public String getDescription() {
 		return description;
+	}
+	
+	public void setSoftgoalWrappers(SoftgoalWrappers softgoalWrappers){
+		this.softgoalWrappers = softgoalWrappers;
+	}
+	
+	public SoftgoalWrappers getSoftgoalWrappers(){
+		return this.softgoalWrappers;
 	}
 	
 	/**

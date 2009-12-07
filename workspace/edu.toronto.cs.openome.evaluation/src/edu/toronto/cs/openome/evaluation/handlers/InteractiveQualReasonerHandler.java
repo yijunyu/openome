@@ -70,20 +70,20 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		CommandStack cs = getCommandStack();
 		
 		DiagramCommandStack dcs = getDiagramCommandStack();
-		
-		Reasoning reasoning = new Reasoning(new InteractiveQualReasoner(mi, cs, dcs));
+		InteractiveQualReasoner iQualReasoner = new InteractiveQualReasoner(mi, cs, dcs);
+		Reasoning reasoning = new Reasoning(iQualReasoner);
 		
 		reasoning.reason();
 
 		// Get a list of all intentions currently in the model
 		EList<Intention> a = mi.getAllIntentions();
-		
+	
 		// Save the intentions in the alternative
 		alt.setIntentions(a);
+		alt.setSoftgoalWrappers(iQualReasoner.getSoftgoalWrappers());
 		
 		// Populate the Alternate View with the alternative
 		av.addAlternative(alt);
-		
 		
 		return null;
 				

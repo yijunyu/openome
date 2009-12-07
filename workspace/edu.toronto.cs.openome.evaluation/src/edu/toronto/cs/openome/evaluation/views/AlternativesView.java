@@ -21,6 +21,8 @@ import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelC
 import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
@@ -52,7 +54,6 @@ public class AlternativesView extends ViewPart {
 	// need this to be a static
 	// to support the singleton model
 	public static TreeViewer viewer;
-	public static TreeNode currAlternative;
 	
 	private Vector<Alternative> alternatives;
 	private DrillDownAdapter drillDownAdapter;
@@ -232,16 +233,16 @@ public class AlternativesView extends ViewPart {
 //			invisibleRoot.addChild(currAlternative);
 		}
 		
-		public void addHumanJudgement(Intention intension, EvaluationLabel judgement){
-			// create the new intention in the tree
-			TreeNode newIntentionNode = new TreeNode(intension.getName(), intension);
-			// add the human judgement
-			newIntentionNode.addChild(new TreeObject("[HUMAN JUDGEMENT] " + judgement.getName(), judgement));
-			// add the new intension into the tree
-			currAlternative.addChild(newIntentionNode);
-			
-		}
-		
+//		public void addHumanJudgement(Intention intension, EvaluationLabel judgement){
+//			// create the new intention in the tree
+//			TreeNode newIntentionNode = new TreeNode(intension.getName(), intension);
+//			// add the human judgement
+//			newIntentionNode.addChild(new TreeObject("[HUMAN JUDGEMENT] " + judgement.getName(), judgement));
+//			// add the new intension into the tree
+//			currAlternative.addChild(newIntentionNode);
+//			
+//		}
+//		
 		/**
 		 * Adds child nodes to the specified node by iterating over each given intention
 		 * and creating a new TreeObject for each. 
@@ -249,13 +250,26 @@ public class AlternativesView extends ViewPart {
 		 * @param intentions
 		 * @param node
 		 */
-		public void addChildren(EList<Intention> intentions, TreeNode node) {
-			TreeObject to;
+		public void addChildren(EList<Intention> intentions, SoftgoalWrappers softgoalWrappers, TreeNode node) {
+			TreeNode to;
 			for (Intention i : intentions){
 				
 				// Add each intention as a new TreeObject as a child
-				to = new TreeObject(i.getName() + " - " + i.getQualitativeReasoningCombinedLabel().getName(), i);
+				to = new TreeNode(i.getName() + " - " + i.getQualitativeReasoningCombinedLabel().getName(), i);
 				node.addChild(to);
+				
+				// check if there are human judgments for this intention
+				IntQualIntentionWrapper intWrapper = softgoalWrappers.findIntention(i);
+				if (intWrapper != null){
+					Vector<HumanJudgement> judgments = intWrapper.getHumanJudgements();
+					if (!judgments.isEmpty()){
+						int j = 1;
+						// add all the human judgments
+						for (HumanJudgement judgment : judgments){
+							to.addChild(new TreeObject("[HUMAN JUDGEMENT] " + j++ + ": " + judgment.toString(), judgment));
+						}
+					}
+				}
 			}
 		}
 		
@@ -450,9 +464,10 @@ public class AlternativesView extends ViewPart {
 		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(alt);
 
-		// Add all the intentions in the parent alternative object
-		contentProvider.addChildren(alt.getIntentions(), node);
-
+		// Add all the intentions and human judgments if there are any
+		// in the parent alternative object
+		contentProvider.addChildren(alt.getIntentions(), alt.getSoftgoalWrappers(), node);
+		
 		// Append the new alterntive in the list of alternatives
 		alternatives.add(alt);
 		
@@ -467,34 +482,4 @@ public class AlternativesView extends ViewPart {
 
 		viewer.refresh();
 		}
-		
-			public void setCurrAlternative(TreeNode alternative){
-		this.currAlternative = alternative;
-	}
-	
-	public void addHumanJudgement(Intention intension, HumanJudgement judgement){
-		// TODO: get the intention node and add the judgement to it if it exists
-		// otherwise create a new intention node and add the new judgement
-		TreeNode newIntentionNode = null;
-		for (TreeObject to : currAlternative.getChildren()){
-			Object o = to.getObject();
-			if (o instanceof Intention){ // safety check
-				if (((Intention) o).getName() == intension.getName()){
-					if (to instanceof TreeNode) { // safety check
-						// intention found
-						newIntentionNode = (TreeNode) to;
-						break;
-					}
-				}
-			}
-		}
-		if (newIntentionNode == null){
-			// create the new intention in the tree
-			newIntentionNode = new TreeNode(intension.getName(), intension);
-			// add the new intension into the tree
-			currAlternative.addChild(newIntentionNode);
-		}
-		// add the human judgement
-		newIntentionNode.addChild(new TreeObject("[HUMAN JUDGEMENT] " + (newIntentionNode.getNumOfChild() + 1) + ": " + judgement.toString(), judgement));
-	}
 }

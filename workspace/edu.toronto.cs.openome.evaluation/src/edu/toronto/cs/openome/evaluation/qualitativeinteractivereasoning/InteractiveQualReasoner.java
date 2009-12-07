@@ -682,13 +682,6 @@ public class InteractiveQualReasoner extends Reasoner {
 		EvaluationLabel result = wincom.getEvalResult();		
 		
 		HumanJudgement hj = w.addHumanJudgement(result);
-//		w.getIntention().
-		// update the AlternativeView to reflect the new judgement
-		AlternativesView av = 
-			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(AlternativesView.ID);
-		av.addHumanJudgement(w.getIntention(), hj);
-		// refresh the view everytime a new judgment is added
-		av.refreshView();
 		
 		System.out.println("Human Judgement result: " + result.getName());
 		
@@ -696,5 +689,8 @@ public class InteractiveQualReasoner extends Reasoner {
 	
 	}
 	
+	public SoftgoalWrappers getSoftgoalWrappers(){
+		return softgoalWrappers;
+	}
 	
 }
