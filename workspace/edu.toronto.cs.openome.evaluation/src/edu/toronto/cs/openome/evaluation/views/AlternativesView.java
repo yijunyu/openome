@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
@@ -17,6 +18,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
+import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
@@ -390,13 +392,15 @@ public class AlternativesView extends ViewPart {
 				// Remap all the alternatives if user double clicks on an
 				// alternative
 				if (obj instanceof TreeNode) {
-					showMessage("Double-click detected on " + obj.toString());
-
-					// update labels
-
-					UpdateLabelsHandler updateLabels = new UpdateLabelsHandler(
-							((TreeNode) obj).getAlternative());
-					updateLabels.execute();
+					if (((TreeNode) obj).getObject() instanceof Alternative){
+						showMessage("Double-click detected on Alternative " + obj.toString());
+	
+						// update labels
+						// TODO: Implement label update
+//						UpdateLabelsHandler updateLabels = new UpdateLabelsHandler(
+//								((TreeNode) obj).getAlternative());
+//						updateLabels.execute();
+					}
 				}
 				
 				// check if user double clicked on a human judgment
@@ -414,9 +418,25 @@ public class AlternativesView extends ViewPart {
 							// TODO: How do you propagate the change??????
 //							inten.setQualitativeReasoningCombinedLabel(label);
 							// DEBUG
-							showMessage("Humanjudgement: " + judgement 
-									+ "\nIntention: " + inten.getName()
-									+ "\nAlternative: " + to.getParent().getParent().getName());
+							// get the alternative
+							TreeObject altNode = to.getParent().getParent();
+							if(altNode != null){
+								if (altNode.getObject() instanceof Alternative){
+									Alternative alt = (Alternative)altNode.getObject();
+									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+									SoftgoalWrappers sgoalWrapper = alt.getSoftgoalWrappers();
+									IntQualIntentionWrapper intWrapper = sgoalWrapper.findIntention(inten);
+									InputWindowCommand wincom = new InputWindowCommand(ar[0], intWrapper);
+									
+									wincom.execute();
+									
+									// update the intention with the new judgment
+									
+									showMessage("Humanjudgement: " + judgement 
+											+ "\nIntention: " + inten.getName()
+											+ "\nAlternative: " + to.getParent().getParent().getName());
+								}
+							}
 							return;
 						}
 					}
