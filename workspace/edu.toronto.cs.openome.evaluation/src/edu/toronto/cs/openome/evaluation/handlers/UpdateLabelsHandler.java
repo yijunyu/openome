@@ -74,7 +74,7 @@ public class UpdateLabelsHandler extends ReasonerHandler{
 	 */
 	private void updateLabels() {
 		for (Intention i : model.getAllIntentions()) {
-			if (alt.findIntention(i))
+			//if (alt.findIntention(i))
 				
 				/*
 				 * Clear the labels for now
