@@ -401,6 +401,9 @@ public class AlternativesView extends ViewPart {
 //								((TreeNode) obj).getAlternative());
 //						updateLabels.execute();
 					}
+					
+					// expand the node
+					viewer.expandToLevel(obj, 1);
 				}
 				
 				// check if user double clicked on a human judgment

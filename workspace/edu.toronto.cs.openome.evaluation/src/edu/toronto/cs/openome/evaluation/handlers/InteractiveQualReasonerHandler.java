@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
 import edu.toronto.cs.openome.evaluation.gui.AlternateDialog;
@@ -59,10 +60,6 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 			return null;
 		}
 	
-		// Get the Alternates View 
-		AlternativesView av = 
-			(AlternativesView)	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView("edu.toronto.cs.openome.evaluation.views.AlternativesView");
-			
 		// New alternative given the name and description from the dialog box
 		Alternative alt = new Alternative (ad.getName(), ad.getDescription());
 		
@@ -81,12 +78,21 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		// Save the intentions in the alternative
 		alt.setIntentions(a);
 		alt.setSoftgoalWrappers(iQualReasoner.getSoftgoalWrappers());
-		
+
+		AlternativesView av = null;
+		try {
+			// open the AlternativesView, if already opened just give the focus to it
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(AlternativesView.ID);
+			// Get the Alternates View
+			av = (AlternativesView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(AlternativesView.ID);
+		} catch (PartInitException e) {
+			// Shouldn't happen...
+			System.out.println("Failed to open AlternativesView");
+		}
 		// Populate the Alternate View with the alternative
 		av.addAlternative(alt);
 		
 		return null;
-				
 	}
 
 	@Override
