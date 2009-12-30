@@ -1,0 +1,12 @@
+import q7dsl;
+import tree;
+
+extension q7::dsl::EditorExtensions;
+extension q7::dsl::GenOutline reexport;
+
+/*
+ * overwrite the extension
+ * ''create UIContentNode outlineTree(emf::EObject model)''
+ * from q7::dsl::GenOutline.ext in order to control the construction of the outline tree
+ */
+
