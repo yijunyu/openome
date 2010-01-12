@@ -10,6 +10,6 @@ public class QueryAction extends ObjectAction {
 		GoalModelReader rdr = new GoalModelReader();
 		Resource r = rdr.read(name);
 		QueryVariability q = new QueryVariability(r);
-		q.init();		
+		q.init(r);		
 	}
 }

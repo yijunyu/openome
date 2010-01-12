@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,28 +33,37 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.OrDecomposition;
+import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.openome_modelFactory;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 @SuppressWarnings("restriction")
-public class QueryVariability implements IConfigurator {
+public class QueryVariability2 implements IConfigurator {
 
+	/**
+	 * we assume there are 1/INTERVAL levels of satisfaction/denial 
+	 */
+//	public final int LEVELS = 4;
+	public final int LEVELS = 10;
+	public final float INTERVAL = 1f/LEVELS;
+	
 	public openome_modelPackage e = null;
 	public openome_modelFactory f = null;
 	public Resource resource;
 
-	public QueryVariability() {
+	public QueryVariability2() {
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();		
 	}
-	public QueryVariability(Resource r) {		
+	public QueryVariability2(Resource r, Map<String, Integer> labels, Map<String, Integer> ranks) {		
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();
-		setModel(r);		
+		setModel(r, labels, ranks);		
 	}
-	private void setModel(Resource r) {
+	private void setModel(Resource r, Map<String, Integer> labels, Map<String, Integer> ranks) {
 		resource = r;
+		init(resource, labels, ranks);		
 	}
 	HashSet<Intention> FS_goals = new HashSet<Intention>();
 	HashSet<Intention> FD_goals = new HashSet<Intention>();
@@ -70,39 +80,31 @@ public class QueryVariability implements IConfigurator {
 	HashSet<Contribution> Contributions = new HashSet<Contribution>();
 	HashSet<Decomposition> Decompositions= new HashSet<Decomposition>();
 
-	private void collect_goals() {
-		for (Resource o: resource.getResourceSet().getResources()){ 
-	    	if (o instanceof Intention) {
-	    		Intention p = (Intention) o;
-	    		collect_goals(p);
-	    	} else if (o instanceof Container) {
-	    		Container a = (Container) o;
-    			EList<Intention> l = a.getIntentions();
-	    		for (int j =0; j < l.size(); j++) {
-	    			Intention root = (Intention) l.get(j);
-	    			collect_goals(root);
-	    		}	    		
-	    	} else if (o instanceof Resource){
-	    		Model m = (Model) o.getContents().get(0);
-    			EList<Intention> l = m.getIntentions();
-    			Contributions.addAll(m.getContributions());
-    			Decompositions.addAll(m.getDecompositions());
-	    		for (int j =0; j < l.size(); j++) {
-	    			Intention root = (Intention) l.get(j);
-	    			collect_goals(root);
-	    		}	    		
-	    	}
-		}
+	private void collect_goals(Model m) {
+		EList<Intention> l = m.getIntentions();
+		Contributions.addAll(m.getContributions());
+		Decompositions.addAll(m.getDecompositions());
+		for (int j =0; j < l.size(); j++) {
+			Intention root = (Intention) l.get(j);
+			collect_goals(root);
+		}	    		
 	}
 
-	HashSet< HashMap <Intention, HashSet<Intention> > > reports
+	public HashSet< HashMap <Intention, HashSet<Intention> > > reports
 	 = new HashSet< HashMap <Intention, HashSet<Intention> > >();
 	
-	public void init() {
+	public int size = 0;
+	public void init(Model m, Map<String, Integer> labels, Map<String, Integer> ranks) {
 		Intentions = new HashSet<Intention>();
 		goal_ids = new Hashtable<Intention, Integer>();
-		collect_goals();
-		StringBuffer graphStr = encode();
+		collect_goals(m);
+		size = 0;
+		for (Intention i: Intentions) {
+			if (i instanceof Softgoal) {
+				size++;
+			}
+		}
+		StringBuffer graphStr = encode(labels, ranks);
 		ISolver solver = SolverFactory.newDefault();
 		solver.setTimeout(3600); // 1 hour timeout
 		ModelIterator mi = new ModelIterator(solver);
@@ -116,7 +118,6 @@ public class QueryVariability implements IConfigurator {
 				gs = gs.substring(0, gs.length()-1);
 			}
 			p.println(gs);			
-//			DimacsReader reader = new DimacsReader(solver);
 			IProblem problem = reader.parseInstance(Computing.getTempFilename("file.txt"));
 			boolean unsat = true;
 			while (solver.isSatisfiable()) {
@@ -129,11 +130,33 @@ public class QueryVariability implements IConfigurator {
 			}
 			if (!unsat) {
 				System.out.println("satisfiable: there are " + reports.size() + " solutions." );
+			} else if (current_rank < LEVELS){
+				System.out.println("unsatisfiable, ignore the goals with the rank: " + current_rank);
+				current_rank++;
 			} else {
-				System.out.println("unsatisfiable");				
+				System.out.println("unsatisfiable, even after ignoring all softgoals!");				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}		
+	}
+
+	public void init(Resource resource, Map<String, Integer> labels, Map<String, Integer> ranks) {
+		for (Resource o: resource.getResourceSet().getResources()){ 
+	    	if (o instanceof Intention) {
+	    		Intention p = (Intention) o;
+	    		collect_goals(p);
+	    	} else if (o instanceof Container) {
+	    		Container a = (Container) o;
+    			EList<Intention> l = a.getIntentions();
+	    		for (int j =0; j < l.size(); j++) {
+	    			Intention root = (Intention) l.get(j);
+	    			collect_goals(root);
+	    		}	    		
+	    	} else if (o instanceof Resource){
+	    		Model m = (Model) o.getContents().get(0);
+	    		init(m, labels, ranks);
+	    	}
 		}
 	}
 	
@@ -219,18 +242,23 @@ public class QueryVariability implements IConfigurator {
 		return children;
 	}
 	public static void main(String[] args) {
-		QueryVariability q = new QueryVariability();
+		QueryVariability2 q = new QueryVariability2();
 		
 //		q.setModel("test/ex1.oom");
 //		q.query("a");
 //		q.query("b");
-//		
+		
 //		q.setModel("test/ex2.oom");
 //		q.query("c");
-//		
-		q.setModel("test/ex3.oom");
+		Map<String, Integer> labels = new HashMap<String, Integer>();
+		Map<String, Integer> ranks = new HashMap<String, Integer>();
+		labels.put("d1", new Integer(1));
+		labels.put("d2", new Integer(2));
+		ranks.put("d1", new Integer(1));
+		ranks.put("d2", new Integer(1));
+		q.setModel("test/ex3.oom", labels, ranks);
 		q.query("b");
-//		
+		
 //		q.setModel("test/example.oom");
 //		q.query("c");
 		
@@ -249,11 +277,11 @@ public class QueryVariability implements IConfigurator {
 		}
 		return "";
 	}
-	public void setModel(String name) {
+	public void setModel(String name, 
+			Map<String, Integer> labels, Map<String, Integer> ranks) {
 		GoalModelReader rdr = new GoalModelReader();
 		Resource r = rdr.read(name);
-		setModel(r);
-		init();
+		setModel(r, labels, ranks);
 	}
 
 	private String answer(HashMap<Intention, HashSet<Intention>> report, String name) {
@@ -265,7 +293,6 @@ public class QueryVariability implements IConfigurator {
 				continue;
 			HashSet<Intention> config = report.get(g);
 			if (config != null && config.size()>0) {
-//				System.out.println(config);			
 				for (Intention c: config) {
 					found = found + " " + c.getName();
 				}
@@ -276,57 +303,38 @@ public class QueryVariability implements IConfigurator {
 		return found;
 	}
 	
-	int FSID(int g) {
-		return 4 * g + 1;
-	}
-
-	int PSID(int g) {
-		return 4 * g + 2;
-	}
-
-	int FDID(int g) {
-		return 4 * g + 3;
-	}
-
-	int PDID(int g) {
-		return 4 * g + 4;
+	int PropositionID(int g, float l) {
+		return (int) (LEVELS * (g + l) + 1);
 	}
 
 	int FS(Intention p) {		
-		return FSID(goal_ids.get(p).intValue());
+		return PS(p, 0.5f);
 	}
-
+	int FD(Intention p) {
+		return PD(p, 0.5f);
+	}
 	/**
 	 * return 0 if no such literal for hard goal
-	 * 
-	 * @param p
-	 * @return
 	 */
-	int PS(Intention p) {
+	int PD(Intention p, float f) {
 		if (p instanceof Softgoal)
-			return PSID(goal_ids.get(p).intValue());
+			return PropositionID(goal_ids.get(p).intValue(), 1.0f - f);
+		if (f==0.5f) // FS are allowd for hard goals
+			return PropositionID(goal_ids.get(p).intValue(), 1.0f - f);
 		return 0;
 	}
 
 	/**
-	 * return -FS for hard goal
-	 * 
-	 * @param p
-	 * @return
-	 */
-	int FD(Intention p) {
-		return FDID(goal_ids.get(p).intValue());
-	}
-
-	/**
 	 * return 0 if no such literal for hard goal
 	 * 
 	 * @param p
 	 * @return
 	 */
-	int PD(Intention p) {
+	int PS(Intention p, float f) {
 		if (p instanceof Softgoal)
-			return PDID(goal_ids.get(p).intValue());
+			return PropositionID(goal_ids.get(p).intValue(), 0.5f - f);
+		if (f==0.5f) // FD are allowd for hard goals
+			return PropositionID(goal_ids.get(p).intValue(), 0.5f - f);
 		return 0;
 	}
 
@@ -340,13 +348,13 @@ public class QueryVariability implements IConfigurator {
 	 * 
 	 * Here the goal model is converted in 5 steps: 1. The rules to avoid
 	 * conflicts: FS or PS => not PD and not FD 2. The axioms of the label
-	 * lattice, i.e., FS => PS, FD => FD 3. The correlation rules, i.e., HELP,
+	 * lattice, i.e., FS => PS, FD => PD 3. The correlation rules, i.e., HELP,
 	 * MAKE, BREAK, HURT 4. The AND/OR rules 5. The facts, i.e., the existing
 	 * labels of the goals
 	 * 
 	 * @return a string in the DiMacs format
 	 */
-	private StringBuffer encode() {
+	private StringBuffer encode(Map<String, Integer> labels, Map<String, Integer> ranks) {
 		numClauses = 0;
 		StringBuffer graphStr = new StringBuffer();
 		StringBuffer step1 = new StringBuffer();
@@ -360,7 +368,8 @@ public class QueryVariability implements IConfigurator {
 			step2.append(encode_2(p));
 			step3.append(encode_3(p));
 			step4.append(encode_4(p));
-			step5.append(encode_5(p));
+//			step5.append(encode_5(p));			
+			step5.append(encode_6(p, labels, ranks));			
 			// Yijun: to make sure enough literals are created
 			numVariables = Math.max(numVariables, 4 * goal_ids.get(p).intValue() + 4);
 		}
@@ -393,7 +402,7 @@ public class QueryVariability implements IConfigurator {
 		if (i == 0 || j == 0) // ignore these rules
 			return "";
 		numClauses++;
-		return (i > 0 ? "-" + i : "" + (-i)) + " " + j + " 0\n";
+		return (i > 0 ? "-" + i : "" + (-i)) + " " + j + " 0\n";		
 	}
 
 	private String implies(int i, String j) {
@@ -413,14 +422,17 @@ public class QueryVariability implements IConfigurator {
 //		System.out.println(p.getName());
 		StringBuffer b = new StringBuffer();
 		if (System.getProperty("Avoid Conflicts") != null
-				|| System.getProperty("Avoid Conflicts Strictly") != null) {
-			b.append(implies(FS(p), -FD(p)));
-			if (System.getProperty("Avoid Conflicts Strictly") != null) {
-				b.append(implies(FS(p), -PD(p)));
-				b.append(implies(PS(p), -FD(p)));
-				b.append(implies(PS(p), -PD(p)));
+				|| System.getProperty("Avoid Conflicts Strictly") != null)
+			for (int i=1; i<= LEVELS/2; i++) {
+				b.append(implies(PS(p, (float) i/LEVELS), 
+									 -PD(p,(float) i/LEVELS)));
+				if (i>1) {
+					b.append(implies(PS(p, (float) i/LEVELS), 
+						 PS(p,(float) (i-1)/LEVELS)));
+					b.append(implies(PD(p, (float) i/LEVELS), 
+							 PD(p,(float) (i-1)/LEVELS)));
+				}
 			}
-		}
 //		System.out.println(b);
 		return b.toString();
 	}
@@ -429,11 +441,13 @@ public class QueryVariability implements IConfigurator {
 	 * encode axiom FS => PS, FD => PD
 	 */
 	private String encode_2(Intention p) {
-//		System.out.println(p.getName());
 		StringBuffer b = new StringBuffer();
-		b.append(implies(FS(p), PS(p)));
-		b.append(implies(FD(p), PD(p)));
-//		System.out.println(b);		
+		for (int i=2; i<= LEVELS/2; i++) {
+			b.append(implies(PS(p, (float) i/LEVELS), 
+				 PS(p,(float) (i-1)/LEVELS)));
+			b.append(implies(PD(p, (float) i/LEVELS), 
+				 PD(p,(float) (i-1)/LEVELS)));
+		}
 		return b.toString();
 	}
 
@@ -448,60 +462,78 @@ public class QueryVariability implements IConfigurator {
 		StringBuffer b = new StringBuffer();
 		for (Contribution l: Contributions) {
 			Intention from = l.getSource(), to = l.getTarget();
-			if (from == null || to == null) {
-				System.out.println("warning: the model has wrong links " + from
-						+ "->" + to);
-				continue;
-			}
 			if (goal_ids.get(from).intValue() == goal_ids.get(p).intValue()) {
 				if (l instanceof MakeContribution ) { // make
-//					System.out.println("make");
-					b.append(implies(FS(p), FS(to)));
-					b.append(implies(PS(p), PS(to)));
-					b.append(implies(FS(to), FS(p)));
-					b.append(implies(PS(to), PS(p)));
-					if (System.getProperty("Balanced contributions") != null) {
-						b.append(implies(FD(p), FD(to)));
-						b.append(implies(PD(p), PD(to)));
-						b.append(implies(FD(to), FD(p)));
-						b.append(implies(PD(to), PD(p)));
+					for (float i=1; i<=(float)LEVELS/2; i++) {
+//						System.out.println(implies(PS(p, i/LEVELS), PS(to, i/LEVELS)));
+						b.append(implies(PS(p, i/LEVELS), 
+								 PS(to, i/LEVELS)));						
+						b.append(implies(PS(to, i/LEVELS), 
+								 PS(p, i/LEVELS)));		
+						if (System.getProperty("Balanced contributions") != null) {
+							b.append(implies(PD(p, i/LEVELS), 
+									 PD(to, i/LEVELS)));						
+							b.append(implies(PD(to, i/LEVELS), 
+									 PD(p, i/LEVELS)));					
+						}
 					}
 				} else if (l instanceof BreakContribution) { // break
-//					System.out.println("break");
-					b.append(implies(FS(p), FD(to)));
-					b.append(implies(PS(p), PD(to)));
-					b.append(implies(FS(to), FD(p)));
-					b.append(implies(PS(to), PD(p)));
-					if (System.getProperty("Balanced contributions") != null) {
-						b.append(implies(PD(p), PS(to)));
-						b.append(implies(FD(p), FS(to)));
-						b.append(implies(PD(to), PS(p)));
-						b.append(implies(FD(to), FS(p)));
+					for (float i=1; i<=(float)LEVELS/2; i++) {
+						b.append(implies(PS(p, i/LEVELS), 
+								 -PD(to, i/LEVELS)));						
+						b.append(implies(PD(to, i/LEVELS), 
+								 -PS(p, i/LEVELS)));
+						if (System.getProperty("Balanced contributions") != null) {
+							b.append(implies(PD(p, i/LEVELS), 
+									 -PD(to, i/LEVELS)));						
+							b.append(implies(PD(to, i/LEVELS), 
+									 -PD(p, i/LEVELS)));
+						}
 					}
 				} else if (l instanceof HelpContribution) { // help
-					b.append(implies(FS(p), PS(to)));
-					if (p instanceof Softgoal) {
-						b.append(implies(PS(to), "" + FS(p) + " " + PS(p)));
-						b.append(implies(PS(p), PS(to)));
-					}
-					if (System.getProperty("Balanced contributions") != null) {
-						b.append(implies(FD(p), PD(to)));
+					for (float i=1; i<=(float)LEVELS/2; i++) {
+						for (float j=1; j<i; j++) {
+							b.append(implies(PS(p, i/LEVELS), PS(to, j/LEVELS)));
+							if (System.getProperty("Balanced contributions") != null) {
+								b.append(implies(PD(p, i/LEVELS), PD(to, j/LEVELS)));
+							}
+						}
+						String helpS = "";
+						String helpD = "";
+						for (float j=i; j<=LEVELS/2; j++) {
+							helpD += " " + PD(p, j/LEVELS);
+							if (System.getProperty("Balanced contributions") != null) {
+								helpS += " " + PS(p, j/LEVELS);
+							}
+						}
 						if (p instanceof Softgoal) {
-							b.append(implies(PD(to), "" + FD(p) + " " + PD(p)));
-							b.append(implies(PD(p), PD(to)));
+							b.append(implies(PD(to, i/LEVELS), helpD));
+							if (System.getProperty("Balanced contributions") != null) {
+								b.append(implies(PS(to, i/LEVELS), helpS));
+							}
 						}
 					}
 				} else if (l instanceof HurtContribution) { // hurt
-					b.append(implies(FS(p), PD(to)));
-					b.append(implies(PS(p), PD(to)));
-					if (p instanceof Softgoal) {
-						b.append(implies(PS(to), "" + FD(p) + " " + PD(p)));
-					}
-					if (System.getProperty("Balanced contributions") != null) {
-						b.append(implies(FD(p), PS(to)));
-						b.append(implies(PD(p), PS(to)));
+					for (float i=1; i<=LEVELS/2; i++) {
+						for (float j=1; j<i; j++) {
+							b.append(implies(PS(p, i/LEVELS), PD(to, j/LEVELS)));
+							if (System.getProperty("Balanced contributions") != null) {
+								b.append(implies(PD(p, i/LEVELS), PS(to, j/LEVELS)));
+							}
+						}
+						String helpS = "";
+						String helpD = "";
+						for (float j=i; j<=LEVELS/2; j++) {
+							helpD += " " + PD(p, j/LEVELS);
+							if (System.getProperty("Balanced contributions") != null) {
+								helpS += " " + PS(p, j/LEVELS);
+							}
+						}
 						if (p instanceof Softgoal) {
-							b.append(implies(PD(to), "" + FS(p) + " " + PS(p)));
+							b.append(implies(PS(to, i/LEVELS), helpD));
+							if (System.getProperty("Balanced contributions") != null) {
+								b.append(implies(PD(to, i/LEVELS), helpS));
+							}
 						}
 					}
 				}
@@ -534,87 +566,85 @@ public class QueryVariability implements IConfigurator {
 		StringBuffer step4vi = new StringBuffer();
 		for (Decomposition l: Decompositions) {
 			Intention from = l.getSource(), to = l.getTarget();
-			if (from == null || to == null) {
-				System.out.println("warning: the model has wrong links " + from
-						+ "->" + to);
-				continue;
-			}
 			if (goal_ids.get(to).intValue() == goal_ids.get(p).intValue()) {
 				// contributions				
 				if (! (is_or(l) || is_runtime_or(l))) {
 					if (p instanceof Softgoal) {
-						step4i.append(implies(PS(p), PS(from)));
+						for (float i=1; i<LEVELS/2.0f; i++)
+							step4i.append(implies(PS(p, i/LEVELS), PS(from, i/LEVELS)));
 					}
 					step4i.append(implies(FS(p), FS(from)));
-					step4iii.append(-FS(from) + " ");
-					if (p instanceof Softgoal) {
-						step4iv.append(-PS(from) + " ");
-					}
 					if (System.getProperty("Balanced contributions") != null) {
-						if (p instanceof Softgoal) {
-							step4i.append(implies(PD(from), PD(p)));
-							step4i.append(implies(FD(from), FD(p)));
-							step4v.append(PD(from) + " ");
-							step4vi.append(FD(from) + " ");
+						step4i.append(implies(FD(from), FD(p)));
+					}
+					step4iii.append(-FS(from) + " ");
+					if (System.getProperty("Balanced contributions") != null) {
+						step4vi.append(FD(from) + " ");
+					}
+					if (p instanceof Softgoal) {
+						for (float i=1; i<LEVELS/2; i++) {
+							if (System.getProperty("Balanced contributions") != null) {
+								step4i.append(implies(PD(from, i/LEVELS), PD(p, i/LEVELS)));
+							}
+							step4iv.append(" " + (-PS(from, i/LEVELS)));
+							step4v.append(" "+PD(from, i/LEVELS));
 						}
 					}
 					is_and = true;
 				} else {
 					step4i.append(implies(FS(from), FS(p)));
 					if (p instanceof Softgoal) {
-						step4i.append(implies(PS(from), PS(p)));
-					}
-					step4v.append(FS(from) + " ");
-					if (p instanceof Softgoal && from instanceof Softgoal) {
-						step4vi.append(PS(from) + " ");
+						for (float i=1; i<LEVELS/2; i++)
+							step4i.append(implies(PS(from, i/LEVELS), PS(p, i/LEVELS)));
 					}
 					if (System.getProperty("Balanced contributions") != null) {
-						if (p instanceof Softgoal) {
-							step4i.append(implies(PD(p), PD(from)));
-							step4i.append(implies(FD(p), FD(from)));
-						}
-						if (p instanceof Softgoal) {
-							if (from instanceof Softgoal)
-								step4iii.append(-PD(from) + " ");
-							step4iv.append(-FD(from) + " ");
+						step4i.append(implies(FD(p), FD(from)));
+					}
+					step4v.append(" " + FS(from));
+					if (p instanceof Softgoal && from instanceof Softgoal) {
+						for (float i=1; i<LEVELS/2; i++) {
+							if (System.getProperty("Balanced contributions") != null) {
+								step4i.append(implies(PD(p, i/LEVELS), PD(from, i/LEVELS)));
+							}
+							step4iii.append(" " + (-PD(from, i/LEVELS)));
+							step4vi.append(PS(from, i/LEVELS) + " ");
 						}
 					}
+					if (p instanceof Softgoal)
+						step4iv.append(" " + (-FD(from)));
 					is_or = true;
 				}
 			}
 		}
 		if (is_and && is_or) {
-			System.out
-					.println("warning: the model has both AND and OR decompositions");
+			System.out.println("warning: the model has both AND and OR decompositions");
 			return "";
 		}
 		if (is_and) {
-			step4iii.append(FS(p) + " 0\n");
+			step4iii.append(" " + FS(p) + " 0\n");
 			numClauses++;
 			if (p instanceof Softgoal) {
-				step4iv.append(PS(p) + " 0\n");
-				numClauses++;
-			}
-			if (System.getProperty("Balanced contributions") != null) {
-				if (p instanceof Softgoal) {
-					step4v.append("" + -PD(p) + " 0\n");
-					step4vi.append("" + -FD(p) + " 0\n");
-					numClauses += 2;
+				for (float i=1; i<LEVELS/2; i++) {
+					step4iv.append(" " + PS(p, i/LEVELS) + " 0\n");
+					numClauses++;
+					step4v.append(" " + (-PD(p, i/LEVELS)) + " 0\n");
+					numClauses ++;
 				}
+				step4vi.append(" " + (-FD(p)) + " 0\n");
+				numClauses ++;
 			}
 		} else if (is_or) {
-			step4v.append("" + -FS(p) + " 0\n");
+			step4v.append(" " + -FS(p) + " 0\n");
 			numClauses++;
 			if (p instanceof Softgoal) {
-				step4vi.append("" + -PS(p) + " 0\n");
-				numClauses++;
-			}
-			if (System.getProperty("Balanced contributions") != null) {
-				if (p instanceof Softgoal) {
-					step4iii.append(PD(p) + " 0\n");
-					step4iv.append(FD(p) + " 0\n");
-					numClauses += 2;
+				for (float i=1; i<LEVELS/2.0f; i++) {
+					step4vi.append("" + (-PS(p, i/LEVELS)) + " 0\n");
+					numClauses++;
+					step4iii.append(PD(p, i/LEVELS) + " 0\n");
+					numClauses ++;
 				}
+				step4iv.append(" " + FD(p) + " 0\n");
+				numClauses ++;
 			}
 		}
 		b.append(step4i.toString());
@@ -622,12 +652,14 @@ public class QueryVariability implements IConfigurator {
 		b.append(step4iv.toString());
 		b.append(step4v.toString());
 		b.append(step4vi.toString());
-//		System.out.println(b);		
+//		System.out.println(step4i);
 		return b.toString();
 	}
 
+	
+	
 	private String encode_5(Intention p) {
-//		System.out.println(p.getName());		
+//		System.out.println(p.getName());
 		StringBuffer b = new StringBuffer();
 		if (p instanceof Softgoal) {
 			if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.SATISFIED) { // FS
@@ -641,13 +673,19 @@ public class QueryVariability implements IConfigurator {
 				b.append(FD(p) + " 0\n");
 				numClauses += 2;
 			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED) { // PS
-				b.append(PS(p) + " " + "0\n");
+				for (float i=1; i<LEVELS/2; i++) {
+					b.append(PS(p, i/LEVELS) + " " + "0\n");
+					numClauses ++;
+				}
 				b.append(-FS(p) + " " + "0\n");
 				numClauses += 2;
 			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED) { // PD
-				b.append(PD(p) + " " + "0\n");
+				for (float i=1; i<LEVELS/2; i++) {
+					b.append(PD(p, i/LEVELS) + " " + "0\n");
+					numClauses ++;
+				}
 				b.append(-FD(p) + " " + "0\n");
-				numClauses += 2;
+				numClauses ++;
 			} else { // either unknown or conflict
 				// nothing
 			}
@@ -664,10 +702,31 @@ public class QueryVariability implements IConfigurator {
 				numClauses+=2;
 			}
 		}
-//		System.out.println(b);		
+//		System.out.println(b);
 		return b.toString();
 	}
 
+	public int current_rank;
+	public String encode_6(Intention p, 
+			Map<String, Integer> labels,
+			Map<String, Integer> ranks) {
+		System.out.println(p.getName());
+		StringBuffer b = new StringBuffer();
+		for (String key: labels.keySet()) {
+			if (p.getName().equals(key) 
+					&& current_rank < ranks.get(key).intValue()) {
+				for (float i=1; i<= LEVELS; i++) {
+					if (i == (float) labels.get(key).intValue())
+						b.append(PS(p, i/LEVELS) + " " + "0\n");
+				}
+				numClauses ++;
+			}
+		}
+		System.out.println(b);
+		return b.toString();
+	}
+	
+	
 	private void decode(String result) {
 		FS_goals = new HashSet<Intention>();
 		FD_goals = new HashSet<Intention>();
@@ -678,16 +737,18 @@ public class QueryVariability implements IConfigurator {
 //		System.out.println(result);
 		List values = Arrays.asList(result.split(" "));
 		for (Intention p: Intentions) {
-			if (p instanceof Softgoal && values.contains(String.valueOf(PS(p)))) 
-			{
-				p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
-				PS_goals.add(p);
-			}
-			if (p instanceof Softgoal && values.contains(String.valueOf(PD(p))))
-			{
-				p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
-				PD_goals.add(p);
-			}
+			for (int i=1; i<LEVELS/2; i++)
+				if (p instanceof Softgoal && values.contains(String.valueOf(PS(p, i/LEVELS)))) 
+				{
+					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
+					PS_goals.add(p);
+				}
+			for (int i=1; i<LEVELS/2; i++)
+				if (p instanceof Softgoal && values.contains(String.valueOf(PD(p, i/LEVELS))))
+				{
+					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
+					PD_goals.add(p);
+				}
 			if (values.contains(String.valueOf(FS(p))))
 			{
 				p.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);

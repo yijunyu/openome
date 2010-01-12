@@ -8,25 +8,32 @@ import java.util.ListIterator;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
+import edu.toronto.cs.openome.conversion.service.QueryVariability;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
+import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
-
 /**
  * @author jenhork
  *
  */
-public class AutomaticQualReasoner extends InteractiveQualReasoner {
+public class AutomaticQualReasoner extends Reasoner {
 
+	Model model;
 	public AutomaticQualReasoner(ModelImpl m, CommandStack com,
 			DiagramCommandStack d) {
-		super(m, com, d);
-		// TODO Auto-generated constructor stub
+		model = m;
+//		super(m, com, d);
 	}
 	
-protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+	public void reason() {
+		QueryVariability qv = new QueryVariability();
+		qv.init(model);		
+	}
+	
+	protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
 		
 		ListIterator<IntentionLabelPair> it = w.bagListIterator();
 		

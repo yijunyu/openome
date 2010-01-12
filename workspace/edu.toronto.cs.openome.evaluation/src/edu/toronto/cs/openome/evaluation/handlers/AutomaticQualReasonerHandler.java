@@ -10,7 +10,6 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
 import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
