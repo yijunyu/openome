@@ -1,2 +1,4 @@
 runtime-*
 temp2
+workspace/*/build.xml
+workspace/*/@dot
