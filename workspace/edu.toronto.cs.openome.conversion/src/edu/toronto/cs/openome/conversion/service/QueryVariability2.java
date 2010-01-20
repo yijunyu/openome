@@ -55,30 +55,44 @@ public class QueryVariability2 implements IConfigurator {
 	public QueryVariability2() {
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();		
+		current_rank = 0;
 	}
 	public QueryVariability2(Resource r, Map<String, Integer> labels, Map<String, Integer> ranks) {		
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();
+		current_rank = 0;
 		setModel(r, labels, ranks);		
 	}
 	private void setModel(Resource r, Map<String, Integer> labels, Map<String, Integer> ranks) {
 		resource = r;
+		FS_goals = new HashSet<Intention>();
+		FD_goals = new HashSet<Intention>();
+		PS_goals = new HashSet<Intention>();
+		PD_goals = new HashSet<Intention>();
+		CF_goals = new HashSet<Intention>();
+		UN_goals = new HashSet<Intention>();
+		VAR_goals = new HashSet<Intention>();
+		configurations = new Hashtable<Intention, HashSet<Intention> >();  
+		
+		goal_ids = new Hashtable<Intention, Integer>();
+		Intentions = new HashSet<Intention>();
+		Contributions = new HashSet<Contribution>();
+		Decompositions= new HashSet<Decomposition>();
 		init(resource, labels, ranks);		
 	}
-	HashSet<Intention> FS_goals = new HashSet<Intention>();
-	HashSet<Intention> FD_goals = new HashSet<Intention>();
-	HashSet<Intention> PS_goals = new HashSet<Intention>();
-	HashSet<Intention> PD_goals = new HashSet<Intention>();
-	HashSet<Intention> CF_goals = new HashSet<Intention>();
-	HashSet<Intention> UN_goals = new HashSet<Intention>();
-	HashSet<Intention> VAR_goals = new HashSet<Intention>();
-	Hashtable<Intention, HashSet<Intention>> configurations 
-		= new Hashtable<Intention, HashSet<Intention> >();  
+	HashSet<Intention> FS_goals = null;
+	HashSet<Intention> FD_goals = null;
+	HashSet<Intention> PS_goals = null;
+	HashSet<Intention> PD_goals = null;
+	HashSet<Intention> CF_goals = null;
+	HashSet<Intention> UN_goals = null;
+	HashSet<Intention> VAR_goals = null;
+	Hashtable<Intention, HashSet<Intention>> configurations = null;  
 	
-	Hashtable<Intention, Integer> goal_ids = new Hashtable<Intention, Integer>();
-	HashSet<Intention> Intentions = new HashSet<Intention>();
-	HashSet<Contribution> Contributions = new HashSet<Contribution>();
-	HashSet<Decomposition> Decompositions= new HashSet<Decomposition>();
+	Hashtable<Intention, Integer> goal_ids = null;
+	HashSet<Intention> Intentions = null;
+	HashSet<Contribution> Contributions = null;
+	HashSet<Decomposition> Decompositions= null;
 
 	private void collect_goals(Model m) {
 		EList<Intention> l = m.getIntentions();
@@ -126,13 +140,19 @@ public class QueryVariability2 implements IConfigurator {
 				String result = reader.decode(solver.model());
 				decode(result);
 				configuring_variability_goals();
-				reports.add(report());
+				HashMap <Intention, HashSet<Intention> > r = report();
+				if (r.size()>0)
+					reports.add(r);
 			}
 			if (!unsat) {
 				System.out.println("satisfiable: there are " + reports.size() + " solutions." );
+//				for (HashMap <Intention, HashSet<Intention> > r: reports) {
+//					System.out.println(r);
+//				}
 			} else if (current_rank < LEVELS){
 				System.out.println("unsatisfiable, ignore the goals with the rank: " + current_rank);
 				current_rank++;
+				init(m, labels, ranks);
 			} else {
 				System.out.println("unsatisfiable, even after ignoring all softgoals!");				
 			}
@@ -168,16 +188,16 @@ public class QueryVariability2 implements IConfigurator {
 			Intention g = e.nextElement();
 			HashSet<Intention> config = configurations.get(g);
 			if (config.size()>0) {
-				System.out.print(g.getName() + ":");				
+//				System.out.print(g.getName() + ":");				
 				HashSet<Intention> selected = r.get(g);
 				if (selected == null)
 					selected = new HashSet<Intention> ();
 				for (Intention c: config) {
 					selected.add(c);
-					System.out.print(" " + c.getName());
+//					System.out.print(" " + c.getName());
 				}
 				r.put(g, selected);
-				System.out.println();
+//				System.out.println();
 			}
 		}
 		return r;
@@ -252,18 +272,33 @@ public class QueryVariability2 implements IConfigurator {
 //		q.query("c");
 		Map<String, Integer> labels = new HashMap<String, Integer>();
 		Map<String, Integer> ranks = new HashMap<String, Integer>();
-		labels.put("d1", new Integer(1));
-		labels.put("d2", new Integer(2));
-		ranks.put("d1", new Integer(1));
-		ranks.put("d2", new Integer(1));
-		q.setModel("test/ex3.oom", labels, ranks);
-		q.query("b");
-		
+// This trade-off is in favour of b2
+//		labels.put("d1", new Integer(10));
+//		labels.put("d2", new Integer(5));
+// This trade-off is b1
+//		labels.put("d1", new Integer(0));
+//		labels.put("d2", new Integer(10));
+// This trade-off has no answer
+//		labels.put("d1", new Integer(10));
+//		labels.put("d2", new Integer(10));
+//		ranks.put("d1", new Integer(1));
+//		ranks.put("d2", new Integer(1));
 //		q.setModel("test/example.oom");
-//		q.query("c");
-		
+//		q.query("c");		
 //		q.setModel("test/bpm07.oom");
 //		System.out.println(q.query("Apply Process To Customer"));
+
+// even if the two softgoals have the same expectations
+		labels.put("d1", new Integer(10));
+		labels.put("d2", new Integer(10));
+// let's say d1 is preferred over d2. In this case it is b2		
+		ranks.put("d1", new Integer(2));
+		ranks.put("d2", new Integer(1));
+// change the ranking preference, in this case it is b1
+//		ranks.put("d1", new Integer(1));
+//		ranks.put("d2", new Integer(2));
+		q.setModel("test/ex3.oom", labels, ranks);
+		q.query("b");		
 	}
 	/**
 	 * 
@@ -470,12 +505,12 @@ public class QueryVariability2 implements IConfigurator {
 								 PS(to, i/LEVELS)));						
 						b.append(implies(PS(to, i/LEVELS), 
 								 PS(p, i/LEVELS)));		
-						if (System.getProperty("Balanced contributions") != null) {
+//						if (System.getProperty("Balanced contributions") != null) {
 							b.append(implies(PD(p, i/LEVELS), 
 									 PD(to, i/LEVELS)));						
 							b.append(implies(PD(to, i/LEVELS), 
 									 PD(p, i/LEVELS)));					
-						}
+//						}
 					}
 				} else if (l instanceof BreakContribution) { // break
 					for (float i=1; i<=(float)LEVELS/2; i++) {
@@ -483,57 +518,57 @@ public class QueryVariability2 implements IConfigurator {
 								 -PD(to, i/LEVELS)));						
 						b.append(implies(PD(to, i/LEVELS), 
 								 -PS(p, i/LEVELS)));
-						if (System.getProperty("Balanced contributions") != null) {
+//						if (System.getProperty("Balanced contributions") != null) {
 							b.append(implies(PD(p, i/LEVELS), 
 									 -PD(to, i/LEVELS)));						
 							b.append(implies(PD(to, i/LEVELS), 
 									 -PD(p, i/LEVELS)));
-						}
+//						}
 					}
 				} else if (l instanceof HelpContribution) { // help
 					for (float i=1; i<=(float)LEVELS/2; i++) {
 						for (float j=1; j<i; j++) {
 							b.append(implies(PS(p, i/LEVELS), PS(to, j/LEVELS)));
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								b.append(implies(PD(p, i/LEVELS), PD(to, j/LEVELS)));
-							}
+//							}
 						}
 						String helpS = "";
 						String helpD = "";
 						for (float j=i; j<=LEVELS/2; j++) {
 							helpD += " " + PD(p, j/LEVELS);
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								helpS += " " + PS(p, j/LEVELS);
-							}
+//							}
 						}
 						if (p instanceof Softgoal) {
 							b.append(implies(PD(to, i/LEVELS), helpD));
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								b.append(implies(PS(to, i/LEVELS), helpS));
-							}
+//							}
 						}
 					}
 				} else if (l instanceof HurtContribution) { // hurt
 					for (float i=1; i<=LEVELS/2; i++) {
 						for (float j=1; j<i; j++) {
 							b.append(implies(PS(p, i/LEVELS), PD(to, j/LEVELS)));
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								b.append(implies(PD(p, i/LEVELS), PS(to, j/LEVELS)));
-							}
+//							}
 						}
 						String helpS = "";
 						String helpD = "";
 						for (float j=i; j<=LEVELS/2; j++) {
 							helpD += " " + PD(p, j/LEVELS);
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								helpS += " " + PS(p, j/LEVELS);
-							}
+//							}
 						}
 						if (p instanceof Softgoal) {
 							b.append(implies(PS(to, i/LEVELS), helpD));
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								b.append(implies(PD(to, i/LEVELS), helpS));
-							}
+//							}
 						}
 					}
 				}
@@ -574,18 +609,19 @@ public class QueryVariability2 implements IConfigurator {
 							step4i.append(implies(PS(p, i/LEVELS), PS(from, i/LEVELS)));
 					}
 					step4i.append(implies(FS(p), FS(from)));
-					if (System.getProperty("Balanced contributions") != null) {
+//					System.out.println(p.getName() + "->" + from.getName());
+//					if (System.getProperty("Balanced contributions") != null) {
 						step4i.append(implies(FD(from), FD(p)));
-					}
+//					}
 					step4iii.append(-FS(from) + " ");
-					if (System.getProperty("Balanced contributions") != null) {
+//					if (System.getProperty("Balanced contributions") != null) {
 						step4vi.append(FD(from) + " ");
-					}
+//					}
 					if (p instanceof Softgoal) {
 						for (float i=1; i<LEVELS/2; i++) {
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								step4i.append(implies(PD(from, i/LEVELS), PD(p, i/LEVELS)));
-							}
+//							}
 							step4iv.append(" " + (-PS(from, i/LEVELS)));
 							step4v.append(" "+PD(from, i/LEVELS));
 						}
@@ -593,19 +629,20 @@ public class QueryVariability2 implements IConfigurator {
 					is_and = true;
 				} else {
 					step4i.append(implies(FS(from), FS(p)));
+//					System.out.println(from.getName() + "->" + p.getName());
 					if (p instanceof Softgoal) {
 						for (float i=1; i<LEVELS/2; i++)
 							step4i.append(implies(PS(from, i/LEVELS), PS(p, i/LEVELS)));
 					}
-					if (System.getProperty("Balanced contributions") != null) {
+//					if (System.getProperty("Balanced contributions") != null) {
 						step4i.append(implies(FD(p), FD(from)));
-					}
+//					}
 					step4v.append(" " + FS(from));
 					if (p instanceof Softgoal && from instanceof Softgoal) {
 						for (float i=1; i<LEVELS/2; i++) {
-							if (System.getProperty("Balanced contributions") != null) {
+//							if (System.getProperty("Balanced contributions") != null) {
 								step4i.append(implies(PD(p, i/LEVELS), PD(from, i/LEVELS)));
-							}
+//							}
 							step4iii.append(" " + (-PD(from, i/LEVELS)));
 							step4vi.append(PS(from, i/LEVELS) + " ");
 						}
@@ -652,7 +689,7 @@ public class QueryVariability2 implements IConfigurator {
 		b.append(step4iv.toString());
 		b.append(step4v.toString());
 		b.append(step4vi.toString());
-//		System.out.println(step4i);
+//		System.out.println(step4v);
 		return b.toString();
 	}
 
@@ -710,7 +747,8 @@ public class QueryVariability2 implements IConfigurator {
 	public String encode_6(Intention p, 
 			Map<String, Integer> labels,
 			Map<String, Integer> ranks) {
-		System.out.println(p.getName());
+//		System.out.println(current_rank);
+//		System.out.println(p.getName());
 		StringBuffer b = new StringBuffer();
 		for (String key: labels.keySet()) {
 			if (p.getName().equals(key) 
@@ -722,7 +760,7 @@ public class QueryVariability2 implements IConfigurator {
 				numClauses ++;
 			}
 		}
-		System.out.println(b);
+//		System.out.println(b);
 		return b.toString();
 	}
 	
@@ -737,15 +775,17 @@ public class QueryVariability2 implements IConfigurator {
 //		System.out.println(result);
 		List values = Arrays.asList(result.split(" "));
 		for (Intention p: Intentions) {
-			for (int i=1; i<LEVELS/2; i++)
+			for (float i=1; i<LEVELS/2; i++)
 				if (p instanceof Softgoal && values.contains(String.valueOf(PS(p, i/LEVELS)))) 
 				{
+//					System.out.println(p.getName() + " +" + i);
 					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
 					PS_goals.add(p);
 				}
-			for (int i=1; i<LEVELS/2; i++)
+			for (float i=1; i<LEVELS/2; i++)
 				if (p instanceof Softgoal && values.contains(String.valueOf(PD(p, i/LEVELS))))
 				{
+//					System.out.println(p.getName() + " -" + i);
 					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
 					PD_goals.add(p);
 				}
@@ -760,5 +800,8 @@ public class QueryVariability2 implements IConfigurator {
 				FD_goals.add(p);
 			}				
 		}
+//		for (Intention i: PS_goals) {
+//			System.out.println(i.getName());
+//		}
 	}	
 }
