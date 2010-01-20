@@ -8,7 +8,6 @@ import java.util.ListIterator;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
-import edu.toronto.cs.openome.conversion.service.QueryVariability;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
@@ -29,8 +28,8 @@ public class AutomaticQualReasoner extends Reasoner {
 	}
 	
 	public void reason() {
-		QueryVariability qv = new QueryVariability();
-		qv.init(model);		
+//		QueryVariability2 qv = new QueryVariability();
+//		qv.init(model);		
 	}
 	
 	protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
