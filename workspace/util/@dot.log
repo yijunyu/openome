@@ -1,0 +1,35 @@
+# 20/01/10 08:47:25 GMT
+# Eclipse Java Compiler 0.963, 3.5.0 rc3, Copyright IBM Corp 2000, 2008. All rights reserved.
+----------
+1. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/Computing.java (at line 143)
+	public static ArrayList listContents(File dir, String suffix) {
+	              ^^^^^^^^^
+ArrayList is a raw type. References to generic type ArrayList<E> should be parameterized
+----------
+2. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/Computing.java (at line 251)
+	for (Enumeration i = ps.keys(); i.hasMoreElements();) {
+	     ^^^^^^^^^^^
+Enumeration is a raw type. References to generic type Enumeration<E> should be parameterized
+----------
+----------
+3. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/SortArrayList.java (at line 14)
+	public void addComparable(Comparable o) {
+	                          ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+4. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/SortArrayList.java (at line 17)
+	Comparable s = (Comparable) get(i);
+	^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+5. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/SortArrayList.java (at line 17)
+	Comparable s = (Comparable) get(i);
+	                ^^^^^^^^^^
+Comparable is a raw type. References to generic type Comparable<T> should be parameterized
+----------
+6. WARNING in /home/yy66/eclipse.build/plugins/util/src/util/SortArrayList.java (at line 18)
+	if (s.compareTo(o) <= 0)
+	    ^^^^^^^^^^^^^^
+Type safety: The method compareTo(Object) belongs to the raw type Comparable. References to generic type Comparable<T> should be parameterized
+----------
+6 problems (6 warnings)[8 .class files generated]

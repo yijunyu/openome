@@ -1,0 +1,231 @@
+# 20/01/10 08:47:27 GMT
+# Eclipse Java Compiler 0.963, 3.5.0 rc3, Copyright IBM Corp 2000, 2008. All rights reserved.
+----------
+1. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ActorSVGFigure.java (at line 3)
+	import org.eclipse.draw2d.FlowLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.FlowLayout is never used
+----------
+2. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ActorSVGFigure.java (at line 4)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+3. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/AgentSVGFigure.java (at line 3)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+4. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ConstrainedResizeShapeEditPolicy.java (at line 60)
+	List list = super.createSelectionHandles();
+	            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Access restriction: The method createSelectionHandles() from the type ResizableEditPolicy is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.gef_3.5.0.v20090528-1511.jar
+----------
+----------
+5. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ContributionDecoration.java (at line 4)
+	import org.eclipse.draw2d.Graphics;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.Graphics is never used
+----------
+6. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ContributionDecoration.java (at line 8)
+	import org.eclipse.swt.graphics.Image;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.graphics.Image is never used
+----------
+----------
+7. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/DependencyLineConnection.java (at line 4)
+	import java.util.List;
+	       ^^^^^^^^^^^^^^
+The import java.util.List is never used
+----------
+8. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/DependencyLineConnection.java (at line 19)
+	private static final int MAX_NUM_BENDPOINTS = 2;
+	                         ^^^^^^^^^^^^^^^^^^
+The field DependencyLineConnection.MAX_NUM_BENDPOINTS is never read locally
+----------
+9. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/DependencyLineConnection.java (at line 184)
+	double line_Angle_Radians = this.degrees2Radians(lineAngle);
+	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The static method degrees2Radians(double) from the type DependencyLineConnection should be accessed in a static way
+----------
+----------
+10. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/GoalAnchor.java (at line 11)
+	private IFigure originalOwner;
+	                ^^^^^^^^^^^^^
+The field GoalAnchor.originalOwner is never read locally
+----------
+----------
+11. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/GoalFigure.java (at line 7)
+	import org.eclipse.draw2d.XYLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.XYLayout is never used
+----------
+----------
+12. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/GoalSVGFigure.java (at line 3)
+	import org.eclipse.draw2d.PositionConstants;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.PositionConstants is never used
+----------
+----------
+13. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/NodeSVGFigure.java (at line 3)
+	import java.net.URL;
+	       ^^^^^^^^^^^^
+The import java.net.URL is never used
+----------
+----------
+14. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOMEBorderItemLocator.java (at line 198)
+	List borderItems = targetBorderItem.getParent().getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+15. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeActorNameLayoutManager.java (at line 6)
+	import org.eclipse.draw2d.AbstractLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.AbstractLayout is never used
+----------
+16. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeActorNameLayoutManager.java (at line 9)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+17. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeActorNameLayoutManager.java (at line 36)
+	List children = figure.getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+18. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeActorNameLayoutManager.java (at line 64)
+	List children = figure.getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+19. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeActorNameLayoutManager.java (at line 90)
+	List children = figure.getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+20. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 6)
+	import org.eclipse.draw2d.AbstractLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.AbstractLayout is never used
+----------
+21. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 10)
+	import org.eclipse.draw2d.geometry.Point;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.geometry.Point is never used
+----------
+22. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 37)
+	List children = figure.getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+23. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 65)
+	List children = figure.getChildren();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+24. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 85)
+	List<IFigure> children = figure.getChildren();
+	                         ^^^^^^^^^^^^^^^^^^^^
+Type safety: The expression of type List needs unchecked conversion to conform to List<IFigure>
+----------
+25. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OpenOmeElementLayoutManager.java (at line 116)
+	private int numRowsInTextWrappedString(String inputString) {
+	            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method numRowsInTextWrappedString(String) from the type OpenOmeElementLayoutManager is never used locally
+----------
+----------
+26. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/OrDecoration.java (at line 3)
+	import org.eclipse.draw2d.ColorConstants;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.ColorConstants is never used
+----------
+----------
+27. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/PositionSVGFigure.java (at line 3)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+28. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceAnchor.java (at line 3)
+	import org.eclipse.draw2d.AbstractConnectionAnchor;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.AbstractConnectionAnchor is never used
+----------
+29. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceAnchor.java (at line 5)
+	import org.eclipse.draw2d.Connection;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.Connection is never used
+----------
+30. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceAnchor.java (at line 9)
+	import org.eclipse.draw2d.geometry.Rectangle;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.geometry.Rectangle is never used
+----------
+31. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceAnchor.java (at line 31)
+	private IFigure resourceAnchorOwner;
+	                ^^^^^^^^^^^^^^^^^^^
+The field ResourceAnchor.resourceAnchorOwner is never read locally
+----------
+----------
+32. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceFigure.java (at line 56)
+	private void setFigureResourceNameFigure(WrapLabel fig) {
+	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method setFigureResourceNameFigure(WrapLabel) from the type ResourceFigure is never used locally
+----------
+----------
+33. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/ResourceSVGFigure.java (at line 4)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+34. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/RoleSVGFigure.java (at line 3)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+35. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/SoftGoalFigure.java (at line 10)
+	import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel is never used
+----------
+36. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/SoftGoalFigure.java (at line 60)
+	private void setFigureSoftgoalNameFigure(WrappingLabel fig) {
+	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method setFigureSoftgoalNameFigure(WrappingLabel) from the type SoftGoalFigure is never used locally
+----------
+----------
+37. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/SoftGoalSVGFigure.java (at line 4)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+----------
+38. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/SoftgoalAnchor.java (at line 5)
+	import org.eclipse.draw2d.EllipseAnchor;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.EllipseAnchor is never used
+----------
+39. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/SoftgoalAnchor.java (at line 319)
+	private PointList softgoalOutline() {
+	                  ^^^^^^^^^^^^^^^^^
+The method softgoalOutline() from the type SoftgoalAnchor is never used locally
+----------
+----------
+40. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/TaskFigure.java (at line 59)
+	private void setFigureTaskNameFigure(WrapLabel fig) {
+	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method setFigureTaskNameFigure(WrapLabel) from the type TaskFigure is never used locally
+----------
+----------
+41. WARNING in /home/yy66/eclipse.build/plugins/openome_model.figures/src/openome_model/figures/TaskSVGFigure.java (at line 4)
+	import org.eclipse.draw2d.StackLayout;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.draw2d.StackLayout is never used
+----------
+41 problems (41 warnings)[37 .class files generated]

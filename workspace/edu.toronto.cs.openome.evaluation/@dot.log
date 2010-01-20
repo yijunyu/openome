@@ -1,0 +1,482 @@
+# 20/01/10 08:49:29 GMT
+# Eclipse Java Compiler 0.963, 3.5.0 rc3, Copyright IBM Corp 2000, 2008. All rights reserved.
+----------
+1. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 6)
+	import java.util.ListIterator;
+	       ^^^^^^^^^^^^^^^^^^^^^^
+The import java.util.ListIterator is never used
+----------
+2. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 9)
+	import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type ElementTypeLabelProvider is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.gmf.runtime.diagram.ui_1.2.0.v20090526-1925.jar
+----------
+3. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 9)
+	import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider is never used
+----------
+4. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 10)
+	import org.eclipse.jface.dialogs.InputDialog;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.dialogs.InputDialog is never used
+----------
+5. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 12)
+	import org.eclipse.jface.viewers.IStructuredContentProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.viewers.IStructuredContentProvider is never used
+----------
+6. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 15)
+	import org.eclipse.ui.dialogs.ListDialog;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.ui.dialogs.ListDialog is never used
+----------
+7. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 16)
+	import org.eclipse.ui.dialogs.SelectionDialog;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.ui.dialogs.SelectionDialog is never used
+----------
+8. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 22)
+	import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair is never used
+----------
+9. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 23)
+	import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag is never used
+----------
+10. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 26)
+	import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes is never used
+----------
+11. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/commands/InputWindowCommand.java (at line 61)
+	@SuppressWarnings("restriction")
+	                  ^^^^^^^^^^^^^
+Unnecessary @SuppressWarnings("restriction")
+----------
+----------
+12. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationDialog.java (at line 15)
+	import org.eclipse.swt.graphics.Font;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.graphics.Font is never used
+----------
+13. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationDialog.java (at line 19)
+	import org.eclipse.swt.widgets.Display;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Display is never used
+----------
+14. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationDialog.java (at line 20)
+	import org.eclipse.swt.widgets.Event;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Event is never used
+----------
+15. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationDialog.java (at line 21)
+	import org.eclipse.swt.widgets.Listener;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Listener is never used
+----------
+16. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationDialog.java (at line 157)
+	List initialSelection = getInitialElementSelections();
+	^^^^
+List is a raw type. References to generic type List<E> should be parameterized
+----------
+----------
+17. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationElementTypeLabelProvider.java (at line 8)
+	import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type ElementTypeLabelProvider is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.gmf.runtime.diagram.ui_1.2.0.v20090526-1925.jar
+----------
+18. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/EvaluationElementTypeLabelProvider.java (at line 15)
+	ElementTypeLabelProvider {
+	^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type ElementTypeLabelProvider is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.gmf.runtime.diagram.ui_1.2.0.v20090526-1925.jar
+----------
+----------
+19. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 3)
+	import java.io.IOException;
+	       ^^^^^^^^^^^^^^^^^^^
+The import java.io.IOException is never used
+----------
+20. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 5)
+	import org.eclipse.core.runtime.FileLocator;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.FileLocator is never used
+----------
+21. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 6)
+	import org.eclipse.core.runtime.Path;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.Path is never used
+----------
+22. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 7)
+	import org.eclipse.core.runtime.Platform;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.Platform is never used
+----------
+23. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 8)
+	import org.eclipse.gmf.runtime.common.ui.services.icon.IconService;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.common.ui.services.icon.IconService is never used
+----------
+24. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 9)
+	import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type ElementTypeLabelProvider is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.gmf.runtime.diagram.ui_1.2.0.v20090526-1925.jar
+----------
+25. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 9)
+	import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider is never used
+----------
+26. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 10)
+	import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.emf.type.core.IElementType is never used
+----------
+27. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 11)
+	import org.eclipse.jface.resource.ImageDescriptor;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.resource.ImageDescriptor is never used
+----------
+28. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 13)
+	import org.eclipse.swt.widgets.Display;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Display is never used
+----------
+29. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/gui/LabelBagElementTypeLabelProvider.java (at line 17)
+	import edu.toronto.cs.openome_model.Intention;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.Intention is never used
+----------
+----------
+30. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ClearLabelsHandler.java (at line 10)
+	import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack is never used
+----------
+31. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ClearLabelsHandler.java (at line 13)
+	import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner is never used
+----------
+32. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ClearLabelsHandler.java (at line 14)
+	import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.reasoning.Reasoning is never used
+----------
+----------
+33. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 8)
+	import org.eclipse.emf.common.util.EList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.EList is never used
+----------
+34. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 9)
+	import org.eclipse.emf.common.util.URI;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.URI is never used
+----------
+35. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 17)
+	import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.emf.core.resources.GMFResource is never used
+----------
+36. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 18)
+	import org.eclipse.gmf.runtime.notation.View;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.notation.View is never used
+----------
+37. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 19)
+	import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.notation.impl.DiagramImpl is never used
+----------
+38. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/handlers/ReasonerHandler.java (at line 33)
+	private DiagramCommandStack dcs;
+	                            ^^^
+The field ReasonerHandler.dcs is never read locally
+----------
+----------
+39. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/AStar.java (at line 39)
+	Thread.currentThread().yield(); //for getNewBest 
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The static method yield() from the type Thread should be accessed in a static way
+----------
+40. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/AStar.java (at line 115)
+	private int rbsearch(int l, int h, int tot, int costs){ 
+	            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method rbsearch(int, int, int, int) from the type AStar is never used locally
+----------
+----------
+41. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 3)
+	import java.io.FileNotFoundException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import java.io.FileNotFoundException is never used
+----------
+42. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 4)
+	import java.io.FileOutputStream;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^
+The import java.io.FileOutputStream is never used
+----------
+43. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 5)
+	import java.io.IOException;
+	       ^^^^^^^^^^^^^^^^^^^
+The import java.io.IOException is never used
+----------
+44. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 6)
+	import java.io.PrintWriter;
+	       ^^^^^^^^^^^^^^^^^^^
+The import java.io.PrintWriter is never used
+----------
+45. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 16)
+	import org.sat4j.minisat.SolverFactory;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.minisat.SolverFactory is never used
+----------
+46. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 17)
+	import org.sat4j.reader.DimacsReader;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.reader.DimacsReader is never used
+----------
+47. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 18)
+	import org.sat4j.reader.ParseFormatException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.reader.ParseFormatException is never used
+----------
+48. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 19)
+	import org.sat4j.specs.ContradictionException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.specs.ContradictionException is never used
+----------
+49. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 20)
+	import org.sat4j.specs.ISolver;
+	       ^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.specs.ISolver is never used
+----------
+50. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 21)
+	import org.sat4j.specs.TimeoutException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.sat4j.specs.TimeoutException is never used
+----------
+51. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 100)
+	private void update() {
+	             ^^^^^^^^
+The method update() from the type Reasoning is never used locally
+----------
+52. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 142)
+	private StringBuffer encode() {
+	                     ^^^^^^^^
+The method encode() from the type Reasoning is never used locally
+----------
+53. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 228)
+	private void configuring_variability_goals() {
+	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The method configuring_variability_goals() from the type Reasoning is never used locally
+----------
+54. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/oldcode/Reasoning.java (at line 652)
+	private void decode(String result) {
+	             ^^^^^^^^^^^^^^^^^^^^^
+The method decode(String) from the type Reasoning is never used locally
+----------
+----------
+55. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeautomaticreasoning/AutomaticQualReasoner.java (at line 74)
+	double CPerc = CCount/sum;
+	       ^^^^^
+The local variable CPerc is never read
+----------
+----------
+56. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/IntQualIntentionWrapper.java (at line 8)
+	import edu.toronto.cs.openome_model.impl.IntentionImpl;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.impl.IntentionImpl is never used
+----------
+----------
+57. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 3)
+	import org.eclipse.swt.graphics.Image;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.graphics.Image is never used
+----------
+58. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 4)
+	import java.util.ArrayList;
+	       ^^^^^^^^^^^^^^^^^^^
+The import java.util.ArrayList is never used
+----------
+59. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 5)
+	import java.util.Iterator;
+	       ^^^^^^^^^^^^^^^^^^
+The import java.util.Iterator is never used
+----------
+60. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 6)
+	import java.util.List;
+	       ^^^^^^^^^^^^^^
+The import java.util.List is never used
+----------
+61. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 7)
+	import java.util.ListIterator;
+	       ^^^^^^^^^^^^^^^^^^^^^^
+The import java.util.ListIterator is never used
+----------
+62. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 11)
+	import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand is never used
+----------
+63. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 12)
+	import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner is never used
+----------
+64. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 14)
+	import edu.toronto.cs.openome.evaluation.views.AlternativesView;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.views.AlternativesView is never used
+----------
+65. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 29)
+	import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes is never used
+----------
+66. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 32)
+	import org.eclipse.core.runtime.IProgressMonitor;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.core.runtime.IProgressMonitor is never used
+----------
+67. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 34)
+	import org.eclipse.emf.common.util.EList;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.util.EList is never used
+----------
+68. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 35)
+	import org.eclipse.gmf.runtime.common.core.command.CommandResult;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.common.core.command.CommandResult is never used
+----------
+69. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 36)
+	import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand is never used
+----------
+70. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 37)
+	import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy is never used
+----------
+71. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 38)
+	import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand is never used
+----------
+72. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 40)
+	import org.eclipse.jface.dialogs.MessageDialog;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.dialogs.MessageDialog is never used
+----------
+73. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 41)
+	import org.eclipse.jface.viewers.IContentProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.jface.viewers.IContentProvider is never used
+----------
+74. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 42)
+	import org.eclipse.swt.widgets.Display;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.swt.widgets.Display is never used
+----------
+75. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 45)
+	import org.eclipse.ui.internal.dialogs.ViewContentProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Discouraged access: The type ViewContentProvider is not accessible due to restriction on classpath entry /IDE/sdk/3.5/eclipse/plugins/org.eclipse.ui.workbench_3.5.0.I20090603-2000.jar
+----------
+76. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 45)
+	import org.eclipse.ui.internal.dialogs.ViewContentProvider;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.ui.internal.dialogs.ViewContentProvider is never used
+----------
+77. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 69)
+	private DiagramCommandStack dcs;
+	                            ^^^
+The field InteractiveQualReasoner.dcs is never read locally
+----------
+78. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/InteractiveQualReasoner.java (at line 684)
+	HumanJudgement hj = w.addHumanJudgement(result);
+	               ^^
+The local variable hj is never read
+----------
+----------
+79. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelBag.java (at line 27)
+	bag = (Vector<IntentionLabelPair>) b.bag.clone();
+	      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Object to Vector<IntentionLabelPair>
+----------
+----------
+80. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 8)
+	import edu.toronto.cs.openome_model.Intention;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.Intention is never used
+----------
+81. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 29)
+	private HashMap map;
+	        ^^^^^^^
+HashMap is a raw type. References to generic type HashMap<K,V> should be parameterized
+----------
+82. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 38)
+	map = new HashMap();
+	          ^^^^^^^
+HashMap is a raw type. References to generic type HashMap<K,V> should be parameterized
+----------
+83. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 72)
+	map.put(arg0.getIntention(), count);
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: The method put(Object, Object) belongs to the raw type HashMap. References to generic type HashMap<K,V> should be parameterized
+----------
+84. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 122)
+	Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
+	                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Iterator<capture#1-of ? extends IntQualIntentionWrapper> to Iterator<IntQualIntentionWrapper>
+----------
+85. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 170)
+	Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
+	                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Type safety: Unchecked cast from Iterator<capture#2-of ?> to Iterator<IntQualIntentionWrapper>
+----------
+86. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/qualitativeinteractivereasoning/LabelQueue.java (at line 262)
+	public class UnderflowException extends RuntimeException
+	             ^^^^^^^^^^^^^^^^^^
+The serializable class UnderflowException does not declare a static final serialVersionUID field of type long
+----------
+----------
+87. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 17)
+	import org.eclipse.emf.common.command.CommandStack;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.common.command.CommandStack is never used
+----------
+88. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 19)
+	import org.eclipse.emf.edit.domain.EditingDomain;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.eclipse.emf.edit.domain.EditingDomain is never used
+----------
+89. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 22)
+	import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand is never used
+----------
+90. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 23)
+	import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler is never used
+----------
+91. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 28)
+	import edu.toronto.cs.openome_model.EvaluationLabel;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.EvaluationLabel is never used
+----------
+92. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 30)
+	import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor is never used
+----------
+93. WARNING in /home/yy66/eclipse.build/plugins/edu.toronto.cs.openome.evaluation/src/edu/toronto/cs/openome/evaluation/views/AlternativesView.java (at line 102)
+	public Object getAdapter(Class key) {
+	                         ^^^^^
+Class is a raw type. References to generic type Class<T> should be parameterized
+----------
+93 problems (93 warnings)[43 .class files generated]
