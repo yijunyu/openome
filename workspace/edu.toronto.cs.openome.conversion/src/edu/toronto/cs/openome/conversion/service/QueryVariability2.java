@@ -51,11 +51,13 @@ public class QueryVariability2 implements IConfigurator {
 	public openome_modelPackage e = null;
 	public openome_modelFactory f = null;
 	public Resource resource;
+	public int max_rank;
 
 	public QueryVariability2() {
 		e = openome_modelPackage.eINSTANCE;
 		f = e.getopenome_modelFactory();		
 		current_rank = 0;
+		max_rank = -1;
 	}
 	public QueryVariability2(Resource r, Map<String, Integer> labels, Map<String, Integer> ranks) {		
 		e = openome_modelPackage.eINSTANCE;
@@ -109,6 +111,11 @@ public class QueryVariability2 implements IConfigurator {
 	
 	public int size = 0;
 	public void init(Model m, Map<String, Integer> labels, Map<String, Integer> ranks) {
+		max_rank = -1;
+		for (Integer r: ranks.values()) {
+			if (max_rank == -1 || max_rank < r.intValue())
+				max_rank = r.intValue();
+		}
 		Intentions = new HashSet<Intention>();
 		goal_ids = new Hashtable<Intention, Integer>();
 		collect_goals(m);
@@ -149,9 +156,9 @@ public class QueryVariability2 implements IConfigurator {
 //				for (HashMap <Intention, HashSet<Intention> > r: reports) {
 //					System.out.println(r);
 //				}
-			} else if (current_rank < LEVELS){
-				System.out.println("unsatisfiable, ignore the goals with the rank: " + current_rank);
+			} else if (unsat && max_rank>0 && current_rank < max_rank){
 				current_rank++;
+				System.out.println("unsatisfiable, ignore the goals with the rank: " + current_rank);
 				init(m, labels, ranks);
 			} else {
 				System.out.println("unsatisfiable, even after ignoring all softgoals!");				
@@ -262,43 +269,70 @@ public class QueryVariability2 implements IConfigurator {
 		return children;
 	}
 	public static void main(String[] args) {
-		QueryVariability2 q = new QueryVariability2();
-		
-//		q.setModel("test/ex1.oom");
-//		q.query("a");
-//		q.query("b");
-		
-//		q.setModel("test/ex2.oom");
-//		q.query("c");
-		Map<String, Integer> labels = new HashMap<String, Integer>();
-		Map<String, Integer> ranks = new HashMap<String, Integer>();
-// This trade-off is in favour of b2
+		QueryVariability2 q;
+		Map<String, Integer> labels;
+		Map<String, Integer> ranks;
+
+		q = new QueryVariability2();
+		labels = new HashMap<String, Integer>();
+		ranks = new HashMap<String, Integer>();
+// This trade-off is in favour of b1
 //		labels.put("d1", new Integer(10));
 //		labels.put("d2", new Integer(5));
-// This trade-off is b1
+// This trade-off is b2
 //		labels.put("d1", new Integer(0));
 //		labels.put("d2", new Integer(10));
-// This trade-off has no answer
+// This trade-off has two solutions, b1 or b2
 //		labels.put("d1", new Integer(10));
 //		labels.put("d2", new Integer(10));
 //		ranks.put("d1", new Integer(1));
 //		ranks.put("d2", new Integer(1));
-//		q.setModel("test/example.oom");
-//		q.query("c");		
-//		q.setModel("test/bpm07.oom");
-//		System.out.println(q.query("Apply Process To Customer"));
-
 // even if the two softgoals have the same expectations
 		labels.put("d1", new Integer(10));
 		labels.put("d2", new Integer(10));
-// let's say d1 is preferred over d2. In this case it is b2		
-		ranks.put("d1", new Integer(2));
-		ranks.put("d2", new Integer(1));
-// change the ranking preference, in this case it is b1
+// let's say d1 is preferred over d2. In this case it is b1		
+		ranks.put("d1", new Integer(7));
+		ranks.put("d2", new Integer(3));
+// change the ranking preference, in this case it is b2
 //		ranks.put("d1", new Integer(1));
 //		ranks.put("d2", new Integer(2));
 		q.setModel("test/ex3.oom", labels, ranks);
 		q.query("b");		
+
+// More test cases need to be constructed
+		q = new QueryVariability2();
+		labels = new HashMap<String, Integer>();
+		ranks = new HashMap<String, Integer>();
+  		q.setModel("test/ex1.oom", labels, ranks);
+  		q.query("a");
+  		q.query("b");
+
+		q = new QueryVariability2();
+		labels = new HashMap<String, Integer>();
+		ranks = new HashMap<String, Integer>();
+  		q.setModel("test/ex2.oom", labels, ranks);
+  		q.query("c");
+
+		q = new QueryVariability2();
+		labels = new HashMap<String, Integer>();
+		ranks = new HashMap<String, Integer>();
+		labels.put("f", new Integer(10));
+		labels.put("g", new Integer(10));
+		ranks.put("f", new Integer(2));
+		ranks.put("g", new Integer(1));
+		q.setModel("test/example.oom", labels, ranks);
+		q.query("c");		
+
+		q = new QueryVariability2();
+		labels = new HashMap<String, Integer>();
+		ranks = new HashMap<String, Integer>();
+		labels.put("Customer Satisfaction", new Integer(8));
+		labels.put("Minimize Risk", new Integer(10));
+		ranks.put("Customer Satisfaction", new Integer(2));
+		ranks.put("Minimize Risk", new Integer(1));
+  		q.setModel("test/bpm07.oom", labels, ranks);
+  		// System.out.println(q.query("Apply Process To Customer"));
+  		System.out.println(q.query("Process Customer Order"));
 	}
 	/**
 	 * 
@@ -456,18 +490,14 @@ public class QueryVariability2 implements IConfigurator {
 	private String encode_1(Intention p) {
 //		System.out.println(p.getName());
 		StringBuffer b = new StringBuffer();
-		if (System.getProperty("Avoid Conflicts") != null
-				|| System.getProperty("Avoid Conflicts Strictly") != null)
-			for (int i=1; i<= LEVELS/2; i++) {
-				b.append(implies(PS(p, (float) i/LEVELS), 
-									 -PD(p,(float) i/LEVELS)));
-				if (i>1) {
-					b.append(implies(PS(p, (float) i/LEVELS), 
-						 PS(p,(float) (i-1)/LEVELS)));
-					b.append(implies(PD(p, (float) i/LEVELS), 
-							 PD(p,(float) (i-1)/LEVELS)));
-				}
+		// if (System.getProperty("Avoid Conflicts") != null || System.getProperty("Avoid Conflicts Strictly") != null)
+		for (int i=1; i<= LEVELS/2; i++) {
+			b.append(implies(PS(p, (float) i/LEVELS), -PD(p,(float) i/LEVELS)));
+			if (i>1) {
+				b.append(implies(PS(p, (float) i/LEVELS), PS(p,(float) (i-1)/LEVELS)));
+				b.append(implies(PD(p, (float) i/LEVELS), PD(p,(float) (i-1)/LEVELS)));
 			}
+		}
 //		System.out.println(b);
 		return b.toString();
 	}
@@ -499,31 +529,24 @@ public class QueryVariability2 implements IConfigurator {
 			Intention from = l.getSource(), to = l.getTarget();
 			if (goal_ids.get(from).intValue() == goal_ids.get(p).intValue()) {
 				if (l instanceof MakeContribution ) { // make
+					// System.out.println(p.getName() + " -(make)-> " + to.getName());
 					for (float i=1; i<=(float)LEVELS/2; i++) {
-//						System.out.println(implies(PS(p, i/LEVELS), PS(to, i/LEVELS)));
-						b.append(implies(PS(p, i/LEVELS), 
-								 PS(to, i/LEVELS)));						
-						b.append(implies(PS(to, i/LEVELS), 
-								 PS(p, i/LEVELS)));		
-//						if (System.getProperty("Balanced contributions") != null) {
-							b.append(implies(PD(p, i/LEVELS), 
-									 PD(to, i/LEVELS)));						
-							b.append(implies(PD(to, i/LEVELS), 
-									 PD(p, i/LEVELS)));					
-//						}
+						b.append(implies(PS(p, i/LEVELS), PS(to, i/LEVELS)));						
+						b.append(implies(PS(to, i/LEVELS), PS(p, i/LEVELS)));		
+						// if (System.getProperty("Balanced contributions") != null) {
+						b.append(implies(PD(p, i/LEVELS), PD(to, i/LEVELS)));						
+						b.append(implies(PD(to, i/LEVELS), PD(p, i/LEVELS)));					
+						// }
 					}
 				} else if (l instanceof BreakContribution) { // break
+					// System.out.println(p.getName() + " -(break)-> " + to.getName());
 					for (float i=1; i<=(float)LEVELS/2; i++) {
-						b.append(implies(PS(p, i/LEVELS), 
-								 -PD(to, i/LEVELS)));						
-						b.append(implies(PD(to, i/LEVELS), 
-								 -PS(p, i/LEVELS)));
-//						if (System.getProperty("Balanced contributions") != null) {
-							b.append(implies(PD(p, i/LEVELS), 
-									 -PD(to, i/LEVELS)));						
-							b.append(implies(PD(to, i/LEVELS), 
-									 -PD(p, i/LEVELS)));
-//						}
+						b.append(implies(PS(p, i/LEVELS), -PS(to, i/LEVELS)));						
+						b.append(implies(PS(to, i/LEVELS), -PS(p, i/LEVELS)));
+						// if (System.getProperty("Balanced contributions") != null) {
+						b.append(implies(PD(p, i/LEVELS), -PD(to, i/LEVELS)));						
+						b.append(implies(PD(to, i/LEVELS), -PD(p, i/LEVELS)));
+						// }
 					}
 				} else if (l instanceof HelpContribution) { // help
 					for (float i=1; i<=(float)LEVELS/2; i++) {
@@ -574,7 +597,7 @@ public class QueryVariability2 implements IConfigurator {
 				}
 			}
 		}
-//		System.out.println(b);
+		//System.out.println(b);
 		return b.toString();
 	}
 
@@ -747,20 +770,34 @@ public class QueryVariability2 implements IConfigurator {
 	public String encode_6(Intention p, 
 			Map<String, Integer> labels,
 			Map<String, Integer> ranks) {
-//		System.out.println(current_rank);
-//		System.out.println(p.getName());
+		// System.out.println(current_rank);
 		StringBuffer b = new StringBuffer();
-		for (String key: labels.keySet()) {
-			if (p.getName().equals(key) 
-					&& current_rank < ranks.get(key).intValue()) {
-				for (float i=1; i<= LEVELS; i++) {
-					if (i == (float) labels.get(key).intValue())
-						b.append(PS(p, i/LEVELS) + " " + "0\n");
+		if (! (p instanceof Softgoal)) {
+			if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.SATISFIED) {
+				b.append(FS(p) + " " + "0\n");
+				numClauses++;
+			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED) {
+				b.append(FD(p) + " " + "0\n");
+				numClauses++;
+			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT) {
+				b.append(FS(p) + " " + "0\n");
+				b.append(FD(p) + " " + "0\n");
+				numClauses+=2;
+			}
+		} else {
+			for (String key: labels.keySet()) {
+				if (p.getName().equals(key) 
+						&& current_rank < ranks.get(key).intValue()) {
+					System.out.println(p.getName());
+					for (float i=1; i<= LEVELS; i++) {
+						if (i == (float) labels.get(key).intValue())
+							b.append(PS(p, i/LEVELS) + " " + "0\n");
+					}
+					numClauses ++;
 				}
-				numClauses ++;
 			}
 		}
-//		System.out.println(b);
+		// System.out.println(b);
 		return b.toString();
 	}
 	
@@ -800,8 +837,10 @@ public class QueryVariability2 implements IConfigurator {
 				FD_goals.add(p);
 			}				
 		}
-//		for (Intention i: PS_goals) {
-//			System.out.println(i.getName());
-//		}
+/*
+		for (Intention i: FS_goals) {
+			System.out.println(i.getName());
+		}
+*/
 	}	
 }

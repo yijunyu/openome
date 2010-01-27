@@ -3,10 +3,7 @@
 #PRODUCT=core
 PRODUCT=openome_model
 IDE=/IDE
-#VERSION=3.3.1.1
-#VERSION=3.3.2
 VERSION=3.5
-#VERSION=3.5.1
 export ECLIPSE_HOME=$IDE/sdk/$VERSION/eclipse
 export BUILD_HOME=$HOME/eclipse.build
 export OPENOME_HOME=$(cd ..; pwd)
