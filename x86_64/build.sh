@@ -2,7 +2,8 @@
 #-----------------------------------------------------------
 #PRODUCT=core
 PRODUCT=openome_model
-IDE=/IDE
+IDE=$HOME/IDE
+#VERSION=3.5.2
 VERSION=3.5
 export ECLIPSE_HOME=$IDE/sdk/$VERSION/eclipse
 export BUILD_HOME=$HOME/eclipse.build
@@ -28,7 +29,10 @@ cp -r $ECLIPSE_HOME/configuration .
 # mkdir -p $ECLIPSE_HOME/links
 # cp $PRODUCT.links-$VERSION/*.* $ECLIPSE_HOME/links
 cp $ECLIPSE_HOME/plugins/org.eclipse.pde.build_*/scripts/productBuild/productBuild.xml build.xml
-sed -e "s/MYPRODUCT/\/$PROJECT_FILE\/$PRODUCT_FILE/" productBuild.properties  | sed -e "s/MYVERSION/$VERSION/" > build.properties
+sed -e "s/MYPRODUCT/\/$PROJECT_FILE\/$PRODUCT_FILE/" productBuild.properties \
+| sed -e "s#MYIDE#$IDE#" \
+| sed -e "s/MYVERSION/$VERSION/" \
+> build.properties
 $ECLIPSE_HOME/eclipse -configuration configuration -nosplash -application org.eclipse.ant.core.antRunner -Dbuilder=. $*
 if [ $? ]; then
  exit
