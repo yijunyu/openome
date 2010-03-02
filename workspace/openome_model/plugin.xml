@@ -21,21 +21,11 @@
       <example file="pattern/openome_model.ecore"/>
       <example file="pattern/security.atl"/>
       <example file="pattern/pattern.q7"/>
-      <example file="pattern/pattern.oom"/>
-      <example file="pattern/pattern.ood"/>
       <example file="pattern/pattern.png"/>
-      <example file="pattern/pattern-after.oom"/>
-      <example file="pattern/pattern-after.ood"/>
       <example file="pattern/pattern-after.png"/>
       <example file="pattern/openaccount.q7"/>
-      <example file="pattern/openaccount.oom"/>
-      <example file="pattern/openaccount.ood"/>
       <example file="pattern/openaccount.png"/>
-      <example file="pattern/openaccount-after.oom"/>
-      <example file="pattern/openaccount-after.ood"/>
       <example file="pattern/openaccount-after.png"/>
-      <example file="pattern/openaccount-attack.oom"/>
-      <example file="pattern/openaccount-attack.ood"/>
       <example file="pattern/openaccount-attack.png"/>
    </extension>    
    <extension point="core.generator">
