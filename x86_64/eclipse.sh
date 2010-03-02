@@ -1,5 +1,6 @@
 #!/bin/bash
-VERSION=3.5
+#VERSION=3.5
+VERSION=3.5.2
 export ECLIPSE_HOME=$HOME/IDE/sdk/$VERSION/eclipse
 rm -rf configuration
 cp -rf $ECLIPSE_HOME/configuration .

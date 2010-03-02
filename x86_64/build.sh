@@ -1,15 +1,16 @@
 #!/bin/bash
 #-----------------------------------------------------------
-#PRODUCT=core
 PRODUCT=openome_model
+VERSION=3.5.2
 IDE=$HOME/IDE
-#VERSION=3.5.2
-VERSION=3.5
+OS=linux
+WS=gtk
+ARCH=x86_64
+#-----------------------------------------------------------
 export ECLIPSE_HOME=$IDE/sdk/$VERSION/eclipse
 export BUILD_HOME=$HOME/eclipse.build
 export OPENOME_HOME=$(cd ..; pwd)
-#-----------------------------------------------------------
-PRODUCT_FILE=$PRODUCT.product
+PRODUCT_FILE=$PRODUCT-$VERSION.product
 PROJECT_FILE=$PRODUCT
 \ls ../workspace > workspace.plugins.txt
 xsltproc product.xsl ../workspace/$PROJECT_FILE/$PRODUCT_FILE > product.plugins.txt
@@ -25,13 +26,13 @@ done
 rm -rf $BUILD_HOME/I.openome/*
 cd -
 cp -r $ECLIPSE_HOME/configuration .
-# rm -rf $ECLIPSE_HOME/links
-# mkdir -p $ECLIPSE_HOME/links
-# cp $PRODUCT.links-$VERSION/*.* $ECLIPSE_HOME/links
 cp $ECLIPSE_HOME/plugins/org.eclipse.pde.build_*/scripts/productBuild/productBuild.xml build.xml
-sed -e "s/MYPRODUCT/\/$PROJECT_FILE\/$PRODUCT_FILE/" productBuild.properties \
-| sed -e "s#MYIDE#$IDE#" \
-| sed -e "s/MYVERSION/$VERSION/" \
+sed -e "s/BUILD_PRODUCT/\/$PROJECT_FILE\/$PRODUCT_FILE/" productBuild.properties \
+| sed -e "s#BUILD_IDE#$IDE#" \
+| sed -e "s#BUILD_OS#$OS#" \
+| sed -e "s#BUILD_WS#$WS#" \
+| sed -e "s#BUILD_ARCH#$ARCH#" \
+| sed -e "s/BUILD_VERSION/$VERSION/" \
 > build.properties
 $ECLIPSE_HOME/eclipse -configuration configuration -nosplash -application org.eclipse.ant.core.antRunner -Dbuilder=. $*
 if [ $? ]; then
