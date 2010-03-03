@@ -15,6 +15,7 @@ Export-Package: edu.toronto.cs.openome.conversion.action,
  edu.toronto.cs.openome.conversion.convertor,
  edu.toronto.cs.openome.conversion.parser,
  edu.toronto.cs.openome.conversion.service
-Import-Package: org.sat4j.minisat,
+Import-Package: org.osgi.framework,
+ org.sat4j.minisat,
  org.sat4j.reader,
  org.sat4j.specs
