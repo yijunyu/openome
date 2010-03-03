@@ -38,7 +38,8 @@ Require-Bundle: org.eclipse.core.expressions,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
  openome_model,
- org.eclipse.ui
+ org.eclipse.ui,
+ org.junit4
 Eclipse-LazyStart: true
 Import-Package: junit.framework,
  org.eclipse.gmf.runtime.notation,
