@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.toronto.cs.openome_model,
  org.eclipse.ui,
  org.eclipse.ocl.ecore,
- log4j
+ org.apache.log4j;bundle-version="1.2.13"
 Export-Package: fluid,
  fluid.control,
  fluid.display,

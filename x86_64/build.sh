@@ -1,7 +1,8 @@
 #!/bin/bash
 #-----------------------------------------------------------
 PRODUCT=openome_model
-VERSION=3.5.2
+#VERSION=3.5.2
+VERSION=3.5
 IDE=$HOME/IDE
 OS=linux
 WS=gtk
