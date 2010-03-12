@@ -114,6 +114,8 @@ public class InteractiveQualReasoner extends Reasoner {
 			//to label bags
 			step1();
 			
+			resolvedHardIntentions.clear();
+			
 			//DEBUGGING, print out the list of softgoals which have label bags that need resolving
 			System.out.println("Softgoals to resolve");
 			
@@ -369,7 +371,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	 */
 	private void propagateDecompositions(Intention intention) {
 		//DEBUGGING
-		//System.out.println("Propagating Decompositions for " + intention.getName());
+		System.out.println("Propagating Decompositions for " + intention.getName());
 		
 		//For each decomposition link coming "from" an intention (i.e.) the intention is the child
 		for (Decomposition d: intention.getDecompositionsFrom()) {
@@ -378,7 +380,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			//If the target has not already been resolve in this iteration, resolve it
 			if (!resolvedHardIntentions.contains(target)) {
 				//DEBUGGING
-				//System.out.println("Finding label for " + target.getName());
+				System.out.println("Finding label for " + target.getName());
 				
 				//add the target to the list of hard intentions that have been resolved
 				resolvedHardIntentions.add(target);			
@@ -407,7 +409,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			
 			//If the target is not an actor, like in an SD diagram
 			if (!(dependable instanceof Container)) {
-				//if the target has not already been resolved in this round of propgation
+				//if the target has not already been resolved in this round of propagation
 				if (!resolvedHardIntentions.contains(dependable)) {
 					//DEBUGGING
 					//System.out.println("Finding label for " + ((Intention) dependable).getName());
@@ -449,8 +451,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		}
 		
 		//DEBUGGING
-		//System.out.println(ANDDecomps.toString());
-		//System.out.println(ORDecomps.toString());
+		System.out.println(ANDDecomps.toString());
+		System.out.println(ORDecomps.toString());
 		
 		//Do the same for dependencies, find all the incoming labels via dependencies
 		Vector<EvaluationLabel> dependencies = new Vector<EvaluationLabel>();
@@ -473,8 +475,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		}
 				
 		//DEBUGGING
-		//System.out.println(dependencies.toString());
-		//System.out.println(ANDDecomps.size() + ", " + ORDecomps.size() + ", " + dependencies.size());
+		System.out.println(dependencies.toString());
+		System.out.println(ANDDecomps.size() + ", " + ORDecomps.size() + ", " + dependencies.size());
 		
 		//An element probably shouldn't have both an AND and an OR Decomposition, doesn't
 		//make much sense, but, in case it does, I will do something.  I will AND the results
@@ -489,12 +491,13 @@ public class InteractiveQualReasoner extends Reasoner {
 			both.add(resolveOR(ORDecomps));
 		}
 		
-		//if the target is a softgoal, add the AND of the AND and OR results to it's label bag
+		//if the target is a softgoal, add the AND of the AND and OR results to it's label bag, if it's not none
 		if (target instanceof Softgoal) {
 			if (both.size() > 0)  {
 				result = resolveAND(both);
 			
-				addSoftgoalToResolve(target, source, result);
+				if (result != EvaluationLabel.NONE)
+					addSoftgoalToResolve(target, source, result);
 			}
 		}
 		//target is not a softgoal
@@ -508,19 +511,21 @@ public class InteractiveQualReasoner extends Reasoner {
 			//Now AND together the results of AND, OR and dependency, this is the final answer
 			result = resolveAND(both);
 			
-			//set the label
-			setQualCombinedLabel(target, result);
+			if (result != EvaluationLabel.NONE) {
+				//set the label
+				setQualCombinedLabel(target, result);
 			
-			//make a new wrapper and add it to the queue
-			//I guess we don't need to check if it's already in the queue, the resolvedHardIntentions list
-			//should have taken care of that.  Also, if we have a repeat in the queue, it's not that big of a 
-			//deal, just inefficient.
-			IntQualIntentionWrapper targetWrapper = new IntQualIntentionWrapper(target);
+				//make a new wrapper and add it to the queue
+				//I guess we don't need to check if it's already in the queue, the resolvedHardIntentions list
+				//should have taken care of that.  Also, if we have a repeat in the queue, it's not that big of a 
+				//deal, just inefficient.
+				IntQualIntentionWrapper targetWrapper = new IntQualIntentionWrapper(target);
 			
-			lq.add(targetWrapper);
+				lq.add(targetWrapper);
+			}
 			
 			//DEBUGGING
-			//System.out.println(result.getName());
+			System.out.println(result.getName());
 		}
 		
 	}
@@ -672,9 +677,11 @@ public class InteractiveQualReasoner extends Reasoner {
 	//	}
 		
 		InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
-							
+			
+				
 		cs.execute(wincom);
-		
+				
+	
 		if (wincom.cancelled()) {
 			return null;
 		}

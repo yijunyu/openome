@@ -60,7 +60,6 @@ public class InputWindowCommand implements Command {
 
 	@SuppressWarnings("restriction")
 	public void execute() {
-	
 		//InputDialog d = new InputDialog(shell, "a", "b", "c", null);
 		
 		//EvaluationDialog d = new EvaluationDialog(shell);
@@ -80,6 +79,7 @@ public class InputWindowCommand implements Command {
 		labellist.add(EvaluationLabel.UNKNOWN);
 		labellist.add(EvaluationLabel.WEAKLY_DENIED);
 		labellist.add(EvaluationLabel.DENIED);
+	
 				
 		//ld.setAddCancelButton(true);  
 		ld.setEvalLabelContentProvider(new ArrayContentProvider());
@@ -88,17 +88,19 @@ public class InputWindowCommand implements Command {
 		ld.setEvalLabelLabelProvider(new EvalLabelElementTypeLabelProvider());
 		ld.setLabelBagLabelProvider(new LabelBagElementTypeLabelProvider());
 
-		 
+	
 		ld.setEvalLabelInput(labellist);
 		
 		ld.setLabelBagInput(wrapper.bagToArray());
 		
-			  
-		String mess = wrapper.getIntention().getName() + " in " + wrapper.getIntention().getContainer().getName();
+		
+		String mess = wrapper.getIntention().getName();
+		if (wrapper.getIntention().getContainer() != null)
+			mess += " in " + wrapper.getIntention().getContainer().getName();
+	
 		ld.setTitle("Sofgoal Resolution for " + mess);
 		ld.setMessage(mess + " has recieved the following labels.  Please select a resulting label.");
 
-		
 		ld.open();
 		
 		if (ld.getReturnCode() == Window.CANCEL) {
