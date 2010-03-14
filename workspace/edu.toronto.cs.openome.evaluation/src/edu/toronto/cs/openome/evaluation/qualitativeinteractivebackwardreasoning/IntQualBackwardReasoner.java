@@ -10,6 +10,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
 import edu.toronto.cs.openome.evaluation.SATSolver.Dimacs;
+import edu.toronto.cs.openome.evaluation.SATSolver.ModeltoAxiomsConverter;
 import edu.toronto.cs.openome.evaluation.SATSolver.SATSolver;
 import edu.toronto.cs.openome.evaluation.SATSolver.zChaffSolver;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelQueue;
@@ -49,6 +50,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		zChaffSolver solver = new zChaffSolver();
 		Dimacs cnf = new Dimacs();
+		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter(model);
+		
+		cnf = converter.convert();
 		
 		solver.solve(cnf);
 		

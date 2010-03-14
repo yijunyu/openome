@@ -160,7 +160,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		//For every intention in the model
 		for (Intention i : model.getAllIntentions()) {
-			
+	
 			//grab the label from the intention
 			EvaluationLabel initvalue = i.getQualitativeReasoningCombinedLabel();
 	

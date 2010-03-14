@@ -5,13 +5,20 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.OutputStream;
 import java.io.File;
+import java.util.Vector;
 
 import org.eclipse.core.runtime.Path;
 
 public class Dimacs {
+	private Vector<LinkAxioms> linkAxioms;
 	
 	public Dimacs( ) {
-		
+		//probably don't need to do this?
+		linkAxioms = null;
+	}
+	
+	public boolean addLinkAxioms(LinkAxioms la) {
+		return linkAxioms.add(la);
 	}
 	
 	public String writeToFile(String homedir) {

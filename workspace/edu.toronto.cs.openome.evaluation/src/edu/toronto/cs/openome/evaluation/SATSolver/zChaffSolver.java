@@ -9,6 +9,8 @@ public class zChaffSolver extends SATSolver{
 	public void solve(Dimacs cnf) {
 		String path = cnf.writeToFile(homedir);
 		System.out.println(path);
+		
+		
 	}
 	
 
