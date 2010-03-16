@@ -28,7 +28,15 @@ public class Dimacs {
 	    FileWriter fstream = new FileWriter(path);
 	    BufferedWriter out = new BufferedWriter(fstream);
 	    
-	    out.write("Hello Java");
+	    for (LinkAxioms la : linkAxioms) {
+	    	for (String str : la.getForwardClauses())  {
+	    		out.write(str);
+	    	}
+	    	for (String str : la.getBackwardClauses())  {
+	    		out.write(str);
+	    	}
+	    }
+	    
 	    
 	    //Close the output stream
 	    out.close();

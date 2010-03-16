@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.SATSolver;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import edu.toronto.cs.openome_model.Container;
@@ -16,13 +17,28 @@ public class ModeltoAxiomsConverter {
 	ModelImpl model;
 	Dimacs cnf;
 	Vector<Link> done;
+	LinkAxiomsFactory linkAxiomsFactory;
+	DualHashMap<Integer, Intention> intentionIndex;
 	
 	public ModeltoAxiomsConverter(ModelImpl m) {
 		model = m;
+		intentionIndex = new DualHashMap<Integer, Intention>();
+		createIntentionIndex();
 		cnf = new Dimacs();
 		done = new Vector<Link>();
+		linkAxiomsFactory = new LinkAxiomsFactory();
 	}
 	
+	private void createIntentionIndex() {
+		int sixCount = 1;
+		
+		for (Intention i : model.getIntentions()) {
+			intentionIndex.put(new Integer(sixCount), i);
+			sixCount += 6;
+		}
+		
+	}
+
 	public Dimacs convert()  {
 		
 		convertContributions();
@@ -36,11 +52,10 @@ public class ModeltoAxiomsConverter {
 		for (Decomposition dec : model.getDecompositions()) {
 			if (!done.contains(dec)) {
 				System.out.println("already done " + dec.toString());
-				
-				
+								
 			}
 			
-			System.out.println("done " + dec.toString());
+			else System.out.println("done " + dec.toString());
 			done.add(dec);
 		}
 		
@@ -51,18 +66,38 @@ public class ModeltoAxiomsConverter {
 			System.out.println(dep.toString());
 			
 			if (!done.contains(dep)) {
+				Intention sourceInt = null;
+				Intention targetInt = null;	
+				
+				//this is the source in forward evaluation, the dependee
+				Dependable source = dep.getDependencyTo();
+					
+				//if it's not an actor
+				if (!(source instanceof Container))  {
+					//This is the target?
+					sourceInt = (Intention) source;
+					System.out.println("dependency to " + sourceInt.getName());
+				}
+				
+				//this is the target in forward evaluation, the depender
 				Dependable target = dep.getDependencyFrom();
 				
 				//if it's not an actor
 				if (!(target instanceof Container))  {
-					Intention targetInt = (Intention) target;
-					System.out.println(targetInt.getName());
-				
+					targetInt = (Intention) target;
+					System.out.println("dependency from " + targetInt.getName());
 				}
-				//This is the target?
-				Dependable source = dep.getDependencyTo();
 				
-				
+				//it's a dependency from an intention to an intention
+				if (targetInt != null && sourceInt != null) {
+					Vector<Link> link = new Vector<Link>();
+					link.add(dep);
+					Vector<Intention> sources = new Vector<Intention>();
+					sources.add(sourceInt);
+					LinkAxioms la = linkAxiomsFactory.createLinkAxiom(sources, targetInt, link, "Dependency", intentionIndex);
+					
+					cnf.addLinkAxioms(la);
+				}
 			}
 			else System.out.println("already done " + dep.toString());
 			
