@@ -3,6 +3,9 @@
  */
 package edu.toronto.cs.openome.evaluation.SATSolver;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.eclipse.emf.common.command.CommandStack;
 
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
@@ -17,9 +20,10 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
  * 
  *
  */
-public class SATSolver {
+public abstract class SATSolver {
 	Dimacs cnf;
 	static String homedir = "Solvers\\";
+	static String filename = "dimacs.cnf";
 		//"C:\\zChaffWorkspace\\zChaff\\";
 	
 	/**
@@ -35,8 +39,9 @@ public class SATSolver {
 	 * This is where the reasoning actually occurs; however, it should be overridden by it's childen, as this is a general type of reasoner. 
 	 * It's not clear what the parent reasoner should do.
 	 */
-	public void solve(Dimacs c) {
+	public Vector<Integer> solve(Dimacs c) {
 		//This one does nothing, should be overridden
+		return null;
 	}
 	
 		

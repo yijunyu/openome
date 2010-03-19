@@ -10,7 +10,14 @@ public class LinkAxiomsFactory {
 	public LinkAxioms createLinkAxiom(Vector<Intention> sources, Intention targ, Vector<Link> l, String type, DualHashMap<Integer, Intention> dhm) {
 		if (type.equals("Dependency")) {
 			DependencyLinkAxioms dla = new DependencyLinkAxioms(sources, targ, l, dhm);
-			dla.createClauses();
+			return dla;
+		}
+		if (type.equals("Decomposition")) {
+			DecompositionLinkAxioms dla = new DecompositionLinkAxioms(sources, targ, l, dhm);
+			return dla;
+		}
+		if (type.equals("Meands Ends")) {
+			MeansEndsLinkAxioms dla = new MeansEndsLinkAxioms(sources, targ, l, dhm);
 			return dla;
 		}
 		

@@ -1,22 +1,15 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivebackwardreasoning;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
 import edu.toronto.cs.openome.evaluation.SATSolver.Dimacs;
 import edu.toronto.cs.openome.evaluation.SATSolver.ModeltoAxiomsConverter;
-import edu.toronto.cs.openome.evaluation.SATSolver.SATSolver;
 import edu.toronto.cs.openome.evaluation.SATSolver.zChaffSolver;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelQueue;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
-import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
@@ -53,47 +46,33 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter(model);
 		
-		cnf = converter.convert();
+		//cnf = converter.convertBothDirections();
+		//cnf = converter.convertForward();
+		cnf = converter.convertBackward();
 		
-		solver.solve(cnf);
+		Vector<Integer> intResults = solver.solve(cnf);
 		
-		try	{
-			Runtime rt = Runtime.getRuntime() ;
-	
-		    Process p = rt.exec("Solvers\\zchaff.exe Solvers\\excnf.txt");
-		    //p.waitFor();
-
-		    InputStream in = p.getInputStream();
-		    OutputStream out = p.getOutputStream ();
-		    InputStream err = p.getErrorStream();
-		    String line;
-
-		    BufferedReader input =
-		        new BufferedReader
-		          (new InputStreamReader(p.getInputStream()));
-		    	
-		      while ((line = input.readLine()) != null) {
-		        System.out.println(line);
-		      }
-		      
-		      BufferedReader error =
-			        new BufferedReader
-			          (new InputStreamReader(p.getErrorStream()));
-			    	
-			      while ((line = error.readLine()) != null) {
-			        System.out.println(line);
-			      }
-		   
-		      input.close();
-
-		      //do whatever you want
-		   //some more code
-		    p.destroy() ;
-		 }
-		catch(Exception exc){
+		HashMap<Intention, int[]> results = converter.convertResults(intResults);
+		
+		System.out.println("Results HashMap");
+		for (Intention intention : results.keySet()) {
+			System.out.println(intention.getName());
+			int [] ints = results.get(intention);
+			for (int i : ints) {
+				System.out.print(i + " ");
+			}
+			System.out.println("");
 			
-			 /*handle exception*/
-			 }
+		}
+		
+		//cnf = converter.convertForward();
+		
+		//solver.solve(cnf);
+		
+		//cnf = converter.convertBackward();
+		
+		//solver.solve(cnf);
+		
 	}
 	
 	public SoftgoalWrappers getSoftgoalWrappers(){

@@ -37,13 +37,17 @@ public class DependencyLinkAxioms extends LinkAxioms {
 	 * PD(a) -> PD(b)	 
 	 * D(a) -> D(b)
 	 */
-	public void createClauses() {
-		System.out.println("Creating Clauses for Dependency");
-		Integer intTIndex = (Integer) intentionMap.getInverse(target);
-		int tIndex = intTIndex.intValue();
+	
+	
+	public void createForwardClauses() {
+		System.out.println("Creating Forward Clauses for Dependency");
+		findIndexes();
 		
-		Integer intSIndex = (Integer) intentionMap.getInverse(sourceInts.lastElement());
-		int sIndex = intSIndex.intValue();
+		//System.out.println(tIndex + " " + sourceIndexes.toString());
+		
+		int sIndex = sourceIndexes.last();
+		
+		int[] ints;
 		
 		//Forward:
 		//S(b) -> S(a)
@@ -59,9 +63,20 @@ public class DependencyLinkAxioms extends LinkAxioms {
 		//D(b) -> D(a)
 		//!D(b) or D(a)
 		for (int i = 0; i < 6; i++) {
-			forwardClauses.add(addImplication(sIndex + i, tIndex + i));
+			
+			forwardClauses.addAll(addAndImplication(sIndex + i, tIndex + i));
+			
 		}
 		
+	}
+	
+	public void createBackwardClauses() {
+		System.out.println("Creating Backward Clauses for Dependency");		
+		findIndexes();
+		
+		int sIndex = sourceIndexes.last();
+		
+		int[] ints;
 		/*Backward
 		* S(a) -> S(b)
 		* PS(a) -> PS(b)
@@ -71,17 +86,11 @@ public class DependencyLinkAxioms extends LinkAxioms {
 		* D(a) -> D(b)
 		*/
 		for (int i = 0; i < 6; i++) {
-			backwardClauses.add(addImplication(tIndex + i, sIndex + i));
+			backwardClauses.addAll(addAndImplication(tIndex + i, sIndex + i));
 		}
-		
 	}
-	private VecInt addImplication(int ind1, int ind2) {
-		VecInt vi = new VecInt();
-		vi.push(ind1 * -1);
-		vi.push(ind2);
-		vi.push(0);
-		return vi;
-	}
+
+	
 	
 	
 

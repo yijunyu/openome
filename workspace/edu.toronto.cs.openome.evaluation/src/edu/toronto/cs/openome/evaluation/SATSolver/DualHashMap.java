@@ -7,8 +7,8 @@ import edu.toronto.cs.openome_model.Intention;
 
 public class DualHashMap<K, V> {
 	
-	HashMap<K, V> forward;
-	HashMap<V, K> inverse;
+	private HashMap<K, V> forward;
+	private HashMap<V, K> inverse;
 
 	public DualHashMap () {
 		forward = new HashMap<K, V>();
@@ -61,6 +61,14 @@ public class DualHashMap<K, V> {
 		
 		return null;
 	}
-
 	
+	public void print() {
+		for (Object obj : forward.keySet()) {
+			System.out.println(obj.toString() + " : " + forward.get(obj).toString());
+		}
+	}
+
+	public int size() {
+		return forward.size();
+	}
 }
