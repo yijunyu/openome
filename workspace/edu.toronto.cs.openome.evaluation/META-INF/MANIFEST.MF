@@ -17,7 +17,8 @@ Eclipse-LazyStart: true
 Import-Package: edu.toronto.cs.openome.conversion.service,
  edu.toronto.cs.openome.core.action,
  edu.toronto.cs.openome.core.convertor
-Export-Package: edu.toronto.cs.openome.evaluation.commands;
+Export-Package: edu.toronto.cs.openome.evaluation.SATSolver,
+ edu.toronto.cs.openome.evaluation.commands;
   uses:="edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning,
    org.eclipse.emf.common.command,
    org.eclipse.swt.widgets,

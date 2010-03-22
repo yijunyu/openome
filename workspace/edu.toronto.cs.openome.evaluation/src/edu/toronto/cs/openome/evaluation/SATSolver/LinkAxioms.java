@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.SATSolver;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -10,56 +11,72 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
 import edu.toronto.cs.openome_model.UnknownContribution;
 
-public class LinkAxioms {
+public abstract class LinkAxioms extends Axioms {
 	
 	protected Vector<Intention> sourceInts;
 	protected Intention target;
 	protected Vector<Link> links;
 	protected Vector<VecInt> forwardClauses;
 	protected Vector<VecInt> backwardClauses;
-	protected DualHashMap<Integer, Intention> intentionMap;
 	protected int tIndex;
 	protected VecInt sourceIndexes;
 
 	
 	public LinkAxioms(Vector<Intention> sources, Intention targ, Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
+		super(dhm);
 		sourceInts = sources;
 		target = targ;
 		links = l;
 		forwardClauses = new Vector<VecInt>();	
 		backwardClauses = new Vector<VecInt>();		
-		intentionMap = dhm;
-		sourceIndexes = new VecInt(sourceInts.size());
+		sourceIndexes = null;
 		tIndex = 0;
 		
 	}
 	
 	protected void findIndexes() {
+		//System.out.println("finding indexes");
+		if (sourceIndexes == null) {
+			//System.out.println("sourceIndexes was null");
+			sourceIndexes = new VecInt();
+			
+			if (intentionMap != null) {
+				//System.out.println("intentionMap was not null");
+				Integer intTIndex = (Integer) intentionMap.getInverse(target);
+				tIndex = intTIndex.intValue();
+				//System.out.println("target index is: " + tIndex);
 		
-		Integer intTIndex = (Integer) intentionMap.getInverse(target);
-		tIndex = intTIndex.intValue();
-		
-		for (Intention sInt: sourceInts) {
-			Integer sourceIndex = (Integer) intentionMap.getInverse(sInt);
-			sourceIndexes.push(sourceIndex.intValue());			
+				if (sourceInts != null) {
+					for (Intention sInt: sourceInts) {
+						Integer sourceIndex = (Integer) intentionMap.getInverse(sInt);
+						sourceIndexes.push(sourceIndex.intValue());	
+						//System.out.println("source index is: " + sourceIndex.intValue());
+					}	
+				}
+				else {
+					System.out.println("sourceInts is null");
+				}
+			}
+			else {
+				System.out.println("intentionMap is  null");
+			}
+		}
+		else {
+			System.out.println("sourceIndexes is not null " + sourceIndexes.toString());			
 		}
 	}
 	
 	public void createAllClauses() {
-		System.out.println("Creating Clauses");
+		//System.out.println("Creating Clauses");
 		
 		createForwardClauses();
+		//System.out.println(getNumClauses());
 		createBackwardClauses();	
 	}
 	
-	public void createForwardClauses() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void createBackwardClauses() {
-		// TODO Auto-generated method stub
-		
-	}
+	abstract public void createForwardClauses(); 
+	
+	abstract public void createBackwardClauses();
 	
 	public int getNumClauses() {
 		return forwardClauses.size() + backwardClauses.size();
@@ -67,6 +84,32 @@ public class LinkAxioms {
 	
 	public int getNumVars() {
 		return intentionMap.size() * 6;
+	}
+	
+	public Vector<String> getClauses() {
+		Vector<String> strClauses = new Vector<String>();
+		
+		for (VecInt vi : forwardClauses)  {
+			String str = "";
+			IteratorInt it = vi.iterator();
+			while (it.hasNext()) {			
+				str += String.valueOf(it.next()) + " ";				
+			}
+			
+			strClauses.add(str);
+		}
+		
+		for (VecInt vi : backwardClauses)  {
+			String str = "";
+			IteratorInt it = vi.iterator();
+			while (it.hasNext()) {			
+				str += String.valueOf(it.next()) + " ";				
+			}
+			
+			strClauses.add(str);
+		}
+		
+		return strClauses;
 	}
 	
 	public Vector<String> getForwardClauses() {
@@ -101,127 +144,151 @@ public class LinkAxioms {
 		return strBackClauses;
 	}
 	
-	protected Vector<VecInt> addAndImplication(VecInt ind1, int ind2) {
-		VecInt output = new VecInt(ind1.size() + 2);
-		for (int i : ind1.toArray()) {
-			output.push(i * -1);
-		}		
-		output.push(ind2);
-		output.push(0);
-		Vector<VecInt> v = new Vector<VecInt>();
-		v.add(output);
-		
-		return v;
-	}
 	
-	protected Vector<VecInt> addAndImplication(int ind1, VecInt ind2) {
-		Vector<VecInt> v = new Vector<VecInt>();
-		VecInt output;
+	protected Vector<VecInt> allButImplicationForward(int special, int specmult, int normal, int normalmult) {
 		
-		for (int i: ind2.toArray()) {
-			output = new VecInt(2);
-			output.push(ind1 * -1);
-			output.push(i);
-			output.push(0);
-			v.add(output);
+		Vector<VecInt> v = generateForwardCombinations(0, new Vector<VecInt>(), special, specmult, normal, normalmult);
+		
+		// adding ~a to all combinations
+		for (int i = 0; i < v.size(); i++){
+			v.get(i).push(tIndex + special);
+			v.get(i).push(0);
 		}
 		
-		return v;
+		return simplify(v);
 	}
 	
-	protected Vector<VecInt> addAndImplication(int ind1, int ind2) {
-		VecInt output = new VecInt(3);
-		output.push(ind1 * -1);	
-		output.push(ind2);
-		output.push(0);
-		Vector<VecInt> v = new Vector<VecInt>();
-		v.add(output);
-		return v;
-	}
-	
-	protected VecInt incrementAll(VecInt input) {
-		VecInt output = new VecInt(input.size());
-		for (int i : input.toArray()) {
-			output.push(i + 1);
-		}
-		return output;
-	}
-	
-	protected Vector<VecInt> allButImplicationForward(int special, int specmult, int [] normal, int normalmult) {
-		Vector<VecInt> v = new Vector<VecInt>();
-		int index1;
-		int index2;
-		VecInt vi;
-		for (index1 = 0; index1 < sourceIndexes.size(); index1++) {
-			vi = new VecInt();
-			for (index2 = 0; index2 < sourceIndexes.size(); index2++) {			
-				if (index2 == index1) {
-					vi.push((sourceIndexes.get(index2) + special) * specmult * -1);
-				}
-				else {
-					for (int n : normal) {
-						vi.push((sourceIndexes.get(index2) + n) * normalmult * -1);
-					}
-					
-				}
-			}
-			vi.push(tIndex+special);
-			vi.push(0);
-			v.add(vi);
+	protected Vector<VecInt> generateForwardCombinations(int index, Vector<VecInt> v, int special, int specmult, int normal, int normalmult) {
+		
+		if (index == sourceIndexes.size()) {
+			return v;
 		}
 		
-		return v;
-	}
-	
-	protected Vector<VecInt> allButImplicationBackward(int special, int specmult, int [] normal, int normalmult) {
-		System.out.println("allButImplicationBackward: " + special);
 		Vector<VecInt> vTemp = new Vector<VecInt>();
-		Vector<VecInt> v = new Vector<VecInt>();
 		
-		int index1;
-		int index2;
-		VecInt vi;
-		for (index1 = 0; index1 < sourceIndexes.size(); index1++) {
-			vi = new VecInt();
-			vi.push((sourceIndexes.get(index1) + special) * specmult);
-			for (index2 = 0; index2 < sourceIndexes.size(); index2++) {		
-				if (index1 != index2) {
-					for (int i: normal) {
-						vi.push((sourceIndexes.get(index2) + i) * normalmult);
-					}					
-				}
-			}
-			//vi.push(0);
+		if (index == 0) {
+			
+			VecInt vi = new VecInt();
+			vi.push((sourceIndexes.get(index) + special) * specmult * -1);
 			vTemp.add(vi);
 		}
-		
-		for (VecInt a : vTemp) {
-			System.out.println(a.toString());
+		else {
+			for (VecInt vi : v) {
+				VecInt tmp = new VecInt();
+				tmp.pushAll(vi);
+				tmp.push((sourceIndexes.get(index) + special) * specmult * -1);
+				vTemp.add(tmp);
+				tmp = new VecInt();
+				tmp.pushAll(vi);
+				tmp.push((sourceIndexes.get(index) + normal) * normalmult * -1);
+				vTemp.add(tmp);
+			}
+			VecInt tmp = new VecInt();
+			for (int i = 0; i< index; i++) {				
+				tmp.push((sourceIndexes.get(i) + normal) * normalmult * -1);
+			}
+			tmp.push((sourceIndexes.get(index) + special) * specmult * -1);
+			vTemp.add(tmp);
 		}
 		
-		for (index1 = 0; index1 < vTemp.size(); index1++) {			
-			for (index2 = 0; index2 < vTemp.size(); index2++) {
-				if (index1 != index2) {
-					VecInt vi1 = vTemp.get(index1);
-					VecInt vi2 = vTemp.get(index2);
-					
-					for (int index3 = 0; index3< vi1.size();index3++) {						
-						for (int index4 = 0; index4 < vi2.size(); index4++) {
-							vi = new VecInt();
-							vi.push(tIndex + special * -1);
-							vi.push(vi1.get(index3));
-							vi.push(vi2.get(index4));
-							vi.push(0);
-							v.add(vi);
-						}
-					}
-					
+		return generateForwardCombinations(index+1, vTemp, special, specmult, normal, normalmult);
+		
+	}
+	
+	protected Vector<VecInt> allButImplicationBackward(int special, int specmult, int normal, int normalmult) {
+		//System.out.println("allButImplicationBackward: " + special + " " + normal);
+		ArrayList<ArrayList<Integer>> vTemp = new ArrayList<ArrayList<Integer>>();
+				
+		Vector<VecInt> v = generateForwardCombinations(0, new Vector<VecInt>(), special, -1 * specmult, normal, -1 * normalmult);
+		
+		for (VecInt vi : v) {
+			//System.out.println(vi.toString());
+			ArrayList<Integer> a = new ArrayList<Integer>();
+			IteratorInt itr = vi.iterator();
+			while (itr.hasNext()) {
+				a.add(new Integer(itr.next()));
+			}
+			vTemp.add(a);
+		}
+		
+		ArrayList<ArrayList<Integer>> comb = generateBackwardCombinations(vTemp, 0, new ArrayList<ArrayList<Integer>>());
+		
+		Vector<VecInt> vComb = new Vector<VecInt>();
+		//System.out.println(comb.size());
+		// adding ~a to all combinations
+		for (int i = 0; i < comb.size(); i++){
+			
+			comb.get(i).add((tIndex + special) * -1);
+			comb.get(i).add(0);
+			VecInt t = new VecInt();
+			for (Integer in : comb.get(i)) {
+				t.push(in.intValue());
+			}
+			//System.out.println(t.toString());
+			vComb.add(t);
+		}
+		
+		return simplify(vComb);
+	}
+	
+	public static ArrayList<ArrayList<Integer>> generateBackwardCombinations(ArrayList<ArrayList<Integer>> subclauses, int index, ArrayList<ArrayList<Integer>> comb){
+
+		// base case, no more subclauses
+		if (index == subclauses.size())
+			return comb;
+
+		// get current subclause
+		ArrayList<Integer> clause = subclauses.get(index);
+
+		ArrayList<ArrayList<Integer>> newComb = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> tmp;
+		if (index > 0){
+			// add all possible combinations to the set of clauses we've already built up
+			for (int i = 0; i < clause.size(); i++){
+				for (int j = 0; j < comb.size(); j++){
+					// get combination j, add literal i from clause to it and store it in the combinations arraylist
+					tmp = new ArrayList<Integer>(comb.get(j));
+					tmp.add(clause.get(i));
+					newComb.add(tmp);
 				}
 			}
 		}
-		
-		return v;
+		else{
+			// need to setup comb
+			for (int i = 0; i < clause.size(); i++){
+				tmp = new ArrayList<Integer>();
+				tmp.add(clause.get(i));
+				newComb.add(tmp);
+			}
+		}
+		// newComb becomes comb, increment index
+		return generateBackwardCombinations(subclauses, index+1, newComb);
 	}
 
+	public boolean containsBackward(VecInt vi) {
+		
+		for (VecInt vi2 : backwardClauses) {
+			//System.out.println(vi.toString());
+			//System.out.println(vi2.toString());
+			if(equalsVecInt(vi, vi2))
+				return true;
+		}
+		return false;
+	}
 	
+	public boolean containsForward(VecInt vi) {
+		for (VecInt vi2 : forwardClauses) {
+			if(equalsVecInt(vi, vi2))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean contains(VecInt vi) {
+		if (containsBackward(vi))
+			return true;
+		if (containsForward(vi))
+			return true;
+		return false;
+	}
 }

@@ -32,4 +32,5 @@ Import-Package: edu.toronto.cs.openome.evaluation.qualitativeinteractivereasonin
  org.eclipse.gmf.runtime.diagram.core,
  org.eclipse.gmf.runtime.diagram.ui.actions.internal,
  org.eclipse.gmf.runtime.diagram.ui.editparts,
- org.eclipse.gmf.runtime.emf.core
+ org.eclipse.gmf.runtime.emf.core,
+ org.sat4j.core

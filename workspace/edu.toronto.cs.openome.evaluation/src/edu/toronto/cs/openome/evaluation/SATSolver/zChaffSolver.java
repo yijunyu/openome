@@ -14,10 +14,14 @@ public class zChaffSolver extends SATSolver{
 	 * @author jenhork
 	 * This is where the reasoning actually occurs; however, it should be overridden by it's childen, as this is a general type of reasoner. 
 	 * It's not clear what the parent reasoner should do.
+	 * 
+	 * 1 cnf is SAT
+	 * 0 cnf is Unsat
+	 * -1 problem with reasoner, wrong file format or some such
 	 */
-	public Vector<Integer> solve(Dimacs cnf) {
+	public int solve(Dimacs cnf) {
 		String path = cnf.writeToFile(homedir + filename);
-		System.out.println(path);
+		//System.out.println(path);
 		
 		try	{
 			System.out.println("Trying to run solver");
@@ -28,8 +32,7 @@ public class zChaffSolver extends SATSolver{
 
 		    String line;
 		    String[] vars;// = new String[cnf.getNumVariables() + 3];
-		    boolean SAT = false;
-
+		  
 		    System.out.println("Solver output:");
 		    BufferedReader input =
 		        new BufferedReader
@@ -41,16 +44,17 @@ public class zChaffSolver extends SATSolver{
 		    		  line = input.readLine();
 		    		  System.out.println(line);
 		    		  vars = line.split(" ");
-		    		  SAT = true;
+		    		  
 		    		  //System.out.println(vars.length);
 		    		// for (String str : vars) {
 		    		//	 System.out.println(str);
 		    		// }
-		    		  return convertToInts(vars, cnf.getNumVariables());
+		    		  results = convertToInts(vars, cnf.getNumVariables());
+		    		  return 1;
 		    	  }
 		    	  if (line.startsWith("Instance Unsatisfiable")) {
-		    		  SAT = false;
-		    		  return null;
+		    		  
+		    		  return 0;
 		    	  }
 		        
 		      }
@@ -72,8 +76,9 @@ public class zChaffSolver extends SATSolver{
 		catch(Exception exc){
 			
 			 /*handle exception*/
-			 }
-		return null;
+			return -1;
+		}
+		return -1;
 		
 	}
 
@@ -85,6 +90,10 @@ public class zChaffSolver extends SATSolver{
 			ints.add(index, Integer.parseInt(vars[index]));
 		}
 		return ints;
+	}
+	
+	public Vector<Integer> getResults() {
+		return results;
 	}
 	
 

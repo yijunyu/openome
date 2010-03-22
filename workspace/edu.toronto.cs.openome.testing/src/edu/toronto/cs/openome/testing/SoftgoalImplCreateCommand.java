@@ -19,6 +19,7 @@ public class SoftgoalImplCreateCommand implements Command {
 	 */
 	private ContainerImpl container;
 	private ModelImpl model;
+	private SoftgoalImpl softgoal;
 	
 	/*
 	 * Name of the actor
@@ -92,18 +93,22 @@ public class SoftgoalImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		SoftgoalImpl goal = (SoftgoalImpl) factory.createSoftgoal();
-		goal.setName(intentionName);
-		
+		softgoal = (SoftgoalImpl) factory.createSoftgoal();
+		softgoal.setName(intentionName);
+				
 		if(container != null){
-			goal.setContainer(container);
-			container.getIntentions().add(goal);
+			softgoal.setContainer(container);
+			container.getIntentions().add(softgoal);
 		} else if (model != null){
-			goal.setModel(model);
-			model.getIntentions().add(goal);
+			softgoal.setModel(model);
+			model.getIntentions().add(softgoal);
 		}
 	}
 
+	public SoftgoalImpl getSoftgoalImpl() {
+		return softgoal;
+	}
+	
 	@Override
 	public Collection<?> getAffectedObjects() {
 		// TODO Auto-generated method stub

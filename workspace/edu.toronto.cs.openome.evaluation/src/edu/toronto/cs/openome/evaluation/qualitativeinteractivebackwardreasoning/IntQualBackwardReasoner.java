@@ -10,6 +10,7 @@ import edu.toronto.cs.openome.evaluation.SATSolver.ModeltoAxiomsConverter;
 import edu.toronto.cs.openome.evaluation.SATSolver.zChaffSolver;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
+import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
@@ -45,26 +46,40 @@ public class IntQualBackwardReasoner extends Reasoner {
 		Dimacs cnf = new Dimacs();
 		
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter(model);
-		
-		//cnf = converter.convertBothDirections();
+				
+		cnf = converter.convertBothDirections();
 		//cnf = converter.convertForward();
-		cnf = converter.convertBackward();
+		//cnf = converter.convertBackward();
 		
-		Vector<Integer> intResults = solver.solve(cnf);
+		System.out.println("Done conversion");
 		
-		HashMap<Intention, int[]> results = converter.convertResults(intResults);
+		int result = solver.solve(cnf);		
 		
-		System.out.println("Results HashMap");
-		for (Intention intention : results.keySet()) {
-			System.out.println(intention.getName());
-			int [] ints = results.get(intention);
-			for (int i : ints) {
-				System.out.print(i + " ");
-			}
-			System.out.println("");
+		Vector<Integer> intResults = solver.getResults();
+		
+		if (result >= 0) {
+		
+			HashMap<Intention, int[]> results = converter.convertResults(intResults);
+		
+			System.out.println("Results HashMap");
+			//System.out.println(intResults.size());
+			for (Intention intention : results.keySet()) {
+				System.out.println(intention.getName());
+				int [] ints = results.get(intention);
+				for (int i : ints) {
+					System.out.print(i + " ");
+				}
+				System.out.println("");
 			
+			}
+			
+			displayResults(results);			
+		}
+		else {
+			System.out.println("zChaff failed");
 		}
 		
+	
 		//cnf = converter.convertForward();
 		
 		//solver.solve(cnf);
@@ -73,6 +88,40 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		//solver.solve(cnf);
 		
+	}
+	
+	private void displayResults(HashMap<Intention, int[]> results) {
+		for (Intention intention : results.keySet()) {
+			System.out.println(intention.getName());
+			int [] ints = results.get(intention);
+			
+			if (ints[0] > 0 & (ints[2] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.SATISFIED);
+			}
+			
+			else if (ints[1] > 0 & (ints[0] < 0 & ints[2] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_SATISFIED);
+			}
+			
+			else if (ints[2] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.UNKNOWN);
+			}
+			
+			else if (ints[3] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[4] < 0 & ints[5] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
+			}
+			
+			else if (ints[4] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0 & ints[5] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_DENIED);
+			}
+			
+			else if (ints[5] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0 & ints[4] < 0)) {
+				setQualCombinedLabel(intention, EvaluationLabel.DENIED);
+			}
+			else {
+				setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
+			}
+		}
 	}
 	
 	public SoftgoalWrappers getSoftgoalWrappers(){

@@ -19,6 +19,7 @@ public class TaskImplCreateCommand implements Command {
 	 */
 	private ContainerImpl container;
 	private ModelImpl model;
+	private TaskImpl task;
 	
 	/*
 	 * Name of the actor
@@ -92,7 +93,7 @@ public class TaskImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		TaskImpl task = (TaskImpl) factory.createTask();
+		task = (TaskImpl) factory.createTask();
 		task.setName(intentionName);
 		
 		if(container != null){
@@ -102,6 +103,10 @@ public class TaskImplCreateCommand implements Command {
 			task.setModel(model);
 			model.getIntentions().add(task);
 		}
+	}
+	
+	public TaskImpl getTaskImpl() {
+		return task;
 	}
 
 	@Override

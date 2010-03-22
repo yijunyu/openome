@@ -40,7 +40,7 @@ public class DependencyLinkAxioms extends LinkAxioms {
 	
 	
 	public void createForwardClauses() {
-		System.out.println("Creating Forward Clauses for Dependency");
+		//System.out.println("Creating Forward Clauses for Dependency");
 		findIndexes();
 		
 		//System.out.println(tIndex + " " + sourceIndexes.toString());
@@ -71,7 +71,7 @@ public class DependencyLinkAxioms extends LinkAxioms {
 	}
 	
 	public void createBackwardClauses() {
-		System.out.println("Creating Backward Clauses for Dependency");		
+		//System.out.println("Creating Backward Clauses for Dependency");		
 		findIndexes();
 		
 		int sIndex = sourceIndexes.last();

@@ -5,14 +5,22 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import edu.toronto.cs.openome_model.AndDecomposition;
+import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
+import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HelpContribution;
+import edu.toronto.cs.openome_model.HurtContribution;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
+import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.OrDecomposition;
+import edu.toronto.cs.openome_model.SomeMinusContribution;
+import edu.toronto.cs.openome_model.SomePlusContribution;
+import edu.toronto.cs.openome_model.UnknownContribution;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 import edu.toronto.cs.openome_model.Intention;
 
@@ -20,7 +28,7 @@ public class ModeltoAxiomsConverter {
 	ModelImpl model;
 	Dimacs cnf;
 	Vector<Link> done;
-	LinkAxiomsFactory linkAxiomsFactory;
+	AxiomsFactory axiomsFactory;
 	DualHashMap<Integer, Intention> intentionIndex;
 	
 	public ModeltoAxiomsConverter(ModelImpl m) {
@@ -29,13 +37,14 @@ public class ModeltoAxiomsConverter {
 		createIntentionIndex();
 		cnf = new Dimacs();
 		done = new Vector<Link>();
-		linkAxiomsFactory = new LinkAxiomsFactory();
+		axiomsFactory = new AxiomsFactory();
 	}
 	
 	private void createIntentionIndex() {
 		int sixCount = 1;
-		
-		for (Intention i : model.getIntentions()) {
+		//System.out.println("creating intentionIndex");
+		for (Intention i : model.getAllIntentions()) {
+			//System.out.println("put: " + sixCount + ", " + i.getName());
 			intentionIndex.put(new Integer(sixCount), i);
 			sixCount += 6;
 		}
@@ -46,12 +55,19 @@ public class ModeltoAxiomsConverter {
 		done = new Vector<Link>();
 		cnf = new Dimacs();
 	}
+	
+	public DualHashMap<Integer, Intention> getIntentionIndex() {
+		return intentionIndex;
+	}
 
 	public Dimacs convertBothDirections()  {
 		reset();
 		convertContributions(1);
 		convertDependencies(1);
 		convertDecompositions(1);
+		createTargets();
+		createInvariants();
+		createConstraints();
 		
 		return cnf;
 	}
@@ -61,6 +77,9 @@ public class ModeltoAxiomsConverter {
 		convertContributions(2);
 		convertDependencies(2);
 		convertDecompositions(2);
+		createTargets();
+		createInvariants();
+		createConstraints();
 		
 		return cnf;
 	}
@@ -70,6 +89,10 @@ public class ModeltoAxiomsConverter {
 		convertContributions(3);
 		convertDependencies(3);
 		convertDecompositions(3);
+		createTargets();
+		createInvariants();
+		createConstraints();
+		
 		return cnf;
 	}
 
@@ -77,20 +100,25 @@ public class ModeltoAxiomsConverter {
 		for (Decomposition dec : model.getDecompositions()) {
 			if (!done.contains(dec)) {
 				Intention target = dec.getTarget();
+				System.out.println("decomposition target: " + target.getName());
 				
 				Vector<Link> links = new Vector<Link>();
 				Vector<Intention> sources = new Vector<Intention>();
 				for (Decomposition sibling: target.getDecompositionsTo()){
-					System.out.println("done " + sibling.toString());
+					//System.out.println("done " + sibling.toString());
 					done.add(sibling);
 					links.add(sibling);
 					sources.add(sibling.getSource());
+					System.out.println("decomposition source: " + sibling.getSource().getName());
 				}
 				LinkAxioms la = null;
 				if (dec instanceof AndDecomposition)
-					la = linkAxiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex);
-				if (dec instanceof OrDecomposition)
-					la = linkAxiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex);
+					la = axiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex);
+				if (dec instanceof OrDecomposition) {
+					//System.out.println("Ordecomp");
+					la = axiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex);
+				}
+					
 				
 				if (la != null) {
 					switch (dir) {
@@ -101,24 +129,18 @@ public class ModeltoAxiomsConverter {
 					}	
 				}
 				
-				cnf.addLinkAxioms(la);
+				cnf.addAxioms(la);
 				
 			}			
-			else {System.out.println("already done " + dec.toString());}
+			else { 
+				//System.out.println("already done " + dec.toString());
+				}
+			
+			//System.out.println("done " + dec.toString());
+			done.add(dec);
 						
-		}
-		
-	}
-
-	private void convertMeansEnds(int dir) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void convertAndDecomposition(int dir) {
-		// TODO Auto-generated method stub
-		
-	}
+		}		
+	}	
 
 	private void convertDependencies(int dir) {
 		for (Dependency dep : model.getDependencies()) {
@@ -128,7 +150,7 @@ public class ModeltoAxiomsConverter {
 				Intention targetInt = null;	
 				
 				//this is the source in forward evaluation, the dependee
-				Dependable source = dep.getDependencyTo();
+				Dependable source = dep.getDependencyFrom();
 					
 				//if it's not an actor
 				if (!(source instanceof Container))  {
@@ -138,7 +160,7 @@ public class ModeltoAxiomsConverter {
 				}
 				
 				//this is the target in forward evaluation, the depender
-				Dependable target = dep.getDependencyFrom();
+				Dependable target = dep.getDependencyTo();
 				
 				//if it's not an actor
 				if (!(target instanceof Container))  {
@@ -152,8 +174,8 @@ public class ModeltoAxiomsConverter {
 					link.add(dep);
 					Vector<Intention> sources = new Vector<Intention>();
 					sources.add(sourceInt);
-					intentionIndex.print();
-					LinkAxioms la = linkAxiomsFactory.createLinkAxiom(sources, targetInt, link, "Dependency", intentionIndex);
+					//intentionIndex.print();
+					LinkAxioms la = axiomsFactory.createLinkAxiom(sources, targetInt, link, "Dependency", intentionIndex);
 					
 					switch (dir) {
 						case 1: la.createAllClauses(); break;
@@ -162,26 +184,119 @@ public class ModeltoAxiomsConverter {
 						default: la.createAllClauses();  break;
 					}
 					//la.createAllClauses();
-					cnf.addLinkAxioms(la);
+					cnf.addAxioms(la);
 				}
 			}
-			else {System.out.println("already done " + dep.toString());}
+			else {
+				//System.out.println("already done " + dep.toString());
+				}
 			
-			System.out.println("done " + dep.toString());
-			done.add(dep);
+			//System.out.println("done " + dep.toString());
+			done.add(dep);						
+		}		
+	}	
+
+	private void convertContributions(int dir) {
+		//if (c instanceof UnknownContribution)		
+		
+		for (Contribution cont : model.getContributions()) {
+			if (!done.contains(cont)) {
+							
+				//this is the source in forward evaluation
+				Intention source = cont.getSource();					
+				
+				System.out.println("contribuion from " + source.getName());
+								
+				//this is the target in forward evaluation
+				Intention target = cont.getTarget();
+				
+				//if it's not an actor
+				System.out.println("contribuion to " + target.getName());
+								
+				//it's a dependency from an intention to an intention
+				Vector<Link> link = new Vector<Link>();
+				link.add(cont);
+				Vector<Intention> sources = new Vector<Intention>();
+				sources.add(source);
+				//intentionIndex.print();
+				
+				LinkAxioms la = null;
+				if (cont instanceof MakeContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Make", intentionIndex);
+				if (cont instanceof HelpContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Help", intentionIndex);
+				if (cont instanceof SomePlusContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Help", intentionIndex);
+				if (cont instanceof UnknownContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Unknown", intentionIndex);
+				if (cont instanceof SomeMinusContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Hurt", intentionIndex);
+				if (cont instanceof HurtContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Hurt", intentionIndex);
+				if (cont instanceof BreakContribution)
+					la = axiomsFactory.createLinkAxiom(sources, target, link, "Break", intentionIndex);
+					
+				switch (dir) {
+					case 1: la.createAllClauses(); break;
+					case 2: la.createForwardClauses(); break;
+					case 3: la.createBackwardClauses(); break;
+					default: la.createAllClauses();  break;
+				}
+				//la.createAllClauses();
+				cnf.addAxioms(la);
+				
+			}
+			else {
+				//System.out.println("already done " + cont.toString());
+				}
+			
+			//System.out.println("done " + cont.toString());
+			done.add(cont);
 						
 		}
 		
 	}
 	
-	
+	private void createConstraints() {
+		for (Intention intention : model.getAllIntentions()) {
+			if (intention.isLeaf()) {
+				Vector<Intention> sources = new Vector<Intention>();
+				sources.add(intention);
+				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Constraint", intentionIndex);
+			
+				ia.createAllClauses(); 
+						
+				cnf.addAxioms(ia);	
+			}
+		}
+		
+	}
 
-	private void convertContributions(int dir) {
-		for (Contribution cont : model.getContributions()) {
+	private void createInvariants() {
+		
+		for (Intention intention : model.getAllIntentions()) {
+			Vector<Intention> sources = new Vector<Intention>();
+			sources.add(intention);
+			IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Invariant", intentionIndex);
 			
+			ia.createAllClauses(); 
+						
+			cnf.addAxioms(ia);			
+		}
+					
+	}
+
+	private void createTargets() {
+		for (Intention intention : model.getAllIntentions()) {
+			if (intention.getQualitativeReasoningCombinedLabel() != EvaluationLabel.NONE) {
+				Vector<Intention> sources = new Vector<Intention>();
+				sources.add(intention);
+				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Target", intentionIndex);
 			
-//			if (c instanceof UnknownContribution)
-			
+				ia.createAllClauses(); 
+						
+				cnf.addAxioms(ia);		
+			}
 		}
 		
 	}

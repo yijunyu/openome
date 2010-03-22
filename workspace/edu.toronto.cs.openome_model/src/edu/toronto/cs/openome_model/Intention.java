@@ -538,4 +538,9 @@ public interface Intention extends Dependable {
 	 */
 	EList<Decomposition> getAllDecompositions();
 
+	/**
+	 * @generated NOT
+	 */
+	boolean isLeaf();
+
 } // Intention

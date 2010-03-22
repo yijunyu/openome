@@ -19,6 +19,7 @@ public class ResourceImplCreateCommand implements Command {
 	 */
 	private ContainerImpl container;
 	private ModelImpl model;
+	private ResourceImpl resource;
 	
 	/*
 	 * Name of the actor
@@ -92,7 +93,7 @@ public class ResourceImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		ResourceImpl resource = (ResourceImpl) factory.createResource();
+		resource = (ResourceImpl) factory.createResource();
 		resource.setName(intentionName);
 		
 		if(container != null){
@@ -102,6 +103,10 @@ public class ResourceImplCreateCommand implements Command {
 			resource.setModel(model);
 			model.getIntentions().add(resource);
 		}
+	}
+	
+	public ResourceImpl getResourceImpl() {
+		return resource;
 	}
 
 	@Override

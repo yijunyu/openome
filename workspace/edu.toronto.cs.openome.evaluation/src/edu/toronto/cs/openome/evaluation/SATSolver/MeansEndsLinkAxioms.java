@@ -2,6 +2,8 @@ package edu.toronto.cs.openome.evaluation.SATSolver;
 
 import java.util.Vector;
 
+import org.sat4j.core.VecInt;
+
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
 
@@ -10,55 +12,71 @@ public class MeansEndsLinkAxioms extends LinkAxioms {
 	public MeansEndsLinkAxioms(Vector<Intention> sources, Intention targ,
 			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
 		super(sources, targ, l, dhm);
-		// TODO Auto-generated constructor stub
+		//System.out.println("creating new MeansEndsLinkAxioms");
 	}
 	
 	public void createForwardClauses() {
-		System.out.println("Creating Forward Clauses for Dependency");
-		Integer intTIndex = (Integer) intentionMap.getInverse(target);
-		int tIndex = intTIndex.intValue();
-		
-		Integer intSIndex = (Integer) intentionMap.getInverse(sourceInts.lastElement());
-		int sIndex = intSIndex.intValue();
+		//System.out.println("Creating Forward Clauses for Means-Ends");
+		findIndexes();
 		
 		//Forward:
-		//S(b) -> S(a)
-		//!S(b) or S(a)
-		//PS(b) -> PS(a)
-		//!PS(b) or PS(a)
-		//U(b) -> U(a)	 
-		//!U(b) or U(a)
-		//C(b) -> C(a)
-		//!C(b) or C(a)
-		//PD(b) -> PD(a)	
-		//!PD(b) or PD(a)
-		//D(b) -> D(a)
-		//!D(b) or D(a)
-		//for (int i = 0; i < 6; i++) {
-		//	forwardClauses.add(addImplication(sIndex + i, tIndex + i));
-		//}
+		//(For all i  or S(ei)) -> S(e)
+		forwardClauses.addAll(addOrImplication(sourceIndexes, tIndex));
 		
+		//(For all i or PS(ei)) -> PS(e)
+		VecInt sourceIndexes2 = incrementAll(sourceIndexes, 1);
+		forwardClauses.addAll(addOrImplication(sourceIndexes2, tIndex + 1));
+		
+		//((for all i or U(ei)) and (for all k not i not PS(ek)) -> U(e)
+		//int [] ar = {1};
+		forwardClauses.addAll(allButImplicationForward(2, 1, 1, -1));
+		
+		//((for all i or C(ei)) and (for all k not i  PD(ek)) -> C(e)
+		//int [] ar2 = {4};
+		forwardClauses.addAll(allButImplicationForward(3, 1, 4, 1));
+		
+		//(for all i or PD(ei) -> PD(e)
+		VecInt sourceIndexes3 = incrementAll(sourceIndexes, 4);
+		forwardClauses.addAll(addAndImplication(sourceIndexes3, tIndex + 4));
+		
+		//(for all i or D(ei) -> D(e)
+		//it = sourceIndexes.iterator();
+		//while (it.hasNext()) {
+		VecInt sourceIndexes4 = incrementAll(sourceIndexes, 5);
+		forwardClauses.addAll(addAndImplication(sourceIndexes4, tIndex + 5));
+		//}
 	}
 	
+	
+	
 	public void createBackwardClauses() {
-		System.out.println("Creating Backward Clauses for Dependency");
-		Integer intTIndex = (Integer) intentionMap.getInverse(target);
-		int tIndex = intTIndex.intValue();
+		//System.out.println("Creating Backward Clauses for Means-Ends");
+		findIndexes();
 		
-		Integer intSIndex = (Integer) intentionMap.getInverse(sourceInts.lastElement());
-		int sIndex = intSIndex.intValue();
+		//Backward:
+		//S(e) -> (For all i  and S(ei))
+		backwardClauses.addAll(addOrImplication(tIndex, sourceIndexes));
 		
-		/*Backward
-		* S(a) -> S(b)
-		* PS(a) -> PS(b)
-		* U(a) -> U(b)	 
-		* C(a) -> C(b)
-		* PD(a) -> PD(b)	 
-		* D(a) -> D(b)
-		*/
-		//for (int i = 0; i < 6; i++) {
-		//	backwardClauses.add(addImplication(tIndex + i, sIndex + i));
-		//}
+		//(For all i and PS(ei)) -> PS(e)
+		VecInt sourceIndexes2 = incrementAll(sourceIndexes, 1);
+		backwardClauses.addAll(addOrImplication(tIndex + 1, sourceIndexes2));
+		
+		//U(e) -> ((for all i or U(ei)) and (for all k not i not PS(ek))
+		//int [] ar = {3,4};
+		backwardClauses.addAll(allButImplicationBackward(2, 1, 1, -1));
+
+		//((for all i or C(ei)) and (for all k not i  PD(ek)) -> C(e)
+		//t [] ar2 = {4};
+		backwardClauses.addAll(allButImplicationBackward(3, 1, 4, 1));
+		
+		//(for all i or PD(ei) -> PD(e)
+		VecInt sourceIndexes3 = incrementAll(sourceIndexes, 4);
+		backwardClauses.addAll(addAndImplication(tIndex + 4, sourceIndexes3));
+				
+		//(for all i or D(ei) -> D(e)
+		VecInt sourceIndexes4 = incrementAll(sourceIndexes, 5);
+		backwardClauses.addAll(addAndImplication(tIndex + 5, sourceIndexes4));
+		
 	}
 
 }

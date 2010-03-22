@@ -5,25 +5,27 @@ import java.util.Collection;
 import org.eclipse.emf.common.command.Command;
 
 import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ActorImpl;
 import edu.toronto.cs.openome_model.impl.ContainerImpl;
+import edu.toronto.cs.openome_model.impl.DependencyImpl;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
+import edu.toronto.cs.openome_model.impl.MakeContributionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.openome_modelFactoryImpl;
 
-public class GoalImplCreateCommand implements Command {
+public class MakeImplCreateCommand implements Command {
 	
 	/*
 	 * The model we are going to be creating an actor in
 	 */
 	private ContainerImpl container;
 	private ModelImpl model;
-	private GoalImpl goal;
+	private Intention source;
+	private Intention target;
 	
-	/*
-	 * Name of the actor
-	 */
-	private String intentionName = "";
 	
 	/*
 	 * A factory that can create any class Impl
@@ -34,7 +36,7 @@ public class GoalImplCreateCommand implements Command {
 	 * Command to add an actor inside a model
 	 * @param model
 	 */
-	public GoalImplCreateCommand(ModelImpl m){
+	public MakeImplCreateCommand(ModelImpl m){
 		model = m;
 	}
 	
@@ -42,26 +44,27 @@ public class GoalImplCreateCommand implements Command {
 	 * Command to add an actor inside a container
 	 * @param c - the container
 	 */
-	public GoalImplCreateCommand(ContainerImpl c){
+	public MakeImplCreateCommand(ContainerImpl c){
 		container = c;
 	}
-	
+		
 	/**
-	 * Command to add an actor inside a model
+	 * Command to add an actor inside a container
 	 * @param model
 	 */
-	public GoalImplCreateCommand(ModelImpl m, String name){
+	public MakeImplCreateCommand(ModelImpl m, IntentionImpl s, IntentionImpl t){
 		model = m;
-		intentionName = name;
+		source = s;
+		target = t;
 	}
 	
 	/**
 	 * Command to add an actor inside a container
 	 * @param model
 	 */
-	public GoalImplCreateCommand(ContainerImpl c, String name){
+	public MakeImplCreateCommand(IntentionImpl source, IntentionImpl target, ContainerImpl c){
 		container = c;
-		intentionName = name;
+		
 	}
 
 
@@ -92,20 +95,14 @@ public class GoalImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		goal = (GoalImpl) factory.createGoal();
-		goal.setName(intentionName);
+		MakeContributionImpl cont = (MakeContributionImpl) factory.createMakeContribution();
+		cont.setSource(source);
+		cont.setTarget(target);
 				
-		if(container != null){
-			goal.setContainer(container);
-			container.getIntentions().add(goal);
-		} else if (model != null){
-			goal.setModel(model);
-			model.getIntentions().add(goal);
+		if (model != null){
+			cont.setModel(model);
+			model.getContributions().add(cont);
 		}
-	}
-	
-	public GoalImpl getGoalImpl() {
-		return goal;
 	}
 
 	@Override

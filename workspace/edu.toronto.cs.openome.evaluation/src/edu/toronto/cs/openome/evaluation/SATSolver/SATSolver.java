@@ -24,6 +24,7 @@ public abstract class SATSolver {
 	Dimacs cnf;
 	static String homedir = "Solvers\\";
 	static String filename = "dimacs.cnf";
+	protected Vector<Integer> results;
 		//"C:\\zChaffWorkspace\\zChaff\\";
 	
 	/**
@@ -31,7 +32,7 @@ public abstract class SATSolver {
 	 * Default constructor, does nothing
 	 */
 	public SATSolver() {
-		
+		results = null;		
 	}
 				
 	/**
@@ -39,9 +40,9 @@ public abstract class SATSolver {
 	 * This is where the reasoning actually occurs; however, it should be overridden by it's childen, as this is a general type of reasoner. 
 	 * It's not clear what the parent reasoner should do.
 	 */
-	public Vector<Integer> solve(Dimacs c) {
+	public int solve(Dimacs c) {
 		//This one does nothing, should be overridden
-		return null;
+		return -1;
 	}
 	
 		

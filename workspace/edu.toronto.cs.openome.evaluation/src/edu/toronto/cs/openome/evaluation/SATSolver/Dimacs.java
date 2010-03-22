@@ -9,19 +9,47 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.eclipse.core.runtime.Path;
+import org.sat4j.core.VecInt;
 
 import edu.toronto.cs.openome_model.Intention;
 
 public class Dimacs {
-	private Vector<LinkAxioms> linkAxioms;
+	private Vector<Axioms> axioms;
 		
 	public Dimacs( ) {
-		linkAxioms = new Vector<LinkAxioms>();
+		axioms = new Vector<Axioms>();
 	}
 	
-	public boolean addLinkAxioms(LinkAxioms la) {
-		System.out.println("adding link axioms");
-		return linkAxioms.add(la);
+	public boolean addAxioms(Axioms la) {
+		//System.out.println("adding link axioms");
+		if (la != null)
+			return axioms.add(la);
+		else
+			return false;
+	}
+	
+	public boolean containsBackward(VecInt vi) {	
+		 for (Axioms la : axioms) {
+			 if (la.containsBackward(vi))
+				return true;		
+		 }
+		 return false;
+	}
+	
+	public boolean containsForward(VecInt vi) {	
+		 for (Axioms la : axioms) {
+			 if (la.containsForward(vi))
+				 return true;
+		 }
+		 return false;
+	}
+	
+	public boolean contains(VecInt vi) {	
+		 for (Axioms la : axioms) {
+			 if (la.contains(vi))
+				 return true;
+		 }
+		 return false;
 	}
 	
 	public String writeToFile(String path) {
@@ -33,13 +61,13 @@ public class Dimacs {
 	    
 	    out.write("p cnf " + getNumVariables() + " " + getNumClauses() + "\n");
 	    
-	    for (LinkAxioms la : linkAxioms) {
-	    	for (String str : la.getForwardClauses())  {
+	    for (Axioms la : axioms) {
+	    	for (String str : la.getClauses())  {
 	    		out.write(str + "\n");
 	    	}
-	    	for (String str : la.getBackwardClauses())  {
-	    		out.write(str + "\n");
-	    	}
+	    	//for (String str : la.getBackwardClauses())  {
+	    	//	out.write(str + "\n");
+	    	//}
 	    }
 	    
 	    
@@ -52,16 +80,20 @@ public class Dimacs {
 	    return path;
 	}
 
-	private int getNumClauses() {
+	public int getNumClauses() {
 		int numClauses = 0;
-		 for (LinkAxioms la : linkAxioms) {
+		 for (Axioms la : axioms) {
 			 numClauses += la.getNumClauses();
+			 //System.out.println("numClauses: " + numClauses);
 		 }
 		return numClauses;
 	}
 
 	public int getNumVariables() {
-		return linkAxioms.get(0).getNumVars();
+		if (axioms.size() > 0) {
+			return axioms.get(0).getNumVars();
+		}
+		else return 0;
 	}
 
 	
