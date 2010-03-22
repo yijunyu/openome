@@ -8,6 +8,7 @@ package edu.toronto.cs.openome_model.impl;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Decomposition;
+import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
@@ -516,6 +517,27 @@ public class IntentionImpl extends DependableImpl implements Intention {
 			property = new EObjectContainmentEList<Property>(Property.class, this, openome_modelPackage.INTENTION__PROPERTY);
 		}
 		return property;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * 
+	 * 
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isLeaf() {
+		EList<Dependency> depFrom = getDependencyFrom();
+		if (depFrom.size() > 0) 
+			return false;
+		EList<Decomposition> decFrom = getDecompositionsTo();
+		if (decFrom.size() > 0) 
+			return false;
+		EList<Contribution> contFrom = getContributesFrom();
+		if (contFrom.size() > 0) 
+			return false;
+		
+		return true;
 	}
 
 	/**
@@ -1159,5 +1181,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		result.append(')');
 		return result.toString();
 	}
+
+	
 
 } //IntentionImpl
