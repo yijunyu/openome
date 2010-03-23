@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Agent;
+import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.AndContribution;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Association;
@@ -48,9 +49,11 @@ import edu.toronto.cs.openome_model.UnknownContribution;
 import edu.toronto.cs.openome_model.openome_modelFactory;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -334,6 +337,20 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass alternativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intentionToEvaluationLabelMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum evaluationLabelEEnum = null;
 
 	/**
@@ -377,20 +394,10 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this
-	 * model, and for any others upon which it depends.  Simple
-	 * dependencies are satisfied by calling this method on all
-	 * dependent packages before doing anything else.  This method drives
-	 * initialization for interdependent packages directly, in parallel
-	 * with this package, itself.
-	 * <p>Of this package and its interdependencies, all packages which
-	 * have not yet been registered by their URI values are first created
-	 * and registered.  The packages are then initialized in two steps:
-	 * meta-model objects for all of the packages are created before any
-	 * are initialized, since one package's meta-model objects may refer to
-	 * those of another.
-	 * <p>Invocation of this method will not affect any packages that have
-	 * already been initialized.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link openome_modelPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
@@ -402,7 +409,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		if (isInited) return (openome_modelPackage)EPackage.Registry.INSTANCE.getEPackage(openome_modelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		openome_modelPackageImpl theopenome_modelPackage = (openome_modelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof openome_modelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new openome_modelPackageImpl());
+		openome_modelPackageImpl theopenome_modelPackage = (openome_modelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof openome_modelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new openome_modelPackageImpl());
 
 		isInited = true;
 
@@ -415,6 +422,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		// Mark meta-data to indicate it can't be changed
 		theopenome_modelPackage.freeze();
 
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(openome_modelPackage.eNS_URI, theopenome_modelPackage);
 		return theopenome_modelPackage;
 	}
 
@@ -902,6 +912,15 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 */
 	public EReference getModel_Associations() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModel_Alternatives() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1440,6 +1459,78 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAlternative() {
+		return alternativeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAlternative_Name() {
+		return (EAttribute)alternativeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAlternative_Description() {
+		return (EAttribute)alternativeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAlternative_Intentions() {
+		return (EReference)alternativeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAlternative_EvalLabels() {
+		return (EAttribute)alternativeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntentionToEvaluationLabelMap() {
+		return intentionToEvaluationLabelMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntentionToEvaluationLabelMap_Key() {
+		return (EReference)intentionToEvaluationLabelMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntentionToEvaluationLabelMap_Value() {
+		return (EAttribute)intentionToEvaluationLabelMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1552,6 +1643,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(modelEClass, MODEL__CONTAINERS);
 		createEReference(modelEClass, MODEL__CORRELATIONS);
 		createEReference(modelEClass, MODEL__ASSOCIATIONS);
+		createEReference(modelEClass, MODEL__ALTERNATIVES);
 
 		orDecompositionEClass = createEClass(OR_DECOMPOSITION);
 
@@ -1639,6 +1731,16 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		insAssociationEClass = createEClass(INS_ASSOCIATION);
 		createEAttribute(insAssociationEClass, INS_ASSOCIATION__LABEL);
+
+		alternativeEClass = createEClass(ALTERNATIVE);
+		createEAttribute(alternativeEClass, ALTERNATIVE__NAME);
+		createEAttribute(alternativeEClass, ALTERNATIVE__DESCRIPTION);
+		createEReference(alternativeEClass, ALTERNATIVE__INTENTIONS);
+		createEAttribute(alternativeEClass, ALTERNATIVE__EVAL_LABELS);
+
+		intentionToEvaluationLabelMapEClass = createEClass(INTENTION_TO_EVALUATION_LABEL_MAP);
+		createEReference(intentionToEvaluationLabelMapEClass, INTENTION_TO_EVALUATION_LABEL_MAP__KEY);
+		createEAttribute(intentionToEvaluationLabelMapEClass, INTENTION_TO_EVALUATION_LABEL_MAP__VALUE);
 
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
@@ -1771,6 +1873,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getModel_Containers(), this.getContainer(), this.getContainer_Model(), "containers", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Correlations(), this.getCorrelation(), null, "correlations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Associations(), this.getAssociation(), null, "associations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Alternatives(), this.getAlternative(), null, "alternatives", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orDecompositionEClass, OrDecomposition.class, "OrDecomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1790,13 +1893,13 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(containerEClass, Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_AssociationTo(), this.getAssociation(), null, "associationTo", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_AssociationFrom(), this.getAssociation(), null, "associationFrom", null, 0, -1, Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(containerEClass, edu.toronto.cs.openome_model.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, edu.toronto.cs.openome_model.Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_AssociationTo(), this.getAssociation(), null, "associationTo", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_AssociationFrom(), this.getAssociation(), null, "associationFrom", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beliefEClass, Belief.class, "Belief", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1858,6 +1961,16 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(insAssociationEClass, INSAssociation.class, "INSAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getINSAssociation_Label(), ecorePackage.getEString(), "label", "INS", 0, 1, INSAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(alternativeEClass, Alternative.class, "Alternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAlternative_Name(), ecorePackage.getEString(), "name", " ", 0, 1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAlternative_Description(), ecorePackage.getEString(), "description", " ", 0, 1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAlternative_Intentions(), this.getIntention(), null, "intentions", null, 0, -1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAlternative_EvalLabels(), this.getEvaluationLabel(), "evalLabels", null, 0, -1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(intentionToEvaluationLabelMapEClass, Map.Entry.class, "IntentionToEvaluationLabelMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIntentionToEvaluationLabelMap_Key(), this.getIntention(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntentionToEvaluationLabelMap_Value(), this.getEvaluationLabel(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

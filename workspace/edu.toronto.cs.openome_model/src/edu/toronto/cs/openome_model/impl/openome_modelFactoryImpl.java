@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.*;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -101,6 +102,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.OCCUPIES_ASSOCIATION: return createOccupiesAssociation();
 			case openome_modelPackage.PLAYS_ASSOCIATION: return createPlaysAssociation();
 			case openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
+			case openome_modelPackage.ALTERNATIVE: return createAlternative();
+			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: return (EObject)createIntentionToEvaluationLabelMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -482,6 +485,26 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public INSAssociation createINSAssociation() {
 		INSAssociationImpl insAssociation = new INSAssociationImpl();
 		return insAssociation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alternative createAlternative() {
+		AlternativeImpl alternative = new AlternativeImpl();
+		return alternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<Intention, EvaluationLabel> createIntentionToEvaluationLabelMap() {
+		IntentionToEvaluationLabelMapImpl intentionToEvaluationLabelMap = new IntentionToEvaluationLabelMapImpl();
+		return intentionToEvaluationLabelMap;
 	}
 
 	/**

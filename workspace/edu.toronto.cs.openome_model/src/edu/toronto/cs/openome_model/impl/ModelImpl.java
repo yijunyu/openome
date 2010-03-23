@@ -5,6 +5,7 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
+import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
@@ -51,6 +52,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getCorrelations <em>Correlations</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getAssociations <em>Associations</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ModelImpl#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  * </p>
  *
@@ -153,6 +155,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Association> associations;
+
+	/**
+	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlternatives()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Alternative> alternatives;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -312,6 +324,18 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Alternative> getAlternatives() {
+		if (alternatives == null) {
+			alternatives = new EObjectContainmentEList<Alternative>(Alternative.class, this, openome_modelPackage.MODEL__ALTERNATIVES);
+		}
+		return alternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -350,6 +374,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return ((InternalEList<?>)getContainers()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.MODEL__ASSOCIATIONS:
 				return ((InternalEList<?>)getAssociations()).basicRemove(otherEnd, msgs);
+			case openome_modelPackage.MODEL__ALTERNATIVES:
+				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -378,6 +404,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return getCorrelations();
 			case openome_modelPackage.MODEL__ASSOCIATIONS:
 				return getAssociations();
+			case openome_modelPackage.MODEL__ALTERNATIVES:
+				return getAlternatives();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -422,6 +450,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 				getAssociations().clear();
 				getAssociations().addAll((Collection<? extends Association>)newValue);
 				return;
+			case openome_modelPackage.MODEL__ALTERNATIVES:
+				getAlternatives().clear();
+				getAlternatives().addAll((Collection<? extends Alternative>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -458,6 +490,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 			case openome_modelPackage.MODEL__ASSOCIATIONS:
 				getAssociations().clear();
 				return;
+			case openome_modelPackage.MODEL__ALTERNATIVES:
+				getAlternatives().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -486,6 +521,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return correlations != null && !correlations.isEmpty();
 			case openome_modelPackage.MODEL__ASSOCIATIONS:
 				return associations != null && !associations.isEmpty();
+			case openome_modelPackage.MODEL__ALTERNATIVES:
+				return alternatives != null && !alternatives.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
