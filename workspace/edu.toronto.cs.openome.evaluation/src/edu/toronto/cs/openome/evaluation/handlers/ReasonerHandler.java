@@ -118,13 +118,7 @@ public class ReasonerHandler implements IHandler {
 			IEditorPart iep= iwp.getActiveEditor(); //
 			
 			mDE = (Openome_modelDiagramEditor) iep; //
-			
-			
-	
-			
-			
-			
-			
+
 					}
 		catch (Exception e) {
 			System.out.println("Exception getting modelEditor");
