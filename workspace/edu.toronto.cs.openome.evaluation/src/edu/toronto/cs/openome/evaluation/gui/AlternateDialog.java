@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.gui;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.StatusDialog;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
@@ -13,21 +14,21 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import edu.toronto.cs.openome.evaluation.views.ModelInstance;
+import edu.toronto.cs.openome_model.Alternative;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
+
 /**
  * @author aftabs
  * A dialog that prompts for a name and description of the evaluation alternate.
  */
 
 public class AlternateDialog extends StatusDialog {
-
-	
 	
    Label errorLabel, nameLabel, descLabel;
    Text nameText, descText;
    String name, description;
    
-
-
 	/**
      * Open the example dialog.
      * 
@@ -148,10 +149,14 @@ public class AlternateDialog extends StatusDialog {
 	 */
 	protected void okPressed() {
 		
-		// show an error if user doesnt fill in the name, which
+		// show an error if user doesn't fill in the name, which
 		// is mandatory. 
 		if (nameText.getText().equals("")) {
 			showError(GUIConstants.ALTERNATE_NAME_EMPTY_ERROR);
+		} 
+		/* Check for duplicate */
+		else if (checkForDuplicate(nameText.getText())) { 
+			showError(GUIConstants.ALTERNATE_DUPLICATE_NAME_ERROR);
 		} else {
 			
 			// Store all text fields
@@ -159,6 +164,24 @@ public class AlternateDialog extends StatusDialog {
 			description = descText.getText();
 			super.okPressed();
 		}
+	}
+
+	/**
+	 * Check if the given Alternate name already exists in the model 
+	 * @param newAltName
+	 * @return
+	 */
+	private boolean checkForDuplicate(String newAltName) {
+		
+		ModelImpl mi = ModelInstance.getModelImpl();
+		EList<Alternative> alternateList = mi.getAlternatives();
+		
+		for (Alternative alt : alternateList){
+			if (alt.getName().equals(newAltName))
+				return true;
+			
+		}
+		return false;
 	}
 	
 	
