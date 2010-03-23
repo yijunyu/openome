@@ -9,6 +9,7 @@ import edu.toronto.cs.openome_model.*;
 
 import java.util.List;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -371,6 +372,18 @@ public class openome_modelSwitch<T> {
 				T result = caseINSAssociation(insAssociation);
 				if (result == null) result = caseAssociation(insAssociation);
 				if (result == null) result = caseLink(insAssociation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.ALTERNATIVE: {
+				Alternative alternative = (Alternative)theEObject;
+				T result = caseAlternative(alternative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: {
+				@SuppressWarnings("unchecked") Map.Entry<Intention, EvaluationLabel> intentionToEvaluationLabelMap = (Map.Entry<Intention, EvaluationLabel>)theEObject;
+				T result = caseIntentionToEvaluationLabelMap(intentionToEvaluationLabelMap);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -930,6 +943,36 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseINSAssociation(INSAssociation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAlternative(Alternative object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Intention To Evaluation Label Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Intention To Evaluation Label Map</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntentionToEvaluationLabelMap(Map.Entry<Intention, EvaluationLabel> object) {
 		return null;
 	}
 

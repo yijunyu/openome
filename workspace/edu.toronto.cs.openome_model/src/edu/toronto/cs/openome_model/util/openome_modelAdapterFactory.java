@@ -7,6 +7,7 @@ package edu.toronto.cs.openome_model.util;
 
 import edu.toronto.cs.openome_model.*;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -224,6 +225,14 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseINSAssociation(INSAssociation object) {
 				return createINSAssociationAdapter();
+			}
+			@Override
+			public Adapter caseAlternative(Alternative object) {
+				return createAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseIntentionToEvaluationLabelMap(Map.Entry<Intention, EvaluationLabel> object) {
+				return createIntentionToEvaluationLabelMapAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -760,6 +769,34 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createINSAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.toronto.cs.openome_model.Alternative <em>Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.toronto.cs.openome_model.Alternative
+	 * @generated
+	 */
+	public Adapter createAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Intention To Evaluation Label Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createIntentionToEvaluationLabelMapAdapter() {
 		return null;
 	}
 
