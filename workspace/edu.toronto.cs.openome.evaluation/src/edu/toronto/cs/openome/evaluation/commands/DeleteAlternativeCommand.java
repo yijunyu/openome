@@ -1,17 +1,28 @@
 package edu.toronto.cs.openome.evaluation.commands;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.util.EList;
+
+import edu.toronto.cs.openome.evaluation.views.ModelInstance;
+import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.openome_modelFactoryImpl;
 
-public class SetQualitativeEvaluationLabelCommand implements Command {
-	private Intention intention;
-	private EvaluationLabel label;
+public class DeleteAlternativeCommand implements Command {
+	private Alternative alternative;
+	private ModelImpl mi;
 	
-	public SetQualitativeEvaluationLabelCommand(Intention i, EvaluationLabel l) {
-		intention = i;
-		label = l;
+	/*
+	 * The command to delete an Alternative from the model
+	 */
+	public DeleteAlternativeCommand(Alternative alt, ModelImpl m) {
+		alternative = alt;
+		mi = m;
 	}
 
 	public boolean canExecute() {
@@ -36,8 +47,8 @@ public class SetQualitativeEvaluationLabelCommand implements Command {
 
 	public void execute() {
 		
-		/* Set the label value to the intention */
-		intention.setQualitativeReasoningCombinedLabel(label);
+		/* Remove the Alternative from the model */
+		mi.getAlternatives().remove(alternative);
 	}
 
 	public Collection<?> getAffectedObjects() {
