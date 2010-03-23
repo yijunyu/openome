@@ -101,6 +101,8 @@
         eType="#//Correlation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
         eType="#//Association" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternatives" upperBound="-1"
+        eType="#//Alternative" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrDecomposition" eSuperTypes="#//Decomposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Position" eSuperTypes="#//Container">
@@ -235,5 +237,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="INSAssociation" eSuperTypes="#//Association">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" defaultValueLiteral="INS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alternative">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=" "/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=" "/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
+        eType="#//Intention"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evalLabels" ordered="false"
+        unique="false" upperBound="-1" eType="#//EvaluationLabel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentionToEvaluationLabelMap" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//Intention"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//EvaluationLabel"/>
   </eClassifiers>
 </ecore:EPackage>
