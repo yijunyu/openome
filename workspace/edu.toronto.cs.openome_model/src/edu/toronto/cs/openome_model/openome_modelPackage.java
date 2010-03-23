@@ -1159,13 +1159,22 @@ public interface openome_modelPackage extends EPackage {
 	int MODEL__ASSOCIATIONS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ALTERNATIVES = 8;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 8;
+	int MODEL_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
@@ -3209,6 +3218,98 @@ public interface openome_modelPackage extends EPackage {
 	int INS_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.AlternativeImpl <em>Alternative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.AlternativeImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAlternative()
+	 * @generated
+	 */
+	int ALTERNATIVE = 37;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Intentions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__INTENTIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Eval Labels</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__EVAL_LABELS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl <em>Intention To Evaluation Label Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIntentionToEvaluationLabelMap()
+	 * @generated
+	 */
+	int INTENTION_TO_EVALUATION_LABEL_MAP = 38;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION_TO_EVALUATION_LABEL_MAP__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION_TO_EVALUATION_LABEL_MAP__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Intention To Evaluation Label Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION_TO_EVALUATION_LABEL_MAP_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3216,7 +3317,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 37;
+	int EVALUATION_LABEL = 39;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -3226,7 +3327,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 38;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 40;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -3236,7 +3337,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 39;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 41;
 
 
 	/**
@@ -3823,6 +3924,17 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Associations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Model#getAlternatives <em>Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
+	 * @see edu.toronto.cs.openome_model.Model#getAlternatives()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Alternatives();
 
 	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.OrDecomposition <em>Or Decomposition</em>}'.
@@ -4446,6 +4558,94 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getINSAssociation_Label();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Alternative <em>Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alternative</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative
+	 * @generated
+	 */
+	EClass getAlternative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Alternative#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative#getName()
+	 * @see #getAlternative()
+	 * @generated
+	 */
+	EAttribute getAlternative_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Alternative#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative#getDescription()
+	 * @see #getAlternative()
+	 * @generated
+	 */
+	EAttribute getAlternative_Description();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.Alternative#getIntentions <em>Intentions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Intentions</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative#getIntentions()
+	 * @see #getAlternative()
+	 * @generated
+	 */
+	EReference getAlternative_Intentions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link edu.toronto.cs.openome_model.Alternative#getEvalLabels <em>Eval Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Eval Labels</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative#getEvalLabels()
+	 * @see #getAlternative()
+	 * @generated
+	 */
+	EAttribute getAlternative_EvalLabels();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Intention To Evaluation Label Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Intention To Evaluation Label Map</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyType="edu.toronto.cs.openome_model.Intention" keyContainment="true"
+	 *        valueDataType="edu.toronto.cs.openome_model.EvaluationLabel"
+	 * @generated
+	 */
+	EClass getIntentionToEvaluationLabelMap();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getIntentionToEvaluationLabelMap()
+	 * @generated
+	 */
+	EReference getIntentionToEvaluationLabelMap_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getIntentionToEvaluationLabelMap()
+	 * @generated
+	 */
+	EAttribute getIntentionToEvaluationLabelMap_Value();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4946,6 +5146,14 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__ASSOCIATIONS = eINSTANCE.getModel_Associations();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ALTERNATIVES = eINSTANCE.getModel_Alternatives();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.OrDecompositionImpl <em>Or Decomposition</em>}' class.
@@ -5474,6 +5682,74 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INS_ASSOCIATION__LABEL = eINSTANCE.getINSAssociation_Label();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.AlternativeImpl <em>Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.AlternativeImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getAlternative()
+		 * @generated
+		 */
+		EClass ALTERNATIVE = eINSTANCE.getAlternative();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALTERNATIVE__NAME = eINSTANCE.getAlternative_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALTERNATIVE__DESCRIPTION = eINSTANCE.getAlternative_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Intentions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALTERNATIVE__INTENTIONS = eINSTANCE.getAlternative_Intentions();
+
+		/**
+		 * The meta object literal for the '<em><b>Eval Labels</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALTERNATIVE__EVAL_LABELS = eINSTANCE.getAlternative_EvalLabels();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl <em>Intention To Evaluation Label Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getIntentionToEvaluationLabelMap()
+		 * @generated
+		 */
+		EClass INTENTION_TO_EVALUATION_LABEL_MAP = eINSTANCE.getIntentionToEvaluationLabelMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION_TO_EVALUATION_LABEL_MAP__KEY = eINSTANCE.getIntentionToEvaluationLabelMap_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION_TO_EVALUATION_LABEL_MAP__VALUE = eINSTANCE.getIntentionToEvaluationLabelMap_Value();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

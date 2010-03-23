@@ -281,6 +281,15 @@ public enum EvaluationLabel implements Enumerator {
 	 * @generated
 	 */
 	private final String literal;
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	private Intention intention ;
+	
 
 	/**
 	 * Only this class can construct instances.
@@ -294,6 +303,26 @@ public enum EvaluationLabel implements Enumerator {
 		this.literal = literal;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Intention getIntention() {
+	  return intention;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setIntention(Intention i) {
+	  this.intention = i;
+	}
+	
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +351,7 @@ public enum EvaluationLabel implements Enumerator {
 	}
 
 	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

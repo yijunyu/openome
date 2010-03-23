@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.toronto.cs.openome_model.Model#getContainers <em>Containers</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getCorrelations <em>Correlations</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Model#getAssociations <em>Associations</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Model#getAlternatives <em>Alternatives</em>}</li>
  * </ul>
  * </p>
  *
@@ -187,5 +188,21 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Association> getAssociations();
+
+	/**
+	 * Returns the value of the '<em><b>Alternatives</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.Alternative}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alternatives</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alternatives</em>' containment reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Alternatives()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Alternative> getAlternatives();
 
 } // Model

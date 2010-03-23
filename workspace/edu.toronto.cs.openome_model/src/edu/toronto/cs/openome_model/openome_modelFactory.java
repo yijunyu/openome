@@ -338,6 +338,15 @@ public interface openome_modelFactory extends EFactory {
 	INSAssociation createINSAssociation();
 
 	/**
+	 * Returns a new object of class '<em>Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alternative</em>'.
+	 * @generated
+	 */
+	Alternative createAlternative();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
