@@ -4,21 +4,31 @@ package edu.toronto.cs.openome.evaluation.handlers;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
+import edu.toronto.cs.openome.evaluation.commands.AddIntentionsToAlternativeCommand;
+import edu.toronto.cs.openome.evaluation.commands.SetAlternativeCommand;
 import edu.toronto.cs.openome.evaluation.gui.AlternateDialog;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivebackwardreasoning.IntQualBackwardReasoner;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome.evaluation.views.AlternativesView;
+import edu.toronto.cs.openome_model.Alternative;
+import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.openome_modelFactory;
+import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.impl.AlternativeImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+
 
 
 
@@ -47,10 +57,20 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 	
-		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
+		Shell shell = ar[0];
+		DiagramCommandStack dcs = null;
 		
-		AlternateDialog ad = new AlternateDialog(ar[0]);
+		try {
+			dcs = getDiagramCommandStack();
+		} catch (Exception e) {
+			
+			showMessage("Please select a diagram model", shell);
+			return null;
+		}
+
+		AlternateDialog ad = new AlternateDialog(shell);
 	
 		// Open a dialog box for alternative name and description
 		ad.open();
@@ -59,9 +79,15 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		if (ad.getReturnCode() == Window.CANCEL){
 			return null;
 		}
-	
-		// New alternative given the name and description from the dialog box
-		Alternative alt = new Alternative (ad.getName(), ad.getDescription());
+
+		openome_modelPackage _openome_modelPackage = openome_modelPackage.eINSTANCE;
+		openome_modelFactory _openome_modelFactory = _openome_modelPackage.getopenome_modelFactory();
+		
+		/* Create an Alternative */
+		Alternative alt = _openome_modelFactory.createAlternative();
+		
+		alt.setName(ad.getName());
+		alt.setDescription(ad.getDescription());
 		
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
@@ -72,12 +98,15 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		reasoning.reason();
 
 		// Get a list of all intentions currently in the model
-		EList<Intention> a = mi.getAllIntentions();
+		EList<Intention> intentionsList = mi.getAllIntentions();
 	
-		// Save the intentions in the alternative
-		alt.setIntentions(a);
-		alt.setSoftgoalWrappers(iQualReasoner.getSoftgoalWrappers());
-
+		
+		/* Add the intentions to the newly created Alternative */
+		Command addIntentionsToAlternative = new AddIntentionsToAlternativeCommand(alt, intentionsList, mi);
+		cs.execute(addIntentionsToAlternative);
+		
+		//alt.setSoftgoalWrappers(iQualReasoner.getSoftgoalWrappers());
+		
 		AlternativesView av = null;
 		try {
 			// open the AlternativesView, if already opened just give the focus to it
@@ -88,9 +117,15 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 			// Shouldn't happen...
 			System.out.println("Failed to open AlternativesView");
 		}
-		// Populate the Alternate View with the alternative
+		
+		/* Populate the Alternate View with the alternative */
 		av.addAlternative(alt);
 		
+		/* Add the Alternative to the Model */
+		Command addAlternnative = new SetAlternativeCommand(alt);
+		CommandStack cs1 = getCommandStack();
+		cs1.execute(addAlternnative);
+
 		return null;
 	}
 
@@ -111,5 +146,17 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		// TODO Auto-generated method stub
 
 	}
+	
+	/**
+	 * Shows a message in a dialog box with an OK button 
+	 * @param message
+	 */
+	private void showMessage(String message, Shell shell) {
+		MessageDialog.openInformation(
+			shell,
+			"Alternatives",
+			message);
+	}
+	
 
 }
