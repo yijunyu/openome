@@ -497,7 +497,7 @@ public class AlternativesView extends ViewPart {
 					}
 					
 					// expand the node
-					viewer.expandToLevel(obj, 1);
+					//viewer.expandToLevel(obj, 1);
 				}
 				
 				/**
