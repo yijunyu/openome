@@ -22,8 +22,8 @@ public class HurtContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	public void createForwardClauses() {
 		//System.out.println("Creating Forward Clauses for Hurt");
-		super.createForwardClauses();
-
+		//super.createForwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> PD(e)
@@ -32,14 +32,20 @@ public class HurtContributionLinkAxioms extends ContributionLinkAxioms {
 		//PD(ei) -> PS(e)
 		forwardClauses.addAll(addAndImplication(sIndex +4, tIndex +1));
 		
+		//U(e1) -> U(e)
+		forwardClauses.addAll(addAndImplication(sIndex+2, tIndex + 2));
+		
+		//C(e1) -> C(e)
+		forwardClauses.addAll(addAndImplication(sIndex+3, tIndex + 3));
+		
 	}
 	
 	
 	
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Hurt");
-		super.createBackwardClauses();
-
+		//super.createBackwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> (D(e) or PD(e))

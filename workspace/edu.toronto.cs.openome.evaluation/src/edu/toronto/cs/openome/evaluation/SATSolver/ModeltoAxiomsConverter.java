@@ -47,8 +47,7 @@ public class ModeltoAxiomsConverter {
 			//System.out.println("put: " + sixCount + ", " + i.getName());
 			intentionIndex.put(new Integer(sixCount), i);
 			sixCount += 6;
-		}
-		
+		}		
 	}
 	
 	private void reset() {
@@ -209,32 +208,38 @@ public class ModeltoAxiomsConverter {
 								
 				//this is the target in forward evaluation
 				Intention target = cont.getTarget();
-				
-				//if it's not an actor
+					//if it's not an actor
 				System.out.println("contribuion to " + target.getName());
 								
-				//it's a dependency from an intention to an intention
-				Vector<Link> link = new Vector<Link>();
-				link.add(cont);
+				Vector<Link> links = new Vector<Link>();
 				Vector<Intention> sources = new Vector<Intention>();
-				sources.add(source);
-				//intentionIndex.print();
+				for (Contribution sibling: target.getContributesFrom()){
+					//System.out.println("done " + sibling.toString());
+					done.add(sibling);
+					links.add(sibling);
+					sources.add(sibling.getSource());
+					//System.out.println("contribution source: " + sibling.getSource().getName());
+					/*if (sibling instanceof MakeContribution) 
+						System.out.println("Make");
+					if (sibling instanceof HelpContribution)
+						System.out.println("Help");
+					if (sibling instanceof SomePlusContribution)
+						System.out.println("SomePlus");
+					if (sibling instanceof UnknownContribution)
+						System.out.println("Unknown");
+					if (sibling instanceof SomeMinusContribution)
+						System.out.println("SomeMinus");
+					if (sibling instanceof HurtContribution)
+						System.out.println("Hurt");
+					if (sibling instanceof BreakContribution)
+						System.out.println("Break");*/
+				}				
+							
+				intentionIndex.print();
 				
 				LinkAxioms la = null;
-				if (cont instanceof MakeContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Make", intentionIndex);
-				if (cont instanceof HelpContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Help", intentionIndex);
-				if (cont instanceof SomePlusContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Help", intentionIndex);
-				if (cont instanceof UnknownContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Unknown", intentionIndex);
-				if (cont instanceof SomeMinusContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Hurt", intentionIndex);
-				if (cont instanceof HurtContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Hurt", intentionIndex);
-				if (cont instanceof BreakContribution)
-					la = axiomsFactory.createLinkAxiom(sources, target, link, "Break", intentionIndex);
+				
+				la = axiomsFactory.createLinkAxiom(sources, target, links, "Contribution", intentionIndex);
 					
 				switch (dir) {
 					case 1: la.createAllClauses(); break;

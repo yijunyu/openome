@@ -21,9 +21,9 @@ public class MakeContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	
 	public void createForwardClauses() {
-		//System.out.println("Creating Forward Clauses for Make");
-		super.createForwardClauses();
-
+		System.out.println("Creating Forward Clauses for Make");
+		//super.createForwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//Forward:
@@ -38,14 +38,20 @@ public class MakeContributionLinkAxioms extends ContributionLinkAxioms {
 		
 		//D(ei) -> D(e)
 		forwardClauses.addAll(addAndImplication(sIndex +5, tIndex +5));
+		
+		//U(e1) -> U(e)
+		forwardClauses.addAll(addAndImplication(sIndex+2, tIndex + 2));
+		
+		//C(e1) -> C(e)
+		forwardClauses.addAll(addAndImplication(sIndex+3, tIndex + 3));
 	}
 	
 	
 	
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Make");
-		super.createBackwardClauses();
-
+		//super.createBackwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//Backward:

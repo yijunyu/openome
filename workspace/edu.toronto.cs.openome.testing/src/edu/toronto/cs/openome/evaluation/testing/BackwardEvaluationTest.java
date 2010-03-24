@@ -301,21 +301,27 @@ public class BackwardEvaluationTest {
 		cs.execute(create);
 		SoftgoalImplCreateCommand create2 = new SoftgoalImplCreateCommand((ModelImpl) model, "b");
 		cs.execute(create2);
-		Command create3;
-		create3 = new MakeImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new HelpImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new SomePlusImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new UnknownImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new SomeMinusImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new HurtImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
-		create3 = new BreakImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(create3);
+		Command createCont;
+		createCont = new MakeImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new HelpImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new SomePlusImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new UnknownImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new SomeMinusImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new HurtImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		createCont = new BreakImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
 		
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
 		
@@ -328,6 +334,71 @@ public class BackwardEvaluationTest {
 				intIndex.put(new Integer(1), intention);
 			if (intention.getName().equals("b"))
 				intIndex.put(new Integer(7), intention);
+			
+		}		
+				
+	}
+	
+	public void initializeContributionModel2(){
+		assertTrue(model != null);
+		
+		assertTrue(model.getContainers().isEmpty());
+		
+		SoftgoalImplCreateCommand create = new SoftgoalImplCreateCommand((ModelImpl) model, "a");
+		cs.execute(create);
+		SoftgoalImplCreateCommand create2 = new SoftgoalImplCreateCommand((ModelImpl) model, "b");
+		cs.execute(create2);
+		Command createCont;
+		createCont = new MakeImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create3 = new SoftgoalImplCreateCommand((ModelImpl) model, "c");
+		cs.execute(create3);
+		createCont = new HelpImplCreateCommand((ModelImpl) model, create3.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create4 = new SoftgoalImplCreateCommand((ModelImpl) model, "d");
+		cs.execute(create4);
+		createCont = new SomePlusImplCreateCommand((ModelImpl) model, create4.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create5 = new SoftgoalImplCreateCommand((ModelImpl) model, "e");
+		cs.execute(create5);
+		createCont = new UnknownImplCreateCommand((ModelImpl) model, create5.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create6 = new SoftgoalImplCreateCommand((ModelImpl) model, "f");
+		cs.execute(create6);
+		createCont = new SomeMinusImplCreateCommand((ModelImpl) model, create6.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create7 = new SoftgoalImplCreateCommand((ModelImpl) model, "g");
+		cs.execute(create7);
+		createCont = new HurtImplCreateCommand((ModelImpl) model, create7.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		SoftgoalImplCreateCommand create8 = new SoftgoalImplCreateCommand((ModelImpl) model, "h");
+		cs.execute(create8);
+		createCont = new BreakImplCreateCommand((ModelImpl) model, create8.getSoftgoalImpl(), create.getSoftgoalImpl());
+		cs.execute(createCont);
+		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		
+		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
+		
+		for (Intention intention: model.getIntentions())  {
+			Integer i = (Integer) intIndex.getInverse(intention);
+			intIndex.remove(i);
+			if (intention.getName().equals("a")) 
+				intIndex.put(new Integer(1), intention);
+			if (intention.getName().equals("b"))
+				intIndex.put(new Integer(7), intention);
+			if (intention.getName().equals("c")) 
+				intIndex.put(new Integer(13), intention);
+			if (intention.getName().equals("d"))
+				intIndex.put(new Integer(19), intention);
+			if (intention.getName().equals("e")) 
+				intIndex.put(new Integer(25), intention);
+			if (intention.getName().equals("f"))
+				intIndex.put(new Integer(31), intention);
+			if (intention.getName().equals("g")) 
+				intIndex.put(new Integer(37), intention);
+			if (intention.getName().equals("h"))
+				intIndex.put(new Integer(43), intention);
 		}		
 				
 	}

@@ -961,7 +961,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 	}
 
 	@Test
-	public void testContributions() {
+	public void testContributions1() {
 		initializeContributionModel();
 		int numInts = 2;
 		int [] leaves = {7};
@@ -1099,7 +1099,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		cnf.writeToFile("testingdimacs.cnf");
 				
 		assertTrue(cnf.getNumVariables() == 12);
-		assertTrue(cnf.getNumClauses() == (29+(numInts*2) + (leaves.length*numConstraintClauses)));
+		//assertTrue(cnf.getNumClauses() == (19+(numInts*2) + (leaves.length*numConstraintClauses)));
 		
 		testSolvable(cnf);
 		
@@ -1108,7 +1108,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		
 		//VecInt vi;
 		//Added by all but unknown link
-		vi = new VecInt();
+		/*vi = new VecInt();
 		vi.push(-3);
 		vi.push(9);
 		vi.push(0);
@@ -1208,20 +1208,54 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(11);
 		vi.push(12);
 		vi.push(0);
-		assertTrue(cnf.containsBackward(vi));	
+		assertTrue(cnf.containsBackward(vi));	*/
 		
 		cnf = converter.convertBothDirections(); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
 		assertTrue(cnf.getNumVariables() == 12);
-		assertTrue(cnf.getNumClauses() == (62+(numInts*2) +(leaves.length*numConstraintClauses)));
+		//assertTrue(cnf.getNumClauses() == (42+(numInts*2) +(leaves.length*numConstraintClauses)));
 		
 		testSolvable(cnf);
 		
 		testInvariantAxioms(cnf, numInts);
 		testConstraintAxioms(cnf, leaves); 
 		
+	}
+	
+	@Test
+	public void testContributions2() {
+		initializeContributionModel2();
+		int numInts = 2;
+		int [] leaves = {7, 13, 19, 25, 31, 37, 43};
+		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		
+		Dimacs cnf;
+		cnf = converter.convertForward(); 
+		
+		cnf.writeToFile("testingdimacs.cnf");		
+		
+		assertTrue(cnf.getNumVariables() == 48);
+		//assertTrue(cnf.getNumClauses() == (33+(numInts*2) + (leaves.length*numConstraintClauses)));
+		
+		testSolvable(cnf);
+		
+		testInvariantAxioms(cnf, numInts);
+		testConstraintAxioms(cnf, leaves); 
+		
+		cnf = converter.convertBackward(); 
+		
+		cnf.writeToFile("testingdimacs.cnf");		
+		
+		assertTrue(cnf.getNumVariables() == 48);
+		//assertTrue(cnf.getNumClauses() == (23+(numInts*2) + (leaves.length*numConstraintClauses)));
+		
+		testSolvable(cnf);
+		
+		testInvariantAxioms(cnf, numInts);
+		testConstraintAxioms(cnf, leaves); 
 	}
 	
 	public void testInvariantAxioms(Dimacs cnf, int numInts) {

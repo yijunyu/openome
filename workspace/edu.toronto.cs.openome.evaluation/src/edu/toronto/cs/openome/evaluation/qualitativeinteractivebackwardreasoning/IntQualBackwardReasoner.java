@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 import edu.toronto.cs.openome.evaluation.SATSolver.Dimacs;
 import edu.toronto.cs.openome.evaluation.SATSolver.ModeltoAxiomsConverter;
@@ -57,7 +61,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		Vector<Integer> intResults = solver.getResults();
 		
-		if (result >= 0) {
+		if (result ==1) {
 		
 			HashMap<Intention, int[]> results = converter.convertResults(intResults);
 		
@@ -74,6 +78,13 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			
 			displayResults(results);			
+		}
+		else if (result == 0) {
+			Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+			
+			Shell shell = ar[0];
+							
+			showMessage("Target(s) unsatisfiable", shell);
 		}
 		else {
 			System.out.println("zChaff failed");
@@ -126,6 +137,17 @@ public class IntQualBackwardReasoner extends Reasoner {
 	
 	public SoftgoalWrappers getSoftgoalWrappers(){
 		return softgoalWrappers;
+	}
+	
+	/**
+	 * Shows a message in a dialog box with an OK button 
+	 * @param message
+	 */
+	private void showMessage(String message, Shell shell) {
+		MessageDialog.openInformation(
+			shell,
+			"Interactive Qualitative Backward Reasoning",
+			message);
 	}
 
 }

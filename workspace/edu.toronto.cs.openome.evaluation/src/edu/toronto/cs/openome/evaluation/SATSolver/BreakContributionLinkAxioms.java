@@ -22,8 +22,8 @@ public class BreakContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	public void createForwardClauses() {
 		//System.out.println("Creating Forward Clauses for Break");
-		super.createForwardClauses();
-
+		//super.createForwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//Forward:
@@ -36,14 +36,20 @@ public class BreakContributionLinkAxioms extends ContributionLinkAxioms {
 		//PD(ei) -> PS(e)
 		forwardClauses.addAll(addAndImplication(sIndex +4, tIndex +1));
 		
+		//U(e1) -> U(e)
+		forwardClauses.addAll(addAndImplication(sIndex+2, tIndex + 2));
+		
+		//C(e1) -> C(e)
+		forwardClauses.addAll(addAndImplication(sIndex+3, tIndex + 3));
+		
 	}
 	
 	
 	
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Break");
-		super.createBackwardClauses();
-
+		//super.createBackwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//Backward:

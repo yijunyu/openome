@@ -39,6 +39,10 @@ public class AxiomsFactory {
 		if (type.equals("Break")) {
 			BreakContributionLinkAxioms dla = new BreakContributionLinkAxioms(sources, targ, l, dhm);
 			return dla;
+		}		
+		if (type.equals("Contribution")) {
+			ContributionLinkAxioms dla = new ContributionLinkAxioms(sources, targ, l, dhm);
+			return dla;
 		}
 		
 		return null;

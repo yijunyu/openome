@@ -21,9 +21,9 @@ public class HelpContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	
 	public void createForwardClauses() {
-		//System.out.println("Creating Forward Clauses for Help");
-		super.createForwardClauses();
-
+		System.out.println("Creating Forward Clauses for Help");
+		//super.createForwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> PS(e)
@@ -32,14 +32,20 @@ public class HelpContributionLinkAxioms extends ContributionLinkAxioms {
 		//PD(ei) -> PD(e)
 		forwardClauses.addAll(addAndImplication(sIndex +4, tIndex +4));
 		
+		//U(e1) -> U(e)
+		forwardClauses.addAll(addAndImplication(sIndex+2, tIndex + 2));
+		
+		//C(e1) -> C(e)
+		forwardClauses.addAll(addAndImplication(sIndex+3, tIndex + 3));
+		
 	}
 	
 	
 	
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Help");
-		super.createBackwardClauses();
-
+		//super.createBackwardClauses();
+		findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> (PS(e) or S(e))
