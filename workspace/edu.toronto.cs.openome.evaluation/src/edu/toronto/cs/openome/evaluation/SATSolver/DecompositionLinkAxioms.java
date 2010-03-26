@@ -13,8 +13,8 @@ public class DecompositionLinkAxioms extends LinkAxioms {
 	
 
 	public DecompositionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		
 	}
 	

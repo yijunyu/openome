@@ -10,8 +10,8 @@ import edu.toronto.cs.openome_model.Link;
 public class MeansEndsLinkAxioms extends LinkAxioms {
 
 	public MeansEndsLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		//System.out.println("creating new MeansEndsLinkAxioms");
 	}
 	

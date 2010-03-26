@@ -99,7 +99,7 @@ public class ModeltoAxiomsConverter {
 		for (Decomposition dec : model.getDecompositions()) {
 			if (!done.contains(dec)) {
 				Intention target = dec.getTarget();
-				System.out.println("decomposition target: " + target.getName());
+				//System.out.println("decomposition target: " + target.getName());
 				
 				Vector<Link> links = new Vector<Link>();
 				Vector<Intention> sources = new Vector<Intention>();
@@ -108,14 +108,16 @@ public class ModeltoAxiomsConverter {
 					done.add(sibling);
 					links.add(sibling);
 					sources.add(sibling.getSource());
-					System.out.println("decomposition source: " + sibling.getSource().getName());
+					//System.out.println("decomposition source: " + sibling.getSource().getName());
 				}
+				
+				String description = "Decomposition to: " + target.getName();
 				LinkAxioms la = null;
 				if (dec instanceof AndDecomposition)
-					la = axiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex);
+					la = axiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex, description);
 				if (dec instanceof OrDecomposition) {
 					//System.out.println("Ordecomp");
-					la = axiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex);
+					la = axiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex, description);
 				}
 					
 				
@@ -155,7 +157,7 @@ public class ModeltoAxiomsConverter {
 				if (!(source instanceof Container))  {
 					//This is the target?
 					sourceInt = (Intention) source;
-					System.out.println("dependency to " + sourceInt.getName());
+					//System.out.println("dependency to " + sourceInt.getName());
 				}
 				
 				//this is the target in forward evaluation, the depender
@@ -164,7 +166,7 @@ public class ModeltoAxiomsConverter {
 				//if it's not an actor
 				if (!(target instanceof Container))  {
 					targetInt = (Intention) target;
-					System.out.println("dependency from " + targetInt.getName());
+					//System.out.println("dependency from " + targetInt.getName());
 				}
 				
 				//it's a dependency from an intention to an intention
@@ -174,7 +176,8 @@ public class ModeltoAxiomsConverter {
 					Vector<Intention> sources = new Vector<Intention>();
 					sources.add(sourceInt);
 					//intentionIndex.print();
-					LinkAxioms la = axiomsFactory.createLinkAxiom(sources, targetInt, link, "Dependency", intentionIndex);
+					String description = "Dependency: " + targetInt.getName();
+					LinkAxioms la = axiomsFactory.createLinkAxiom(sources, targetInt, link, "Dependency", intentionIndex, description);
 					
 					switch (dir) {
 						case 1: la.createAllClauses(); break;
@@ -204,12 +207,12 @@ public class ModeltoAxiomsConverter {
 				//this is the source in forward evaluation
 				Intention source = cont.getSource();					
 				
-				System.out.println("contribuion from " + source.getName());
+				//System.out.println("contribuion from " + source.getName());
 								
 				//this is the target in forward evaluation
 				Intention target = cont.getTarget();
 					//if it's not an actor
-				System.out.println("contribuion to " + target.getName());
+				//System.out.println("contribuion to " + target.getName());
 								
 				Vector<Link> links = new Vector<Link>();
 				Vector<Intention> sources = new Vector<Intention>();
@@ -235,11 +238,13 @@ public class ModeltoAxiomsConverter {
 						System.out.println("Break");*/
 				}				
 							
-				intentionIndex.print();
+				//intentionIndex.print();
 				
 				LinkAxioms la = null;
 				
-				la = axiomsFactory.createLinkAxiom(sources, target, links, "Contribution", intentionIndex);
+				String description = "Contriubtion to: " + target.getName();
+				
+				la = axiomsFactory.createLinkAxiom(sources, target, links, "Contribution", intentionIndex, description);
 					
 				switch (dir) {
 					case 1: la.createAllClauses(); break;
@@ -267,7 +272,8 @@ public class ModeltoAxiomsConverter {
 			if (intention.isLeaf()) {
 				Vector<Intention> sources = new Vector<Intention>();
 				sources.add(intention);
-				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Constraint", intentionIndex);
+				String description = "Constraints for: " + intention.getName();
+				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Constraint", intentionIndex, description);
 			
 				ia.createAllClauses(); 
 						
@@ -282,7 +288,8 @@ public class ModeltoAxiomsConverter {
 		for (Intention intention : model.getAllIntentions()) {
 			Vector<Intention> sources = new Vector<Intention>();
 			sources.add(intention);
-			IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Invariant", intentionIndex);
+			String description = "Invariants for: " + intention.getName();
+			IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Invariant", intentionIndex, description);
 			
 			ia.createAllClauses(); 
 						
@@ -296,7 +303,8 @@ public class ModeltoAxiomsConverter {
 			if (intention.getQualitativeReasoningCombinedLabel() != EvaluationLabel.NONE) {
 				Vector<Intention> sources = new Vector<Intention>();
 				sources.add(intention);
-				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Target", intentionIndex);
+				String description = "Target for: " + intention.getName();
+				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Target", intentionIndex, description);
 			
 				ia.createAllClauses(); 
 						

@@ -6,8 +6,8 @@ import edu.toronto.cs.openome_model.Intention;
 
 public class ConstraintAxioms extends IntentionAxioms {
 
-	public ConstraintAxioms(Intention t, DualHashMap<Integer, Intention> dhm) {
-		super(t, dhm);
+	public ConstraintAxioms(Intention t, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(t, dhm, desc);
 	}
 
 	@Override

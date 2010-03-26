@@ -354,7 +354,7 @@ public class BackwardEvaluationTest {
 		SoftgoalImplCreateCommand create3 = new SoftgoalImplCreateCommand((ModelImpl) model, "c");
 		cs.execute(create3);
 		createCont = new HelpImplCreateCommand((ModelImpl) model, create3.getSoftgoalImpl(), create.getSoftgoalImpl());
-		cs.execute(createCont);
+		cs.execute(createCont);		
 		SoftgoalImplCreateCommand create4 = new SoftgoalImplCreateCommand((ModelImpl) model, "d");
 		cs.execute(create4);
 		createCont = new SomePlusImplCreateCommand((ModelImpl) model, create4.getSoftgoalImpl(), create.getSoftgoalImpl());

@@ -77,9 +77,9 @@ public class TestHumanJudgement extends EvaluationTest {
 		lb2.printBag();
 		
 		EvaluationLabel r = hj1.findOrImplies(lb2) ;
-		if (r == null)
-			System.out.println("null");
-		else System.out.println(r.getName());
+		//if (r == null)
+		//	System.out.println("null");
+		//else System.out.println(r.getName());
 		
 		assertTrue(hj1.findOrImplies(lb2) == null);
 		

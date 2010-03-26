@@ -14,8 +14,8 @@ public abstract class IntentionAxioms extends Axioms {
 	protected Vector<VecInt> clauses;
 	protected int tIndex;
 
-	public IntentionAxioms(Intention t, DualHashMap<Integer, Intention> dhm) {
-		super(dhm);
+	public IntentionAxioms(Intention t, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(dhm, desc);
 		target = t;
 		clauses = new Vector<VecInt>();
 	}

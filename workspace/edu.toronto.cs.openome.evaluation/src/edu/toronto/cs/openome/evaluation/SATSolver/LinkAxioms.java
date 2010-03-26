@@ -22,8 +22,8 @@ public abstract class LinkAxioms extends Axioms {
 	protected VecInt sourceIndexes;
 
 	
-	public LinkAxioms(Vector<Intention> sources, Intention targ, Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(dhm);
+	public LinkAxioms(Vector<Intention> sources, Intention targ, Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(dhm, desc);
 		sourceInts = sources;
 		target = targ;
 		links = l;
@@ -35,34 +35,34 @@ public abstract class LinkAxioms extends Axioms {
 	}
 	
 	protected void findIndexes() {
-		System.out.println("finding indexes");
+		//System.out.println("finding indexes");
 		if (sourceIndexes == null) {
-			System.out.println("sourceIndexes was null");
+			//System.out.println("sourceIndexes was null");
 			sourceIndexes = new VecInt();
 			
 			if (intentionMap != null) {
-				System.out.println("intentionMap was not null");
+			//	System.out.println("intentionMap was not null");
 				Integer intTIndex = (Integer) intentionMap.getInverse(target);
 				tIndex = intTIndex.intValue();
-				System.out.println("target index is: " + tIndex);
+				//System.out.println("target index is: " + tIndex);
 		
 				if (sourceInts != null) {
 					for (Intention sInt: sourceInts) {
 						Integer sourceIndex = (Integer) intentionMap.getInverse(sInt);
 						sourceIndexes.push(sourceIndex.intValue());	
-						System.out.println("source index is: " + sourceIndex.intValue());
+						//.out.println("source index is: " + sourceIndex.intValue());
 					}	
 				}
 				else {
-					System.out.println("sourceInts is null");
+					//System.out.println("sourceInts is null");
 				}
 			}
 			else {
-				System.out.println("intentionMap is  null");
+				//System.out.println("intentionMap is  null");
 			}
 		}
 		else {
-			System.out.println("sourceIndexes is not null " + sourceIndexes.toString());			
+			//System.out.println("sourceIndexes is not null " + sourceIndexes.toString());			
 		}
 	}
 	

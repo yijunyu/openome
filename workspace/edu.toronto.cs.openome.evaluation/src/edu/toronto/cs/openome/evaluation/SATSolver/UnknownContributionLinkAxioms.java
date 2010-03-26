@@ -13,8 +13,8 @@ public class UnknownContributionLinkAxioms extends ContributionLinkAxioms {
 	
 
 	public UnknownContributionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		
 	}
 	
@@ -37,7 +37,7 @@ public class UnknownContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Unknown");
-		findIndexes();
+		/*findIndexes();
 		
 		int sIndex = sourceIndexes.last();
 
@@ -47,7 +47,7 @@ public class UnknownContributionLinkAxioms extends ContributionLinkAxioms {
 			vi.push(sIndex + i);
 		}
 		
-		backwardClauses.addAll(addOrImplication(tIndex + 2, vi));
+		backwardClauses.addAll(addOrImplication(tIndex + 2, vi));*/
 		
 	}
 

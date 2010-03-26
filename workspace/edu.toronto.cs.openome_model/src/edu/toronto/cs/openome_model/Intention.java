@@ -543,4 +543,14 @@ public interface Intention extends Dependable {
 	 */
 	boolean isLeaf();
 
+	/**
+	 * @generated NOT
+	 */
+	boolean isRoot();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Intention> getChildren();
+
 } // Intention

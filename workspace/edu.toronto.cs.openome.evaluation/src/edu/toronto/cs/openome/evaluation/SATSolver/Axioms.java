@@ -14,9 +14,11 @@ import edu.toronto.cs.openome_model.UnknownContribution;
 public abstract class Axioms {
 	
 	protected DualHashMap<Integer, Intention> intentionMap;
+	protected String description;
 	
-	public Axioms(DualHashMap<Integer, Intention> dhm) {
-			intentionMap = dhm;				
+	public Axioms(DualHashMap<Integer, Intention> dhm, String desc) {
+			intentionMap = dhm;			
+			description = desc;
 	}	
 	
 	abstract public  void  createAllClauses();
@@ -128,6 +130,10 @@ public abstract class Axioms {
 	
 	public Vector<VecInt> simplify(Vector<VecInt> input) {
 		return input;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 
 	

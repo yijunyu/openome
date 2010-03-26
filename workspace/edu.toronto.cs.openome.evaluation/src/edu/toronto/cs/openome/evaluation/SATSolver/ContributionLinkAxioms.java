@@ -22,8 +22,8 @@ public class ContributionLinkAxioms extends LinkAxioms {
 	protected VecInt negSourceIndexes;
 
 	public ContributionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		negSourceIndexes = null;
 		posSourceIndexes = null;
 	}
@@ -49,25 +49,25 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		
 		for (Link l: links) {
 			Contribution cont = (Contribution) l;
-			System.out.println("contribution: " + cont.toString());
+			//System.out.println("contribution: " + cont.toString());
 			
 			Vector<Intention> vInt = new Vector<Intention>();
 			vInt.add(cont.getSource());
 			
 			if (cont instanceof MakeContribution) 
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Make", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Make", intentionMap, description);
 			if (cont instanceof HelpContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Help", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Help", intentionMap, description);
 			if (cont instanceof SomePlusContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Help", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Help", intentionMap, description);
 			if (cont instanceof UnknownContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Unknown", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Unknown", intentionMap, description);
 			if (cont instanceof SomeMinusContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Hurt", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Hurt", intentionMap, description);
 			if (cont instanceof HurtContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Hurt", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Hurt", intentionMap, description);
 			if (cont instanceof BreakContribution)
-				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Break", intentionMap);
+				la = axiomsFactory.createLinkAxiom(vInt, target, links, "Break", intentionMap, description);
 			
 			if (la == null)  {
 				System.out.println("Link type error");
@@ -81,17 +81,31 @@ public class ContributionLinkAxioms extends LinkAxioms {
 	}
 	
 	public void createBackwardClauses() {
-		System.out.println("Creating Backward Clauses for Contribution");
+		//System.out.println("Creating Backward Clauses for Contribution");
 		findIndexes();
 		
 		findPosNegIndexes();
 		
-		//PS(e)->at least one PS(ei) for pos links or at least one PD(ek) for neg links
+		VecInt posInc;		
+		VecInt negInc;
 		
-		VecInt posInc = incrementAll(posSourceIndexes, 1);		
-		VecInt negInc = incrementAll(negSourceIndexes, 4);
+		//S(e)->at least one S(ei) for pos links or at least one D(ek) for neg links
+		
+		posInc = incrementAll(posSourceIndexes, 0);		
+		negInc = incrementAll(negSourceIndexes, 5);
 		
 		VecInt combine = new VecInt();
+		combine.pushAll(posInc);
+		combine.pushAll(negInc);
+		
+		backwardClauses.addAll(addOrImplication(tIndex, combine));
+		
+		//PS(e)->at least one PS(ei) for pos links or at least one PD(ek) for neg links
+		
+		posInc = incrementAll(posSourceIndexes, 1);		
+		negInc = incrementAll(negSourceIndexes, 4);
+		
+		combine = new VecInt();
 		combine.pushAll(posInc);
 		combine.pushAll(negInc);
 		
@@ -101,9 +115,110 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		VecInt vi = incrementAll(sourceIndexes, 2);
 		backwardClauses.addAll(addOrImplication(tIndex + 2, vi));
 		
-		//C(e1) -> C(e)
-		//nothing for now
-		//backwardClauses.addAll(addAndImplication(tIndex + 3, sIndex + 3));
+		addBackwardUnknownClauses();		
+		
+		//PD(e)->at least one PD(ei) for pos links or at least one PS(ek) for neg links		
+		posInc = incrementAll(posSourceIndexes, 4);		
+		negInc = incrementAll(negSourceIndexes, 1);
+		
+		combine = new VecInt();
+		combine.pushAll(posInc);
+		combine.pushAll(negInc);
+		
+		backwardClauses.addAll(addOrImplication(tIndex + 4, combine));
+		
+		//D(e)->at least one D(ei) for pos links or at least one S(ek) for neg links		
+		posInc = incrementAll(posSourceIndexes, 5);		
+		negInc = incrementAll(negSourceIndexes, 0);
+		
+		combine = new VecInt();
+		combine.pushAll(posInc);
+		combine.pushAll(negInc);
+		
+		backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
+		
+	}
+
+	private void addBackwardUnknownClauses() {
+		//C(e) ->
+		//For all ei Or C(ei) 
+		//OR one pos link is PS(ei) AND one neg link is PS(ek)
+		//OR one pos link is PD(ei) AND one neg link is PD(ek)
+		//C(e) -> r+ (p.q) + (x.y)
+		// = not C(e) + r + p + x
+		// not C(e) + r + p + y
+		// not C(e) + r + q + x
+		// not C(e) + r + q + y
+		VecInt r = new VecInt();
+		VecInt p = new VecInt();
+		VecInt q = new VecInt();
+		VecInt x = new VecInt();
+		VecInt y = new VecInt();
+		
+		r = incrementAll(sourceIndexes, 3);		
+		p = incrementAll(posSourceIndexes, 1);
+		q = incrementAll(negSourceIndexes, 4);
+		x = incrementAll(posSourceIndexes, 4);
+		y = incrementAll(negSourceIndexes, 1);
+		
+		VecInt vi;
+		
+		if (negSourceIndexes.size() == 0)  {
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(p);
+			vi.pushAll(x);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+		}
+		else if (posSourceIndexes.size() == 0)  {
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(q);
+			vi.pushAll(y);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+		} else {		
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(p);
+			vi.pushAll(x);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+			
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(p);
+			vi.pushAll(y);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+			
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(q);
+			vi.pushAll(x);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+		
+			vi = new VecInt();
+			vi.push((tIndex + 3) * -1);
+			vi.pushAll(r);
+			vi.pushAll(q);
+			vi.pushAll(y);
+			vi.push(0);
+			
+			backwardClauses.add(vi);
+		}
 		
 	}
 
@@ -117,7 +232,7 @@ public class ContributionLinkAxioms extends LinkAxioms {
 			negSourceIndexes = new VecInt();
 			
 			if (intentionMap != null) {
-				System.out.println("intentionMap was not null");
+				//System.out.println("intentionMap was not null");
 								
 				for (Link l : links) {
 					Contribution cont = (Contribution) l;
@@ -133,7 +248,7 @@ public class ContributionLinkAxioms extends LinkAxioms {
 				}
 			}
 			else {
-				System.out.println("intentionMap is  null");
+				//System.out.println("intentionMap is  null");
 			}
 	}
 		

@@ -7,8 +7,8 @@ import edu.toronto.cs.openome_model.Intention;
 
 public class TargetAxioms extends IntentionAxioms {
 
-	public TargetAxioms(Intention t, DualHashMap<Integer, Intention> dhm) {
-		super(t, dhm);
+	public TargetAxioms(Intention t, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(t, dhm, desc);
 	}
 
 	@Override

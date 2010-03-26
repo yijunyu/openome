@@ -4,8 +4,8 @@ import edu.toronto.cs.openome_model.Intention;
 
 public class InvariantAxioms extends IntentionAxioms {
 
-	public InvariantAxioms(Intention t, DualHashMap<Integer, Intention> dhm) {
-		super(t, dhm);
+	public InvariantAxioms(Intention t, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(t, dhm, desc);
 	}
 
 	@Override

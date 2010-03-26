@@ -8,6 +8,7 @@ package edu.toronto.cs.openome_model.impl;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Decomposition;
+import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
@@ -539,6 +540,51 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		
 		return true;
 	}
+	
+
+	/**
+	 * @generated NOT
+	 */
+	public boolean isRoot() {
+		EList<Dependency> depFrom = getDependencyTo();
+		if (depFrom.size() > 0) 
+			return false;
+		EList<Decomposition> decFrom = getDecompositionsFrom();
+		if (decFrom.size() > 0) 
+			return false;
+		EList<Contribution> contFrom = getContributesTo();
+		if (contFrom.size() > 0) 
+			return false;
+		
+		return true;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getChildren() {
+		EList<Intention> children = new BasicEList<Intention>();
+		
+		EList<Dependency> depFrom = getDependencyFrom();
+		for (Dependency d : getDependencyFrom()) {
+			Dependable dependable = d.getDependencyFrom();
+			
+			//If the target is not an actor, like in an SD diagram
+			if (!(dependable instanceof Container)) {
+				children.add((Intention) dependable);
+			}
+				
+		}
+		for (Decomposition dec : getDecompositionsTo()) {
+			children.add(dec.getSource());
+		}
+		for (Contribution cont : getContributesFrom()) {
+			children.add(cont.getSource());
+		}
+		
+		return children;
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1181,7 +1227,5 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		result.append(')');
 		return result.toString();
 	}
-
-	
 
 } //IntentionImpl

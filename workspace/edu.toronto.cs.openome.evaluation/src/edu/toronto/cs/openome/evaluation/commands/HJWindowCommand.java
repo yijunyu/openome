@@ -25,14 +25,14 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBa
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 
-public class InputWindowCommand implements Command {
+public abstract class  HJWindowCommand implements Command {
 
-	Shell shell;
-	IntQualIntentionWrapper wrapper;
-	EvaluationLabel result;
-	boolean cancelled;
+	protected Shell shell;
+	protected IntQualIntentionWrapper wrapper;
+	protected EvaluationLabel result;
+	protected boolean cancelled;
 	
-	public InputWindowCommand(Shell s, IntQualIntentionWrapper w) {
+	public HJWindowCommand(Shell s, IntQualIntentionWrapper w) {
 		shell = s;
 		wrapper = w;
 		result = EvaluationLabel.NONE;
@@ -58,64 +58,8 @@ public class InputWindowCommand implements Command {
 
 	}
 
-	@SuppressWarnings("restriction")
-	public void execute() {
-		//InputDialog d = new InputDialog(shell, "a", "b", "c", null);
+	public abstract void execute();
 		
-		//EvaluationDialog d = new EvaluationDialog(shell);
-		//SelectionDialog d = new SelectionDialog(shell);
-		
-		EvaluationDialog ld = new EvaluationDialog(shell);
-		
-		List<EvaluationLabel> labellist = new ArrayList<EvaluationLabel>();
-		
-//		list.add(Openome_modelElementTypes.Goal_1005);
-//		list.add(Openome_modelElementTypes.Dependency_3001);
-//		list.add(Openome_modelElementTypes.BreakContribution_3007);
-		
-		labellist.add(EvaluationLabel.SATISFIED);
-		labellist.add(EvaluationLabel.WEAKLY_SATISFIED);
-		labellist.add(EvaluationLabel.CONFLICT);
-		labellist.add(EvaluationLabel.UNKNOWN);
-		labellist.add(EvaluationLabel.WEAKLY_DENIED);
-		labellist.add(EvaluationLabel.DENIED);
-	
-				
-		//ld.setAddCancelButton(true);  
-		ld.setEvalLabelContentProvider(new ArrayContentProvider());
-		ld.setLabelBagContentProvider(new ArrayContentProvider());
-		
-		ld.setEvalLabelLabelProvider(new EvalLabelElementTypeLabelProvider());
-		ld.setLabelBagLabelProvider(new LabelBagElementTypeLabelProvider());
-
-	
-		ld.setEvalLabelInput(labellist);
-		
-		ld.setLabelBagInput(wrapper.bagToArray());
-		
-		
-		String mess = wrapper.getIntention().getName();
-		if (wrapper.getIntention().getContainer() != null)
-			mess += " in " + wrapper.getIntention().getContainer().getName();
-	
-		ld.setTitle("Sofgoal Resolution for " + mess);
-		ld.setMessage(mess + " has recieved the following labels.  Please select a resulting label.");
-
-		ld.open();
-		
-		if (ld.getReturnCode() == Window.CANCEL) {
-			result = EvaluationLabel.NONE;
-			System.out.println("cancelled");
-			cancelled = true;
-			return;
-		}
-		
-		for (Object ob: ld.getResult()) {
-			//System.out.println("Dialog Result: " + ob.toString());
-			result = EvaluationLabel.getByName(ob.toString());
-			//System.out.println("Dialog Result: " + result.getName());
-		}
-	}
 
 	public Collection<?> getAffectedObjects() {
 		// TODO Auto-generated method stub

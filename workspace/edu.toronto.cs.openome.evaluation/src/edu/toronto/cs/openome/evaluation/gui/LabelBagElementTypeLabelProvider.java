@@ -32,7 +32,7 @@ public class LabelBagElementTypeLabelProvider extends EvaluationElementTypeLabel
 		if (object instanceof IntentionLabelPair) {
 			IntentionLabelPair  ilp = (IntentionLabelPair) object;
 			EvaluationLabel l = (EvaluationLabel) ilp.getEvaluationLabel();
-			System.out.println(l.getName());
+			//System.out.println(l.getName());
 			return getEvalImage(l);  
 		}
 		return null;

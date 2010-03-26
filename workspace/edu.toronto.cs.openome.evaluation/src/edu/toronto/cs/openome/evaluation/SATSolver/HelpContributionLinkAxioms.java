@@ -13,15 +13,15 @@ public class HelpContributionLinkAxioms extends ContributionLinkAxioms {
 	
 
 	public HelpContributionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		
 	}
 	
 	
 	
 	public void createForwardClauses() {
-		System.out.println("Creating Forward Clauses for Help");
+		//System.out.println("Creating Forward Clauses for Help");
 		//super.createForwardClauses();
 		findIndexes();
 		int sIndex = sourceIndexes.last();
@@ -45,7 +45,7 @@ public class HelpContributionLinkAxioms extends ContributionLinkAxioms {
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Help");
 		//super.createBackwardClauses();
-		findIndexes();
+		/*findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> (PS(e) or S(e))
@@ -59,6 +59,7 @@ public class HelpContributionLinkAxioms extends ContributionLinkAxioms {
 		vi.push(sIndex + 4);
 		vi.push(sIndex + 5);
 		backwardClauses.addAll(addOrImplication(tIndex +4, vi));
+		*/
 		
 	}
 

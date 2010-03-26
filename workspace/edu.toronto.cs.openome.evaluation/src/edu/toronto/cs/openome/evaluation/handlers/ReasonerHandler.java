@@ -85,7 +85,7 @@ public class ReasonerHandler implements IHandler {
 		XMIResourceImpl xmires = null;
 		
 		for(Resource tmp: resourceSet.getResources()) {
-			System.out.println(tmp.toString());
+			//System.out.println(tmp.toString());
 			if (tmp instanceof XMIResourceImpl) {
 				xmires = (XMIResourceImpl) tmp;
 			}

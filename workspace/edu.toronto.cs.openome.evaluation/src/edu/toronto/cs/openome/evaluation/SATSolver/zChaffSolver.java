@@ -24,7 +24,7 @@ public class zChaffSolver extends SATSolver{
 		//System.out.println(path);
 		
 		try	{
-			System.out.println("Trying to run solver");
+			//System.out.println("Trying to run solver");
 			Runtime rt = Runtime.getRuntime() ;
 	
 		    Process p = rt.exec(homedir + "zchaff.exe " + homedir + filename);

@@ -13,8 +13,8 @@ public class HurtContributionLinkAxioms extends ContributionLinkAxioms {
 	
 
 	public HurtContributionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		
 	}
 	
@@ -45,7 +45,7 @@ public class HurtContributionLinkAxioms extends ContributionLinkAxioms {
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Hurt");
 		//super.createBackwardClauses();
-		findIndexes();
+		/*findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//PS(ei) -> (D(e) or PD(e))
@@ -58,7 +58,7 @@ public class HurtContributionLinkAxioms extends ContributionLinkAxioms {
 		vi = new VecInt();
 		vi.push(sIndex);
 		vi.push(sIndex + 1);
-		backwardClauses.addAll(addOrImplication(tIndex + 4, vi));
+		backwardClauses.addAll(addOrImplication(tIndex + 4, vi));*/
 		
 	}
 

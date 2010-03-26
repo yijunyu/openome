@@ -33,7 +33,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 
 import edu.toronto.cs.openome.evaluation.commands.DeleteAlternativeCommand;
-import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;

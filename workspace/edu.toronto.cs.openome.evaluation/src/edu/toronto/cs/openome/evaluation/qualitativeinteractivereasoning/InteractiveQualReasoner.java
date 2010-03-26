@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 
-import edu.toronto.cs.openome.evaluation.commands.InputWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
@@ -676,7 +676,8 @@ public class InteractiveQualReasoner extends Reasoner {
 	//		
 	//	}
 		
-		InputWindowCommand wincom = new InputWindowCommand(ar[0], w);
+				
+		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], w);
 			
 				
 		cs.execute(wincom);

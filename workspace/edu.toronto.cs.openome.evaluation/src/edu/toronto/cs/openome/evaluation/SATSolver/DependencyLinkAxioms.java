@@ -12,8 +12,8 @@ import edu.toronto.cs.openome_model.Property;
 public class DependencyLinkAxioms extends LinkAxioms {
 
 	public DependencyLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		// TODO Auto-generated constructor stub
 	}
 	/**

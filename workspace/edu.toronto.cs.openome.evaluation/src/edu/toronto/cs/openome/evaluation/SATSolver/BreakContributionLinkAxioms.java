@@ -13,8 +13,8 @@ public class BreakContributionLinkAxioms extends ContributionLinkAxioms {
 	
 
 	public BreakContributionLinkAxioms(Vector<Intention> sources, Intention targ,
-			Vector<Link> l, DualHashMap<Integer, Intention> dhm) {
-		super(sources, targ, l, dhm);
+			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
+		super(sources, targ, l, dhm, desc);
 		
 	}
 	
@@ -49,7 +49,7 @@ public class BreakContributionLinkAxioms extends ContributionLinkAxioms {
 	public void createBackwardClauses() {
 		//System.out.println("Creating Backward Clauses for Break");
 		//super.createBackwardClauses();
-		findIndexes();
+		/*findIndexes();
 		int sIndex = sourceIndexes.last();
 		
 		//Backward:
@@ -69,7 +69,7 @@ public class BreakContributionLinkAxioms extends ContributionLinkAxioms {
 		vi = new VecInt();
 		vi.push(sIndex);
 		vi.push(sIndex +1);
-		backwardClauses.addAll(addOrImplication(tIndex +5, vi));
+		backwardClauses.addAll(addOrImplication(tIndex +5, vi));*/
 	}
 
 }

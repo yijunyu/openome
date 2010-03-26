@@ -62,6 +62,7 @@ public class Dimacs {
 	    out.write("p cnf " + getNumVariables() + " " + getNumClauses() + "\n");
 	    
 	    for (Axioms la : axioms) {
+	    	out.write("c " + la.getDescription() + "\n");
 	    	for (String str : la.getClauses())  {
 	    		out.write(str + "\n");
 	    	}
