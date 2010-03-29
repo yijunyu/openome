@@ -146,4 +146,9 @@ public interface Contribution extends Link {
 	 */
 	void setGoal_model_symmetry(GoalModelingContributionSymmetry value);
 
+	/**
+	 * @generated NOT
+	 */
+	String getContributionType();
+
 } // Contribution

@@ -2,8 +2,16 @@ package edu.toronto.cs.openome.evaluation.SATSolver;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ListIterator;
 import java.util.Vector;
 
+import org.sat4j.core.VecInt;
+import org.sat4j.specs.IteratorInt;
+
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
@@ -35,7 +43,6 @@ public class ModeltoAxiomsConverter {
 		model = m;
 		intentionIndex = new DualHashMap<Integer, Intention>();
 		createIntentionIndex();
-		cnf = new Dimacs();
 		done = new Vector<Link>();
 		axiomsFactory = new AxiomsFactory();
 	}
@@ -50,48 +57,49 @@ public class ModeltoAxiomsConverter {
 		}		
 	}
 	
-	private void reset() {
+	private void reset(String filename) {
 		done = new Vector<Link>();
-		cnf = new Dimacs();
+		cnf = new Dimacs(filename);
 	}
 	
 	public DualHashMap<Integer, Intention> getIntentionIndex() {
 		return intentionIndex;
 	}
 
-	public Dimacs convertBothDirections()  {
-		reset();
+	public Dimacs convertBothDirections(String filename)  {
+		reset(filename);
+		
 		convertContributions(1);
 		convertDependencies(1);
 		convertDecompositions(1);
-		createTargets();
+		createTargets(1);
 		createInvariants();
-		createConstraints();
+		createConstraints(1);
 		
 		return cnf;
 	}
 	
-	public Dimacs convertForward() {
-		reset();
+	public Dimacs convertForward(String filename) {
+		reset(filename);
 		convertContributions(2);
 		convertDependencies(2);
 		convertDecompositions(2);
-		createTargets();
+		createTargets(2);
 		createInvariants();
-		createConstraints();
-		
+		createConstraints(2);
+
 		return cnf;
 	}
 	
-	public Dimacs convertBackward() {
-		reset();
+	public Dimacs convertBackward(String filename) {
+		reset(filename);
 		convertContributions(3);
 		convertDependencies(3);
 		convertDecompositions(3);
-		createTargets();
+		createTargets(3);
 		createInvariants();
-		createConstraints();
-		
+		createConstraints(3);
+
 		return cnf;
 	}
 
@@ -267,18 +275,26 @@ public class ModeltoAxiomsConverter {
 		
 	}
 	
-	private void createConstraints() {
+	private void createConstraints(int dir) {
 		for (Intention intention : model.getAllIntentions()) {
-			if (intention.isLeaf()) {
-				Vector<Intention> sources = new Vector<Intention>();
-				sources.add(intention);
-				String description = "Constraints for: " + intention.getName();
-				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Constraint", intentionIndex, description);
+			Vector<Intention> sources = new Vector<Intention>();
+			sources.add(intention);
+			String description = "Constraints for: " + intention.getName();
+			ConstraintAxioms ia = new ConstraintAxioms(intention,intentionIndex, description);
+			if (intention.isLeaf()) {				
 			
-				ia.createAllClauses(); 
-						
+				ia.createLeafClauses(); 
 				cnf.addAxioms(ia);	
+				
+			} 
+			if (dir == 3) {
+				//if (intention.getContributesFrom().size() <= 1) {
+					ia.createAllClauses();
+					cnf.addAxioms(ia);	
+				//}
 			}
+				
+			
 		}
 		
 	}
@@ -298,15 +314,22 @@ public class ModeltoAxiomsConverter {
 					
 	}
 
-	private void createTargets() {
+	private void createTargets(int dir) {
 		for (Intention intention : model.getAllIntentions()) {
 			if (intention.getQualitativeReasoningCombinedLabel() != EvaluationLabel.NONE) {
 				Vector<Intention> sources = new Vector<Intention>();
 				sources.add(intention);
 				String description = "Target for: " + intention.getName();
-				IntentionAxioms ia = axiomsFactory.createIntentionAxiom(intention, "Target", intentionIndex, description);
+				TargetAxioms ia = new TargetAxioms(intention, intentionIndex, description);
 			
-				ia.createAllClauses(); 
+				/*switch (dir) {
+					case 1: ia.createAllClauses(); break;
+					case 2: ia.createAllClauses(); break;
+					case 3: ia.createBackwardClauses(); break;
+					default: ia.createAllClauses();  break;
+				}*/
+				
+				ia.createAllClauses();
 						
 				cnf.addAxioms(ia);		
 			}
@@ -343,5 +366,162 @@ public class ModeltoAxiomsConverter {
 		}
 		return map;
 	}
+	
+	public Vector<VecInt> convertMinResults(Vector<Integer> intResults, Dimacs cnf) {
+		HashMap<Intention, int[]> map = new HashMap<Intention, int[]>();
+		int[] list;
+		boolean found = false;
+		Vector<VecInt> clauses = new Vector<VecInt>();
+		intentionIndex.print();
+		for (int i =0; i< cnf.getNumClauses();i++) {
+			int index = intResults.indexOf(new Integer(i));
+			//System.out.println("index: " + index + "for " + i);
+			if (index < 0) {
+				VecInt vi = cnf.getClauseByIndex(i);
+				if (vi != null)
+					clauses.add(vi);
+				else
+					System.out.println("couldn't find clause by index in conversion");
+			}
+			
+		}
+		
+		return clauses;
+		
+		//ugh
+		/*Vector<Vector<Object []>> resultClauses = new Vector<Vector<Object []>>(clauses.size());
+		
+		Object [] tuple = new Object[2];
+		
+		for (Object obj : intentionIndex.keySetForward()) {
+			Integer integer = (Integer) obj;
+			
+			for (VecInt vi : clauses)  {
+				IteratorInt it = vi.iterator();
+				while (it.hasNext()) {
+					int j = it.next(); 
+					if (j == integer.intValue()) {
+						
+					}
+				}
+			}
+			
+			if (i == null)  {
+				System.out.println("couln't find clause by index");
+				return null;
+			}
+			
+			
+			
+			for (int j : clause) {
+				intentionIndex
+			}
+			
+			
+		}
+		return map;
+		*/
+	
+	}
+	
+	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int dir) {
+		//Disable old clauses
+		//cnf.disableAxioms(links);		
+		
+		String description = "Human judgment for intention " + w.getIntention().getName();
+		
+		Vector<Intention>  sources = new Vector<Intention>();
+		Vector<Link> links = new Vector<Link>();
+		
+		ListIterator<IntentionLabelPair> it = w.getHumanJudgements().get(0).getLabelBag().listIterator();
+		while (it.hasNext()) {
+			IntentionLabelPair ilp =  it.next();
+			sources.add(ilp.getIntention());
+			//System.out.println("source: " + ilp.getIntention().getName());
+			for (Contribution cont : ilp.getIntention().getContributesTo()) {
+				if (cont.getTarget().equals(w.getIntention())) {
+					links.add(cont);
+					//System.out.println("link: " + cont.getContributionType());
+				}				
+			}
+		}
+		
+		Vector<Axioms> axs = cnf.getAxioms(links);
+		
+		for (Axioms ax : axs) {
+			if (ax instanceof HumanJudgmentLinkAxioms) {
+				cnf.removeAxiom(ax);
+				System.out.println("shouldn't happen?");
+			}
+			else {
+				cnf.disableAxiom(ax);
+			}
+		}
+		
+		Intention target = w.getIntention();
+		
+		HumanJudgmentLinkAxioms hja = new HumanJudgmentLinkAxioms(sources, target, links, intentionIndex, description);
+		
+		//hja.addLabelBag(lb);
+		hja.addWrapper(w);
+		
+		//both directions
+		if (dir == 0) {			
+			hja.createAllClauses();			
+		}
+		//forwards
+		else if (dir == 1) {
+			hja.createForwardClauses();
+		} 
+		//backwards
+		else if (dir == -1) {
+			hja.createBackwardClauses();
+		}
+		
+		cnf.addAxioms(hja);	
+		
+		return cnf;
+		
+	}
+	
+	public Dimacs backtrackHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int i) {
+		//System.out.println("Converter backtracking for " + w.getIntention().getName());
+		for (HumanJudgement hj : w.getHumanJudgements()) {
+			hj.disable();
+		}
+		
+		Vector<Link> links = new Vector<Link>();
+		
+		ListIterator<IntentionLabelPair> it = w.getHumanJudgements().get(0).getLabelBag().listIterator();
+		while (it.hasNext()) {
+			IntentionLabelPair ilp =  it.next();
+			//System.out.println("source: " + ilp.getIntention().getName());
+			for (Contribution cont : ilp.getIntention().getContributesTo()) {
+				if (cont.getTarget().equals(w.getIntention())) {
+					links.add(cont);
+					//System.out.println("link: " + cont.getContributionType());
+				}				
+			}
+		}
+		
+		Vector<Axioms> axs = cnf.getAxioms(links);
+		//System.out.println(axs.size());
+		
+		for (Axioms ax : axs) {
+			System.out.println(ax.getDescription());
+			if (ax instanceof HumanJudgmentLinkAxioms) {
+				cnf.removeAxiom(ax);
+			}
+			else {
+				//System.out.println("trying to enable axiom.");
+				cnf.enableAxiom(ax);
+			}
+		}
+		
+		//System.out.println("Converter backtracked for " + w.getIntention().getName());
+		return cnf;
+	}
+
+	
 	
 }

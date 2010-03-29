@@ -5,14 +5,12 @@ import java.util.Vector;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 public class IntQualIntentionWrapper {
 	
 	private EvaluationLabel initialEvaluationLabel;
 	private Intention intnt;
-	private LabelBag lb;
-	
+	private LabelBag lb;	
 	private Vector<HumanJudgement> hjv;
 	
 	
@@ -89,6 +87,11 @@ public class IntQualIntentionWrapper {
 
 	public HumanJudgement addHumanJudgement(EvaluationLabel result) {
 		HumanJudgement hj = new HumanJudgement(lb, result);
+		hjv.add(hj);
+		return hj;
+	}
+	
+	public HumanJudgement addHumanJudgement(HumanJudgement hj) {
 		hjv.add(hj);
 		return hj;
 	}

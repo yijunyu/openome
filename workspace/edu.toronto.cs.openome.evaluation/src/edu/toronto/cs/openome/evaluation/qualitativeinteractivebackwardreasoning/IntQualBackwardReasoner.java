@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivebackwardreasoning;
 
 import java.util.HashMap;
+import java.util.Stack;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
@@ -8,14 +9,17 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.sat4j.core.VecInt;
 
 import edu.toronto.cs.openome.evaluation.SATSolver.Dimacs;
 import edu.toronto.cs.openome.evaluation.SATSolver.ModeltoAxiomsConverter;
 import edu.toronto.cs.openome.evaluation.SATSolver.zChaffSolver;
+import edu.toronto.cs.openome.evaluation.SATSolver.zMinimalSolver;
 import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -27,8 +31,12 @@ public class IntQualBackwardReasoner extends Reasoner {
 	//which stores a list of these wrappers, this is that class
 	private SoftgoalWrappers softgoalWrappers;
 	private HashMap <Intention, Integer> minDistances;
-	
-	
+	private Dimacs cnf;
+	private Dimacs cnfBack;
+	zChaffSolver solver;
+	zMinimalSolver minSolver;
+	ModeltoAxiomsConverter converter;
+	Stack<Vector<Intention>> hjStack;
 	/**
 	 * @author jenhork
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
@@ -38,7 +46,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		softgoalWrappers = new SoftgoalWrappers();
 		minDistances = new HashMap<Intention, Integer>();
-		
+		solver = new zChaffSolver();
+		minSolver = new zMinimalSolver();
+		converter = new ModeltoAxiomsConverter(model);
+		hjStack = new Stack<Vector<Intention>>();
 		initializeMinDistances();
 	}
 	
@@ -53,88 +64,90 @@ public class IntQualBackwardReasoner extends Reasoner {
 		System.out.println("Qualitative Interactive Backward Reasoning - !yohA");
 		
 		//First, translate the model into a form that the SAT solver can read
-		
-		zChaffSolver solver = new zChaffSolver();
-		Dimacs cnf = new Dimacs();
-		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter(model);
+						
+		cnf = converter.convertBothDirections("Dimacs.cnf");
 				
-		cnf = converter.convertBothDirections();
-		//cnf = converter.convertForward();
-		//cnf = converter.convertBackward();
+		cnfBack = converter.convertBackward("backDimacs.cnf");
 		
 		//System.out.println("Done conversion");
 		
-		int result = solver.solve(cnf);		
-		
-		Vector<Integer> intResults = solver.getResults();
-		
-		if (result ==1) {
-		
-			HashMap<Intention, int[]> results = converter.convertResults(intResults);
-		
-			System.out.println("Results HashMap");
-			//System.out.println(intResults.size());
-			for (Intention intention : results.keySet()) {
-				System.out.println(intention.getName());
-				int [] ints = results.get(intention);
-				for (int i : ints) {
-					System.out.print(i + " ");
-				}
-				System.out.println("");
+		while( true )  {
+			int result = solver.solve(cnf);		
 			
-			}
-			
-			Vector<Intention> needHJ = processAndDisplayResults(results);	
-			
-			//System.out.println("The following intentions need human judgment: ");
-			//for (Intention i : needHJ) {
-			//	System.out.println(i.getName());
-			//}
-			
-			Vector<Intention> topMostConflict = findTopMostConflict(needHJ);
-			
-			for (Intention i: topMostConflict)  {
-				System.out.println("The following intentions are the top most conflict: " + i.getName());
-			
-			    Dimacs cnfBack = new Dimacs();
+			if (result ==1) {
 				
-				cnfBack = converter.convertBackward();
+				Vector<Integer> intResults = solver.getResults();
 				
-				result = solver.solve(cnfBack);		
-				
-				Vector<Integer> intBackResults = solver.getResults();
-								
-				if (result ==1) {
-				
-					HashMap<Intention, int[]> backResults = converter.convertResults(intBackResults);
-					
-					System.out.println("Backward Results HashMap");
-					//System.out.println(intResults.size());
-					for (Intention intention : backResults.keySet()) {
-						System.out.println(intention.getName());
-						int [] ints = backResults.get(intention);
-						for (int j : ints) {
-							System.out.print(j + " ");
-						}
-						System.out.println("");
-					
+				HashMap<Intention, int[]> results = converter.convertResults(intResults);
+			
+				System.out.println("Results HashMap");
+				//System.out.println(intResults.size());
+				for (Intention intention : results.keySet()) {
+					System.out.println(intention.getName());
+					int [] ints = results.get(intention);
+					for (int i : ints) {
+						System.out.print(i + " ");
 					}
-				
-					//backwards eval to find targets?
-					HumanJudgement hj = promptForHumanJudgment(i, backResults.get(i));
+					System.out.println("");				
 				}
+				
+				Vector<Intention> needHJ = processAndDisplayResults(results);	
+				
+				if (needHJ.size() == 0) {
+					//we are done, problem is SAT, HJ not needed
+					return;
+				}
+				
+				
+				
+				//System.out.println("The following intentions need human judgment: ");
+				//for (Intention i : needHJ) {
+				//	System.out.println(i.getName());
+				//}
+				
+				Vector<Intention> topMostConflict = findTopMostConflict(needHJ);
+				
+				
+				
+				//System.out.println(cnf.getNumClauses());
+				
+				int hjresult = addHumanJudgement(topMostConflict);
+				
+				//user has cancelled
+				if (hjresult == -1)
+					return;
+				//user has no more hj to add
+				if (hjresult == 0) {
+					int bresult = backtrack();
+					
+					if (bresult == -1) {
+						return;
+					}
+				}
+				if (hjresult == 1) {
+					hjStack.push(topMostConflict);
+				}
+				
+				//System.out.println(cnf.getNumClauses());
+				
+				//remove me later
+				//result = solver.solve(cnf);
+				//result = solver.solve(cnfBack);	
+				
+				
 			}
-		}
-		else if (result == 0) {
-			Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-			
-			Shell shell = ar[0];
-							
-			showMessage("Target(s) unsatisfiable", shell);
-		}
-		else {
-			System.out.println("zChaff failed");
+			else if (result == 0) {
+				int bresult = backtrack();
+				
+				if (bresult == -1) {
+					return;
+				}		
+			}
+			else {
+				System.out.println("zChaff failed");
+				
+				return;
+			}
 		}
 		
 	
@@ -148,21 +161,150 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 	}
 	
-	private HumanJudgement promptForHumanJudgment(Intention i, int[] js) {
-		System.out.println(i.getName() + " needs human judgment.  Target is: ");
+	private int backtrack() {
+		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+		
+		Shell shell = ar[0];		
+		
+		if (hjStack.size() > 0) {				
+			showMessage("Target(s) unsatisfiable, backtracking...", shell);
+			
+			Vector<Intention> needHJ = hjStack.pop();
+			
+			for (Intention i: needHJ) {
+				System.out.println(i.getName() + " needs human judgment in backtrack");
+				
+				IntQualIntentionWrapper w = softgoalWrappers.findIntention(i);
+				
+				cnf = converter.backtrackHumanJudgment(cnf, w, 0);
+				cnfBack = converter.backtrackHumanJudgment(cnfBack, w, -1);
+			}
+						
+			int hjresult = addHumanJudgement(needHJ);
+			
+			//user has cancelled
+			if (hjresult == -1)
+				return -1;
+			//user has no more hj to add
+			else if (hjresult == 0) {
+				
+				int bresult = backtrack();
+				
+				if (bresult == -1) {
+					return -1;
+				}
+				
+			} else if (hjresult == 1)  {
+				hjStack.push(needHJ);
+			}
+			
+			return 1;
+		}
+		else {
+			
+			int minResult = minSolver.solve(cnf);		
+			
+			if (minResult == 1) {
+				
+				Vector<Integer> intResults = minSolver.getResults();
+				
+				System.out.println(intResults.size());
+				
+				Vector<VecInt> results = converter.convertMinResults(intResults, cnf);
+				
+				System.out.println("Min results:");
+				System.out.println(results.size());
+				for (VecInt vi: results) {
+					if (vi != null)
+						System.out.println(vi.toString());			
+				}
+			}
+			
+			
+			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.  Ending.", shell);
+			
+			return -1;
+		}
+		
+	}
+
+	private int addHumanJudgement(Vector<Intention> topMostConflict) {
+		int hjresult = 0;
+		for (Intention i: topMostConflict)  {
+			System.out.println("The following intentions are getting human judgment: " + i.getName());
+			
+			int result = solver.solve(cnfBack);					
+										
+			if (result == 1) {
+				
+				Vector<Integer> intBackResults = solver.getResults();
+			
+				HashMap<Intention, int[]> backResults = converter.convertResults(intBackResults);
+				
+				/*System.out.println("Backward Results HashMap");
+				//System.out.println(intResults.size());
+				for (Intention intention : backResults.keySet()) {
+					System.out.println(intention.getName());
+					int [] ints = backResults.get(intention);
+					for (int j : ints) {
+						System.out.print(j + " ");
+					}
+					System.out.println("");				
+				}*/
+			
+				//backwards eval to find targets?
+				IntQualIntentionWrapper w =softgoalWrappers.findIntention(i);
+				if (w == null) {
+					w = new IntQualIntentionWrapper(i);
+					softgoalWrappers.add(w);
+				}				
+			
+				LabelBag lb = promptForHumanJudgment(w, backResults.get(i));
+				
+				//user has pressed cancel, quit everything
+				if (lb == null) {
+					return -1;
+				//no combinations 
+				} else if (lb.size() == 0) {
+					
+				} else if (lb.size() > 0) {
+					//System.out.println("r is 1");
+					//lb.printBag();
+					//do something with the bag
+					
+					System.out.println("human judgements:");
+					for (HumanJudgement hj : w.getHumanJudgements()) {
+						hj.getLabelBag().printBag();
+						System.out.println("Target: " + hj.getJudgement().toString());
+					}	
+					
+					cnf = converter.addHumanJudgment(cnf, w, 0);
+					cnfBack = converter.addHumanJudgment(cnfBack, w, -1);
+					
+					hjresult = 1;
+				}
+			} else {
+				System.out.println("Couldn't find backward target for " + i.getName());
+				return 0;
+			}
+		}
+		return hjresult;		
+	}
+
+	private LabelBag promptForHumanJudgment(IntQualIntentionWrapper w, int[] js) {
+		System.out.println(w.getIntention().getName() + " needs human judgment.  Target is: ");
 		for (int j: js)
 			System.out.print(j + " ");
 		System.out.println();
 		
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
-		IntQualIntentionWrapper w = new IntQualIntentionWrapper(i);
 		
-		if (js[0] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
-			w.setInitialEvaluationLabel(EvaluationLabel.SATISFIED);
-		}			
-		else if (js[1] > 0 & (js[0] < 0 & js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+		if (js[1] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_SATISFIED);
+		}			
+		else if (js[0] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+			w.setInitialEvaluationLabel(EvaluationLabel.SATISFIED);
 		}
 		else if (js[2] > 0 & (js[0] < 0 & js[1] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.UNKNOWN);
@@ -170,28 +312,33 @@ public class IntQualBackwardReasoner extends Reasoner {
 		else if (js[3] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.CONFLICT);
 		}
-		else if (js[4] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0 & js[5] < 0)) {
+		else if (js[4] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_DENIED);
 		}			
-		else if (js[5] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0)) {
+		else if (js[5] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0 & js[4]<0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.DENIED);
 		}
 		else {
-			System.out.println("Backward target not clear for " + i.getName());
+			System.out.println("Backward target not clear for " + w.getIntention().getName());
 		}
+		
 		
 		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], w);
 				
 		cs.execute(wincom);
 		
-		if (wincom.cancelled()) {
-			return null;
+		
+		
+		if (wincom.noCombinations()) {
+			return new LabelBag();
 		}
-			
-		EvaluationLabel result = wincom.getEvalResult();	
 		
+		if (wincom.done()) {
+			//System.out.println("Window was done");
+			return wincom.getBagResult();			
+		}
 		
-		
+		// was cancelled
 		return null;
 	}
 
@@ -293,8 +440,13 @@ public class IntQualBackwardReasoner extends Reasoner {
 				setQualCombinedLabel(intention, EvaluationLabel.DENIED);
 			}
 			else {
-				//setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
-				needHJ.add(intention);
+				if (intention.getContributesFrom().size() > 1) {
+					setQualCombinedLabel(intention, EvaluationLabel.UNKNOWN);
+					needHJ.add(intention);
+				}
+				else {
+					setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
+				}					
 			}
 		}
 		

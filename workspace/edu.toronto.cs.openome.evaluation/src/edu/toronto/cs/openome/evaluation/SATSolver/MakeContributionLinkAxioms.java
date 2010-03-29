@@ -21,7 +21,7 @@ public class MakeContributionLinkAxioms extends ContributionLinkAxioms {
 	
 	
 	public void createForwardClauses() {
-		System.out.println("Creating Forward Clauses for Make");
+		//System.out.println("Creating Forward Clauses for Make");
 		//super.createForwardClauses();
 		findIndexes();
 		int sIndex = sourceIndexes.last();

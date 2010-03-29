@@ -9,7 +9,7 @@ import java.util.Vector;
 
 import edu.toronto.cs.openome_model.Intention;
 
-public class zChaffSolver extends SATSolver{
+public class zMinimalSolver extends SATSolver{
 	/**
 	 * @author jenhork
 	 * This is where the reasoning actually occurs; however, it should be overridden by it's childen, as this is a general type of reasoner. 
@@ -28,7 +28,7 @@ public class zChaffSolver extends SATSolver{
 			//System.out.println("Trying to run solver");
 			Runtime rt = Runtime.getRuntime() ;
 	
-		    Process p = rt.exec(homedir + "zchaff.exe " + path);
+		    Process p = rt.exec(homedir + "zminimal.exe " + path);
 		    //p.waitFor();
 
 		    String line;
@@ -41,23 +41,24 @@ public class zChaffSolver extends SATSolver{
 		    	
 		      while ((line = input.readLine()) != null) {
 		    	  //System.out.println(line);
-		    	  if (line.startsWith("Instance Satisfiable")) {
-		    		  line = input.readLine();
-		    		//  System.out.println(line);
-		    		  vars = line.split(" ");
-		    		  
-		    		  //System.out.println(vars.length);
-		    		// for (String str : vars) {
-		    		//	 System.out.println(str);
-		    		// }
-		    		  results = convertToInts(vars, cnf.getNumVariables());
+		    	  if (line.startsWith("Unneeded clauses are:")) {
+		    		  while ((line = input.readLine()) != null) {
+		    			  //System.out.println(line);
+			    		  vars = line.split(" ");
+			    		  
+			    		  Vector<Integer> v = convertToInts(vars, 20);
+			    		  
+			    		  /*for (Integer i : v) {
+			    			  System.out.print(i);
+			    		  }
+			    		  System.out.println();*/
+			    		  results.addAll(v);
+			    		  //System.out.println(results.size());
+			    		 
+		    		  }
 		    		  return 1;
 		    	  }
-		    	  if (line.startsWith("Instance Unsatisfiable")) {
-		    		  
-		    		  return 0;
-		    	  }
-		        
+		    	  
 		      }
 		      
 		      BufferedReader error =

@@ -15,10 +15,14 @@ public abstract class Axioms {
 	
 	protected DualHashMap<Integer, Intention> intentionMap;
 	protected String description;
+	protected boolean enabled;
+	protected int clauseIndex;
 	
 	public Axioms(DualHashMap<Integer, Intention> dhm, String desc) {
 			intentionMap = dhm;			
 			description = desc;
+			enabled = true;
+			clauseIndex = -1;
 	}	
 	
 	abstract public  void  createAllClauses();
@@ -36,6 +40,8 @@ public abstract class Axioms {
 	abstract public boolean containsBackward(VecInt vi);
 	
 	abstract public Vector<String> getClauses();
+	
+	abstract public boolean containsLinks(Vector<Link> links);
 	
 	protected Vector<VecInt> addAndImplication(VecInt ind1, int ind2) {
 		VecInt output = new VecInt(ind1.size() + 2);
@@ -135,6 +141,33 @@ public abstract class Axioms {
 	public String getDescription() {
 		return description;
 	}
+	
+	public void enable() {
+		enabled = true;
+		//System.out.println("Axiom enabled: " + description);
+	}
+	
+	public void disable() {
+		enabled = false;
+		//System.out.println("Axiom disabled: " + description);
+	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setClauseIndex(int count) {
+		clauseIndex = count;		
+	}
+	
+	public int getClauseIndex() {
+		return clauseIndex;
+	}
+
+	public abstract VecInt getClauseByIndex(int index);
+
+
+	
 
 	
 }

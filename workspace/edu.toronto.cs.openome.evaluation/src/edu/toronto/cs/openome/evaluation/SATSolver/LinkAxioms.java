@@ -66,6 +66,29 @@ public abstract class LinkAxioms extends Axioms {
 		}
 	}
 	
+	public boolean containsLinks(Vector<Link> l) {
+		//for (Link link : links) {
+	//		System.out.println("link: " + link.toString());
+		//}
+		boolean equals = false;
+		for (Link link : l) {
+			
+			equals = false;
+			for (Link link2 : links) {
+				if (link.equals(link2)) {
+					//System.out.println("links equal: " + link.toString() + link2.toString());
+					equals = true;
+				}
+				else {
+					//System.out.println("links not equal: " + link.toString() + link2.toString());
+				}
+			}
+			if (!equals)
+				return false;
+		}
+		return true;
+	}
+	
 	public void createAllClauses() {
 		//System.out.println("Creating Clauses");
 		
@@ -290,5 +313,27 @@ public abstract class LinkAxioms extends Axioms {
 		if (containsForward(vi))
 			return true;
 		return false;
+	}
+	
+	public VecInt getClauseByIndex(int index) {
+		int numClause = getNumClauses();
+		//System.out.println(description + " " + clauseIndex);
+		for (int i = 0; i< numClause; i++) {
+			 if ((clauseIndex + i) == index) {
+				 //System.out.println("found");
+				 
+				 if (i < forwardClauses.size()) {
+					 //System.out.println(i);
+					 return forwardClauses.get(i);
+				 }
+				 else {
+					 //System.out.println(i- forwardClauses.size() + " " + backwardClauses.size());
+					 return backwardClauses.get(i - forwardClauses.size());
+				 }
+				 
+			 }
+		}
+		
+		return null;
 	}
 }

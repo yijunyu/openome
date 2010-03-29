@@ -12,10 +12,12 @@ import edu.toronto.cs.openome_model.EvaluationLabel;
 public class HumanJudgement {
 	LabelBag bag;
 	EvaluationLabel result;
+	boolean enabled;
 	
 	public HumanJudgement(LabelBag b, EvaluationLabel l)  {
 		result = l;
 		bag = new LabelBag(b);
+		enabled = true;
 	}
 	
 	public EvaluationLabel findOrImplies(LabelBag lb) {
@@ -48,6 +50,22 @@ public class HumanJudgement {
 	
 	public EvaluationLabel getJudgement(){
 		return result;
+	}
+	
+	public LabelBag getLabelBag() {
+		return bag;
+	}
+	
+	public void enable() {
+		enabled = true;
+	}
+	
+	public void disable() {
+		enabled = false;
+	}
+	
+	public boolean isEnabled() {
+		return enabled;
 	}
 	
 }

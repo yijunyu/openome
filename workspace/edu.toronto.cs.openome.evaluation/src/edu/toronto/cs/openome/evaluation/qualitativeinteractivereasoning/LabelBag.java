@@ -66,6 +66,14 @@ public class LabelBag {
 		}
 	}
 	
+	public String toString() {
+		String str = "";
+		for (IntentionLabelPair ilp: bag) {
+			str += "(" + ilp.getIntention().getName() + ", " + ilp.getEvaluationLabel().getName() + ") ";			
+		}
+		return str;
+	}
+	
 	private int findIntention(Intention i) {
 		for (IntentionLabelPair ilp: bag) {
 			if (ilp.getIntention().equals(i)) {

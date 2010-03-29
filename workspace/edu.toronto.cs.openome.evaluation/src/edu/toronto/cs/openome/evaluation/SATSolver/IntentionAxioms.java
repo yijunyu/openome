@@ -31,6 +31,10 @@ public abstract class IntentionAxioms extends Axioms {
 		return false;
 	}
 	
+	public boolean containsLinks(Vector<Link> links) {
+		return false;
+	}
+	
 	public boolean contains(VecInt vi) {
 		for (VecInt vi2 : clauses) {
 			if (equalsVecInt(vi, vi2)) {
@@ -77,6 +81,23 @@ public abstract class IntentionAxioms extends Axioms {
 	@Override
 	public int getNumVars() {
 		return intentionMap.size() * 6;
+	}
+	
+	public VecInt getClauseByIndex(int index) {
+		int numClause = getNumClauses();
+		
+		for (int i = 0; i< numClause; i++) {
+			 if ((clauseIndex + i) == index) {
+				return clauses.get(i);				
+			 }
+		}
+		
+		return null;
+	}
+
+	public void createLeafClauses() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

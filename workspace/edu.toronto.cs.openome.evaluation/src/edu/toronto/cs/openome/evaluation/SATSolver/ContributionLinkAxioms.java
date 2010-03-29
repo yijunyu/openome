@@ -88,17 +88,18 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		
 		VecInt posInc;		
 		VecInt negInc;
+		VecInt combine;
 		
 		//S(e)->at least one S(ei) for pos links or at least one D(ek) for neg links
 		
-		posInc = incrementAll(posSourceIndexes, 0);		
-		negInc = incrementAll(negSourceIndexes, 5);
+		//posInc = incrementAll(posSourceIndexes, 0);		
+		//negInc = incrementAll(negSourceIndexes, 5);
 		
-		VecInt combine = new VecInt();
-		combine.pushAll(posInc);
-		combine.pushAll(negInc);
+		//VecInt combine = new VecInt();
+		//combine.pushAll(posInc);
+		//combine.pushAll(negInc);
 		
-		backwardClauses.addAll(addOrImplication(tIndex, combine));
+		//backwardClauses.addAll(addOrImplication(tIndex, combine));
 		
 		//PS(e)->at least one PS(ei) for pos links or at least one PD(ek) for neg links
 		
@@ -128,14 +129,14 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		backwardClauses.addAll(addOrImplication(tIndex + 4, combine));
 		
 		//D(e)->at least one D(ei) for pos links or at least one S(ek) for neg links		
-		posInc = incrementAll(posSourceIndexes, 5);		
-		negInc = incrementAll(negSourceIndexes, 0);
+		//posInc = incrementAll(posSourceIndexes, 5);		
+		//negInc = incrementAll(negSourceIndexes, 0);
 		
-		combine = new VecInt();
-		combine.pushAll(posInc);
-		combine.pushAll(negInc);
+		//combine = new VecInt();
+		//combine.pushAll(posInc);
+		//combine.pushAll(negInc);
 		
-		backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
+		//backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
 		
 	}
 

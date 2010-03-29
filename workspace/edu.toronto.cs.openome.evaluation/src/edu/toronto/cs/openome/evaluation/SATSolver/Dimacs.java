@@ -11,13 +11,25 @@ import java.util.Vector;
 import org.eclipse.core.runtime.Path;
 import org.sat4j.core.VecInt;
 
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
+import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.Link;
+import edu.toronto.cs.openome_model.OrDecomposition;
 
 public class Dimacs {
 	private Vector<Axioms> axioms;
+	private String filename;
 		
-	public Dimacs( ) {
+	public Dimacs(String f) {
 		axioms = new Vector<Axioms>();
+		filename = f;
+		
+	}
+	
+	public String getFileName() {
+		return filename;
 	}
 	
 	public boolean addAxioms(Axioms la) {
@@ -30,26 +42,41 @@ public class Dimacs {
 	
 	public boolean containsBackward(VecInt vi) {	
 		 for (Axioms la : axioms) {
-			 if (la.containsBackward(vi))
-				return true;		
+			 if (la.isEnabled()) {
+				 if (la.containsBackward(vi))
+					return true;	
+			 }
 		 }
 		 return false;
 	}
 	
 	public boolean containsForward(VecInt vi) {	
 		 for (Axioms la : axioms) {
-			 if (la.containsForward(vi))
-				 return true;
+			 if (la.isEnabled()) {
+				 if (la.containsForward(vi))
+					 return true;
+			 }
 		 }
 		 return false;
 	}
 	
 	public boolean contains(VecInt vi) {	
 		 for (Axioms la : axioms) {
-			 if (la.contains(vi))
-				 return true;
+			 if (la.isEnabled()) {
+				 if (la.contains(vi))
+					 return true;
+			 }
 		 }
 		 return false;
+	}
+	
+	public VecInt getClauseByIndex(int index)  {
+		for (Axioms la : axioms) {
+			VecInt vi = la.getClauseByIndex(index);
+			if (vi != null)
+				return vi;
+		}
+		return null;
 	}
 	
 	public String writeToFile(String path) {
@@ -60,15 +87,19 @@ public class Dimacs {
 	    BufferedWriter out = new BufferedWriter(fstream);
 	    
 	    out.write("p cnf " + getNumVariables() + " " + getNumClauses() + "\n");
-	    
+	    int count = 0;
 	    for (Axioms la : axioms) {
-	    	out.write("c " + la.getDescription() + "\n");
-	    	for (String str : la.getClauses())  {
-	    		out.write(str + "\n");
+	    	if (la.isEnabled()) {
+	    		la.setClauseIndex(count);
+	    		out.write("c " + la.getDescription() + " " + count + "\n");
+		    	for (String str : la.getClauses())  {
+		    		out.write(str + "\n");
+		    		count++;
+		    	}
+		    	//for (String str : la.getBackwardClauses())  {
+		    	//	out.write(str + "\n");
+		    	//}
 	    	}
-	    	//for (String str : la.getBackwardClauses())  {
-	    	//	out.write(str + "\n");
-	    	//}
 	    }
 	    
 	    
@@ -84,8 +115,10 @@ public class Dimacs {
 	public int getNumClauses() {
 		int numClauses = 0;
 		 for (Axioms la : axioms) {
-			 numClauses += la.getNumClauses();
-			 //System.out.println("numClauses: " + numClauses);
+			 if (la.isEnabled()) {
+				 numClauses += la.getNumClauses();
+				 //System.out.println("numClauses: " + numClauses);
+			 }
 		 }
 		return numClauses;
 	}
@@ -95,6 +128,48 @@ public class Dimacs {
 			return axioms.get(0).getNumVars();
 		}
 		else return 0;
+	}
+
+	public void disableAxioms(Vector<Link> links) {
+		for (Axioms la : axioms) {
+			if (la.containsLinks(links))
+				la.disable();
+		}
+		
+	}
+
+	public Vector<Axioms> getAxioms(Vector<Link> links) {
+		Vector<Axioms> axs = new Vector<Axioms>();
+		for (Axioms la : axioms) {
+			if (la.containsLinks(links))
+				axs.add(la);
+		}
+		return axs;
+	}
+
+	public void removeAxiom(Axioms ax) {
+		//System.out.println("trying to remove axiom: " + ax.getDescription());
+		for (Axioms la : axioms) {
+			if (ax.equals(la)) {
+				//System.out.println("Removing axioms: " + la.getDescription());
+				axioms.remove(la);
+				return;
+			}
+		}		
+	}
+
+	public void disableAxiom(Axioms ax) {
+		for (Axioms la : axioms) {
+			if (ax.equals(la))
+				la.disable();
+		}
+	}
+	
+	public void enableAxiom(Axioms ax) {
+		for (Axioms la : axioms) {
+			if (ax.equals(la))
+				la.enable();
+		}
 	}
 
 	

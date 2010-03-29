@@ -23,7 +23,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
 public abstract class SATSolver {
 	Dimacs cnf;
 	static String homedir = "Solvers\\";
-	static String filename = "dimacs.cnf";
+	//static String filename = "dimacs.cnf";
 	protected Vector<Integer> results;
 		//"C:\\zChaffWorkspace\\zChaff\\";
 	
@@ -32,7 +32,7 @@ public abstract class SATSolver {
 	 * Default constructor, does nothing
 	 */
 	public SATSolver() {
-		results = null;		
+		results = new Vector<Integer>();		
 	}
 				
 	/**
@@ -40,9 +40,28 @@ public abstract class SATSolver {
 	 * This is where the reasoning actually occurs; however, it should be overridden by it's childen, as this is a general type of reasoner. 
 	 * It's not clear what the parent reasoner should do.
 	 */
-	public int solve(Dimacs c) {
-		//This one does nothing, should be overridden
-		return -1;
+	public abstract int solve(Dimacs c) ;
+	
+	protected Vector<Integer> convertToInts(String[] vars, int num) {
+		//System.out.println("ConvertToInts");
+		Vector<Integer> ints = new Vector<Integer>();
+		
+		int min = 0;
+		
+		if (vars.length < num)
+			min = vars.length;
+		else
+			min = num;
+		
+		for (int index = 0; index < min; index++) {
+			//System.out.println(index + ", " + vars[index]);
+			ints.add(Integer.parseInt(vars[index]));
+		}
+		return ints;
+	}
+	
+	public Vector<Integer> getResults() {
+		return results;
 	}
 	
 		

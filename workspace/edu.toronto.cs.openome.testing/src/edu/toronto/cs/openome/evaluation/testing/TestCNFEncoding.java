@@ -30,7 +30,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
 		
 		Dimacs cnf;
-		cnf = converter.convertBothDirections();
+		cnf = converter.convertBothDirections("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");
 				
@@ -104,7 +104,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsBackward(vi));
 		
-		cnf = converter.convertForward();
+		cnf = converter.convertForward("testDimacs.cnf");
 		assertTrue(cnf.getNumVariables() == 12);
 		assertTrue(cnf.getNumClauses() == (6 + (numInts*2) + (leaves.length*numConstraintClauses) ));
 		
@@ -145,7 +145,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		assertTrue(cnf.containsForward(vi));
 		
 		
-		cnf = converter.convertBackward();
+		cnf = converter.convertBackward("testDimacs.cnf");
 		assertTrue(cnf.getNumVariables() == 12);
 		assertTrue(cnf.getNumClauses() == (6 + (numInts*2) + (leaves.length*numConstraintClauses) ));
 		
@@ -196,7 +196,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 		
 		Dimacs cnf;
-		cnf = converter.convertForward();
+		cnf = converter.convertForward("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -283,7 +283,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsForward(vi));	
 		
-		cnf = converter.convertBackward();
+		cnf = converter.convertBackward("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -441,7 +441,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsBackward(vi));
 		
-		cnf = converter.convertBothDirections();
+		cnf = converter.convertBothDirections("testDimacs.cnf");
 		
 		assertTrue(cnf.getNumVariables() == 18);
 		assertTrue(cnf.getNumClauses() == (34 + (numInts*2) + (leaves.length*numConstraintClauses)));
@@ -461,7 +461,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 		
 		Dimacs cnf;
-		cnf = converter.convertForward(); 
+		cnf = converter.convertForward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
@@ -619,7 +619,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsForward(vi));
 		
-		cnf = converter.convertBackward(); 
+		cnf = converter.convertBackward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -632,7 +632,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		testInvariantAxioms(cnf, numInts);
 		testConstraintAxioms(cnf, leaves); 	
 		
-		cnf = converter.convertBothDirections(); 
+		cnf = converter.convertBothDirections("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -654,7 +654,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 				
 		Dimacs cnf;
-		cnf = converter.convertForward();
+		cnf = converter.convertForward("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
@@ -741,7 +741,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsForward(vi));
 				
-		cnf = converter.convertBackward();
+		cnf = converter.convertBackward("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -898,7 +898,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsBackward(vi));
 		
-		cnf = converter.convertBothDirections();
+		cnf = converter.convertBothDirections("testDimacs.cnf");
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -921,7 +921,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 		
 		Dimacs cnf;
-		cnf = converter.convertForward(); 
+		cnf = converter.convertForward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 			
@@ -933,7 +933,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		testInvariantAxioms(cnf, numInts);
 		testConstraintAxioms(cnf, leaves); 
 		
-		cnf = converter.convertBackward(); 
+		cnf = converter.convertBackward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -946,7 +946,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		testInvariantAxioms(cnf, numInts);
 		testConstraintAxioms(cnf, leaves); 
 		
-		cnf = converter.convertBothDirections(); 
+		cnf = converter.convertBothDirections("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 		
@@ -969,7 +969,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 		
 		Dimacs cnf;
-		cnf = converter.convertForward(); 
+		cnf = converter.convertForward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
@@ -1094,7 +1094,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsForward(vi));	
 		
-		cnf = converter.convertBackward(); 
+		cnf = converter.convertBackward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");
 				
@@ -1210,7 +1210,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		vi.push(0);
 		assertTrue(cnf.containsBackward(vi));	*/
 		
-		cnf = converter.convertBothDirections(); 
+		cnf = converter.convertBothDirections("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
@@ -1233,7 +1233,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
 		
 		Dimacs cnf;
-		cnf = converter.convertForward(); 
+		cnf = converter.convertForward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
@@ -1245,7 +1245,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		testInvariantAxioms(cnf, numInts);
 		testConstraintAxioms(cnf, leaves); 
 		
-		cnf = converter.convertBackward(); 
+		cnf = converter.convertBackward("testDimacs.cnf"); 
 		
 		cnf.writeToFile("testingdimacs.cnf");		
 		
