@@ -448,4 +448,12 @@ public class ContributionImpl extends LinkImpl implements Contribution {
 		return result.toString();
 	}
 
+	/**
+	 * @generated NOT
+	 */
+	public String getContributionType() {
+	
+		return "Contribution";
+	}
+
 } //ContributionImpl
