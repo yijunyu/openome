@@ -271,8 +271,11 @@ public abstract class LinkAxioms extends Axioms {
 				for (int j = 0; j < comb.size(); j++){
 					// get combination j, add literal i from clause to it and store it in the combinations arraylist
 					tmp = new ArrayList<Integer>(comb.get(j));
-					tmp.add(clause.get(i));
-					newComb.add(tmp);
+					if (!tmp.contains(clause.get(i))) {
+						tmp.add(clause.get(i));
+					}
+					newComb = containsSuperSetOrEqual(tmp, newComb);
+					
 				}
 			}
 		}
@@ -286,6 +289,30 @@ public abstract class LinkAxioms extends Axioms {
 		}
 		// newComb becomes comb, increment index
 		return generateBackwardCombinations(subclauses, index+1, newComb);
+	}
+
+	private static ArrayList<ArrayList<Integer>> containsSuperSetOrEqual(ArrayList<Integer> tmp, ArrayList<ArrayList<Integer>> newComb) {
+
+		for (ArrayList<Integer> al : newComb) {
+			if (subsetOrEqual(al, tmp))
+				return newComb;
+			if (subsetOrEqual(tmp, al)) {
+				newComb.remove(al);
+				newComb.add(tmp);
+				return newComb;
+			}					
+		}
+		
+		newComb.add(tmp);
+		return newComb;
+	}
+
+	private static boolean subsetOrEqual(ArrayList<Integer> al, ArrayList<Integer> tmp) {
+		for (Integer i: al) {
+			if (!tmp.contains(i))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean containsBackward(VecInt vi) {

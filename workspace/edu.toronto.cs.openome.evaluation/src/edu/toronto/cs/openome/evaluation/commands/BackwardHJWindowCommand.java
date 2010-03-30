@@ -139,8 +139,8 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			TableItem item = new TableItem (table, 0);
 			item.setText (0, i.getName());
 			//item.setText (1, "link");
-			for (Contribution cont: i.getContributesFrom()) {
-				if (cont.getTarget().equals(i))
+			for (Contribution cont: i.getContributesTo()) {
+				if (cont.getTarget().equals(intention))
 					item.setText (1, cont.getContributionType());
 			}
 			

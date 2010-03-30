@@ -70,11 +70,17 @@ public class ModeltoAxiomsConverter {
 		reset(filename);
 		
 		convertContributions(1);
+		//System.out.println("done contributions");
 		convertDependencies(1);
+		//System.out.println("done dependencies");
 		convertDecompositions(1);
+		//System.out.println("done decompositions");
 		createTargets(1);
+		//System.out.println("done targets");
 		createInvariants();
+		//System.out.println("done invariants");
 		createConstraints(1);
+		//System.out.println("done constraints");
 		
 		return cnf;
 	}
@@ -104,42 +110,56 @@ public class ModeltoAxiomsConverter {
 	}
 
 	private void convertDecompositions(int dir) {
+		//System.out.println(model.getDecompositions().size());
 		for (Decomposition dec : model.getDecompositions()) {
+			//System.out.println("decomposition: " + dec.toString());
 			if (!done.contains(dec)) {
+				//System.out.println("not done: " + dec.toString());
 				Intention target = dec.getTarget();
 				//System.out.println("decomposition target: " + target.getName());
 				
-				Vector<Link> links = new Vector<Link>();
-				Vector<Intention> sources = new Vector<Intention>();
-				for (Decomposition sibling: target.getDecompositionsTo()){
-					//System.out.println("done " + sibling.toString());
-					done.add(sibling);
-					links.add(sibling);
-					sources.add(sibling.getSource());
-					//System.out.println("decomposition source: " + sibling.getSource().getName());
+				if (target != null) {
+									
+					Vector<Link> links = new Vector<Link>();
+					Vector<Intention> sources = new Vector<Intention>();
+					for (Decomposition sibling: target.getDecompositionsTo()){
+						//System.out.println("done " + sibling.toString());
+						done.add(sibling);
+						links.add(sibling);
+						Intention source = sibling.getSource();
+						if (source != null) {	
+							//System.out.println("decomposition source is not null for: " + dec.toString());
+							sources.add(source);
+						} else {
+							//System.out.println("decomposition source is null for: " + dec.toString());
+						}
+						//System.out.println("decomposition source: " + sibling.getSource().getName());
+					}
+					//System.out.println(sources.size());
+					if (sources.size() > 0) {
+						//System.out.println("decomposition source and target not null for: " + target.getName());
+						String description = "Decomposition to: " + target.getName();
+						LinkAxioms la = null;
+						if (dec instanceof AndDecomposition)
+							la = axiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex, description);
+						if (dec instanceof OrDecomposition) {
+							//System.out.println("Ordecomp");
+							la = axiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex, description);
+						}
+							
+						
+						if (la != null) {
+							switch (dir) {
+								case 1: la.createAllClauses(); break;
+								case 2: la.createForwardClauses(); break;
+								case 3: la.createBackwardClauses(); break;
+								default: la.createAllClauses();  break;
+							}	
+						}
+						
+						cnf.addAxioms(la);
+					}
 				}
-				
-				String description = "Decomposition to: " + target.getName();
-				LinkAxioms la = null;
-				if (dec instanceof AndDecomposition)
-					la = axiomsFactory.createLinkAxiom(sources, target, links, "Decomposition", intentionIndex, description);
-				if (dec instanceof OrDecomposition) {
-					//System.out.println("Ordecomp");
-					la = axiomsFactory.createLinkAxiom(sources, target, links, "Means Ends", intentionIndex, description);
-				}
-					
-				
-				if (la != null) {
-					switch (dir) {
-						case 1: la.createAllClauses(); break;
-						case 2: la.createForwardClauses(); break;
-						case 3: la.createBackwardClauses(); break;
-						default: la.createAllClauses();  break;
-					}	
-				}
-				
-				cnf.addAxioms(la);
-				
 			}			
 			else { 
 				//System.out.println("already done " + dec.toString());
@@ -207,7 +227,7 @@ public class ModeltoAxiomsConverter {
 	}	
 
 	private void convertContributions(int dir) {
-		//if (c instanceof UnknownContribution)		
+		//System.out.println("converting contributions");	
 		
 		for (Contribution cont : model.getContributions()) {
 			if (!done.contains(cont)) {
@@ -219,49 +239,51 @@ public class ModeltoAxiomsConverter {
 								
 				//this is the target in forward evaluation
 				Intention target = cont.getTarget();
-					//if it's not an actor
-				//System.out.println("contribuion to " + target.getName());
-								
-				Vector<Link> links = new Vector<Link>();
-				Vector<Intention> sources = new Vector<Intention>();
-				for (Contribution sibling: target.getContributesFrom()){
-					//System.out.println("done " + sibling.toString());
-					done.add(sibling);
-					links.add(sibling);
-					sources.add(sibling.getSource());
-					//System.out.println("contribution source: " + sibling.getSource().getName());
-					/*if (sibling instanceof MakeContribution) 
-						System.out.println("Make");
-					if (sibling instanceof HelpContribution)
-						System.out.println("Help");
-					if (sibling instanceof SomePlusContribution)
-						System.out.println("SomePlus");
-					if (sibling instanceof UnknownContribution)
-						System.out.println("Unknown");
-					if (sibling instanceof SomeMinusContribution)
-						System.out.println("SomeMinus");
-					if (sibling instanceof HurtContribution)
-						System.out.println("Hurt");
-					if (sibling instanceof BreakContribution)
-						System.out.println("Break");*/
-				}				
-							
-				//intentionIndex.print();
-				
-				LinkAxioms la = null;
-				
-				String description = "Contriubtion to: " + target.getName();
-				
-				la = axiomsFactory.createLinkAxiom(sources, target, links, "Contribution", intentionIndex, description);
 					
-				switch (dir) {
-					case 1: la.createAllClauses(); break;
-					case 2: la.createForwardClauses(); break;
-					case 3: la.createBackwardClauses(); break;
-					default: la.createAllClauses();  break;
+				//System.out.println("contribuion to " + target.getName());
+				
+				if (source != null & target != null) {
+					Vector<Link> links = new Vector<Link>();
+					Vector<Intention> sources = new Vector<Intention>();
+					for (Contribution sibling: target.getContributesFrom()){
+						//System.out.println("done " + sibling.toString());
+						done.add(sibling);
+						links.add(sibling);
+						sources.add(sibling.getSource());
+						//System.out.println("contribution source: " + sibling.getSource().getName());
+						/*if (sibling instanceof MakeContribution) 
+							System.out.println("Make");
+						if (sibling instanceof HelpContribution)
+							System.out.println("Help");
+						if (sibling instanceof SomePlusContribution)
+							System.out.println("SomePlus");
+						if (sibling instanceof UnknownContribution)
+							System.out.println("Unknown");
+						if (sibling instanceof SomeMinusContribution)
+							System.out.println("SomeMinus");
+						if (sibling instanceof HurtContribution)
+							System.out.println("Hurt");
+						if (sibling instanceof BreakContribution)
+							System.out.println("Break");*/
+					}				
+								
+					//intentionIndex.print();
+					
+					LinkAxioms la = null;
+					
+					String description = "Contriubtion to: " + target.getName();
+					
+					la = axiomsFactory.createLinkAxiom(sources, target, links, "Contribution", intentionIndex, description);
+						
+					switch (dir) {
+						case 1: la.createAllClauses(); break;
+						case 2: la.createForwardClauses(); break;
+						case 3: la.createBackwardClauses(); break;
+						default: la.createAllClauses();  break;
+					}
+					//la.createAllClauses();
+					cnf.addAxioms(la);
 				}
-				//la.createAllClauses();
-				cnf.addAxioms(la);
 				
 			}
 			else {
@@ -287,12 +309,12 @@ public class ModeltoAxiomsConverter {
 				cnf.addAxioms(ia);	
 				
 			} 
-			if (dir == 3) {
-				//if (intention.getContributesFrom().size() <= 1) {
+			//if (dir == 3) {
+				if (intention.getContributesFrom().size() == 0) {
 					ia.createAllClauses();
 					cnf.addAxioms(ia);	
-				//}
-			}
+				}
+			//}
 				
 			
 		}

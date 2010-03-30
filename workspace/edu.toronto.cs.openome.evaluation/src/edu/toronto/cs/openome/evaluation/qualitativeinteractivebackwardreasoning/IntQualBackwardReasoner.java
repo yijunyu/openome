@@ -51,6 +51,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		converter = new ModeltoAxiomsConverter(model);
 		hjStack = new Stack<Vector<Intention>>();
 		initializeMinDistances();
+		//System.out.println("finished constructor");
 	}
 	
 	/**
@@ -95,6 +96,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 				if (needHJ.size() == 0) {
 					//we are done, problem is SAT, HJ not needed
+					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+					
+					Shell shell = ar[0];
+					showMessage("Success: backward evaluation complete!", shell);
 					return;
 				}
 				
@@ -300,11 +305,11 @@ public class IntQualBackwardReasoner extends Reasoner {
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		
-		if (js[1] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
-			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_SATISFIED);
-		}			
-		else if (js[0] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+		if (js[0] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.SATISFIED);
+		}			
+		else if (js[1] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_SATISFIED);
 		}
 		else if (js[2] > 0 & (js[0] < 0 & js[1] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.UNKNOWN);
@@ -367,6 +372,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 	private void initializeMinDistances() {
 		if (minDistances.size() == 0)
 		{
+			//System.out.println("initialize min distances");
 			//initialize data structure
 			for (Intention i : model.getAllIntentions()) {
 				//second argument is the largest possible value for distance
@@ -390,21 +396,25 @@ public class IntQualBackwardReasoner extends Reasoner {
 	}
 
 	private void findMinDistance(int distance, Intention root, HashMap<Intention, Integer> hashMap) {
+		
 		if (hashMap.get(root).intValue() > distance)
 				hashMap.put(root, new Integer(distance));
 		
+		//System.out.println("finding distance for " + root.getName() + " " + distance);
 		distance++;
 		
+		
 		//base case, root is leaf
-		if (root.isLeaf())   {			
+		if (root.isLeaf())   {	
+			//System.out.println("is leaf");
 			return;// hashMap;
 		}
 		else {			
-			for (Intention child : root.getChildren()) {				
+			for (Intention child : root.getChildren()) {
+				//System.out.println("child: " + child.getName());
 				findMinDistance(distance, child, hashMap);
 			}
 		}
-		
 		
 		return;
 	}
@@ -413,7 +423,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		Vector<Intention> needHJ = new Vector<Intention>();
 		
 		for (Intention intention : results.keySet()) {
-			//System.out.println(intention.getName());
+			//System.out.println("Displaying for: " + intention.getName());
 			int [] ints = results.get(intention);
 			
 			if (ints[0] > 0 & (ints[2] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
@@ -440,13 +450,13 @@ public class IntQualBackwardReasoner extends Reasoner {
 				setQualCombinedLabel(intention, EvaluationLabel.DENIED);
 			}
 			else {
-				if (intention.getContributesFrom().size() > 1) {
+				//if (intention.getContributesFrom().size() > 1) {
 					setQualCombinedLabel(intention, EvaluationLabel.UNKNOWN);
 					needHJ.add(intention);
-				}
-				else {
-					setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
-				}					
+				//}
+				//else {
+					//setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
+				//}					
 			}
 		}
 		

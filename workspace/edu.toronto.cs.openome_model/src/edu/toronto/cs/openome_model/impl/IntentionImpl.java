@@ -528,9 +528,13 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated NOT
 	 */
 	public boolean isLeaf() {
+		
+		
 		EList<Dependency> depFrom = getDependencyFrom();
+		
 		if (depFrom.size() > 0) 
 			return false;
+		
 		EList<Decomposition> decFrom = getDecompositionsTo();
 		if (decFrom.size() > 0) 
 			return false;
@@ -565,22 +569,27 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	public EList<Intention> getChildren() {
 		EList<Intention> children = new BasicEList<Intention>();
 		
-		EList<Dependency> depFrom = getDependencyFrom();
+		
 		for (Dependency d : getDependencyFrom()) {
 			Dependable dependable = d.getDependencyFrom();
 			
 			//If the target is not an actor, like in an SD diagram
 			if (!(dependable instanceof Container)) {
-				children.add((Intention) dependable);
+				if (dependable != null) {
+					children.add((Intention) dependable);
+				}
+				
 			}
 				
 		}
+		
 		for (Decomposition dec : getDecompositionsTo()) {
 			children.add(dec.getSource());
 		}
 		for (Contribution cont : getContributesFrom()) {
 			children.add(cont.getSource());
 		}
+		
 		
 		return children;
 	}

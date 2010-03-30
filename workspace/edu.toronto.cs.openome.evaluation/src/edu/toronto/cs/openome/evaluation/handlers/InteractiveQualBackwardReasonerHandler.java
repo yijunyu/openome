@@ -56,8 +56,8 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-	
-Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+		
+		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		Shell shell = ar[0];
 		DiagramCommandStack dcs = null;
@@ -79,12 +79,15 @@ Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		if (ad.getReturnCode() == Window.CANCEL){
 			return null;
 		}
-
+		
+	
 		openome_modelPackage _openome_modelPackage = openome_modelPackage.eINSTANCE;
 		openome_modelFactory _openome_modelFactory = _openome_modelPackage.getopenome_modelFactory();
 		
 		/* Create an Alternative */
 		Alternative alt = _openome_modelFactory.createAlternative();
+		
+		
 		
 		alt.setName(ad.getName());
 		alt.setDescription(ad.getDescription());
@@ -92,11 +95,14 @@ Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
 		
-		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs);
-		Reasoning reasoning = new Reasoning(iQualReasoner);
 		
+		
+		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs);
+		
+		Reasoning reasoning = new Reasoning(iQualReasoner);
+	
 		reasoning.reason();
-
+	
 		// Get a list of all intentions currently in the model
 		EList<Intention> intentionsList = mi.getAllIntentions();
 	

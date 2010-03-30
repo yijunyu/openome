@@ -44,10 +44,10 @@ public class ConstraintAxioms extends IntentionAxioms {
 		
 		//must have a value
 		vi = new VecInt();
-		vi.push((tIndex + 1)*-1);
-		vi.push((tIndex + 2)*-1);
-		vi.push((tIndex + 3)*-1);
-		vi.push((tIndex + 4)*-1);
+		vi.push((tIndex + 1));
+		vi.push((tIndex + 2));
+		vi.push((tIndex + 3));
+		vi.push((tIndex + 4));
 		vi.push(0);
 		clauses.add(vi);
 
@@ -83,6 +83,15 @@ public class ConstraintAxioms extends IntentionAxioms {
 		vi.push((tIndex + 2)*-1);
 		vi.push((tIndex + 4)*-1);
 		clauses.addAll(addAndImplication(tIndex + 3, vi));
+		
+		//must have a value
+		vi = new VecInt();
+		vi.push((tIndex + 1));
+		vi.push((tIndex + 2));
+		vi.push((tIndex + 3));
+		vi.push((tIndex + 4));
+		vi.push(0);
+		clauses.add(vi);
 
 	}
 }
