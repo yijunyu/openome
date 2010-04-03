@@ -72,9 +72,11 @@ public class Dimacs {
 	
 	public VecInt getClauseByIndex(int index)  {
 		for (Axioms la : axioms) {
-			VecInt vi = la.getClauseByIndex(index);
-			if (vi != null)
-				return vi;
+			if (la.isEnabled()) {
+				VecInt vi = la.getClauseByIndex(index);
+				if (vi != null)
+					return vi;
+			}
 		}
 		return null;
 	}

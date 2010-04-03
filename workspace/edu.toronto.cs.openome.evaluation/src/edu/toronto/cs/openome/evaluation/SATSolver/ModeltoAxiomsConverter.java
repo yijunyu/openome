@@ -30,6 +30,7 @@ import edu.toronto.cs.openome_model.SomeMinusContribution;
 import edu.toronto.cs.openome_model.SomePlusContribution;
 import edu.toronto.cs.openome_model.UnknownContribution;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.Intention;
 
 public class ModeltoAxiomsConverter {
@@ -310,10 +311,10 @@ public class ModeltoAxiomsConverter {
 				
 			} 
 			//if (dir == 3) {
-				if (intention.getContributesFrom().size() == 0) {
-					ia.createAllClauses();
-					cnf.addAxioms(ia);	
-				}
+			//else if (intention.getContributesFrom().size() < 2 ) { //& !(intention instanceof SoftgoalImpl)) {
+			//		ia.createAllClauses();
+			//		cnf.addAxioms(ia);	
+			//}
 			//}
 				
 			
@@ -389,26 +390,26 @@ public class ModeltoAxiomsConverter {
 		return map;
 	}
 	
-	public Vector<VecInt> convertMinResults(Vector<Integer> intResults, Dimacs cnf) {
-		HashMap<Intention, int[]> map = new HashMap<Intention, int[]>();
-		int[] list;
-		boolean found = false;
-		Vector<VecInt> clauses = new Vector<VecInt>();
-		intentionIndex.print();
+	public Vector<String> convertMinResults(Vector<Integer> intResults, Dimacs cnf) {
+		//HashMap<Intention, int[]> map = new HashMap<Intention, int[]>();
+		
+		Vector<String> values = new Vector<String>();
+		//intentionIndex.print();
 		for (int i =0; i< cnf.getNumClauses();i++) {
 			int index = intResults.indexOf(new Integer(i));
-			//System.out.println("index: " + index + "for " + i);
+			
 			if (index < 0) {
+				System.out.println("index: " + index + " for " + i);
 				VecInt vi = cnf.getClauseByIndex(i);
 				if (vi != null)
-					clauses.add(vi);
+					values.add(convertToString(vi));
 				else
 					System.out.println("couldn't find clause by index in conversion");
 			}
 			
 		}
 		
-		return clauses;
+		return values;
 		
 		//ugh
 		/*Vector<Vector<Object []>> resultClauses = new Vector<Vector<Object []>>(clauses.size());
@@ -446,6 +447,48 @@ public class ModeltoAxiomsConverter {
 	
 	}
 	
+	private String convertToString(VecInt vi) {
+		IteratorInt it = vi.iterator();
+		System.out.println("Converting to string: " + vi.toString());
+		//Vector<String> strings = new Vector<String>();
+		String str = "";
+		boolean neg = false;
+		int count = 0;
+		while(it.hasNext()) {
+			int var = it.next();
+			for (int i = 0; i< 6; i++) {				
+				//System.out.println(var);
+				if (var != 0) {
+					if (var < 0) {
+						var = var * -1;
+						neg = true;
+					}
+					Intention intention = (Intention) intentionIndex.getForward(new Integer(var - i));
+					if (intention != null) {
+						//System.out.println("Got intention: " + intention.getName());
+						switch (i) {
+							case(0): if (neg) {str += "not ";} str += "S(" + intention.getName() + ")"; break; 
+							case(1): if (neg) {str += "not ";} str += "PS(" + intention.getName() + ")"; break;
+							case(2): if (neg) {str += "not ";} str += "U(" + intention.getName() + ")"; break;
+							case(3): if (neg) {str += "not ";} str += "C(" + intention.getName() + ")"; break;
+							case(4): if (neg) {str += "not ";} str += "PD(" + intention.getName() + ")"; break;
+							case(5): if (neg) {str += "not ";} str += "D(" + intention.getName() + ")"; break;
+						}
+						if (count < (vi.size() - 2))
+							str += " OR ";
+						//System.out.println(str);
+						//break out of the for loop
+						i = 6;
+						neg = false;
+					}
+				}
+			}
+			count++;
+			
+		}
+		return str;
+	}
+
 	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int dir) {
 		//Disable old clauses
 		//cnf.disableAxioms(links);		

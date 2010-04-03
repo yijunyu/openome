@@ -40,10 +40,10 @@ public class zMinimalSolver extends SATSolver{
 		          (new InputStreamReader(p.getInputStream()));
 		    	
 		      while ((line = input.readLine()) != null) {
-		    	  //System.out.println(line);
+		    	  System.out.println(line);
 		    	  if (line.startsWith("Unneeded clauses are:")) {
 		    		  while ((line = input.readLine()) != null) {
-		    			  //System.out.println(line);
+		    			  System.out.println(line);
 			    		  vars = line.split(" ");
 			    		  
 			    		  Vector<Integer> v = convertToInts(vars, 20);

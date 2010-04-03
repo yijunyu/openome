@@ -72,6 +72,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		//System.out.println("Done conversion");
 		
+		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+		
+		Shell shell = ar[0];
+		
 		while( true )  {
 			int result = solver.solve(cnf);		
 			
@@ -96,14 +100,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 				if (needHJ.size() == 0) {
 					//we are done, problem is SAT, HJ not needed
-					Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 					
-					Shell shell = ar[0];
 					showMessage("Success: backward evaluation complete!", shell);
 					return;
 				}
-				
-				
 				
 				//System.out.println("The following intentions need human judgment: ");
 				//for (Intention i : needHJ) {
@@ -112,11 +112,9 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 				Vector<Intention> topMostConflict = findTopMostConflict(needHJ);
 				
-				
-				
 				//System.out.println(cnf.getNumClauses());
 				
-				int hjresult = addHumanJudgement(topMostConflict);
+				int hjresult = addHumanJudgement(topMostConflict); //, results);
 				
 				//user has cancelled
 				if (hjresult == -1)
@@ -142,6 +140,11 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 			}
 			else if (result == 0) {
+				if (hjStack.size() > 0) {
+					String unsatMessage = getUnsatCoreString(cnf);
+					showMessage("Target(s) unsatisfiable\n" + unsatMessage + "backtracking...", shell);
+				}
+				
 				int bresult = backtrack();
 				
 				if (bresult == -1) {
@@ -169,11 +172,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 	private int backtrack() {
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
-		Shell shell = ar[0];		
+		Shell shell = ar[0];			
 		
 		if (hjStack.size() > 0) {				
-			showMessage("Target(s) unsatisfiable, backtracking...", shell);
-			
+					
 			Vector<Intention> needHJ = hjStack.pop();
 			
 			for (Intention i: needHJ) {
@@ -184,67 +186,93 @@ public class IntQualBackwardReasoner extends Reasoner {
 				cnf = converter.backtrackHumanJudgment(cnf, w, 0);
 				cnfBack = converter.backtrackHumanJudgment(cnfBack, w, -1);
 			}
-						
-			int hjresult = addHumanJudgement(needHJ);
 			
-			//user has cancelled
-			if (hjresult == -1)
-				return -1;
-			//user has no more hj to add
-			else if (hjresult == 0) {
+			/*int result = solver.solve(cnf);		
+			
+			if (result == 1) {
 				
+				Vector<Integer> intResults = solver.getResults();
+				
+				HashMap<Intention, int[]> results = converter.convertResults(intResults);
+						
+				int hjresult = addHumanJudgement(needHJ, results);
+				
+				//user has cancelled
+				if (hjresult == -1)
+					return -1;
+				//user has no more hj to add
+				else if (hjresult == 0) {
+					
+					int bresult = backtrack();
+					
+					if (bresult == -1) {
+						return -1;
+					}
+					
+				} else if (hjresult == 1)  {
+					hjStack.push(needHJ);
+				}
+				
+				return 1;
+			}
+			else {
 				int bresult = backtrack();
 				
 				if (bresult == -1) {
 					return -1;
 				}
-				
-			} else if (hjresult == 1)  {
-				hjStack.push(needHJ);
-			}
-			
+			}*/
 			return 1;
 		}
 		else {
-			
-			int minResult = minSolver.solve(cnf);		
-			
-			if (minResult == 1) {
-				
-				Vector<Integer> intResults = minSolver.getResults();
-				
-				System.out.println(intResults.size());
-				
-				Vector<VecInt> results = converter.convertMinResults(intResults, cnf);
-				
-				System.out.println("Min results:");
-				System.out.println(results.size());
-				for (VecInt vi: results) {
-					if (vi != null)
-						System.out.println(vi.toString());			
-				}
-			}
-			
-			
-			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.  Ending.", shell);
+			String unsatMessage = getUnsatCoreString(cnf);
+			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + unsatMessage + "Ending.", shell);
 			
 			return -1;
 		}
 		
 	}
 
-	private int addHumanJudgement(Vector<Intention> topMostConflict) {
+	private String getUnsatCoreString(Dimacs cnf2) {
+		int minResult = minSolver.solve(cnf);	
+		
+		if (minResult == 1) {				
+			Vector<Integer> intResults = minSolver.getResults();
+		
+			System.out.println(intResults.size());
+			
+			Vector<String> results = converter.convertMinResults(intResults, cnf);
+			
+			/*System.out.println("The following intention labels are conflicting:");
+			System.out.println(results.size());
+			for (String str: results) {
+				System.out.println(str);			
+			}*/
+			
+			String message = "The following intention clauses are conflicting:\n";
+			for (String str: results) {
+				message += str + "\n";			
+			}
+			
+			return message;
+		}
+		else
+			return "";
+		
+	}
+
+	private int addHumanJudgement(Vector<Intention> topMostConflict) { //, HashMap<Intention, int[]> results) {
 		int hjresult = 0;
-		for (Intention i: topMostConflict)  {
-			System.out.println("The following intentions are getting human judgment: " + i.getName());
+		int result = solver.solve(cnfBack);					
+		
+		if (result == 1) {
 			
-			int result = solver.solve(cnfBack);					
-										
-			if (result == 1) {
-				
-				Vector<Integer> intBackResults = solver.getResults();
-			
-				HashMap<Intention, int[]> backResults = converter.convertResults(intBackResults);
+			Vector<Integer> intBackResults = solver.getResults();
+		
+			HashMap<Intention, int[]> backResults = converter.convertResults(intBackResults);
+		
+			for (Intention i: topMostConflict)  {
+				System.out.println("The following intentions are getting human judgment: " + i.getName());			
 				
 				/*System.out.println("Backward Results HashMap");
 				//System.out.println(intResults.size());
@@ -263,7 +291,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 					w = new IntQualIntentionWrapper(i);
 					softgoalWrappers.add(w);
 				}				
-			
+							
+				//LabelBag lb = promptForHumanJudgment(w, backResults.get(i));
 				LabelBag lb = promptForHumanJudgment(w, backResults.get(i));
 				
 				//user has pressed cancel, quit everything
@@ -271,7 +300,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 					return -1;
 				//no combinations 
 				} else if (lb.size() == 0) {
-					
+					return 0;
 				} else if (lb.size() > 0) {
 					//System.out.println("r is 1");
 					//lb.printBag();
@@ -288,10 +317,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 					
 					hjresult = 1;
 				}
-			} else {
-				System.out.println("Couldn't find backward target for " + i.getName());
-				return 0;
 			}
+		} else {
+			System.out.println("Couldn't find backward target");
+			return 0;
 		}
 		return hjresult;		
 	}
@@ -305,26 +334,28 @@ public class IntQualBackwardReasoner extends Reasoner {
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		
-		if (js[0] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+		if (js[0] > 0 ) { //& (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.SATISFIED);
-		}			
-		else if (js[1] > 0 & (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+		}		
+		else if (js[1] > 0 ) { //& (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_SATISFIED);
-		}
-		else if (js[2] > 0 & (js[0] < 0 & js[1] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
+		}	
+		else if (js[2] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.UNKNOWN);
 		}		
-		else if (js[3] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[4] < 0 & js[5] < 0)) {
+		else if (js[3] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[4] < 0 & js[5] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.CONFLICT);
 		}
-		else if (js[4] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0)) {
+		else if (js[4] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.WEAKLY_DENIED);
 		}			
-		else if (js[5] > 0 & (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0 & js[4]<0)) {
+		else if (js[5] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0 & js[4]<0)) {
 			w.setInitialEvaluationLabel(EvaluationLabel.DENIED);
 		}
 		else {
-			System.out.println("Backward target not clear for " + w.getIntention().getName());
+			//System.out.println("Backward target not clear for " + w.getIntention().getName());
+			//return new LabelBag();
+			w.setInitialEvaluationLabel(EvaluationLabel.NONE);
 		}
 		
 		
@@ -431,7 +462,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			
 			else if (ints[1] > 0 & (ints[0] < 0 & ints[2] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
-				setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_SATISFIED);
+				//if (intention.getContributesFrom().size() < 2)
+					setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_SATISFIED);
 			}
 			
 			else if (ints[2] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
@@ -443,20 +475,29 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			
 			else if (ints[4] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0 & ints[5] < 0)) {
-				setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_DENIED);
+				//if (intention.getContributesFrom().size() < 2)
+					setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_DENIED);
 			}
 			
 			else if (ints[5] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0)) {
 				setQualCombinedLabel(intention, EvaluationLabel.DENIED);
 			}
+			else if (ints[4] < 0 & ints[5] < 0 & ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0) {
+				setQualCombinedLabel(intention, EvaluationLabel.NONE);
+			}
+			/*!!
+			 * I'm missing a case here where there is more than one PS or more than one PD value.  
+			 * This isn't actually possible, but if the value is only PS or only PD and there is more than one incoming
+			 * contribution link then...  maybe this is it?
+			 */
 			else {
-				//if (intention.getContributesFrom().size() > 1) {
+				if (intention.getContributesFrom().size() > 1) {
 					setQualCombinedLabel(intention, EvaluationLabel.UNKNOWN);
 					needHJ.add(intention);
-				//}
-				//else {
-					//setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
-				//}					
+				}
+				else {
+					setQualCombinedLabel(intention, EvaluationLabel.CONFLICT);
+				}					
 			}
 		}
 		
