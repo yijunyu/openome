@@ -373,6 +373,10 @@ public class AlternativesView extends ViewPart {
 		fillLocalToolBar(bars.getToolBarManager());
 	}
 	
+	/**
+	 * Initialize the action buttons
+	 * @param manager
+	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(collapseAllAction);
 		manager.add(expandAllAction);
