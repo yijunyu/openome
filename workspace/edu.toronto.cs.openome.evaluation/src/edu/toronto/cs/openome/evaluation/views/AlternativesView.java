@@ -83,7 +83,9 @@ public class AlternativesView extends ViewPart {
 	private Action deleteAction;
 	private Action evaluateAction;
 	private Action clickAction;
-
+	private Action collapseAllAction;
+	private Action expandAllAction;
+	
 	/*
 	 * The content provider class is responsible for
 	 * providing objects to the view. It can wrap
@@ -304,7 +306,6 @@ public class AlternativesView extends ViewPart {
 		public void removeAllNodes() {
 			invisibleRoot.clear();
 		}
-		
 	}
 	
 	/**
@@ -352,6 +353,7 @@ public class AlternativesView extends ViewPart {
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
+		contributeToActionBars();
 		
 		/* ISelectionListener will notify the view about every time the user changes/selects a model tab */
 		ISelectionListener selectionChangeListener = new ISelectionListener() {
@@ -363,6 +365,17 @@ public class AlternativesView extends ViewPart {
 	    
 	    /* Add the selection listener to the active workbench window */
 	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().addSelectionListener(selectionChangeListener);
+	    
+	}
+	
+	private void contributeToActionBars() {
+		IActionBars bars = getViewSite().getActionBars();
+		fillLocalToolBar(bars.getToolBarManager());
+	}
+	
+	private void fillLocalToolBar(IToolBarManager manager) {
+		manager.add(collapseAllAction);
+		manager.add(expandAllAction);
 	}
 
 	/**
@@ -410,6 +423,35 @@ public class AlternativesView extends ViewPart {
 	 */
 	private void makeActions() {
 		
+		
+		/**
+		 *  Expand All Action - expands all nodes in the view
+		 */
+		expandAllAction = new Action() {
+			public void run() {
+				expandAll();
+				
+			}
+		};
+		expandAllAction.setText("Expand All");
+		expandAllAction.setToolTipText("Expand All");
+		expandAllAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+			getImageDescriptor(ISharedImages.IMG_ELCL_COLLAPSEALL_DISABLED));
+		
+		
+		/**
+		 *  Collapse All Action - collapses all nodes in the view
+		 */
+		collapseAllAction = new Action() {
+			public void run() {
+				collapseAll();
+				
+			}
+		};
+		collapseAllAction.setText("Collapse All");
+		collapseAllAction.setToolTipText("Collapse All");
+		collapseAllAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+			getImageDescriptor(ISharedImages.IMG_ELCL_COLLAPSEALL));
 		
 		/**
 		 *  Refresh Action - refreshs the view
@@ -697,6 +739,26 @@ public class AlternativesView extends ViewPart {
 			}
 		}
 		refreshView();
+		
+	}
+	
+	/**
+	 * Collapses all nodes in the view
+	 */
+	
+	private void collapseAll() {
+
+		viewer.collapseAll();
+		
+		
+	}
+	
+	/**
+	 * Expands all nodes in the view
+	 */
+	private void expandAll() {
+		
+		viewer.expandAll();
 		
 	}
 }
