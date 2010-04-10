@@ -13,16 +13,6 @@
    	id="generator" 
    	name="Generator Extension Point" 
    	schema="schema/generator.exsd"/>
-   	
-
-   
- <!-- <extension point="org.eclipse.ui.preferencePages">
-      <page name="OpenOME"
-            category="primary"
-            class="edu.toronto.cs.openome.core.ui.PrefPage"
-            id="preference">
-      </page>
-   </extension>-->
    
    <extension point="org.eclipse.help.toc">
       <toc file="help.xml"/>
@@ -36,16 +26,6 @@
             id="openome_example_cmd"
             name="openome_example_cmd">
       </command>
-   <!--   <command
-            defaultHandler="edu.toronto.cs.openome.core.action.ImportProjects"
-            id="openome_import_cmd"
-            name="openome_import_cmd">
-      </command>
-      <command
-            defaultHandler="edu.toronto.cs.openome.core.action.CleanProjects"
-            id="openome_clean_cmd"
-            name="openome_clean_cmd">
-      </command>-->
       
       </extension>
      
@@ -57,20 +37,8 @@
         	<menu
                 icon="icons/goal.gif"
                 id="openome_top_menu"
-                label="OpenOME"
+                label="Open"
                 mnemonic="O">
-         	<!--<command
-               	commandId="openome_clean_cmd"
-                icon="icons/clean.gif"
-				id="openome_clean_menu"
-				label="Clean Projects">       
-         	</command>
-         	<command
-                commandId="openome_import_cmd"
-                icon="icons/build.gif"
-				id="openome_import_menu"
-				label="Import Projects"> 
-         	</command> -->
          	<command
                 commandId="openome_example_cmd"
                 disabledIcon="icons/soccer-disabled.gif"
@@ -81,6 +49,28 @@
           </menu>
 		</menuContribution>
 	</extension>
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet label="Actions"
+            visible="true"
+            id="action.actionSet">
+         <menu id="menu1" label="Developer">
+            <separator name="group1"/>
+         </menu>
+         <menu id="menu2" label="User">
+            <separator name="group2"/>
+         </menu>
+         <action
+               class="edu.toronto.cs.openome.core.action.CreateExamplesAction"
+               icon="icons/example.gif"
+               id="action1"
+               label="Examples"
+               menubarPath="menu1/group"
+               toolbarPath="group"
+               tooltip="Create the Examples project">
+         </action>
+      </actionSet>
+   </extension>
+	
  <extension
        id="openome"
        point="org.eclipse.core.runtime.products">
@@ -89,7 +79,7 @@
           name="Core">
        <property
              name="aboutText"
-             value="OpenOME, an open-source requirements engineering tool">
+             value="An open-source requirements engineering tool">
        </property>
        <property
              name="aboutImage"
