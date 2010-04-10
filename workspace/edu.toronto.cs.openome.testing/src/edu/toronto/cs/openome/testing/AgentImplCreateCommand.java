@@ -45,31 +45,31 @@ public class AgentImplCreateCommand implements Command {
 
 
 
-	@Override
+//	@Override
 	public boolean canExecute() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	@Override
+//	@Override
 	public boolean canUndo() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+//	@Override
 	public Command chain(Command command) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+//	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+//	@Override
 	public void execute() {
 		AgentImpl agent = (AgentImpl) factory.createAgent();
 		agent.setModel(model);
@@ -78,36 +78,36 @@ public class AgentImplCreateCommand implements Command {
 
 	}
 
-	@Override
+//	@Override
 	public Collection<?> getAffectedObjects() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+//	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+//	@Override
 	public String getLabel() {
 		return "Create Agent model";
 	}
 
-	@Override
+//	@Override
 	public Collection<?> getResult() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+//	@Override
 	public void redo() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+//	@Override
 	public void undo() {
 		// TODO Auto-generated method stub
 

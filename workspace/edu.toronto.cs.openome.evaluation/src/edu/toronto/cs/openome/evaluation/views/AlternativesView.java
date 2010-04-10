@@ -654,7 +654,7 @@ public class AlternativesView extends ViewPart {
 		});
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
-			@Override
+			// @Override
 			public void selectionChanged(SelectionChangedEvent arg0) {
 				clickAction.run();				
 			}
