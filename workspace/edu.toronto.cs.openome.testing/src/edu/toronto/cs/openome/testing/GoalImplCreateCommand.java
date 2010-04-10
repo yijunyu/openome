@@ -99,7 +99,7 @@ public class GoalImplCreateCommand implements Command {
 			goal.setContainer(container);
 			container.getIntentions().add(goal);
 		} else if (model != null){
-			goal.setModel(model);
+//			goal.setModel(model);
 			model.getIntentions().add(goal);
 		}
 	}

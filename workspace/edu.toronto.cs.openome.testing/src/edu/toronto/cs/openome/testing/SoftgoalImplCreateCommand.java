@@ -100,7 +100,7 @@ public class SoftgoalImplCreateCommand implements Command {
 			softgoal.setContainer(container);
 			container.getIntentions().add(softgoal);
 		} else if (model != null){
-			softgoal.setModel(model);
+//			softgoal.setModel(model);
 			model.getIntentions().add(softgoal);
 		}
 	}

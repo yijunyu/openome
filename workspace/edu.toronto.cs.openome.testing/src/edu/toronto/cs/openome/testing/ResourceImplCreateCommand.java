@@ -100,7 +100,7 @@ public class ResourceImplCreateCommand implements Command {
 			resource.setContainer(container);
 			container.getIntentions().add(resource);
 		} else if (model != null){
-			resource.setModel(model);
+//			resource.setModel(model);
 			model.getIntentions().add(resource);
 		}
 	}

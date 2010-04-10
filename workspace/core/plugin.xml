@@ -101,5 +101,21 @@
        </property>
     </product>
  </extension>
+ <extension
+       id="openre"
+       point="org.eclipse.core.runtime.products">
+    <product
+          application="org.eclipse.ui.ide.workbench"
+          name="ProblemFrames">
+       <property
+             name="appName"
+             value="ProblemFrames">
+       </property>
+       <property
+             name="preferenceCustomization"
+             value="plugin_customization.ini">
+       </property>
+    </product>
+ </extension>
 
 </plugin>

@@ -100,7 +100,7 @@ public class TaskImplCreateCommand implements Command {
 			task.setContainer(container);
 			container.getIntentions().add(task);
 		} else if (model != null){
-			task.setModel(model);
+//			task.setModel(model);
 			model.getIntentions().add(task);
 		}
 	}
