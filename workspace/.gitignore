@@ -1,9 +1,9 @@
 runtime-*
 *.class
-workspace/*/bin
-workspace/*/build.xml
-workspace/*/@dot
-workspace/*/@dot.log
-workspace/*/\@dot
-workspace/*/\@dot.log
-workspace/*/javaCompiler...args
+*/bin
+*/build.xml
+*/@dot
+*/@dot.log
+*/\@dot
+*/\@dot.log
+*/javaCompiler...args

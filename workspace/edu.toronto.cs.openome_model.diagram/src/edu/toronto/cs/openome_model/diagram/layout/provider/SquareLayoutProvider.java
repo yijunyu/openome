@@ -33,6 +33,7 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class SquareLayoutProvider extends AbstractLayoutNodeProvider {
 
+	public static String DEFAULT_LAYOUT = "DEFAULT"; //$NON-NLS-1$
 	public static String SQUARE_LAYOUT = "Square"; //$NON-NLS-1$
 	
 	/* (non-Javadoc)
@@ -58,7 +59,8 @@ public class SquareLayoutProvider extends AbstractLayoutNodeProvider {
 		// then the provider can compare against ILayoutNodeProvider.DEFAULT_LAYOUT.
 		IAdaptable layoutHint = ((ILayoutNodeOperation) operation).getLayoutHint();
 		String layoutType = (String) layoutHint.getAdapter(String.class);
-		//return DEFAULT_LAYOUT.equals(layoutType);
+//		System.out.println(layoutType);
+//		return DEFAULT_LAYOUT.equals(layoutType);
 		return SQUARE_LAYOUT.equals(layoutType);	
 	}
 	
@@ -69,8 +71,9 @@ public class SquareLayoutProvider extends AbstractLayoutNodeProvider {
 		
 		return new Runnable() {
 			public void run() {
-				final int rowsize = (int)Math.round(Math.sqrt(lnodes.size()));
 				
+				final int rowsize = (int)Math.round(Math.sqrt(lnodes.size()));
+				System.out.println("square layout is called: " + rowsize);
 				// calculate the grid size
 				int gridWidth = 0;
 				int gridHeight = 0;
