@@ -292,7 +292,7 @@ public class DependencyImpl extends LinkImpl implements Dependency {
 	 * @generated
 	 */
 	public Model getModel() {
-		if (eContainerFeatureID != openome_modelPackage.DEPENDENCY__MODEL) return null;
+		if (eContainerFeatureID() != openome_modelPackage.DEPENDENCY__MODEL) return null;
 		return (Model)eContainer();
 	}
 
@@ -312,7 +312,7 @@ public class DependencyImpl extends LinkImpl implements Dependency {
 	 * @generated
 	 */
 	public void setModel(Model newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID != openome_modelPackage.DEPENDENCY__MODEL && newModel != null)) {
+		if (newModel != eInternalContainer() || (eContainerFeatureID() != openome_modelPackage.DEPENDENCY__MODEL && newModel != null)) {
 			if (EcoreUtil.isAncestor(this, newModel))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -376,7 +376,7 @@ public class DependencyImpl extends LinkImpl implements Dependency {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case openome_modelPackage.DEPENDENCY__MODEL:
 				return eInternalContainer().eInverseRemove(this, openome_modelPackage.MODEL__DEPENDENCIES, Model.class, msgs);
 		}
@@ -398,7 +398,7 @@ public class DependencyImpl extends LinkImpl implements Dependency {
 				if (resolve) return getDependencyTo();
 				return basicGetDependencyTo();
 			case openome_modelPackage.DEPENDENCY__TRUST:
-				return new Float(getTrust());
+				return getTrust();
 			case openome_modelPackage.DEPENDENCY__LABEL:
 				return getLabel();
 			case openome_modelPackage.DEPENDENCY__MODEL:
@@ -422,7 +422,7 @@ public class DependencyImpl extends LinkImpl implements Dependency {
 				setDependencyTo((Dependable)newValue);
 				return;
 			case openome_modelPackage.DEPENDENCY__TRUST:
-				setTrust(((Float)newValue).floatValue());
+				setTrust((Float)newValue);
 				return;
 			case openome_modelPackage.DEPENDENCY__LABEL:
 				setLabel((String)newValue);

@@ -51,7 +51,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContainer <em>Container</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}</li>
@@ -658,7 +657,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated
 	 */
 	public Container getContainer() {
-		if (eContainerFeatureID != openome_modelPackage.INTENTION__CONTAINER) return null;
+		if (eContainerFeatureID() != openome_modelPackage.INTENTION__CONTAINER) return null;
 		return (Container)eContainer();
 	}
 
@@ -678,7 +677,7 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @generated
 	 */
 	public void setContainer(Container newContainer) {
-		if (newContainer != eInternalContainer() || (eContainerFeatureID != openome_modelPackage.INTENTION__CONTAINER && newContainer != null)) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != openome_modelPackage.INTENTION__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -691,47 +690,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__CONTAINER, newContainer, newContainer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Model getModel() {
-		if (eContainerFeatureID != openome_modelPackage.INTENTION__MODEL) return null;
-		return (Model)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetModel(Model newModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newModel, openome_modelPackage.INTENTION__MODEL, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setModel(Model newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID != openome_modelPackage.INTENTION__MODEL && newModel != null)) {
-			if (EcoreUtil.isAncestor(this, newModel))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newModel != null)
-				msgs = ((InternalEObject)newModel).eInverseAdd(this, openome_modelPackage.MODEL__INTENTIONS, Model.class, msgs);
-			msgs = basicSetModel(newModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__MODEL, newModel, newModel));
 	}
 
 	/**
@@ -901,10 +859,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetContainer((Container)otherEnd, msgs);
-			case openome_modelPackage.INTENTION__MODEL:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetModel((Model)otherEnd, msgs);
 			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributesTo()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
@@ -929,8 +883,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return ((InternalEList<?>)getParentDecompositions()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__CONTAINER:
 				return basicSetContainer(null, msgs);
-			case openome_modelPackage.INTENTION__MODEL:
-				return basicSetModel(null, msgs);
 			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
 				return ((InternalEList<?>)getContributesTo()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
@@ -946,11 +898,9 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case openome_modelPackage.INTENTION__CONTAINER:
 				return eInternalContainer().eInverseRemove(this, openome_modelPackage.CONTAINER__INTENTIONS, Container.class, msgs);
-			case openome_modelPackage.INTENTION__MODEL:
-				return eInternalContainer().eInverseRemove(this, openome_modelPackage.MODEL__INTENTIONS, Model.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -983,8 +933,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return getParentDecompositions();
 			case openome_modelPackage.INTENTION__CONTAINER:
 				return getContainer();
-			case openome_modelPackage.INTENTION__MODEL:
-				return getModel();
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
 				return getQualitativeReasoningCombinedLabel();
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:
@@ -992,11 +940,11 @@ public class IntentionImpl extends DependableImpl implements Intention {
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL:
 				return getQualitativeReasoningDenialLabel();
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
-				return new Double(getQuantitativeReasoningCombinedLabel());
+				return getQuantitativeReasoningCombinedLabel();
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
-				return new Double(getQuantitativeReasoningDeniedLabel());
+				return getQuantitativeReasoningDeniedLabel();
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
-				return new Double(getQuantitativeReasoningSatisfiedLabel());
+				return getQuantitativeReasoningSatisfiedLabel();
 			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
 				return getContributesTo();
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
@@ -1047,9 +995,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 			case openome_modelPackage.INTENTION__CONTAINER:
 				setContainer((Container)newValue);
 				return;
-			case openome_modelPackage.INTENTION__MODEL:
-				setModel((Model)newValue);
-				return;
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
 				setQualitativeReasoningCombinedLabel((EvaluationLabel)newValue);
 				return;
@@ -1060,13 +1005,13 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				setQualitativeReasoningDenialLabel((EvaluationLabel)newValue);
 				return;
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
-				setQuantitativeReasoningCombinedLabel(((Double)newValue).doubleValue());
+				setQuantitativeReasoningCombinedLabel((Double)newValue);
 				return;
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
-				setQuantitativeReasoningDeniedLabel(((Double)newValue).doubleValue());
+				setQuantitativeReasoningDeniedLabel((Double)newValue);
 				return;
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
-				setQuantitativeReasoningSatisfiedLabel(((Double)newValue).doubleValue());
+				setQuantitativeReasoningSatisfiedLabel((Double)newValue);
 				return;
 			case openome_modelPackage.INTENTION__CONTRIBUTES_TO:
 				getContributesTo().clear();
@@ -1117,9 +1062,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return;
 			case openome_modelPackage.INTENTION__CONTAINER:
 				setContainer((Container)null);
-				return;
-			case openome_modelPackage.INTENTION__MODEL:
-				setModel((Model)null);
 				return;
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
 				setQualitativeReasoningCombinedLabel(QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT);
@@ -1177,8 +1119,6 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return parentDecompositions != null && !parentDecompositions.isEmpty();
 			case openome_modelPackage.INTENTION__CONTAINER:
 				return getContainer() != null;
-			case openome_modelPackage.INTENTION__MODEL:
-				return getModel() != null;
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL:
 				return qualitativeReasoningCombinedLabel != QUALITATIVE_REASONING_COMBINED_LABEL_EDEFAULT;
 			case openome_modelPackage.INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL:

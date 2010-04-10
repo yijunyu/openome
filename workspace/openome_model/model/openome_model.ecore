@@ -66,8 +66,6 @@
         eType="#//Decomposition" eOpposite="#//Decomposition/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//Container"
         transient="true" eOpposite="#//Container/intentions"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"
-        eOpposite="#//Model/intentions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningCombinedLabel"
         eType="#//EvaluationLabel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningSatisfiedLabel"
@@ -88,7 +86,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
-        eType="#//Intention" containment="true" resolveProxies="false" eOpposite="#//Intention/model"/>
+        eType="#//Intention" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
         eType="#//Contribution" containment="true" eOpposite="#//Contribution/model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"

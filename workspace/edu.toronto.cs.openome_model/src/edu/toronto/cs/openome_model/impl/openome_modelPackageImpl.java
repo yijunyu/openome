@@ -757,17 +757,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntention_Model() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIntention_QualitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -776,7 +767,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -785,7 +776,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QualitativeReasoningDenialLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -794,7 +785,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningCombinedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -803,7 +794,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningDeniedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -812,7 +803,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EAttribute getIntention_QuantitativeReasoningSatisfiedLabel() {
-		return (EAttribute)intentionEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -821,7 +812,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesTo() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(17);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -830,7 +821,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	public EReference getIntention_ContributesFrom() {
-		return (EReference)intentionEClass.getEStructuralFeatures().get(18);
+		return (EReference)intentionEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1624,7 +1615,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEReference(intentionEClass, INTENTION__DECOMPOSITIONS);
 		createEReference(intentionEClass, INTENTION__PARENT_DECOMPOSITIONS);
 		createEReference(intentionEClass, INTENTION__CONTAINER);
-		createEReference(intentionEClass, INTENTION__MODEL);
 		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL);
 		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL);
 		createEAttribute(intentionEClass, INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL);
@@ -1854,7 +1844,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getIntention_Decompositions(), this.getDecomposition(), this.getDecomposition_Source(), "decompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_ParentDecompositions(), this.getDecomposition(), this.getDecomposition_Target(), "parentDecompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Container(), this.getContainer(), this.getContainer_Intentions(), "container", null, 0, 1, Intention.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntention_Model(), this.getModel(), this.getModel_Intentions(), "model", null, 1, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_QualitativeReasoningCombinedLabel(), this.getEvaluationLabel(), "QualitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_QualitativeReasoningSatisfiedLabel(), this.getEvaluationLabel(), "QualitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntention_QualitativeReasoningDenialLabel(), this.getEvaluationLabel(), "QualitativeReasoningDenialLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1866,7 +1855,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_Intentions(), this.getIntention(), this.getIntention_Model(), "intentions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Intentions(), this.getIntention(), null, "intentions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Contributions(), this.getContribution(), this.getContribution_Model(), "contributions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Dependencies(), this.getDependency(), this.getDependency_Model(), "dependencies", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Decompositions(), this.getDecomposition(), this.getDecomposition_Model(), "decompositions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

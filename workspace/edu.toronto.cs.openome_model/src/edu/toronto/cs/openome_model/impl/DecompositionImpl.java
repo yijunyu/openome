@@ -208,7 +208,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 * @generated
 	 */
 	public Model getModel() {
-		if (eContainerFeatureID != openome_modelPackage.DECOMPOSITION__MODEL) return null;
+		if (eContainerFeatureID() != openome_modelPackage.DECOMPOSITION__MODEL) return null;
 		return (Model)eContainer();
 	}
 
@@ -228,7 +228,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 * @generated
 	 */
 	public void setModel(Model newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID != openome_modelPackage.DECOMPOSITION__MODEL && newModel != null)) {
+		if (newModel != eInternalContainer() || (eContainerFeatureID() != openome_modelPackage.DECOMPOSITION__MODEL && newModel != null)) {
 			if (EcoreUtil.isAncestor(this, newModel))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -292,7 +292,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case openome_modelPackage.DECOMPOSITION__MODEL:
 				return eInternalContainer().eInverseRemove(this, openome_modelPackage.MODEL__DECOMPOSITIONS, Model.class, msgs);
 		}

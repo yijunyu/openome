@@ -25,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getDecompositions <em>Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getParentDecompositions <em>Parent Decompositions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getContainer <em>Container</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Intention#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningSatisfiedLabel <em>Qualitative Reasoning Satisfied Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningDenialLabel <em>Qualitative Reasoning Denial Label</em>}</li>
@@ -293,34 +292,6 @@ public interface Intention extends Dependable {
 	 * @generated
 	 */
 	void setContainer(Container value);
-
-	/**
-	 * Returns the value of the '<em><b>Model</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Model#getIntentions <em>Intentions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Model</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model</em>' container reference.
-	 * @see #setModel(Model)
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_Model()
-	 * @see edu.toronto.cs.openome_model.Model#getIntentions
-	 * @model opposite="intentions" required="true" transient="false"
-	 * @generated
-	 */
-	Model getModel();
-
-	/**
-	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getModel <em>Model</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model</em>' container reference.
-	 * @see #getModel()
-	 * @generated
-	 */
-	void setModel(Model value);
 
 	/**
 	 * Returns the value of the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.

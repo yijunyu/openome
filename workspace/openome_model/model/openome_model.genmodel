@@ -71,7 +71,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/decompositions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/parentDecompositions"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/container"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference openome_model.ecore#//Intention/model"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/QualitativeReasoningCombinedLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/QualitativeReasoningSatisfiedLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Intention/QualitativeReasoningDenialLabel"/>
@@ -90,6 +89,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/containers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/correlations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/associations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//Model/alternatives"/>
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//OrDecomposition"/>
     <genClasses ecoreClass="openome_model.ecore#//Position">
@@ -171,6 +171,16 @@
     </genClasses>
     <genClasses ecoreClass="openome_model.ecore#//INSAssociation">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//INSAssociation/label"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//Alternative">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Alternative/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Alternative/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openome_model.ecore#//Alternative/intentions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//Alternative/evalLabels"/>
+    </genClasses>
+    <genClasses ecoreClass="openome_model.ecore#//IntentionToEvaluationLabelMap">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openome_model.ecore#//IntentionToEvaluationLabelMap/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openome_model.ecore#//IntentionToEvaluationLabelMap/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

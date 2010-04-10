@@ -70,7 +70,6 @@ public interface Model extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Intentions</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.toronto.cs.openome_model.Intention}.
-	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Intention#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Intentions</em>' containment reference list isn't clear,
@@ -79,8 +78,7 @@ public interface Model extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
 	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Intentions()
-	 * @see edu.toronto.cs.openome_model.Intention#getModel
-	 * @model opposite="model" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Intention> getIntentions();

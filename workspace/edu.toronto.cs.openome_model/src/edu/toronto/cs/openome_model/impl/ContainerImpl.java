@@ -186,7 +186,7 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 * @generated
 	 */
 	public Model getModel() {
-		if (eContainerFeatureID != openome_modelPackage.CONTAINER__MODEL) return null;
+		if (eContainerFeatureID() != openome_modelPackage.CONTAINER__MODEL) return null;
 		return (Model)eContainer();
 	}
 
@@ -206,7 +206,7 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 * @generated
 	 */
 	public void setModel(Model newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID != openome_modelPackage.CONTAINER__MODEL && newModel != null)) {
+		if (newModel != eInternalContainer() || (eContainerFeatureID() != openome_modelPackage.CONTAINER__MODEL && newModel != null)) {
 			if (EcoreUtil.isAncestor(this, newModel))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -289,7 +289,7 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case openome_modelPackage.CONTAINER__MODEL:
 				return eInternalContainer().eInverseRemove(this, openome_modelPackage.MODEL__CONTAINERS, Model.class, msgs);
 		}

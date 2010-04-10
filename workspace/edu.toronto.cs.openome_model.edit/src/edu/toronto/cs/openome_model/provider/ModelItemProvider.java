@@ -141,6 +141,7 @@ public class ModelItemProvider
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__DECOMPOSITIONS);
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__CONTAINERS);
 			childrenFeatures.add(openome_modelPackage.Literals.MODEL__ASSOCIATIONS);
+			childrenFeatures.add(openome_modelPackage.Literals.MODEL__ALTERNATIVES);
 		}
 		return childrenFeatures;
 	}
@@ -204,6 +205,7 @@ public class ModelItemProvider
 			case openome_modelPackage.MODEL__DECOMPOSITIONS:
 			case openome_modelPackage.MODEL__CONTAINERS:
 			case openome_modelPackage.MODEL__ASSOCIATIONS:
+			case openome_modelPackage.MODEL__ALTERNATIVES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -375,6 +377,11 @@ public class ModelItemProvider
 			(createChildParameter
 				(openome_modelPackage.Literals.MODEL__ASSOCIATIONS,
 				 openome_modelFactory.eINSTANCE.createINSAssociation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.MODEL__ALTERNATIVES,
+				 openome_modelFactory.eINSTANCE.createAlternative()));
 	}
 
 	/**

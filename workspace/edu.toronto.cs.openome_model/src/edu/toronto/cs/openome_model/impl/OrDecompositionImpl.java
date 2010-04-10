@@ -32,7 +32,7 @@ public class OrDecompositionImpl extends DecompositionImpl implements OrDecompos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrDecompositionImpl() {
+	protected OrDecompositionImpl() {
 		super();
 	}
 

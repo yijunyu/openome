@@ -779,22 +779,13 @@ public interface openome_modelPackage extends EPackage {
 	int INTENTION__CONTAINER = DEPENDABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTENTION__MODEL = DEPENDABLE_FEATURE_COUNT + 10;
-
-	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 11;
+	int INTENTION__QUALITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Satisfied Label</b></em>' attribute.
@@ -803,7 +794,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 12;
+	int INTENTION__QUALITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Denial Label</b></em>' attribute.
@@ -812,7 +803,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = DEPENDABLE_FEATURE_COUNT + 13;
+	int INTENTION__QUALITATIVE_REASONING_DENIAL_LABEL = DEPENDABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Combined Label</b></em>' attribute.
@@ -821,7 +812,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 14;
+	int INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL = DEPENDABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Denied Label</b></em>' attribute.
@@ -830,7 +821,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = DEPENDABLE_FEATURE_COUNT + 15;
+	int INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL = DEPENDABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Quantitative Reasoning Satisfied Label</b></em>' attribute.
@@ -839,7 +830,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 16;
+	int INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL = DEPENDABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Contributes To</b></em>' reference list.
@@ -848,7 +839,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTRIBUTES_TO = DEPENDABLE_FEATURE_COUNT + 17;
+	int INTENTION__CONTRIBUTES_TO = DEPENDABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Contributes From</b></em>' reference list.
@@ -857,7 +848,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION__CONTRIBUTES_FROM = DEPENDABLE_FEATURE_COUNT + 18;
+	int INTENTION__CONTRIBUTES_FROM = DEPENDABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Intention</em>' class.
@@ -866,7 +857,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 19;
+	int INTENTION_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
@@ -985,15 +976,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GOAL__CONTAINER = INTENTION__CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL__MODEL = INTENTION__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
@@ -1478,15 +1460,6 @@ public interface openome_modelPackage extends EPackage {
 	int RESOURCE__CONTAINER = INTENTION__CONTAINER;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE__MODEL = INTENTION__MODEL;
-
-	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1777,15 +1750,6 @@ public interface openome_modelPackage extends EPackage {
 	int SOFTGOAL__CONTAINER = INTENTION__CONTAINER;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOFTGOAL__MODEL = INTENTION__MODEL;
-
-	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1994,15 +1958,6 @@ public interface openome_modelPackage extends EPackage {
 	int TASK__CONTAINER = INTENTION__CONTAINER;
 
 	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__MODEL = INTENTION__MODEL;
-
-	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2200,15 +2155,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BELIEF__CONTAINER = INTENTION__CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Model</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BELIEF__MODEL = INTENTION__MODEL;
 
 	/**
 	 * The feature id for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute.
@@ -3729,17 +3675,6 @@ public interface openome_modelPackage extends EPackage {
 	EReference getIntention_Container();
 
 	/**
-	 * Returns the meta object for the container reference '{@link edu.toronto.cs.openome_model.Intention#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Model</em>'.
-	 * @see edu.toronto.cs.openome_model.Intention#getModel()
-	 * @see #getIntention()
-	 * @generated
-	 */
-	EReference getIntention_Model();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getQualitativeReasoningCombinedLabel <em>Qualitative Reasoning Combined Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5000,14 +4935,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTENTION__CONTAINER = eINSTANCE.getIntention_Container();
-
-		/**
-		 * The meta object literal for the '<em><b>Model</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTENTION__MODEL = eINSTANCE.getIntention_Model();
 
 		/**
 		 * The meta object literal for the '<em><b>Qualitative Reasoning Combined Label</b></em>' attribute feature.

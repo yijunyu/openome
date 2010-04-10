@@ -864,6 +864,52 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.Alternative} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AlternativeItemProvider alternativeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.Alternative}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAlternativeAdapter() {
+		if (alternativeItemProvider == null) {
+			alternativeItemProvider = new AlternativeItemProvider(this);
+		}
+
+		return alternativeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntentionToEvaluationLabelMapItemProvider intentionToEvaluationLabelMapItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntentionToEvaluationLabelMapAdapter() {
+		if (intentionToEvaluationLabelMapItemProvider == null) {
+			intentionToEvaluationLabelMapItemProvider = new IntentionToEvaluationLabelMapItemProvider(this);
+		}
+
+		return intentionToEvaluationLabelMapItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -913,7 +959,7 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -996,6 +1042,8 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (occupiesAssociationItemProvider != null) occupiesAssociationItemProvider.dispose();
 		if (playsAssociationItemProvider != null) playsAssociationItemProvider.dispose();
 		if (insAssociationItemProvider != null) insAssociationItemProvider.dispose();
+		if (alternativeItemProvider != null) alternativeItemProvider.dispose();
+		if (intentionToEvaluationLabelMapItemProvider != null) intentionToEvaluationLabelMapItemProvider.dispose();
 	}
 
 }

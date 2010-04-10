@@ -34,7 +34,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -213,7 +215,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 */
 	public EList<Intention> getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectContainmentWithInverseEList<Intention>(Intention.class, this, openome_modelPackage.MODEL__INTENTIONS, openome_modelPackage.INTENTION__MODEL);
+			intentions = new EObjectContainmentEList<Intention>(Intention.class, this, openome_modelPackage.MODEL__INTENTIONS);
 		}
 		return intentions;
 	}
@@ -340,8 +342,6 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case openome_modelPackage.MODEL__INTENTIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIntentions()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.MODEL__CONTRIBUTIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributions()).basicAdd(otherEnd, msgs);
 			case openome_modelPackage.MODEL__DEPENDENCIES:
