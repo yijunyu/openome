@@ -203,7 +203,7 @@ public class Openome_modelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getModel().isSuperTypeOf(domainElement.eClass())
 				&& isDiagram((edu.toronto.cs.openome_model.Model) domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.VISUAL_ID;
@@ -238,128 +238,128 @@ public class Openome_modelVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
 					&& isGoal_2001((edu.toronto.cs.openome_model.Goal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
 					&& isSoftgoal_2002((edu.toronto.cs.openome_model.Softgoal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
 					&& isResource_2003((edu.toronto.cs.openome_model.Resource) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
 					&& isTask_2004((edu.toronto.cs.openome_model.Task) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
 					&& isGoal_2005((edu.toronto.cs.openome_model.Goal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
 					&& isSoftgoal_2006((edu.toronto.cs.openome_model.Softgoal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
 					&& isResource_2007((edu.toronto.cs.openome_model.Resource) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
 					&& isTask_2008((edu.toronto.cs.openome_model.Task) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
 					&& isGoal_2009((edu.toronto.cs.openome_model.Goal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
 					&& isSoftgoal_2010((edu.toronto.cs.openome_model.Softgoal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
 					&& isResource_2011((edu.toronto.cs.openome_model.Resource) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
 					&& isTask_2012((edu.toronto.cs.openome_model.Task) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
 					&& isGoal_2013((edu.toronto.cs.openome_model.Goal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
 					&& isSoftgoal_2014((edu.toronto.cs.openome_model.Softgoal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
 					&& isResource_2015((edu.toronto.cs.openome_model.Resource) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
 					&& isTask_2016((edu.toronto.cs.openome_model.Task) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID;
 			}
 			break;
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart.VISUAL_ID:
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getActor().isSuperTypeOf(domainElement.eClass())
 					&& isActor_1001((edu.toronto.cs.openome_model.Actor) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAgent().isSuperTypeOf(domainElement.eClass())
 					&& isAgent_1002((edu.toronto.cs.openome_model.Agent) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getPosition().isSuperTypeOf(domainElement.eClass())) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getRole().isSuperTypeOf(domainElement.eClass())) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getGoal().isSuperTypeOf(domainElement.eClass())
 					&& isGoal_1005((edu.toronto.cs.openome_model.Goal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getSoftgoal().isSuperTypeOf(domainElement.eClass())
 					&& isSoftgoal_1006((edu.toronto.cs.openome_model.Softgoal) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getTask().isSuperTypeOf(domainElement.eClass())
 					&& isTask_1007((edu.toronto.cs.openome_model.Task) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID;
 			}
-			if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getResource().isSuperTypeOf(domainElement.eClass())
 					&& isResource_1008((edu.toronto.cs.openome_model.Resource) domainElement)) {
 				return edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID;
@@ -752,79 +752,79 @@ public class Openome_modelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getDependency().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getAndDecomposition().isSuperTypeOf(domainElement.eClass())
 				&& isAndDecomposition_3002((edu.toronto.cs.openome_model.AndDecomposition) domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getOrDecomposition().isSuperTypeOf(domainElement.eClass())
 				&& isOrDecomposition_3003((edu.toronto.cs.openome_model.OrDecomposition) domainElement)) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getHelpContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getHurtContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getMakeContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getBreakContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getSomePlusContribution()
 				.isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getSomeMinusContribution().isSuperTypeOf(
 						domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getUnknownContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getAndContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getOrContribution().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getIsAAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getCoversAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getOccupiesAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getIsPartOfAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getPlaysAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID;
 		}
-		if (edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+		if (edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 				.getINSAssociation().isSuperTypeOf(domainElement.eClass())) {
 			return edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID;
 		}
@@ -849,7 +849,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Actor_1001_Constraint == null) { // lazy initialization
 			Actor_1001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Actor)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getActor()); //$NON-NLS-1$
+							"oclIsKindOf(Actor)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getActor()); //$NON-NLS-1$
 		}
 		Object result = Actor_1001_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -863,7 +863,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Agent_1002_Constraint == null) { // lazy initialization
 			Agent_1002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Agent)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getAgent()); //$NON-NLS-1$
+							"oclIsKindOf(Agent)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getAgent()); //$NON-NLS-1$
 		}
 		Object result = Agent_1002_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -877,7 +877,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Goal_1005_Constraint == null) { // lazy initialization
 			Goal_1005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
+							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
 		}
 		Object result = Goal_1005_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -891,7 +891,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Softgoal_1006_Constraint == null) { // lazy initialization
 			Softgoal_1006_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
+							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
 		}
 		Object result = Softgoal_1006_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -905,7 +905,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Task_1007_Constraint == null) { // lazy initialization
 			Task_1007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
+							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
 		}
 		Object result = Task_1007_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -919,7 +919,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Resource_1008_Constraint == null) { // lazy initialization
 			Resource_1008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
+							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
 		}
 		Object result = Resource_1008_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -933,7 +933,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Goal_2001_Constraint == null) { // lazy initialization
 			Goal_2001_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
+							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
 		}
 		Object result = Goal_2001_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -947,7 +947,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Softgoal_2002_Constraint == null) { // lazy initialization
 			Softgoal_2002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
+							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
 		}
 		Object result = Softgoal_2002_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -961,7 +961,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Resource_2003_Constraint == null) { // lazy initialization
 			Resource_2003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
+							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
 		}
 		Object result = Resource_2003_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -975,7 +975,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Task_2004_Constraint == null) { // lazy initialization
 			Task_2004_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
+							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
 		}
 		Object result = Task_2004_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -989,7 +989,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Goal_2005_Constraint == null) { // lazy initialization
 			Goal_2005_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
+							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
 		}
 		Object result = Goal_2005_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1003,7 +1003,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Softgoal_2006_Constraint == null) { // lazy initialization
 			Softgoal_2006_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
+							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
 		}
 		Object result = Softgoal_2006_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1017,7 +1017,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Resource_2007_Constraint == null) { // lazy initialization
 			Resource_2007_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
+							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
 		}
 		Object result = Resource_2007_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1031,7 +1031,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Task_2008_Constraint == null) { // lazy initialization
 			Task_2008_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
+							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
 		}
 		Object result = Task_2008_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1045,7 +1045,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Goal_2009_Constraint == null) { // lazy initialization
 			Goal_2009_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
+							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
 		}
 		Object result = Goal_2009_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1059,7 +1059,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Softgoal_2010_Constraint == null) { // lazy initialization
 			Softgoal_2010_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
+							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
 		}
 		Object result = Softgoal_2010_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1073,7 +1073,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Resource_2011_Constraint == null) { // lazy initialization
 			Resource_2011_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
+							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
 		}
 		Object result = Resource_2011_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1087,7 +1087,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Task_2012_Constraint == null) { // lazy initialization
 			Task_2012_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
+							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
 		}
 		Object result = Task_2012_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1101,7 +1101,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Goal_2013_Constraint == null) { // lazy initialization
 			Goal_2013_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
+							"oclIsKindOf(Goal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getGoal()); //$NON-NLS-1$
 		}
 		Object result = Goal_2013_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1115,7 +1115,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Softgoal_2014_Constraint == null) { // lazy initialization
 			Softgoal_2014_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
+							"oclIsKindOf(Softgoal)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getSoftgoal()); //$NON-NLS-1$
 		}
 		Object result = Softgoal_2014_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1129,7 +1129,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Resource_2015_Constraint == null) { // lazy initialization
 			Resource_2015_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
+							"oclIsKindOf(Resource)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getResource()); //$NON-NLS-1$
 		}
 		Object result = Resource_2015_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1143,7 +1143,7 @@ public class Openome_modelVisualIDRegistry {
 		if (Task_2016_Constraint == null) { // lazy initialization
 			Task_2016_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
+							"oclIsKindOf(Task)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getTask()); //$NON-NLS-1$
 		}
 		Object result = Task_2016_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -1157,7 +1157,7 @@ public class Openome_modelVisualIDRegistry {
 		if (AndDecomposition_3002_Constraint == null) { // lazy initialization
 			AndDecomposition_3002_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(AndDecomposition)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getAndDecomposition()); //$NON-NLS-1$
+							"oclIsKindOf(AndDecomposition)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getAndDecomposition()); //$NON-NLS-1$
 		}
 		Object result = AndDecomposition_3002_Constraint
 				.evaluate(domainElement);
@@ -1172,7 +1172,7 @@ public class Openome_modelVisualIDRegistry {
 		if (OrDecomposition_3003_Constraint == null) { // lazy initialization
 			OrDecomposition_3003_Constraint = edu.toronto.cs.openome_model.diagram.expressions.Openome_modelOCLFactory
 					.getExpression(
-							"oclIsKindOf(OrDecomposition)", edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE.getOrDecomposition()); //$NON-NLS-1$
+							"oclIsKindOf(OrDecomposition)", edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE.getOrDecomposition()); //$NON-NLS-1$
 		}
 		Object result = OrDecomposition_3003_Constraint.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();

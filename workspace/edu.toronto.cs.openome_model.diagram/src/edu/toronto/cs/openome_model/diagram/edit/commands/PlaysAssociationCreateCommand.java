@@ -82,7 +82,7 @@ public class PlaysAssociationCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		edu.toronto.cs.openome_model.PlaysAssociation newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
+		edu.toronto.cs.openome_model.PlaysAssociation newElement = edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
 				.createPlaysAssociation();
 		getContainer().getAssociations().add(newElement);
 		newElement.setSource(getSource());

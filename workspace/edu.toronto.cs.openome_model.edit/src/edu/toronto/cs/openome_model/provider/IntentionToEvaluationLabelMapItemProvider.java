@@ -6,8 +6,8 @@
 package edu.toronto.cs.openome_model.provider;
 
 
-import edu.toronto.cs.openome_model.openome_modelFactory;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelFactory;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -45,13 +45,6 @@ public class IntentionToEvaluationLabelMapItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -91,7 +84,7 @@ public class IntentionToEvaluationLabelMapItemProvider
 				 getResourceLocator(),
 				 getString("_UI_IntentionToEvaluationLabelMap_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IntentionToEvaluationLabelMap_value_feature", "_UI_IntentionToEvaluationLabelMap_type"),
-				 openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__VALUE,
+				 Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__VALUE,
 				 true,
 				 false,
 				 false,
@@ -112,7 +105,7 @@ public class IntentionToEvaluationLabelMapItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY);
+			childrenFeatures.add(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY);
 		}
 		return childrenFeatures;
 	}
@@ -165,10 +158,10 @@ public class IntentionToEvaluationLabelMapItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Map.Entry.class)) {
-			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP__VALUE:
+			case Openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP__KEY:
+			case Openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -188,33 +181,33 @@ public class IntentionToEvaluationLabelMapItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createIntention()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createIntention()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createGoal()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createGoal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createResource()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createResource()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createSoftgoal()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createSoftgoal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createTask()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createTask()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
-				 openome_modelFactory.eINSTANCE.createBelief()));
+				(Openome_modelPackage.Literals.INTENTION_TO_EVALUATION_LABEL_MAP__KEY,
+				 Openome_modelFactory.eINSTANCE.createBelief()));
 	}
 
 	/**
@@ -225,7 +218,7 @@ public class IntentionToEvaluationLabelMapItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return openome_modelEditPlugin.INSTANCE;
+		return Openome_modelEditPlugin.INSTANCE;
 	}
 
 }

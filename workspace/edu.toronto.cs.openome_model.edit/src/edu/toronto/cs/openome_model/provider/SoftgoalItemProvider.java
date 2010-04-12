@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Softgoal;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -39,13 +39,6 @@ public class SoftgoalItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,9 +76,9 @@ public class SoftgoalItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Softgoal_Topic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Softgoal_Topic_feature", "_UI_Softgoal_type"),
-				 openome_modelPackage.Literals.SOFTGOAL__TOPIC,
+				 getString("_UI_Softgoal_topic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Softgoal_topic_feature", "_UI_Softgoal_type"),
+				 Openome_modelPackage.Literals.SOFTGOAL__TOPIC,
 				 true,
 				 false,
 				 false,
@@ -131,7 +124,7 @@ public class SoftgoalItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Softgoal.class)) {
-			case openome_modelPackage.SOFTGOAL__TOPIC:
+			case Openome_modelPackage.SOFTGOAL__TOPIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

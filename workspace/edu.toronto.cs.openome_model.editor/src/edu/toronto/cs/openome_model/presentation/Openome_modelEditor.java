@@ -157,7 +157,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import edu.toronto.cs.openome_model.provider.openome_modelItemProviderAdapterFactory;
+import edu.toronto.cs.openome_model.provider.Openome_modelItemProviderAdapterFactory;
 //import edu.toronto.cs.openome_model.versioning.MolhadoActions;
 //import edu.toronto.cs.openome_model.versioning.MolhadoWorkspaceModifyOperation;
 
@@ -170,16 +170,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  * <!-- end-user-doc -->
  * @generated
  */
-public class openome_modelEditor
+public class Openome_modelEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -340,18 +333,18 @@ public class openome_modelEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(openome_modelEditor.this);
+						getActionBarContributor().setActiveEditor(Openome_modelEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(openome_modelEditor.this);
+						getActionBarContributor().setActiveEditor(Openome_modelEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == openome_modelEditor.this) {
+				else if (p == Openome_modelEditor.this) {
 					handleActivate();
 				}
 			}
@@ -514,7 +507,7 @@ public class openome_modelEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(openome_modelEditor.this, false);
+										 getSite().getPage().closeEditor(Openome_modelEditor.this, false);
 									 }
 								 }
 							 });
@@ -525,7 +518,7 @@ public class openome_modelEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == openome_modelEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == Openome_modelEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -533,7 +526,7 @@ public class openome_modelEditor
 					}
 				}
 				catch (CoreException exception) {
-					openome_modelEditorPlugin.INSTANCE.log(exception);
+					Openome_modelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -557,7 +550,7 @@ public class openome_modelEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(openome_modelEditor.this, false);
+				getSite().getPage().closeEditor(Openome_modelEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -649,7 +642,7 @@ public class openome_modelEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					openome_modelEditorPlugin.INSTANCE.log(exception);
+					Openome_modelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -660,7 +653,7 @@ public class openome_modelEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						openome_modelEditorPlugin.INSTANCE.log(exception);
+						Openome_modelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -687,7 +680,7 @@ public class openome_modelEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelEditor() {
+	public Openome_modelEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -704,7 +697,7 @@ public class openome_modelEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new openome_modelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Openome_modelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -991,7 +984,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1025,7 +1018,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1054,7 +1047,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1079,7 +1072,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1106,7 +1099,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1149,7 +1142,7 @@ public class openome_modelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), openome_modelEditor.this) {
+					new ViewerPane(getSite().getPage(), Openome_modelEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1370,8 +1363,8 @@ public class openome_modelEditor
 				new ExtendedPropertySheetPage(editingDomain) {
 					@Override
 					public void setSelectionToViewer(List<?> selection) {
-						openome_modelEditor.this.setSelectionToViewer(selection);
-						openome_modelEditor.this.setFocus();
+						Openome_modelEditor.this.setSelectionToViewer(selection);
+						Openome_modelEditor.this.setFocus();
 					}
 
 					@Override
@@ -1582,7 +1575,7 @@ public class openome_modelEditor
 			}
 		}
 		catch (CoreException exception) {
-			openome_modelEditorPlugin.INSTANCE.log(exception);
+			Openome_modelEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1704,7 +1697,7 @@ public class openome_modelEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return openome_modelEditorPlugin.INSTANCE.getString(key);
+		return Openome_modelEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1714,7 +1707,7 @@ public class openome_modelEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return openome_modelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return Openome_modelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**
@@ -1919,7 +1912,7 @@ public class openome_modelEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			openome_modelEditorPlugin.INSTANCE.log(exception);
+			Openome_modelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();

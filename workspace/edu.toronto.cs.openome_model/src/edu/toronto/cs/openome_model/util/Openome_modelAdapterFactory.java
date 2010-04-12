@@ -20,24 +20,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see edu.toronto.cs.openome_model.openome_modelPackage
+ * @see edu.toronto.cs.openome_model.Openome_modelPackage
  * @generated
  */
-public class openome_modelAdapterFactory extends AdapterFactoryImpl {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
+public class Openome_modelAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static openome_modelPackage modelPackage;
+	protected static Openome_modelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -45,9 +38,9 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelAdapterFactory() {
+	public Openome_modelAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = openome_modelPackage.eINSTANCE;
+			modelPackage = Openome_modelPackage.eINSTANCE;
 		}
 	}
 
@@ -76,8 +69,8 @@ public class openome_modelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected openome_modelSwitch<Adapter> modelSwitch =
-		new openome_modelSwitch<Adapter>() {
+	protected Openome_modelSwitch<Adapter> modelSwitch =
+		new Openome_modelSwitch<Adapter>() {
 			@Override
 			public Adapter caseActor(Actor object) {
 				return createActorAdapter();

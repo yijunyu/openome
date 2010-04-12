@@ -17,7 +17,7 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
 
 import edu.toronto.cs.openome.versioning.MolhadoActions;
-import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
+import edu.toronto.cs.openome_model.presentation.Openome_modelEditor;
 
 /** 
  * Super class for any Handler for a Molhado related command

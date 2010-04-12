@@ -16,12 +16,12 @@ import org.eclipse.ui.IFileEditorInput;
 
 import sc.document.Configuration;
 import sc.document.GoalModel;
-import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
+import edu.toronto.cs.openome_model.presentation.Openome_modelEditor;
 import fluid.version.Version;
 
 public class EditorCommitHandler extends MolhadoActionHandler implements IHandler {
 
-	openome_modelEditor gme; //override
+	Openome_modelEditor gme; //override
 	
 	public EditorCommitHandler() {
 		super(); //gets the MolhadoActions instance
@@ -43,7 +43,7 @@ public class EditorCommitHandler extends MolhadoActionHandler implements IHandle
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		try {
-			gme = (openome_modelEditor) findEditor();
+			gme = (Openome_modelEditor) findEditor();
 			editingDomain = gme.getEditingDomain();
 			setResourceSet();
 		    List<Resource> resources = resourceSet.getResources();

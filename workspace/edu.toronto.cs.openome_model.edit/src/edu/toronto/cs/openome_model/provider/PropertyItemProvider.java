@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Property;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -42,13 +42,6 @@ public class PropertyItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -89,7 +82,7 @@ public class PropertyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Property_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_name_feature", "_UI_Property_type"),
-				 openome_modelPackage.Literals.PROPERTY__NAME,
+				 Openome_modelPackage.Literals.PROPERTY__NAME,
 				 true,
 				 false,
 				 false,
@@ -111,7 +104,7 @@ public class PropertyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Property_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
-				 openome_modelPackage.Literals.PROPERTY__VALUE,
+				 Openome_modelPackage.Literals.PROPERTY__VALUE,
 				 true,
 				 false,
 				 false,
@@ -157,8 +150,8 @@ public class PropertyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Property.class)) {
-			case openome_modelPackage.PROPERTY__NAME:
-			case openome_modelPackage.PROPERTY__VALUE:
+			case Openome_modelPackage.PROPERTY__NAME:
+			case Openome_modelPackage.PROPERTY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -185,7 +178,7 @@ public class PropertyItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return openome_modelEditPlugin.INSTANCE;
+		return Openome_modelEditPlugin.INSTANCE;
 	}
 
 }

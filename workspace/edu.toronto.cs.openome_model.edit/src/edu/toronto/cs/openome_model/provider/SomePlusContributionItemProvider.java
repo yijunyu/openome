@@ -8,7 +8,7 @@ package edu.toronto.cs.openome_model.provider;
 
 import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.SomePlusContribution;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -40,13 +40,6 @@ public class SomePlusContributionItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -86,7 +79,7 @@ public class SomePlusContributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SomePlusContribution_contributionType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SomePlusContribution_contributionType_feature", "_UI_SomePlusContribution_type"),
-				 openome_modelPackage.Literals.SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE,
+				 Openome_modelPackage.Literals.SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE,
 				 false,
 				 false,
 				 false,
@@ -133,7 +126,7 @@ public class SomePlusContributionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SomePlusContribution.class)) {
-			case openome_modelPackage.SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE:
+			case Openome_modelPackage.SOME_PLUS_CONTRIBUTION__CONTRIBUTION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

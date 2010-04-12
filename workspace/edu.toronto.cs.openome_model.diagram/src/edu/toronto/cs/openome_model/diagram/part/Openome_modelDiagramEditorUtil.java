@@ -237,7 +237,7 @@ public class Openome_modelDiagramEditorUtil {
 	 * @generated
 	 */
 	private static edu.toronto.cs.openome_model.Model createInitialModel() {
-		return edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
+		return edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
 				.createModel();
 	}
 

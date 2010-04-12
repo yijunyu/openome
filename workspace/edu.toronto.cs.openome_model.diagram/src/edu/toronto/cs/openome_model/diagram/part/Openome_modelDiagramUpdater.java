@@ -3353,7 +3353,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getDependency_DependencyFrom()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.Dependency) {
 				continue;
@@ -3387,7 +3387,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getDecomposition_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.AndDecomposition) {
 				continue;
@@ -3420,7 +3420,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getDecomposition_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.OrDecomposition) {
 				continue;
@@ -3453,7 +3453,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.HelpContribution) {
 				continue;
@@ -3486,7 +3486,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.HurtContribution) {
 				continue;
@@ -3519,7 +3519,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.MakeContribution) {
 				continue;
@@ -3552,7 +3552,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.BreakContribution) {
 				continue;
@@ -3585,7 +3585,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.SomePlusContribution) {
 				continue;
@@ -3618,7 +3618,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.SomeMinusContribution) {
 				continue;
@@ -3651,7 +3651,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.UnknownContribution) {
 				continue;
@@ -3684,7 +3684,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.AndContribution) {
 				continue;
@@ -3717,7 +3717,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getContribution_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.OrContribution) {
 				continue;
@@ -3750,7 +3750,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.IsAAssociation) {
 				continue;
@@ -3783,7 +3783,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.CoversAssociation) {
 				continue;
@@ -3816,7 +3816,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.OccupiesAssociation) {
 				continue;
@@ -3849,7 +3849,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.IsPartOfAssociation) {
 				continue;
@@ -3882,7 +3882,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.PlaysAssociation) {
 				continue;
@@ -3915,7 +3915,7 @@ public class Openome_modelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
+			if (setting.getEStructuralFeature() != edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
 					.getAssociation_Target()
 					|| false == setting.getEObject() instanceof edu.toronto.cs.openome_model.INSAssociation) {
 				continue;

@@ -23,24 +23,17 @@ import org.eclipse.emf.ecore.EObject;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see edu.toronto.cs.openome_model.openome_modelPackage
+ * @see edu.toronto.cs.openome_model.Openome_modelPackage
  * @generated
  */
-public class openome_modelSwitch<T> {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
+public class Openome_modelSwitch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static openome_modelPackage modelPackage;
+	protected static Openome_modelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -48,9 +41,9 @@ public class openome_modelSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelSwitch() {
+	public Openome_modelSwitch() {
 		if (modelPackage == null) {
-			modelPackage = openome_modelPackage.eINSTANCE;
+			modelPackage = Openome_modelPackage.eINSTANCE;
 		}
 	}
 
@@ -94,7 +87,7 @@ public class openome_modelSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case openome_modelPackage.ACTOR: {
+			case Openome_modelPackage.ACTOR: {
 				Actor actor = (Actor)theEObject;
 				T result = caseActor(actor);
 				if (result == null) result = caseContainer(actor);
@@ -102,7 +95,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.AGENT: {
+			case Openome_modelPackage.AGENT: {
 				Agent agent = (Agent)theEObject;
 				T result = caseAgent(agent);
 				if (result == null) result = caseContainer(agent);
@@ -110,7 +103,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.AND_DECOMPOSITION: {
+			case Openome_modelPackage.AND_DECOMPOSITION: {
 				AndDecomposition andDecomposition = (AndDecomposition)theEObject;
 				T result = caseAndDecomposition(andDecomposition);
 				if (result == null) result = caseDecomposition(andDecomposition);
@@ -118,28 +111,28 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.CONTRIBUTION: {
+			case Openome_modelPackage.CONTRIBUTION: {
 				Contribution contribution = (Contribution)theEObject;
 				T result = caseContribution(contribution);
 				if (result == null) result = caseLink(contribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.DECOMPOSITION: {
+			case Openome_modelPackage.DECOMPOSITION: {
 				Decomposition decomposition = (Decomposition)theEObject;
 				T result = caseDecomposition(decomposition);
 				if (result == null) result = caseLink(decomposition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.DEPENDENCY: {
+			case Openome_modelPackage.DEPENDENCY: {
 				Dependency dependency = (Dependency)theEObject;
 				T result = caseDependency(dependency);
 				if (result == null) result = caseLink(dependency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.GOAL: {
+			case Openome_modelPackage.GOAL: {
 				Goal goal = (Goal)theEObject;
 				T result = caseGoal(goal);
 				if (result == null) result = caseIntention(goal);
@@ -147,20 +140,20 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.INTENTION: {
+			case Openome_modelPackage.INTENTION: {
 				Intention intention = (Intention)theEObject;
 				T result = caseIntention(intention);
 				if (result == null) result = caseDependable(intention);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.MODEL: {
+			case Openome_modelPackage.MODEL: {
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.OR_DECOMPOSITION: {
+			case Openome_modelPackage.OR_DECOMPOSITION: {
 				OrDecomposition orDecomposition = (OrDecomposition)theEObject;
 				T result = caseOrDecomposition(orDecomposition);
 				if (result == null) result = caseDecomposition(orDecomposition);
@@ -168,7 +161,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.POSITION: {
+			case Openome_modelPackage.POSITION: {
 				Position position = (Position)theEObject;
 				T result = casePosition(position);
 				if (result == null) result = caseContainer(position);
@@ -176,13 +169,13 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.PROPERTY: {
+			case Openome_modelPackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.RESOURCE: {
+			case Openome_modelPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
 				if (result == null) result = caseIntention(resource);
@@ -190,7 +183,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.ROLE: {
+			case Openome_modelPackage.ROLE: {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
 				if (result == null) result = caseContainer(role);
@@ -198,7 +191,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.SOFTGOAL: {
+			case Openome_modelPackage.SOFTGOAL: {
 				Softgoal softgoal = (Softgoal)theEObject;
 				T result = caseSoftgoal(softgoal);
 				if (result == null) result = caseIntention(softgoal);
@@ -206,7 +199,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.TASK: {
+			case Openome_modelPackage.TASK: {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseIntention(task);
@@ -214,14 +207,14 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.CONTAINER: {
+			case Openome_modelPackage.CONTAINER: {
 				Container container = (Container)theEObject;
 				T result = caseContainer(container);
 				if (result == null) result = caseDependable(container);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.BELIEF: {
+			case Openome_modelPackage.BELIEF: {
 				Belief belief = (Belief)theEObject;
 				T result = caseBelief(belief);
 				if (result == null) result = caseIntention(belief);
@@ -229,26 +222,26 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.LINK: {
+			case Openome_modelPackage.LINK: {
 				Link link = (Link)theEObject;
 				T result = caseLink(link);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.CORRELATION: {
+			case Openome_modelPackage.CORRELATION: {
 				Correlation correlation = (Correlation)theEObject;
 				T result = caseCorrelation(correlation);
 				if (result == null) result = caseLink(correlation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.DEPENDABLE: {
+			case Openome_modelPackage.DEPENDABLE: {
 				Dependable dependable = (Dependable)theEObject;
 				T result = caseDependable(dependable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.HELP_CONTRIBUTION: {
+			case Openome_modelPackage.HELP_CONTRIBUTION: {
 				HelpContribution helpContribution = (HelpContribution)theEObject;
 				T result = caseHelpContribution(helpContribution);
 				if (result == null) result = caseContribution(helpContribution);
@@ -256,7 +249,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.HURT_CONTRIBUTION: {
+			case Openome_modelPackage.HURT_CONTRIBUTION: {
 				HurtContribution hurtContribution = (HurtContribution)theEObject;
 				T result = caseHurtContribution(hurtContribution);
 				if (result == null) result = caseContribution(hurtContribution);
@@ -264,7 +257,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.MAKE_CONTRIBUTION: {
+			case Openome_modelPackage.MAKE_CONTRIBUTION: {
 				MakeContribution makeContribution = (MakeContribution)theEObject;
 				T result = caseMakeContribution(makeContribution);
 				if (result == null) result = caseContribution(makeContribution);
@@ -272,7 +265,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.BREAK_CONTRIBUTION: {
+			case Openome_modelPackage.BREAK_CONTRIBUTION: {
 				BreakContribution breakContribution = (BreakContribution)theEObject;
 				T result = caseBreakContribution(breakContribution);
 				if (result == null) result = caseContribution(breakContribution);
@@ -280,7 +273,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: {
+			case Openome_modelPackage.SOME_PLUS_CONTRIBUTION: {
 				SomePlusContribution somePlusContribution = (SomePlusContribution)theEObject;
 				T result = caseSomePlusContribution(somePlusContribution);
 				if (result == null) result = caseContribution(somePlusContribution);
@@ -288,7 +281,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: {
+			case Openome_modelPackage.SOME_MINUS_CONTRIBUTION: {
 				SomeMinusContribution someMinusContribution = (SomeMinusContribution)theEObject;
 				T result = caseSomeMinusContribution(someMinusContribution);
 				if (result == null) result = caseContribution(someMinusContribution);
@@ -296,7 +289,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.UNKNOWN_CONTRIBUTION: {
+			case Openome_modelPackage.UNKNOWN_CONTRIBUTION: {
 				UnknownContribution unknownContribution = (UnknownContribution)theEObject;
 				T result = caseUnknownContribution(unknownContribution);
 				if (result == null) result = caseContribution(unknownContribution);
@@ -304,7 +297,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.AND_CONTRIBUTION: {
+			case Openome_modelPackage.AND_CONTRIBUTION: {
 				AndContribution andContribution = (AndContribution)theEObject;
 				T result = caseAndContribution(andContribution);
 				if (result == null) result = caseContribution(andContribution);
@@ -312,7 +305,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.OR_CONTRIBUTION: {
+			case Openome_modelPackage.OR_CONTRIBUTION: {
 				OrContribution orContribution = (OrContribution)theEObject;
 				T result = caseOrContribution(orContribution);
 				if (result == null) result = caseContribution(orContribution);
@@ -320,14 +313,14 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.ASSOCIATION: {
+			case Openome_modelPackage.ASSOCIATION: {
 				Association association = (Association)theEObject;
 				T result = caseAssociation(association);
 				if (result == null) result = caseLink(association);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.IS_AASSOCIATION: {
+			case Openome_modelPackage.IS_AASSOCIATION: {
 				IsAAssociation isAAssociation = (IsAAssociation)theEObject;
 				T result = caseIsAAssociation(isAAssociation);
 				if (result == null) result = caseAssociation(isAAssociation);
@@ -335,7 +328,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.COVERS_ASSOCIATION: {
+			case Openome_modelPackage.COVERS_ASSOCIATION: {
 				CoversAssociation coversAssociation = (CoversAssociation)theEObject;
 				T result = caseCoversAssociation(coversAssociation);
 				if (result == null) result = caseAssociation(coversAssociation);
@@ -343,7 +336,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.IS_PART_OF_ASSOCIATION: {
+			case Openome_modelPackage.IS_PART_OF_ASSOCIATION: {
 				IsPartOfAssociation isPartOfAssociation = (IsPartOfAssociation)theEObject;
 				T result = caseIsPartOfAssociation(isPartOfAssociation);
 				if (result == null) result = caseAssociation(isPartOfAssociation);
@@ -351,7 +344,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.OCCUPIES_ASSOCIATION: {
+			case Openome_modelPackage.OCCUPIES_ASSOCIATION: {
 				OccupiesAssociation occupiesAssociation = (OccupiesAssociation)theEObject;
 				T result = caseOccupiesAssociation(occupiesAssociation);
 				if (result == null) result = caseAssociation(occupiesAssociation);
@@ -359,7 +352,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.PLAYS_ASSOCIATION: {
+			case Openome_modelPackage.PLAYS_ASSOCIATION: {
 				PlaysAssociation playsAssociation = (PlaysAssociation)theEObject;
 				T result = casePlaysAssociation(playsAssociation);
 				if (result == null) result = caseAssociation(playsAssociation);
@@ -367,7 +360,7 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.INS_ASSOCIATION: {
+			case Openome_modelPackage.INS_ASSOCIATION: {
 				INSAssociation insAssociation = (INSAssociation)theEObject;
 				T result = caseINSAssociation(insAssociation);
 				if (result == null) result = caseAssociation(insAssociation);
@@ -375,13 +368,13 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.ALTERNATIVE: {
+			case Openome_modelPackage.ALTERNATIVE: {
 				Alternative alternative = (Alternative)theEObject;
 				T result = caseAlternative(alternative);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: {
+			case Openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: {
 				@SuppressWarnings("unchecked") Map.Entry<Intention, EvaluationLabel> intentionToEvaluationLabelMap = (Map.Entry<Intention, EvaluationLabel>)theEObject;
 				T result = caseIntentionToEvaluationLabelMap(intentionToEvaluationLabelMap);
 				if (result == null) result = defaultCase(theEObject);

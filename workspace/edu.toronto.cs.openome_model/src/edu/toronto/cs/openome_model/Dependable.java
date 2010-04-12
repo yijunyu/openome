@@ -22,18 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependable()
+ * @see edu.toronto.cs.openome_model.Openome_modelPackage#getDependable()
  * @model abstract="true"
  * @generated
  */
 public interface Dependable extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * Returns the value of the '<em><b>Dependency From</b></em>' reference list.
 	 * The list contents are of type {@link edu.toronto.cs.openome_model.Dependency}.
@@ -45,7 +38,7 @@ public interface Dependable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependency From</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependable_DependencyFrom()
+	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getDependable_DependencyFrom()
 	 * @see edu.toronto.cs.openome_model.Dependency#getDependencyTo
 	 * @model opposite="dependencyTo"
 	 * @generated
@@ -63,7 +56,7 @@ public interface Dependable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependency To</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getDependable_DependencyTo()
+	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getDependable_DependencyTo()
 	 * @see edu.toronto.cs.openome_model.Dependency#getDependencyFrom
 	 * @model opposite="dependencyFrom"
 	 * @generated

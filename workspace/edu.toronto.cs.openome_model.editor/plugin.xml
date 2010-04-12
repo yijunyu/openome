@@ -18,7 +18,7 @@
     </category>
     <wizard
           category="edu.toronto.cs.openome_model.editor.category"
-          class="edu.toronto.cs.openome_model.presentation.openome_modelModelWizard"
+          class="edu.toronto.cs.openome_model.presentation.Openome_modelModelWizard"
           icon="icons/full/obj16/openome_modelModelFile.gif"
           id="edu.toronto.cs.openome_model.presentation.openome_modelModelWizardID"
           name="%_UI_openome_modelModelWizard_label"
@@ -34,8 +34,8 @@
         name = "%_UI_openome_modelEditor_label"
         icon = "icons/full/obj16/openome_modelModelFile.gif"
         extensions = "oom"
-        class = "edu.toronto.cs.openome_model.presentation.openome_modelEditor" 
-        contributorClass="edu.toronto.cs.openome_model.presentation.openome_modelActionBarContributor" >
+        class = "edu.toronto.cs.openome_model.presentation.Openome_modelEditor" 
+        contributorClass="edu.toronto.cs.openome_model.presentation.Openome_modelActionBarContributor" >
     </editor>
   </extension>  
 </plugin>

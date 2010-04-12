@@ -23,23 +23,16 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class openome_modelFactoryImpl extends EFactoryImpl implements openome_modelFactory {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
+public class Openome_modelFactoryImpl extends EFactoryImpl implements Openome_modelFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static openome_modelFactory init() {
+	public static Openome_modelFactory init() {
 		try {
-			openome_modelFactory theopenome_modelFactory = (openome_modelFactory)EPackage.Registry.INSTANCE.getEFactory("http:///edu/toronto/cs/openome_model.ecore"); 
+			Openome_modelFactory theopenome_modelFactory = (Openome_modelFactory)EPackage.Registry.INSTANCE.getEFactory("http:///edu/toronto/cs/openome_model.ecore"); 
 			if (theopenome_modelFactory != null) {
 				return theopenome_modelFactory;
 			}
@@ -47,7 +40,7 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new openome_modelFactoryImpl();
+		return new Openome_modelFactoryImpl();
 	}
 
 	/**
@@ -56,7 +49,7 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelFactoryImpl() {
+	public Openome_modelFactoryImpl() {
 		super();
 	}
 
@@ -68,42 +61,42 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case openome_modelPackage.ACTOR: return createActor();
-			case openome_modelPackage.AGENT: return createAgent();
-			case openome_modelPackage.AND_DECOMPOSITION: return createAndDecomposition();
-			case openome_modelPackage.CONTRIBUTION: return createContribution();
-			case openome_modelPackage.DECOMPOSITION: return createDecomposition();
-			case openome_modelPackage.DEPENDENCY: return createDependency();
-			case openome_modelPackage.GOAL: return createGoal();
-			case openome_modelPackage.INTENTION: return createIntention();
-			case openome_modelPackage.MODEL: return createModel();
-			case openome_modelPackage.OR_DECOMPOSITION: return createOrDecomposition();
-			case openome_modelPackage.POSITION: return createPosition();
-			case openome_modelPackage.PROPERTY: return createProperty();
-			case openome_modelPackage.RESOURCE: return createResource();
-			case openome_modelPackage.ROLE: return createRole();
-			case openome_modelPackage.SOFTGOAL: return createSoftgoal();
-			case openome_modelPackage.TASK: return createTask();
-			case openome_modelPackage.BELIEF: return createBelief();
-			case openome_modelPackage.CORRELATION: return createCorrelation();
-			case openome_modelPackage.HELP_CONTRIBUTION: return createHelpContribution();
-			case openome_modelPackage.HURT_CONTRIBUTION: return createHurtContribution();
-			case openome_modelPackage.MAKE_CONTRIBUTION: return createMakeContribution();
-			case openome_modelPackage.BREAK_CONTRIBUTION: return createBreakContribution();
-			case openome_modelPackage.SOME_PLUS_CONTRIBUTION: return createSomePlusContribution();
-			case openome_modelPackage.SOME_MINUS_CONTRIBUTION: return createSomeMinusContribution();
-			case openome_modelPackage.UNKNOWN_CONTRIBUTION: return createUnknownContribution();
-			case openome_modelPackage.AND_CONTRIBUTION: return createAndContribution();
-			case openome_modelPackage.OR_CONTRIBUTION: return createOrContribution();
-			case openome_modelPackage.ASSOCIATION: return createAssociation();
-			case openome_modelPackage.IS_AASSOCIATION: return createIsAAssociation();
-			case openome_modelPackage.COVERS_ASSOCIATION: return createCoversAssociation();
-			case openome_modelPackage.IS_PART_OF_ASSOCIATION: return createIsPartOfAssociation();
-			case openome_modelPackage.OCCUPIES_ASSOCIATION: return createOccupiesAssociation();
-			case openome_modelPackage.PLAYS_ASSOCIATION: return createPlaysAssociation();
-			case openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
-			case openome_modelPackage.ALTERNATIVE: return createAlternative();
-			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: return (EObject)createIntentionToEvaluationLabelMap();
+			case Openome_modelPackage.ACTOR: return createActor();
+			case Openome_modelPackage.AGENT: return createAgent();
+			case Openome_modelPackage.AND_DECOMPOSITION: return createAndDecomposition();
+			case Openome_modelPackage.CONTRIBUTION: return createContribution();
+			case Openome_modelPackage.DECOMPOSITION: return createDecomposition();
+			case Openome_modelPackage.DEPENDENCY: return createDependency();
+			case Openome_modelPackage.GOAL: return createGoal();
+			case Openome_modelPackage.INTENTION: return createIntention();
+			case Openome_modelPackage.MODEL: return createModel();
+			case Openome_modelPackage.OR_DECOMPOSITION: return createOrDecomposition();
+			case Openome_modelPackage.POSITION: return createPosition();
+			case Openome_modelPackage.PROPERTY: return createProperty();
+			case Openome_modelPackage.RESOURCE: return createResource();
+			case Openome_modelPackage.ROLE: return createRole();
+			case Openome_modelPackage.SOFTGOAL: return createSoftgoal();
+			case Openome_modelPackage.TASK: return createTask();
+			case Openome_modelPackage.BELIEF: return createBelief();
+			case Openome_modelPackage.CORRELATION: return createCorrelation();
+			case Openome_modelPackage.HELP_CONTRIBUTION: return createHelpContribution();
+			case Openome_modelPackage.HURT_CONTRIBUTION: return createHurtContribution();
+			case Openome_modelPackage.MAKE_CONTRIBUTION: return createMakeContribution();
+			case Openome_modelPackage.BREAK_CONTRIBUTION: return createBreakContribution();
+			case Openome_modelPackage.SOME_PLUS_CONTRIBUTION: return createSomePlusContribution();
+			case Openome_modelPackage.SOME_MINUS_CONTRIBUTION: return createSomeMinusContribution();
+			case Openome_modelPackage.UNKNOWN_CONTRIBUTION: return createUnknownContribution();
+			case Openome_modelPackage.AND_CONTRIBUTION: return createAndContribution();
+			case Openome_modelPackage.OR_CONTRIBUTION: return createOrContribution();
+			case Openome_modelPackage.ASSOCIATION: return createAssociation();
+			case Openome_modelPackage.IS_AASSOCIATION: return createIsAAssociation();
+			case Openome_modelPackage.COVERS_ASSOCIATION: return createCoversAssociation();
+			case Openome_modelPackage.IS_PART_OF_ASSOCIATION: return createIsPartOfAssociation();
+			case Openome_modelPackage.OCCUPIES_ASSOCIATION: return createOccupiesAssociation();
+			case Openome_modelPackage.PLAYS_ASSOCIATION: return createPlaysAssociation();
+			case Openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
+			case Openome_modelPackage.ALTERNATIVE: return createAlternative();
+			case Openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: return (EObject)createIntentionToEvaluationLabelMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -117,11 +110,11 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case openome_modelPackage.EVALUATION_LABEL:
+			case Openome_modelPackage.EVALUATION_LABEL:
 				return createEvaluationLabelFromString(eDataType, initialValue);
-			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
+			case Openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
 				return createGoalModelingContributionTypeFromString(eDataType, initialValue);
-			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
+			case Openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
 				return createGoalModelingContributionSymmetryFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -136,11 +129,11 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case openome_modelPackage.EVALUATION_LABEL:
+			case Openome_modelPackage.EVALUATION_LABEL:
 				return convertEvaluationLabelToString(eDataType, instanceValue);
-			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
+			case Openome_modelPackage.GOAL_MODELING_CONTRIBUTION_TYPE:
 				return convertGoalModelingContributionTypeToString(eDataType, instanceValue);
-			case openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
+			case Openome_modelPackage.GOAL_MODELING_CONTRIBUTION_SYMMETRY:
 				return convertGoalModelingContributionSymmetryToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -572,8 +565,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelPackage getopenome_modelPackage() {
-		return (openome_modelPackage)getEPackage();
+	public Openome_modelPackage getopenome_modelPackage() {
+		return (Openome_modelPackage)getEPackage();
 	}
 
 	/**
@@ -583,8 +576,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	 * @generated
 	 */
 	@Deprecated
-	public static openome_modelPackage getPackage() {
-		return openome_modelPackage.eINSTANCE;
+	public static Openome_modelPackage getPackage() {
+		return Openome_modelPackage.eINSTANCE;
 	}
 
 } //openome_modelFactoryImpl

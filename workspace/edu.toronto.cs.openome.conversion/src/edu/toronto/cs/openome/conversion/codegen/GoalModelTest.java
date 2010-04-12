@@ -14,8 +14,8 @@ import util.Computing;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.Task;
-import edu.toronto.cs.openome_model.openome_modelFactory;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelFactory;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 import junit.framework.TestCase;
 
 /**
@@ -33,8 +33,8 @@ public class GoalModelTest extends TestCase {
 		cg.generateGoalModelContent();
 		return cg;
 	}
-	openome_modelPackage e = openome_modelPackage.eINSTANCE;
-	openome_modelFactory f = e.getopenome_modelFactory();
+	Openome_modelPackage e = Openome_modelPackage.eINSTANCE;
+	Openome_modelFactory f = e.getopenome_modelFactory();
 	private Model loadQ7(String q7) {
 		GoalModel cg = parseQ7(q7);
 		Model m = f.createModel();

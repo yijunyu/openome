@@ -5,7 +5,7 @@
  */
 package edu.toronto.cs.openome_model.provider;
 
-import edu.toronto.cs.openome_model.util.openome_modelAdapterFactory;
+import edu.toronto.cs.openome_model.util.Openome_modelAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,14 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class openome_modelItemProviderAdapterFactory extends openome_modelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
+public class Openome_modelItemProviderAdapterFactory extends Openome_modelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -73,7 +66,7 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public openome_modelItemProviderAdapterFactory() {
+	public Openome_modelItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

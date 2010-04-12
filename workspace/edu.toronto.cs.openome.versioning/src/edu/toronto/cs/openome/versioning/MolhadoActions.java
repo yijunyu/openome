@@ -47,7 +47,7 @@ import sc.document.SCDirectory;
 
 import edu.toronto.cs.openome_model.*;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
-import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
+import edu.toronto.cs.openome_model.presentation.Openome_modelEditor;
 
 import fluid.ir.IRNode;
 import fluid.ir.IRPersistent;
@@ -73,8 +73,8 @@ public class MolhadoActions {
 	private static final Logger LOG = Logger.getLogger("GoalmodelEditor"); //added field
 	final static String MOLHADO_PLUGIN_NAME = "molhado";
 
-	openome_modelPackage e = openome_modelPackage.eINSTANCE;
-	openome_modelFactory f = e.getopenome_modelFactory();
+	Openome_modelPackage e = Openome_modelPackage.eINSTANCE;
+	Openome_modelFactory f = e.getopenome_modelFactory();
 	/** indexed on project_name e.g. 'Examples' */
 	HashSet<IRNode> set;
 	public Hashtable<String, Configuration> configurations = new Hashtable<String, Configuration>();
@@ -915,7 +915,7 @@ public class MolhadoActions {
 	 * and stores them in an array (alg 4 in ICSE/RE paper)
 	 * @param gm
 	 */
-	public void modify_edited_goal_model(GoalModel gm, openome_modelEditor gme) {
+	public void modify_edited_goal_model(GoalModel gm, Openome_modelEditor gme) {
 		//a map holding the number of operations for reporting
 		Hashtable<String, Integer> elementCounts = new Hashtable<String, Integer>(); 
 		elementCounts.put("delete-edge", new Integer(0));
@@ -1169,7 +1169,7 @@ public class MolhadoActions {
 	}
 
 	
-	void delete_an_object(GoalModel gm, Hashtable<String, IRNode> table, DeleteCommand dc, Hashtable<String,Integer> elementCounts, openome_modelEditor gme) {
+	void delete_an_object(GoalModel gm, Hashtable<String, IRNode> table, DeleteCommand dc, Hashtable<String,Integer> elementCounts, Openome_modelEditor gme) {
 		Collection<?> objs = dc.getCollection();
 						
 		for (Object o : objs ) {
@@ -1345,7 +1345,7 @@ public class MolhadoActions {
 		return edges;
 	}
 
-	private Model get_model(openome_modelEditor gme) {
+	private Model get_model(Openome_modelEditor gme) {
 		Model model = null;
 		for (Resource b: gme.getEditingDomain().getResourceSet().getResources()) {
 			//Object b = ti.next();

@@ -72,9 +72,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import edu.toronto.cs.openome_model.openome_modelFactory;
-import edu.toronto.cs.openome_model.openome_modelPackage;
-import edu.toronto.cs.openome_model.provider.openome_modelEditPlugin;
+import edu.toronto.cs.openome_model.Openome_modelFactory;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.provider.Openome_modelEditPlugin;
 
 
 import org.eclipse.core.runtime.Path;
@@ -94,14 +94,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class openome_modelModelWizard extends Wizard implements INewWizard {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
+public class Openome_modelModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -109,7 +102,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -118,7 +111,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -126,7 +119,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected openome_modelPackage _openome_modelPackage = openome_modelPackage.eINSTANCE;
+	protected Openome_modelPackage _openome_modelPackage = Openome_modelPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -134,7 +127,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected openome_modelFactory _openome_modelFactory = _openome_modelPackage.getopenome_modelFactory();
+	protected Openome_modelFactory _openome_modelFactory = _openome_modelPackage.getopenome_modelFactory();
 
 	/**
 	 * This is the file creation page.
@@ -185,8 +178,8 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(openome_modelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(openome_modelEditorPlugin.INSTANCE.getImage("full/wizban/Newopenome_model")));
+		setWindowTitle(Openome_modelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(Openome_modelEditorPlugin.INSTANCE.getImage("full/wizban/Newopenome_model")));
 	}
 
 	/**
@@ -269,7 +262,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							openome_modelEditorPlugin.INSTANCE.log(exception);
+							Openome_modelEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -302,14 +295,14 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), openome_modelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), Openome_modelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			openome_modelEditorPlugin.INSTANCE.log(exception);
+			Openome_modelEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -343,7 +336,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(openome_modelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(Openome_modelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -420,7 +413,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(openome_modelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(Openome_modelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -446,7 +439,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(openome_modelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(Openome_modelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -545,10 +538,10 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return openome_modelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return Openome_modelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				openome_modelEditorPlugin.INSTANCE.log(mre);
+				Openome_modelEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -561,7 +554,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(openome_modelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(Openome_modelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -580,9 +573,9 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new openome_modelModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_label"));
-		newFileCreationPage.setDescription(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_description"));
-		newFileCreationPage.setFileName(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setTitle(Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_label"));
+		newFileCreationPage.setDescription(Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_description"));
+		newFileCreationPage.setFileName(Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -608,7 +601,7 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -619,8 +612,8 @@ public class openome_modelModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new openome_modelModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_label"));
-		initialObjectCreationPage.setDescription(openome_modelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(Openome_modelEditorPlugin.INSTANCE.getString("_UI_openome_modelModelWizard_label"));
+		initialObjectCreationPage.setDescription(Openome_modelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

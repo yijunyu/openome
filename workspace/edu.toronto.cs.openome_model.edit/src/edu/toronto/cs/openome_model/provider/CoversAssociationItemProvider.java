@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.CoversAssociation;
-import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.Openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -39,13 +39,6 @@ public class CoversAssociationItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2001-2008 University of Toronto";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -85,7 +78,7 @@ public class CoversAssociationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CoversAssociation_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CoversAssociation_label_feature", "_UI_CoversAssociation_type"),
-				 openome_modelPackage.Literals.COVERS_ASSOCIATION__LABEL,
+				 Openome_modelPackage.Literals.COVERS_ASSOCIATION__LABEL,
 				 false,
 				 false,
 				 false,
@@ -131,7 +124,7 @@ public class CoversAssociationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CoversAssociation.class)) {
-			case openome_modelPackage.COVERS_ASSOCIATION__LABEL:
+			case Openome_modelPackage.COVERS_ASSOCIATION__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
