@@ -35,7 +35,6 @@
       	<menuContribution
             	locationURI="menu:org.eclipse.ui.main.menu?after=additions">
         	<menu
-                icon="icons/goal.gif"
                 id="openome_top_menu"
                 label="Open"
                 mnemonic="O">
@@ -53,18 +52,19 @@
       <actionSet label="Actions"
             visible="true"
             id="action.actionSet">
+<!--
          <menu id="menu1" label="Developer">
             <separator name="group1"/>
          </menu>
          <menu id="menu2" label="User">
             <separator name="group2"/>
          </menu>
+-->         
          <action
                class="edu.toronto.cs.openome.core.action.CreateExamplesAction"
                icon="icons/example.gif"
                id="action1"
                label="Examples"
-               menubarPath="menu1/group"
                toolbarPath="group"
                tooltip="Create the Examples project">
          </action>
