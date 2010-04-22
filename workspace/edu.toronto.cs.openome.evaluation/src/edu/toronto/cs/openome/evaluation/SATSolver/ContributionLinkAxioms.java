@@ -27,9 +27,7 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		negSourceIndexes = null;
 		posSourceIndexes = null;
 	}
-	
-	
-	
+		
 	public void createForwardClauses() {
 		//System.out.println("Creating Forward Clauses for Contribution");
 		//findIndexes();
@@ -137,6 +135,8 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		//combine.pushAll(negInc);
 		
 		//backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
+		
+		/*!!! Missing C-> */
 		
 	}
 

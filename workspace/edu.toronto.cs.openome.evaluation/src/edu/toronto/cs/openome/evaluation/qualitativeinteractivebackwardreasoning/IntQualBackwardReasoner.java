@@ -141,8 +141,11 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			else if (result == 0) {
 				if (hjStack.size() > 0) {
-					String unsatMessage = getUnsatCoreString(cnf);
-					showMessage("Target(s) unsatisfiable\n" + unsatMessage + "backtracking...", shell);
+					//temporarily disable unsat results
+					//String unsatMessage = getUnsatCoreString(cnf);
+					
+					//showMessage("Target(s) unsatisfiable\n" + unsatMessage + "backtracking...", shell);
+					showMessage("Target(s) unsatisfiable\n" + "backtracking...", shell);
 				}
 				
 				int bresult = backtrack();
@@ -225,8 +228,11 @@ public class IntQualBackwardReasoner extends Reasoner {
 			return 1;
 		}
 		else {
-			String unsatMessage = getUnsatCoreString(cnf);
-			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + unsatMessage + "Ending.", shell);
+			//temporarily disable unsat results
+			//String unsatMessage = getUnsatCoreString(cnf);
+			//showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + unsatMessage + "Ending.", shell);
+			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + "Ending.", shell);
+
 			
 			return -1;
 		}

@@ -216,7 +216,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		
 		
 		final Button doneB = new Button (shell, SWT.PUSH);
-		doneB.setText ("Done");
+		doneB.setText ("OK");
 		
 		doneB.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
