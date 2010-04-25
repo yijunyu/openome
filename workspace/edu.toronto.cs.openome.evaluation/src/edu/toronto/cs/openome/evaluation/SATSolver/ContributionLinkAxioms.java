@@ -114,7 +114,8 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		VecInt vi = incrementAll(sourceIndexes, 2);
 		backwardClauses.addAll(addOrImplication(tIndex + 2, vi));
 		
-		addBackwardUnknownClauses();		
+		//* I must have lost my mind when I did this, I think this is doing backward conflict clauses, not unknown!
+		//addBackwardUnknownClauses();		
 		
 		//PD(e)->at least one PD(ei) for pos links or at least one PS(ek) for neg links		
 		posInc = incrementAll(posSourceIndexes, 4);		
@@ -139,7 +140,7 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		/*!!! Missing C-> */
 		
 	}
-
+	//* I must have lost my mind when I did this, I think this is doing backward conflict clauses, not unknown!
 	private void addBackwardUnknownClauses() {
 		//C(e) ->
 		//For all ei Or C(ei) 

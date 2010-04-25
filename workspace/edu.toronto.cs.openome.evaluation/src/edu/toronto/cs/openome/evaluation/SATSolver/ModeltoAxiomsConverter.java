@@ -305,9 +305,10 @@ public class ModeltoAxiomsConverter {
 			String description = "Constraints for: " + intention.getName();
 			ConstraintAxioms ia = new ConstraintAxioms(intention,intentionIndex, description);
 			if (intention.isLeaf()) {				
-			
-				ia.createLeafClauses(); 
-				cnf.addAxioms(ia);	
+				if (!(intention instanceof SoftgoalImpl)) {
+					ia.createLeafClauses(); 
+					cnf.addAxioms(ia);	
+				}
 				
 			} 
 			//if (dir == 3) {
@@ -369,28 +370,36 @@ public class ModeltoAxiomsConverter {
 				
 			}
 		}*/
-		
+		//System.out.println("Converting results");
 		for (Object obj : intentionIndex.keySetForward()) {
+			if (obj == null)
+				System.out.println("ojbect is null in convert Results");
+				
 			Integer integer = (Integer) obj;
+			//System.out.println("index: " + integer.intValue());
 			
 			int index = intResults.indexOf(integer);
-			
+			//System.out.println(index);
 			if (index < 0) {
-				index = intResults.indexOf(new Integer(integer.intValue() * -1));				
+				index = intResults.indexOf(new Integer(integer.intValue() * -1));
+				//System.out.println(index);
 			}
 			if (index >= 0) {
 				list = new int[6];
 				for (int i=0; i<6; i++) {
 					list[i] = intResults.get(index + i).intValue();
+					//System.out.println("i: " + i + "result: " + list[i]);
 				}
 				
 				map.put((Intention) intentionIndex.getForward(integer), list);
+				//System.out.println(((Intention) intentionIndex.getForward(integer)).getName());
 			}				
 		}
+		
 		return map;
 	}
 	
-	public Vector<String> convertMinResults(Vector<Integer> intResults, Dimacs cnf) {
+	public Vector<String> convertMinResultstoStringClause(Vector<Integer> intResults, Dimacs cnf) {
 		//HashMap<Intention, int[]> map = new HashMap<Intention, int[]>();
 		
 		Vector<String> values = new Vector<String>();
@@ -399,57 +408,109 @@ public class ModeltoAxiomsConverter {
 			int index = intResults.indexOf(new Integer(i));
 			
 			if (index < 0) {
-				System.out.println("index: " + index + " for " + i);
+				//System.out.println("index: " + index + " for " + i);
 				VecInt vi = cnf.getClauseByIndex(i);
 				if (vi != null)
-					values.add(convertToString(vi));
+					values.add(convertToStringClause(vi));
 				else
 					System.out.println("couldn't find clause by index in conversion");
 			}
 			
 		}
 		
-		return values;
+		return values;	
+	
+	}
+	
+	public Vector<String> convertMinResultstoString(Vector<Integer> intResults, Dimacs cnf) {
+		//HashMap<Intention, int[]> map = new HashMap<Intention, int[]>();
 		
-		//ugh
-		/*Vector<Vector<Object []>> resultClauses = new Vector<Vector<Object []>>(clauses.size());
-		
-		Object [] tuple = new Object[2];
-		
-		for (Object obj : intentionIndex.keySetForward()) {
-			Integer integer = (Integer) obj;
+		Vector<String> values = new Vector<String>();
+		//intentionIndex.print();
+		for (int i =0; i< cnf.getNumClauses();i++) {
+			int index = intResults.indexOf(new Integer(i));
 			
-			for (VecInt vi : clauses)  {
-				IteratorInt it = vi.iterator();
-				while (it.hasNext()) {
-					int j = it.next(); 
-					if (j == integer.intValue()) {
-						
+			if (index < 0) {
+				//System.out.println("index: " + index + " for " + i);
+				VecInt vi = cnf.getClauseByIndex(i);
+				if (vi != null)
+					values.addAll(convertToString(vi));
+				else
+					System.out.println("couldn't find clause by index in conversion");
+			}
+			
+		}
+		
+		return values;	
+	
+	}
+	
+	public Vector<Intention> convertMinResultstoIntentions(Vector<Integer> intResults, Dimacs cnf) {
+		Vector<Intention> conflicts = new Vector<Intention>();
+		//intentionIndex.print();
+		for (int i =0; i< cnf.getNumClauses();i++) {
+			int index = intResults.indexOf(new Integer(i));
+			
+			if (index < 0) {
+				//System.out.println("index: " + index + " for " + i);
+				VecInt vi = cnf.getClauseByIndex(i);
+				if (vi != null)
+					conflicts.addAll(convertToIntentions(vi));
+				else
+					System.out.println("couldn't find clause by index in conversion to Intention");
+			}
+			
+		}
+		conflicts = unique(conflicts);
+		return conflicts;
+	}
+	
+	 public Vector<Intention> unique  (  Vector<Intention> v  )   {  
+         Vector<Intention> tmpVector=new Vector<Intention> (  ) ;  
+         Intention tmpValue; 
+        
+         if  ( v.isEmpty (  )  )  return ( v ) ;         
+         for  ( int j = 0; j  <  v.size (  ) ; j++ )   {  
+           tmpValue =   v.elementAt ( j ) ; 
+           if  ( tmpValue!=null )   {     
+        	   if  (  tmpVector.isEmpty (  )   )   
+        		   tmpVector.addElement ( tmpValue ) ; 
+               if  ( tmpVector.indexOf ( tmpValue ) ==-1 )  {  
+            	   tmpVector.addElement ( tmpValue ) ; 
+               }  
+           }                   
+         } 
+       return  tmpVector; 
+    } 
+
+	
+	private Vector<Intention> convertToIntentions(VecInt vi) {
+		IteratorInt it = vi.iterator();
+		Vector<Intention> conflicts = new Vector<Intention>();
+		
+		while(it.hasNext()) {
+			int var = it.next();
+			for (int i = 0; i< 6; i++) {				
+				
+				if (var != 0) {
+					if (var < 0) {
+						var = var * -1;
+					}
+					Intention intention = (Intention) intentionIndex.getForward(new Integer(var - i));
+					if (intention != null) {
+						if (!conflicts.contains(intention))
+							conflicts.add(intention);
 					}
 				}
 			}
 			
-			if (i == null)  {
-				System.out.println("couln't find clause by index");
-				return null;
-			}
-			
-			
-			
-			for (int j : clause) {
-				intentionIndex
-			}
-			
-			
 		}
-		return map;
-		*/
-	
+		return conflicts;
 	}
-	
-	private String convertToString(VecInt vi) {
+
+	private String convertToStringClause(VecInt vi) {
 		IteratorInt it = vi.iterator();
-		System.out.println("Converting to string: " + vi.toString());
+		//System.out.println("Converting to string: " + vi.toString());
 		//Vector<String> strings = new Vector<String>();
 		String str = "";
 		boolean neg = false;
@@ -487,6 +548,48 @@ public class ModeltoAxiomsConverter {
 			
 		}
 		return str;
+	}
+	
+	private Vector<String> convertToString(VecInt vi) {
+		IteratorInt it = vi.iterator();
+		//System.out.println("Converting to string: " + vi.toString());
+		//Vector<String> strings = new Vector<String>();
+		Vector<String> strs = new Vector<String>();
+		boolean neg = false;
+		
+		while(it.hasNext()) {
+			int var = it.next();
+			for (int i = 0; i< 6; i++) {				
+				//System.out.println(var);
+				if (var != 0) {
+					if (var < 0) {
+						var = var * -1;
+						neg = true;
+					}
+					Intention intention = (Intention) intentionIndex.getForward(new Integer(var - i));
+					if (intention != null) {
+						//System.out.println("Got intention: " + intention.getName());
+						String str = "";
+						switch (i) {
+							case(0): if (neg) {str += "not ";} str += "S(" + intention.getName() + ")"; break; 
+							case(1): if (neg) {str += "not ";} str += "PS(" + intention.getName() + ")"; break;
+							case(2): if (neg) {str += "not ";} str += "U(" + intention.getName() + ")"; break;
+							case(3): if (neg) {str += "not ";} str += "C(" + intention.getName() + ")"; break;
+							case(4): if (neg) {str += "not ";} str += "PD(" + intention.getName() + ")"; break;
+							case(5): if (neg) {str += "not ";} str += "D(" + intention.getName() + ")"; break;
+						}
+						strs.add(str);
+						//System.out.println(str);
+						//break out of the for loop
+						i = 6;
+						neg = false;
+					}
+				}
+			}
+			
+			
+		}
+		return strs;
 	}
 
 	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int dir) {
@@ -573,7 +676,7 @@ public class ModeltoAxiomsConverter {
 		//System.out.println(axs.size());
 		
 		for (Axioms ax : axs) {
-			System.out.println(ax.getDescription());
+			//System.out.println(ax.getDescription());
 			if (ax instanceof HumanJudgmentLinkAxioms) {
 				cnf.removeAxiom(ax);
 			}
@@ -586,6 +689,20 @@ public class ModeltoAxiomsConverter {
 		//System.out.println("Converter backtracked for " + w.getIntention().getName());
 		return cnf;
 	}
+
+	public Vector<Intention> findTargets() {
+		Vector<Intention> targets = new Vector<Intention>();
+		for (Intention intention : model.getAllIntentions()) {
+			if (intention.getQualitativeReasoningCombinedLabel() != EvaluationLabel.NONE) {
+				
+				targets.add(intention);
+				
+			}
+		}
+		return targets;
+	}
+
+	
 
 	
 	

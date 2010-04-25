@@ -23,6 +23,7 @@ public class zMinimalSolver extends SATSolver{
 		String path = homedir + cnf.getFileName();
 		cnf.writeToFile(path); 
 		//System.out.println(path);
+		results = new Vector<Integer>();
 		
 		try	{
 			//System.out.println("Trying to run solver");
@@ -40,10 +41,10 @@ public class zMinimalSolver extends SATSolver{
 		          (new InputStreamReader(p.getInputStream()));
 		    	
 		      while ((line = input.readLine()) != null) {
-		    	  System.out.println(line);
+		    	  //System.out.println(line);
 		    	  if (line.startsWith("Unneeded clauses are:")) {
 		    		  while ((line = input.readLine()) != null) {
-		    			  System.out.println(line);
+		    			  //System.out.println(line);
 			    		  vars = line.split(" ");
 			    		  
 			    		  Vector<Integer> v = convertToInts(vars, 20);
@@ -60,6 +61,7 @@ public class zMinimalSolver extends SATSolver{
 		    	  }
 		    	  
 		      }
+		      	      
 		      
 		      BufferedReader error =
 			        new BufferedReader
