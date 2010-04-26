@@ -35,13 +35,13 @@ import edu.toronto.cs.openome_model.*;
  */
 public class Reasoning {
 
-	public openome_modelPackage e = null;
-	public openome_modelFactory f = null;
+	public Openome_modelPackage e = null;
+	public Openome_modelFactory f = null;
 	public Resource resource;
 
 	public Reasoning(Resource r) {
-		e = openome_modelPackage.eINSTANCE;
-		f = e.getopenome_modelFactory();
+		e = Openome_modelPackage.eINSTANCE;
+		f = e.getOpenome_modelFactory();
 		resource = r;
 	}
 
