@@ -90,14 +90,14 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		
 		//S(e)->at least one S(ei) for pos links or at least one D(ek) for neg links
 		
-		//posInc = incrementAll(posSourceIndexes, 0);		
-		//negInc = incrementAll(negSourceIndexes, 5);
+		posInc = incrementAll(posSourceIndexes, 0);		
+		negInc = incrementAll(negSourceIndexes, 5);
 		
-		//VecInt combine = new VecInt();
-		//combine.pushAll(posInc);
-		//combine.pushAll(negInc);
+		combine = new VecInt();
+		combine.pushAll(posInc);
+		combine.pushAll(negInc);
 		
-		//backwardClauses.addAll(addOrImplication(tIndex, combine));
+		backwardClauses.addAll(addOrImplication(tIndex, combine));
 		
 		//PS(e)->at least one PS(ei) for pos links or at least one PD(ek) for neg links
 		
@@ -116,6 +116,10 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		
 		//* I must have lost my mind when I did this, I think this is doing backward conflict clauses, not unknown!
 		//addBackwardUnknownClauses();		
+		//I'm going to add it back, but a simplified version, with the right name
+		// C(e)-> at least one C(ei) for all links
+		VecInt sICon = incrementAll(sourceIndexes, 3);
+		backwardClauses.addAll(addOrImplication(tIndex + 3, sICon));
 		
 		//PD(e)->at least one PD(ei) for pos links or at least one PS(ek) for neg links		
 		posInc = incrementAll(posSourceIndexes, 4);		
@@ -128,14 +132,14 @@ public class ContributionLinkAxioms extends LinkAxioms {
 		backwardClauses.addAll(addOrImplication(tIndex + 4, combine));
 		
 		//D(e)->at least one D(ei) for pos links or at least one S(ek) for neg links		
-		//posInc = incrementAll(posSourceIndexes, 5);		
-		//negInc = incrementAll(negSourceIndexes, 0);
+		posInc = incrementAll(posSourceIndexes, 5);		
+		negInc = incrementAll(negSourceIndexes, 0);
 		
-		//combine = new VecInt();
-		//combine.pushAll(posInc);
-		//combine.pushAll(negInc);
+		combine = new VecInt();
+		combine.pushAll(posInc);
+		combine.pushAll(negInc);
 		
-		//backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
+		backwardClauses.addAll(addOrImplication(tIndex + 5, combine));
 		
 		/*!!! Missing C-> */
 		

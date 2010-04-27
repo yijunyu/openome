@@ -104,7 +104,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 				if (needHJ.size() == 0) {
 					//we are done, problem is SAT, HJ not needed
-					
+					System.out.println("no intentions need hj, complete");
 					showMessage("Success: backward evaluation complete!", shell);
 					return;
 				}
@@ -121,6 +121,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 				}*/
 				
 				if (topMostConflict.size() == 0) {
+					System.out.println("no topmost intentions need hj, complete");
 					showMessage("Success: backward evaluation complete!", shell);
 					return;
 				}
@@ -307,7 +308,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			Vector<Integer> intResults = minSolver.getResults();
 		
 			
-			Vector<String> results = converter.convertMinResultstoString(intResults, cnf);
+			Vector<String> results = converter.convertMinResultstoStringClause(intResults, cnf);
 			
 			/*System.out.println("The following intention labels are conflicting:");
 			System.out.println(results.size());
@@ -490,7 +491,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		}
 		if (smallest != model.getAllIntentions().size()+1) {
 			for (Intention i: needHJ) {
-				if (smallest == minDistances.get(i).intValue())
+				if (smallest == minDistances.get(i).intValue()) 
 					topMost.add(i);
 			}
 		}
@@ -515,11 +516,13 @@ public class IntQualBackwardReasoner extends Reasoner {
 					//keeping track of the distance from root
 					int distance = 0;
 					findMinDistance(distance, i, minDistances);
+					
+					System.out.println("target: " + i.getName());
 				//}
 			}
-			//for (Intention i: minDistances.keySet()) {
-			//	System.out.println(i.getName() + " distance: " + minDistances.get(i).intValue());
-			//}
+			/*for (Intention i: minDistances.keySet()) {
+				System.out.println(i.getName() + " distance: " + minDistances.get(i).intValue());
+			}*/
 		}
 		
 	}
