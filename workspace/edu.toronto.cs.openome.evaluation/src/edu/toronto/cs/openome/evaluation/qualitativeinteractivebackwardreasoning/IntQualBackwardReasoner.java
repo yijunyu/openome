@@ -224,47 +224,15 @@ public class IntQualBackwardReasoner extends Reasoner {
 					
 					cnf = converter.backtrackHumanJudgment(cnf, w, 0);
 					cnfBack = converter.backtrackHumanJudgment(cnfBack, w, -1);
+					
+					w.backtrackReverseJudgments(softgoalWrappers);
 				}
 			}
 			
 			if (!conflictingNeedHJ) {
 				return -1;
 			}
-			/*int result = solver.solve(cnf);		
 			
-			if (result == 1) {
-				
-				Vector<Integer> intResults = solver.getResults();
-				
-				HashMap<Intention, int[]> results = converter.convertResults(intResults);
-						
-				int hjresult = addHumanJudgement(needHJ, results);
-				
-				//user has cancelled
-				if (hjresult == -1)
-					return -1;
-				//user has no more hj to add
-				else if (hjresult == 0) {
-					
-					int bresult = backtrack();
-					
-					if (bresult == -1) {
-						return -1;
-					}
-					
-				} else if (hjresult == 1)  {
-					hjStack.push(needHJ);
-				}
-				
-				return 1;
-			}
-			else {
-				int bresult = backtrack();
-				
-				if (bresult == -1) {
-					return -1;
-				}
-			}*/
 			return 1;
 		}
 		else {
@@ -367,7 +335,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 						softgoalWrappers.add(w);
 					}				
 								
-					//LabelBag lb = promptForHumanJudgment(w, backResults.get(i));
+					
 					LabelBag lb = promptForHumanJudgment(w, backResults.get(i));
 					
 					//user has pressed cancel, quit everything
@@ -404,12 +372,13 @@ public class IntQualBackwardReasoner extends Reasoner {
 	}
 
 	private void displayIntermediateHJResults(IntQualIntentionWrapper w, LabelBag lb) {
-			
+		//System.out.println("Displaying results");	
 		setQualCombinedLabel(w.getIntention(), w.getInitialEvaluationLable());
 		ListIterator<IntentionLabelPair> it = lb.listIterator();
 		while(it.hasNext()) {
 			IntentionLabelPair ilp = it.next();
 			setQualCombinedLabel(ilp.getIntention(), ilp.getEvaluationLabel());
+			//System.out.println(ilp.getIntention().getName() + " " + ilp.getEvaluationLabel().toString());	
 		}
 		
 		
@@ -457,7 +426,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		}
 		
 		
-		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], w);
+		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], w, softgoalWrappers);
 				
 		cs.execute(wincom);
 		
@@ -532,18 +501,16 @@ public class IntQualBackwardReasoner extends Reasoner {
 		if (hashMap.get(root).intValue() > distance)
 				hashMap.put(root, new Integer(distance));
 		
-		//System.out.println("finding distance for " + root.getName() + " " + distance);
 		distance++;
-		
-		
+				
 		//base case, root is leaf
 		if (root.isLeaf())   {	
-			//System.out.println("is leaf");
-			return;// hashMap;
+			
+			return;
 		}
 		else {			
 			for (Intention child : root.getChildren()) {
-				//System.out.println("child: " + child.getName());
+				
 				findMinDistance(distance, child, hashMap);
 			}
 		}

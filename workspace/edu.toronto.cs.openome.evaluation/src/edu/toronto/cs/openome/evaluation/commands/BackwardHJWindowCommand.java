@@ -40,6 +40,7 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Intenti
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
+import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -51,13 +52,15 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 	private boolean done;
 	private boolean noCombinations;
 	private LabelBag resultBag;
+	private SoftgoalWrappers softgoalWrappers;
 	
-	public BackwardHJWindowCommand(Shell s, IntQualIntentionWrapper w) {
+	public BackwardHJWindowCommand(Shell s, IntQualIntentionWrapper w, SoftgoalWrappers sws) {
 		super(s, w);
 		
 		done = false;
 		noCombinations = false;
 		resultBag = new LabelBag();
+		softgoalWrappers = sws;
 	}
 
 	public boolean canExecute() {
@@ -116,8 +119,9 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		table.setLinesVisible (true);
 		table.setHeaderVisible (true);
 		
+		int numcol = 5;
 		gridData = new GridData();
-		gridData.horizontalSpan = 3;
+		gridData.horizontalSpan = numcol;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.verticalAlignment = SWT.FILL;
@@ -125,20 +129,37 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 
 		table.setLayoutData(gridData);
 		
-		String [] titles = {"Contributing Intention", "Link", "Select Label"};
+		/*String [] titles = {"Contributing Intention", "Link", "Select Label", "Given Value", "From Judgement for"};
 		
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<numcol; i++) {
 			TableColumn column = new TableColumn(table, SWT.NONE);
-			column.setWidth (150);
+			if (i==0) {	column.setWidth (250);}
+			else {column.setWidth (150);}
 			column.setText(titles[i]);
-		}
+		}*/
+		TableColumn column = new TableColumn(table, SWT.NONE);
+		column.setWidth (250);
+		column.setText("Contributing Intention");
+		column = new TableColumn(table, SWT.NONE);
+		column.setWidth (100);
+		column.setText("Link Type");
+		column = new TableColumn(table, SWT.NONE);
+		column.setWidth (150);
+		column.setText("Select Label");
+		column = new TableColumn(table, SWT.NONE);
+		column.setWidth (150);
+		column.setText("Given Value");
+		column = new TableColumn(table, SWT.NONE);
+		column.setWidth (250);
+		column.setText("From Judgement for");
+		
 		
 		final HashMap<Intention, CCombo> combos = new HashMap<Intention, CCombo>();
 		
 		for (Intention i: intention.getChildren()) {
 			TableItem item = new TableItem (table, 0);
 			item.setText (0, i.getName());
-			//item.setText (1, "link");
+			
 			for (Contribution cont: i.getContributesTo()) {
 				if (cont.getTarget().equals(intention))
 					item.setText (1, cont.getContributionType());
@@ -146,33 +167,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			
 			TableEditor editor = new TableEditor (table);
 			editor.grabHorizontal = true;
-			//String [] names = {"S", "PS", "U", "C", "PD", "D"};
-			
-			/*//for (int j=0; j<6; j++) {
-				Button button = new Button (table, SWT.RADIO);
-				button.setText ("S");
-				//button.addListener (SWT.Selection, listener);
-				//if (j == 0)
-				button.setSelection (true);
-				
-				editor.setEditor(button, item, 2);	
-			//}
-
-				 button = new Button (table, SWT.RADIO);
-				button.setText ("PS");
-				//button.addListener (SWT.Selection, listener);
-				//if (j == 0)
-				//button.setSelection (true);
-				
-				editor.setEditor(button, item, 2);
-				*/
-			
-			//Button button = new Button (table, SWT.TOGGLE);
-			//button.setText ("B");
-			//button.addListener (SWT.Selection, listener);
-			//button.setSelection (true);
-			
-			
+						
 			CCombo combo = new CCombo (table, SWT.NONE);
 			combos.put(i, combo);
 			combo.setText("Label");
@@ -184,13 +179,19 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			combo.add("Denied");
 			
 			editor.setEditor(combo, item, 2);
-			/*combo.addSelectionListener(new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent e) {
-					System.out.println(e.detail + " " + e.text);
-				}
-			});*/			
 			
-					
+			IntQualIntentionWrapper w = softgoalWrappers.findIntention(i);
+			if (w != null) {
+				HashMap<Intention, EvaluationLabel> reverse = w.getReverseJudgments();
+				String values = "";
+				String sources = "";
+				for (Intention revInt : reverse.keySet()) {
+					values += reverse.get(revInt).toString() + ", ";
+					sources += revInt.getName() + ", ";
+				}
+				item.setText(3, values);
+				item.setText(4, sources);
+			}					
 		}
 		
 		text = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
@@ -264,8 +265,8 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			}
 		});
 		
-		//table.setSize (300, 100);
-		shell.setSize (500, 400);
+		
+		shell.setSize(900, 400);
 		
 		shell.open();
 		
@@ -412,6 +413,13 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 				//System.out.println("label not null");
 				
 				lb.addToBag(intention, label);
+				
+				IntQualIntentionWrapper w = softgoalWrappers.findIntention(intention);
+				if (w == null) {
+					w = new IntQualIntentionWrapper(intention);
+					softgoalWrappers.add(w);
+				}	
+				w.addReverseJudgment(wrapper.getIntention(), label);
 				
 				//wrapper.addtoLabelBag(intention, label);
 			}

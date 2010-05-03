@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
+import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Vector;
 
@@ -12,6 +13,7 @@ public class IntQualIntentionWrapper {
 	private Intention intnt;
 	private LabelBag lb;	
 	private Vector<HumanJudgement> hjv;
+	private HashMap<Intention, EvaluationLabel> reverseJudgments;
 	
 	
 	public IntQualIntentionWrapper() {
@@ -27,7 +29,8 @@ public class IntQualIntentionWrapper {
 		intnt = null;		
 		initialEvaluationLabel = EvaluationLabel.NONE;
 		lb = new LabelBag();		
-		hjv = new Vector<HumanJudgement>();		
+		hjv = new Vector<HumanJudgement>();	
+		reverseJudgments = new HashMap<Intention, EvaluationLabel>();
 	}
 	
 	public void setInitialEvaluationLabel(EvaluationLabel l) {
@@ -142,5 +145,34 @@ public class IntQualIntentionWrapper {
 		return lb.isConflict();
 	}
 	
+	public void addReverseJudgment(Intention i, EvaluationLabel l) {
+		reverseJudgments.put(i, l);
+	}
+
+	public EvaluationLabel getReverseJudgmentByIntention(Intention intention) {
+		return reverseJudgments.get(intention);		
+	}
 	
+	public HashMap<Intention, EvaluationLabel> getReverseJudgments() {
+		return reverseJudgments;
+	}
+
+	public void backtrackReverseJudgments(SoftgoalWrappers softgoalWrappers) {
+		HumanJudgement hj = hjv.get(0);
+		ListIterator<IntentionLabelPair> it = hj.getLabelBag().listIterator();
+		
+		while (it.hasNext()) {
+			IntentionLabelPair ilp = it.next();
+			IntQualIntentionWrapper w = softgoalWrappers.findIntention(ilp.getIntention());
+			if (w != null) {
+				w.removeReverseByIntention(intnt);
+			}	
+			
+		}
+		
+	}
+
+	private void removeReverseByIntention(Intention intention) {
+		reverseJudgments.remove(intention);		
+	}
 }
