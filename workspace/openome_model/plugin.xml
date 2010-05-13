@@ -63,14 +63,14 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="Core">
+            name="OpenOME">
          <property
                name="aboutText"
-               value="OpenOME, an open-source requirements engineering tool">
+               value="OpenOME, an open-source requirements engineering tool.">
          </property>
          <property
                name="aboutImage"
-               value="icons/eclipse_lg.gif">
+               value="eclipse_lg.gif">
          </property>
          <property
                name="appName"

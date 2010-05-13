@@ -4,9 +4,9 @@
 <product name="Core" id="openome_model.product" application="org.eclipse.ui.ide.workbench" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
-      <image path="icons/eclipse_lg.gif"/>
+      <image path="eclipse_lg.gif"/>
       <text>
-         OpenOME, an open-source requirements engineering tool
+         OpenOME, an open-source requirements engineering tool.
       </text>
    </aboutInfo>
 
