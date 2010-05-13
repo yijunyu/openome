@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.eclipse.swtbot.eclipse.finder.SWTEclipseBot;
+import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
@@ -27,7 +28,11 @@ public class TestInitialization {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		bot = new SWTEclipseBot();
+		try {
 		bot.view("Welcome").close();
+		} catch (WidgetNotFoundException e) {
+			//Do nothing, welcome screen already close
+		}
 	}
  
  
