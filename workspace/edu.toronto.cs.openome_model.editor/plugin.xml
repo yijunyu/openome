@@ -13,8 +13,8 @@
   <extension
     point = "org.eclipse.ui.newWizards">
     <category
-      id = "edu.toronto.cs.openome_model.editor.category"
-      name="%_UI_Wizard_category">
+          id="edu.toronto.cs.openome_model.editor.category"
+          name="%_UI_Wizard_category">
     </category>
     <wizard
           category="edu.toronto.cs.openome_model.editor.category"
