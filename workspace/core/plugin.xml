@@ -32,6 +32,7 @@
 	<extension 
 		id="openome_main_menu_extension"
 		point="org.eclipse.ui.menus">
+		<?gmfgen generated="false"?>
       	<menuContribution
             	locationURI="menu:org.eclipse.ui.main.menu?after=additions">
         	<menu
@@ -45,6 +46,15 @@
                 id="openome_example_menu"
                 label="Generate Example Project">
          	</command>
+          <command
+                commandId="org.eclipse.ui.browser.openBrowser"
+                id="openome_gethelp_menu"
+                label="Get Help">
+             <parameter
+                   name="url"
+                   value="https://se.cs.toronto.edu/trac/ome/">
+             </parameter>
+          </command>
           </menu>
 		</menuContribution>
        <menuContribution
@@ -68,6 +78,19 @@
              <parameter
                    name="newWizardId"
                    value="edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardID">
+             </parameter>
+          </command>
+       </menuContribution>
+       <menuContribution
+             locationURI="menu:help?after=helpStart">
+          <command
+                commandId="org.eclipse.ui.browser.openBrowser"
+                id="openome_gethelp2_menu"
+                label="Get OpenOME Help"
+                style="push">
+             <parameter
+                   name="url"
+                   value="https://se.cs.toronto.edu/trac/ome/">
              </parameter>
           </command>
        </menuContribution>
