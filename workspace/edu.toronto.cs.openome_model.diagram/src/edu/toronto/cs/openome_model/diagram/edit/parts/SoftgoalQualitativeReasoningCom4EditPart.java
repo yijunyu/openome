@@ -57,7 +57,7 @@ public class SoftgoalQualitativeReasoningCom4EditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4022;
+	public static final int VISUAL_ID = 5034;
 
 	/**
 	 * @generated
@@ -342,7 +342,7 @@ public class SoftgoalQualitativeReasoningCom4EditPart extends LabelEditPart
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2010,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3010,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom4EditPart.VISUAL_ID));

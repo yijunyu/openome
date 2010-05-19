@@ -68,7 +68,7 @@ public class PlaysAssociationCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreatePlaysAssociation_3017(getContainer(), getSource(),
+				.canCreatePlaysAssociation_4018(getContainer(), getSource(),
 						getTarget());
 	}
 

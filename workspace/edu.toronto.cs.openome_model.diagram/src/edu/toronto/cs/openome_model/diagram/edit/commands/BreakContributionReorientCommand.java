@@ -68,7 +68,7 @@ public class BreakContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistBreakContribution_3007(container, getNewSource(),
+				.canExistBreakContribution_4008(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class BreakContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistBreakContribution_3007(container, source,
+				.canExistBreakContribution_4008(container, source,
 						getNewTarget());
 	}
 

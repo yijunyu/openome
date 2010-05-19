@@ -54,7 +54,7 @@ public class CoversAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4055;
+	public static final int VISUAL_ID = 6014;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class CoversAssociationLabelEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_4015,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart.VISUAL_ID));

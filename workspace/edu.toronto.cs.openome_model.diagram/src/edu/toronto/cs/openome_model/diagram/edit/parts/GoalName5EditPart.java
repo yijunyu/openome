@@ -56,7 +56,7 @@ public class GoalName5EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4028;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	 * @generated
@@ -310,7 +310,7 @@ public class GoalName5EditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2013,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3013,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName5EditPart.VISUAL_ID));

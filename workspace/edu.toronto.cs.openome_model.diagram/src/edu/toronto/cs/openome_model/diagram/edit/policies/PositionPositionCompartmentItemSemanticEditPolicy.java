@@ -15,29 +15,29 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 	 */
 	public PositionPositionCompartmentItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_1003);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_2003);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_2009 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Goal_3009 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Goal4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_2010 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Softgoal_3010 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Softgoal4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2011 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3011 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Resource4CreateCommand(
 					req));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2012 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3012 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.Task4CreateCommand(
 					req));

@@ -16,7 +16,7 @@ public class HurtContributionItemSemanticEditPolicy
 	 */
 	public HurtContributionItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_3005);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_4006);
 	}
 
 	/**

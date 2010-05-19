@@ -68,7 +68,7 @@ public class IsPartOfAssociationCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateIsPartOfAssociation_3016(getContainer(), getSource(),
+				.canCreateIsPartOfAssociation_4017(getContainer(), getSource(),
 						getTarget());
 	}
 

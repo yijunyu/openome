@@ -905,6 +905,7 @@ public class Openome_modelDocumentProvider extends AbstractDocumentProvider
 				Resource resource = (Resource) it.next();
 				resource.unload();
 			}
+			getEditingDomain().dispose();
 		}
 
 		/**

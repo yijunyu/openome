@@ -16,7 +16,7 @@ public class IsAAssociationItemSemanticEditPolicy
 	 */
 	public IsAAssociationItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_4014);
 	}
 
 	/**

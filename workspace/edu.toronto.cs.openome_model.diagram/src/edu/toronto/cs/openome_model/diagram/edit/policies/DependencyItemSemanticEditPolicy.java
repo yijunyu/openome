@@ -16,7 +16,7 @@ public class DependencyItemSemanticEditPolicy
 	 */
 	public DependencyItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001);
 	}
 
 	/**

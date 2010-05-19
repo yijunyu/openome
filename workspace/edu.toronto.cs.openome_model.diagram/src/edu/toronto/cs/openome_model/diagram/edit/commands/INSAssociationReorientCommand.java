@@ -68,7 +68,7 @@ public class INSAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistINSAssociation_3018(container, getNewSource(), target);
+				.canExistINSAssociation_4019(container, getNewSource(), target);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class INSAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistINSAssociation_3018(container, source, getNewTarget());
+				.canExistINSAssociation_4019(container, source, getNewTarget());
 	}
 
 	/**

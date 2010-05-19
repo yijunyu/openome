@@ -54,7 +54,7 @@ public class INSAssociationLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4059;
+	public static final int VISUAL_ID = 6018;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class INSAssociationLabelEditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_4019,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID));

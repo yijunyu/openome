@@ -68,7 +68,7 @@ public class INSAssociationCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateINSAssociation_3018(getContainer(), getSource(),
+				.canCreateINSAssociation_4019(getContainer(), getSource(),
 						getTarget());
 	}
 

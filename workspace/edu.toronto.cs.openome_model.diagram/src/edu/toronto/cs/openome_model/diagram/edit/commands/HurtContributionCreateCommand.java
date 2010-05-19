@@ -68,7 +68,7 @@ public class HurtContributionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateHurtContribution_3005(getContainer(), getSource(),
+				.canCreateHurtContribution_4006(getContainer(), getSource(),
 						getTarget());
 	}
 

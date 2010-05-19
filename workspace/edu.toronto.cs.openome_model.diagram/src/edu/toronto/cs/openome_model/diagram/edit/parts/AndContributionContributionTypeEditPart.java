@@ -54,7 +54,7 @@ public class AndContributionContributionTypeEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4052;
+	public static final int VISUAL_ID = 6011;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class AndContributionContributionTypeEditPart extends LabelEditPart
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_3011,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID));

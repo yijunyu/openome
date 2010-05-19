@@ -259,76 +259,76 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.VISUAL_ID:
-			return createActor_1001(domainElement, containerView, index,
+			return createActor_2001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart.VISUAL_ID:
-			return createAgent_1002(domainElement, containerView, index,
+			return createAgent_2002(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart.VISUAL_ID:
-			return createPosition_1003(domainElement, containerView, index,
+			return createPosition_2003(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return createRole_1004(domainElement, containerView, index,
+			return createRole_2004(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.VISUAL_ID:
-			return createGoal_1005(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
-			return createSoftgoal_1006(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
-			return createTask_1007(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
-			return createResource_1008(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
-			return createGoal_2001(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
-			return createSoftgoal_2002(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
-			return createResource_2003(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
-			return createTask_2004(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID:
 			return createGoal_2005(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID:
+		case edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.VISUAL_ID:
 			return createSoftgoal_2006(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.VISUAL_ID:
+			return createTask_2007(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.VISUAL_ID:
+			return createResource_2008(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart.VISUAL_ID:
+			return createGoal_3001(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart.VISUAL_ID:
+			return createSoftgoal_3002(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart.VISUAL_ID:
+			return createResource_3003(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart.VISUAL_ID:
+			return createTask_3004(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart.VISUAL_ID:
+			return createGoal_3005(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart.VISUAL_ID:
+			return createSoftgoal_3006(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart.VISUAL_ID:
-			return createResource_2007(domainElement, containerView, index,
+			return createResource_3007(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart.VISUAL_ID:
-			return createTask_2008(domainElement, containerView, index,
+			return createTask_3008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart.VISUAL_ID:
-			return createGoal_2009(domainElement, containerView, index,
+			return createGoal_3009(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart.VISUAL_ID:
-			return createSoftgoal_2010(domainElement, containerView, index,
+			return createSoftgoal_3010(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart.VISUAL_ID:
-			return createResource_2011(domainElement, containerView, index,
+			return createResource_3011(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart.VISUAL_ID:
-			return createTask_2012(domainElement, containerView, index,
+			return createTask_3012(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart.VISUAL_ID:
-			return createGoal_2013(domainElement, containerView, index,
+			return createGoal_3013(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart.VISUAL_ID:
-			return createSoftgoal_2014(domainElement, containerView, index,
+			return createSoftgoal_3014(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart.VISUAL_ID:
-			return createResource_2015(domainElement, containerView, index,
+			return createResource_3015(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart.VISUAL_ID:
-			return createTask_2016(domainElement, containerView, index,
+			return createTask_3016(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -346,74 +346,74 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		switch (edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 				.getVisualID(elementTypeHint)) {
 		case edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart.VISUAL_ID:
-			return createDependency_3001(getSemanticElement(semanticAdapter),
+			return createDependency_4001(getSemanticElement(semanticAdapter),
 					containerView, index, persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart.VISUAL_ID:
-			return createAndDecomposition_3002(
+			return createAndDecomposition_4002(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart.VISUAL_ID:
-			return createOrDecomposition_3003(
+			return createOrDecomposition_4003(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionEditPart.VISUAL_ID:
-			return createHelpContribution_3004(
+			return createHelpContribution_4005(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionEditPart.VISUAL_ID:
-			return createHurtContribution_3005(
+			return createHurtContribution_4006(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart.VISUAL_ID:
-			return createMakeContribution_3006(
+			return createMakeContribution_4007(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart.VISUAL_ID:
-			return createBreakContribution_3007(
+			return createBreakContribution_4008(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart.VISUAL_ID:
-			return createSomePlusContribution_3008(
+			return createSomePlusContribution_4009(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEditPart.VISUAL_ID:
-			return createSomeMinusContribution_3009(
+			return createSomeMinusContribution_4010(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart.VISUAL_ID:
-			return createUnknownContribution_3010(
+			return createUnknownContribution_4011(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart.VISUAL_ID:
-			return createAndContribution_3011(
+			return createAndContribution_4012(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart.VISUAL_ID:
-			return createOrContribution_3012(
+			return createOrContribution_4013(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart.VISUAL_ID:
-			return createIsAAssociation_3013(
+			return createIsAAssociation_4014(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationEditPart.VISUAL_ID:
-			return createCoversAssociation_3014(
+			return createCoversAssociation_4015(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart.VISUAL_ID:
-			return createOccupiesAssociation_3015(
+			return createOccupiesAssociation_4016(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart.VISUAL_ID:
-			return createIsPartOfAssociation_3016(
+			return createIsPartOfAssociation_4017(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationEditPart.VISUAL_ID:
-			return createPlaysAssociation_3017(
+			return createPlaysAssociation_4018(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart.VISUAL_ID:
-			return createINSAssociation_3018(
+			return createINSAssociation_4019(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
@@ -424,7 +424,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createActor_1001(EObject domainElement, View containerView,
+	public Node createActor_2001(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -462,7 +462,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4009 = createLabel(
+		Node label5005 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart.VISUAL_ID));
@@ -470,14 +470,14 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createAgent_1002(EObject domainElement, View containerView,
+	public Node createAgent_2002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -515,7 +515,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4018 = createLabel(
+		Node label5010 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.AgentNameEditPart.VISUAL_ID));
@@ -523,14 +523,14 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createPosition_1003(EObject domainElement, View containerView,
+	public Node createPosition_2003(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -568,7 +568,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4027 = createLabel(
+		Node label5015 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.PositionNameEditPart.VISUAL_ID));
@@ -576,14 +576,14 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createRole_1004(EObject domainElement, View containerView,
+	public Node createRole_2004(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -621,7 +621,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4036 = createLabel(
+		Node label5020 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleNameEditPart.VISUAL_ID));
@@ -629,14 +629,14 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
+				true, false, true, true);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createGoal_1005(EObject domainElement, View containerView,
+	public Node createGoal_2005(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -674,26 +674,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4037 = createLabel(
+		Node label5021 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalNameEditPart.VISUAL_ID));
-		Node label4038 = createLabel(
+		Node label5041 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningComEditPart.VISUAL_ID));
-		label4038.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5041.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4038 = (Location) label4038.getLayoutConstraint();
-		location4038.setX(0);
-		location4038.setY(5);
+		Location location5041 = (Location) label5041.getLayoutConstraint();
+		location5041.setX(0);
+		location5041.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createSoftgoal_1006(EObject domainElement, View containerView,
+	public Node createSoftgoal_2006(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -731,26 +731,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4039 = createLabel(
+		Node label5022 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart.VISUAL_ID));
-		Node label4040 = createLabel(
+		Node label5042 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart.VISUAL_ID));
-		label4040.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5042.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4040 = (Location) label4040.getLayoutConstraint();
-		location4040.setX(0);
-		location4040.setY(5);
+		Location location5042 = (Location) label5042.getLayoutConstraint();
+		location5042.setX(0);
+		location5042.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createTask_1007(EObject domainElement, View containerView,
+	public Node createTask_2007(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -788,26 +788,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4041 = createLabel(
+		Node label5023 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskNameEditPart.VISUAL_ID));
-		Node label4042 = createLabel(
+		Node label5043 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningComEditPart.VISUAL_ID));
-		label4042.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5043.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4042 = (Location) label4042.getLayoutConstraint();
-		location4042.setX(0);
-		location4042.setY(5);
+		Location location5043 = (Location) label5043.getLayoutConstraint();
+		location5043.setX(0);
+		location5043.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createResource_1008(EObject domainElement, View containerView,
+	public Node createResource_2008(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -845,26 +845,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4043 = createLabel(
+		Node label5024 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceNameEditPart.VISUAL_ID));
-		Node label4044 = createLabel(
+		Node label5044 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningComEditPart.VISUAL_ID));
-		label4044.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5044.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4044 = (Location) label4044.getLayoutConstraint();
-		location4044.setX(0);
-		location4044.setY(5);
+		Location location5044 = (Location) label5044.getLayoutConstraint();
+		location5044.setX(0);
+		location5044.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createGoal_2001(EObject domainElement, View containerView,
+	public Node createGoal_3001(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -901,26 +901,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4001 = createLabel(
+		Node label5001 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName2EditPart.VISUAL_ID));
-		Node label4002 = createLabel(
+		Node label5025 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom2EditPart.VISUAL_ID));
-		label4002.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5025.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4002 = (Location) label4002.getLayoutConstraint();
-		location4002.setX(0);
-		location4002.setY(5);
+		Location location5025 = (Location) label5025.getLayoutConstraint();
+		location5025.setX(0);
+		location5025.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createSoftgoal_2002(EObject domainElement, View containerView,
+	public Node createSoftgoal_3002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -957,26 +957,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4003 = createLabel(
+		Node label5002 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName2EditPart.VISUAL_ID));
-		Node label4004 = createLabel(
+		Node label5026 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom2EditPart.VISUAL_ID));
-		label4004.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5026.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4004 = (Location) label4004.getLayoutConstraint();
-		location4004.setX(0);
-		location4004.setY(5);
+		Location location5026 = (Location) label5026.getLayoutConstraint();
+		location5026.setX(0);
+		location5026.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createResource_2003(EObject domainElement, View containerView,
+	public Node createResource_3003(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1013,26 +1013,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4005 = createLabel(
+		Node label5003 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName2EditPart.VISUAL_ID));
-		Node label4006 = createLabel(
+		Node label5027 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart.VISUAL_ID));
-		label4006.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5027.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4006 = (Location) label4006.getLayoutConstraint();
-		location4006.setX(0);
-		location4006.setY(5);
+		Location location5027 = (Location) label5027.getLayoutConstraint();
+		location5027.setX(0);
+		location5027.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createTask_2004(EObject domainElement, View containerView,
+	public Node createTask_3004(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1069,26 +1069,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4007 = createLabel(
+		Node label5004 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskName2EditPart.VISUAL_ID));
-		Node label4008 = createLabel(
+		Node label5028 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom2EditPart.VISUAL_ID));
-		label4008.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5028.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4008 = (Location) label4008.getLayoutConstraint();
-		location4008.setX(0);
-		location4008.setY(5);
+		Location location5028 = (Location) label5028.getLayoutConstraint();
+		location5028.setX(0);
+		location5028.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createGoal_2005(EObject domainElement, View containerView,
+	public Node createGoal_3005(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1125,26 +1125,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4010 = createLabel(
+		Node label5006 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName3EditPart.VISUAL_ID));
-		Node label4011 = createLabel(
+		Node label5029 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom3EditPart.VISUAL_ID));
-		label4011.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5029.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4011 = (Location) label4011.getLayoutConstraint();
-		location4011.setX(0);
-		location4011.setY(5);
+		Location location5029 = (Location) label5029.getLayoutConstraint();
+		location5029.setX(0);
+		location5029.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createSoftgoal_2006(EObject domainElement, View containerView,
+	public Node createSoftgoal_3006(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1181,26 +1181,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4012 = createLabel(
+		Node label5007 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName3EditPart.VISUAL_ID));
-		Node label4013 = createLabel(
+		Node label5030 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom3EditPart.VISUAL_ID));
-		label4013.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5030.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4013 = (Location) label4013.getLayoutConstraint();
-		location4013.setX(0);
-		location4013.setY(5);
+		Location location5030 = (Location) label5030.getLayoutConstraint();
+		location5030.setX(0);
+		location5030.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createResource_2007(EObject domainElement, View containerView,
+	public Node createResource_3007(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1237,26 +1237,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4014 = createLabel(
+		Node label5008 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName3EditPart.VISUAL_ID));
-		Node label4015 = createLabel(
+		Node label5031 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom3EditPart.VISUAL_ID));
-		label4015.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5031.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4015 = (Location) label4015.getLayoutConstraint();
-		location4015.setX(0);
-		location4015.setY(5);
+		Location location5031 = (Location) label5031.getLayoutConstraint();
+		location5031.setX(0);
+		location5031.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createTask_2008(EObject domainElement, View containerView,
+	public Node createTask_3008(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1293,26 +1293,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4016 = createLabel(
+		Node label5009 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskName3EditPart.VISUAL_ID));
-		Node label4017 = createLabel(
+		Node label5032 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom3EditPart.VISUAL_ID));
-		label4017.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5032.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4017 = (Location) label4017.getLayoutConstraint();
-		location4017.setX(0);
-		location4017.setY(5);
+		Location location5032 = (Location) label5032.getLayoutConstraint();
+		location5032.setX(0);
+		location5032.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createGoal_2009(EObject domainElement, View containerView,
+	public Node createGoal_3009(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1349,26 +1349,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4019 = createLabel(
+		Node label5011 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName4EditPart.VISUAL_ID));
-		Node label4020 = createLabel(
+		Node label5033 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom4EditPart.VISUAL_ID));
-		label4020.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5033.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4020 = (Location) label4020.getLayoutConstraint();
-		location4020.setX(0);
-		location4020.setY(5);
+		Location location5033 = (Location) label5033.getLayoutConstraint();
+		location5033.setX(0);
+		location5033.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createSoftgoal_2010(EObject domainElement, View containerView,
+	public Node createSoftgoal_3010(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1405,26 +1405,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4021 = createLabel(
+		Node label5012 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName4EditPart.VISUAL_ID));
-		Node label4022 = createLabel(
+		Node label5034 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom4EditPart.VISUAL_ID));
-		label4022.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5034.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4022 = (Location) label4022.getLayoutConstraint();
-		location4022.setX(0);
-		location4022.setY(5);
+		Location location5034 = (Location) label5034.getLayoutConstraint();
+		location5034.setX(0);
+		location5034.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createResource_2011(EObject domainElement, View containerView,
+	public Node createResource_3011(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1461,26 +1461,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4023 = createLabel(
+		Node label5013 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName4EditPart.VISUAL_ID));
-		Node label4024 = createLabel(
+		Node label5035 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom4EditPart.VISUAL_ID));
-		label4024.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5035.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4024 = (Location) label4024.getLayoutConstraint();
-		location4024.setX(0);
-		location4024.setY(5);
+		Location location5035 = (Location) label5035.getLayoutConstraint();
+		location5035.setX(0);
+		location5035.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createTask_2012(EObject domainElement, View containerView,
+	public Node createTask_3012(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1517,26 +1517,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4025 = createLabel(
+		Node label5014 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskName4EditPart.VISUAL_ID));
-		Node label4026 = createLabel(
+		Node label5036 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom4EditPart.VISUAL_ID));
-		label4026.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5036.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4026 = (Location) label4026.getLayoutConstraint();
-		location4026.setX(0);
-		location4026.setY(5);
+		Location location5036 = (Location) label5036.getLayoutConstraint();
+		location5036.setX(0);
+		location5036.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createGoal_2013(EObject domainElement, View containerView,
+	public Node createGoal_3013(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1573,26 +1573,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4028 = createLabel(
+		Node label5016 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalName5EditPart.VISUAL_ID));
-		Node label4029 = createLabel(
+		Node label5037 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.GoalQualitativeReasoningCom5EditPart.VISUAL_ID));
-		label4029.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5037.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4029 = (Location) label4029.getLayoutConstraint();
-		location4029.setX(0);
-		location4029.setY(5);
+		Location location5037 = (Location) label5037.getLayoutConstraint();
+		location5037.setX(0);
+		location5037.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createSoftgoal_2014(EObject domainElement, View containerView,
+	public Node createSoftgoal_3014(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1629,26 +1629,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4030 = createLabel(
+		Node label5017 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalName5EditPart.VISUAL_ID));
-		Node label4031 = createLabel(
+		Node label5038 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningCom5EditPart.VISUAL_ID));
-		label4031.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5038.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4031 = (Location) label4031.getLayoutConstraint();
-		location4031.setX(0);
-		location4031.setY(5);
+		Location location5038 = (Location) label5038.getLayoutConstraint();
+		location5038.setX(0);
+		location5038.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createResource_2015(EObject domainElement, View containerView,
+	public Node createResource_3015(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1685,26 +1685,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4032 = createLabel(
+		Node label5018 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceName5EditPart.VISUAL_ID));
-		Node label4033 = createLabel(
+		Node label5039 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom5EditPart.VISUAL_ID));
-		label4033.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5039.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4033 = (Location) label4033.getLayoutConstraint();
-		location4033.setX(0);
-		location4033.setY(5);
+		Location location5039 = (Location) label5039.getLayoutConstraint();
+		location5039.setX(0);
+		location5039.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Node createTask_2016(EObject domainElement, View containerView,
+	public Node createTask_3016(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -1741,26 +1741,26 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label4034 = createLabel(
+		Node label5019 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskName5EditPart.VISUAL_ID));
-		Node label4035 = createLabel(
+		Node label5040 = createLabel(
 				node,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.TaskQualitativeReasoningCom5EditPart.VISUAL_ID));
-		label4035.setLayoutConstraint(NotationFactory.eINSTANCE
+		label5040.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location4035 = (Location) label4035.getLayoutConstraint();
-		location4035.setX(0);
-		location4035.setY(5);
+		Location location5040 = (Location) label5040.getLayoutConstraint();
+		location5040.setX(0);
+		location5040.setY(5);
 		return node;
 	}
 
 	/**
 	 * @generated
 	 */
-	public Edge createDependency_3001(EObject domainElement,
+	public Edge createDependency_4001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1812,7 +1812,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createAndDecomposition_3002(EObject domainElement,
+	public Edge createAndDecomposition_4002(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1864,7 +1864,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createOrDecomposition_3003(EObject domainElement,
+	public Edge createOrDecomposition_4003(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1916,7 +1916,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createHelpContribution_3004(EObject domainElement,
+	public Edge createHelpContribution_4005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -1962,11 +1962,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4045 = createLabel(
+		Node label6004 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HelpContributionContributionTypeEditPart.VISUAL_ID));
-		label4045.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6004.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -1974,7 +1974,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createHurtContribution_3005(EObject domainElement,
+	public Edge createHurtContribution_4006(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2020,11 +2020,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4046 = createLabel(
+		Node label6005 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.HurtContributionContributionTypeEditPart.VISUAL_ID));
-		label4046.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6005.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2032,7 +2032,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createMakeContribution_3006(EObject domainElement,
+	public Edge createMakeContribution_4007(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2078,11 +2078,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4047 = createLabel(
+		Node label6006 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionContributionTypeEditPart.VISUAL_ID));
-		label4047.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6006.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2090,7 +2090,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createBreakContribution_3007(EObject domainElement,
+	public Edge createBreakContribution_4008(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2136,11 +2136,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4048 = createLabel(
+		Node label6007 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionContributionTypeEditPart.VISUAL_ID));
-		label4048.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6007.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2148,7 +2148,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createSomePlusContribution_3008(EObject domainElement,
+	public Edge createSomePlusContribution_4009(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2194,11 +2194,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4049 = createLabel(
+		Node label6008 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionContributionTypeEditPart.VISUAL_ID));
-		label4049.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6008.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2206,7 +2206,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createSomeMinusContribution_3009(EObject domainElement,
+	public Edge createSomeMinusContribution_4010(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2252,11 +2252,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4050 = createLabel(
+		Node label6009 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID));
-		label4050.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6009.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2264,7 +2264,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createUnknownContribution_3010(EObject domainElement,
+	public Edge createUnknownContribution_4011(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2310,11 +2310,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4051 = createLabel(
+		Node label6010 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionContributionTypeEditPart.VISUAL_ID));
-		label4051.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6010.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2322,7 +2322,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createAndContribution_3011(EObject domainElement,
+	public Edge createAndContribution_4012(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2368,11 +2368,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4052 = createLabel(
+		Node label6011 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionContributionTypeEditPart.VISUAL_ID));
-		label4052.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6011.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2380,7 +2380,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createOrContribution_3012(EObject domainElement,
+	public Edge createOrContribution_4013(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2426,11 +2426,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4053 = createLabel(
+		Node label6012 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionContributionTypeEditPart.VISUAL_ID));
-		label4053.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6012.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2438,7 +2438,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createIsAAssociation_3013(EObject domainElement,
+	public Edge createIsAAssociation_4014(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2484,11 +2484,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4054 = createLabel(
+		Node label6013 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationLabelEditPart.VISUAL_ID));
-		label4054.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6013.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2496,7 +2496,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createCoversAssociation_3014(EObject domainElement,
+	public Edge createCoversAssociation_4015(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2542,11 +2542,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4055 = createLabel(
+		Node label6014 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.CoversAssociationLabelEditPart.VISUAL_ID));
-		label4055.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6014.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2554,7 +2554,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createOccupiesAssociation_3015(EObject domainElement,
+	public Edge createOccupiesAssociation_4016(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2600,11 +2600,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4056 = createLabel(
+		Node label6015 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationLabelEditPart.VISUAL_ID));
-		label4056.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6015.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2612,7 +2612,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createIsPartOfAssociation_3016(EObject domainElement,
+	public Edge createIsPartOfAssociation_4017(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2658,11 +2658,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4057 = createLabel(
+		Node label6016 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationLabelEditPart.VISUAL_ID));
-		label4057.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6016.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2670,7 +2670,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createPlaysAssociation_3017(EObject domainElement,
+	public Edge createPlaysAssociation_4018(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2716,11 +2716,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4058 = createLabel(
+		Node label6017 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.PlaysAssociationLabelEditPart.VISUAL_ID));
-		label4058.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6017.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}
@@ -2728,7 +2728,7 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createINSAssociation_3018(EObject domainElement,
+	public Edge createINSAssociation_4019(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2774,11 +2774,11 @@ public class Openome_modelViewProvider extends AbstractProvider implements
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
 					.getRoutingStyle_Routing(), routing);
 		}
-		Node label4059 = createLabel(
+		Node label6018 = createLabel(
 				edge,
 				edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 						.getType(edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationLabelEditPart.VISUAL_ID));
-		label4059.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6018.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		return edge;
 	}

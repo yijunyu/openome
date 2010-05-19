@@ -16,7 +16,7 @@ public class INSAssociationItemSemanticEditPolicy
 	 */
 	public INSAssociationItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_4019);
 	}
 
 	/**

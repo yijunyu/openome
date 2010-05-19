@@ -16,7 +16,7 @@ public class AndDecompositionItemSemanticEditPolicy
 	 */
 	public AndDecompositionItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_4002);
 	}
 
 	/**

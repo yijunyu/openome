@@ -68,7 +68,7 @@ public class DependencyCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateDependency_3001(getContainer(), getSource(),
+				.canCreateDependency_4001(getContainer(), getSource(),
 						getTarget());
 	}
 

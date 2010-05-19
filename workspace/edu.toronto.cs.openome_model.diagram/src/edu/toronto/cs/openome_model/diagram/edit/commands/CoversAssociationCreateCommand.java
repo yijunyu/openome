@@ -68,7 +68,7 @@ public class CoversAssociationCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateCoversAssociation_3014(getContainer(), getSource(),
+				.canCreateCoversAssociation_4015(getContainer(), getSource(),
 						getTarget());
 	}
 

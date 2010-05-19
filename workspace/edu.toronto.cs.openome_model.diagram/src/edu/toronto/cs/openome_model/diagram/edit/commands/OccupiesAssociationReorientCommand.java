@@ -69,7 +69,7 @@ public class OccupiesAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistOccupiesAssociation_3015(container, getNewSource(),
+				.canExistOccupiesAssociation_4016(container, getNewSource(),
 						target);
 	}
 
@@ -87,7 +87,7 @@ public class OccupiesAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistOccupiesAssociation_3015(container, source,
+				.canExistOccupiesAssociation_4016(container, source,
 						getNewTarget());
 	}
 

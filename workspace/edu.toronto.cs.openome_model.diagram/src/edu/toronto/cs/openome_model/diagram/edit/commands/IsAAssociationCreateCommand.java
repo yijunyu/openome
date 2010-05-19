@@ -68,7 +68,7 @@ public class IsAAssociationCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateIsAAssociation_3013(getContainer(), getSource(),
+				.canCreateIsAAssociation_4014(getContainer(), getSource(),
 						getTarget());
 	}
 

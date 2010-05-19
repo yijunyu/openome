@@ -68,7 +68,7 @@ public class UnknownContributionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateUnknownContribution_3010(getContainer(), getSource(),
+				.canCreateUnknownContribution_4011(getContainer(), getSource(),
 						getTarget());
 	}
 

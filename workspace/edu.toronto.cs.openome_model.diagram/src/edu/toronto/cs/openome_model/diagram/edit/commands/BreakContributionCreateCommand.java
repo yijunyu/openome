@@ -68,7 +68,7 @@ public class BreakContributionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateBreakContribution_3007(getContainer(), getSource(),
+				.canCreateBreakContribution_4008(getContainer(), getSource(),
 						getTarget());
 	}
 

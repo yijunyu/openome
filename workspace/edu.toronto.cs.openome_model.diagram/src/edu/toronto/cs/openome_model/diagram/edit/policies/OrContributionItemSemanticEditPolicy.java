@@ -16,7 +16,7 @@ public class OrContributionItemSemanticEditPolicy
 	 */
 	public OrContributionItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_3012);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013);
 	}
 
 	/**

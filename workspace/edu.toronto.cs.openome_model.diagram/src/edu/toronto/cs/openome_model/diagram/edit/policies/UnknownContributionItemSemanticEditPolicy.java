@@ -16,7 +16,7 @@ public class UnknownContributionItemSemanticEditPolicy
 	 */
 	public UnknownContributionItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_3010);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011);
 	}
 
 	/**

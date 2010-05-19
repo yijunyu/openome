@@ -68,7 +68,7 @@ public class HelpContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistHelpContribution_3004(container, getNewSource(),
+				.canExistHelpContribution_4005(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class HelpContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistHelpContribution_3004(container, source,
+				.canExistHelpContribution_4005(container, source,
 						getNewTarget());
 	}
 

@@ -68,7 +68,7 @@ public class IsAAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistIsAAssociation_3013(container, getNewSource(), target);
+				.canExistIsAAssociation_4014(container, getNewSource(), target);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class IsAAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistIsAAssociation_3013(container, source, getNewTarget());
+				.canExistIsAAssociation_4014(container, source, getNewTarget());
 	}
 
 	/**

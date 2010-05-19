@@ -68,7 +68,7 @@ public class HurtContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistHurtContribution_3005(container, getNewSource(),
+				.canExistHurtContribution_4006(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class HurtContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistHurtContribution_3005(container, source,
+				.canExistHurtContribution_4006(container, source,
 						getNewTarget());
 	}
 

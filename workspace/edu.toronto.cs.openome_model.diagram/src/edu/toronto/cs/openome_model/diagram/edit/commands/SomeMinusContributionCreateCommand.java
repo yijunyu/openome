@@ -68,7 +68,7 @@ public class SomeMinusContributionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateSomeMinusContribution_3009(getContainer(),
+				.canCreateSomeMinusContribution_4010(getContainer(),
 						getSource(), getTarget());
 	}
 

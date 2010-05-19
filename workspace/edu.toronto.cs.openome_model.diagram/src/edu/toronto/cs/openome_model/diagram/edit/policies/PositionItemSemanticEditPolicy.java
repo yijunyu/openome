@@ -28,7 +28,7 @@ public class PositionItemSemanticEditPolicy
 	 */
 	public PositionItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_1003);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Position_2003);
 	}
 
 	/**
@@ -1131,37 +1131,37 @@ public class PositionItemSemanticEditPolicy
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_4014 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_4015 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_3015 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_4016 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_4017 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_4018 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_4019 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -1174,37 +1174,37 @@ public class PositionItemSemanticEditPolicy
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_3013 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsAAssociation_4014 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_4015 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_3015 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OccupiesAssociation_4016 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_3016 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.IsPartOfAssociation_4017 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_3017 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.PlaysAssociation_4018 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_3018 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.INSAssociation_4019 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationCreateCommand(
 					req, req.getSource(), req.getTarget()));

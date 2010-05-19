@@ -59,7 +59,7 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4006;
+	public static final int VISUAL_ID = 5027;
 
 	/**
 	 * @generated
@@ -344,7 +344,7 @@ public class ResourceQualitativeReasoningCom2EditPart extends LabelEditPart
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_2003,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Resource_3003,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.ResourceQualitativeReasoningCom2EditPart.VISUAL_ID));

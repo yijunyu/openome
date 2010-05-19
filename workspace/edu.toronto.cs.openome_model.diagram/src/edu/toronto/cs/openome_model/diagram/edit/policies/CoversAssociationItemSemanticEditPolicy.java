@@ -16,7 +16,7 @@ public class CoversAssociationItemSemanticEditPolicy
 	 */
 	public CoversAssociationItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_3014);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.CoversAssociation_4015);
 	}
 
 	/**

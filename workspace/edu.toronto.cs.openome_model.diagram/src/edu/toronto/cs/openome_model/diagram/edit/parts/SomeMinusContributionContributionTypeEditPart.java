@@ -54,7 +54,7 @@ public class SomeMinusContributionContributionTypeEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4050;
+	public static final int VISUAL_ID = 6009;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class SomeMinusContributionContributionTypeEditPart extends
 		if (parser == null) {
 			parser = edu.toronto.cs.openome_model.diagram.providers.Openome_modelParserProvider
 					.getParser(
-							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_3009,
+							edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_4010,
 							getParserElement(),
 							edu.toronto.cs.openome_model.diagram.part.Openome_modelVisualIDRegistry
 									.getType(edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionContributionTypeEditPart.VISUAL_ID));

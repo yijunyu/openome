@@ -25,7 +25,7 @@ public class Task4ItemSemanticEditPolicy
 	 */
 	public Task4ItemSemanticEditPolicy() {
 		super(
-				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_2012);
+				edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Task_3012);
 	}
 
 	/**
@@ -261,62 +261,62 @@ public class Task4ItemSemanticEditPolicy
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_4002 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_4003 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_3004 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_4005 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.HelpContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_3005 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_4006 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.HurtContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_3006 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_4007 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_4008 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.BreakContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_3008 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_4009 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomePlusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_3009 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_4010 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_3010 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_3011 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_3012 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -329,62 +329,62 @@ public class Task4ItemSemanticEditPolicy
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_3001 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.Dependency_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_3002 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndDecomposition_4002 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_3003 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrDecomposition_4003 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_3004 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HelpContribution_4005 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.HelpContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_3005 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.HurtContribution_4006 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.HurtContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_3006 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.MakeContribution_4007 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_3007 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.BreakContribution_4008 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.BreakContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_3008 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomePlusContribution_4009 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomePlusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_3009 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.SomeMinusContribution_4010 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_3010 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.UnknownContribution_4011 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_3011 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.AndContribution_4012 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_3012 == req
+		if (edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes.OrContribution_4013 == req
 				.getElementType()) {
 			return getGEFWrapper(new edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionCreateCommand(
 					req, req.getSource(), req.getTarget()));

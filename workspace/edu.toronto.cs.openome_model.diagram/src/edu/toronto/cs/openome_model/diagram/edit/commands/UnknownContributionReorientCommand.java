@@ -69,7 +69,7 @@ public class UnknownContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistUnknownContribution_3010(container, getNewSource(),
+				.canExistUnknownContribution_4011(container, getNewSource(),
 						target);
 	}
 
@@ -87,7 +87,7 @@ public class UnknownContributionReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistUnknownContribution_3010(container, source,
+				.canExistUnknownContribution_4011(container, source,
 						getNewTarget());
 	}
 

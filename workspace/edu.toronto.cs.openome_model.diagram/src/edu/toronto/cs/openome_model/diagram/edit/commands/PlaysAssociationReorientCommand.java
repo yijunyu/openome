@@ -68,7 +68,7 @@ public class PlaysAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistPlaysAssociation_3017(container, getNewSource(),
+				.canExistPlaysAssociation_4018(container, getNewSource(),
 						target);
 	}
 
@@ -86,7 +86,7 @@ public class PlaysAssociationReorientCommand extends EditElementCommand {
 		edu.toronto.cs.openome_model.Model container = (edu.toronto.cs.openome_model.Model) getLink()
 				.eContainer();
 		return edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistPlaysAssociation_3017(container, source,
+				.canExistPlaysAssociation_4018(container, source,
 						getNewTarget());
 	}
 
