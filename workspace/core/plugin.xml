@@ -49,7 +49,7 @@
           <command
                 commandId="org.eclipse.ui.browser.openBrowser"
                 id="openome_gethelp_menu"
-                label="Get Help">
+                label="Get OpenOME Help">
              <parameter
                    name="url"
                    value="https://se.cs.toronto.edu/trac/ome/">
@@ -82,7 +82,7 @@
           </command>
        </menuContribution>
        <menuContribution
-             locationURI="menu:help?after=helpStart">
+             locationURI="menu:help?before=intro">
           <command
                 commandId="org.eclipse.ui.browser.openBrowser"
                 id="openome_gethelp2_menu"
