@@ -177,6 +177,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			combo.add("Conflict");
 			combo.add("Partially Denied");
 			combo.add("Denied");
+			combo.add("Don't care");
 			
 			editor.setEditor(combo, item, 2);
 			
@@ -405,6 +406,8 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 				case(3): label = EvaluationLabel.CONFLICT; break;
 				case(4): label = EvaluationLabel.WEAKLY_DENIED; break;
 				case(5): label = EvaluationLabel.DENIED; break;
+				//don't care option
+				case(6): label = null; break;
 			}
 			
 			//System.out.println(label.getName());
