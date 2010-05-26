@@ -229,6 +229,19 @@ public class IntQualBackwardReasoner extends Reasoner {
 				}
 			}
 			
+			result = solver.solve(cnf);		
+			System.out.println("Solved cnf, result: " + result);
+			if (result == 0) {
+				for (Intention i: needHJ) {
+					IntQualIntentionWrapper w = softgoalWrappers.findIntention(i);
+					System.out.println(i.getName() + " backtracking over");
+					
+					cnf = converter.backtrackHumanJudgment(cnf, w, 0);
+					cnfBack = converter.backtrackHumanJudgment(cnfBack, w, -1);
+					
+				}
+			}
+			
 			if (!conflictingNeedHJ) {
 				return -1;
 			}
@@ -243,7 +256,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 			//showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + "Ending.", shell);
 			*/
 			
-			String message = "Target(s) unsatisfiable\nThe following intentions conflict:\n";
+			String message = "Target(s) unsatisfiable\n";
+			if (conflictIntentions.size() >0 ){
+				message += "The following intentions conflict:\n";
+			}
 			for (Intention k: conflictIntentions) {
 				message += k.getName() + "\n";
 			}
