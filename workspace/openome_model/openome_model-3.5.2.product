@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Core" id="openome_model.product" application="org.eclipse.ui.ide.workbench" useFeatures="false" includeLaunchers="true">
+<product name="OpenOME" id="openome_model.product" application="org.eclipse.ui.ide.workbench" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="eclipse_lg.gif"/>
@@ -13,7 +13,28 @@
    <configIni use="default">
    </configIni>
 
-   <windowImages/>
+   <launcherArgs>
+   </launcherArgs>
+
+   <windowImages i16="/openome_model/eclipse.gif" i32="/openome_model/eclipse32.gif" i48="/openome_model/eclipse48.gif" i64="/openome_model/eclipse.png"/>
+
+   <splash
+      location="openome_model"
+      startupProgressRect="5,275,445,15"
+      startupMessageRect="7,252,445,20"
+      startupForegroundColor="8000FF" />
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <intro introId="openome_model.intro"/>
+
+   <vm>
+   </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
