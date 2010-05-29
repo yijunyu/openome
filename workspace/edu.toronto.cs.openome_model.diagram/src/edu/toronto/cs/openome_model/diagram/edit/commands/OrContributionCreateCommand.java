@@ -82,7 +82,7 @@ public class OrContributionCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		edu.toronto.cs.openome_model.OrContribution newElement = edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
+		edu.toronto.cs.openome_model.OrContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createOrContribution();
 		getContainer().getContributions().add(newElement);
 		newElement.setSource(getSource());

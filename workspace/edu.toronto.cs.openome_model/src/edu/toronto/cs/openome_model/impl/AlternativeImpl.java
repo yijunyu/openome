@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.awt.List;
 import java.util.ArrayList;
@@ -55,6 +55,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class AlternativeImpl extends EObjectImpl implements Alternative {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -127,7 +133,7 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.ALTERNATIVE;
+		return openome_modelPackage.Literals.ALTERNATIVE;
 	}
 
 	/**
@@ -148,7 +154,7 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.ALTERNATIVE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.ALTERNATIVE__NAME, oldName, name));
 	}
 
 	/**
@@ -169,7 +175,7 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.ALTERNATIVE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.ALTERNATIVE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -179,7 +185,7 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 */
 	public EList<Intention> getIntentions() {
 		if (intentions == null) {
-			intentions = new EObjectResolvingEList<Intention>(Intention.class, this, Openome_modelPackage.ALTERNATIVE__INTENTIONS);
+			intentions = new EObjectResolvingEList<Intention>(Intention.class, this, openome_modelPackage.ALTERNATIVE__INTENTIONS);
 		}
 		return intentions;
 	}
@@ -191,7 +197,7 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 */
 	public EList<EvaluationLabel> getEvalLabels() {
 		if (evalLabels == null) {
-			evalLabels = new EDataTypeEList<EvaluationLabel>(EvaluationLabel.class, this, Openome_modelPackage.ALTERNATIVE__EVAL_LABELS);
+			evalLabels = new EDataTypeEList<EvaluationLabel>(EvaluationLabel.class, this, openome_modelPackage.ALTERNATIVE__EVAL_LABELS);
 		}
 		return evalLabels;
 	}
@@ -224,13 +230,13 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Openome_modelPackage.ALTERNATIVE__NAME:
+			case openome_modelPackage.ALTERNATIVE__NAME:
 				return getName();
-			case Openome_modelPackage.ALTERNATIVE__DESCRIPTION:
+			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
 				return getDescription();
-			case Openome_modelPackage.ALTERNATIVE__INTENTIONS:
+			case openome_modelPackage.ALTERNATIVE__INTENTIONS:
 				return getIntentions();
-			case Openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				return getEvalLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -245,17 +251,17 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Openome_modelPackage.ALTERNATIVE__NAME:
+			case openome_modelPackage.ALTERNATIVE__NAME:
 				setName((String)newValue);
 				return;
-			case Openome_modelPackage.ALTERNATIVE__DESCRIPTION:
+			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case Openome_modelPackage.ALTERNATIVE__INTENTIONS:
+			case openome_modelPackage.ALTERNATIVE__INTENTIONS:
 				getIntentions().clear();
 				getIntentions().addAll((Collection<? extends Intention>)newValue);
 				return;
-			case Openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				getEvalLabels().clear();
 				getEvalLabels().addAll((Collection<? extends EvaluationLabel>)newValue);
 				return;
@@ -271,16 +277,16 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.ALTERNATIVE__NAME:
+			case openome_modelPackage.ALTERNATIVE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case Openome_modelPackage.ALTERNATIVE__DESCRIPTION:
+			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case Openome_modelPackage.ALTERNATIVE__INTENTIONS:
+			case openome_modelPackage.ALTERNATIVE__INTENTIONS:
 				getIntentions().clear();
 				return;
-			case Openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				getEvalLabels().clear();
 				return;
 		}
@@ -295,13 +301,13 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.ALTERNATIVE__NAME:
+			case openome_modelPackage.ALTERNATIVE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case Openome_modelPackage.ALTERNATIVE__DESCRIPTION:
+			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case Openome_modelPackage.ALTERNATIVE__INTENTIONS:
+			case openome_modelPackage.ALTERNATIVE__INTENTIONS:
 				return intentions != null && !intentions.isEmpty();
-			case Openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				return evalLabels != null && !evalLabels.isEmpty();
 		}
 		return super.eIsSet(featureID);

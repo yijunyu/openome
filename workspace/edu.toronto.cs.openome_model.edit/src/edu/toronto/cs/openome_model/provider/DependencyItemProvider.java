@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Dependency;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -39,6 +39,13 @@ public class DependencyItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -81,7 +88,7 @@ public class DependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Dependency_dependencyFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_dependencyFrom_feature", "_UI_Dependency_type"),
-				 Openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_FROM,
+				 openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_FROM,
 				 true,
 				 false,
 				 true,
@@ -103,7 +110,7 @@ public class DependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Dependency_dependencyTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_dependencyTo_feature", "_UI_Dependency_type"),
-				 Openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_TO,
+				 openome_modelPackage.Literals.DEPENDENCY__DEPENDENCY_TO,
 				 true,
 				 false,
 				 true,
@@ -125,7 +132,7 @@ public class DependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Dependency_trust_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_trust_feature", "_UI_Dependency_type"),
-				 Openome_modelPackage.Literals.DEPENDENCY__TRUST,
+				 openome_modelPackage.Literals.DEPENDENCY__TRUST,
 				 true,
 				 false,
 				 false,
@@ -147,7 +154,7 @@ public class DependencyItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Dependency_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Dependency_label_feature", "_UI_Dependency_type"),
-				 Openome_modelPackage.Literals.DEPENDENCY__LABEL,
+				 openome_modelPackage.Literals.DEPENDENCY__LABEL,
 				 true,
 				 false,
 				 false,
@@ -191,8 +198,8 @@ public class DependencyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Dependency.class)) {
-			case Openome_modelPackage.DEPENDENCY__TRUST:
-			case Openome_modelPackage.DEPENDENCY__LABEL:
+			case openome_modelPackage.DEPENDENCY__TRUST:
+			case openome_modelPackage.DEPENDENCY__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

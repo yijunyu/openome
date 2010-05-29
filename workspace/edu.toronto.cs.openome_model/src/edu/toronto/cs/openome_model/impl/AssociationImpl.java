@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class AssociationImpl extends LinkImpl implements Association {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -67,7 +74,7 @@ public class AssociationImpl extends LinkImpl implements Association {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.ASSOCIATION;
+		return openome_modelPackage.Literals.ASSOCIATION;
 	}
 
 	/**
@@ -81,7 +88,7 @@ public class AssociationImpl extends LinkImpl implements Association {
 			source = (Container)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.ASSOCIATION__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.ASSOCIATION__SOURCE, oldSource, source));
 			}
 		}
 		return source;
@@ -105,7 +112,7 @@ public class AssociationImpl extends LinkImpl implements Association {
 		Container oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.ASSOCIATION__SOURCE, oldSource, source));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.ASSOCIATION__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -119,7 +126,7 @@ public class AssociationImpl extends LinkImpl implements Association {
 			target = (Container)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.ASSOCIATION__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.ASSOCIATION__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -143,7 +150,7 @@ public class AssociationImpl extends LinkImpl implements Association {
 		Container oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.ASSOCIATION__TARGET, oldTarget, target));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.ASSOCIATION__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -154,10 +161,10 @@ public class AssociationImpl extends LinkImpl implements Association {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Openome_modelPackage.ASSOCIATION__SOURCE:
+			case openome_modelPackage.ASSOCIATION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case Openome_modelPackage.ASSOCIATION__TARGET:
+			case openome_modelPackage.ASSOCIATION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
 		}
@@ -172,10 +179,10 @@ public class AssociationImpl extends LinkImpl implements Association {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Openome_modelPackage.ASSOCIATION__SOURCE:
+			case openome_modelPackage.ASSOCIATION__SOURCE:
 				setSource((Container)newValue);
 				return;
-			case Openome_modelPackage.ASSOCIATION__TARGET:
+			case openome_modelPackage.ASSOCIATION__TARGET:
 				setTarget((Container)newValue);
 				return;
 		}
@@ -190,10 +197,10 @@ public class AssociationImpl extends LinkImpl implements Association {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.ASSOCIATION__SOURCE:
+			case openome_modelPackage.ASSOCIATION__SOURCE:
 				setSource((Container)null);
 				return;
-			case Openome_modelPackage.ASSOCIATION__TARGET:
+			case openome_modelPackage.ASSOCIATION__TARGET:
 				setTarget((Container)null);
 				return;
 		}
@@ -208,9 +215,9 @@ public class AssociationImpl extends LinkImpl implements Association {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.ASSOCIATION__SOURCE:
+			case openome_modelPackage.ASSOCIATION__SOURCE:
 				return source != null;
-			case Openome_modelPackage.ASSOCIATION__TARGET:
+			case openome_modelPackage.ASSOCIATION__TARGET:
 				return target != null;
 		}
 		return super.eIsSet(featureID);

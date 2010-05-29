@@ -24,11 +24,18 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer()
  * @model abstract="true"
  * @generated
  */
 public interface Container extends Dependable {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,7 +46,7 @@ public interface Container extends Dependable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_Name()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Name()
 	 * @model
 	 * @generated
 	 */
@@ -65,7 +72,7 @@ public interface Container extends Dependable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_Sub()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Sub()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -82,7 +89,7 @@ public interface Container extends Dependable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_Intentions()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Intentions()
 	 * @see edu.toronto.cs.openome_model.Intention#getContainer
 	 * @model opposite="container" containment="true"
 	 * @generated
@@ -100,7 +107,7 @@ public interface Container extends Dependable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model</em>' container reference.
 	 * @see #setModel(Model)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_Model()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Model()
 	 * @see edu.toronto.cs.openome_model.Model#getContainers
 	 * @model opposite="containers"
 	 * @generated
@@ -127,7 +134,7 @@ public interface Container extends Dependable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Association To</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_AssociationTo()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_AssociationTo()
 	 * @model
 	 * @generated
 	 */
@@ -143,7 +150,7 @@ public interface Container extends Dependable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Association From</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContainer_AssociationFrom()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_AssociationFrom()
 	 * @model
 	 * @generated
 	 */

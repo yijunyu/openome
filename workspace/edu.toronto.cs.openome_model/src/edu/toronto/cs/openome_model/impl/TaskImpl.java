@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Task;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -25,6 +25,13 @@ public class TaskImpl extends IntentionImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected TaskImpl() {
 		super();
 	}
@@ -36,7 +43,7 @@ public class TaskImpl extends IntentionImpl implements Task {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.TASK;
+		return openome_modelPackage.Literals.TASK;
 	}
 
 } //TaskImpl

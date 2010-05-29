@@ -29,11 +29,18 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel()
  * @model
  * @generated
  */
 public interface Model extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,7 +51,7 @@ public interface Model extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Name()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Name()
 	 * @model
 	 * @generated
 	 */
@@ -70,7 +77,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intentions</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Intentions()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Intentions()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -87,7 +94,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Contributions()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Contributions()
 	 * @see edu.toronto.cs.openome_model.Contribution#getModel
 	 * @model opposite="model" containment="true"
 	 * @generated
@@ -105,7 +112,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependencies</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Dependencies()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Dependencies()
 	 * @see edu.toronto.cs.openome_model.Dependency#getModel
 	 * @model opposite="model" containment="true"
 	 * @generated
@@ -123,7 +130,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Decompositions</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Decompositions()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Decompositions()
 	 * @see edu.toronto.cs.openome_model.Decomposition#getModel
 	 * @model opposite="model" containment="true"
 	 * @generated
@@ -141,7 +148,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Containers</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Containers()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Containers()
 	 * @see edu.toronto.cs.openome_model.Container#getModel
 	 * @model opposite="model" containment="true"
 	 * @generated
@@ -158,7 +165,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Correlations</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Correlations()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Correlations()
 	 * @model
 	 * @generated
 	 */
@@ -174,7 +181,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Associations</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Associations()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Associations()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -190,7 +197,7 @@ public interface Model extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Alternatives</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getModel_Alternatives()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getModel_Alternatives()
 	 * @model containment="true"
 	 * @generated
 	 */

@@ -82,7 +82,7 @@ public class OrDecompositionCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		edu.toronto.cs.openome_model.OrDecomposition newElement = edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
+		edu.toronto.cs.openome_model.OrDecomposition newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createOrDecomposition();
 		getContainer().getDecompositions().add(newElement);
 		newElement.setSource(getSource());

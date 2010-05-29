@@ -8,7 +8,7 @@ package edu.toronto.cs.openome_model.provider;
 
 import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.HelpContribution;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -40,6 +40,13 @@ public class HelpContributionItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,8 +86,8 @@ public class HelpContributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_HelpContribution_contributionType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HelpContribution_contributionType_feature", "_UI_HelpContribution_type"),
-				 Openome_modelPackage.Literals.HELP_CONTRIBUTION__CONTRIBUTION_TYPE,
-				 false,
+				 openome_modelPackage.Literals.HELP_CONTRIBUTION__CONTRIBUTION_TYPE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -126,7 +133,7 @@ public class HelpContributionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(HelpContribution.class)) {
-			case Openome_modelPackage.HELP_CONTRIBUTION__CONTRIBUTION_TYPE:
+			case openome_modelPackage.HELP_CONTRIBUTION__CONTRIBUTION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

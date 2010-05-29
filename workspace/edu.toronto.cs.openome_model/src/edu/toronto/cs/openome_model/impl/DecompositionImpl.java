@@ -8,7 +8,7 @@ package edu.toronto.cs.openome_model.impl;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class DecompositionImpl extends LinkImpl implements Decomposition {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -72,7 +79,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.DECOMPOSITION;
+		return openome_modelPackage.Literals.DECOMPOSITION;
 	}
 
 	/**
@@ -86,7 +93,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 			source = (Intention)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.DECOMPOSITION__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.DECOMPOSITION__SOURCE, oldSource, source));
 			}
 		}
 		return source;
@@ -110,7 +117,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 		Intention oldSource = source;
 		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Openome_modelPackage.DECOMPOSITION__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.DECOMPOSITION__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -125,14 +132,14 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, Openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, Openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.DECOMPOSITION__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.DECOMPOSITION__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -146,7 +153,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 			target = (Intention)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.DECOMPOSITION__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.DECOMPOSITION__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -170,7 +177,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 		Intention oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Openome_modelPackage.DECOMPOSITION__TARGET, oldTarget, newTarget);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.DECOMPOSITION__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -185,14 +192,14 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
 			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, Openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
+				msgs = ((InternalEObject)target).eInverseRemove(this, openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
 			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, Openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
 			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.DECOMPOSITION__TARGET, newTarget, newTarget));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.DECOMPOSITION__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -201,7 +208,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 * @generated
 	 */
 	public Model getModel() {
-		if (eContainerFeatureID() != Openome_modelPackage.DECOMPOSITION__MODEL) return null;
+		if (eContainerFeatureID() != openome_modelPackage.DECOMPOSITION__MODEL) return null;
 		return (Model)eContainer();
 	}
 
@@ -211,7 +218,7 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 * @generated
 	 */
 	public NotificationChain basicSetModel(Model newModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newModel, Openome_modelPackage.DECOMPOSITION__MODEL, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newModel, openome_modelPackage.DECOMPOSITION__MODEL, msgs);
 		return msgs;
 	}
 
@@ -221,19 +228,19 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	 * @generated
 	 */
 	public void setModel(Model newModel) {
-		if (newModel != eInternalContainer() || (eContainerFeatureID() != Openome_modelPackage.DECOMPOSITION__MODEL && newModel != null)) {
+		if (newModel != eInternalContainer() || (eContainerFeatureID() != openome_modelPackage.DECOMPOSITION__MODEL && newModel != null)) {
 			if (EcoreUtil.isAncestor(this, newModel))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newModel != null)
-				msgs = ((InternalEObject)newModel).eInverseAdd(this, Openome_modelPackage.MODEL__DECOMPOSITIONS, Model.class, msgs);
+				msgs = ((InternalEObject)newModel).eInverseAdd(this, openome_modelPackage.MODEL__DECOMPOSITIONS, Model.class, msgs);
 			msgs = basicSetModel(newModel, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.DECOMPOSITION__MODEL, newModel, newModel));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.DECOMPOSITION__MODEL, newModel, newModel));
 	}
 
 	/**
@@ -244,15 +251,15 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, Openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, openome_modelPackage.INTENTION__DECOMPOSITIONS, Intention.class, msgs);
 				return basicSetSource((Intention)otherEnd, msgs);
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, Openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, openome_modelPackage.INTENTION__PARENT_DECOMPOSITIONS, Intention.class, msgs);
 				return basicSetTarget((Intention)otherEnd, msgs);
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetModel((Model)otherEnd, msgs);
@@ -268,11 +275,11 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				return basicSetSource(null, msgs);
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				return basicSetTarget(null, msgs);
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				return basicSetModel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -286,8 +293,8 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
-				return eInternalContainer().eInverseRemove(this, Openome_modelPackage.MODEL__DECOMPOSITIONS, Model.class, msgs);
+			case openome_modelPackage.DECOMPOSITION__MODEL:
+				return eInternalContainer().eInverseRemove(this, openome_modelPackage.MODEL__DECOMPOSITIONS, Model.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -300,13 +307,13 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				return getModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -320,13 +327,13 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				setSource((Intention)newValue);
 				return;
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				setTarget((Intention)newValue);
 				return;
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				setModel((Model)newValue);
 				return;
 		}
@@ -341,13 +348,13 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				setSource((Intention)null);
 				return;
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				setTarget((Intention)null);
 				return;
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				setModel((Model)null);
 				return;
 		}
@@ -362,11 +369,11 @@ public class DecompositionImpl extends LinkImpl implements Decomposition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.DECOMPOSITION__SOURCE:
+			case openome_modelPackage.DECOMPOSITION__SOURCE:
 				return source != null;
-			case Openome_modelPackage.DECOMPOSITION__TARGET:
+			case openome_modelPackage.DECOMPOSITION__TARGET:
 				return target != null;
-			case Openome_modelPackage.DECOMPOSITION__MODEL:
+			case openome_modelPackage.DECOMPOSITION__MODEL:
 				return getModel() != null;
 		}
 		return super.eIsSet(featureID);

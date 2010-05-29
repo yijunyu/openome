@@ -7,7 +7,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IFileEditorInput;
 
-import edu.toronto.cs.openome_model.presentation.Openome_modelEditor;
+import edu.toronto.cs.openome_model.presentation.openome_modelEditor;
 import fluid.ir.IRPersistent;
 import fluid.util.FileLocator;
 import fluid.version.Version;
@@ -22,7 +22,7 @@ import sc.document.Configuration;
 public class CheckoutLatestHandler extends MolhadoActionHandler {
 
 	private boolean repoExists, versionExists = true;
-	Openome_modelEditor gme;
+	openome_modelEditor gme;
 	
 	public CheckoutLatestHandler() {
 		super();
@@ -35,7 +35,7 @@ public class CheckoutLatestHandler extends MolhadoActionHandler {
 		// Load the configuration   
 		Configuration.ensureLoaded(); //necessary?
 
-		gme = (Openome_modelEditor) findEditor();
+		gme = (openome_modelEditor) findEditor();
 		editingDomain = gme.getEditingDomain();
 		setResourceSet();
 		setModelDetails();  //i.e., file_name, editor instance, etc

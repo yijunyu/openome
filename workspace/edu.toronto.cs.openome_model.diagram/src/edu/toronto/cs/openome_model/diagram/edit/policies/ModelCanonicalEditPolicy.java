@@ -94,10 +94,10 @@ public class ModelCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
-					.add(edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					.add(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getModel_Containers());
 			myFeaturesToSynchronize
-					.add(edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					.add(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getModel_Intentions());
 		}
 		return myFeaturesToSynchronize;

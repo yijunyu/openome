@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.provider;
 
 
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -39,6 +39,13 @@ public class AssociationItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,7 +86,7 @@ public class AssociationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Association_source_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Association_source_feature", "_UI_Association_type"),
-				 Openome_modelPackage.Literals.ASSOCIATION__SOURCE,
+				 openome_modelPackage.Literals.ASSOCIATION__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -101,7 +108,7 @@ public class AssociationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Association_target_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Association_target_feature", "_UI_Association_type"),
-				 Openome_modelPackage.Literals.ASSOCIATION__TARGET,
+				 openome_modelPackage.Literals.ASSOCIATION__TARGET,
 				 true,
 				 false,
 				 true,

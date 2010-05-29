@@ -82,7 +82,7 @@ public class SomeMinusContributionCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		edu.toronto.cs.openome_model.SomeMinusContribution newElement = edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
+		edu.toronto.cs.openome_model.SomeMinusContribution newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createSomeMinusContribution();
 		getContainer().getContributions().add(newElement);
 		newElement.setSource(getSource());

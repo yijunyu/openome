@@ -18,11 +18,18 @@ package edu.toronto.cs.openome_model;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getMakeContribution()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getMakeContribution()
  * @model
  * @generated
  */
 public interface MakeContribution extends Contribution {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Contribution Type</b></em>' attribute.
 	 * The default value is <code>"Make"</code>.
@@ -33,7 +40,7 @@ public interface MakeContribution extends Contribution {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contribution Type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getMakeContribution_ContributionType()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getMakeContribution_ContributionType()
 	 * @model default="Make" required="true" changeable="false"
 	 * @generated
 	 */

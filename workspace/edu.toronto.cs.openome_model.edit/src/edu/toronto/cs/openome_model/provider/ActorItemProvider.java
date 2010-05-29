@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Actor;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,6 +37,13 @@ public class ActorItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,7 +85,7 @@ public class ActorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Actor_is_a_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_is_a_feature", "_UI_Actor_type"),
-				 Openome_modelPackage.Literals.ACTOR__IS_A,
+				 openome_modelPackage.Literals.ACTOR__IS_A,
 				 true,
 				 false,
 				 true,
@@ -100,7 +107,7 @@ public class ActorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Actor_is_part_of_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_is_part_of_feature", "_UI_Actor_type"),
-				 Openome_modelPackage.Literals.ACTOR__IS_PART_OF,
+				 openome_modelPackage.Literals.ACTOR__IS_PART_OF,
 				 true,
 				 false,
 				 true,
@@ -122,7 +129,7 @@ public class ActorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Actor_believes_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Actor_believes_feature", "_UI_Actor_type"),
-				 Openome_modelPackage.Literals.ACTOR__BELIEVES,
+				 openome_modelPackage.Literals.ACTOR__BELIEVES,
 				 true,
 				 false,
 				 true,

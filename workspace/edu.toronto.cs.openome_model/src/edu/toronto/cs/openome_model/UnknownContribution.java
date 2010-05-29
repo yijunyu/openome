@@ -18,11 +18,18 @@ package edu.toronto.cs.openome_model;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getUnknownContribution()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getUnknownContribution()
  * @model
  * @generated
  */
 public interface UnknownContribution extends Contribution {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Contribution Type</b></em>' attribute.
 	 * The default value is <code>"Unknown"</code>.
@@ -33,7 +40,7 @@ public interface UnknownContribution extends Contribution {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contribution Type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getUnknownContribution_ContributionType()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getUnknownContribution_ContributionType()
 	 * @model default="Unknown" required="true" changeable="false"
 	 * @generated
 	 */

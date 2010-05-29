@@ -21,11 +21,18 @@ package edu.toronto.cs.openome_model;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContribution()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution()
  * @model
  * @generated
  */
 public interface Contribution extends Link {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link edu.toronto.cs.openome_model.Intention#getContributesFrom <em>Contributes From</em>}'.
@@ -37,7 +44,7 @@ public interface Contribution extends Link {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Intention)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContribution_Target()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Target()
 	 * @see edu.toronto.cs.openome_model.Intention#getContributesFrom
 	 * @model opposite="contributesFrom"
 	 * @generated
@@ -65,7 +72,7 @@ public interface Contribution extends Link {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model</em>' container reference.
 	 * @see #setModel(Model)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContribution_Model()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Model()
 	 * @see edu.toronto.cs.openome_model.Model#getContributions
 	 * @model opposite="contributions"
 	 * @generated
@@ -93,7 +100,7 @@ public interface Contribution extends Link {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Intention)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContribution_Source()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Source()
 	 * @see edu.toronto.cs.openome_model.Intention#getContributesTo
 	 * @model opposite="contributesTo"
 	 * @generated
@@ -122,7 +129,7 @@ public interface Contribution extends Link {
 	 * @return the value of the '<em>Goal model symmetry</em>' attribute.
 	 * @see edu.toronto.cs.openome_model.GoalModelingContributionSymmetry
 	 * @see #setGoal_model_symmetry(GoalModelingContributionSymmetry)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getContribution_Goal_model_symmetry()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContribution_Goal_model_symmetry()
 	 * @model
 	 * @generated
 	 */

@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Correlation;
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class CorrelationImpl extends LinkImpl implements Correlation {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -67,7 +74,7 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.CORRELATION;
+		return openome_modelPackage.Literals.CORRELATION;
 	}
 
 	/**
@@ -81,7 +88,7 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 			target = (Intention)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.CORRELATION__TARGET, oldTarget, target));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.CORRELATION__TARGET, oldTarget, target));
 			}
 		}
 		return target;
@@ -105,7 +112,7 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 		Intention oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.CORRELATION__TARGET, oldTarget, target));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CORRELATION__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -119,7 +126,7 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 			source = (Intention)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Openome_modelPackage.CORRELATION__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, openome_modelPackage.CORRELATION__SOURCE, oldSource, source));
 			}
 		}
 		return source;
@@ -143,7 +150,7 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 		Intention oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Openome_modelPackage.CORRELATION__SOURCE, oldSource, source));
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CORRELATION__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -154,10 +161,10 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Openome_modelPackage.CORRELATION__TARGET:
+			case openome_modelPackage.CORRELATION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
-			case Openome_modelPackage.CORRELATION__SOURCE:
+			case openome_modelPackage.CORRELATION__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
 		}
@@ -172,10 +179,10 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Openome_modelPackage.CORRELATION__TARGET:
+			case openome_modelPackage.CORRELATION__TARGET:
 				setTarget((Intention)newValue);
 				return;
-			case Openome_modelPackage.CORRELATION__SOURCE:
+			case openome_modelPackage.CORRELATION__SOURCE:
 				setSource((Intention)newValue);
 				return;
 		}
@@ -190,10 +197,10 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.CORRELATION__TARGET:
+			case openome_modelPackage.CORRELATION__TARGET:
 				setTarget((Intention)null);
 				return;
-			case Openome_modelPackage.CORRELATION__SOURCE:
+			case openome_modelPackage.CORRELATION__SOURCE:
 				setSource((Intention)null);
 				return;
 		}
@@ -208,9 +215,9 @@ public class CorrelationImpl extends LinkImpl implements Correlation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.CORRELATION__TARGET:
+			case openome_modelPackage.CORRELATION__TARGET:
 				return target != null;
-			case Openome_modelPackage.CORRELATION__SOURCE:
+			case openome_modelPackage.CORRELATION__SOURCE:
 				return source != null;
 		}
 		return super.eIsSet(featureID);

@@ -43,8 +43,8 @@ public class GoalModel extends IStar {
 	Hashtable<String, IStarElement> agents = null;
 	private String serialized_view = "";
 
-	Openome_modelPackage e = Openome_modelPackage.eINSTANCE;
-	Openome_modelFactory f = e.getopenome_modelFactory();
+	openome_modelPackage e = openome_modelPackage.eINSTANCE;
+	openome_modelFactory f = e.getopenome_modelFactory();
 	Resource resource;
 	Model m;
 	IStarElement thegoal = null;

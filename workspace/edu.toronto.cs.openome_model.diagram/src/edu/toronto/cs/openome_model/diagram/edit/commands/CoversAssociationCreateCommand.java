@@ -82,7 +82,7 @@ public class CoversAssociationCreateCommand extends EditElementCommand {
 					"Invalid arguments in create link command"); //$NON-NLS-1$
 		}
 
-		edu.toronto.cs.openome_model.CoversAssociation newElement = edu.toronto.cs.openome_model.Openome_modelFactory.eINSTANCE
+		edu.toronto.cs.openome_model.CoversAssociation newElement = edu.toronto.cs.openome_model.openome_modelFactory.eINSTANCE
 				.createCoversAssociation();
 		getContainer().getAssociations().add(newElement);
 		newElement.setSource(getSource());

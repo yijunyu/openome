@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.provider;
 
 
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -36,6 +36,13 @@ public class CorrelationItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -76,7 +83,7 @@ public class CorrelationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Correlation_target_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Correlation_target_feature", "_UI_Correlation_type"),
-				 Openome_modelPackage.Literals.CORRELATION__TARGET,
+				 openome_modelPackage.Literals.CORRELATION__TARGET,
 				 true,
 				 false,
 				 true,
@@ -98,7 +105,7 @@ public class CorrelationItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Correlation_source_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Correlation_source_feature", "_UI_Correlation_type"),
-				 Openome_modelPackage.Literals.CORRELATION__SOURCE,
+				 openome_modelPackage.Literals.CORRELATION__SOURCE,
 				 true,
 				 false,
 				 true,

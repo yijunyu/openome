@@ -30,11 +30,18 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getAlternative()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative()
  * @model
  * @generated
  */
 public interface Alternative extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * The default value is <code>" "</code>.
@@ -46,7 +53,7 @@ public interface Alternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getAlternative_Name()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative_Name()
 	 * @model default=" "
 	 * @generated
 	 */
@@ -73,7 +80,7 @@ public interface Alternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getAlternative_Description()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative_Description()
 	 * @model default=" "
 	 * @generated
 	 */
@@ -99,7 +106,7 @@ public interface Alternative extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Intentions</em>' reference list.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getAlternative_Intentions()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative_Intentions()
 	 * @model
 	 * @generated
 	 */
@@ -117,7 +124,7 @@ public interface Alternative extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Eval Labels</em>' attribute list.
 	 * @see edu.toronto.cs.openome_model.EvaluationLabel
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getAlternative_EvalLabels()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative_EvalLabels()
 	 * @model unique="false" ordered="false"
 	 * @generated
 	 */

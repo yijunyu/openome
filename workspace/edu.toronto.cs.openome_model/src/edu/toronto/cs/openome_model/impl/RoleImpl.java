@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.Role;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -25,6 +25,13 @@ public class RoleImpl extends ContainerImpl implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected RoleImpl() {
 		super();
 	}
@@ -36,7 +43,7 @@ public class RoleImpl extends ContainerImpl implements Role {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.ROLE;
+		return openome_modelPackage.Literals.ROLE;
 	}
 
 } //RoleImpl

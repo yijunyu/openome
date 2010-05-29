@@ -6,7 +6,7 @@
 package edu.toronto.cs.openome_model.impl;
 
 import edu.toronto.cs.openome_model.PlaysAssociation;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public class PlaysAssociationImpl extends AssociationImpl implements PlaysAssociation {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,7 +67,7 @@ public class PlaysAssociationImpl extends AssociationImpl implements PlaysAssoci
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Openome_modelPackage.Literals.PLAYS_ASSOCIATION;
+		return openome_modelPackage.Literals.PLAYS_ASSOCIATION;
 	}
 
 	/**
@@ -80,7 +87,7 @@ public class PlaysAssociationImpl extends AssociationImpl implements PlaysAssoci
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Openome_modelPackage.PLAYS_ASSOCIATION__LABEL:
+			case openome_modelPackage.PLAYS_ASSOCIATION__LABEL:
 				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -94,7 +101,7 @@ public class PlaysAssociationImpl extends AssociationImpl implements PlaysAssoci
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Openome_modelPackage.PLAYS_ASSOCIATION__LABEL:
+			case openome_modelPackage.PLAYS_ASSOCIATION__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);

@@ -18,11 +18,18 @@ package edu.toronto.cs.openome_model;
  * </ul>
  * </p>
  *
- * @see edu.toronto.cs.openome_model.Openome_modelPackage#getSomeMinusContribution()
+ * @see edu.toronto.cs.openome_model.openome_modelPackage#getSomeMinusContribution()
  * @model
  * @generated
  */
 public interface SomeMinusContribution extends Contribution {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * Returns the value of the '<em><b>Contribution Type</b></em>' attribute.
 	 * The default value is <code>"Some-"</code>.
@@ -33,7 +40,7 @@ public interface SomeMinusContribution extends Contribution {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contribution Type</em>' attribute.
-	 * @see edu.toronto.cs.openome_model.Openome_modelPackage#getSomeMinusContribution_ContributionType()
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getSomeMinusContribution_ContributionType()
 	 * @model default="Some-" required="true" changeable="false"
 	 * @generated
 	 */

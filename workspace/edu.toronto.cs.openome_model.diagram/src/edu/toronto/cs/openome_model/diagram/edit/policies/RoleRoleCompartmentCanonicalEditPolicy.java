@@ -68,7 +68,7 @@ public class RoleRoleCompartmentCanonicalEditPolicy extends CanonicalEditPolicy 
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
-					.add(edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					.add(edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getContainer_Intentions());
 		}
 		return myFeaturesToSynchronize;

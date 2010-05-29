@@ -532,175 +532,175 @@ public class Openome_modelElementTypes extends ElementInitializers {
 			elements = new IdentityHashMap();
 
 			elements.put(Model_1000,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getModel());
 
 			elements.put(Actor_2001,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getActor());
 
 			elements.put(Agent_2002,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAgent());
 
 			elements.put(Position_2003,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getPosition());
 
 			elements.put(Role_2004,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getRole());
 
 			elements.put(Goal_2005,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
 			elements.put(Softgoal_2006,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
 			elements.put(Task_2007,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
 			elements.put(Resource_2008,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
 			elements.put(Goal_3001,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
 			elements.put(Softgoal_3002,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
 			elements.put(Resource_3003,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
 			elements.put(Task_3004,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
 			elements.put(Goal_3005,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
 			elements.put(Softgoal_3006,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
 			elements.put(Resource_3007,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
 			elements.put(Task_3008,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
 			elements.put(Goal_3009,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
 			elements.put(Softgoal_3010,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
 			elements.put(Resource_3011,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
 			elements.put(Task_3012,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
 			elements.put(Goal_3013,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getGoal());
 
 			elements.put(Softgoal_3014,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSoftgoal());
 
 			elements.put(Resource_3015,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getResource());
 
 			elements.put(Task_3016,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getTask());
 
 			elements.put(Dependency_4001,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getDependency());
 
 			elements.put(AndDecomposition_4002,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAndDecomposition());
 
 			elements.put(OrDecomposition_4003,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrDecomposition());
 
 			elements.put(HelpContribution_4005,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getHelpContribution());
 
 			elements.put(HurtContribution_4006,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getHurtContribution());
 
 			elements.put(MakeContribution_4007,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getMakeContribution());
 
 			elements.put(BreakContribution_4008,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getBreakContribution());
 
 			elements.put(SomePlusContribution_4009,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSomePlusContribution());
 
 			elements.put(SomeMinusContribution_4010,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getSomeMinusContribution());
 
 			elements.put(UnknownContribution_4011,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getUnknownContribution());
 
 			elements.put(AndContribution_4012,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getAndContribution());
 
 			elements.put(OrContribution_4013,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOrContribution());
 
 			elements.put(IsAAssociation_4014,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getIsAAssociation());
 
 			elements.put(CoversAssociation_4015,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getCoversAssociation());
 
 			elements.put(OccupiesAssociation_4016,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getOccupiesAssociation());
 
 			elements.put(IsPartOfAssociation_4017,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getIsPartOfAssociation());
 
 			elements.put(PlaysAssociation_4018,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getPlaysAssociation());
 
 			elements.put(INSAssociation_4019,
-					edu.toronto.cs.openome_model.Openome_modelPackage.eINSTANCE
+					edu.toronto.cs.openome_model.openome_modelPackage.eINSTANCE
 							.getINSAssociation());
 		}
 		return (ENamedElement) elements.get(type);

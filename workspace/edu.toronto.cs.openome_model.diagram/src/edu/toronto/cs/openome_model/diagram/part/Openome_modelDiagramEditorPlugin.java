@@ -99,7 +99,7 @@ public class Openome_modelDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	protected void fillItemProviderFactories(List factories) {
 		factories
-				.add(new edu.toronto.cs.openome_model.provider.Openome_modelItemProviderAdapterFactory());
+				.add(new edu.toronto.cs.openome_model.provider.openome_modelItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

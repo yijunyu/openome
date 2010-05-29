@@ -7,7 +7,7 @@ package edu.toronto.cs.openome_model.provider;
 
 
 import edu.toronto.cs.openome_model.Alternative;
-import edu.toronto.cs.openome_model.Openome_modelPackage;
+import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -42,6 +42,13 @@ public class AlternativeItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +91,7 @@ public class AlternativeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Alternative_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Alternative_name_feature", "_UI_Alternative_type"),
-				 Openome_modelPackage.Literals.ALTERNATIVE__NAME,
+				 openome_modelPackage.Literals.ALTERNATIVE__NAME,
 				 true,
 				 false,
 				 false,
@@ -106,7 +113,7 @@ public class AlternativeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Alternative_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Alternative_description_feature", "_UI_Alternative_type"),
-				 Openome_modelPackage.Literals.ALTERNATIVE__DESCRIPTION,
+				 openome_modelPackage.Literals.ALTERNATIVE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -128,7 +135,7 @@ public class AlternativeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Alternative_intentions_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Alternative_intentions_feature", "_UI_Alternative_type"),
-				 Openome_modelPackage.Literals.ALTERNATIVE__INTENTIONS,
+				 openome_modelPackage.Literals.ALTERNATIVE__INTENTIONS,
 				 true,
 				 false,
 				 true,
@@ -150,7 +157,7 @@ public class AlternativeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Alternative_evalLabels_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Alternative_evalLabels_feature", "_UI_Alternative_type"),
-				 Openome_modelPackage.Literals.ALTERNATIVE__EVAL_LABELS,
+				 openome_modelPackage.Literals.ALTERNATIVE__EVAL_LABELS,
 				 true,
 				 false,
 				 false,
@@ -196,9 +203,9 @@ public class AlternativeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Alternative.class)) {
-			case Openome_modelPackage.ALTERNATIVE__NAME:
-			case Openome_modelPackage.ALTERNATIVE__DESCRIPTION:
-			case Openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__NAME:
+			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
+			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -225,7 +232,7 @@ public class AlternativeItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return Openome_modelEditPlugin.INSTANCE;
+		return openome_modelEditPlugin.INSTANCE;
 	}
 
 }
