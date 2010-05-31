@@ -119,8 +119,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Intention"/>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//Dependable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" upperBound="-1" eType="#//Actor"
-        containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentions" upperBound="-1"
         eType="#//Intention" containment="true" resolveProxies="false" eOpposite="#//Intention/container"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
