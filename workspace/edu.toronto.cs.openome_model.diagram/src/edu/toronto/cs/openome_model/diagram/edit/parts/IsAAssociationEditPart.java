@@ -1,9 +1,17 @@
 package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import openome_model.figures.GoalAnchor;
+import openome_model.figures.ResourceAnchor;
+import openome_model.figures.SoftgoalAnchor;
+import openome_model.figures.TaskAnchor;
 
 import org.eclipse.draw2d.AbsoluteBendpoint;
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -189,6 +197,70 @@ public class IsAAssociationEditPart extends ConnectionNodeEditPart implements
 		 */
 		public WrappingLabel getFigureIsAAssociationLabel() {
 			return fFigureIsAAssociationLabel;
+		}
+		
+		/**
+		 * @generated NOT
+		 */
+		public void outlineShape(Graphics g) {
+			
+			// ensures that the link/connectors have smooth curvature,
+			// even if the view settings say otherwise
+			this.setSmoothness(SMOOTH_NORMAL);
+
+			// determine whether or not we should draw the line (and decoration) or not..
+			// in the case where the dependency link connects 2 elements within the same
+			// container and the container is collapsed, we DO NOT draw the link
+
+			ConnectionAnchor sourceAnchor = this.getSourceAnchor();
+			ConnectionAnchor targetAnchor = this.getTargetAnchor();
+
+			boolean goalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof GoalAnchor) && ((GoalAnchor) sourceAnchor)
+					.collapsedInSameContainerAs(targetAnchor));
+
+			boolean softGoalAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof SoftgoalAnchor) && ((SoftgoalAnchor) sourceAnchor)
+					.collapsedInSameContainerAs(targetAnchor));
+
+			boolean TaskAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof TaskAnchor) && ((TaskAnchor) sourceAnchor)
+					.collapsedInSameContainerAs(targetAnchor));
+
+			boolean ResourceAnchorInSameContainerAsTargetAnchor = ((sourceAnchor instanceof ResourceAnchor) && ((ResourceAnchor) sourceAnchor)
+					.collapsedInSameContainerAs(targetAnchor));
+
+			// search for the contribution text (wrapping label)..
+			// depend on whehter it is connecting intentions within the same
+			// collapsed container or not, we will make it visible or hide it
+			List listOfChildren = this.getChildren();
+			WrappingLabel label = new WrappingLabel();
+			for (int i = 0; i < listOfChildren.size(); i++) {
+				Object currentChild = listOfChildren.get(i);
+				if (currentChild instanceof WrappingLabel) {
+					label = (WrappingLabel) currentChild;
+				}
+			}
+
+			if (goalAnchorInSameContainerAsTargetAnchor
+					|| softGoalAnchorInSameContainerAsTargetAnchor
+					|| TaskAnchorInSameContainerAsTargetAnchor
+					|| ResourceAnchorInSameContainerAsTargetAnchor) {
+				// if any of the checks were triggered (true), then that means
+				// that this link/connector
+				// is connecting (any) 2 intentions within the same container,
+				// and the container
+				// is collapsed.. so don't do anything (ie, dont' draw the
+				// link/connector)
+
+				this.setVisible(false);
+				this.getTargetDecoration().setVisible(false);
+				label.setVisible(false);
+
+			} else {
+				// else, draw the line/connector and the decoration
+				super.outlineShape(g);
+				this.setVisible(true);
+				this.getTargetDecoration().setVisible(true);
+				label.setVisible(true);
+			}
 		}
 
 	}
