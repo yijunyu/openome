@@ -141,22 +141,13 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER__NAME = DEPENDABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__SUB = DEPENDABLE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__INTENTIONS = DEPENDABLE_FEATURE_COUNT + 2;
+	int CONTAINER__INTENTIONS = DEPENDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -165,7 +156,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 3;
+	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Association To</b></em>' reference list.
@@ -174,7 +165,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__ASSOCIATION_TO = DEPENDABLE_FEATURE_COUNT + 4;
+	int CONTAINER__ASSOCIATION_TO = DEPENDABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Association From</b></em>' reference list.
@@ -183,7 +174,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__ASSOCIATION_FROM = DEPENDABLE_FEATURE_COUNT + 5;
+	int CONTAINER__ASSOCIATION_FROM = DEPENDABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -192,7 +183,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 6;
+	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -230,15 +221,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTOR__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -348,15 +330,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGENT__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGENT__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1242,15 +1215,6 @@ public interface openome_modelPackage extends EPackage {
 	int POSITION__NAME = CONTAINER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__SUB = CONTAINER__SUB;
-
-	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1576,15 +1540,6 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE__NAME = CONTAINER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLE__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -4007,17 +3962,6 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getContainer_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sub</em>'.
-	 * @see edu.toronto.cs.openome_model.Container#getSub()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_Sub();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5201,14 +5145,6 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Sub</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__SUB = eINSTANCE.getContainer_Sub();
 
 		/**
 		 * The meta object literal for the '<em><b>Intentions</b></em>' containment reference list feature.

@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getName <em>Name</em>}</li>
- *   <li>{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Container#getAssociationTo <em>Association To</em>}</li>
@@ -61,22 +60,6 @@ public interface Container extends Dependable {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Sub</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.toronto.cs.openome_model.Actor}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sub</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sub</em>' containment reference list.
-	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getContainer_Sub()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Actor> getSub();
 
 	/**
 	 * Returns the value of the '<em><b>Intentions</b></em>' containment reference list.

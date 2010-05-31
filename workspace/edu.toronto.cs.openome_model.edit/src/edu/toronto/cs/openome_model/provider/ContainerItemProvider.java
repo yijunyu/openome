@@ -155,7 +155,6 @@ public class ContainerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(openome_modelPackage.Literals.CONTAINER__SUB);
 			childrenFeatures.add(openome_modelPackage.Literals.CONTAINER__INTENTIONS);
 		}
 		return childrenFeatures;
@@ -214,7 +213,6 @@ public class ContainerItemProvider
 			case openome_modelPackage.CONTAINER__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case openome_modelPackage.CONTAINER__SUB:
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -232,11 +230,6 @@ public class ContainerItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(openome_modelPackage.Literals.CONTAINER__SUB,
-				 openome_modelFactory.eINSTANCE.createActor()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -138,7 +138,6 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 	 */
 	public class CoversAssociationFigure extends PolylineConnectionEx {
 
-		
 		/**
 		 * @generated
 		 */
@@ -152,8 +151,6 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
-			
-			
 		}
 
 		/**
@@ -202,12 +199,12 @@ public class CoversAssociationEditPart extends ConnectionNodeEditPart implements
 		public WrappingLabel getFigureCoversAssociationLabel() {
 			return fFigureCoversAssociationLabel;
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
 		public void outlineShape(Graphics g) {
-			
+
 			// ensures that the link/connectors have smooth curvature,
 			// even if the view settings say otherwise
 			this.setSmoothness(SMOOTH_NORMAL);

@@ -215,7 +215,7 @@ public class HelpContributionEditPart extends ConnectionNodeEditPart implements
 		 * @generated NOT
 		 */
 		public void outlineShape(Graphics g) {
-			
+
 			// ensures that the link/connectors have smooth curvature,
 			// even if the view settings say otherwise
 			this.setSmoothness(SMOOTH_NORMAL);

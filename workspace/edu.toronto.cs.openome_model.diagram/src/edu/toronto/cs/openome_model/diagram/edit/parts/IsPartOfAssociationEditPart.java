@@ -198,12 +198,12 @@ public class IsPartOfAssociationEditPart extends ConnectionNodeEditPart
 		public WrappingLabel getFigureIsPartOfAssociation() {
 			return fFigureIsPartOfAssociation;
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
 		public void outlineShape(Graphics g) {
-			
+
 			// ensures that the link/connectors have smooth curvature,
 			// even if the view settings say otherwise
 			this.setSmoothness(SMOOTH_NORMAL);

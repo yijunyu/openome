@@ -1035,7 +1035,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Sub() {
+	public EReference getContainer_Intentions() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1044,7 +1044,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Intentions() {
+	public EReference getContainer_Model() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1053,7 +1053,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Model() {
+	public EReference getContainer_AssociationTo() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1062,17 +1062,8 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_AssociationTo() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getContainer_AssociationFrom() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(5);
+		return (EReference)containerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1654,7 +1645,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		containerEClass = createEClass(CONTAINER);
 		createEAttribute(containerEClass, CONTAINER__NAME);
-		createEReference(containerEClass, CONTAINER__SUB);
 		createEReference(containerEClass, CONTAINER__INTENTIONS);
 		createEReference(containerEClass, CONTAINER__MODEL);
 		createEReference(containerEClass, CONTAINER__ASSOCIATION_TO);
@@ -1883,7 +1873,6 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		initEClass(containerEClass, edu.toronto.cs.openome_model.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, edu.toronto.cs.openome_model.Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_AssociationTo(), this.getAssociation(), null, "associationTo", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
