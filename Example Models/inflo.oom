@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore">
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.4" dependencyTo="//@dependencies.0 //@dependencies.1" name="Graphing" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.2" dependencyTo="//@dependencies.3" name="Info" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.8" dependencyTo="//@dependencies.5" name="Moderation" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.7" dependencyTo="//@dependencies.6" name="Moderation" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.10" dependencyTo="//@dependencies.9" name="Integrity of models" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.12" dependencyTo="//@dependencies.11" name="Reputation values" QualitativeReasoningCombinedLabel="Conflict"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyFrom="//@dependencies.13" dependencyTo="//@dependencies.14" name="Feedback" QualitativeReasoningCombinedLabel="Conflict"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.3" source="//@containers.4/@intentions.8"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.5" source="//@containers.4/@intentions.9"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.26" source="//@containers.4/@intentions.8"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.26" source="//@containers.4/@intentions.13"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.4/@intentions.22" source="//@containers.4/@intentions.20"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.4/@intentions.2" source="//@containers.4/@intentions.20"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.2" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.26" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.4/@intentions.10" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.5" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.4/@intentions.23" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.4/@intentions.25" source="//@containers.4/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.1" source="//@containers.4/@intentions.0"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.24" source="//@containers.4/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.25"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.4/@intentions.0" source="//@containers.4/@intentions.10"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.0" source="//@containers.5/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.5/@intentions.0" source="//@containers.5/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.13" source="//@containers.5/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.13" source="//@containers.5/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.12" source="//@containers.5/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.11" source="//@containers.5/@intentions.8"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.10" source="//@containers.5/@intentions.7"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.10" source="//@containers.5/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.12" source="//@containers.5/@intentions.13"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.8/@intentions.1" source="//@containers.8/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.5/@intentions.1" source="//@containers.8/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.5/@intentions.5" source="//@containers.8/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.10" source="//@containers.5/@intentions.13"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.5/@intentions.13" source="//@containers.5/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.0" source="//@containers.7/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.1" source="//@containers.7/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.1" source="//@containers.7/@intentions.24"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.13" source="//@containers.7/@intentions.10"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.13" source="//@containers.7/@intentions.11"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.30" source="//@containers.7/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.27" source="//@containers.7/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@containers.7/@intentions.27" source="//@containers.7/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.28" source="//@containers.7/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.29" source="//@containers.7/@intentions.30"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.29" source="//@containers.7/@intentions.28"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.29" source="//@containers.7/@intentions.26"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.4" source="//@containers.7/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.3" source="//@containers.7/@intentions.2"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.4"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.11"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.15"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.20"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.25"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.7/@intentions.26" source="//@containers.7/@intentions.27"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.8/@intentions.1" source="//@containers.7/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.8/@intentions.2" source="//@containers.7/@intentions.7"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.5/@intentions.14" source="//@containers.7/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.5/@intentions.5" source="//@containers.7/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.9/@intentions.5" source="//@containers.9/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.9/@intentions.5" source="//@containers.9/@intentions.7"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.9/@intentions.0" source="//@containers.9/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.9/@intentions.0" source="//@containers.9/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.9/@intentions.1" source="//@containers.9/@intentions.4"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomePlusContribution" target="//@containers.9/@intentions.1" source="//@containers.9/@intentions.9"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomeMinusContribution" target="//@containers.9/@intentions.3" source="//@containers.9/@intentions.7"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.9/@intentions.3" source="//@containers.9/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:UnknownContribution" target="//@containers.9/@intentions.3" source="//@containers.7/@intentions.15"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.8/@intentions.1" source="//@containers.9/@intentions.9"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomeMinusContribution" target="//@containers.5/@intentions.4" source="//@containers.9/@intentions.9"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:SomeMinusContribution" target="//@containers.4/@intentions.0" source="//@containers.5/@intentions.9"/>
+  <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.0/@intentions.2"/>
+  <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.4/@intentions.6"/>
+  <dependencies dependencyFrom="//@containers.6/@intentions.0" dependencyTo="//@intentions.1"/>
+  <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.4/@intentions.14"/>
+  <dependencies dependencyFrom="//@containers.7/@intentions.5" dependencyTo="//@intentions.0"/>
+  <dependencies dependencyFrom="//@intentions.2" dependencyTo="//@containers.7/@intentions.25"/>
+  <dependencies dependencyFrom="//@intentions.3" dependencyTo="//@containers.4/@intentions.20"/>
+  <dependencies dependencyFrom="//@containers.9/@intentions.2" dependencyTo="//@intentions.3"/>
+  <dependencies dependencyFrom="//@containers.9/@intentions.2" dependencyTo="//@intentions.2"/>
+  <dependencies dependencyFrom="//@intentions.4" dependencyTo="//@containers.4/@intentions.21"/>
+  <dependencies dependencyFrom="//@containers.9/@intentions.1" dependencyTo="//@intentions.4"/>
+  <dependencies dependencyFrom="//@intentions.5" dependencyTo="//@containers.9/@intentions.6"/>
+  <dependencies dependencyFrom="//@containers.10/@intentions.0" dependencyTo="//@intentions.5"/>
+  <dependencies dependencyFrom="//@containers.11/@intentions.0" dependencyTo="//@intentions.6"/>
+  <dependencies dependencyFrom="//@intentions.6" dependencyTo="//@containers.4/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.27" target="//@containers.4/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.27" target="//@containers.4/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.8" target="//@containers.4/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.14" target="//@containers.4/@intentions.12"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.9" target="//@containers.4/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.15" target="//@containers.4/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.12" target="//@containers.4/@intentions.11"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.13" target="//@containers.4/@intentions.11"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.16" target="//@containers.4/@intentions.17"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.18" target="//@containers.4/@intentions.17"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.19" target="//@containers.4/@intentions.17"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.15" target="//@containers.4/@intentions.17"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.4/@intentions.4" target="//@containers.4/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.7" target="//@containers.4/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.11" target="//@containers.4/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.4/@intentions.17" target="//@containers.4/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.1"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.3"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.8"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.5/@intentions.4" target="//@containers.5/@intentions.14"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.5" target="//@containers.5/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.14" target="//@containers.5/@intentions.7"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.5" target="//@containers.5/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.14" target="//@containers.5/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.1" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.2" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.3" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.6" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.8" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.5/@intentions.7" target="//@containers.5/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.7" target="//@containers.7/@intentions.6"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.6" target="//@containers.7/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.8" target="//@containers.7/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.17" target="//@containers.7/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.31" target="//@containers.7/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.16" target="//@containers.7/@intentions.5"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.10" target="//@containers.7/@intentions.12"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.11" target="//@containers.7/@intentions.12"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.14" target="//@containers.7/@intentions.16"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.15" target="//@containers.7/@intentions.16"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.18" target="//@containers.7/@intentions.16"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.22" target="//@containers.7/@intentions.23"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.19" target="//@containers.7/@intentions.23"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.9" target="//@containers.7/@intentions.31"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.12" target="//@containers.7/@intentions.31"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.32" target="//@containers.7/@intentions.31"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.20" target="//@containers.7/@intentions.31"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.7/@intentions.24" target="//@containers.7/@intentions.31"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.21" target="//@containers.7/@intentions.24"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.7/@intentions.23" target="//@containers.7/@intentions.24"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.9/@intentions.9" target="//@containers.9/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.9/@intentions.4" target="//@containers.9/@intentions.2"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.9/@intentions.6" target="//@containers.9/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.9/@intentions.7" target="//@containers.9/@intentions.4"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.9/@intentions.8" target="//@containers.9/@intentions.9"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.9/@intentions.7" target="//@containers.9/@intentions.9"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Scientists">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Promote your own research" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.1"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Making science accessible" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyFrom="//@dependencies.0" name="Use inflo" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.0 //@contributions.1"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Domain Expert"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Citizens/Voters"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Decision Makers"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="inflo user">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make models trustworthy" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.15" contributesFrom="//@contributions.2 //@contributions.17 //@contributions.18 //@contributions.19 //@contributions.20 //@contributions.21 //@contributions.71"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make trustworthy analysis of available data" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.16" contributesFrom="//@contributions.15"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.14" name="Get feedback" QualitativeReasoningCombinedLabel="Satisfied" contributesTo="//@contributions.2" contributesFrom="//@contributions.8 //@contributions.9"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Share analysis" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.3"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Make views" decompositions="//@decompositions.12" parentDecompositions="//@decompositions.0 //@decompositions.2" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Become informed" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.4 //@contributions.12"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyFrom="//@dependencies.1" name="use inflo" parentDecompositions="//@decompositions.13 //@decompositions.14 //@decompositions.15" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Browsing" decompositions="//@decompositions.13" parentDecompositions="//@decompositions.1 //@decompositions.4 //@decompositions.5 //@decompositions.12" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Publish view" decompositions="//@decompositions.2" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.3 //@contributions.5"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="See graph" decompositions="//@decompositions.4" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.4"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Improve model" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.21" contributesFrom="//@contributions.11"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Editing graph" decompositions="//@decompositions.14" parentDecompositions="//@decompositions.6 //@decompositions.7" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Create graph" decompositions="//@decompositions.6" parentDecompositions="//@decompositions.3" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="refine graph" decompositions="//@decompositions.7" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.6"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.3" name="add source in description" decompositions="//@decompositions.3" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Read discussion" decompositions="//@decompositions.5 //@decompositions.11" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Make discussion" decompositions="//@decompositions.8" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Use discussions" decompositions="//@decompositions.15" parentDecompositions="//@decompositions.8 //@decompositions.9 //@decompositions.10 //@decompositions.11" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.9 //@contributions.10 //@contributions.11 //@contributions.12 //@contributions.13 //@contributions.14"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Contribute to discussion" decompositions="//@decompositions.9" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Get clarification" decompositions="//@decompositions.10" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyFrom="//@dependencies.6" name="Inflo be moderated" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.7 //@contributions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.9" name="Integrity of models" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.20"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Simplicity of Inflo" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Validate model" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.18 //@contributions.19" contributesFrom="//@contributions.13"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Evaluate alternatives" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.16"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Gain a better understanding of the issues" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.17" contributesFrom="//@contributions.14"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Inform others" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.5 //@contributions.6 //@contributions.10"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Hide and reveal nodes" decompositions="//@decompositions.0 //@decompositions.1" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Trolls">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Promote own agenda" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.22 //@contributions.23"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Distract/side track discussion" decompositions="//@decompositions.26" parentDecompositions="//@decompositions.17" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.22 //@contributions.24" contributesFrom="//@contributions.32"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Hiding Information" decompositions="//@decompositions.27" parentDecompositions="//@decompositions.16" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.23 //@contributions.25"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Support spurious arguments" decompositions="//@decompositions.28" parentDecompositions="//@decompositions.18" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.26 //@contributions.35"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Resource" name="Access inflo" decompositions="//@decompositions.16 //@decompositions.17 //@decompositions.18 //@decompositions.19 //@decompositions.20 //@decompositions.21" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.70"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Obfuscate" decompositions="//@decompositions.22 //@decompositions.24" parentDecompositions="//@decompositions.19" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.33 //@contributions.59"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Deny arguments which reduce profit" decompositions="//@decompositions.29" parentDecompositions="//@decompositions.24 //@decompositions.25" contributesTo="//@contributions.29"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Promote arguments which increase profit" decompositions="//@decompositions.31" parentDecompositions="//@decompositions.22 //@decompositions.23" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.28"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Create bogus graphs" decompositions="//@decompositions.30" parentDecompositions="//@decompositions.20" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.27"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Use inflo" parentDecompositions="//@decompositions.26 //@decompositions.27 //@decompositions.28 //@decompositions.29 //@decompositions.30 //@decompositions.31" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.71"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Profit" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.28 //@contributions.29 //@contributions.34"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Discredit inflo" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.27"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Fun" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.26 //@contributions.30"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Win the argument" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.30 //@contributions.34" contributesFrom="//@contributions.24 //@contributions.25 //@contributions.35"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Misinform" decompositions="//@decompositions.23 //@decompositions.25" parentDecompositions="//@decompositions.21" contributesFrom="//@contributions.58"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Actor" name="Source">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Resource" dependencyTo="//@dependencies.2" name="Info" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="inflo">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Foster constructive discussion" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.36"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Minimize impact of trolls" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.36" contributesFrom="//@contributions.37 //@contributions.38"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Unit conversion be comprehensible" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.49"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Usability for graph viewing" QualitativeReasoningCombinedLabel="Conflict" contributesFrom="//@contributions.49"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Simply functionality" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.50" contributesFrom="//@contributions.48"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyTo="//@dependencies.4" name="Be inflo" parentDecompositions="//@decompositions.33 //@decompositions.34 //@decompositions.35 //@decompositions.36 //@decompositions.37" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Track authorship" decompositions="//@decompositions.33" parentDecompositions="//@decompositions.32" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.56"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Badge system" decompositions="//@decompositions.32" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.57"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Display graphs" decompositions="//@decompositions.34" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Make and manage discussions" decompositions="//@decompositions.45" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Embed link in description" decompositions="//@decompositions.38" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.39"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Explicit source node" decompositions="//@decompositions.39" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.40 //@contributions.51"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="add source in description" decompositions="//@decompositions.46" parentDecompositions="//@decompositions.38 //@decompositions.39" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Make sources clearly visible" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.39 //@contributions.40"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Count and display views" decompositions="//@decompositions.40" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Collect ratings" decompositions="//@decompositions.41" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.52 //@contributions.68"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Show level of acceptance information" decompositions="//@decompositions.37" parentDecompositions="//@decompositions.40 //@decompositions.41 //@decompositions.42" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Tracking revisions" decompositions="//@decompositions.35" QualitativeReasoningCombinedLabel="Satisfied" contributesTo="//@contributions.37 //@contributions.58 //@contributions.59"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Count and display references" decompositions="//@decompositions.42" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Define types" decompositions="//@decompositions.44" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Hide some/all nodes" decompositions="//@decompositions.48" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.53"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Type checking for consistency" decompositions="//@decompositions.50" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.41 //@contributions.42 //@contributions.48"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Node created automatically" decompositions="//@decompositions.43" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Type checking and conversion" decompositions="//@decompositions.51" parentDecompositions="//@decompositions.43 //@decompositions.44" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.43 //@contributions.44"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Dimensional analysis" decompositions="//@decompositions.49" parentDecompositions="//@decompositions.50 //@decompositions.51" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.38"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyFrom="//@dependencies.5" name="Allow moderation" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.54"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Simplicity of inflo" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.47" contributesFrom="//@contributions.50 //@contributions.51 //@contributions.52 //@contributions.53 //@contributions.54 //@contributions.55"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Users don't have to worry about type conversion" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.55" contributesFrom="//@contributions.42 //@contributions.43"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Flexibility" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.46" contributesFrom="//@contributions.44"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Usability for graph creation" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.45 //@contributions.46 //@contributions.47"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Prevent dimensional errors" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.45" contributesFrom="//@contributions.41"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Create graphs" decompositions="//@decompositions.36" parentDecompositions="//@decompositions.45 //@decompositions.46 //@decompositions.47 //@decompositions.48 //@decompositions.49" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Compute values" decompositions="//@decompositions.47"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Inflo Community">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Promote critical thinking" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Build community" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.31 //@contributions.56 //@contributions.69"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Minimize barrier to entry" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.31" contributesFrom="//@contributions.57"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Curate knowledge" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.32 //@contributions.33"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Inflo Manager/Editors">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Reputation of inflo" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.62 //@contributions.63"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.10" name="Integrity of models" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.63" contributesFrom="//@contributions.64 //@contributions.65"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" dependencyTo="//@dependencies.7 //@dependencies.8" name="Moderate inflo" parentDecompositions="//@decompositions.52 //@decompositions.53" QualitativeReasoningCombinedLabel="Conflict"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Transparency" QualitativeReasoningCombinedLabel="Unknown" contributesTo="//@contributions.62" contributesFrom="//@contributions.66 //@contributions.67 //@contributions.68"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Rate users" decompositions="//@decompositions.53" parentDecompositions="//@decompositions.54 //@decompositions.55" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.64"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Minimize moderator effort" QualitativeReasoningCombinedLabel="Unknown" contributesFrom="//@contributions.60 //@contributions.61"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.11" name="Use automated reputation system" decompositions="//@decompositions.54" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.60 //@contributions.67"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Extensive moderation" decompositions="//@decompositions.55 //@decompositions.57" QualitativeReasoningCombinedLabel="WeaklySatisfied" contributesTo="//@contributions.61 //@contributions.66"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Invite academics with known domain name" decompositions="//@decompositions.56" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Decide what users to allow" decompositions="//@decompositions.52" parentDecompositions="//@decompositions.56 //@decompositions.57" QualitativeReasoningCombinedLabel="Conflict" contributesTo="//@contributions.65 //@contributions.69 //@contributions.70"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Automated Reputation">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyTo="//@dependencies.12" name="Provide reputations" QualitativeReasoningCombinedLabel="WeaklySatisfied"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Other inflo users">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.13" name="Get feedback" QualitativeReasoningCombinedLabel="Conflict"/>
+  </containers>
+</edu.toronto.cs.openome_model:Model>

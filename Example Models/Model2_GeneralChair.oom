@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edu.toronto.cs.openome_model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore">
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.1" dependencyTo="//@dependencies.0" name="Conference be successful"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.3" dependencyTo="//@dependencies.2" name="Provide sustainability"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.4" dependencyTo="//@dependencies.7" name="Find many sponsors"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.5" dependencyTo="//@dependencies.6" name="Successful sponsor relationship"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.8" dependencyTo="//@dependencies.9" name="Support sustainable effort"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.10" dependencyTo="//@dependencies.11" name="Effective advertising"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.12" dependencyTo="//@dependencies.14" name="Affordable venue"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.13" dependencyTo="//@dependencies.15" name="Quality venue"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.17" dependencyTo="//@dependencies.16" name="Well-structured program"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.18" dependencyTo="//@dependencies.21" name="Good keynotes"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.19" dependencyTo="//@dependencies.20" name="Good papers"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.23" dependencyTo="//@dependencies.22" name="Publish in reputable source"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.24" dependencyTo="//@dependencies.25" name="Readily available publications"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.27" dependencyTo="//@dependencies.26" name="Quality workshops/tutorial"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.30" dependencyTo="//@dependencies.28" name="Prestige/Reputation"/>
+  <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.31" dependencyTo="//@dependencies.29" name="Personal success"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:MakeContribution" target="//@containers.0/@intentions.19" source="//@containers.0/@intentions.30"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.20" source="//@containers.0/@intentions.28"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.20" source="//@containers.0/@intentions.29"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.0/@intentions.21" source="//@containers.0/@intentions.28"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.21" source="//@containers.0/@intentions.29"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.0/@intentions.21" source="//@containers.0/@intentions.30"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.15" source="//@containers.0/@intentions.19"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.15" source="//@containers.0/@intentions.20"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.15" source="//@containers.0/@intentions.21"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.16" source="//@containers.0/@intentions.22"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.16" source="//@containers.0/@intentions.23"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.16" source="//@containers.0/@intentions.31"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.16" source="//@containers.0/@intentions.24"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.17" source="//@containers.0/@intentions.15"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.17" source="//@containers.0/@intentions.16"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.17" source="//@containers.0/@intentions.25"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.18" source="//@containers.0/@intentions.26"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.18" source="//@containers.0/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.9" source="//@containers.0/@intentions.18"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.9" source="//@containers.0/@intentions.17"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.9" source="//@containers.0/@intentions.8"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.3" source="//@containers.0/@intentions.11"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.3" source="//@containers.0/@intentions.12"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.5" source="//@containers.0/@intentions.13"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.5" source="//@containers.0/@intentions.14"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.5"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.15"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.16"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.7" source="//@containers.0/@intentions.10"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HurtContribution" target="//@containers.0/@intentions.9" source="//@containers.0/@intentions.10"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.3"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.4"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.5"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.6"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.7"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.8"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.9"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.1" source="//@containers.0/@intentions.10"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.2" source="//@containers.0/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.1"/>
+  <contributions xsi:type="edu.toronto.cs.openome_model:HelpContribution" target="//@containers.0/@intentions.0" source="//@containers.0/@intentions.32"/>
+  <dependencies dependencyFrom="//@intentions.0" dependencyTo="//@containers.1/@intentions.0"/>
+  <dependencies dependencyFrom="//@containers.0/@intentions.1" dependencyTo="//@intentions.0"/>
+  <dependencies dependencyFrom="//@intentions.1" dependencyTo="//@containers.2/@intentions.0"/>
+  <dependencies dependencyFrom="//@containers.0/@intentions.10" dependencyTo="//@intentions.1"/>
+  <dependencies dependencyFrom="//@containers.3/@intentions.0" dependencyTo="//@intentions.2"/>
+  <dependencies dependencyFrom="//@containers.3/@intentions.0" dependencyTo="//@intentions.3"/>
+  <dependencies dependencyFrom="//@intentions.3" dependencyTo="//@containers.0/@intentions.26"/>
+  <dependencies dependencyFrom="//@intentions.2" dependencyTo="//@containers.0/@intentions.18"/>
+  <dependencies dependencyFrom="//@containers.4/@intentions.0" dependencyTo="//@intentions.4"/>
+  <dependencies dependencyFrom="//@intentions.4" dependencyTo="//@containers.0/@intentions.37"/>
+  <dependencies dependencyFrom="//@containers.5/@intentions.0" dependencyTo="//@intentions.5"/>
+  <dependencies dependencyFrom="//@intentions.5" dependencyTo="//@containers.0/@intentions.25"/>
+  <dependencies dependencyFrom="//@containers.6/@intentions.0" dependencyTo="//@intentions.6"/>
+  <dependencies dependencyFrom="//@containers.6/@intentions.0" dependencyTo="//@intentions.7"/>
+  <dependencies dependencyFrom="//@intentions.6" dependencyTo="//@containers.0/@intentions.21"/>
+  <dependencies dependencyFrom="//@intentions.7" dependencyTo="//@containers.0/@intentions.20"/>
+  <dependencies dependencyFrom="//@intentions.8" dependencyTo="//@containers.0/@intentions.6"/>
+  <dependencies dependencyFrom="//@containers.7/@intentions.0" dependencyTo="//@intentions.8"/>
+  <dependencies dependencyFrom="//@containers.7/@intentions.0" dependencyTo="//@intentions.9"/>
+  <dependencies dependencyFrom="//@containers.7/@intentions.0" dependencyTo="//@intentions.10"/>
+  <dependencies dependencyFrom="//@intentions.10" dependencyTo="//@containers.0/@intentions.11"/>
+  <dependencies dependencyFrom="//@intentions.9" dependencyTo="//@containers.0/@intentions.12"/>
+  <dependencies dependencyFrom="//@intentions.11" dependencyTo="//@containers.0/@intentions.13"/>
+  <dependencies dependencyFrom="//@containers.8/@intentions.0" dependencyTo="//@intentions.11"/>
+  <dependencies dependencyFrom="//@containers.8/@intentions.0" dependencyTo="//@intentions.12"/>
+  <dependencies dependencyFrom="//@intentions.12" dependencyTo="//@containers.0/@intentions.14"/>
+  <dependencies dependencyFrom="//@intentions.13" dependencyTo="//@containers.0/@intentions.4"/>
+  <dependencies dependencyFrom="//@containers.9/@intentions.0" dependencyTo="//@intentions.13"/>
+  <dependencies dependencyFrom="//@intentions.14" dependencyTo="//@containers.10/@intentions.0"/>
+  <dependencies dependencyFrom="//@intentions.15" dependencyTo="//@containers.10/@intentions.0"/>
+  <dependencies dependencyFrom="//@containers.0/@intentions.0" dependencyTo="//@intentions.14"/>
+  <dependencies dependencyFrom="//@containers.0/@intentions.2" dependencyTo="//@intentions.15"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.28" target="//@containers.0/@intentions.27"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.29" target="//@containers.0/@intentions.27"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:OrDecomposition" source="//@containers.0/@intentions.30" target="//@containers.0/@intentions.27"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.27" target="//@containers.0/@intentions.33"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.31" target="//@containers.0/@intentions.33"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.32" target="//@containers.0/@intentions.33"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.34" target="//@containers.0/@intentions.33"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.37" target="//@containers.0/@intentions.35"/>
+  <decompositions xsi:type="edu.toronto.cs.openome_model:AndDecomposition" source="//@containers.0/@intentions.36" target="//@containers.0/@intentions.33"/>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="General Chair">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.30" name="Prestige/Reputation" contributesFrom="//@contributions.41 //@contributions.42"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.1" name="Successful Conference" contributesTo="//@contributions.40 //@contributions.41" contributesFrom="//@contributions.32 //@contributions.33 //@contributions.34 //@contributions.35 //@contributions.36 //@contributions.37 //@contributions.38 //@contributions.39"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.31" name="Personal Success" contributesFrom="//@contributions.40"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Quality conference content" contributesTo="//@contributions.25 //@contributions.32" contributesFrom="//@contributions.21 //@contributions.22"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.26" name="Quality workshops/tutorials" contributesTo="//@contributions.33"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Quality publications" contributesTo="//@contributions.26 //@contributions.34" contributesFrom="//@contributions.23 //@contributions.24"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.16" name="Well-structured program" contributesTo="//@contributions.27 //@contributions.35"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Satisfied attendees" contributesTo="//@contributions.36" contributesFrom="//@contributions.25 //@contributions.26 //@contributions.27 //@contributions.28 //@contributions.29 //@contributions.30"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Involvement of Industry" contributesTo="//@contributions.20 //@contributions.37"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Financial Success" contributesTo="//@contributions.38" contributesFrom="//@contributions.18 //@contributions.19 //@contributions.20 //@contributions.31"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.3" name="Sustainability" contributesTo="//@contributions.30 //@contributions.31 //@contributions.39"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.20" name="Good papers" contributesTo="//@contributions.21"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.21" name="Good keynotes" contributesTo="//@contributions.22"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.22" name="Publish in reputable source" contributesTo="//@contributions.23"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.25" name="Readily available publications" contributesTo="//@contributions.24"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Good hotel/venue" contributesTo="//@contributions.13 //@contributions.28" contributesFrom="//@contributions.6 //@contributions.7 //@contributions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Good location" contributesTo="//@contributions.14 //@contributions.29" contributesFrom="//@contributions.9 //@contributions.10 //@contributions.11 //@contributions.12"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Many quality attendees" contributesTo="//@contributions.17 //@contributions.19" contributesFrom="//@contributions.13 //@contributions.14 //@contributions.15"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.7" name="Many sponsors" contributesTo="//@contributions.18" contributesFrom="//@contributions.16 //@contributions.17"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Well-connected hotel/venue" contributesTo="//@contributions.6" contributesFrom="//@contributions.0"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.15" name="Quality venue/hotel" contributesTo="//@contributions.7" contributesFrom="//@contributions.1 //@contributions.2"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.14" name="Affordable venue/hotel" contributesTo="//@contributions.8" contributesFrom="//@contributions.3 //@contributions.4 //@contributions.5"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Attractive/nice location" contributesTo="//@contributions.9"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Central location" contributesTo="//@contributions.10"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" name="Affordable location" contributesTo="//@contributions.12"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.11" name="Effective advertising" contributesTo="//@contributions.15"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.6" name="Successful sponsor relationship" contributesTo="//@contributions.16"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Goal" name="Select Venue/Hotel" decompositions="//@decompositions.3" parentDecompositions="//@decompositions.0 //@decompositions.1 //@decompositions.2"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Select green venue/hotel" decompositions="//@decompositions.0" contributesTo="//@contributions.1 //@contributions.3"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Select cheapest/nicest venue/hotel" decompositions="//@decompositions.1" contributesTo="//@contributions.2 //@contributions.4"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Select well-connected venue/hotel" decompositions="//@decompositions.2" contributesTo="//@contributions.0 //@contributions.5"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Select location" decompositions="//@decompositions.4" contributesTo="//@contributions.11"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Act as figurehead/representative for conference" decompositions="//@decompositions.5" contributesTo="//@contributions.42"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Organize conference" parentDecompositions="//@decompositions.3 //@decompositions.4 //@decompositions.5 //@decompositions.6 //@decompositions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Delegate many tasks/responsibilities" decompositions="//@decompositions.6"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Speak at conference" parentDecompositions="//@decompositions.7"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" name="Deal with sponsor relationships" decompositions="//@decompositions.8"/>
+    <intentions xsi:type="edu.toronto.cs.openome_model:Task" dependencyFrom="//@dependencies.9" name="Remind attendees about green goals/instructions" decompositions="//@decompositions.7"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Sponsor">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.0" name="Dummy"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Sustainability chair">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.2" name="Dummy"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Sponsorship">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.4 //@dependencies.5" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Attendees">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.8" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Publicty">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.10" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Local organizers">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.12 //@dependencies.13" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Program committee">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.17 //@dependencies.18 //@dependencies.19" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Publication chair">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.23 //@dependencies.24" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Role" name="Workshop/tutorial organize">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyTo="//@dependencies.27" name="Goal"/>
+  </containers>
+  <containers xsi:type="edu.toronto.cs.openome_model:Agent" name="Actual Chair">
+    <intentions xsi:type="edu.toronto.cs.openome_model:Softgoal" dependencyFrom="//@dependencies.28 //@dependencies.29" name="Goal"/>
+  </containers>
+</edu.toronto.cs.openome_model:Model>
