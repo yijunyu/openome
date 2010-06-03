@@ -26,7 +26,13 @@
    <launcher name="OpenOME">
       <solaris/>
       <win useIco="false">
-         <bmp/>
+         <bmp
+            winSmallHigh="/openome_model/icons/win16_32bit.bmp"
+            winSmallLow="/openome_model/icons/win16.bmp"
+            winMediumHigh="/openome_model/icons/win32_32bit.bmp"
+            winMediumLow="/openome_model/icons/win32_8bit.bmp"
+            winLargeHigh="/openome_model/icons/win48_32bit.bmp"
+            winLargeLow="/openome_model/icons/win48_8bit.bmp"/>
       </win>
    </launcher>
 
