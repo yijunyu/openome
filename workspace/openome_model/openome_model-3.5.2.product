@@ -23,7 +23,7 @@
       startupProgressRect="5,275,445,15"
       startupMessageRect="7,252,445,20"
       startupForegroundColor="8000FF" />
-   <launcher>
+   <launcher name="OpenOME">
       <solaris/>
       <win useIco="false">
          <bmp/>
@@ -34,7 +34,6 @@
 
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="com.ibm.icu"/>
