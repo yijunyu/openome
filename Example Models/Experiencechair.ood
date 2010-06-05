@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:edu.toronto.cs.openome_model="http:///edu/toronto/cs/openome_model.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_kWkv0G61Ed-O1-MtEQBvgQ" type="openome_model" name="Experiencechair.ood" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_wzrwwG61Ed-O1-MtEQBvgQ" type="2004" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_wz3-AG61Ed-O1-MtEQBvgQ" type="5020"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_wz6aQG61Ed-O1-MtEQBvgQ" type="7004">
+      <children xmi:type="notation:Shape" xmi:id="_LePH0G62Ed-O1-MtEQBvgQ" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_LePu4G62Ed-O1-MtEQBvgQ" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_LePu4W62Ed-O1-MtEQBvgQ" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_LePu4m62Ed-O1-MtEQBvgQ" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LePH0W62Ed-O1-MtEQBvgQ" x="415" y="199" width="121" height="61"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_Bf0hcW63Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_Bf2WoG63Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_Bf2WoW63Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf2Wom63Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bf0hcm63Ed-oy9FAkimfmw" x="259" y="67" width="193" height="85"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_Gb8dMG63Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_Gb9EQG63Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_Gb9EQW63Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Gb9EQm63Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.2"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gb8dMW63Ed-oy9FAkimfmw" x="499" y="67" width="157" height="85"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_RQpV4G63Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_RQpV4m63Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_RQpV4263Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RQpV5G63Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.3"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RQpV4W63Ed-oy9FAkimfmw" x="79" y="307" width="157" height="85"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_uABrcG63Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_uACSgG63Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_uACSgW63Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uACSgm63Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.4"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uABrcW63Ed-oy9FAkimfmw" x="283" y="319" width="157" height="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_zRu1oG63Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_zRvcsG63Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_zRvcsW63Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zRvcsm63Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.5"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zRu1oW63Ed-oy9FAkimfmw" x="511" y="319" width="121" height="61"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_FgxY8G64Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_FgxY8m64Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_FgxY8264Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FgxY9G64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.6"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FgxY8W64Ed-oy9FAkimfmw" x="655" y="523" width="133" height="61"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_NCgFAG64Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_NCgsEG64Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_NCgsEW64Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_NCgsEm64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.7"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NCgFAW64Ed-oy9FAkimfmw" x="79" y="439" width="145" height="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_RtvFEG64Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_RtvFEm64Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_RtvFE264Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_RtvFFG64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RtvFEW64Ed-oy9FAkimfmw" x="247" y="451" width="145" height="61"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_Tm0GkG64Ed-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_Tm0toG64Ed-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_Tm0toW64Ed-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Tm0tom64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.0/@intentions.9"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tm0GkW64Ed-oy9FAkimfmw" x="439" y="451" width="169" height="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_w_OyEG64Ed-oy9FAkimfmw" type="3016" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_w_PZIG64Ed-oy9FAkimfmw" type="5019"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_w_PZIW64Ed-oy9FAkimfmw" type="5040">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_w_PZIm64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.0/@intentions.10"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w_OyEW64Ed-oy9FAkimfmw" x="127" y="559"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_zbeLAG64Ed-oy9FAkimfmw" type="3016" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_zbeyEG64Ed-oy9FAkimfmw" type="5019"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_zbeyEW64Ed-oy9FAkimfmw" type="5040">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_zbeyEm64Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.0/@intentions.11"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zbeLAW64Ed-oy9FAkimfmw" x="295" y="559" width="136" height="70"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_aG61MG7GEd-oy9FAkimfmw" type="3013" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_aG7cQG7GEd-oy9FAkimfmw" type="5016"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_aG7cQW7GEd-oy9FAkimfmw" type="5037">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_aG7cQm7GEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.0/@intentions.12"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aG61MW7GEd-oy9FAkimfmw" x="523" y="619"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_wz6aQW61Ed-O1-MtEQBvgQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_wz6aQm61Ed-O1-MtEQBvgQ"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Role" href="Experiencechair.oom#//@containers.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wzrwwW61Ed-O1-MtEQBvgQ" x="-24" y="120" width="889" height="757"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_HYw_4G65Ed-oy9FAkimfmw" type="2002" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_HYw_4m65Ed-oy9FAkimfmw" type="5010"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_HYxm8G65Ed-oy9FAkimfmw" type="7002">
+      <children xmi:type="notation:Shape" xmi:id="_TQrpEG65Ed-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_TQsQIG65Ed-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_TQsQIW65Ed-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_TQsQIm65Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.1/@intentions.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TQrpEW65Ed-oy9FAkimfmw" x="31" y="139" width="141" height="69"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_XueDAG65Ed-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_XueqEG65Ed-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_XueqEW65Ed-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_XueqEm65Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.1/@intentions.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XueDAW65Ed-oy9FAkimfmw" x="187" y="55" width="145" height="69"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_byJ64G65Ed-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_byJ64m65Ed-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_byJ64265Ed-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_byJ65G65Ed-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.1/@intentions.2"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_byJ64W65Ed-oy9FAkimfmw" x="211" y="187"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_HYxm8W65Ed-oy9FAkimfmw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_HYxm8m65Ed-oy9FAkimfmw"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Agent" href="Experiencechair.oom#//@containers.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HYw_4W65Ed-oy9FAkimfmw" x="-192" y="840" width="349" height="313"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_kTPyMG65Ed-oy9FAkimfmw" type="2002" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kTPyMm65Ed-oy9FAkimfmw" type="5010"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_kTPyM265Ed-oy9FAkimfmw" type="7002">
+      <children xmi:type="notation:Shape" xmi:id="_YRxG4G7FEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_YRxt8G7FEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_YRxt8W7FEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_YRxt8m7FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YRxG4W7FEd-oy9FAkimfmw" x="298" y="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_atMngG7FEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_atNOkG7FEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_atNOkW7FEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_atNOkm7FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_atMngW7FEd-oy9FAkimfmw" x="526" y="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_g7v0cG7FEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_g7v0cm7FEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_g7v0c27FEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_g7v0dG7FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.2"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g7v0cW7FEd-oy9FAkimfmw" x="178" y="181" width="187" height="90"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_rsR-0G7FEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_rsR-0m7FEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_rsSl4G7FEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_rsSl4W7FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.3"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rsR-0W7FEd-oy9FAkimfmw" x="406" y="193" width="138" height="75"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_wgAMgG7FEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_wgAzkG7FEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_wgAzkW7FEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_wgAzkm7FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.4"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wgAMgW7FEd-oy9FAkimfmw" x="574" y="193" width="164" height="80"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_3T5iMG7FEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_3T6JQW7FEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_3T6JQm7FEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3T6JQ27FEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.5"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T6JQG7FEd-oy9FAkimfmw" x="190" y="325" width="138" height="71"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_DHVUAG7GEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_DHWiIG7GEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_DHWiIW7GEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_DHWiIm7GEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.6"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DHVUAW7GEd-oy9FAkimfmw" x="202" y="445"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_5e0FIG7GEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_5e0FIm7GEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_5e0FI27GEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_5e0FJG7GEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.7"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5e0FIW7GEd-oy9FAkimfmw" x="406" y="325"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_-km6QG7GEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_-knhUG7GEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_-knhUW7GEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-knhUm7GEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.8"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-km6QW7GEd-oy9FAkimfmw" x="406" y="445" width="130" height="63"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_E_GRcG7HEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_E_GRcm7HEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_E_G4gG7HEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_E_G4gW7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.9"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E_GRcW7HEd-oy9FAkimfmw" x="610" y="325" width="153" height="67"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_PYnqAG7HEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_PYnqAm7HEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_PYnqA27HEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_PYnqBG7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.10"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PYnqAW7HEd-oy9FAkimfmw" x="610" y="441" width="145" height="77"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_XibpwG7HEd-oy9FAkimfmw" type="3008" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_Xibpwm7HEd-oy9FAkimfmw" type="5009"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_XicQ0G7HEd-oy9FAkimfmw" type="5032">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_XicQ0W7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Task" href="Experiencechair.oom#//@containers.2/@intentions.11"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XibpwW7HEd-oy9FAkimfmw" x="190" y="589" width="133" height="62"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_ex7WUG7HEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_ex79YG7HEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_ex79YW7HEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ex79Ym7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.12"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ex7WUW7HEd-oy9FAkimfmw" x="403" y="598"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_hb96sG7HEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_hb96sm7HEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_hb96s27HEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_hb96tG7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.13"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hb96sW7HEd-oy9FAkimfmw" x="610" y="577" width="181" height="109"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_y_cYgG7HEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_y_cYgm7HEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_y_c_kG7HEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_y_c_kW7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.14"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y_cYgW7HEd-oy9FAkimfmw" x="190" y="733"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_3WXVcG7HEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_3WX8gG7HEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_3WX8gW7HEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3WX8gm7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.15"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3WXVcW7HEd-oy9FAkimfmw" x="404" y="733" width="135" height="67"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_7mNaAG7HEd-oy9FAkimfmw" type="3006" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_7mOBEG7HEd-oy9FAkimfmw" type="5007"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_7mOBEW7HEd-oy9FAkimfmw" type="5030">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_7mOBEm7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.2/@intentions.16"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mNaAW7HEd-oy9FAkimfmw" x="613" y="753"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_-JkHkG7HEd-oy9FAkimfmw" type="3005" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_-JkHkm7HEd-oy9FAkimfmw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_-JkHk27HEd-oy9FAkimfmw" type="5029">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-JkHlG7HEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Goal" href="Experiencechair.oom#//@containers.2/@intentions.17"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-JkHkW7HEd-oy9FAkimfmw" x="406" y="865" width="133" height="73"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_kTPyNG65Ed-oy9FAkimfmw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_kTPyNW65Ed-oy9FAkimfmw"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Agent" href="Experiencechair.oom#//@containers.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kTPyMW65Ed-oy9FAkimfmw" x="141" y="942" width="964" height="967"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_HqNXYG7IEd-oy9FAkimfmw" type="2004" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_HqN-cG7IEd-oy9FAkimfmw" type="5020"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_HqN-cW7IEd-oy9FAkimfmw" type="7004" collapsed="true">
+      <children xmi:type="notation:Shape" xmi:id="_EI9l8G8PEd-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_EI-NAG8PEd-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_EI-NAW8PEd-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_EI-NAm8PEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.3/@intentions.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EI9l8W8PEd-oy9FAkimfmw" x="108" y="71"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_HqN-cm7IEd-oy9FAkimfmw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_HqN-c27IEd-oy9FAkimfmw"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Role" href="Experiencechair.oom#//@containers.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HqNXYW7IEd-oy9FAkimfmw" x="900" y="840" width="100" height="100"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_MTJ4cG7IEd-oy9FAkimfmw" type="2004" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_MTJ4cm7IEd-oy9FAkimfmw" type="5020"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_MTKfgG7IEd-oy9FAkimfmw" type="7004" collapsed="true">
+      <children xmi:type="notation:Shape" xmi:id="_IWZdEG7KEd-oy9FAkimfmw" type="3014" fontName="Sans">
+        <children xmi:type="notation:DecorationNode" xmi:id="_IWaEIG7KEd-oy9FAkimfmw" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_IWaEIW7KEd-oy9FAkimfmw" type="5038">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_IWaEIm7KEd-oy9FAkimfmw" y="5"/>
+        </children>
+        <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@containers.4/@intentions.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IWZdEW7KEd-oy9FAkimfmw" x="54" y="158"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_MTKfgW7IEd-oy9FAkimfmw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_MTKfgm7IEd-oy9FAkimfmw"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Role" href="Experiencechair.oom#//@containers.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MTJ4cW7IEd-oy9FAkimfmw" x="1092" y="240" width="100" height="100"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_SQojgG7IEd-oy9FAkimfmw" type="2006" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_SQpKkG7IEd-oy9FAkimfmw" type="5022"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_SQpKkW7IEd-oy9FAkimfmw" type="5042">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_SQpKkm7IEd-oy9FAkimfmw" y="5"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@intentions.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SQojgW7IEd-oy9FAkimfmw" x="864" y="132" width="135" height="71"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Ut86gG7IEd-oy9FAkimfmw" type="2006" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ut9hkG7IEd-oy9FAkimfmw" type="5022"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ut9hkW7IEd-oy9FAkimfmw" type="5042">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ut9hkm7IEd-oy9FAkimfmw" y="5"/>
+    </children>
+    <element xmi:type="edu.toronto.cs.openome_model:Softgoal" href="Experiencechair.oom#//@intentions.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ut86gW7IEd-oy9FAkimfmw" x="852" y="240" width="143" height="71"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_kWkv0W61Ed-O1-MtEQBvgQ"/>
+  <element xmi:type="edu.toronto.cs.openome_model:Model" href="Experiencechair.oom#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_XyRxsG7JEd-oy9FAkimfmw" type="4005" source="_LePH0G62Ed-O1-MtEQBvgQ" target="_Bf0hcW63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_XyRxs27JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XySYwG7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XyRxsW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XyRxsm7JEd-oy9FAkimfmw" points="[-30, -30, 90, 90]$[-71, -77, 49, 43]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_YxqyIG7JEd-oy9FAkimfmw" type="4005" source="_LePH0G62Ed-O1-MtEQBvgQ" target="_Gb8dMG63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_YxrZMG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_YxrZMW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_YxqyIW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YxqyIm7JEd-oy9FAkimfmw" points="[28, -30, -74, 90]$[102, -77, 0, 43]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_akT0cG7JEd-oy9FAkimfmw" type="4005" source="_RQpV4G63Ed-oy9FAkimfmw" target="_LePH0G62Ed-O1-MtEQBvgQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_akUbgG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_akUbgW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_akT0cW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_akT0cm7JEd-oy9FAkimfmw" points="[79, -29, -239, 91]$[262, -89, -56, 31]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_a22V8G7JEd-oy9FAkimfmw" type="4005" source="_uABrcG63Ed-oy9FAkimfmw" target="_LePH0G62Ed-O1-MtEQBvgQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_a229AG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_a229AW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_a22V8W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a22V8m7JEd-oy9FAkimfmw" points="[34, -36, -80, 90]$[175, -106, 61, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_bJAc8G7JEd-oy9FAkimfmw" type="4005" source="_zRu1oG63Ed-oy9FAkimfmw" target="_LePH0G62Ed-O1-MtEQBvgQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_bJBEAG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_bJBEAW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_bJAc8W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bJAc8m7JEd-oy9FAkimfmw" points="[-23, -30, 73, 90]$[-91, -151, 5, -31]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_bbn28G7JEd-oy9FAkimfmw" type="4005" source="_FgxY8G64Ed-oy9FAkimfmw" target="_LePH0G62Ed-O1-MtEQBvgQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_bboeAG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_bbpFEG7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_bbn28W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bbn28m7JEd-oy9FAkimfmw" points="[-5, -31, 240, 293]$[-41, -209, 204, 115]$[-189, -292, 56, 32]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ejrNAG7JEd-oy9FAkimfmw" type="4005" source="_NCgFAG64Ed-oy9FAkimfmw" target="_RQpV4G63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ejr0EG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ejr0EW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ejrNAW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ejrNAm7JEd-oy9FAkimfmw" points="[3, -36, -3, 90]$[49, -83, 43, 43]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_e1TIgG7JEd-oy9FAkimfmw" type="4005" source="_RtvFEG64Ed-oy9FAkimfmw" target="_RQpV4G63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_e1TvkG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_e1TvkW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_e1TIgW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e1TIgm7JEd-oy9FAkimfmw" points="[-45, -30, 117, 102]$[-241, -113, -79, 19]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_fGg0UG7JEd-oy9FAkimfmw" type="4005" source="_RtvFEG64Ed-oy9FAkimfmw" target="_uABrcG63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_fGhbYm7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_fGhbY27JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_fGhbYG7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fGhbYW7JEd-oy9FAkimfmw" points="[13, -30, -29, 96]$[88, -89, 46, 37]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gcZCIG7JEd-oy9FAkimfmw" type="4005" source="_Tm0GkG64Ed-oy9FAkimfmw" target="_uABrcG63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gcZpMG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gcZpMW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gcZCIW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.9"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gcZCIm7JEd-oy9FAkimfmw" points="[-46, -36, 116, 96]$[-125, -95, 37, 37]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gsGSEG7JEd-oy9FAkimfmw" type="4005" source="_Tm0GkG64Ed-oy9FAkimfmw" target="_zRu1oG63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gsGSE27JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_gsG5IG7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gsGSEW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.10"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gsGSEm7JEd-oy9FAkimfmw" points="[14, -36, -34, 102]$[87, -107, 39, 31]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_h7VsYG7JEd-oy9FAkimfmw" type="4005" source="_aG61MG7GEd-oy9FAkimfmw" target="_FgxY8G64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_h7WTcm7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_h7WTc27JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_h7WTcG7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.11"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h7WTcW7JEd-oy9FAkimfmw" points="[12, -29, -56, 102]$[47, -162, -21, -31]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_iLvf4G7JEd-oy9FAkimfmw" type="4005" source="_aG61MG7GEd-oy9FAkimfmw" target="_zRu1oG63Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_iLwG8G7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_iLwG8W7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_iLvf4W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.12"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iLvf4m7JEd-oy9FAkimfmw" points="[12, -30, 21, 269]$[39, -118, 48, 181]$[51, -124, 60, 175]$[1, -267, 10, 32]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_jfrM8G7JEd-oy9FAkimfmw" type="4005" source="_w_OyEG64Ed-oy9FAkimfmw" target="_NCgFAG64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_jfrM827JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jfrM9G7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jfrM8W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.13"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jfrM8m7JEd-oy9FAkimfmw" points="[-13, -29, 21, 84]$[-60, -76, -26, 37]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_kIkY8G7JEd-oy9FAkimfmw" type="4005" source="_zbeLAG64Ed-oy9FAkimfmw" target="_RtvFEG64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kIlAAG7JEd-oy9FAkimfmw" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_kIlAAW7JEd-oy9FAkimfmw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_kIkY8W7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.14"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kIkY8m7JEd-oy9FAkimfmw" points="[-7, -35, 37, 78]$[29, -83, 73, 30]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_sJpTcG7JEd-oy9FAkimfmw" type="4001" source="_Gb8dMG63Ed-oy9FAkimfmw" target="_SQojgG7IEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_sJpTcW7JEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sJpTcm7JEd-oy9FAkimfmw" points="[79, -12, -282, 43]$[429, -64, 68, -9]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_A8Hc0G7KEd-oy9FAkimfmw" type="4001" source="_Bf0hcW63Ed-oy9FAkimfmw" target="_Ut86gG7IEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_A8Hc0W7KEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_A8Hc0m7KEd-oy9FAkimfmw" points="[97, 11, -526, -54]$[695, 88, 72, 23]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_KQw4AG7KEd-oy9FAkimfmw" type="4001" source="_SQojgG7IEd-oy9FAkimfmw" target="_IWZdEG7KEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_KQw4AW7KEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KQw4Am7KEd-oy9FAkimfmw" points="[70, 16, -208, -250]$[114, 26, -164, -240]$[176, 88, -102, -178]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Knf9AG7KEd-oy9FAkimfmw" type="4001" source="_Ut86gG7IEd-oy9FAkimfmw" target="_IWZdEG7KEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_KngkEG7KEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KngkEW7KEd-oy9FAkimfmw" points="[32, 38, -254, -120]$[74, 86, -212, -72]$[174, 36, -112, -122]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_FZUakG8PEd-oy9FAkimfmw" type="4001" source="_wgAMgG7FEd-oy9FAkimfmw" target="_EI9l8G8PEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_FZUakW8PEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FZUakm8PEd-oy9FAkimfmw" points="[43, -40, -226, 195]$[210, -224, -59, 11]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_OU7qsG8PEd-oy9FAkimfmw" type="4001" source="_g7v0cG7FEd-oy9FAkimfmw" target="_EI9l8G8PEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_OU7qsW8PEd-oy9FAkimfmw" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OU7qsm8PEd-oy9FAkimfmw" points="[74, -31, -580, 197]$[244, -152, -410, 76]$[488, -263, -166, -35]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Dqnq0W8UEd-TrK8uwnZn_g" type="4001" source="_E_GRcG7HEd-oy9FAkimfmw" target="_atMngG7FEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Dqnq0m8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DqoR4G8UEd-TrK8uwnZn_g" points="[29, -33, 131, 223]$[80, -105, 182, 151]$[64, -150, 166, 106]$[-56, -237, 46, 19]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_KTKFEG8UEd-TrK8uwnZn_g" type="4001" source="_PYnqAG7HEd-oy9FAkimfmw" target="_wgAMgG7FEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_KTKFEW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KTKFEm8UEd-TrK8uwnZn_g" points="[-35, -36, -8, 209]$[-100, -115, -73, 130]$[-50, -205, -23, 40]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_PQ2uIG8UEd-TrK8uwnZn_g" type="4005" source="_5e0FIG7GEd-oy9FAkimfmw" target="_rsR-0G7FEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_PQ3VMG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_PQ3VMW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PQ2uIW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.15"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PQ2uIm8UEd-TrK8uwnZn_g" points="[2, -21, -6, 72]$[-44, -100, -52, -7]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_XTz38G8UEd-TrK8uwnZn_g" type="4005" source="_YRxG4G7FEd-oy9FAkimfmw" target="_hb96sG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_XT0fAG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XT0fAW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XTz38W8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.16"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XTz38m8UEd-TrK8uwnZn_g" points="[5, 30, -339, -499]$[51, 284, -293, -245]$[183, 332, -161, -197]$[231, 380, -113, -149]$[303, 474, -41, -55]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_d7c6UG8UEd-TrK8uwnZn_g" type="4005" source="_-km6QG7GEd-oy9FAkimfmw" target="_hb96sG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_d7dhYG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_d7dhYW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_d7c6UW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.17"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_d7c6Um8UEd-TrK8uwnZn_g" points="[25, 24, -147, -92]$[104, 124, -68, 8]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_fJEkAG8UEd-TrK8uwnZn_g" type="4005" source="_E_GRcG7HEd-oy9FAkimfmw" target="_hb96sG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_fJFLEG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_fJFyIG8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_fJEkAW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.18"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fJEkAm8UEd-TrK8uwnZn_g" points="[25, 34, 12, -239]$[92, 136, 79, -137]$[45, 218, 32, -55]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_qIAWwG8UEd-TrK8uwnZn_g" type="4005" source="_g7v0cG7FEd-oy9FAkimfmw" target="_y_cYgG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qIA90G8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qIA90W8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qIAWwW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.19"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qIAWwm8UEd-TrK8uwnZn_g" points="[-42, 46, -20, -490]$[-116, 124, -94, -412]$[-116, 436, -94, -100]$[-50, 506, -28, -30]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_uAiHgG8UEd-TrK8uwnZn_g" type="4005" source="_XibpwG7HEd-oy9FAkimfmw" target="_3WXVcG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_uAiukG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_uAiukW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_uAiHgW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.20"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uAiHgm8UEd-TrK8uwnZn_g" points="[29, 23, -132, -86]$[142, 135, -19, 26]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_u8NsoG8UEd-TrK8uwnZn_g" type="4005" source="_3WXVcG7HEd-oy9FAkimfmw" target="_7mNaAG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_u8O6wG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_u8O6wW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_u8NsoW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.21"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u8OTsG8UEd-TrK8uwnZn_g" points="[50, 2, -99, -9]$[105, 4, -44, -7]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_vzmAkG8UEd-TrK8uwnZn_g" type="4005" source="_y_cYgG7HEd-oy9FAkimfmw" target="_7mNaAG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vzmAk28UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vzmAlG8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vzmAkW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.22"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vzmAkm8UEd-TrK8uwnZn_g" points="[60, 28, -363, 8]$[123, 56, -300, 36]$[291, 56, -132, 36]$[364, 36, -59, 16]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_0Vv9IG8UEd-TrK8uwnZn_g" type="4005" source="_3T5iMG7FEd-oy9FAkimfmw" target="_-km6QG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_0VwkMG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_0VwkMW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_0Vv9IW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.23"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Vv9Im8UEd-TrK8uwnZn_g" points="[45, 27, -114, -60]$[142, 110, -17, 23]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_1kfBIG8UEd-TrK8uwnZn_g" type="4005" source="_g7v0cG7FEd-oy9FAkimfmw" target="_-km6QG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_1kfoMG8UEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_1kfoMW8UEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_1kfBIW8UEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.24"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1kfBIm8UEd-TrK8uwnZn_g" points="[26, 34, -123, -154]$[123, 167, -26, -21]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_YIJzEG8hEd-TrK8uwnZn_g" type="4002" source="_5e0FIG7GEd-oy9FAkimfmw" target="_g7v0cG7FEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_YIJzEW8hEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:AndDecomposition" href="Experiencechair.oom#//@decompositions.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YIJzEm8hEd-TrK8uwnZn_g" points="[-33, -21, 112, 75]$[-215, -96, -70, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_hGr0UG8hEd-TrK8uwnZn_g" type="4011" source="_-JkHkG7HEd-oy9FAkimfmw" target="_7mNaAG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_hGsbYG8hEd-TrK8uwnZn_g" type="6010">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_hGsbYW8hEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_hGr0UW8hEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:UnknownContribution" href="Experiencechair.oom#//@contributions.25"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hGr0Um8hEd-TrK8uwnZn_g" points="[50, -25, -99, 65]$[194, -90, 45, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xf6skG8hEd-TrK8uwnZn_g" type="4005" source="_XueDAG65Ed-oy9FAkimfmw" target="_Tm0GkG64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_xf76sG8hEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xf76sW8hEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xf6skW8hEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.26"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xf6skm8hEd-TrK8uwnZn_g" points="[72, 0, -552, 250]$[464, -54, -160, 196]$[592, -212, -32, 38]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_zpC8QG8hEd-TrK8uwnZn_g" type="4005" source="_TQrpEG65Ed-oy9FAkimfmw" target="_Tm0GkG64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_zpDjUG8hEd-TrK8uwnZn_g" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zpDjUW8hEd-TrK8uwnZn_g"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_zpC8QW8hEd-TrK8uwnZn_g" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.27"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zpC8Qm8hEd-TrK8uwnZn_g" points="[71, 0, -712, 333]$[603, -69, -180, 264]$[757, -296, -26, 37]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Qj9zcG8iEd-YTP9VXISPxA" type="4005" source="_byJ64G65Ed-oy9FAkimfmw" target="_Tm0GkG64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Qj_BkG8iEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Qj_ooG8iEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Qj9zcW8iEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.28"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Qj9zcm8iEd-YTP9VXISPxA" points="[59, 0, -556, 376]$[447, -64, -168, 312]$[595, -339, -20, 37]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_cTTvcG8iEd-YTP9VXISPxA" type="4005" source="_YRxG4G7FEd-oy9FAkimfmw" target="_aG61MG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_cTUWgG8iEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_cTUWgW8iEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_cTTvcW8iEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.29"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cTTvcm8iEd-YTP9VXISPxA" points="[9, -21, -126, 312]$[121, -354, -14, -21]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_8FJ7AG8jEd-YTP9VXISPxA" type="4005" source="_XueDAG65Ed-oy9FAkimfmw" target="_ex7WUG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_8FLJIG8jEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_8FLJIW8jEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8FJ7AW8jEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.30"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8FKiEG8jEd-YTP9VXISPxA" points="[-13, 35, -548, -605]$[-84, 218, -619, -422]$[96, 446, -439, -194]$[476, 613, -59, -27]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_9qI70G8jEd-YTP9VXISPxA" type="4005" source="_byJ64G65Ed-oy9FAkimfmw" target="_ex7WUG7HEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_9qJi4G8jEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9qKJ8G8jEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9qI70W8jEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.31"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9qI70m8jEd-YTP9VXISPxA" points="[16, 29, -509, -484]$[170, 319, -355, -194]$[471, 483, -54, -30]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_BKzmMG8kEd-YTP9VXISPxA" type="4005" source="_TQrpEG65Ed-oy9FAkimfmw" target="_DHVUAG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BK0NQG8kEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BK0NQW8kEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BKzmMW8kEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.32"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BKzmMm8kEd-YTP9VXISPxA" points="[20, 17, -226, -184]$[216, 188, -30, -13]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_rfhJAG8kEd-YTP9VXISPxA" type="4001" source="_zbeLAG64Ed-oy9FAkimfmw" target="_-JkHkG7HEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_rfhJAW8kEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rfhJAm8kEd-YTP9VXISPxA" points="[-14, 36, -288, -1094]$[-272, 806, -546, -324]$[-212, 1034, -486, -96]$[206, 1118, -68, -12]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_2riVgG8kEd-YTP9VXISPxA" type="4001" source="_w_OyEG64Ed-oy9FAkimfmw" target="_-JkHkG7HEd-oy9FAkimfmw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_2riVgW8kEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:Dependency" href="Experiencechair.oom#//@dependencies.9"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2riVgm8kEd-YTP9VXISPxA" points="[7, 30, -445, -1106]$[39, 176, -413, -960]$[-117, 1076, -569, -60]$[383, 1128, -69, -8]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_aK1fsG8lEd-YTP9VXISPxA" type="4005" source="_3T5iMG7FEd-oy9FAkimfmw" target="_aG61MG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_aK2GwG8lEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_aK2t0G8lEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_aK1fsW8lEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.33"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aK1fsm8lEd-YTP9VXISPxA" points="[23, -36, -254, 666]$[255, -395, -22, 307]$[272, -673, -5, 29]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_lOSmEG8lEd-YTP9VXISPxA" type="4005" source="_g7v0cG7FEd-oy9FAkimfmw" target="_aG61MG7GEd-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_lOSmE28lEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lOSmFG8lEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lOSmEW8lEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.34"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lOSmEm8lEd-YTP9VXISPxA" points="[13, -46, -168, 342]$[64, -236, -117, 152]$[157, -362, -24, 26]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_v_d0MG8mEd-YTP9VXISPxA" type="4005" source="_YRxG4G7FEd-oy9FAkimfmw" target="_FgxY8G64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_v_d0M28mEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_v_d0NG8mEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_v_d0MW8mEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.35"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v_d0Mm8mEd-YTP9VXISPxA" points="[21, -30, -179, 341]$[135, -196, -65, 175]$[189, -339, -11, 32]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_0wjkoG8mEd-YTP9VXISPxA" type="4005" source="_atMngG7FEd-oy9FAkimfmw" target="_FgxY8G64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_0wjko28mEd-YTP9VXISPxA" type="6004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_0wkLsG8mEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_0wjkoW8mEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HelpContribution" href="Experiencechair.oom#//@contributions.36"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0wjkom8mEd-YTP9VXISPxA" points="[-1, -21, 20, 257]$[30, -299, 51, -21]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_KNNTcG8nEd-YTP9VXISPxA" type="4006" source="_g7v0cG7FEd-oy9FAkimfmw" target="_FgxY8G64Ed-oy9FAkimfmw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_KNN6gG8nEd-YTP9VXISPxA" type="6005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KNN6gW8nEd-YTP9VXISPxA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_KNNTcW8nEd-YTP9VXISPxA" fontName="Sans"/>
+    <element xmi:type="edu.toronto.cs.openome_model:HurtContribution" href="Experiencechair.oom#//@contributions.37"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KNNTcm8nEd-YTP9VXISPxA" points="[42, -46, -243, 449]$[244, -272, -41, 223]$[280, -463, -5, 32]"/>
+  </edges>
+</notation:Diagram>
