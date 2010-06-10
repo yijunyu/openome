@@ -60,6 +60,7 @@ public class EvaluationDialog extends SelectionDialog {
      */
     public EvaluationDialog(Shell parent) {
         super(parent);
+        setShellStyle(getShellStyle() & ~SWT.APPLICATION_MODAL );
     }
 
     /**
