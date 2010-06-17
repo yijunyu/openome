@@ -178,10 +178,11 @@ public class AgentEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
 		AgentFigure figure = new AgentFigure();
+		figure.setEditPart(this);
 		return primaryShape = figure;
 	}
 
@@ -1046,6 +1047,12 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private Ellipse fFigureAgentBoundaryFigure;
+		
+		/**
+		 * This Container's minimum contraction
+		 * default 100x100
+		 */
+		private Dimension contraction = new Dimension(100, 100);
 
 		/**
 		 * @generated
@@ -1104,6 +1111,11 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 * Sets the minimum size that the container may contract to
 		 */
 		public void setMinimumContraction(Dimension d) {
+			contraction = d;
+
+			// get the zoom level
+
+			// set the minimum size
 			fFigureAgentBoundaryFigure.setMinimumSize(d);
 		}
 

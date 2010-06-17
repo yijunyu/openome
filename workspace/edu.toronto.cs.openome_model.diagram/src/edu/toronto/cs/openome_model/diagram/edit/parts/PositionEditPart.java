@@ -178,10 +178,11 @@ public class PositionEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
 		PositionFigure figure = new PositionFigure();
+		figure.setEditPart(this);
 		return primaryShape = figure;
 	}
 
@@ -1046,6 +1047,12 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private Ellipse fFigurePositionBoundaryFigure;
+		
+		/**
+		 * This Container's minimum contraction
+		 * default 100x100
+		 */
+		private Dimension contraction = new Dimension(100, 100);
 
 		/**
 		 * @generated
@@ -1105,6 +1112,11 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 * Sets the minimum size that the container may contract to
 		 */
 		public void setMinimumContraction(Dimension d) {
+			contraction = d;
+
+			// get the zoom level
+
+			// set the minimum size
 			fFigurePositionBoundaryFigure.setMinimumSize(d);
 		}
 
