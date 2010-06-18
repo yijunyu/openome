@@ -43,6 +43,7 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBa
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 
 import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
@@ -165,6 +166,12 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 					item.setText (1, cont.getContributionType());
 			}
 			
+			for (Dependency dep: i.getDependencyTo()) {
+				if (dep.getDependencyTo().equals(intention)) {
+					item.setText(1, "Dependency on");
+				}
+			}
+			
 			TableEditor editor = new TableEditor (table);
 			editor.grabHorizontal = true;
 						
@@ -280,107 +287,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		//System.out.println("shell is disposed");
 		
 		return;
-		/*Label label = new Label (shell, SWT.BORDER);
-		//label.setImage (image);
-		label.setText("Here is my label");
-		label.pack ();
-
-		label.setSize(200, 50);*/
 		
-	
-		//text.setSize(400, 100);
-		
-		//shell.pack ();
-		
-		
-		//GridLayout layout = new GridLayout(4, false);
-		//shell.setLayout(layout);
-		
-		/*Button b = new Button(shell, SWT.PUSH);
-		b.setText("LEFT, TOP");
-		b.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("LEFT, CENTER");
-		b.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("LEFT, BOTTOM");
-		b.setLayoutData(new GridData(SWT.LEFT, SWT.BOTTOM, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("LEFT, FILL");
-		b.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("CENTER, TOP");
-		b.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("CENTER, CENTER");
-		b.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("CENTER, BOTTOM");
-		b.setLayoutData(new GridData(SWT.CENTER, SWT.BOTTOM, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("CENTER, FILL");
-		b.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("RIGHT, TOP");
-		b.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("RIGHT, CENTER");
-		b.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("RIGHT, BOTTOM");
-		b.setLayoutData(new GridData(SWT.RIGHT, SWT.BOTTOM, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("RIGHT, FILL");
-		b.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("FILL, TOP");
-		b.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("FILL, CENTER");
-		b.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("FILL, BOTTOM");
-		b.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, true, true, 1, 1));
-		b = new Button(shell, SWT.PUSH);
-		b.setText("FILL, FILL");
-		b.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		
-		shell.open ();*/
-		//while (!shell.isDisposed ()) {
-		//	if (!display.readAndDispatch ()) display.sleep ();
-		//}
-		
-		
-		/*
-		GridData data = new GridData(SWT.FILL, SWT.FILL, true, true);
-		data.heightHint = 200;
-		table.setLayoutData(data);
-		String[] titles = {" ", "C", "!", "Description", "Resource", "In Folder", "Location"};
-		for (int i=0; i<titles.length; i++) {
-			TableColumn column = new TableColumn (table, SWT.NONE);
-			column.setText (titles [i]);
-		}	
-		int count = 128;
-		for (int i=0; i<count; i++) {
-			TableItem item = new TableItem (table, SWT.NONE);
-			item.setText (0, "x");
-			item.setText (1, "y");
-			item.setText (2, "!");
-			item.setText (3, "this stuff behaves the way I expect");
-			item.setText (4, "almost everywhere");
-			item.setText (5, "some.folder");
-			item.setText (6, "line " + i + " in nowhere");
-		}
-		for (int i=0; i<titles.length; i++) {
-			table.getColumn (i).pack ();
-		}	
-		shell.pack ();
-		shell.open ();
-		while (!shell.isDisposed ()) {
-			if (!display.readAndDispatch ()) display.sleep ();
-		}
-		*/
-		//display.dispose ();
 
 		
 	}
