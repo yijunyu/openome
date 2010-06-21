@@ -1,6 +1,8 @@
 package edu.toronto.cs.openome.evaluation.handlers;
 
 //Imports of eclipse stuff
+import java.util.List;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
@@ -94,10 +96,10 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
+		List editParts = getEditParts();
 		
 		
-		
-		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs);
+		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs, editParts);
 		
 		Reasoning reasoning = new Reasoning(iQualReasoner);
 	

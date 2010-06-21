@@ -1,11 +1,13 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivebackwardreasoning;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Stack;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -26,6 +28,8 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Softgoa
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 public class IntQualBackwardReasoner extends Reasoner {
@@ -44,8 +48,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 	 * @author jenhork
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
 	 */
-	public IntQualBackwardReasoner(ModelImpl m, CommandStack com) {
-		super(m, com);
+	public IntQualBackwardReasoner(ModelImpl m, CommandStack com, List editParts) {
+		super(m, com, editParts);
 		
 		softgoalWrappers = new SoftgoalWrappers();
 		minDistances = new HashMap<Intention, Integer>();
@@ -264,8 +268,24 @@ public class IntQualBackwardReasoner extends Reasoner {
 				message += k.getName() + "\n";
 			}
 			showMessage(message, shell);
+			highlightIntentions(conflictIntentions);
 			
 			return -1;
+		}
+		
+	}
+
+	private void highlightIntentions(Vector<Intention> conflictIntentions) {
+		for (Object ob: editParts) {
+			EditPart ep = (EditPart) ob;
+			if (ep instanceof ActorEditPart) {
+				
+			}
+			if (ep instanceof SoftgoalEditPart) {
+				SoftgoalEditPart sep = (SoftgoalEditPart) ep;
+				sep.setFigure("orange");
+			}
+			System.out.println(ep.toString());
 		}
 		
 	}

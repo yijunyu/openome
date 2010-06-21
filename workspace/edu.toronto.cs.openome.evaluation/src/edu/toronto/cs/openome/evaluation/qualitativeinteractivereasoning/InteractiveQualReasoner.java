@@ -73,7 +73,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
 	 */
 	public InteractiveQualReasoner(ModelImpl m, CommandStack com, DiagramCommandStack d) {
-		super(m, com);
+		super(m, com, null);
 		
 		dcs = d;
 		

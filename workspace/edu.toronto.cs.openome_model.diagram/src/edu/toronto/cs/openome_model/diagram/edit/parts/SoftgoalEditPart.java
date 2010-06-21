@@ -2,6 +2,7 @@ package edu.toronto.cs.openome_model.diagram.edit.parts;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import openome_model.figures.ConstrainedResizeShapeEditPolicy;
 import openome_model.figures.OpenOMEBorderItemLocator;
@@ -195,6 +196,43 @@ public class SoftgoalEditPart extends AbstractBorderedShapeEditPart {
 	protected IFigure createNodeShape() {
 		SoftGoalSVGFigure figure = new SoftGoalSVGFigure();
 		return primaryShape = figure;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public void setFigure(String color) {		
+		
+		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(color);
+		System.out.println("new sgf");					
+		//contentPane = setupContentPane(figure);
+		
+		unregisterVisuals();
+		IFigure Parent = (IFigure) primaryShape.getParent();
+		int index = Parent.getChildren().indexOf(primaryShape);
+		Parent.remove(primaryShape);
+		
+		List epList = getChildren();
+		for (int i=0; i<epList.size(); i++) {
+			EditPart childEP = (EditPart) epList.get(i);
+			addChildVisual(childEP, i);
+		}
+		
+		/*Iterator connIt = null;
+		connIt = getSourceConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}
+		connIt = getTargetConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}*/
+		primaryShape = newfig;
+		Parent.add(primaryShape, index);
+		primaryShape.setParent(Parent);
+		registerVisuals();		
 	}
 
 	/**
@@ -3403,6 +3441,14 @@ public class SoftgoalEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		public SoftGoalSVGFigure() {
 
+			createContents();
+		}
+		
+		/**
+		 * @generated NOT
+		 */
+		public SoftGoalSVGFigure(String color) {
+			super(color);
 			createContents();
 		}
 

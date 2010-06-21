@@ -100,6 +100,8 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
 		
+	
+		
 		InteractiveQualReasoner iQualReasoner = new InteractiveQualReasoner(mi, cs, dcs);
 		Reasoning reasoning = new Reasoning(iQualReasoner);
 		

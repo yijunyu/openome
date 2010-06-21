@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome.evaluation.handlers;
 
+import java.util.List;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
@@ -12,6 +14,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.emf.core.resources.GMFResource;
@@ -23,14 +27,18 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 
 public class ReasonerHandler implements IHandler {
 	
 	private Openome_modelDiagramEditor mDE;
 	
 	private DiagramCommandStack dcs;
+	
 
 	public ReasonerHandler() {
 		mDE = null;
@@ -80,8 +88,7 @@ public class ReasonerHandler implements IHandler {
 				
 		ResourceSet resourceSet = editingDomain.getResourceSet();
 		
-		
-		
+				
 		XMIResourceImpl xmires = null;
 		
 		for(Resource tmp: resourceSet.getResources()) {
@@ -104,6 +111,31 @@ public class ReasonerHandler implements IHandler {
 		
 	}
 	
+	public List getEditParts() {
+		DiagramEditPart dep = mDE.getDiagramEditPart();
+		List l = dep.getPrimaryEditParts();
+		
+		/*for (Object ob: l) {
+			EditPart ep = (EditPart) ob;
+			if (ep instanceof ActorEditPart) {
+				
+			}
+			if (ep instanceof SoftgoalEditPart) {
+				SoftgoalEditPart sep = (SoftgoalEditPart) ep;
+				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				sep.setFigure("orange");
+				System.out.println("set figure to orange");
+				sep.refresh();
+				
+			}
+			System.out.println(ep.toString());
+		}*/
+		
+		return l;
+	}
+	
 	/**
 	 * @author jenhork
 	 * This is an important somethingorrather that is needed to get both the modelImplementation and the command stack.
@@ -118,6 +150,8 @@ public class ReasonerHandler implements IHandler {
 			IEditorPart iep= iwp.getActiveEditor(); //
 			
 			mDE = (Openome_modelDiagramEditor) iep; //
+			//DiagramEditPart dep = mDE.getDiagramEditPart();
+			
 
 					}
 		catch (Exception e) {

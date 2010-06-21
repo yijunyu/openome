@@ -3,6 +3,8 @@
  */
 package edu.toronto.cs.openome.evaluation.reasoning;
 
+import java.util.List;
+
 import org.eclipse.emf.common.command.CommandStack;
 
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
@@ -20,6 +22,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
 public class Reasoner {
 	protected ModelImpl model;
 	protected CommandStack cs;
+	protected List editParts;
 	
 	/**
 	 * @author jenhork
@@ -28,15 +31,17 @@ public class Reasoner {
 	public Reasoner() {
 		model = null;
 		cs = null;
+		editParts = null;
 	}
 	
 	/**
 	 * @author jenhork
 	 * Default constructor, sets the model implementation and the command stack
 	 */
-	public Reasoner(ModelImpl mod, CommandStack com) {
+	public Reasoner(ModelImpl mod, CommandStack com, List ep) {
 		model = mod;
 		cs = com;	
+		editParts = ep;
 	}
 		
 	/**
