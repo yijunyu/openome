@@ -115,7 +115,7 @@ public class ReasonerHandler implements IHandler {
 		DiagramEditPart dep = mDE.getDiagramEditPart();
 		List l = dep.getPrimaryEditParts();
 		
-		/*for (Object ob: l) {
+		for (Object ob: l) {
 			EditPart ep = (EditPart) ob;
 			if (ep instanceof ActorEditPart) {
 				
@@ -131,7 +131,7 @@ public class ReasonerHandler implements IHandler {
 				
 			}
 			System.out.println(ep.toString());
-		}*/
+		}
 		
 		return l;
 	}

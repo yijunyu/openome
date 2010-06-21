@@ -217,6 +217,10 @@ public class SoftgoalEditPart extends AbstractBorderedShapeEditPart {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
+		SoftGoalSVGFigure sgPrimary = (SoftGoalSVGFigure) primaryShape;
+		WrappingLabel wl =  sgPrimary.getFigureSoftgoalNameFigure();
+		
+		newfig.add(wl);
 		
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
