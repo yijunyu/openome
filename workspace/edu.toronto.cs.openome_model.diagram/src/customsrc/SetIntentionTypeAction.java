@@ -1,66 +1,38 @@
 package customsrc;
 
-import java.util.ArrayList;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.RequestConstants;
-import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.requests.GroupRequest;
+import org.eclipse.gef.RootEditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
-import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
-import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
-import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.diagram.edit.commands.GoalCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.ResourceCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.SoftgoalCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.TaskCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
-import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 public class SetIntentionTypeAction extends AbstractActionHandler {
 	
@@ -105,22 +77,43 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 			
-			doTypeSwitch(intention, dcs, progressMonitor);
+			IFigure fig = part.getContentPane();
+			Rectangle coords = fig.getBounds();
 			
+			doTypeSwitch(intention, dcs, progressMonitor, coords);
 		}
 	}
 	
-	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs, IProgressMonitor progressMonitor) {
-		final EObject originalImpl = ((IGraphicalEditPart)originalEditPart).getNotationView().getElement();
-		TransactionalEditingDomain domain = ((IGraphicalEditPart)originalEditPart).getEditingDomain();
+	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs, IProgressMonitor progressMonitor, Rectangle coords) {
+		IGraphicalEditPart gEditPart = (IGraphicalEditPart)originalEditPart;
+		
+		final EObject originalImpl = gEditPart.getNotationView().getElement();
+		TransactionalEditingDomain domain = gEditPart.getEditingDomain();
+		RootEditPart root = gEditPart.getRoot();
 		
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateIntentionCommand(originalImpl, domain);
 		dcs.execute(new ICommandProxy(create));
-
+		
 		//Delete old element
 		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
 		dcs.execute(new ICommandProxy(destroy));
+		
+		// Place the new element in the old one's spot
+		
+		EObject newObject = create.getCreateRequest().getNewElement();
+		IGraphicalEditPart rootContents = (IGraphicalEditPart)root.getContents();
+		
+		for(Object o : rootContents.getChildren()) {
+			View v = ((IGraphicalEditPart)o).getNotationView();
+			EObject viewObject = v.getElement();
+			
+			// this is the new element
+			if(viewObject == newObject) {
+				SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), new Point(coords.x, coords.y));
+				dcs.execute(new ICommandProxy(s));	
+			}
+		}
 	}
 
 	/**
@@ -132,17 +125,18 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		CreateElementRequest req = null;
 		
 		if (changeTo.equals("Hardgoal")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Goal_1005);
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Goal_2005);
 		}
 		else if (changeTo.equals("Softgoal")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Softgoal_1006);
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Softgoal_2006);
 		}
 		else if (changeTo.equals("Task")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Task_1007);
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Task_2007);
 		}
 		else if (changeTo.equals("Resource")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Resource_1008);
+			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Resource_2008);
 		}
+		
 		return new CreateNewIntentionTypeCommand(req, originalImpl);
 	}
 	
