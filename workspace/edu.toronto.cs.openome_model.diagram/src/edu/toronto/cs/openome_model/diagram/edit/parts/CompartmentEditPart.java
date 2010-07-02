@@ -12,6 +12,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
@@ -216,6 +217,13 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
                 ep.refresh();
             }
         }
+	}
+	
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		
+		//Removing this policy allows anchors to snap anywhere inside our compartments.
+		removeEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE);
 	}
 	
 	
