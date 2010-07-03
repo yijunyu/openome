@@ -39,6 +39,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.GoalFigure;
+
 /**
  * @generated
  */
@@ -195,6 +197,47 @@ public class Goal3EditPart extends AbstractBorderedShapeEditPart {
 	protected IFigure createNodeShape() {
 		GoalFigure figure = new GoalFigure();
 		return primaryShape = figure;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public void setFigure(String color) {		
+		
+		GoalFigure newfig = new GoalFigure(color);
+		System.out.println("new sgf");					
+		//contentPane = setupContentPane(figure);
+		
+		unregisterVisuals();
+		IFigure Parent = (IFigure) primaryShape.getParent();
+		int index = Parent.getChildren().indexOf(primaryShape);
+		Parent.remove(primaryShape);
+		
+		List epList = getChildren();
+		for (int i=0; i<epList.size(); i++) {
+			EditPart childEP = (EditPart) epList.get(i);
+			addChildVisual(childEP, i);
+		}
+		GoalFigure sgPrimary = (GoalFigure) primaryShape;
+		WrappingLabel wl =  sgPrimary.getFigureGoalNameFigure();
+		
+		newfig.add(wl);
+		
+		/*Iterator connIt = null;
+		connIt = getSourceConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}
+		connIt = getTargetConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}*/
+		primaryShape = newfig;
+		Parent.add(primaryShape, index);
+		primaryShape.setParent(Parent);
+		registerVisuals();		
 	}
 
 	/**
@@ -3405,6 +3448,14 @@ public class Goal3EditPart extends AbstractBorderedShapeEditPart {
 			createContents();
 		}
 
+		/**
+		 * @generated NOT
+		 */
+		public GoalFigure(String color) {
+			super(color);
+			createContents();
+		}
+		
 		/**
 		 * @generated
 		 */
