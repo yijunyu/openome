@@ -29,7 +29,18 @@ import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
+
+
+
+
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 public class IntQualBackwardReasoner extends Reasoner {
@@ -283,7 +294,35 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			if (ep instanceof SoftgoalEditPart) {
 				SoftgoalEditPart sep = (SoftgoalEditPart) ep;
-				sep.setFigure("orange");
+				sep.setFigure("red");
+			}
+			if (ep instanceof GoalEditPart) {
+				GoalEditPart gep = (GoalEditPart) ep;
+				gep.setFigure("red");
+			}
+			if (ep instanceof ResourceEditPart) {
+				ResourceEditPart rep = (ResourceEditPart) ep;
+				rep.setFigure("red");
+			}
+			if (ep instanceof TaskEditPart) {
+				TaskEditPart tep = (TaskEditPart) ep;
+				tep.setFigure("red");
+			}
+			if (ep instanceof Softgoal2EditPart) {
+				Softgoal2EditPart sep = (Softgoal2EditPart) ep;
+				sep.setFigure("red");
+			}
+			if (ep instanceof Softgoal3EditPart) {
+				Softgoal3EditPart sep = (Softgoal3EditPart) ep;
+				sep.setFigure("red");
+			}
+			if (ep instanceof Softgoal4EditPart) {
+				Softgoal4EditPart sep = (Softgoal4EditPart) ep;
+				sep.setFigure("red");
+			}
+			if (ep instanceof Softgoal5EditPart) {
+				Softgoal5EditPart sep = (Softgoal5EditPart) ep;
+				sep.setFigure("red");
 			}
 			System.out.println(ep.toString());
 		}

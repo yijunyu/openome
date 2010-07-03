@@ -28,10 +28,26 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
+
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
+
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart;
+
+
+
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
+import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 public class ReasonerHandler implements IHandler {
 	
@@ -125,12 +141,83 @@ public class ReasonerHandler implements IHandler {
 				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
 				System.out.println(s.getName());
 				
+				sep.setFigure("yellow");
+				System.out.println("set SoftgoalEditPart figure to orange");
+				sep.refresh();
+				
+			}
+			if (ep instanceof GoalEditPart) {
+				GoalEditPart gep = (GoalEditPart) ep;
+				GoalImpl s = (GoalImpl) gep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				gep.setFigure("yellow");
+				System.out.println("set GoalEditPart figure to orange");
+				gep.refresh();
+				
+			}
+			if (ep instanceof ResourceEditPart) {
+				ResourceEditPart rep = (ResourceEditPart) ep;
+				ResourceImpl s = (ResourceImpl) rep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				rep.setFigure("yellow");
+				System.out.println("set ResourceEditPart figure to orange");
+				rep.refresh();
+				
+			}
+			if (ep instanceof TaskEditPart) {
+				TaskEditPart tep = (TaskEditPart) ep;
+				TaskImpl s = (TaskImpl) tep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				tep.setFigure("yellow");
+				System.out.println("set TaskEditPart figure to orange");
+				tep.refresh();
+				
+			}
+			if (ep instanceof Softgoal2EditPart) {
+				Softgoal2EditPart sep = (Softgoal2EditPart) ep;
+				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
 				sep.setFigure("orange");
-				System.out.println("set figure to orange");
+				System.out.println("set Softgoal2EditPart figure to orange");
+				sep.refresh();
+				
+			}
+			if (ep instanceof Softgoal3EditPart) {
+				Softgoal3EditPart sep = (Softgoal3EditPart) ep;
+				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				sep.setFigure("orange");
+				System.out.println("set Softgoal3EditPart figure to orange");
+				sep.refresh();
+				
+			}
+			if (ep instanceof Softgoal4EditPart) {
+				Softgoal4EditPart sep = (Softgoal4EditPart) ep;
+				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				sep.setFigure("orange");
+				System.out.println("set Softgoal4EditPart figure to orange");
+				sep.refresh();
+				
+			}
+			if (ep instanceof Softgoal5EditPart) {
+				Softgoal5EditPart sep = (Softgoal5EditPart) ep;
+				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
+				System.out.println(s.getName());
+				
+				sep.setFigure("orange");
+				System.out.println("set Softgoal5EditPart figure to orange");
 				sep.refresh();
 				
 			}
 			System.out.println(ep.toString());
+			
 		}
 		
 		return l;
