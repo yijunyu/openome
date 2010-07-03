@@ -17,6 +17,7 @@ import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
+import java.util.Vector;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -592,7 +593,34 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		
 		return children;
 	}
-
+	
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getParents() {
+		EList<Intention> parents = new BasicEList<Intention>();
+		
+		
+		for (Dependency d : getDependencyTo()) {
+			Dependable dependable = d.getDependencyTo();
+			
+			//If the target is not an actor, like in an SD diagram
+			if (!(dependable instanceof Container)) {
+				if (dependable != null) {
+					parents.add((Intention) dependable);
+				}				
+			}				
+		}
+		
+		for (Decomposition dec : getDecompositionsFrom()) {
+			parents.add(dec.getTarget());
+		}
+		for (Contribution cont : getContributesTo()) {
+			parents.add(cont.getTarget());
+		}
+				
+		return parents;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1176,5 +1204,128 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		result.append(')');
 		return result.toString();
 	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getForwardSlice() {
+		//can't instantiate an EList and don't want to constrain it's type, so have to set it equal to something
+		EList<Intention> slice = this.getParents();
+		//but I really want it to be empty
+		slice.removeAll(this.getParents());
+		
+		return getForwardSliceRecursive(slice, this);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	private EList<Intention> getForwardSliceRecursive(EList<Intention> slice, Intention current) {
+		EList<Intention> parents = current.getParents();
+			
+		if (parents == null) {
+			if (!slice.contains(current))
+				slice.add(current);
+			return slice;
+		}
+		
+		for (Intention parent : parents) {
+			if (!slice.contains(parent)) {
+				slice.add(parent);
+			
+				EList<Intention> tmp = getForwardSliceRecursive(slice, parent);
+				for (Intention i: tmp) {
+					if (!slice.contains(i))
+						slice.add(i);
+				}	
+			}
+		}		
+		return slice;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getBackwardSlice() {
+		//can't instantiate an EList and don't want to constrain it's type, so have to set it equal to something
+		EList<Intention> slice = this.getChildren();
+		//but I really want it to be empty
+		slice.removeAll(this.getChildren());
+		
+		return getBackwardSliceRecursive(slice, this);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	private EList<Intention> getBackwardSliceRecursive(EList<Intention> slice, Intention current) {
+		EList<Intention> children = current.getChildren();
+			
+		if (children == null) {
+			if (!slice.contains(current))
+				slice.add(current);
+			return slice;
+		}
+		
+		for (Intention child : children) {
+			if (!slice.contains(child)) {
+				slice.add(child);
+			
+				EList<Intention> tmp = getBackwardSliceRecursive(slice, child);
+				for (Intention i: tmp) {
+					if (!slice.contains(i))
+						slice.add(i);
+				}	
+			}
+		}		
+		return slice;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getAllConnected() {
+		//can't instantiate an EList and don't want to constrain it's type, so have to set it equal to something
+		EList<Intention> slice = this.getChildren();
+		//but I really want it to be empty
+		slice.removeAll(this.getChildren());
+		
+		return getAllConnectedRecursive(slice, this);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	private EList<Intention> getAllConnectedRecursive(EList<Intention> slice, Intention current) {
+		EList<Intention> children = current.getChildren();
+		EList<Intention> parents = current.getParents();
+				
+		for (Intention child : children) {
+			if (!slice.contains(child)) {
+				slice.add(child);
+			
+				EList<Intention> tmp = getAllConnectedRecursive(slice, child);
+				for (Intention i: tmp) {
+					if (!slice.contains(i))
+						slice.add(i);
+				}	
+			}
+		}	
+		
+		for (Intention parent : parents) {
+			if (!slice.contains(parent)) {
+				slice.add(parent);
+			
+				EList<Intention> tmp = getAllConnectedRecursive(slice, parent);
+				for (Intention i: tmp) {
+					if (!slice.contains(i))
+						slice.add(i);
+				}	
+			}
+		}
+		
+		return slice;
+	}
+
 
 } //IntentionImpl

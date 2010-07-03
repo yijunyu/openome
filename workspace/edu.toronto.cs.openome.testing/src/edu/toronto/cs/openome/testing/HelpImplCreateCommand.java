@@ -63,8 +63,10 @@ public class HelpImplCreateCommand implements Command {
 	 * Command to add an actor inside a container
 	 * @param model
 	 */
-	public HelpImplCreateCommand(IntentionImpl source, IntentionImpl target, ContainerImpl c){
+	public HelpImplCreateCommand(IntentionImpl s, IntentionImpl t, ContainerImpl c){
 		container = c;
+		source = s;
+		target = t;
 		
 	}
 
@@ -104,6 +106,7 @@ public class HelpImplCreateCommand implements Command {
 			cont.setModel(model);
 			model.getContributions().add(cont);
 		}
+		
 	}
 
 	@Override

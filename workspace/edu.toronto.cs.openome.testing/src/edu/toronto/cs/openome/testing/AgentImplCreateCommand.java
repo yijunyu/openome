@@ -15,6 +15,7 @@ public class AgentImplCreateCommand implements Command {
 	 * The model we are going to be creating an actor in
 	 */
 	private ModelImpl model;
+	private AgentImpl agent;
 	
 	/*
 	 * Name of the actor
@@ -32,6 +33,7 @@ public class AgentImplCreateCommand implements Command {
 	 */
 	public AgentImplCreateCommand(ModelImpl m){
 		model = m;
+		agent = null;
 	}
 	
 	/**
@@ -41,6 +43,7 @@ public class AgentImplCreateCommand implements Command {
 	public AgentImplCreateCommand(ModelImpl m, String name){
 		model = m;
 		actorName = name;
+		agent = null;
 	}
 
 
@@ -71,7 +74,7 @@ public class AgentImplCreateCommand implements Command {
 
 //	@Override
 	public void execute() {
-		AgentImpl agent = (AgentImpl) factory.createAgent();
+		agent = (AgentImpl) factory.createAgent();
 		agent.setModel(model);
 		agent.setName(actorName);
 		model.getContainers().add(agent);
@@ -111,6 +114,10 @@ public class AgentImplCreateCommand implements Command {
 	public void undo() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public AgentImpl getAgentImpl() {
+		return agent;
 	}
 
 }

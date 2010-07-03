@@ -523,5 +523,25 @@ public interface Intention extends Dependable {
 	 * @generated NOT
 	 */
 	EList<Intention> getChildren();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Intention> getParents();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Intention> getForwardSlice();
+	
+	/**
+	 * @generated NOT
+	 */
+	EList<Intention> getBackwardSlice();
+	
+	/**
+	 * @generated NOT
+	 */
+	public EList<Intention> getAllConnected();
 
 } // Intention

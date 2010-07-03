@@ -8,6 +8,7 @@ import edu.toronto.cs.openome_model.impl.ActorImpl;
 import edu.toronto.cs.openome_model.impl.AgentImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 import edu.toronto.cs.openome_model.impl.RoleImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.openome_modelFactoryImpl;
 
 public class RoleImplCreateCommand implements Command {
@@ -16,6 +17,7 @@ public class RoleImplCreateCommand implements Command {
 	 * The model we are going to be creating an actor in
 	 */
 	private ModelImpl model;
+	private RoleImpl role;
 	
 	/*
 	 * Name of the actor
@@ -33,6 +35,7 @@ public class RoleImplCreateCommand implements Command {
 	 */
 	public RoleImplCreateCommand(ModelImpl m){
 		model = m;
+		role = null;
 	}
 	
 	/**
@@ -42,6 +45,7 @@ public class RoleImplCreateCommand implements Command {
 	public RoleImplCreateCommand(ModelImpl m, String name){
 		model = m;
 		actorName = name;
+		role = null;
 	}
 
 
@@ -72,7 +76,7 @@ public class RoleImplCreateCommand implements Command {
 
 	@Override
 	public void execute() {
-		RoleImpl role = (RoleImpl) factory.createRole();
+		role = (RoleImpl) factory.createRole();
 		role.setModel(model);
 		role.setName(actorName);
 		model.getContainers().add(role);
@@ -112,6 +116,10 @@ public class RoleImplCreateCommand implements Command {
 	public void undo() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public RoleImpl getRoleImpl() {
+		return role;
 	}
 
 }
