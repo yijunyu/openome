@@ -10,4 +10,10 @@ public class ResourceSVGFigure extends NodeSVGFigure {
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}
+	
+	public ResourceSVGFigure(String color) {
+		super("resource", color);
+		setLayoutManager(new OpenOmeElementLayoutManager());
+		setBackgroundColor(ColorConstants.red);
+	}
 }
