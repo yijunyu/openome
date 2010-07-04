@@ -17,6 +17,7 @@ import edu.toronto.cs.openome_model.Link;
 
 public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	private IntQualIntentionWrapper wrapper;
+	private LabelBag lb;
 
 	public HumanJudgmentLinkAxioms(Vector<Intention> sources, Intention targ,
 			Vector<Link> l, DualHashMap<Integer, Intention> dhm, String desc) {
@@ -24,14 +25,14 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 		
 	}
 	
-	public void findIndexes(HumanJudgement hj) {
+	public void findIndexes() {
 		//System.out.println("finding indexes");
 		sourceIndexes = new VecInt();
 		
 		if (intentionMap != null) {
 			tIndex = (Integer) intentionMap.getInverse(wrapper.getIntention());
 		
-			ListIterator<IntentionLabelPair> it = hj.getLabelBag().listIterator();
+			ListIterator<IntentionLabelPair> it = lb.listIterator();
 			while (it.hasNext()) {
 				IntentionLabelPair ilp =  it.next();
 				
@@ -47,8 +48,10 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	public void createForwardClauses() {	
 		//System.out.println("Creating forward clauses for HJ");
 		
+		findIndexes();
+		
 		int targetOffset = 0;
-		for (HumanJudgement hj : wrapper.getHumanJudgements()) {
+		/*for (HumanJudgement hj : wrapper.getHumanJudgements()) {
 			if (hj.isEnabled()) {
 				findIndexes(hj);
 						
@@ -59,15 +62,24 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 				//AND of all judgements -> Target(e)
 				forwardClauses.addAll(addAndImplication(sourceIndexes, tIndex + targetOffset));		
 			}
-		}
+		}*/
 		
-		addRestrictions(targetOffset, forwardClauses);
+		EvaluationLabel targetLabel = wrapper.getInitialEvaluationLable();
+		
+		targetOffset = getLabelOffset(targetLabel);
+		
+		//AND of all judgements -> Target(e)
+		forwardClauses.addAll(addAndImplication(sourceIndexes, tIndex + targetOffset));		
+		
+		addTargetRestrictions(targetOffset, forwardClauses);
+		
+		//addSourceRestrictions(lb, forwardClauses);
 		
 	}
 	
 	
 	
-	private void addRestrictions(int i, Vector<VecInt> clauses) {
+	private void addTargetRestrictions(int i, Vector<VecInt> clauses) {
 		VecInt vi; 
 		switch (i) {
 			case(0): {
@@ -165,9 +177,12 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	}
 
 	public void createBackwardClauses() {
+		
+		findIndexes();
+		
 		int targetOffset = 0;
 		//System.out.println("Creating backward clauses for HJ");
-		for (HumanJudgement hj : wrapper.getHumanJudgements()) {
+		/*for (HumanJudgement hj : wrapper.getHumanJudgements()) {
 			if (hj.isEnabled()) {			
 				findIndexes(hj);
 				
@@ -186,10 +201,40 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 					backwardClauses.addAll(addAndImplication(tIndex + 4, sourceIndexes));
 				}
 			}
-		}		
-		addRestrictions(targetOffset, forwardClauses);
+		}	*/	
+		EvaluationLabel targetLabel = wrapper.getInitialEvaluationLable();
+		
+		targetOffset = getLabelOffset(targetLabel);
+		
+		//Target(e)-> AND of all judgments
+		backwardClauses.addAll(addAndImplication(tIndex + targetOffset, sourceIndexes));
+		
+		if (targetOffset == 0) {
+			backwardClauses.addAll(addAndImplication(tIndex + 1, sourceIndexes));
+		}
+		
+		if (targetOffset == 5) {
+			backwardClauses.addAll(addAndImplication(tIndex + 4, sourceIndexes));
+		}
+		
+		addTargetRestrictions(targetOffset, backwardClauses);
+		
+		//addSourceRestrictions(lb, backwardClauses);
+		
 	}
 	
+	private void addSourceRestrictions(LabelBag lb2, Vector<VecInt> clauses) {
+		VecInt vi;
+		ListIterator<IntentionLabelPair> it = lb.listIterator();
+		IteratorInt itr = sourceIndexes.iterator();
+		while (itr.hasNext()) {
+			vi = new VecInt();
+			vi.push(itr.next());
+			vi.push(0);
+			clauses.add(vi);
+		}
+	}
+
 	private int getLabelOffset(EvaluationLabel targetLabel) {
 		if (targetLabel == EvaluationLabel.SATISFIED)
 			return 0;
@@ -212,6 +257,10 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	
 	public void addWrapper(IntQualIntentionWrapper w) {
 		wrapper = w;
+	}
+
+	public void addLabelBag(LabelBag bag) {
+		lb = bag;		
 	}
 
 }

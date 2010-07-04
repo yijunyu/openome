@@ -304,7 +304,8 @@ public class ModeltoAxiomsConverter {
 			sources.add(intention);
 			String description = "Constraints for: " + intention.getName();
 			ConstraintAxioms ia = new ConstraintAxioms(intention,intentionIndex, description);
-			if (intention.isLeaf()) {				
+			if (intention.isLeaf()) {	
+				
 				if (!(intention instanceof SoftgoalImpl)) {
 					ia.createLeafClauses(); 
 					cnf.addAxioms(ia);	
@@ -592,7 +593,7 @@ public class ModeltoAxiomsConverter {
 		return strs;
 	}
 
-	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int dir) {
+	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, LabelBag bag, int dir) {
 		//Disable old clauses
 		//cnf.disableAxioms(links);		
 		
@@ -601,7 +602,7 @@ public class ModeltoAxiomsConverter {
 		Vector<Intention>  sources = new Vector<Intention>();
 		Vector<Link> links = new Vector<Link>();
 		
-		ListIterator<IntentionLabelPair> it = w.getHumanJudgements().get(0).getLabelBag().listIterator();
+		ListIterator<IntentionLabelPair> it = bag.listIterator();
 		while (it.hasNext()) {
 			IntentionLabelPair ilp =  it.next();
 			sources.add(ilp.getIntention());
@@ -630,7 +631,7 @@ public class ModeltoAxiomsConverter {
 		
 		HumanJudgmentLinkAxioms hja = new HumanJudgmentLinkAxioms(sources, target, links, intentionIndex, description);
 		
-		//hja.addLabelBag(lb);
+		hja.addLabelBag(bag);
 		hja.addWrapper(w);
 		
 		//both directions
@@ -684,7 +685,7 @@ public class ModeltoAxiomsConverter {
 				//System.out.println("trying to enable axiom.");
 				cnf.enableAxiom(ax);
 			}
-		}
+		}		
 		
 		//System.out.println("Converter backtracked for " + w.getIntention().getName());
 		return cnf;

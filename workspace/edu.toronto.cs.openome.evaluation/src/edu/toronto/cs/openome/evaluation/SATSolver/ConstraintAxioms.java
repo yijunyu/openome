@@ -13,9 +13,9 @@ public class ConstraintAxioms extends IntentionAxioms {
 	@Override
 	public void createLeafClauses() {
 		findIndexes();
-		
+		VecInt vi;
 		//PS(e) -> (not U(e) and not C(e) and not PD(e))
-		VecInt vi = new VecInt();
+		 vi = new VecInt();
 		vi.push((tIndex + 2)*-1);
 		vi.push((tIndex + 3)*-1);
 		vi.push((tIndex + 4)*-1);

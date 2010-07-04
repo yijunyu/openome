@@ -432,8 +432,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 							System.out.println("Target: " + hj.getJudgement().toString());
 						}	*/
 						
-						cnf = converter.addHumanJudgment(cnf, w, 0);
-						cnfBack = converter.addHumanJudgment(cnfBack, w, -1);
+						cnf = converter.addHumanJudgment(cnf, w, lb, 0);
+						cnfBack = converter.addHumanJudgment(cnfBack, w, lb, -1);
 						
 						hjresult = 1;
 					}
