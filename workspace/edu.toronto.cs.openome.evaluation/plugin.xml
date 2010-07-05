@@ -24,6 +24,21 @@
             id="openome_IntQualBackReasoning_cmd"
             name="openome_IntQualBackReasoning_cmd">
       </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.MarkLeavesHandler"
+            id="openome_MarkLeaves_cmd"
+            name="openome_MarkLeaves_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.MarkRootsHandler"
+            id="openome_MarkRoots_cmd"
+            name="openome_MarkRoots_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.UnhighlightAllHander"
+            id="openome_Unhighlight_cmd"
+            name="openome_Unhighlight_cmd">
+      </command>
       </extension>
 
    <extension 
@@ -84,6 +99,48 @@
                   icon="icons/sample.gif"
                   id="openome_IntQualBackReasoning_menu"
                   label="Interactive Qualitative Backward Reasoning"
+                  mnemonic="B">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="openome_reasoning_main_menu"
+               label="Reasoning">
+            <command
+                  commandId="openome_MarkLeaves_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_MarkLeaves_menu"
+                  label="Mark Model Leaves"
+                  mnemonic="B">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="openome_reasoning_main_menu"
+               label="Reasoning">
+            <command
+                  commandId="openome_MarkRoots_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_MarkRoots_menu"
+                  label="Mark Model Roots"
+                  mnemonic="B">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="openome_reasoning_main_menu"
+               label="Reasoning">
+            <command
+                  commandId="openome_Unhighlight_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_Unhighlight_menu"
+                  label="Unhighlight All Intentions"
                   mnemonic="B">
             </command>
          </menu>

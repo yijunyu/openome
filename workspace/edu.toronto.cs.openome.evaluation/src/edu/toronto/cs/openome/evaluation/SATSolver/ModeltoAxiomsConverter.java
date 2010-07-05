@@ -32,6 +32,7 @@ import edu.toronto.cs.openome_model.UnknownContribution;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.Intention;
+import java.lang.Math;
 
 public class ModeltoAxiomsConverter {
 	ModelImpl model;
@@ -466,7 +467,174 @@ public class ModeltoAxiomsConverter {
 		return conflicts;
 	}
 	
-	 public Vector<Intention> unique  (  Vector<Intention> v  )   {  
+	public Vector<Intention> convertMinResultstoSourceIntentions(Vector<Integer> intResults, Dimacs cnf, HashMap<Intention, String> minResults) {
+		Vector<Intention> conflicts = new Vector<Intention>();
+		Vector<VecInt> conflictClauses = new Vector<VecInt>();
+		Vector<VecInt> roots = new Vector<VecInt>();
+		//intentionIndex.print();
+		for (int i =0; i< cnf.getNumClauses();i++) {
+			int index = intResults.indexOf(new Integer(i));
+			
+			if (index < 0) {
+				//System.out.println("index: " + index + " for " + i);
+				VecInt vi = cnf.getClauseByIndex(i);
+				if (vi != null)  {
+					conflictClauses.add(vi);
+					if (vi.size() == 2)
+						roots.add(vi);
+				}
+				else
+					System.out.println("couldn't find clause by index in conversion to Source Intention");
+			}
+			
+		}
+		Vector<Integer> intRoots = new Vector<Integer>();
+		for (VecInt root : roots) {
+			convertToIntentionAndLabel(root.get(0), minResults);
+			intRoots.add(root.get(0));
+		}		
+		
+		VecInt sources = new VecInt();
+		findSources(sources, intRoots, conflictClauses, minResults);
+		
+		conflicts = convertToIntentions(sources);
+		
+		conflicts = unique(conflicts);
+		return conflicts;
+	}
+	
+	private void findSources(VecInt sources, Vector<Integer> roots, Vector<VecInt> clauses, HashMap<Intention, String> minResults) {
+		//System.out.println("FindSources");
+		Vector<Integer> newRoots = new Vector<Integer>();
+		boolean foundRoot = false;
+		Vector<VecInt> clauses2 = new Vector<VecInt>(clauses);
+		String rootString = "";
+		for (Integer root: roots) {
+		    System.out.println("Root:" + root.intValue());
+			rootString += convertToIntention(root).getName() + "\t";
+			foundRoot = false;
+			for (VecInt clause : clauses) {
+				IteratorInt itr = clause.iterator();
+				while(itr.hasNext()) {
+					Integer i = itr.next();		
+					if (i.intValue() != 0) {
+						if ((i.intValue() == (-1 * root.intValue())) || ((-1 * i.intValue()) == root.intValue())) {
+							foundRoot = true;
+							Integer found = i;
+							itr = clause.iterator();
+						//	System.out.println("Found root: " + root.intValue());
+							while (itr.hasNext()) {
+								Integer other = itr.next();
+								if (other.intValue() != 0) {
+									if (Math.abs(other.intValue()) != Math.abs(found.intValue())) {
+										if (!newRoots.contains(other)) {
+											newRoots.add(other);
+											//System.out.println("adding: " + other.intValue());
+										}
+									}
+									if ((other.intValue() != (-1 * root.intValue())) && ((-1 * other.intValue()) != root.intValue()))
+										convertToIntentionAndLabel(other, minResults);
+								}
+							}	
+							clauses2.remove(clause);						
+						}	
+					}
+				}
+			}
+			if (!foundRoot) {
+				sources.push(root);
+			}
+		}
+		System.out.println(rootString);
+		
+		if (newRoots.size() == 0)
+			return;
+		
+		findSources(sources, newRoots, clauses2, minResults);
+	}
+	
+
+	private void convertToIntentionAndLabel(Integer other, HashMap<Intention, String> minResults) {
+		//System.out.println("converting: " + other);
+		String str = "";
+		boolean neg = false;
+		for (int i = 0; i< 6; i++) {				
+				
+			if (other != 0) {
+				if (other < 0) {
+					other = other * -1;
+					neg = true;
+				}
+				Intention intention = (Intention) intentionIndex.getForward(new Integer(other - i));
+				if (intention != null) {						
+					//System.out.println("Got intention: " + intention.getName());
+					switch (i) {
+						case(0): if (neg) {str += "not ";} str += "S"; break; 
+						case(1): if (neg) {str += "not ";} str += "PS"; break;
+						case(2): if (neg) {str += "not ";} str += "U"; break;
+						case(3): if (neg) {str += "not ";} str += "C"; break;
+						case(4): if (neg) {str += "not ";} str += "PD"; break;
+						case(5): if (neg) {str += "not ";} str += "D"; break;
+					}
+												
+					neg = false;
+					if (minResults.containsKey(intention)) {
+						String tmp = minResults.get(intention) + ", " + str;
+						minResults.put(intention, tmp);
+						return;
+					}
+					else {
+						minResults.put(intention, str);
+						return;
+					}
+					
+				}
+			}
+		}					
+	}
+
+	public HashMap<Intention, String> convertMinResultstoIntentionsAndLabels(Vector<Integer> intResults, Dimacs cnf) {
+		HashMap<Intention, String> minResults = new HashMap<Intention, String>();
+		Vector<VecInt> conflictClauses = new Vector<VecInt>();
+		//intentionIndex.print();
+		for (int i =0; i< cnf.getNumClauses();i++) {
+			int index = intResults.indexOf(new Integer(i));
+			
+			if (index < 0) {
+				VecInt vi = cnf.getClauseByIndex(i);
+				if (vi != null)
+					conflictClauses.add(vi);
+				else
+					System.out.println("couldn't find clause by index in conversion to Hashmap");
+			}			
+		}	
+		
+		minResults = convertToIntentionAndLabels(conflictClauses);
+		
+		for (Intention i : minResults.keySet()) {
+			System.out.println(i.getName() + " " + minResults.get(i));
+		}
+		
+		return minResults;	
+	}
+
+	private Intention convertToIntention(Integer intNum) {
+		if (intNum < 0) {
+			intNum = intNum * -1;
+		}
+		for (int i = 0; i< 6; i++) {					
+			if (intNum != 0) {				
+				Intention intention = (Intention) intentionIndex.getForward(new Integer(intNum - i));
+				if (intention != null) {
+					return intention;
+				}				
+			}
+			
+		}
+		return null;
+	}
+
+	public Vector<Intention> unique  (  Vector<Intention> v  )   {  
          Vector<Intention> tmpVector=new Vector<Intention> (  ) ;  
          Intention tmpValue; 
         
@@ -508,7 +676,8 @@ public class ModeltoAxiomsConverter {
 		}
 		return conflicts;
 	}
-
+	
+	
 	private String convertToStringClause(VecInt vi) {
 		IteratorInt it = vi.iterator();
 		//System.out.println("Converting to string: " + vi.toString());
@@ -549,6 +718,57 @@ public class ModeltoAxiomsConverter {
 			
 		}
 		return str;
+	}
+	
+	private HashMap<Intention, String> convertToIntentionAndLabels(Vector<VecInt> clauses) {
+		HashMap<Intention, String> map = new HashMap<Intention, String>();
+		
+		for (VecInt clause : clauses) {
+			IteratorInt it = clause.iterator();
+			//System.out.println("Converting to string: " + vi.toString());
+			//Vector<String> strings = new Vector<String>();
+			String str = "";
+			boolean neg = false;
+			while(it.hasNext()) {
+				int var = it.next();
+				for (int i = 0; i< 6; i++) {				
+					//System.out.println(var);
+					if (var != 0) {
+						if (var < 0) {
+							var = var * -1;
+							neg = true;
+						}
+						Intention intention = (Intention) intentionIndex.getForward(new Integer(var - i));
+						if (intention != null) {
+							
+							//System.out.println("Got intention: " + intention.getName());
+							switch (i) {
+								case(0): if (neg) {str += "not ";} str += "S"; break; 
+								case(1): if (neg) {str += "not ";} str += "PS"; break;
+								case(2): if (neg) {str += "not ";} str += "U"; break;
+								case(3): if (neg) {str += "not ";} str += "C"; break;
+								case(4): if (neg) {str += "not ";} str += "PD"; break;
+								case(5): if (neg) {str += "not ";} str += "D"; break;
+							}
+							
+							//System.out.println(str);
+							//break out of the for loop
+							i = 6;
+							neg = false;
+							if (map.containsKey(intention)) {
+								String tmp = map.get(intention) + ", " + str;
+								map.put(intention, tmp);
+							}
+							map.put(intention, str);
+							str = "";
+						}
+					}
+				}
+				
+				
+			}
+		}
+		return map;
 	}
 	
 	private Vector<String> convertToString(VecInt vi) {
@@ -702,9 +922,5 @@ public class ModeltoAxiomsConverter {
 		}
 		return targets;
 	}
-
-	
-
-	
 	
 }

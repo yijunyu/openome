@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.handlers;
 
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -27,6 +28,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
 
@@ -34,6 +36,9 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
 
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart;
@@ -111,10 +116,8 @@ public class ReasonerHandler implements IHandler {
 			//System.out.println(tmp.toString());
 			if (tmp instanceof XMIResourceImpl) {
 				xmires = (XMIResourceImpl) tmp;
-			}
-			
-		}
-		
+			}			
+		}	
 			
 		ModelImpl model = null;
 						
@@ -129,96 +132,7 @@ public class ReasonerHandler implements IHandler {
 	
 	public List getEditParts() {
 		DiagramEditPart dep = mDE.getDiagramEditPart();
-		List l = dep.getPrimaryEditParts();
-		
-		for (Object ob: l) {
-			EditPart ep = (EditPart) ob;
-			if (ep instanceof ActorEditPart) {
-				
-			}
-			if (ep instanceof SoftgoalEditPart) {
-				SoftgoalEditPart sep = (SoftgoalEditPart) ep;
-				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				sep.setFigure("yellow");
-				System.out.println("set SoftgoalEditPart figure to orange");
-				sep.refresh();
-				
-			}
-			if (ep instanceof GoalEditPart) {
-				GoalEditPart gep = (GoalEditPart) ep;
-				GoalImpl s = (GoalImpl) gep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				gep.setFigure("yellow");
-				System.out.println("set GoalEditPart figure to orange");
-				gep.refresh();
-				
-			}
-			if (ep instanceof ResourceEditPart) {
-				ResourceEditPart rep = (ResourceEditPart) ep;
-				ResourceImpl s = (ResourceImpl) rep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				rep.setFigure("yellow");
-				System.out.println("set ResourceEditPart figure to orange");
-				rep.refresh();
-				
-			}
-			if (ep instanceof TaskEditPart) {
-				TaskEditPart tep = (TaskEditPart) ep;
-				TaskImpl s = (TaskImpl) tep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				tep.setFigure("yellow");
-				System.out.println("set TaskEditPart figure to orange");
-				tep.refresh();
-				
-			}
-			if (ep instanceof Softgoal2EditPart) {
-				Softgoal2EditPart sep = (Softgoal2EditPart) ep;
-				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				sep.setFigure("orange");
-				System.out.println("set Softgoal2EditPart figure to orange");
-				sep.refresh();
-				
-			}
-			if (ep instanceof Softgoal3EditPart) {
-				Softgoal3EditPart sep = (Softgoal3EditPart) ep;
-				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				sep.setFigure("orange");
-				System.out.println("set Softgoal3EditPart figure to orange");
-				sep.refresh();
-				
-			}
-			if (ep instanceof Softgoal4EditPart) {
-				Softgoal4EditPart sep = (Softgoal4EditPart) ep;
-				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				sep.setFigure("orange");
-				System.out.println("set Softgoal4EditPart figure to orange");
-				sep.refresh();
-				
-			}
-			if (ep instanceof Softgoal5EditPart) {
-				Softgoal5EditPart sep = (Softgoal5EditPart) ep;
-				SoftgoalImpl s = (SoftgoalImpl) sep.resolveSemanticElement();
-				System.out.println(s.getName());
-				
-				sep.setFigure("orange");
-				System.out.println("set Softgoal5EditPart figure to orange");
-				sep.refresh();
-				
-			}
-			System.out.println(ep.toString());
-			
-		}
+		List l = dep.getPrimaryEditParts();	
 		
 		return l;
 	}
@@ -237,10 +151,8 @@ public class ReasonerHandler implements IHandler {
 			IEditorPart iep= iwp.getActiveEditor(); //
 			
 			mDE = (Openome_modelDiagramEditor) iep; //
-			//DiagramEditPart dep = mDE.getDiagramEditPart();
 			
-
-					}
+		}
 		catch (Exception e) {
 			System.out.println("Exception getting modelEditor");
 		}

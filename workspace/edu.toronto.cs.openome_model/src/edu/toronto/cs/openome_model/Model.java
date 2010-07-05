@@ -5,6 +5,7 @@
  */
 package edu.toronto.cs.openome_model;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -202,5 +203,24 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Alternative> getAlternatives();
+	
+	/** @author jenhork
+	 * The default getIntentions method only returns dependums.  This one should return all intentions in the model.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Intention> getAllIntentions();
+	
+	/** @author jenhork
+	 * Get leaves in the model
+	 * @generated NOT
+	 */
+	public EList<Intention> getLeaves();
+	
+	/** @author jenhork
+	 * Get roots in the model
+	 * @generated NOT
+	 */
+	public EList<Intention> getRoots();
 
 } // Model

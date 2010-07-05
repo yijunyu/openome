@@ -3,14 +3,51 @@
  */
 package edu.toronto.cs.openome.evaluation.reasoning;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.CompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart;
+import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 /**
  * @author jenhork
@@ -69,5 +106,5 @@ public class Reasoner {
 		
 		//put something here to slow it down?
 	}
-	
+		
 }

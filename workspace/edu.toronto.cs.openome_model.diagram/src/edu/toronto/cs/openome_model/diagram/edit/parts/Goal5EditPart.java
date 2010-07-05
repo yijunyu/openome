@@ -205,7 +205,7 @@ public class Goal5EditPart extends AbstractBorderedShapeEditPart {
 	public void setFigure(String color) {		
 		
 		GoalFigure newfig = new GoalFigure(color);
-		System.out.println("new sgf");					
+		 					
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();

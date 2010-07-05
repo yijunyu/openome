@@ -206,7 +206,7 @@ public class Resource3EditPart extends AbstractBorderedShapeEditPart {
 	public void setFigure(String color) {		
 		
 		ResourceSVGFigure newfig = new ResourceSVGFigure(color);
-		System.out.println("new sgf");					
+		 					
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();

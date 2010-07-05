@@ -204,7 +204,7 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 	public void setFigure(String color) {		
 		
 		TaskSVGFigure newfig = new TaskSVGFigure(color);
-		System.out.println("new sgf");					
+		 					
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();

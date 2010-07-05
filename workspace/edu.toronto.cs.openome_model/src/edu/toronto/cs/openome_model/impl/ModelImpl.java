@@ -542,5 +542,32 @@ public class ModelImpl extends EObjectImpl implements Model {
 		result.append(')');
 		return result.toString();
 	}
+	
+	/** @author jenhork
+	 * Get leaves in the model
+	 * @generated NOT
+	 */
+	public EList<Intention> getLeaves() {
+		BasicEList<Intention> leaves = new BasicEList<Intention>();
+		for (Intention i : getAllIntentions()) {
+			if (i.isLeaf())
+				leaves.add(i);
+				
+		}
+		return leaves;
+	}
+	
+	/** @author jenhork
+	 * Get roots in the model
+	 * @generated NOT
+	 */
+	public EList<Intention> getRoots() {
+		BasicEList<Intention> roots = new BasicEList<Intention>();
+		for (Intention i : getAllIntentions()) {
+			if (i.isRoot())
+				roots.add(i);				
+		}
+		return roots;
+	}
 
 } //ModelImpl

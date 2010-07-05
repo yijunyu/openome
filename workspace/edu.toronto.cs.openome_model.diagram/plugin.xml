@@ -897,22 +897,6 @@
       </layoutProvider>
    </extension>
    <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="menu:openome_top_menu?after=additions">
-         <menu
-               id="edu.toronto.cs.openome_model.diagram.layout.menu"
-               label="Layouts">
-            <command
-                  commandId="edu.toronto.cs.openome_model.diagram.squarelayout"
-                  id="edu.toronto.cs.openome_model.diagram.squarelayout.menu"
-                  label="Layout Square"
-                  style="push">
-            </command>
-         </menu>
-      </menuContribution>
-   </extension>
-   <extension
          point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
       <contributionItemProvider
             checkPluginLoaded="true"

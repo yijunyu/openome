@@ -20,6 +20,7 @@ import edu.toronto.cs.openome.evaluation.SATSolver.zChaffSolver;
 import edu.toronto.cs.openome.evaluation.SATSolver.zMinimalSolver;
 import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
@@ -55,6 +56,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 	ModeltoAxiomsConverter converter;
 	Stack<Vector<Intention>> hjStack;
 	Vector<Intention> targets;
+	Shell shell;
 	/**
 	 * @author jenhork
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
@@ -70,6 +72,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 		hjStack = new Stack<Vector<Intention>>();
 		targets = converter.findTargets();
 		initializeMinDistances();
+		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+		shell = ar[0];
 		//System.out.println("finished constructor");
 	}
 	
@@ -91,9 +95,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		System.out.println("Done conversion");
 		
-		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
-		Shell shell = ar[0];
 		
 		while( true )  {
 			int result = solver.solve(cnf);		
@@ -171,24 +173,11 @@ public class IntQualBackwardReasoner extends Reasoner {
 				
 			}
 			else if (result == 0) {
-				if (hjStack.size() > 0) {
+				//if (hjStack.size() > 0) {
 					//temporarily disable unsat results
-					Vector<Intention> conflictIntentions = getUnSatCoreIntentions(cnf);
-					/*String unsatMessage = getUnsatCoreString(cnf);
-					if (unsatMessage != "") {
-						showMessage("Target(s) unsatisfiable\n" + unsatMessage + "backtracking...", shell);
-					}
-					else {
-						showMessage("Target(s) unsatisfiable\n" + "backtracking...", shell);
-					}*/
+					//processUnSATCore();
 					
-					String message = "Target(s) unsatisfiable\nThe following intentions conflict:\n";
-					for (Intention k: conflictIntentions) {
-						message += k.getName() + "\n";
-					}
-					message+= "backtracking...";
-					showMessage(message, shell);
-				}
+				//}
 				
 				int bresult = backtrack(result);
 				
@@ -205,22 +194,23 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 	}
 	
+	
+
 	private int backtrack(int result) {
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		Shell shell = ar[0];	
 		Vector<Intention> conflictIntentions;
+		//Vector<Intention> conflictSourceIntentions;
+		//HashMap<Intention, int[]> unSatResults;
 		if (result == 0) {
-			conflictIntentions = getUnSatCoreIntentions(cnf);
-			System.out.println("conflicting Intentions:");
-			for (Intention k: conflictIntentions) {
-				System.out.println(k.getName());
-			}
-			String unsatMessage2 = getUnsatCoreString(cnf);
-			System.out.println(unsatMessage2);
+			
+			conflictIntentions = processUnSATCore(); 
 		}
 		else {
 			conflictIntentions = new Vector<Intention>();
+			//conflictSourceIntentions = new Vector<Intention>();
+			//unSatResults = new HashMap<Intention, int[]>();
 		}
 		
 		
@@ -263,6 +253,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			
 			return 1;
 		}
+		//when you're backintrakcing over human judgment but there is no more judgment to back track over	
 		else {
 			//temporarily disable unsat results
 			/*String unsatMessage = getUnsatCoreString(cnf);
@@ -270,87 +261,122 @@ public class IntQualBackwardReasoner extends Reasoner {
 			showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + unsatMessage + "Ending.", shell);
 			//showMessage("Target(s) unsatisfiable, no more judgments to backtrack over.\n" + "Ending.", shell);
 			*/
-			
-			String message = "Target(s) unsatisfiable\n";
-			if (conflictIntentions.size() >0 ){
-				message += "The following intentions conflict:\n";
-			}
-			for (Intention k: conflictIntentions) {
-				message += k.getName() + "\n";
-			}
-			showMessage(message, shell);
-			highlightIntentions(conflictIntentions);
-			
+			showMessage("No more judgments to backtrack over.  Target(s) unsatisfiable\n", shell);
+						
 			return -1;
 		}
 		
 	}
-
-	private void highlightIntentions(Vector<Intention> conflictIntentions) {
-		for (Object ob: editParts) {
-			EditPart ep = (EditPart) ob;
-			if (ep instanceof ActorEditPart) {
-				
-			}
-			if (ep instanceof SoftgoalEditPart) {
-				SoftgoalEditPart sep = (SoftgoalEditPart) ep;
-				sep.setFigure("red");
-			}
-			if (ep instanceof GoalEditPart) {
-				GoalEditPart gep = (GoalEditPart) ep;
-				gep.setFigure("red");
-			}
-			if (ep instanceof ResourceEditPart) {
-				ResourceEditPart rep = (ResourceEditPart) ep;
-				rep.setFigure("red");
-			}
-			if (ep instanceof TaskEditPart) {
-				TaskEditPart tep = (TaskEditPart) ep;
-				tep.setFigure("red");
-			}
-			if (ep instanceof Softgoal2EditPart) {
-				Softgoal2EditPart sep = (Softgoal2EditPart) ep;
-				sep.setFigure("red");
-			}
-			if (ep instanceof Softgoal3EditPart) {
-				Softgoal3EditPart sep = (Softgoal3EditPart) ep;
-				sep.setFigure("red");
-			}
-			if (ep instanceof Softgoal4EditPart) {
-				Softgoal4EditPart sep = (Softgoal4EditPart) ep;
-				sep.setFigure("red");
-			}
-			if (ep instanceof Softgoal5EditPart) {
-				Softgoal5EditPart sep = (Softgoal5EditPart) ep;
-				sep.setFigure("red");
-			}
-			System.out.println(ep.toString());
-		}
-		
-	}
-
-	private Vector<Intention> getUnSatCoreIntentions(Dimacs cnf2) {
-		Vector<Intention> conflicts = new Vector<Intention>();
-		
+	
+	private Vector<Intention> processUnSATCore() {
 		int minResult = minSolver.solve(cnf);	
 		
-		if (minResult == 1) {				
-			Vector<Integer> intResults = minSolver.getResults();
+		Vector<Integer> intResults = minSolver.getResults();
+		String unsatMessage2 = getUnsatCoreString(intResults);
+		System.out.println(unsatMessage2);
+		Vector<Intention> conflictIntentions = getUnSatCoreIntentions(intResults);
+
+		HashMap<Intention, String> unSatResults = new HashMap<Intention, String>();
+		Vector<Intention> conflictSourceIntentions = getUnSatCoreSourceIntentions(intResults, unSatResults);
+		System.out.println("conflicting Intentions:");
+		for (Intention k: conflictIntentions) {
+			System.out.println(k.getName());
+		}	
 		
+		//HashMap<Intention, String> unSatResults = getUnSatCoreIntentionsAndLabels(intResults);
+		
+		showBackTrackMessage(conflictIntentions, conflictSourceIntentions, unSatResults);
+		
+		return conflictIntentions;
+	}
+	
+	private void showBackTrackMessage(Vector<Intention> conflictIntentions, Vector<Intention> conflictSourceIntentions, HashMap<Intention, String> unSatResults) {
+		conflictIntentions.removeAll(conflictSourceIntentions);
+		highlightIntentions(conflictIntentions, "orange");
+		highlightIntentions(conflictSourceIntentions, "red");
+		
+		
+		String message = "Target(s) unsatisfiable\n";
+		if (conflictIntentions.size() >0 ){
+			message += "The following intentions are involved in the conflict:\n";
+		}
+		for (Intention k: conflictIntentions) {
+			String str = unSatResults.get(k);			
+			message += k.getName() + "\t\t" + str + "\n";
+		}
+		if (conflictSourceIntentions.size() >0 ){
+			message += "\nThe following intentions are the sources of the conflict:\n";
+		}
+		for (Intention k: conflictSourceIntentions) {
+			String str = unSatResults.get(k);	
+			message += k.getName() + "\t\t" +  str + "\n";
+		}
+		message+= "\nbacktracking...";
+		showMessage(message, shell);
+		conflictIntentions.addAll(conflictSourceIntentions);
+		unHighlightIntentions(conflictIntentions);
+	}
+
+	private void highlightIntentions(Vector<Intention> conflictIntentions, String color) {
+		System.out.println("highlighting conflict intentions");
+		HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(editParts, conflictIntentions, color);
+		
+		cs.execute(highlight);		
+	}
+	
+	private void unHighlightIntentions(Vector<Intention> intentions) {
+		System.out.println("unhighlighting intentions");
+		HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(editParts, intentions, "");
+		
+		cs.execute(highlight);		
+	}
+
+	private Vector<Intention> getUnSatCoreIntentions(Vector<Integer> intResults) {
+		Vector<Intention> conflicts = new Vector<Intention>();
+				
+			//for (Integer in : intResults) {
+			//	System.out.println(in.toString());
+			//}		
 		
 			conflicts = converter.convertMinResultstoIntentions(intResults, cnf);
 						
+		
+		return conflicts;
+	}
+	
+	private HashMap<Intention, String> getUnSatCoreIntentionsAndLabels(Vector<Integer> intResults) {
+		HashMap<Intention, String>  conflicts = new HashMap<Intention, String>();
+				
+			//for (Integer in : intResults) {
+			//	System.out.println(in.toString());
+			//}		
+		
+			conflicts = converter.convertMinResultstoIntentionsAndLabels(intResults, cnf);
+						
+		
+		return conflicts;
+	}
+	
+	private Vector<Intention> getUnSatCoreSourceIntentions(Vector<Integer> intResults, HashMap<Intention, String> unSatResults) {
+		Vector<Intention> conflicts = new Vector<Intention>();
+		
+				
+			//for (Integer in : intResults) {
+			//	System.out.println(in.toString());
+			//}		
+		
+			conflicts = converter.convertMinResultstoSourceIntentions(intResults, cnf, unSatResults);
+						
+		
+		System.out.println("Source conflicts: ");
+		for (Intention in : conflicts) {
+			System.out.println(in.getName());
 		}
 		return conflicts;
 	}
 
-	private String getUnsatCoreString(Dimacs cnf2) {
-		int minResult = minSolver.solve(cnf);	
-		
-		if (minResult == 1) {				
-			Vector<Integer> intResults = minSolver.getResults();
-		
-			
+	private String getUnsatCoreString(Vector<Integer> intResults) {
+					
 			Vector<String> results = converter.convertMinResultstoStringClause(intResults, cnf);
 			
 			/*System.out.println("The following intention labels are conflicting:");
@@ -365,10 +391,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			}
 			
 			return message;
-		}
-		else
-			return "";
-		
+				
 	}
 
 	private int addHumanJudgement(Vector<Intention> topMostConflict) { //, HashMap<Intention, int[]> results) {
@@ -561,7 +584,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 					int distance = 0;
 					findMinDistance(distance, i, minDistances);
 					
-					System.out.println("target: " + i.getName());
+					//System.out.println("target: " + i.getName());
 				//}
 			}
 			/*for (Intention i: minDistances.keySet()) {
@@ -591,6 +614,26 @@ public class IntQualBackwardReasoner extends Reasoner {
 		}
 		
 		return;
+	}
+	
+	private String findLabelsFromInts(int [] ints) {
+		String labels = "";
+		if (ints != null) {
+			if (ints[0] > 0)
+				labels += "Satisfied ";
+			else if (ints[1] > 0)
+				labels += "Weakly Satisfied ";
+			if (ints[2] > 0)
+				labels += "Unknown ";
+			if (ints[3] > 0)
+				labels += "Conflict ";
+			if (ints[5] > 0)
+				labels += "Denied ";
+			else if (ints[4] > 0)
+				labels += "Weakly Denied ";
+		}
+		
+		return labels;
 	}
 
 	private Vector<Intention> processAndDisplayResults(HashMap<Intention, int[]> results) {

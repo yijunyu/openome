@@ -207,7 +207,7 @@ public class Softgoal3EditPart extends AbstractBorderedShapeEditPart {
 	public void setFigure(String color) {		
 		
 		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(color);
-		System.out.println("new sgf");					
+		 					
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();
