@@ -3458,6 +3458,13 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 		}
 		
 		/**
+		 * @generated NOT
+		 */
+		public String getColor () {
+			return this.col;
+		}
+		
+		/**
 		 * @generated
 		 */
 		private void createContents() {

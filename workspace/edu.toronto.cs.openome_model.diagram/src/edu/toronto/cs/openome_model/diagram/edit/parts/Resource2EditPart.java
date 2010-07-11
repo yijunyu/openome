@@ -3458,6 +3458,12 @@ public class Resource2EditPart extends AbstractBorderedShapeEditPart {
 			createContents();
 		}
 
+		/**
+		 * @generated NOT
+		 */
+		public String getColor () {
+			return this.col;
+		}
 		
 		/**
 		 * @generated
