@@ -47,6 +47,8 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.diagram.edit.policies.NameLabelDirectEditPolicy;
+
 /**
  * @generated
  */
@@ -86,7 +88,7 @@ public class ResourceName5EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -94,7 +96,7 @@ public class ResourceName5EditPart extends CompartmentEditPart implements
 				EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
+				new NameLabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NonResizableEditPolicy() {
 
