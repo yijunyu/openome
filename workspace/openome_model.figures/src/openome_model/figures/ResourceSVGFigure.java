@@ -5,6 +5,8 @@ import org.eclipse.draw2d.StackLayout;
 
 public class ResourceSVGFigure extends NodeSVGFigure {
 	
+	public String col = "green";
+	
 	public ResourceSVGFigure() {
 		super("resource");
 		setLayoutManager(new OpenOmeElementLayoutManager());
@@ -13,6 +15,8 @@ public class ResourceSVGFigure extends NodeSVGFigure {
 	
 	public ResourceSVGFigure(String color) {
 		super("resource", color);
+		col = color;
+		if (col == "") col = "green";
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}
