@@ -93,7 +93,13 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
         	return new ChangeToRoleAction(workbenchPage);
         } else if (actionId.equals("ChangeToPositionAction")) {
         	return new ChangeToPositionAction(workbenchPage);
-        }else {
+        } else if (actionId.equals("HighlightAsLeafAction")) {
+        	return new HighlightAsLeafAction(workbenchPage);
+        } else if (actionId.equals("HighlightAsRootAction")) {
+        	return new HighlightAsRootAction(workbenchPage);
+        } else if (actionId.equals("UnHighlightAction")) {
+            	return new UnHighlightAction(workbenchPage);
+        } else {
         	return null;        	
         }
 	}
@@ -178,7 +184,14 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
 			menu.add(createAction("ChangeToResourceAction", partDescriptor));
 
 			return menu;
-		}  else if (menuId.equals("ActorTypeMenu")){
+		} else if (menuId.equals("HighlightAsMenu")){
+			IMenuManager menu =  new ChangeTypeMenuManager("Highlight");
+			menu.add(createAction("HighlightAsLeafAction", partDescriptor));
+			menu.add(createAction("HighlightAsRootAction", partDescriptor));
+			menu.add(createAction("UnHighlightAction", partDescriptor));
+
+			return menu;
+		} else if (menuId.equals("ActorTypeMenu")){
 			IMenuManager menu =  new ChangeTypeMenuManager();
 			menu.add(createAction("ChangeToActorAction", partDescriptor));
 			menu.add(createAction("ChangeToAgentAction", partDescriptor));
@@ -186,7 +199,7 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
 			menu.add(createAction("ChangeToPositionAction", partDescriptor));
 
 			return menu;
-		}
+		} 
 		return null;
 	}
 

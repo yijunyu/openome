@@ -914,6 +914,10 @@
                   id="IntentionTypeMenu"
                   path="/additionsGroup">
             </popupMenu>
+            <popupMenu
+                  id="HighlightAsMenu"
+                  path="/additionsGroup">
+            </popupMenu>
             <popupStructuredContributionCriteria
                   objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart">
             </popupStructuredContributionCriteria>
