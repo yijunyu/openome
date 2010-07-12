@@ -6,9 +6,9 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmf.runtime.draw2d.ui.render.factory.RenderedImageFactory;
-import org.eclipse.gmf.runtime.draw2d.ui.render.figures.ScalableImageFigure;
+import org.eclipse.gmf.runtime.draw2d.ui.render.figures.CustomScalableImageFigure;
 
-public class NodeSVGFigure extends ScalableImageFigure {
+public class NodeSVGFigure extends CustomScalableImageFigure {
 	// anti alias disabled to show svg diagrams
 	// http://dev.eclipse.org/newslists/news.eclipse.modeling.gmf/msg09945.html
 	
