@@ -5,7 +5,7 @@ import org.eclipse.draw2d.StackLayout;
 
 public class SoftGoalSVGFigure extends NodeSVGFigure {
 	
-	public String col = "green";
+	public String col = "";
 	
 	public SoftGoalSVGFigure() {
 		super("softgoal");
@@ -16,7 +16,6 @@ public class SoftGoalSVGFigure extends NodeSVGFigure {
 	public SoftGoalSVGFigure(String color) {
 		super("softgoal", color);
 		col = color;
-		if (col == "") col = "green";
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}

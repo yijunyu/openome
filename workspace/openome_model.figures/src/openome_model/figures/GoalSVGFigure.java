@@ -3,7 +3,7 @@ package openome_model.figures;
 import org.eclipse.draw2d.ColorConstants;
 
 public class GoalSVGFigure extends NodeSVGFigure {
-	public String col = "green";
+	public String col = "";
 	
 	public GoalSVGFigure() {
 		super("goal");
@@ -12,7 +12,6 @@ public class GoalSVGFigure extends NodeSVGFigure {
 	public GoalSVGFigure(String color) {
 		super("goal", color);
 		col = color;
-		if (col == "") col = "green";
 		setLayoutManager(new OpenOmeElementLayoutManager());
 	}
 }

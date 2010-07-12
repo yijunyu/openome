@@ -5,7 +5,7 @@ import org.eclipse.draw2d.StackLayout;
 
 public class TaskSVGFigure extends NodeSVGFigure {
 	
-	public String col = "green";
+	public String col = "";
 	
 	public TaskSVGFigure() {
 		super("task");
@@ -15,7 +15,6 @@ public class TaskSVGFigure extends NodeSVGFigure {
 	public TaskSVGFigure(String color) {
 		super("task", color);
 		col = color;
-		if (col == "") col = "green";
 		setLayoutManager(new OpenOmeElementLayoutManager());
 		setBackgroundColor(ColorConstants.red);
 	}
