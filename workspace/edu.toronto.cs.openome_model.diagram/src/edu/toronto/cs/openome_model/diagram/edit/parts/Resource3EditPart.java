@@ -38,6 +38,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.ResourceSVGFigure;
 
@@ -198,6 +199,51 @@ public class Resource3EditPart extends AbstractBorderedShapeEditPart {
 	protected IFigure createNodeShape() {
 		ResourceSVGFigure figure = new ResourceSVGFigure();
 		return primaryShape = figure;
+	}
+	
+	/**
+	 * Method to set the outline colour of a figure.
+	 * 
+	 * @generated NOT
+	 * @author arupghose
+	 */
+	public void setOutlineColor(RGB oColor) {
+		ResourceSVGFigure newfig = new ResourceSVGFigure(
+				this.getPrimaryShape().getColor());
+		newfig.setOutlineColor(oColor);
+			
+		//contentPane = setupContentPane(figure);
+		
+		unregisterVisuals();
+		IFigure Parent = (IFigure) primaryShape.getParent();
+		int index = Parent.getChildren().indexOf(primaryShape);
+		Parent.remove(primaryShape);
+		
+		List epList = getChildren();
+		for (int i=0; i<epList.size(); i++) {
+			EditPart childEP = (EditPart) epList.get(i);
+			addChildVisual(childEP, i);
+		}
+		ResourceSVGFigure sgPrimary = (ResourceSVGFigure) primaryShape;
+		WrappingLabel wl =  sgPrimary.getFigureResourceNameFigure();
+		
+		newfig.add(wl);
+		
+		/*Iterator connIt = null;
+		connIt = getSourceConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}
+		connIt = getTargetConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}*/
+		primaryShape = newfig;
+		Parent.add(primaryShape, index);
+		primaryShape.setParent(Parent);
+		registerVisuals();
 	}
 
 	/**

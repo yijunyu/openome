@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart.TaskSVGFigure;
 
@@ -196,6 +197,51 @@ public class Task4EditPart extends AbstractBorderedShapeEditPart {
 	protected IFigure createNodeShape() {
 		TaskSVGFigure figure = new TaskSVGFigure();
 		return primaryShape = figure;
+	}
+	
+	/**
+	 * Method to set the outline colour of a figure.
+	 * 
+	 * @generated NOT
+	 * @author arupghose
+	 */
+	public void setOutlineColor(RGB oColor) {
+		TaskSVGFigure newfig = new TaskSVGFigure(
+				this.getPrimaryShape().getColor());
+		newfig.setOutlineColor(oColor);
+		System.out.println("new sgf");					
+		//contentPane = setupContentPane(figure);
+		
+		unregisterVisuals();
+		IFigure Parent = (IFigure) primaryShape.getParent();
+		int index = Parent.getChildren().indexOf(primaryShape);
+		Parent.remove(primaryShape);
+		
+		List epList = getChildren();
+		for (int i=0; i<epList.size(); i++) {
+			EditPart childEP = (EditPart) epList.get(i);
+			addChildVisual(childEP, i);
+		}
+		TaskSVGFigure sgPrimary = (TaskSVGFigure) primaryShape;
+		WrappingLabel wl =  sgPrimary.getFigureTaskNameFigure();
+		
+		newfig.add(wl);
+		
+		/*Iterator connIt = null;
+		connIt = getSourceConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}
+		connIt = getTargetConnections().iterator();
+		while (connIt.hasNext()) {
+			EditPart aep = (EditPart) connIt.next();
+			aep.refresh();
+		}*/
+		primaryShape = newfig;
+		Parent.add(primaryShape, index);
+		primaryShape.setParent(Parent);
+		registerVisuals();
 	}
 
 	/**

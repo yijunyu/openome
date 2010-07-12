@@ -181,7 +181,7 @@ public class CustomScalableImageFigure
 	 * @param rgb the <code>RGB</code> colour to paint the figure's outline
 	 * @author arupghose
 	 */
-	protected void setOutlineColor(RGB rgb) {
+	public void setOutlineColor(RGB rgb) {
 		outlineColor = rgb;
 	}
 	
@@ -189,7 +189,7 @@ public class CustomScalableImageFigure
 	 * @return the <code>RGB</code> that represents the figure's current outline color
 	 * @author arupghose
 	 */
-	protected RGB getOutlineColor() {
+	public RGB getOutlineColor() {
 		return outlineColor;
 	}
 }
