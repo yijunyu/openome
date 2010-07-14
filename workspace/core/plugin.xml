@@ -36,9 +36,10 @@
       	<menuContribution
             	locationURI="menu:org.eclipse.ui.main.menu?after=additions">
         	<menu
-                id="openome_top_menu"
-                label="OpenOME"
-                mnemonic="O">
+               icon="icons/goal.gif"
+               id="openome_top_menu"
+               label="OpenOME"
+               mnemonic="O">
             <command
                   commandId="org.eclipse.ui.browser.openBrowser"
                   id="openome_gethelp_menu"
