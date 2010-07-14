@@ -81,43 +81,22 @@ public class SetActorTypeAction extends AbstractActionHandler {
 			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 			
-			List<Point> childCoords = new LinkedList<Point>();
-			findChildCoords(part, childCoords);
-			
-			IFigure fig = part.getContentPane();
-			Rectangle coords = fig.getBounds();
-			
-			doTypeSwitch(actor, dcs, progressMonitor, coords, childCoords);
+			doTypeSwitch(actor, dcs, progressMonitor);
 		}
 	}
 	
-	/*
-	 * Finds intentions inside an actor, and saves their coordinates in a list.
-	 */
-	private void findChildCoords(GraphicalEditPart part, List<Point> childCoords)
-	{
-		for(Object o : part.getChildren()) {
-			// if this is an intention, then save its figure's coordinates
-			if(o instanceof AbstractBorderedShapeEditPart) {
-				GraphicalEditPart g = (GraphicalEditPart)o;
-				IFigure fig = g.getContentPane();
-				Rectangle coords = fig.getBounds();
-				
-				childCoords.add(new Point(coords.x, coords.y));
-			
-			// not an intention, so look deeper
-			} else {
-				findChildCoords((GraphicalEditPart)o, childCoords);
-			}
-		}
-	}
-	
-	private void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs,	IProgressMonitor progressMonitor, Rectangle coords, List<Point> childCoords) {
+	private void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs,	IProgressMonitor progressMonitor) {
 		IGraphicalEditPart gEditPart = (IGraphicalEditPart)originalEditPart;
 		
 		final EObject originalImpl = gEditPart.getNotationView().getElement();
 		TransactionalEditingDomain domain = gEditPart.getEditingDomain();
 		RootEditPart root = gEditPart.getRoot();
+		
+		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;
+		GraphicalEditPart containerPart = null;
+		
+		List<Point> childCoords = new LinkedList<Point>();
+		findChildCoords(part, childCoords);
 		
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateActorCommand(originalImpl, domain);
@@ -132,18 +111,21 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		EObject newObject = create.getCreateRequest().getNewElement();
 		IGraphicalEditPart rootContents = (IGraphicalEditPart)root.getContents();
 		
-		GraphicalEditPart containerPart = null;
-		
 		for(Object o : rootContents.getChildren()) {
 			View v = ((IGraphicalEditPart)o).getNotationView();
 			EObject viewObject = v.getElement();
 			
-			// this is the new element
+			// this is the new container
 			if(viewObject == newObject) {
+				IFigure fig = part.getContentPane();
+				Rectangle coords = fig.getBounds();
+				
 				SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), new Point(coords.x, coords.y));
 				dcs.execute(new ICommandProxy(s));
 				
 				containerPart = (GraphicalEditPart)o;
+				
+				break;
 			}
 		}
 		
@@ -163,6 +145,28 @@ public class SetActorTypeAction extends AbstractActionHandler {
 					SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), p);
 					dcs.execute(new ICommandProxy(s));
 				}
+			}
+		}
+	}
+	
+	/*
+	 * Finds intentions inside an actor, and saves their coordinates in a list.
+	 */
+	private void findChildCoords(GraphicalEditPart part, List<Point> childCoords)
+	{
+		for(Object o : part.getChildren()) {
+			// if this is an intention, then save its figure's coordinates
+			if(o instanceof AbstractBorderedShapeEditPart) {
+				GraphicalEditPart g = (GraphicalEditPart)o;
+				
+				IFigure fig = g.getContentPane();
+				Rectangle coords = fig.getBounds();
+				
+				childCoords.add(new Point(coords.x, coords.y));
+			
+			// not an intention, so look deeper
+			} else {
+				findChildCoords((GraphicalEditPart)o, childCoords);
 			}
 		}
 	}
