@@ -9,7 +9,6 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.RootEditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
@@ -77,19 +76,18 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 			
-			IFigure fig = part.getContentPane();
-			Rectangle coords = fig.getBounds();
-			
-			doTypeSwitch(intention, dcs, progressMonitor, coords);
+			doTypeSwitch(intention, dcs, progressMonitor);
 		}
 	}
 	
-	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs, IProgressMonitor progressMonitor, Rectangle coords) {
+	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs, IProgressMonitor progressMonitor) {
 		IGraphicalEditPart gEditPart = (IGraphicalEditPart)originalEditPart;
 		
 		final EObject originalImpl = gEditPart.getNotationView().getElement();
 		TransactionalEditingDomain domain = gEditPart.getEditingDomain();
-		RootEditPart root = gEditPart.getRoot();
+		
+		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;	
+		GraphicalEditPart container = (GraphicalEditPart)part.getParent();
 		
 		//Create new element (automatically sync info as well)
 		CreateElementCommand create = selectCreateIntentionCommand(originalImpl, domain);
@@ -102,16 +100,20 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		// Place the new element in the old one's spot
 		
 		EObject newObject = create.getCreateRequest().getNewElement();
-		IGraphicalEditPart rootContents = (IGraphicalEditPart)root.getContents();
 		
-		for(Object o : rootContents.getChildren()) {
+		for(Object o : container.getChildren()) {
 			View v = ((IGraphicalEditPart)o).getNotationView();
 			EObject viewObject = v.getElement();
 			
 			// this is the new element
 			if(viewObject == newObject) {
+				IFigure fig = part.getContentPane();
+				Rectangle coords = fig.getBounds();
+				
 				SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), new Point(coords.x, coords.y));
-				dcs.execute(new ICommandProxy(s));	
+				dcs.execute(new ICommandProxy(s));
+				
+				break;
 			}
 		}
 	}
