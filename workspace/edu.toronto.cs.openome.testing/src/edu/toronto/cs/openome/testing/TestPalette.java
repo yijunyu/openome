@@ -26,14 +26,72 @@ public class TestPalette extends SWTBotGefTestCase {
 		gefBot = new SWTGefBot();		
 	}
  
+	//Some simple tests to ensure that all of the tools are appearing in the palette
  
 	@Test
-	public void testPaletteToolNames() throws Exception {
-		bot.sleep(4000);
+	public void testPaletteToolNamesActorsIntentions() throws Exception {
+		bot.sleep(2000);
 		editor = gefBot.gefEditor("test.ood");
 		try {
-			editor.activateTool("Decomposition");
+			//Actors
+			editor.activateTool("Actor");
+			editor.activateTool("Agent");
+			editor.activateTool("Position");
+			editor.activateTool("Role");
+			
+			//Intentions
+			editor.activateTool("Hardgoal");
+			editor.activateTool("Softgoal");
+			editor.activateTool("Task");
+			editor.activateTool("Resource");
+			
+		} catch (WidgetNotFoundException e) {
+			fail();
+		}
+		
+	}
+	
+	
+	@Test
+	public void testPaletteToolNamesLinksContribs() throws Exception {
+		bot.sleep(2000);
+		editor = gefBot.gefEditor("test.ood");
+		try {
+			//Links
+			editor.activateTool("Dependency");
 			editor.activateTool("Means-ends");
+			editor.activateTool("Task");
+			editor.activateTool("Resource");
+			
+			//Contributions
+			editor.activateTool("Make");
+			editor.activateTool("Some+");
+			editor.activateTool("Help");
+			editor.activateTool("Unknown");
+			editor.activateTool("Hurt");
+			editor.activateTool("Means-ends");
+			editor.activateTool("Some-");
+			editor.activateTool("Break");
+			editor.activateTool("AND");
+			editor.activateTool("OR");
+		} catch (WidgetNotFoundException e) {
+			fail();
+		}
+		
+	}
+	
+	@Test
+	public void testPaletteToolNamesAssociations() throws Exception {
+		bot.sleep(2000);
+		editor = gefBot.gefEditor("test.ood");
+		try {
+			//Associations
+			editor.activateTool("ISA");
+			editor.activateTool("Covers");
+			editor.activateTool("Is part of");
+			editor.activateTool("Occupies");
+			editor.activateTool("Plays");
+			editor.activateTool("INS");			
 		} catch (WidgetNotFoundException e) {
 			fail();
 		}
