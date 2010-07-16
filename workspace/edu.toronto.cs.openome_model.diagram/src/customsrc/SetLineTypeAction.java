@@ -1,5 +1,6 @@
 package customsrc;
 
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -56,6 +57,7 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.SomeMinusContributionEdit
 import edu.toronto.cs.openome_model.diagram.edit.parts.SomePlusContributionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdateCommand;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.AssociationImpl;
 import edu.toronto.cs.openome_model.impl.ContributionImpl;
@@ -118,9 +120,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 				
-				//doTypeSwitch(part, object, progressMonitor, dcs);
 				doTypeSwitch(part, object, progressMonitor, dcs);
-
 			}
 			else if (connection instanceof OrDecompositionEditPart) {				
 				OrDecompositionEditPart part = (OrDecompositionEditPart) selection.getFirstElement();
@@ -319,6 +319,9 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		// Execute all the commands, so create new and destroy old element
 		dcs.execute(deleteOld.chain(destroyOld), progressMonitor);
 		dcs.execute(createNewCommand, progressMonitor);
+		
+		// refresh diagram to reflect changes
+		refresh();
 	}
 	
 	/**
@@ -435,8 +438,13 @@ public class SetLineTypeAction extends AbstractActionHandler {
 	}
 
 	public void refresh() {
+		Openome_modelDiagramUpdateCommand up = new Openome_modelDiagramUpdateCommand();
 		
-		
+		try {
+			up.execute(null);
+		} catch(ExecutionException e) {
+			System.out.println(e.getLocalizedMessage());
+		}
 	}
 
 }

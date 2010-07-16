@@ -30,6 +30,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdateCommand;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
@@ -116,6 +117,9 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 				break;
 			}
 		}
+		
+		// refresh diagram to reflect changes
+		refresh();
 	}
 
 	/**
@@ -143,8 +147,13 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 	}
 	
 	public void refresh() {
-		// TODO Auto-generated method stub
+		Openome_modelDiagramUpdateCommand up = new Openome_modelDiagramUpdateCommand();
 		
+		try {
+			up.execute(null);
+		} catch(ExecutionException e) {
+			System.out.println(e.getLocalizedMessage());
+		}
 	}
 	
 	private static class CreateNewIntentionTypeCommand extends CreateElementCommand{

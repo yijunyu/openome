@@ -36,6 +36,7 @@ import org.eclipse.ui.IWorkbenchPage;
 
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdateCommand;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 
 public class SetActorTypeAction extends AbstractActionHandler {
@@ -147,6 +148,9 @@ public class SetActorTypeAction extends AbstractActionHandler {
 				}
 			}
 		}
+		
+		// refresh diagram to reflect changes
+		refresh();
 	}
 	
 	/*
@@ -275,8 +279,13 @@ public class SetActorTypeAction extends AbstractActionHandler {
 	}
 
 	public void refresh() {
-		// TODO Auto-generated method stub
+		Openome_modelDiagramUpdateCommand up = new Openome_modelDiagramUpdateCommand();
 		
+		try {
+			up.execute(null);
+		} catch(ExecutionException e) {
+			System.out.println(e.getLocalizedMessage());
+		}
 	}
 
 }
