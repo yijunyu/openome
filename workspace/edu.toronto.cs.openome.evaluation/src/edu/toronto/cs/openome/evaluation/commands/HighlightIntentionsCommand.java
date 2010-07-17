@@ -117,83 +117,104 @@ public class HighlightIntentionsCommand implements Command {
 				if (aSEp instanceof SoftgoalEditPart) {
 					SoftgoalEditPart sep = (SoftgoalEditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Softgoal2EditPart) {
 					Softgoal2EditPart sep = (Softgoal2EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Softgoal3EditPart) {
 					Softgoal3EditPart sep = (Softgoal3EditPart) aSEp;			
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Softgoal4EditPart) {
 					Softgoal4EditPart sep = (Softgoal4EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Softgoal5EditPart) {
 					Softgoal5EditPart sep = (Softgoal5EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof GoalEditPart) {
 					GoalEditPart sep = (GoalEditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Goal2EditPart) {
 					Goal2EditPart sep = (Goal2EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Goal3EditPart) {
 					Goal3EditPart sep = (Goal3EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Goal4EditPart) {
 					Goal4EditPart sep = (Goal4EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Goal5EditPart) {
 					Goal5EditPart sep = (Goal5EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof TaskEditPart) {
 					TaskEditPart sep = (TaskEditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Task2EditPart) {
 					Task2EditPart sep = (Task2EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Task3EditPart) {
 					Task3EditPart sep = (Task3EditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Task4EditPart) {
 					Task4EditPart sep = (Task4EditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Task5EditPart) {
 					Task5EditPart sep = (Task5EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof ResourceEditPart) {
 					ResourceEditPart sep = (ResourceEditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Resource2EditPart) {
 					Resource2EditPart sep = (Resource2EditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Resource3EditPart) {
 					Resource3EditPart sep = (Resource3EditPart) aSEp;				
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Resource4EditPart) {
 					Resource4EditPart sep = (Resource4EditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}
 				if (aSEp instanceof Resource5EditPart) {
 					Resource5EditPart sep = (Resource5EditPart) aSEp;					
 					sep.setFigure(color);
+					sep.refresh();
 				}		
+				
 			}
 		}
 	}

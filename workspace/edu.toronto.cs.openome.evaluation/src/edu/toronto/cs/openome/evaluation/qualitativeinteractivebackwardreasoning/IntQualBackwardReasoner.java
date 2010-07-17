@@ -7,6 +7,7 @@ import java.util.Stack;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -291,6 +292,8 @@ public class IntQualBackwardReasoner extends Reasoner {
 	}
 	
 	private void showBackTrackMessage(Vector<Intention> conflictIntentions, Vector<Intention> conflictSourceIntentions, HashMap<Intention, String> unSatResults) {
+			
+		
 		conflictIntentions.removeAll(conflictSourceIntentions);
 		highlightIntentions(conflictIntentions, "orange");
 		highlightIntentions(conflictSourceIntentions, "red");
@@ -315,7 +318,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		showMessage(message, shell);
 		conflictIntentions.addAll(conflictSourceIntentions);
 		unHighlightIntentions(conflictIntentions);
-	}
+		}
 
 	private void highlightIntentions(Vector<Intention> conflictIntentions, String color) {
 		System.out.println("highlighting conflict intentions");
@@ -324,9 +327,9 @@ public class IntQualBackwardReasoner extends Reasoner {
 		cs.execute(highlight);		
 	}
 	
-	private void unHighlightIntentions(Vector<Intention> intentions) {
+	private void unHighlightIntentions(Vector<Intention> conflictIntentions) {
 		System.out.println("unhighlighting intentions");
-		HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(editParts, intentions, "");
+		HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(editParts, conflictIntentions, "");
 		
 		cs.execute(highlight);		
 	}
@@ -523,11 +526,17 @@ public class IntQualBackwardReasoner extends Reasoner {
 			w.setInitialEvaluationLabel(EvaluationLabel.NONE);
 		}
 		
+		//Vector<Intention> tohighlight = new Vector<Intention>();
+		//tohighlight.add(w.getIntention());
+		//tohighlight.addAll(w.getIntention().getChildren());
+		//highlightIntentions(tohighlight, "yellow");
+		
 		
 		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], w, softgoalWrappers);
 				
 		cs.execute(wincom);
 		
+		//unHighlightIntentions(tohighlight);
 		
 		
 		if (wincom.noCombinations()) {
@@ -698,7 +707,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 	 * Shows a message in a dialog box with an OK button 
 	 * @param message
 	 */
-	private void showMessage(String message, Shell shell) {
+	private void showMessage(String message, Shell shell) {		
 		MessageDialog.openInformation(
 			shell,
 			"Interactive Qualitative Backward Reasoning",
