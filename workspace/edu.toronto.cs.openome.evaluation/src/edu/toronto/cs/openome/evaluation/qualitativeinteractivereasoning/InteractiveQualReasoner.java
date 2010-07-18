@@ -1,6 +1,8 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,6 +10,8 @@ import java.util.ListIterator;
 import java.util.Vector;
 
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionOutlinesCommand;
+import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
@@ -26,21 +30,35 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.OrDecomposition;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.UnknownContribution;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.dialogs.ViewContentProvider;
 
@@ -656,6 +674,66 @@ public class InteractiveQualReasoner extends Reasoner {
 		//This looks to see if the user has already answered this question
 		return w.findExistingResult();				
 	}
+
+	/**
+	 * @author arup
+	 * Stolen from reasonerhandler.java
+	 */
+	private Openome_modelDiagramEditor mDE;
+	private void getModelDiagramEditor() {
+		
+		try {
+			IWorkbenchWindow iww = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			
+			IWorkbenchPage iwp = iww.getActivePage(); //assume correct page is showing ... dubious
+			
+			IEditorPart iep= iwp.getActiveEditor(); //
+			
+			mDE = (Openome_modelDiagramEditor) iep; //
+			//DiagramEditPart dep = mDE.getDiagramEditPart();
+			
+
+					}
+		catch (Exception e) {
+			System.out.println("Exception getting modelEditor");
+		}
+		 
+	}
+	
+	/**
+	 * @author arup
+	 * Stolen from reasonerhandler.java
+	 */
+	public ModelImpl getModelImpl() {
+		getModelDiagramEditor();
+		
+		EditingDomain editingDomain = mDE.getEditingDomain();
+				
+		ResourceSet resourceSet = editingDomain.getResourceSet();
+		
+				
+		XMIResourceImpl xmires = null;
+		
+		for(Resource tmp: resourceSet.getResources()) {
+			//System.out.println(tmp.toString());
+			if (tmp instanceof XMIResourceImpl) {
+				xmires = (XMIResourceImpl) tmp;
+			}
+			
+		}
+		
+			
+		ModelImpl model = null;
+						
+		for(EObject tmp2: xmires.getContents()){ 
+			if (tmp2 instanceof ModelImpl) 
+				model = (ModelImpl) tmp2; 
+		}
+		
+		return model;
+		
+	}
+	
 	
 	/**
 	 * @author jenhork
@@ -676,11 +754,33 @@ public class InteractiveQualReasoner extends Reasoner {
 	//		
 	//	}
 		
-				
+		// highlight the target of the human judgement window
+		getModelImpl();
+		DiagramEditPart dep = mDE.getDiagramEditPart();
+		List l = dep.getPrimaryEditParts();
+		List<Intention> target = new Vector<Intention>();
+		target.add(w.getIntention());
+		List<Intention> children = w.getIntention().getChildren();
+		HighlightIntentionOutlinesCommand highlightTarget = new HighlightIntentionOutlinesCommand (
+				l, target, new RGB(255,0,0)); // 0 0 255 is red for target
+		HighlightIntentionOutlinesCommand highlightChildren = new HighlightIntentionOutlinesCommand (
+				l, children, new RGB(0,0,255)); // 0 0 255 is blue for children
+		//HighlightIntentionsCommand highlightbody = new HighlightIntentionsCommand (l, target, "orange");
+		cs.execute(highlightTarget);
+		cs.execute(highlightChildren);
+		
+		// forward human judgement window pops up.
 		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], w);
-			
-				
 		cs.execute(wincom);
+		
+		// unhighlight when target moves on
+		HighlightIntentionOutlinesCommand unhighlightTarget = new HighlightIntentionOutlinesCommand(
+				l, target, new RGB(0,0,0));
+		HighlightIntentionOutlinesCommand unhighlightChildren = new HighlightIntentionOutlinesCommand(
+				l, children, new RGB(0,0,0));
+		//HighlightIntentionsCommand unhighlightbody = new HighlightIntentionsCommand (l, target, "");
+		cs.execute(unhighlightTarget);
+		cs.execute(unhighlightChildren);
 				
 	
 		if (wincom.cancelled()) {

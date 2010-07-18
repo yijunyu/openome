@@ -246,15 +246,33 @@ public class Softgoal3EditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
+		
+		// These next few lines are necessary to ensure that
+		// the size of the figure does not inflate monstrously
+		// when multiple highlight commands are called one after
+		// the other.
+		try {
+			primaryShape.getMinimumSize();
+		} catch(Exception getMinimumSizeException) {	
+		}
+	}
+	
+	/**
+	 * @generated NOT
+	 * @author arupghose
+	 */
+	public RGB getOutlineColor() {
+		return this.getPrimaryShape().getOutlineColor();
 	}
 
 	/**
 	 * @generated NOT
 	 */
 	public void setFigure(String color) {		
-		
+		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(color);
-		 					
+		newfig.setOutlineColor(oColor);
+		
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();
@@ -287,6 +305,15 @@ public class Softgoal3EditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();		
+		
+		// These next few lines are necessary to ensure that
+		// the size of the figure does not inflate monstrously
+		// when multiple highlight commands are called one after
+		// the other.
+		try {
+			primaryShape.getMinimumSize();
+		} catch(Exception getMinimumSizeException) {	
+		}
 	}
 	
 	/**

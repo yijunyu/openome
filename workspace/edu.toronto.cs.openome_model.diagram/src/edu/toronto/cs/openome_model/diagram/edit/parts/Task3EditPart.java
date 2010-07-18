@@ -209,7 +209,8 @@ public class Task3EditPart extends AbstractBorderedShapeEditPart {
 		TaskSVGFigure newfig = new TaskSVGFigure(
 				this.getPrimaryShape().getColor());
 		newfig.setOutlineColor(oColor);
-		System.out.println("new sgf");					
+		System.out.println("new sgf");
+		
 		//contentPane = setupContentPane(figure);
 		
 		unregisterVisuals();
@@ -242,6 +243,23 @@ public class Task3EditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
+		
+		// These next few lines are necessary to ensure that
+		// the size of the figure does not inflate monstrously
+		// when multiple highlight commands are called one after
+		// the other.
+		try {
+			primaryShape.getMinimumSize();
+		} catch(Exception getMinimumSizeException) {	
+		}
+	}
+	
+	/**
+	 * @generated NOT
+	 * @author arupghose
+	 */
+	public RGB getOutlineColor() {
+		return this.getPrimaryShape().getOutlineColor();
 	}
 
 	/**
@@ -249,7 +267,10 @@ public class Task3EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	public void setFigure(String color) {		
 		
+		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		TaskSVGFigure newfig = new TaskSVGFigure(color);
+		newfig.setOutlineColor(oColor);
+		
 		System.out.println("new sgf");					
 		//contentPane = setupContentPane(figure);
 		
@@ -282,7 +303,16 @@ public class Task3EditPart extends AbstractBorderedShapeEditPart {
 		primaryShape = newfig;
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
-		registerVisuals();		
+		registerVisuals();	
+		
+		// These next few lines are necessary to ensure that
+		// the size of the figure does not inflate monstrously
+		// when multiple highlight commands are called one after
+		// the other.
+		try {
+			primaryShape.getMinimumSize();
+		} catch(Exception getMinimumSizeException) {	
+		}
 	}
 	
 	/**

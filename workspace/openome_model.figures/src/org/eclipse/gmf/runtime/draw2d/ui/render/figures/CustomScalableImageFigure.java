@@ -23,9 +23,9 @@ import org.eclipse.swt.graphics.RGB;
  * 
  * Much of this code is taken from ScalableImageFigure, but extended
  * to support new functionality specifically for OpenOME such as 
- * changing outline colours etc
+ * changing outline colours etc. The most important method is paintfigure.
  * 
- * @author jcorchis / sshaw / arupghose
+ * @author arupghose
  */
 public class CustomScalableImageFigure
 	extends ScalableImageFigure {
@@ -90,7 +90,8 @@ public class CustomScalableImageFigure
 
 	}
 	
-	/** Outline colour of the rendered image */
+	/** Outline colour of the rendered image. Returns
+	 * null if unset (ie., black) */
 	private RGB outlineColor = null;
 
 	/**
@@ -152,12 +153,12 @@ public class CustomScalableImageFigure
 		
         RenderInfo rndInfo = getRenderedImage().getRenderInfo();
         
-        // sets the outline color to null if 
-        // it hasn't been changed with setOutlineColor(). 
+        // sets the outline color to black if 
+        // it hasn't been set or changed with setOutlineColor(). 
         // if it has, set it to the requested color.        
         RGB oColor;
         if (outlineColor == null) {
-        	oColor = null;
+        	oColor = new RGB(0,0,0); // RGB of 0 0 0 represents black
         } else {
         	oColor = outlineColor;
         }
@@ -176,13 +177,18 @@ public class CustomScalableImageFigure
 	}
 	
 	/**
-	 * Sets the outline colour of the figure
+	 * Sets the outline colour of the figure. If a null value is passed
+	 * into this method, the outline colour is set to black.
 	 *
 	 * @param rgb the <code>RGB</code> colour to paint the figure's outline
 	 * @author arupghose
 	 */
 	public void setOutlineColor(RGB rgb) {
-		outlineColor = rgb;
+		if (rgb == null) {
+			outlineColor = new RGB(0,0,0);
+		} else {
+			outlineColor = rgb;
+		}
 	}
 	
 	/**
@@ -190,6 +196,9 @@ public class CustomScalableImageFigure
 	 * @author arupghose
 	 */
 	public RGB getOutlineColor() {
+		if (this.outlineColor == null) {
+			return new RGB(0,0,0);
+		}
 		return outlineColor;
 	}
 }
