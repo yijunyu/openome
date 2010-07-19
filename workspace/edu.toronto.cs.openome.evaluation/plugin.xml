@@ -10,6 +10,11 @@
             name="openome_IntQualReasoning_cmd">
       </command>
       <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.InteractiveQualBackwardReasonerHandler"
+            id="openome_IntQualBackReasoning_cmd"
+            name="openome_IntQualBackReasoning_cmd">
+      </command>
+      <command
             defaultHandler="edu.toronto.cs.openome.evaluation.handlers.AutomaticQualReasonerHandler"
             id="openome_AutoQualReasoning_cmd"
             name="openome_AutoQualReasoning_cmd">
@@ -18,11 +23,6 @@
             defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ClearLabelsHandler"
             id="openome_ClearLabels_cmd"
             name="openome_ClearLabels_cmd">
-      </command>
-      <command
-            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.InteractiveQualBackwardReasonerHandler"
-            id="openome_IntQualBackReasoning_cmd"
-            name="openome_IntQualBackReasoning_cmd">
       </command>
       <command
             defaultHandler="edu.toronto.cs.openome.evaluation.handlers.MarkLeavesHandler"
@@ -46,8 +46,7 @@
 		point="org.eclipse.ui.menus">
 	
 		<menuContribution 
-			locationURI="menu:openome_top_menu?after=additions">
-			
+			locationURI="menu:openome_top_menu?after=additions">			
    			<menu
          		id="openome_reasoning_main_menu"
          		label="Reasoning">
@@ -55,12 +54,26 @@
 					commandId="openome_IntQualReasoning_cmd"
 					icon="icons/sample.gif"
 					id="openome_IntQualReasoning_menu"
-					label="Interactive Qualitative Reasoning"
+					label="Forward Interactive Qualitative Evaluation"
 					tooltip=""
 					mnemonic="Q">
 				</command>
    			</menu>
 		</menuContribution>
+		<menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <menu
+               id="openome_reasoning_main_menu"
+               label="Reasoning">
+            <command
+                  commandId="openome_IntQualBackReasoning_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_IntQualBackReasoning_menu"
+                  label="Backward Interactive Qualitative Evaluation"
+                  mnemonic="B">
+            </command>
+         </menu>
+      </menuContribution>
   <menuContribution
         locationURI="menu:openome_top_menu?after=additions">
      <menu
@@ -70,7 +83,7 @@
               commandId="openome_AutoQualReasoning_cmd"
               icon="icons/sample.gif"
               id="openome_AutoQualReasoning_menu"
-              label="Automatic Qualitative Reasoning"
+              label="Forward Automatic Qualitative Evaluation"
               mnemonic="A">
         </command>
      </menu>
@@ -86,20 +99,6 @@
                   id="openome_ClearLabels_menu"
                   label="Clear All Evaluation Labels"
                   mnemonic="C">
-            </command>
-         </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="menu:openome_top_menu?after=additions">
-         <menu
-               id="openome_reasoning_main_menu"
-               label="Reasoning">
-            <command
-                  commandId="openome_IntQualBackReasoning_cmd"
-                  icon="icons/sample.gif"
-                  id="openome_IntQualBackReasoning_menu"
-                  label="Interactive Qualitative Backward Reasoning"
-                  mnemonic="B">
             </command>
          </menu>
       </menuContribution>
