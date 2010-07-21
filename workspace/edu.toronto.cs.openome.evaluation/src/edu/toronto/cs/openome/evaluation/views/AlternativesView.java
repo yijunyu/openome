@@ -234,7 +234,9 @@ public class AlternativesView extends ViewPart {
 		}
 		
 		private TreeNode createTreeNode(Alternative alt) {
-			TreeNode node = new TreeNode(alt.getName(), alt, null);
+			TreeNode node = new TreeNode(alt.getName() + " (" + alt.getDescription() + ")",
+					alt, null);
+			System.out.println("creating alternative called" + alt.getName());
 			return node;
 			
 		}
@@ -703,7 +705,6 @@ public class AlternativesView extends ViewPart {
 		// Get the content provider
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
 				.getContentProvider();
-
 		
 		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(alt);
