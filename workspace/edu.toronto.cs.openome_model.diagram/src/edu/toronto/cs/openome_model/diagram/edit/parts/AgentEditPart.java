@@ -1047,7 +1047,7 @@ public class AgentEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private Ellipse fFigureAgentBoundaryFigure;
-		
+
 		/**
 		 * This Container's minimum contraction
 		 * default 100x100

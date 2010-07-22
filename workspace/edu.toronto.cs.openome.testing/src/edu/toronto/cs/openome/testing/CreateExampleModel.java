@@ -36,7 +36,7 @@ public class CreateExampleModel {
 		URI diagramURI = URI.createFileURI(testfile);
 		URI modelURI = URI.createFileURI(testfile);		
 		
-		Resource diagramResource = Openome_modelDiagramEditorUtil.createDiagram(diagramURI, modelURI, new NullProgressMonitor());
+		Resource diagramResource = Openome_modelDiagramEditorUtil.createDiagram(diagramURI, new NullProgressMonitor());
 		diagram = (Diagram) diagramResource.getContents().get(0);
 		model = (ModelImpl) diagram.getElement();
 

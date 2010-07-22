@@ -198,7 +198,7 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 		TaskSVGFigure figure = new TaskSVGFigure();
 		return primaryShape = figure;
 	}
-	
+
 	/**
 	 * Method to set the outline colour of a figure.
 	 * 
@@ -206,27 +206,27 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 	 * @author arupghose
 	 */
 	public void setOutlineColor(RGB oColor) {
-		TaskSVGFigure newfig = new TaskSVGFigure(
-				this.getPrimaryShape().getColor());
+		TaskSVGFigure newfig = new TaskSVGFigure(this.getPrimaryShape()
+				.getColor());
 		newfig.setOutlineColor(oColor);
-			
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		TaskSVGFigure sgPrimary = (TaskSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureTaskNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureTaskNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -242,17 +242,17 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
-		
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated NOT
 	 * @author arupghose
@@ -260,33 +260,33 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 	public RGB getOutlineColor() {
 		return this.getPrimaryShape().getOutlineColor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public void setFigure(String color) {		
-		
+	public void setFigure(String color) {
+
 		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		TaskSVGFigure newfig = new TaskSVGFigure(color);
 		newfig.setOutlineColor(oColor);
-		
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		TaskSVGFigure sgPrimary = (TaskSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureTaskNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureTaskNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -301,15 +301,15 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 		primaryShape = newfig;
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
-		registerVisuals();		
-		
+		registerVisuals();
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
 
@@ -3520,7 +3520,7 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
@@ -3528,14 +3528,14 @@ public class TaskEditPart extends AbstractBorderedShapeEditPart {
 			super(color);
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
-		public String getColor () {
+		public String getColor() {
 			return this.col;
 		}
-		
+
 		/**
 		 * @generated
 		 */

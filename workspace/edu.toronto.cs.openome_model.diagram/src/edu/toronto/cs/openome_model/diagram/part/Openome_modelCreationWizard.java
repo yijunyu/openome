@@ -37,11 +37,6 @@ public class Openome_modelCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	protected edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardPage domainModelFilePage;
-
-	/**
-	 * @generated
-	 */
 	protected Resource diagram;
 
 	/**
@@ -108,27 +103,6 @@ public class Openome_modelCreationWizard extends Wizard implements INewWizard {
 		diagramModelFilePage
 				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
-
-		domainModelFilePage = new edu.toronto.cs.openome_model.diagram.part.Openome_modelCreationWizardPage(
-				"DomainModelFile", getSelection(), "oom") { //$NON-NLS-1$ //$NON-NLS-2$
-
-			public void setVisible(boolean visible) {
-				if (visible) {
-					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".ood".length()); //$NON-NLS-1$
-					setFileName(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
-							.getUniqueFileName(getContainerFullPath(),
-									fileName, "oom")); //$NON-NLS-1$
-				}
-				super.setVisible(visible);
-			}
-		};
-		domainModelFilePage
-				.setTitle(edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelCreationWizard_DomainModelFilePageDescription);
-		addPage(domainModelFilePage);
 	}
 
 	/**
@@ -141,15 +115,14 @@ public class Openome_modelCreationWizard extends Wizard implements INewWizard {
 		fileName = fileName.substring(0, fileName.length() - ".ood".length());
 
 		// rename the .oom file to match the name of the diagram file
-		domainModelFilePage.setFileName(fileName + ".oom");
+		//domainModelFilePage.setFileName(fileName + ".oom"); //No more ooms.
 
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
 				diagram = edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
-						.createDiagram(diagramModelFilePage.getURI(),
-								domainModelFilePage.getURI(), monitor);
+						.createDiagram(diagramModelFilePage.getURI(), monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil

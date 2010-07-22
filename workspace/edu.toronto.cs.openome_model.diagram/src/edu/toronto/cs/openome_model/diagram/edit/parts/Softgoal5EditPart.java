@@ -200,7 +200,7 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 		SoftGoalSVGFigure figure = new SoftGoalSVGFigure();
 		return primaryShape = figure;
 	}
-	
+
 	/**
 	 * Method to set the outline colour of a figure.
 	 * 
@@ -208,27 +208,27 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 	 * @author arupghose
 	 */
 	public void setOutlineColor(RGB oColor) {
-		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(
-				this.getPrimaryShape().getColor());
+		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(this.getPrimaryShape()
+				.getColor());
 		newfig.setOutlineColor(oColor);
-			
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		SoftGoalSVGFigure sgPrimary = (SoftGoalSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureSoftgoalNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureSoftgoalNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -244,17 +244,17 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
-		
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated NOT
 	 * @author arupghose
@@ -262,32 +262,32 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 	public RGB getOutlineColor() {
 		return this.getPrimaryShape().getOutlineColor();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
-	public void setFigure(String color) {		
+	public void setFigure(String color) {
 		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		SoftGoalSVGFigure newfig = new SoftGoalSVGFigure(color);
 		newfig.setOutlineColor(oColor);
-		
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		SoftGoalSVGFigure sgPrimary = (SoftGoalSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureSoftgoalNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureSoftgoalNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -302,18 +302,18 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 		primaryShape = newfig;
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
-		registerVisuals();	
-		
+		registerVisuals();
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -3522,7 +3522,7 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
@@ -3530,14 +3530,14 @@ public class Softgoal5EditPart extends AbstractBorderedShapeEditPart {
 			super(color);
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
-		public String getColor () {
+		public String getColor() {
 			return this.col;
 		}
-		
+
 		/**
 		 * @generated
 		 */

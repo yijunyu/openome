@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel">
   <gmfgen:GenEditorGenerator
+      sameFileForDiagramAndModel="true"
       diagramFileExtension="ood"
       domainFileExtension="oom">
     <diagram

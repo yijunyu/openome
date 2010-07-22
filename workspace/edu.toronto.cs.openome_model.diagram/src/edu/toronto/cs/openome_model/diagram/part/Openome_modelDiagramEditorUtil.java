@@ -166,7 +166,7 @@ public class Openome_modelDiagramEditorUtil {
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated
 	 */
-	public static Resource createDiagram(URI diagramURI, URI modelURI,
+	public static Resource createDiagram(URI diagramURI,
 			IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
@@ -176,8 +176,6 @@ public class Openome_modelDiagramEditorUtil {
 						3);
 		final Resource diagramResource = editingDomain.getResourceSet()
 				.createResource(diagramURI);
-		final Resource modelResource = editingDomain.getResourceSet()
-				.createResource(modelURI);
 		final String diagramName = diagramURI.lastSegment();
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain,
@@ -187,7 +185,7 @@ public class Openome_modelDiagramEditorUtil {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				edu.toronto.cs.openome_model.Model model = createInitialModel();
-				attachModelToResource(model, modelResource);
+				attachModelToResource(model, diagramResource);
 
 				Diagram diagram = ViewService
 						.createDiagram(
@@ -201,9 +199,7 @@ public class Openome_modelDiagramEditorUtil {
 				}
 
 				try {
-					modelResource
-							.save(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
-									.getSaveOptions());
+
 					diagramResource
 							.save(edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil
 									.getSaveOptions());
@@ -225,7 +221,7 @@ public class Openome_modelDiagramEditorUtil {
 					.getInstance().logError(
 							"Unable to create model and diagram", e); //$NON-NLS-1$
 		}
-		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+
 		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 		return diagramResource;
 	}

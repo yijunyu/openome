@@ -199,7 +199,7 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 		ResourceSVGFigure figure = new ResourceSVGFigure();
 		return primaryShape = figure;
 	}
-	
+
 	/**
 	 * Method to set the outline colour of a figure.
 	 * 
@@ -207,28 +207,28 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 	 * @author arupghose
 	 */
 	public void setOutlineColor(RGB oColor) {
-		ResourceSVGFigure newfig = new ResourceSVGFigure(
-				this.getPrimaryShape().getColor());
-		
+		ResourceSVGFigure newfig = new ResourceSVGFigure(this.getPrimaryShape()
+				.getColor());
+
 		newfig.setOutlineColor(oColor);
-		
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		ResourceSVGFigure sgPrimary = (ResourceSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureResourceNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureResourceNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -244,17 +244,17 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
-		
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated NOT
 	 * @author arupghose
@@ -266,29 +266,29 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated NOT
 	 */
-	public void setFigure(String color) {		
-		
+	public void setFigure(String color) {
+
 		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		ResourceSVGFigure newfig = new ResourceSVGFigure(color);
 		newfig.setOutlineColor(oColor);
-						
+
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		ResourceSVGFigure sgPrimary = (ResourceSVGFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureResourceNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureResourceNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -304,17 +304,17 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
-		
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -3531,14 +3531,14 @@ public class ResourceEditPart extends AbstractBorderedShapeEditPart {
 			super(color);
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
-		public String getColor () {
+		public String getColor() {
 			return this.col;
 		}
-				
+
 		/**
 		 * @generated
 		 */

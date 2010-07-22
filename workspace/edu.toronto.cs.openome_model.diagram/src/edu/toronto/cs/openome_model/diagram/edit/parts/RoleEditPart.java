@@ -1047,7 +1047,7 @@ public class RoleEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private Ellipse fFigureRoleBoundaryFigure;
-		
+
 		/**
 		 * This Container's minimum contraction
 		 * default 100x100

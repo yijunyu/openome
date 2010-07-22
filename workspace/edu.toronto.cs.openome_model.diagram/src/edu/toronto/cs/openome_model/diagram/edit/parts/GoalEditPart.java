@@ -197,7 +197,7 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 		GoalFigure figure = new GoalFigure();
 		return primaryShape = figure;
 	}
-	
+
 	/**
 	 * Method to set the outline colour of a figure.
 	 * 
@@ -205,27 +205,26 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 	 * @author arupghose
 	 */
 	public void setOutlineColor(RGB oColor) {
-		GoalFigure newfig = new GoalFigure(
-				this.getPrimaryShape().getColor());
+		GoalFigure newfig = new GoalFigure(this.getPrimaryShape().getColor());
 		newfig.setOutlineColor(oColor);
-		System.out.println("new sgf");					
+		System.out.println("new sgf");
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		GoalFigure sgPrimary = (GoalFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureGoalNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureGoalNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -241,17 +240,17 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
 		registerVisuals();
-		
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
-	
+
 	/**
 	 * @generated NOT
 	 * @author arupghose
@@ -263,30 +262,30 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated NOT
 	 */
-	public void setFigure(String color) {		
-		
+	public void setFigure(String color) {
+
 		RGB oColor = this.getPrimaryShape().getOutlineColor();
 		GoalFigure newfig = new GoalFigure(color);
 		newfig.setOutlineColor(oColor);
-		
-		System.out.println("new sgf");					
+
+		System.out.println("new sgf");
 		//contentPane = setupContentPane(figure);
-		
+
 		unregisterVisuals();
 		IFigure Parent = (IFigure) primaryShape.getParent();
 		int index = Parent.getChildren().indexOf(primaryShape);
 		Parent.remove(primaryShape);
-		
+
 		List epList = getChildren();
-		for (int i=0; i<epList.size(); i++) {
+		for (int i = 0; i < epList.size(); i++) {
 			EditPart childEP = (EditPart) epList.get(i);
 			addChildVisual(childEP, i);
 		}
 		GoalFigure sgPrimary = (GoalFigure) primaryShape;
-		WrappingLabel wl =  sgPrimary.getFigureGoalNameFigure();
-		
+		WrappingLabel wl = sgPrimary.getFigureGoalNameFigure();
+
 		newfig.add(wl);
-		
+
 		/*Iterator connIt = null;
 		connIt = getSourceConnections().iterator();
 		while (connIt.hasNext()) {
@@ -301,19 +300,18 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 		primaryShape = newfig;
 		Parent.add(primaryShape, index);
 		primaryShape.setParent(Parent);
-		registerVisuals();	
-		
+		registerVisuals();
+
 		// These next few lines are necessary to ensure that
 		// the size of the figure does not inflate monstrously
 		// when multiple highlight commands are called one after
 		// the other.
 		try {
 			primaryShape.getMinimumSize();
-		} catch(Exception getMinimumSizeException) {	
+		} catch (Exception getMinimumSizeException) {
 		}
 	}
 
-	
 	/**
 	 * @generated
 	 */
@@ -3521,7 +3519,7 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
@@ -3529,14 +3527,14 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 			super(color);
 			createContents();
 		}
-		
+
 		/**
 		 * @generated NOT
 		 */
-		public String getColor () {
+		public String getColor() {
 			return this.col;
 		}
-		
+
 		/**
 		 * @generated
 		 */

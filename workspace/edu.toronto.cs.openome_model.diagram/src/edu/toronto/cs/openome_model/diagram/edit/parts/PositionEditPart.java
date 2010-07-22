@@ -1047,7 +1047,7 @@ public class PositionEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private Ellipse fFigurePositionBoundaryFigure;
-		
+
 		/**
 		 * This Container's minimum contraction
 		 * default 100x100
