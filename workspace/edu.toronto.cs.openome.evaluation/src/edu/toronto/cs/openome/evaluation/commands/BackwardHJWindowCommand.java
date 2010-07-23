@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.commands;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,6 +8,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -14,9 +18,11 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.ImageCombo;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -34,6 +40,7 @@ import org.eclipse.ui.dialogs.SelectionDialog;
 
 import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationDialog;
+import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.LabelBagElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
@@ -91,6 +98,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		
 		final Shell shell = new Shell(display);
 		
+		EvalLabelElementTypeLabelProvider eletlp  = new EvalLabelElementTypeLabelProvider();
 		shell.setText("Backward Evaluation Human Judgment");
 		
 		GridLayout gridLayout = new GridLayout(3, false);
@@ -155,7 +163,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		column.setText("From Judgement for");
 		
 		
-		final HashMap<Intention, CCombo> combos = new HashMap<Intention, CCombo>();
+		final HashMap<Intention, ImageCombo> combos = new HashMap<Intention, ImageCombo>();
 		
 		for (Intention i: intention.getChildren()) {
 			TableItem item = new TableItem (table, 0);
@@ -175,16 +183,20 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			TableEditor editor = new TableEditor (table);
 			editor.grabHorizontal = true;
 						
-			CCombo combo = new CCombo (table, SWT.NONE);
+			ImageCombo combo = new ImageCombo (table, SWT.NONE);
 			combos.put(i, combo);
 			combo.setText("Label");
-			combo.add("Satisfied");
-			combo.add("Partially Satisfied");
-			combo.add("Unknown");
-			combo.add("Conflict");
-			combo.add("Partially Denied");
-			combo.add("Denied");
-			combo.add("Don't care");
+			
+			// The following code adds the appropriate evaluation images 
+			// to the dropdown menu alongside the text.
+			
+			combo.add("Satisfied", eletlp.getImage(EvaluationLabel.SATISFIED));
+			combo.add("Partially Satisfied", eletlp.getImage(EvaluationLabel.WEAKLY_SATISFIED));
+			combo.add("Unknown", eletlp.getImage(EvaluationLabel.UNKNOWN));
+			combo.add("Conflict", eletlp.getImage(EvaluationLabel.CONFLICT));
+			combo.add("Partially Denied", eletlp.getImage(EvaluationLabel.WEAKLY_DENIED));
+			combo.add("Denied", eletlp.getImage(EvaluationLabel.DENIED));
+			combo.add("Don't care", null);
 			
 			editor.setEditor(combo, item, 2);
 			
@@ -292,14 +304,14 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		
 	}
 
-	protected void done(HashMap<Intention, CCombo> combos) {
+	protected void done(HashMap<Intention, ImageCombo> combos) {
 		//System.out.println("in done");
 		LabelBag lb = new LabelBag();
 		for (Object obj : combos.keySet()) {
 			Intention intention = (Intention) obj;
 			//System.out.println("Intention in combos: " + intention.getName());
 			
-			CCombo combo = combos.get(obj);
+			ImageCombo combo = combos.get(obj);
 			
 			int index = combo.getSelectionIndex();
 			
