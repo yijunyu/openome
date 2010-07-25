@@ -11,8 +11,6 @@ import java.util.Vector;
 import org.eclipse.core.runtime.Path;
 import org.sat4j.core.VecInt;
 
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;

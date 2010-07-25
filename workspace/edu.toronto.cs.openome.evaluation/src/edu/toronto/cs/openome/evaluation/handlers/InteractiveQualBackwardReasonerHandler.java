@@ -59,6 +59,8 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
+		
+		
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		Shell shell = ar[0];
@@ -102,6 +104,9 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs, editParts);
 		
 		Reasoning reasoning = new Reasoning(iQualReasoner);
+		
+		//for now, remove later
+		clearAllJudgments(mi, cs);
 	
 		reasoning.reason();
 	

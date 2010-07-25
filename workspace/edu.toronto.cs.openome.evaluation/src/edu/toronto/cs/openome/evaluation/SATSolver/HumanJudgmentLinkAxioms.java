@@ -7,16 +7,13 @@ import java.util.Vector;
 import org.sat4j.core.VecInt;
 import org.sat4j.specs.IteratorInt;
 
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.Link;
 
 public class HumanJudgmentLinkAxioms extends LinkAxioms {
-	private IntQualIntentionWrapper wrapper;
+	//private Intention intention;
 	private LabelBag lb;
 
 	public HumanJudgmentLinkAxioms(Vector<Intention> sources, Intention targ,
@@ -30,15 +27,19 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 		sourceIndexes = new VecInt();
 		
 		if (intentionMap != null) {
-			tIndex = (Integer) intentionMap.getInverse(wrapper.getIntention());
-		
-			ListIterator<IntentionLabelPair> it = lb.listIterator();
-			while (it.hasNext()) {
-				IntentionLabelPair ilp =  it.next();
-				
-				Integer sourceIndex = (Integer) intentionMap.getInverse(ilp.getIntention());
-				sourceIndexes.push(sourceIndex.intValue() + getLabelOffset(ilp.getEvaluationLabel()));	
+			//System.out.println("getting index");
+			tIndex = (Integer) intentionMap.getInverse(target);
+			//System.out.println("got index");
+			if (lb.getLabelBagIntentions() == null) {
+				System.out.println("label bag intentions null in find indexes");
 			}
+			else {
+				for (Intention intn: lb.getLabelBagIntentions()) {
+					Integer sourceIndex = (Integer) intentionMap.getInverse(intn);
+					sourceIndexes.push(sourceIndex.intValue() + getLabelOffset(lb.getLabelBagEvalLabels().get(lb.getLabelBagIntentions().indexOf(intn))));	
+				}
+			}
+			
 		}
 		else {
 			System.out.println("intentionMap is null");
@@ -64,7 +65,7 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 			}
 		}*/
 		
-		EvaluationLabel targetLabel = wrapper.getInitialEvaluationLable();
+		EvaluationLabel targetLabel = target.getInitialEvalLabel();
 		
 		targetOffset = getLabelOffset(targetLabel);
 		
@@ -202,7 +203,7 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 				}
 			}
 		}	*/	
-		EvaluationLabel targetLabel = wrapper.getInitialEvaluationLable();
+		EvaluationLabel targetLabel = target.getInitialEvalLabel();
 		
 		targetOffset = getLabelOffset(targetLabel);
 		
@@ -225,8 +226,9 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	
 	private void addSourceRestrictions(LabelBag lb2, Vector<VecInt> clauses) {
 		VecInt vi;
-		ListIterator<IntentionLabelPair> it = lb.listIterator();
+		ListIterator<Intention> it = lb2.getLabelBagIntentions().listIterator();
 		IteratorInt itr = sourceIndexes.iterator();
+		//which itr to use??
 		while (itr.hasNext()) {
 			vi = new VecInt();
 			vi.push(itr.next());
@@ -249,14 +251,6 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 		if (targetLabel == EvaluationLabel.DENIED)
 			return 5;
 		return 0;
-	}
-
-
-
-	
-	
-	public void addWrapper(IntQualIntentionWrapper w) {
-		wrapper = w;
 	}
 
 	public void addLabelBag(LabelBag bag) {

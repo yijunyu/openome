@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.internal.commands.ElementTypeLabelProvider;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -18,18 +19,17 @@ import org.eclipse.ui.dialogs.SelectionDialog;
 import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationDialog;
 import edu.toronto.cs.openome.evaluation.gui.LabelBagElementTypeLabelProvider;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
+
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 
 public class ForwardHJWindowCommand extends HJWindowCommand {
 	
-	public ForwardHJWindowCommand(Shell s, IntQualIntentionWrapper w) {
+	public ForwardHJWindowCommand(Shell s, CommandStack cs, Intention i) {
 		
-		super(s, w);	
+		super(s, cs, i);	
 		
 	}
 
@@ -47,7 +47,7 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		
 		List<EvaluationLabel> labellist = new ArrayList<EvaluationLabel>();
 		
-		//System.out.println("created dialog and labellist");
+		System.out.println("created dialog and labellist");
 		
 //		list.add(Openome_modelElementTypes.Goal_1005);
 //		list.add(Openome_modelElementTypes.Dependency_3001);
@@ -60,38 +60,40 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		labellist.add(EvaluationLabel.WEAKLY_DENIED);
 		labellist.add(EvaluationLabel.DENIED);
 	
-		//System.out.println("added to labellist");
+		System.out.println("added to labellist");
 		
 		//ld.setAddCancelButton(true);  
 		ld.setEvalLabelContentProvider(new ArrayContentProvider());
 		ld.setLabelBagContentProvider(new ArrayContentProvider());
 		
-		//System.out.println("set content provider");
+		System.out.println("set content provider");
 		
 		ld.setEvalLabelLabelProvider(new EvalLabelElementTypeLabelProvider());
 		ld.setLabelBagLabelProvider(new LabelBagElementTypeLabelProvider());
 		
-		//System.out.println("set provider");
+		System.out.println("set provider");
 	
 		ld.setEvalLabelInput(labellist);
 		
-		//System.out.println("set label list");
+		System.out.println("set label list");
 		
-		if (wrapper != null)
-			ld.setLabelBagInput(wrapper.bagToArray());
+		if (intention != null) {
+			Object array = intention.getLabelBag().toArray();
+			ld.setLabelBagInput(array);
+		}
 		else
-			System.out.println("Wrapper is null");
+			System.out.println("Intention is null");
 		
-		//System.out.println("set label bag");		
+		System.out.println("set label bag");		
 		
-		String mess = wrapper.getIntention().getName();
-		if (wrapper.getIntention().getContainer() != null)
-			mess += " in " + wrapper.getIntention().getContainer().getName();
+		String mess = intention.getName();
+		if (intention.getContainer() != null)
+			mess += " in " + intention.getContainer().getName();
 	
 		ld.setTitle("Sofgoal Resolution for " + mess);
 		ld.setMessage(mess + " has recieved the following labels.  Please select a resulting label.");
 
-		//System.out.println("set title and message");	
+		System.out.println("set title and message");	
 		
 		ld.open();
 		

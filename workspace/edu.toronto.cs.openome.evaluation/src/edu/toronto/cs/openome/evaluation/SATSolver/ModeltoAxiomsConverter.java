@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Vector;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.sat4j.core.VecInt;
 import org.sat4j.specs.IteratorInt;
 
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
+import edu.toronto.cs.openome.evaluation.commands.BacktrackReverseJudgmentCommand;
+import edu.toronto.cs.openome.evaluation.commands.EnableHumanJudgmentCommand;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
@@ -21,6 +21,7 @@ import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.HelpContribution;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.HurtContribution;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Link;
@@ -40,13 +41,15 @@ public class ModeltoAxiomsConverter {
 	Vector<Link> done;
 	AxiomsFactory axiomsFactory;
 	DualHashMap<Integer, Intention> intentionIndex;
+	CommandStack cs;
 	
-	public ModeltoAxiomsConverter(ModelImpl m) {
+	public ModeltoAxiomsConverter(ModelImpl m, CommandStack c) {
 		model = m;
 		intentionIndex = new DualHashMap<Integer, Intention>();
 		createIntentionIndex();
 		done = new Vector<Link>();
 		axiomsFactory = new AxiomsFactory();
+		cs = c;
 	}
 	
 	private void createIntentionIndex() {
@@ -813,22 +816,22 @@ public class ModeltoAxiomsConverter {
 		return strs;
 	}
 
-	public Dimacs addHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, LabelBag bag, int dir) {
+	public Dimacs addHumanJudgment(Dimacs cnf, Intention i, HumanJudgment hj, int dir) {
 		//Disable old clauses
 		//cnf.disableAxioms(links);		
 		
-		String description = "Human judgment for intention " + w.getIntention().getName();
+		String description = "Human judgment for intention " + i.getName();
 		
 		Vector<Intention>  sources = new Vector<Intention>();
 		Vector<Link> links = new Vector<Link>();
 		
-		ListIterator<IntentionLabelPair> it = bag.listIterator();
+		ListIterator<Intention> it = hj.getLabelBag().getLabelBagIntentions().listIterator();
 		while (it.hasNext()) {
-			IntentionLabelPair ilp =  it.next();
-			sources.add(ilp.getIntention());
+			Intention intn =  it.next();
+			sources.add(intn);
 			//System.out.println("source: " + ilp.getIntention().getName());
-			for (Contribution cont : ilp.getIntention().getContributesTo()) {
-				if (cont.getTarget().equals(w.getIntention())) {
+			for (Contribution cont : intn.getContributesTo()) {
+				if (cont.getTarget().equals(i)) {
 					links.add(cont);
 					//System.out.println("link: " + cont.getContributionType());
 				}				
@@ -838,21 +841,20 @@ public class ModeltoAxiomsConverter {
 		Vector<Axioms> axs = cnf.getAxioms(links);
 		
 		for (Axioms ax : axs) {
+			//removing all previous human judgments to this intention
 			if (ax instanceof HumanJudgmentLinkAxioms) {
 				cnf.removeAxiom(ax);
 				System.out.println("shouldn't happen?");
 			}
+			//disable non human judgment axioms to this intention
 			else {
 				cnf.disableAxiom(ax);
 			}
 		}
 		
-		Intention target = w.getIntention();
+		HumanJudgmentLinkAxioms hja = new HumanJudgmentLinkAxioms(sources, i, links, intentionIndex, description);
 		
-		HumanJudgmentLinkAxioms hja = new HumanJudgmentLinkAxioms(sources, target, links, intentionIndex, description);
-		
-		hja.addLabelBag(bag);
-		hja.addWrapper(w);
+		hja.addLabelBag(hj.getLabelBag());
 		
 		//both directions
 		if (dir == 0) {			
@@ -873,20 +875,26 @@ public class ModeltoAxiomsConverter {
 		
 	}
 	
-	public Dimacs backtrackHumanJudgment(Dimacs cnf, IntQualIntentionWrapper w, int i) {
+	public Dimacs backtrackHumanJudgment(Dimacs cnf, Intention i, HumanJudgment hj) {
 		//System.out.println("Converter backtracking for " + w.getIntention().getName());
-		for (HumanJudgement hj : w.getHumanJudgements()) {
-			hj.disable();
+		int index = i.getHumanJudgments().indexOf(hj);
+		
+		if (index < 0) {
+			System.out.println("Problem in backtracking over human judgments, judgment and intention don't match");
+			return null;
 		}
+		
+		Command setEnabled = new EnableHumanJudgmentCommand(hj, false);
+		cs.execute(setEnabled);
 		
 		Vector<Link> links = new Vector<Link>();
 		
-		ListIterator<IntentionLabelPair> it = w.getHumanJudgements().get(0).getLabelBag().listIterator();
+		ListIterator<Intention> it = hj.getLabelBag().getLabelBagIntentions().listIterator();
 		while (it.hasNext()) {
-			IntentionLabelPair ilp =  it.next();
+			Intention intn =  it.next();
 			//System.out.println("source: " + ilp.getIntention().getName());
-			for (Contribution cont : ilp.getIntention().getContributesTo()) {
-				if (cont.getTarget().equals(w.getIntention())) {
+			for (Contribution cont : intn.getContributesTo()) {
+				if (cont.getTarget().equals(i)) {
 					links.add(cont);
 					//System.out.println("link: " + cont.getContributionType());
 				}				
@@ -903,10 +911,13 @@ public class ModeltoAxiomsConverter {
 			}
 			else {
 				//System.out.println("trying to enable axiom.");
+				//re-enable old non-judgment axioms for this intention
 				cnf.enableAxiom(ax);
 			}
-		}		
-		
+		}	
+		Command backtrackReverse = new BacktrackReverseJudgmentCommand(i, hj);
+		cs.execute(backtrackReverse);
+				
 		//System.out.println("Converter backtracked for " + w.getIntention().getName());
 		return cnf;
 	}

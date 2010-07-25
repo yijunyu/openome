@@ -12,6 +12,9 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -42,33 +45,29 @@ import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationDialog;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.gui.LabelBagElementTypeLabelProvider;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.HumanJudgement;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.LabelBag;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.SoftgoalWrappers;
 
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.impl.HumanJudgmentImpl;
+import edu.toronto.cs.openome_model.impl.LabelBagImpl;
 
 public class BackwardHJWindowCommand extends HJWindowCommand {
 	
 	private boolean done;
 	private boolean noCombinations;
-	private LabelBag resultBag;
-	private SoftgoalWrappers softgoalWrappers;
+	private HumanJudgment judgmentResult;	
 	
-	public BackwardHJWindowCommand(Shell s, IntQualIntentionWrapper w, SoftgoalWrappers sws) {
-		super(s, w);
-		
+	
+	public BackwardHJWindowCommand(Shell s, CommandStack cs, Intention i) {
+		super(s, cs, i);
 		done = false;
 		noCombinations = false;
-		resultBag = new LabelBag();
-		softgoalWrappers = sws;
+		judgmentResult = null;
 	}
 
 	public boolean canExecute() {
@@ -92,8 +91,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 
 	@SuppressWarnings("restriction")
 	public void execute() {
-		Intention intention = wrapper.getIntention();
-		
+		System.out.println("executing backward window");
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		
 		final Shell shell = new Shell(display);
@@ -118,11 +116,11 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		text.setLayoutData(gridData);
 
 		String name = intention.getName();
-		String target = wrapper.getInitialEvaluationLable().toString();
+		String target = intention.getInitialEvalLabel().toString();
 		text.setText("Results indicate that " + name + " must have a value of " 
 				+ target + ".\nEnter a combination of evaluation labels for intentions contributing to " 
 				+ name + " which would result in " + target + " for " + name + ".");
-		
+		System.out.println("Set intro message");
 		
 		final Table table = new Table (shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
 		table.setLinesVisible (true);
@@ -200,19 +198,22 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			
 			editor.setEditor(combo, item, 2);
 			
-			IntQualIntentionWrapper w = softgoalWrappers.findIntention(i);
-			if (w != null) {
-				HashMap<Intention, EvaluationLabel> reverse = w.getReverseJudgments();
-				String values = "";
-				String sources = "";
-				for (Intention revInt : reverse.keySet()) {
-					values += reverse.get(revInt).toString() + ", ";
-					sources += revInt.getName() + ", ";
+			if (i != null) {				
+				
+				if (i.getReverseLabelBag() != null) {
+					String values = "";
+					String sources = "";
+					for (Intention intn : i.getReverseLabelBag().getLabelBagIntentions()) {
+						values += i.getReverseLabelBag().getLabelBagEvalLabels().get(i.getReverseLabelBag().getLabelBagIntentions().indexOf(intn)).toString() + ", ";
+						sources += intn.getName() + ", ";
+					}
+					item.setText(3, values);
+					item.setText(4, sources);
 				}
-				item.setText(3, values);
-				item.setText(4, sources);
-			}					
+			}				
 		}
+		
+		System.out.println("set table info");
 		
 		text = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
 		
@@ -223,18 +224,19 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 
 		text.setLayoutData(gridData);
 		String previous = "Previous combinations: \n";
-		Vector<HumanJudgement> hjs = wrapper.getHumanJudgements();
+		EList<HumanJudgment> hjs = intention.getHumanJudgments();
 		if (hjs.size() == 0) {
 			previous += "None";
 		} else {
-			for (HumanJudgement hj : hjs) {
-				previous += hj.getLabelBag().toString();
+			for (HumanJudgment hj : hjs) {
+				previous += hj.getLabelBag().toUIString();
 				
-				previous += "produced value: " + hj.getJudgement() + "\n";					
+				previous += "produced value: " + hj.getResultLabel() + "\n";					
 			}
 		}
 		text.setText(previous);
 		
+		System.out.println("set previous info");
 		
 		final Button doneB = new Button (shell, SWT.PUSH);
 		doneB.setText ("OK");
@@ -249,6 +251,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			}
 		});
 
+		System.out.println("made buttons");
 		
 		gridData = new GridData();
 		gridData.horizontalSpan = 1;
@@ -306,9 +309,9 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 
 	protected void done(HashMap<Intention, ImageCombo> combos) {
 		//System.out.println("in done");
-		LabelBag lb = new LabelBag();
+		
 		for (Object obj : combos.keySet()) {
-			Intention intention = (Intention) obj;
+			Intention i = (Intention) obj;
 			//System.out.println("Intention in combos: " + intention.getName());
 			
 			ImageCombo combo = combos.get(obj);
@@ -334,30 +337,25 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			if (label != null)  {
 				//System.out.println("label not null");
 				
-				lb.addToBag(intention, label);
-				
-				IntQualIntentionWrapper w = softgoalWrappers.findIntention(intention);
-				if (w == null) {
-					w = new IntQualIntentionWrapper(intention);
-					softgoalWrappers.add(w);
-				}	
-				w.addReverseJudgment(wrapper.getIntention(), label);
+				Command addtoLB = new AddToLabelBagCommand(intention, i, label);
+				commandStack.execute(addtoLB);
+												
+				//intention.addReverseJudgment(intention, label);
 				
 				//wrapper.addtoLabelBag(intention, label);
 			}
 		}
-		resultBag = lb;
-		HumanJudgement hj = new HumanJudgement(lb, wrapper.getInitialEvaluationLable());
-		wrapper.addHumanJudgement(hj);
-	}
-	
-	public LabelBag getBagResult() {
-		return resultBag;
-	}
-	
+		AddHumanJudgmentCommand addHJ = new AddHumanJudgmentCommand(intention, intention.getInitialEvalLabel(), commandStack);
+		commandStack.execute(addHJ);
+		judgmentResult = addHJ.getHumanJudgmentResult();
+	}	
 	
 	public boolean done() {
 		return done;
+	}
+	
+	public HumanJudgment getJudgmentResult() {
+		return judgmentResult;
 	}
 	
 	public boolean noCombinations() {

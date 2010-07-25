@@ -8,10 +8,9 @@ import java.util.ListIterator;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntentionLabelPair;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 /**
@@ -32,10 +31,10 @@ public class AutomaticQualReasoner extends Reasoner {
 //		qv.init(model);		
 	}
 	
-	protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+	protected EvaluationLabel resolveOtherCases(Intention i) {
 		
-		ListIterator<IntentionLabelPair> it = w.bagListIterator();
-		
+		ListIterator<EvaluationLabel> it = i.getLabelBag().getLabelBagEvalLabels().listIterator();
+				
 		int FSCount = 0;
 		int PSCount = 0;
 		int CCount = 0;
@@ -44,9 +43,8 @@ public class AutomaticQualReasoner extends Reasoner {
 		int FDCount = 0;
 		
 		while (it.hasNext()) {
-			IntentionLabelPair ilp =  it.next();
-			EvaluationLabel label = ilp.getEvaluationLabel();
-			
+			EvaluationLabel label =  it.next();
+						
 			if (label == EvaluationLabel.SATISFIED) {
 				FSCount++;
 			}

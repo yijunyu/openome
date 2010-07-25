@@ -1,21 +1,23 @@
 package edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning;
 
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Vector;
 
+import edu.toronto.cs.openome.evaluation.commands.AddHumanJudgmentCommand;
+import edu.toronto.cs.openome.evaluation.commands.AddToLabelBagCommand;
+import edu.toronto.cs.openome.evaluation.commands.ClearLabelBagCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+
+import edu.toronto.cs.openome.evaluation.commands.SetInitialEvaluationLabelCommand;
+import edu.toronto.cs.openome.evaluation.commands.SetLabelBagResolvedCommand;
+
 import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionOutlinesCommand;
-import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
-import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
-import edu.toronto.cs.openome.evaluation.qualitativeautomaticreasoning.AutomaticQualReasoner;
+
+
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
-import edu.toronto.cs.openome.evaluation.views.AlternativesView;
 import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.BreakContribution;
 import edu.toronto.cs.openome_model.Container;
@@ -30,37 +32,26 @@ import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.OrDecomposition;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.UnknownContribution;
-import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
-import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
-import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
-import edu.toronto.cs.openome_model.impl.ModelImpl;
-import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 
-import org.eclipse.core.runtime.IProgressMonitor;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
+import edu.toronto.cs.openome_model.impl.ModelImpl;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.diagram.ui.commands.CreateOrSelectElementCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.commands.PopupMenuCommand;
+
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.IContentProvider;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.dialogs.ViewContentProvider;
 
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -78,7 +69,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	
 	//Some extra info needs to be stored with softgoals, so we have a wrapper class, and we have another class
 	//which stores a list of these wrappers, this is that class
-	private SoftgoalWrappers softgoalWrappers;
+	private Vector<Intention> softgoalWrappers;
 	//Hard intentions (non-softgoals:  goal, task, resource) which have been in each iteration of the algorithm.  
 	//We keep track of this  to avoid resolving one multiple times in an iteration
 	private Vector<Intention> resolvedHardIntentions;
@@ -96,7 +87,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		dcs = d;
 		
 		lq = new LabelQueue();
-		softgoalWrappers = new SoftgoalWrappers();
+		softgoalWrappers = new Vector<Intention>();
 		resolvedHardIntentions = new Vector<Intention>();
 	}
 	
@@ -137,10 +128,10 @@ public class InteractiveQualReasoner extends Reasoner {
 			//DEBUGGING, print out the list of softgoals which have label bags that need resolving
 			System.out.println("Softgoals to resolve");
 			
-			for(IntQualIntentionWrapper w: softgoalWrappers.getSet()) {
-				if (w.bagNeedResolve()) {
-					System.out.println(w.getIntention().getName());
-					w.printLabelBag();		
+			for(Intention i: softgoalWrappers) {
+				if (i.getLabelBag().needResolve()) {
+					System.out.println(i.getName());
+					i.getLabelBag().printBag();		
 				}
 			}
 						
@@ -178,36 +169,44 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		//For every intention in the model
 		for (Intention i : model.getAllIntentions()) {
+			
+			Command clearLB = new ClearLabelBagCommand(i);
+			cs.execute(clearLB);
+			
 	
 			//grab the label from the intention
 			EvaluationLabel initvalue = i.getQualitativeReasoningCombinedLabel();
 	
 			//if the intention actually has a real label
 			if (initvalue != EvaluationLabel.NONE) {
-			
-				//create a new intention wrapper for the intention, used to store extra stuff
-				IntQualIntentionWrapper iqi = new IntQualIntentionWrapper(i);
-				
+											
 				//Add the new wrapper to the label queue
-				if (!lq.offer(iqi))		{	
+				if (!lq.offer(i))		{	
 					System.out.println("Cannot add to label queue");
 					return;
 				}				
-						
+				//System.out.println("setting initial value");		
 				//store the initial value separately from the actual value of the intention
-				iqi.setInitialEvaluationLabel(initvalue);	
-				
+				Command setInitLabel = new SetInitialEvaluationLabelCommand(i, initvalue);
+				cs.execute(setInitLabel);	
+				//System.out.println("initial value set");	
 				//if the intention is a softgoal, add the initial value to the label bag for a softgoal
 				if (i instanceof Softgoal) {
 					try {
 						//For initial values, the source element in the label bag is the element itself
-						iqi.addtoLabelBag(i, initvalue);
+						Command addToLB = new AddToLabelBagCommand(i, i, initvalue);
+						cs.execute(addToLB);
 					}
 					catch (Exception e) {
 						System.out.println("couldn't add to bag");
 					}
 				}
-			}						
+			}
+			else {
+				//clear old initial values
+				Command setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.NONE);
+				cs.execute(setInitLabel);
+			}
 		}
 	}
 	
@@ -227,32 +226,29 @@ public class InteractiveQualReasoner extends Reasoner {
 			//System.out.println("At: " + i);
 			
 			//make a new wrapper
-			IntQualIntentionWrapper currWrapper = null;
+			Intention currIntention = null;
 			
 			//try to grab the right element from the queue and put it in the wrapper
 			//it's a queue so add to the end, take from the front
 			try {
-				currWrapper = lq.poll();
+				currIntention = lq.poll();
 			}
 			catch (Exception e) {
 				System.out.println("Couldn't poll label queue");
 				return;
 			}
-			
-			//Get the actual intention in the wrapper
-			Intention current = currWrapper.getIntention();
-			
+									
 			//DEBUGGING
-			System.out.println("propagating for " + current.getName());
+			System.out.println("propagating for " + currIntention.getName());
 			
 			//Propagate the contribution links from this element
-			propagateContributions(current);
+			propagateContributions(currIntention);
 			
 			//propagate through the decomposition and means-ends links from this element
-			propagateDecompositions(current);
+			propagateDecompositions(currIntention);
 			
 			//propagate through the dependency links from this element
-			propagateDependencies(current);
+			propagateDependencies(currIntention);
 		}
 	}
 	
@@ -263,7 +259,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	 */
 	private void propagateContributions(Intention intention) {
 		//DEBUGGING
-		//System.out.println("propagate Contributions for " + intention.getName());
+		System.out.println("propagate Contributions for " + intention.getName());
 		
 		//Get all the intentions that this intention contributes to via contribution links
 		for (Contribution c: intention.getContributesTo())  {
@@ -271,7 +267,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			Intention target = c.getTarget();
 			
 			//DEBUGGING
-			//System.out.println("Target: " + target.getName());
+			System.out.println("Target: " + target.getName());
 			
 			//System.out.println(softgoalsToResolve.size());
 			
@@ -279,7 +275,7 @@ public class InteractiveQualReasoner extends Reasoner {
 			EvaluationLabel result = applyContributionRules(c, intention.getQualitativeReasoningCombinedLabel());
 			
 			//DEBUGGING
-			//System.out.println("Result: " + result.getName());
+			System.out.println("Result: " + result.getName());
 			
 			//Add the softgoal to a list of softgoals to resolve via human judgment
 			addSoftgoalToResolve(target, intention, result);			
@@ -291,36 +287,20 @@ public class InteractiveQualReasoner extends Reasoner {
 	 * Add the softgoal to a list of softgoals to resolve via human judgment
 	 */
 	private void addSoftgoalToResolve(Intention target, Intention source, EvaluationLabel result) {
-		IntQualIntentionWrapper targetWrapper = null;
-		
-		//find existing wrapper in the list of softgoals to resolve, if there is one
-		//this avoids having mulitple wrappers pointing to the same softgoal
-		try {
-			targetWrapper = softgoalWrappers.findIntention(target);
-			
-		}
-		catch (Exception e) {
-			System.out.println("Find Intention exception");
-		}
-		
-		//There isn't one for this softgoal, so make a new one
-		if (targetWrapper == null)
-			targetWrapper = new IntQualIntentionWrapper(target);
-		else
-			System.out.println("Found wrapper: " + targetWrapper.getIntention().getName());
-		
+				
 		//Add the source and result to the label bag for this intention
 		try {
-			targetWrapper.addtoLabelBag(source, result);
+			Command addtoLB = new AddToLabelBagCommand(target, source, result);
+			cs.execute(addtoLB);
 		}
 		catch (Exception e) {
 			System.out.println("Can't add to bag");
 		}
 		
 		//Add the wrapper to the list of softgoal wrappers
-		//will only add it if it's not already there, as it's a Set
 		try {
-			softgoalWrappers.add(targetWrapper);				
+			if (!softgoalWrappers.contains(target))
+				softgoalWrappers.add(target);				
 		}
 		catch (Exception e) {
 			System.out.println("Can't add to list of softgoals to resolve");
@@ -533,13 +513,9 @@ public class InteractiveQualReasoner extends Reasoner {
 				//set the label
 				setQualCombinedLabel(target, result);
 			
-				//make a new wrapper and add it to the queue
-				//I guess we don't need to check if it's already in the queue, the resolvedHardIntentions list
-				//should have taken care of that.  Also, if we have a repeat in the queue, it's not that big of a 
-				//deal, just inefficient.
-				IntQualIntentionWrapper targetWrapper = new IntQualIntentionWrapper(target);
-			
-				lq.add(targetWrapper);
+				//add target to the queue
+				if (!lq.contains(target))
+					lq.add(target);
 			}
 			
 			//DEBUGGING
@@ -609,20 +585,22 @@ public class InteractiveQualReasoner extends Reasoner {
 		EvaluationLabel result; 
 		
 		//Go through all the softgoal wrappers
-		for (IntQualIntentionWrapper w: softgoalWrappers.getSet())  {
+		for (Intention i: softgoalWrappers)  {
 			//if the softgoals' label bag needs to be resolved
-			if (w.bagNeedResolve()) {
+			if (i.getLabelBag() == null)
+				System.out.println("label bag null in step 2");
+			if (i.getLabelBag().needResolve()) {
 				//First see if we can get the answer using our automatic cases
-				result = applyAutomaticSoftgoalCases(w);
+				result = applyAutomaticSoftgoalCases(i);
 				
 				//DEBUGGING
-				System.out.println("Resolving: " + w.getIntention().getName());
+				System.out.println("Resolving: " + i.getName());
 				if (result != null) System.out.println("Automatic result: " + result.getName());
 				
 				//Can't get automatic result, need human judgment
 				if (result == null)  {				
 					//get human judgment
-						result = resolveOtherCases(w);
+						result = resolveOtherCases(i);
 										
 					//the result will be null if they cancel the window, which means they want to quit evaluating
 					if (result == null) {
@@ -632,13 +610,17 @@ public class InteractiveQualReasoner extends Reasoner {
 				}
 			
 				//Set the label to the result
-				setQualCombinedLabel(w.getIntention(), result);
+				setQualCombinedLabel(i, result);
 				
 				//add it to the queue
-				lq.add(w);		
+				lq.add(i);	
 				
+				//System.out.println("Before setting resolved");
 				//mark the bag as resolved
-				w.bagResolved();
+				//i.getLabelBag().setToResolved();
+				Command setResolved = new SetLabelBagResolvedCommand(i);
+				cs.execute(setResolved);
+				//System.out.println("After setting resolved");
 			}	
 			
 		}	
@@ -652,27 +634,26 @@ public class InteractiveQualReasoner extends Reasoner {
 	 *  Apply the cases where softgoal label bags can be resolved automatically.  See Table 4 here for a list:
 	 *  http://istar.rwth-aachen.de/tiki-index.php?page_ref_id=260
 	 */
-	private EvaluationLabel applyAutomaticSoftgoalCases(IntQualIntentionWrapper w) {
+	private EvaluationLabel applyAutomaticSoftgoalCases(Intention i) {
 		//case 1, there is only one label in the bag
-		if (w.bagSize() == 1) {
-			IntentionLabelPair ilp = w.getFirstFromBag();
-			return ilp.getEvaluationLabel();
+		if (i.getLabelBag().getBagSize() == 1) {
+			return i.getLabelBag().getLabelBagEvalLabels().get(0);
 		}
 		
 		//case 2 & 3		
-		if (w.bagHasSatisfied() && w.isBagPositive())
+		if (i.getLabelBag().hasFullPositive() && i.getLabelBag().isAllPositive())
 			return EvaluationLabel.SATISFIED;
-		if (w.bagHasDenied() && w.isBagNegative())
+		if (i.getLabelBag().hasFullNegative() && i.getLabelBag().isAllNegative())
 			return EvaluationLabel.DENIED;
 		//new cases
-		if (w.bagIsUnknown())
+		if (i.getLabelBag().isAllUnknown())
 			return EvaluationLabel.UNKNOWN;
-		if (w.bagIsConflict())
+		if (i.getLabelBag().isAllConflict())
 			return EvaluationLabel.CONFLICT;
 		
 		//case 4, null if it doesn't apply
 		//This looks to see if the user has already answered this question
-		return w.findExistingResult();				
+		return i.findExistingHumanJudgment();				
 	}
 
 	/**
@@ -739,7 +720,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	 * @author jenhork
 	*
 	 */
-	protected EvaluationLabel resolveOtherCases(IntQualIntentionWrapper w) {
+	protected EvaluationLabel resolveOtherCases(Intention i) {
 	
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
@@ -759,8 +740,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		DiagramEditPart dep = mDE.getDiagramEditPart();
 		List l = dep.getPrimaryEditParts();
 		List<Intention> target = new Vector<Intention>();
-		target.add(w.getIntention());
-		List<Intention> children = w.getIntention().getChildren();
+		target.add(i);
+		List<Intention> children = i.getChildren();
 		HighlightIntentionOutlinesCommand highlightTarget = new HighlightIntentionOutlinesCommand (
 				l, target, new RGB(255,0,0)); // 0 0 255 is red for target
 		HighlightIntentionOutlinesCommand highlightChildren = new HighlightIntentionOutlinesCommand (
@@ -769,9 +750,11 @@ public class InteractiveQualReasoner extends Reasoner {
 		cs.execute(highlightTarget);
 		cs.execute(highlightChildren);
 		
-		// forward human judgement window pops up.
-		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], w);
-		cs.execute(wincom);
+		// forward human judgement window pops up.ii
+			
+		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], cs, i);			
+			
+		cs.execute(wincom);			
 		
 		// unhighlight when target moves on
 		HighlightIntentionOutlinesCommand unhighlightTarget = new HighlightIntentionOutlinesCommand(
@@ -787,9 +770,12 @@ public class InteractiveQualReasoner extends Reasoner {
 			return null;
 		}
 		
-		EvaluationLabel result = wincom.getEvalResult();		
+		EvaluationLabel result = wincom.getEvalResult();	
+		System.out.println("Window result: " + result.getName());
 		
-		HumanJudgement hj = w.addHumanJudgement(result);
+		Command addHJ = new AddHumanJudgmentCommand(i, result, cs);
+		cs.execute(addHJ);
+		//HumanJudgment hj = i.addHumanJudgment(result);
 		
 		System.out.println("Human Judgement result: " + result.getName());
 		
@@ -797,7 +783,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	
 	}
 	
-	public SoftgoalWrappers getSoftgoalWrappers(){
+	public Vector<Intention> getSoftgoalWrappers(){
 		return softgoalWrappers;
 	}
 	

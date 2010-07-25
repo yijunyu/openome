@@ -6,7 +6,6 @@ import java.util.Queue;
 import java.util.Iterator;
 
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQualIntentionWrapper;
 
 /**
  * @author jenhork
@@ -19,9 +18,9 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.IntQual
  * This uses a different interface than the default Java Queue, so I've made some adjustments. 
  *
  */
-public class LabelQueue implements Queue<IntQualIntentionWrapper> {
+public class LabelQueue implements Queue<Intention> {
 	
-	private IntQualIntentionWrapper [ ] theArray;
+	private Intention [ ] theArray;
     private int        currentSize;
     private int        front;
     private int        back;
@@ -33,7 +32,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     private static final int DEFAULT_CAPACITY = 20;
 
     public LabelQueue() {
-    	theArray = new IntQualIntentionWrapper[ DEFAULT_CAPACITY ];
+    	theArray = new Intention[ DEFAULT_CAPACITY ];
         clear( );
         map = new HashMap();
     }
@@ -41,7 +40,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	/**
 	 * I don't really need an iterator for this class
 	 */
-	public Iterator<IntQualIntentionWrapper> iterator() {
+	public Iterator<Intention> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -53,9 +52,9 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	/**
 	 * Add an Intention, if the array is getting full, double the length
 	 */
-	public boolean offer(IntQualIntentionWrapper arg0) {
+	public boolean offer(Intention arg0) {
 		if (!contains(arg0)) {
-			Integer count = (Integer) map.get(arg0.getIntention());
+			Integer count = (Integer) map.get(arg0);
 			
 			if (count == null)
 				count = 0;
@@ -69,7 +68,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	        	
 		        count++;
 		        
-		        map.put(arg0.getIntention(), count);
+		        map.put(arg0, count);
 	        
 	        	return true;
 			}
@@ -81,7 +80,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	/**
 	 * Look at the head of the queue without removing
 	 */
-	public IntQualIntentionWrapper peek() {
+	public Intention peek() {
 		if( isEmpty( ) )
             throw new UnderflowException( "ArrayQueue getFront" );
         return theArray[ front ];
@@ -90,13 +89,13 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	/**
 	 * Return and remove the head of the queue
 	 */
-	public IntQualIntentionWrapper poll() {
+	public Intention poll() {
 		//System.out.println(currentSize + " " + front + " " + back);
 		if( isEmpty( ) )
             throw new UnderflowException( "ArrayQueue dequeue" );
         currentSize--;
         
-        IntQualIntentionWrapper returnValue = theArray[ front ];
+        Intention returnValue = theArray[ front ];
         front = increment( front );
         
         //System.out.println(currentSize + " " + front + " " + back);
@@ -106,20 +105,20 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
         return returnValue;
 	}
 
-	public boolean add(IntQualIntentionWrapper e) {
+	public boolean add(Intention e) {
 		return offer(e);
 	}
 
-	public IntQualIntentionWrapper element() {
+	public Intention element() {
 		return peek();
 	}
 
-	public IntQualIntentionWrapper remove() {
+	public Intention remove() {
 		return poll();
 	}
 
-	public boolean addAll(Collection<? extends IntQualIntentionWrapper> c) {
-		Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
+	public boolean addAll(Collection<? extends Intention> c) {
+		Iterator<Intention> it = (Iterator<Intention>) c.iterator();
 		
 		while (it.hasNext())  {
 			offer(it.next());
@@ -167,7 +166,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	}
 
 	public boolean removeAll(Collection<?> c) {
-		Iterator<IntQualIntentionWrapper> it = (Iterator<IntQualIntentionWrapper>) c.iterator();
+		Iterator<Intention> it = (Iterator<Intention>) c.iterator();
 		
 		while (it.hasNext())  {
 			remove(it.next());
@@ -188,7 +187,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
 	/**
 	 * Don't return the actual array, return a copy.  Maybe this is done by default?  Can't remember.
 	 */
-	public IntQualIntentionWrapper[] toArray() {
+	public Intention[] toArray() {
 		return theArray.clone();
 	}
 
@@ -217,9 +216,9 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
      */
     private void doubleQueue( )
     {
-    	IntQualIntentionWrapper[ ] newArray;
+    	Intention[ ] newArray;
 
-        newArray = new IntQualIntentionWrapper[ theArray.length * 2 ];
+        newArray = new Intention[ theArray.length * 2 ];
 
             // Copy elements that are logically in the queue
         for( int i = 0; i < currentSize; i++, front = increment( front ) )
@@ -234,7 +233,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     public void print() {
     	int oldfront = front;
     	 for( int i = 0; i < currentSize; i++, front = increment( front ) )
-             System.out.print(theArray[front].getIntention().getName() + ", ");
+             System.out.print(theArray[front].getName() + ", ");
     	 
     	 System.out.println("");
     	 
@@ -246,7 +245,7 @@ public class LabelQueue implements Queue<IntQualIntentionWrapper> {
     	String str = "";
     	int oldfront = front;
     	 for( int i = 0; i < currentSize; i++, front = increment( front ) )
-             str += theArray[front].getIntention().getName() + ", ";
+             str += theArray[front].getName() + ", ";
     	     	 
     	front = oldfront;
     	return str;

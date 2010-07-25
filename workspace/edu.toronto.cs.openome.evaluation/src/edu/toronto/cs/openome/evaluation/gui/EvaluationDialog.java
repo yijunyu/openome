@@ -66,8 +66,7 @@ public class EvaluationDialog extends SelectionDialog {
     /**
      * @param input The input for the list.
      */
-    public void setLabelBagInput(Object input) {
-    	
+    public void setLabelBagInput(Object input) {    	
         fLabelBagInput = input;
     }
     

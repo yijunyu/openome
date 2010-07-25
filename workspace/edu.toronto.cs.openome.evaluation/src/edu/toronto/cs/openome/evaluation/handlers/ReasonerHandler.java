@@ -7,6 +7,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -28,6 +29,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import edu.toronto.cs.openome.evaluation.commands.RemoveHumanJudgmentCommand;
+import edu.toronto.cs.openome.evaluation.commands.RemoveReverseJudgmentCommand;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
@@ -174,6 +178,34 @@ public class ReasonerHandler implements IHandler {
 		CommandStack cs = editingDomain.getCommandStack();
 	
 		return cs;
+	}
+	
+	public void clearAllJudgments(ModelImpl m, CommandStack c) {
+		System.out.println("Clear all judgments");
+		Command removeJudgment;
+		Command removeReverseJudgment;
+		if (c == null)
+			System.out.println("command stack is null in clear");
+		if (m == null)
+			System.out.println("model is null in clear");
+		for (Intention i: m.getAllIntentions()) {
+			System.out.println("Clearing judgments for: " + i.getName());			
+			if (i.getHumanJudgments() != null)  {
+				int size = i.getHumanJudgments().size();
+				System.out.println("# human judgments: " + size);				
+				for (int j = 0; j < size; j++) {
+					HumanJudgment togo = i.getHumanJudgments().get(0);
+					System.out.println("\tClearing judgment: " + togo.getResultLabel());
+					removeJudgment = new RemoveHumanJudgmentCommand(i, togo);
+					c.execute(removeJudgment);
+				}
+			}
+			
+			if (i.getReverseLabelBag() != null) {
+				removeReverseJudgment = new RemoveReverseJudgmentCommand(i);
+				c.execute(removeReverseJudgment);				
+			}
+		}
 	}
 
 }

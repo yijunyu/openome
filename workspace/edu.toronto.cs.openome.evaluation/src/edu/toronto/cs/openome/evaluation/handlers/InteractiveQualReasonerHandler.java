@@ -64,7 +64,7 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-	
+		
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		Shell shell = ar[0];
@@ -100,10 +100,11 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
 		
-	
-		
 		InteractiveQualReasoner iQualReasoner = new InteractiveQualReasoner(mi, cs, dcs);
 		Reasoning reasoning = new Reasoning(iQualReasoner);
+		
+		//for now, remove later
+		clearAllJudgments(mi, cs);
 		
 		reasoning.reason();
 

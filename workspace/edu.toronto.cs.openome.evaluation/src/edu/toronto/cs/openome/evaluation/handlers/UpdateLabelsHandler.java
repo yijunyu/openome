@@ -7,7 +7,7 @@ import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
 
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
-import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Alternative;
+import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
