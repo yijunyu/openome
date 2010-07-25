@@ -27,7 +27,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 2;
 		int [] leaves = {7};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		Dimacs cnf;
 		cnf = converter.convertBothDirections("testDimacs.cnf");
@@ -193,7 +193,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 3;
 		int [] leaves = {7, 13};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 		
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf");
@@ -458,7 +458,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 4;
 		int [] leaves = {7, 13, 19};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 		
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf"); 
@@ -651,7 +651,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 3;
 		int [] leaves = {7, 13};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 				
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf");
@@ -918,7 +918,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 4;
 		int [] leaves = {7, 13, 19};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 		
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf"); 
@@ -966,7 +966,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 2;
 		int [] leaves = {7};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 		
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf"); 
@@ -1230,7 +1230,7 @@ public class TestCNFEncoding extends BackwardEvaluationTest{
 		int numInts = 2;
 		int [] leaves = {7, 13};//, 19, 25, 31, 37, 43};
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);		
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);		
 		
 		Dimacs cnf;
 		cnf = converter.convertForward("testDimacs.cnf"); 

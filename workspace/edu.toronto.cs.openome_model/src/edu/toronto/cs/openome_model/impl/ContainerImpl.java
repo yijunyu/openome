@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getName <em>Name</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getSub <em>Sub</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getModel <em>Model</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.ContainerImpl#getAssociationTo <em>Association To</em>}</li>
@@ -74,6 +75,16 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSub() <em>Sub</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSub()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Actor> sub;
 
 	/**
 	 * The cached value of the '{@link #getIntentions() <em>Intentions</em>}' containment reference list.
@@ -143,6 +154,18 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.CONTAINER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Actor> getSub() {
+		if (sub == null) {
+			sub = new EObjectContainmentEList<Actor>(Actor.class, this, openome_modelPackage.CONTAINER__SUB);
+		}
+		return sub;
 	}
 
 	/**
@@ -249,6 +272,8 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case openome_modelPackage.CONTAINER__SUB:
+				return ((InternalEList<?>)getSub()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				return ((InternalEList<?>)getIntentions()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.CONTAINER__MODEL:
@@ -281,6 +306,8 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				return getName();
+			case openome_modelPackage.CONTAINER__SUB:
+				return getSub();
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				return getIntentions();
 			case openome_modelPackage.CONTAINER__MODEL:
@@ -304,6 +331,10 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				setName((String)newValue);
+				return;
+			case openome_modelPackage.CONTAINER__SUB:
+				getSub().clear();
+				getSub().addAll((Collection<? extends Actor>)newValue);
 				return;
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				getIntentions().clear();
@@ -335,6 +366,9 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 			case openome_modelPackage.CONTAINER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case openome_modelPackage.CONTAINER__SUB:
+				getSub().clear();
+				return;
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				getIntentions().clear();
 				return;
@@ -361,6 +395,8 @@ public abstract class ContainerImpl extends DependableImpl implements Container 
 		switch (featureID) {
 			case openome_modelPackage.CONTAINER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case openome_modelPackage.CONTAINER__SUB:
+				return sub != null && !sub.isEmpty();
 			case openome_modelPackage.CONTAINER__INTENTIONS:
 				return intentions != null && !intentions.isEmpty();
 			case openome_modelPackage.CONTAINER__MODEL:

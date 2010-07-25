@@ -63,7 +63,7 @@ public class CreateExampleModel {
 		create4 = new AndDecompositionImplCreateCommand((ModelImpl) model, create3.getTaskImpl(), create.getGoalImpl());
 		cs.execute(create4);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		

@@ -24,11 +24,13 @@ import edu.toronto.cs.openome_model.Goal;
 import edu.toronto.cs.openome_model.GoalModelingContributionSymmetry;
 import edu.toronto.cs.openome_model.GoalModelingContributionType;
 import edu.toronto.cs.openome_model.HelpContribution;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.HurtContribution;
 import edu.toronto.cs.openome_model.INSAssociation;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.IsAAssociation;
 import edu.toronto.cs.openome_model.IsPartOfAssociation;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.Link;
 import edu.toronto.cs.openome_model.MakeContribution;
 import edu.toronto.cs.openome_model.Model;
@@ -344,6 +346,20 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * @generated
 	 */
 	private EClass intentionToEvaluationLabelMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass humanJudgmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass labelBagEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -828,6 +844,42 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIntention_HumanJudgments() {
+		return (EReference)intentionEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntention_LabelBag() {
+		return (EReference)intentionEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntention_InitialEvalLabel() {
+		return (EAttribute)intentionEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIntention_ReverseLabelBag() {
+		return (EReference)intentionEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModel() {
 		return modelEClass;
 	}
@@ -1035,7 +1087,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Intentions() {
+	public EReference getContainer_Sub() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1044,7 +1096,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Model() {
+	public EReference getContainer_Intentions() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1053,7 +1105,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_AssociationTo() {
+	public EReference getContainer_Model() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1062,8 +1114,17 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_AssociationFrom() {
+	public EReference getContainer_AssociationTo() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContainer_AssociationFrom() {
+		return (EReference)containerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1512,6 +1573,150 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getHumanJudgment() {
+		return humanJudgmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHumanJudgment_ResultLabel() {
+		return (EAttribute)humanJudgmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHumanJudgment_Enabled() {
+		return (EAttribute)humanJudgmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHumanJudgment_LabelBag() {
+		return (EReference)humanJudgmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLabelBag() {
+		return labelBagEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLabelBag_LabelBagIntentions() {
+		return (EReference)labelBagEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_LabelBagEvalLabels() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_ToResolve() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_AllPositive() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_AllNegative() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_HasFullPositive() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_HasFullNegative() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_HasUnknown() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_HasConflict() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_AllUnknown() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabelBag_AllConflict() {
+		return (EAttribute)labelBagEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEvaluationLabel() {
 		return evaluationLabelEEnum;
 	}
@@ -1613,6 +1818,10 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(intentionEClass, INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL);
 		createEReference(intentionEClass, INTENTION__CONTRIBUTES_TO);
 		createEReference(intentionEClass, INTENTION__CONTRIBUTES_FROM);
+		createEReference(intentionEClass, INTENTION__LABEL_BAG);
+		createEAttribute(intentionEClass, INTENTION__INITIAL_EVAL_LABEL);
+		createEReference(intentionEClass, INTENTION__REVERSE_LABEL_BAG);
+		createEReference(intentionEClass, INTENTION__HUMAN_JUDGMENTS);
 
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__NAME);
@@ -1645,6 +1854,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 
 		containerEClass = createEClass(CONTAINER);
 		createEAttribute(containerEClass, CONTAINER__NAME);
+		createEReference(containerEClass, CONTAINER__SUB);
 		createEReference(containerEClass, CONTAINER__INTENTIONS);
 		createEReference(containerEClass, CONTAINER__MODEL);
 		createEReference(containerEClass, CONTAINER__ASSOCIATION_TO);
@@ -1720,6 +1930,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		intentionToEvaluationLabelMapEClass = createEClass(INTENTION_TO_EVALUATION_LABEL_MAP);
 		createEReference(intentionToEvaluationLabelMapEClass, INTENTION_TO_EVALUATION_LABEL_MAP__KEY);
 		createEAttribute(intentionToEvaluationLabelMapEClass, INTENTION_TO_EVALUATION_LABEL_MAP__VALUE);
+
+		humanJudgmentEClass = createEClass(HUMAN_JUDGMENT);
+		createEAttribute(humanJudgmentEClass, HUMAN_JUDGMENT__RESULT_LABEL);
+		createEAttribute(humanJudgmentEClass, HUMAN_JUDGMENT__ENABLED);
+		createEReference(humanJudgmentEClass, HUMAN_JUDGMENT__LABEL_BAG);
+
+		labelBagEClass = createEClass(LABEL_BAG);
+		createEReference(labelBagEClass, LABEL_BAG__LABEL_BAG_INTENTIONS);
+		createEAttribute(labelBagEClass, LABEL_BAG__LABEL_BAG_EVAL_LABELS);
+		createEAttribute(labelBagEClass, LABEL_BAG__TO_RESOLVE);
+		createEAttribute(labelBagEClass, LABEL_BAG__ALL_POSITIVE);
+		createEAttribute(labelBagEClass, LABEL_BAG__ALL_NEGATIVE);
+		createEAttribute(labelBagEClass, LABEL_BAG__HAS_FULL_POSITIVE);
+		createEAttribute(labelBagEClass, LABEL_BAG__HAS_FULL_NEGATIVE);
+		createEAttribute(labelBagEClass, LABEL_BAG__HAS_UNKNOWN);
+		createEAttribute(labelBagEClass, LABEL_BAG__HAS_CONFLICT);
+		createEAttribute(labelBagEClass, LABEL_BAG__ALL_UNKNOWN);
+		createEAttribute(labelBagEClass, LABEL_BAG__ALL_CONFLICT);
 
 		// Create enums
 		evaluationLabelEEnum = createEEnum(EVALUATION_LABEL);
@@ -1833,14 +2061,18 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEReference(getIntention_Decompositions(), this.getDecomposition(), this.getDecomposition_Source(), "decompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_ParentDecompositions(), this.getDecomposition(), this.getDecomposition_Target(), "parentDecompositions", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_Container(), this.getContainer(), this.getContainer_Intentions(), "container", null, 0, 1, Intention.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QualitativeReasoningCombinedLabel(), this.getEvaluationLabel(), "QualitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QualitativeReasoningSatisfiedLabel(), this.getEvaluationLabel(), "QualitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QualitativeReasoningDenialLabel(), this.getEvaluationLabel(), "QualitativeReasoningDenialLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QuantitativeReasoningCombinedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QuantitativeReasoningDeniedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningDeniedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIntention_QuantitativeReasoningSatisfiedLabel(), ecorePackage.getEDouble(), "QuantitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QualitativeReasoningCombinedLabel(), this.getEvaluationLabel(), "qualitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QualitativeReasoningSatisfiedLabel(), this.getEvaluationLabel(), "qualitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QualitativeReasoningDenialLabel(), this.getEvaluationLabel(), "qualitativeReasoningDenialLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningCombinedLabel(), ecorePackage.getEDouble(), "quantitativeReasoningCombinedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningDeniedLabel(), ecorePackage.getEDouble(), "quantitativeReasoningDeniedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_QuantitativeReasoningSatisfiedLabel(), ecorePackage.getEDouble(), "quantitativeReasoningSatisfiedLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_ContributesTo(), this.getContribution(), this.getContribution_Source(), "contributesTo", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntention_ContributesFrom(), this.getContribution(), this.getContribution_Target(), "contributesFrom", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntention_LabelBag(), this.getLabelBag(), null, "labelBag", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntention_InitialEvalLabel(), this.getEvaluationLabel(), "initialEvalLabel", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntention_ReverseLabelBag(), this.getLabelBag(), null, "reverseLabelBag", null, 0, 1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntention_HumanJudgments(), this.getHumanJudgment(), null, "humanJudgments", null, 0, -1, Intention.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1867,12 +2099,13 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(softgoalEClass, Softgoal.class, "Softgoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSoftgoal_Topic(), ecorePackage.getEString(), "Topic", null, 0, 1, Softgoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSoftgoal_Topic(), ecorePackage.getEString(), "topic", null, 0, 1, Softgoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(containerEClass, edu.toronto.cs.openome_model.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Sub(), this.getActor(), null, "sub", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Intentions(), this.getIntention(), this.getIntention_Container(), "intentions", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Model(), this.getModel(), this.getModel_Containers(), "model", null, 0, 1, edu.toronto.cs.openome_model.Container.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_AssociationTo(), this.getAssociation(), null, "associationTo", null, 0, -1, edu.toronto.cs.openome_model.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1948,6 +2181,24 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEClass(intentionToEvaluationLabelMapEClass, Map.Entry.class, "IntentionToEvaluationLabelMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIntentionToEvaluationLabelMap_Key(), this.getIntention(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIntentionToEvaluationLabelMap_Value(), this.getEvaluationLabel(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(humanJudgmentEClass, HumanJudgment.class, "HumanJudgment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHumanJudgment_ResultLabel(), this.getEvaluationLabel(), "resultLabel", null, 0, 1, HumanJudgment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHumanJudgment_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, HumanJudgment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHumanJudgment_LabelBag(), this.getLabelBag(), null, "labelBag", null, 0, 1, HumanJudgment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(labelBagEClass, LabelBag.class, "LabelBag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLabelBag_LabelBagIntentions(), this.getIntention(), null, "labelBagIntentions", null, 0, -1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_LabelBagEvalLabels(), this.getEvaluationLabel(), "labelBagEvalLabels", null, 0, -1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getLabelBag_ToResolve(), ecorePackage.getEBoolean(), "toResolve", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_AllPositive(), ecorePackage.getEBoolean(), "allPositive", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_AllNegative(), ecorePackage.getEBoolean(), "allNegative", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_HasFullPositive(), ecorePackage.getEBoolean(), "hasFullPositive", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_HasFullNegative(), ecorePackage.getEBoolean(), "hasFullNegative", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_HasUnknown(), ecorePackage.getEBoolean(), "hasUnknown", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_HasConflict(), ecorePackage.getEBoolean(), "hasConflict", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_AllUnknown(), ecorePackage.getEBoolean(), "allUnknown", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabelBag_AllConflict(), ecorePackage.getEBoolean(), "allConflict", null, 0, 1, LabelBag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(evaluationLabelEEnum, EvaluationLabel.class, "EvaluationLabel");

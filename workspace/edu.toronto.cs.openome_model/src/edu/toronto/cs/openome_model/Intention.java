@@ -33,6 +33,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getContributesTo <em>Contributes To</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Intention#getContributesFrom <em>Contributes From</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getLabelBag <em>Label Bag</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getInitialEvalLabel <em>Initial Eval Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getReverseLabelBag <em>Reverse Label Bag</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Intention#getHumanJudgments <em>Human Judgments</em>}</li>
  * </ul>
  * </p>
  *
@@ -495,6 +499,103 @@ public interface Intention extends Dependable {
 	EList<Contribution> getContributesFrom();
 	
 	/**
+	 * Returns the value of the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.toronto.cs.openome_model.HumanJudgment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Human Judgments</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Human Judgments</em>' containment reference list.
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_HumanJudgments()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<HumanJudgment> getHumanJudgments();
+
+	/**
+	 * Returns the value of the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label Bag</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label Bag</em>' containment reference.
+	 * @see #setLabelBag(LabelBag)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_LabelBag()
+	 * @model containment="true"
+	 * @generated
+	 */
+	LabelBag getLabelBag();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getLabelBag <em>Label Bag</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Label Bag</em>' containment reference.
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	void setLabelBag(LabelBag value);
+
+	/**
+	 * Returns the value of the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * The literals are from the enumeration {@link edu.toronto.cs.openome_model.EvaluationLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Initial Eval Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial Eval Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #setInitialEvalLabel(EvaluationLabel)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_InitialEvalLabel()
+	 * @model
+	 * @generated
+	 */
+	EvaluationLabel getInitialEvalLabel();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getInitialEvalLabel <em>Initial Eval Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Eval Label</em>' attribute.
+	 * @see edu.toronto.cs.openome_model.EvaluationLabel
+	 * @see #getInitialEvalLabel()
+	 * @generated
+	 */
+	void setInitialEvalLabel(EvaluationLabel value);
+
+	/**
+	 * Returns the value of the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reverse Label Bag</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reverse Label Bag</em>' containment reference.
+	 * @see #setReverseLabelBag(LabelBag)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getIntention_ReverseLabelBag()
+	 * @model containment="true"
+	 * @generated
+	 */
+	LabelBag getReverseLabelBag();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Intention#getReverseLabelBag <em>Reverse Label Bag</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reverse Label Bag</em>' containment reference.
+	 * @see #getReverseLabelBag()
+	 * @generated
+	 */
+	void setReverseLabelBag(LabelBag value);
+
+	/**
 	 * @generated NOT
 	 */
 	EList<Decomposition> getDecompositionsFrom();
@@ -543,5 +644,33 @@ public interface Intention extends Dependable {
 	 * @generated NOT
 	 */
 	public EList<Intention> getAllConnected();
+	
+	/**
+	 * * @generated NOT
+	 */
+	public EvaluationLabel findExistingHumanJudgment();
+	
+	/**
+	 * * @generated NOT
+	 */
+	public HumanJudgment addHumanJudgment(EvaluationLabel result);
+	
+	/**
+	 * * @generated NOT
+	 */
+	public void addReverseJudgment(Intention intn, EvaluationLabel result);
+	
+	/**
+	 * * @generated NOT
+	 */
+	public boolean backtrackReverseJudgments(HumanJudgment hj);
+
+	/**
+	 * * @generated NOT
+	 */
+	public boolean removeHumanJudgment(HumanJudgment humanJudgment);
+	
+	
+	 
 
 } // Intention

@@ -10,6 +10,8 @@ import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.Property;
 
 import org.eclipse.emf.common.util.EList;
@@ -41,4 +43,12 @@ public interface IntentionValidator {
 	boolean validateQuantitativeReasoningSatisfiedLabel(double value);
 	boolean validateContributesTo(EList<Contribution> value);
 	boolean validateContributesFrom(EList<Contribution> value);
+
+	boolean validateHumanJudgments(EList<HumanJudgment> value);
+
+	boolean validateLabelBag(LabelBag value);
+
+	boolean validateInitialEvalLabel(EvaluationLabel value);
+
+	boolean validateReverseLabelBag(LabelBag value);
 }

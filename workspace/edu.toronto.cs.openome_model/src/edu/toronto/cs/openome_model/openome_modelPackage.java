@@ -141,13 +141,22 @@ public interface openome_modelPackage extends EPackage {
 	int CONTAINER__NAME = DEPENDABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__SUB = DEPENDABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__INTENTIONS = DEPENDABLE_FEATURE_COUNT + 1;
+	int CONTAINER__INTENTIONS = DEPENDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Model</b></em>' container reference.
@@ -156,7 +165,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 2;
+	int CONTAINER__MODEL = DEPENDABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Association To</b></em>' reference list.
@@ -165,7 +174,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__ASSOCIATION_TO = DEPENDABLE_FEATURE_COUNT + 3;
+	int CONTAINER__ASSOCIATION_TO = DEPENDABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Association From</b></em>' reference list.
@@ -174,7 +183,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__ASSOCIATION_FROM = DEPENDABLE_FEATURE_COUNT + 4;
+	int CONTAINER__ASSOCIATION_FROM = DEPENDABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -183,7 +192,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 5;
+	int CONTAINER_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.ActorImpl <em>Actor</em>}' class.
@@ -221,6 +230,15 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -330,6 +348,15 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGENT__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGENT__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -824,13 +851,49 @@ public interface openome_modelPackage extends EPackage {
 	int INTENTION__CONTRIBUTES_FROM = DEPENDABLE_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__LABEL_BAG = DEPENDABLE_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__INITIAL_EVAL_LABEL = DEPENDABLE_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__REVERSE_LABEL_BAG = DEPENDABLE_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTION__HUMAN_JUDGMENTS = DEPENDABLE_FEATURE_COUNT + 21;
+
+	/**
 	 * The number of structural features of the '<em>Intention</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTION_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 18;
+	int INTENTION_FEATURE_COUNT = DEPENDABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.GoalImpl <em>Goal</em>}' class.
@@ -1023,6 +1086,42 @@ public interface openome_modelPackage extends EPackage {
 	int GOAL__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
 
 	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__LABEL_BAG = INTENTION__LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__INITIAL_EVAL_LABEL = INTENTION__INITIAL_EVAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__REVERSE_LABEL_BAG = INTENTION__REVERSE_LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__HUMAN_JUDGMENTS = INTENTION__HUMAN_JUDGMENTS;
+
+	/**
 	 * The number of structural features of the '<em>Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1213,6 +1312,15 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int POSITION__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1496,6 +1604,42 @@ public interface openome_modelPackage extends EPackage {
 	int RESOURCE__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
 
 	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__LABEL_BAG = INTENTION__LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__INITIAL_EVAL_LABEL = INTENTION__INITIAL_EVAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__REVERSE_LABEL_BAG = INTENTION__REVERSE_LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__HUMAN_JUDGMENTS = INTENTION__HUMAN_JUDGMENTS;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +1684,15 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE__NAME = CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sub</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__SUB = CONTAINER__SUB;
 
 	/**
 	 * The feature id for the '<em><b>Intentions</b></em>' containment reference list.
@@ -1777,6 +1930,42 @@ public interface openome_modelPackage extends EPackage {
 	int SOFTGOAL__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
 
 	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__LABEL_BAG = INTENTION__LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__INITIAL_EVAL_LABEL = INTENTION__INITIAL_EVAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__REVERSE_LABEL_BAG = INTENTION__REVERSE_LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTGOAL__HUMAN_JUDGMENTS = INTENTION__HUMAN_JUDGMENTS;
+
+	/**
 	 * The feature id for the '<em><b>Topic</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1985,6 +2174,42 @@ public interface openome_modelPackage extends EPackage {
 	int TASK__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
 
 	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__LABEL_BAG = INTENTION__LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__INITIAL_EVAL_LABEL = INTENTION__INITIAL_EVAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__REVERSE_LABEL_BAG = INTENTION__REVERSE_LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__HUMAN_JUDGMENTS = INTENTION__HUMAN_JUDGMENTS;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2182,6 +2407,42 @@ public interface openome_modelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BELIEF__CONTRIBUTES_FROM = INTENTION__CONTRIBUTES_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__LABEL_BAG = INTENTION__LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Initial Eval Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__INITIAL_EVAL_LABEL = INTENTION__INITIAL_EVAL_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Reverse Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__REVERSE_LABEL_BAG = INTENTION__REVERSE_LABEL_BAG;
+
+	/**
+	 * The feature id for the '<em><b>Human Judgments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BELIEF__HUMAN_JUDGMENTS = INTENTION__HUMAN_JUDGMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Belief</em>' class.
@@ -3211,6 +3472,170 @@ public interface openome_modelPackage extends EPackage {
 	int INTENTION_TO_EVALUATION_LABEL_MAP_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.HumanJudgmentImpl <em>Human Judgment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.HumanJudgmentImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHumanJudgment()
+	 * @generated
+	 */
+	int HUMAN_JUDGMENT = 39;
+
+	/**
+	 * The feature id for the '<em><b>Result Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUMAN_JUDGMENT__RESULT_LABEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUMAN_JUDGMENT__ENABLED = 1;
+
+	/**
+	 * The feature id for the '<em><b>Label Bag</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUMAN_JUDGMENT__LABEL_BAG = 2;
+
+	/**
+	 * The number of structural features of the '<em>Human Judgment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HUMAN_JUDGMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.LabelBagImpl <em>Label Bag</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.toronto.cs.openome_model.impl.LabelBagImpl
+	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getLabelBag()
+	 * @generated
+	 */
+	int LABEL_BAG = 40;
+
+	/**
+	 * The feature id for the '<em><b>Label Bag Intentions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__LABEL_BAG_INTENTIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Label Bag Eval Labels</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__LABEL_BAG_EVAL_LABELS = 1;
+
+	/**
+	 * The feature id for the '<em><b>To Resolve</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__TO_RESOLVE = 2;
+
+	/**
+	 * The feature id for the '<em><b>All Positive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__ALL_POSITIVE = 3;
+
+	/**
+	 * The feature id for the '<em><b>All Negative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__ALL_NEGATIVE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Has Full Positive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__HAS_FULL_POSITIVE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Has Full Negative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__HAS_FULL_NEGATIVE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Has Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__HAS_UNKNOWN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Has Conflict</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__HAS_CONFLICT = 8;
+
+	/**
+	 * The feature id for the '<em><b>All Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__ALL_UNKNOWN = 9;
+
+	/**
+	 * The feature id for the '<em><b>All Conflict</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG__ALL_CONFLICT = 10;
+
+	/**
+	 * The number of structural features of the '<em>Label Bag</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_BAG_FEATURE_COUNT = 11;
+
+	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3218,7 +3643,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getEvaluationLabel()
 	 * @generated
 	 */
-	int EVALUATION_LABEL = 39;
+	int EVALUATION_LABEL = 41;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionType <em>Goal Modeling Contribution Type</em>}' enum.
@@ -3228,7 +3653,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionType()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_TYPE = 40;
+	int GOAL_MODELING_CONTRIBUTION_TYPE = 42;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.GoalModelingContributionSymmetry <em>Goal Modeling Contribution Symmetry</em>}' enum.
@@ -3238,7 +3663,7 @@ public interface openome_modelPackage extends EPackage {
 	 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getGoalModelingContributionSymmetry()
 	 * @generated
 	 */
-	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 41;
+	int GOAL_MODELING_CONTRIBUTION_SYMMETRY = 43;
 
 
 	/**
@@ -3718,6 +4143,50 @@ public interface openome_modelPackage extends EPackage {
 	EReference getIntention_ContributesFrom();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Intention#getHumanJudgments <em>Human Judgments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Human Judgments</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getHumanJudgments()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EReference getIntention_HumanJudgments();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.toronto.cs.openome_model.Intention#getLabelBag <em>Label Bag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Label Bag</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getLabelBag()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EReference getIntention_LabelBag();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Intention#getInitialEvalLabel <em>Initial Eval Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Eval Label</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getInitialEvalLabel()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EAttribute getIntention_InitialEvalLabel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.toronto.cs.openome_model.Intention#getReverseLabelBag <em>Reverse Label Bag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Reverse Label Bag</em>'.
+	 * @see edu.toronto.cs.openome_model.Intention#getReverseLabelBag()
+	 * @see #getIntention()
+	 * @generated
+	 */
+	EReference getIntention_ReverseLabelBag();
+
+	/**
 	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3960,6 +4429,17 @@ public interface openome_modelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContainer_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Container#getSub <em>Sub</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub</em>'.
+	 * @see edu.toronto.cs.openome_model.Container#getSub()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_Sub();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link edu.toronto.cs.openome_model.Container#getIntentions <em>Intentions</em>}'.
@@ -4525,6 +5005,180 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getIntentionToEvaluationLabelMap_Value();
 
 	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.HumanJudgment <em>Human Judgment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Human Judgment</em>'.
+	 * @see edu.toronto.cs.openome_model.HumanJudgment
+	 * @generated
+	 */
+	EClass getHumanJudgment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.HumanJudgment#getResultLabel <em>Result Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Result Label</em>'.
+	 * @see edu.toronto.cs.openome_model.HumanJudgment#getResultLabel()
+	 * @see #getHumanJudgment()
+	 * @generated
+	 */
+	EAttribute getHumanJudgment_ResultLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.HumanJudgment#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see edu.toronto.cs.openome_model.HumanJudgment#isEnabled()
+	 * @see #getHumanJudgment()
+	 * @generated
+	 */
+	EAttribute getHumanJudgment_Enabled();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.toronto.cs.openome_model.HumanJudgment#getLabelBag <em>Label Bag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Label Bag</em>'.
+	 * @see edu.toronto.cs.openome_model.HumanJudgment#getLabelBag()
+	 * @see #getHumanJudgment()
+	 * @generated
+	 */
+	EReference getHumanJudgment_LabelBag();
+
+	/**
+	 * Returns the meta object for class '{@link edu.toronto.cs.openome_model.LabelBag <em>Label Bag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Label Bag</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag
+	 * @generated
+	 */
+	EClass getLabelBag();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.toronto.cs.openome_model.LabelBag#getLabelBagIntentions <em>Label Bag Intentions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Label Bag Intentions</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#getLabelBagIntentions()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EReference getLabelBag_LabelBagIntentions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link edu.toronto.cs.openome_model.LabelBag#getLabelBagEvalLabels <em>Label Bag Eval Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Label Bag Eval Labels</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#getLabelBagEvalLabels()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_LabelBagEvalLabels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isToResolve <em>To Resolve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>To Resolve</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isToResolve()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_ToResolve();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isAllPositive <em>All Positive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>All Positive</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isAllPositive()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_AllPositive();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isAllNegative <em>All Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>All Negative</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isAllNegative()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_AllNegative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isHasFullPositive <em>Has Full Positive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Full Positive</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isHasFullPositive()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_HasFullPositive();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isHasFullNegative <em>Has Full Negative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Full Negative</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isHasFullNegative()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_HasFullNegative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isHasUnknown <em>Has Unknown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Unknown</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isHasUnknown()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_HasUnknown();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isHasConflict <em>Has Conflict</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Conflict</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isHasConflict()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_HasConflict();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isAllUnknown <em>All Unknown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>All Unknown</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isAllUnknown()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_AllUnknown();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.LabelBag#isAllConflict <em>All Conflict</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>All Conflict</em>'.
+	 * @see edu.toronto.cs.openome_model.LabelBag#isAllConflict()
+	 * @see #getLabelBag()
+	 * @generated
+	 */
+	EAttribute getLabelBag_AllConflict();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4945,6 +5599,38 @@ public interface openome_modelPackage extends EPackage {
 		EReference INTENTION__CONTRIBUTES_FROM = eINSTANCE.getIntention_ContributesFrom();
 
 		/**
+		 * The meta object literal for the '<em><b>Human Judgments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION__HUMAN_JUDGMENTS = eINSTANCE.getIntention_HumanJudgments();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Bag</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION__LABEL_BAG = eINSTANCE.getIntention_LabelBag();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Eval Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTENTION__INITIAL_EVAL_LABEL = eINSTANCE.getIntention_InitialEvalLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Reverse Label Bag</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTENTION__REVERSE_LABEL_BAG = eINSTANCE.getIntention_ReverseLabelBag();
+
+		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5145,6 +5831,14 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTAINER__NAME = eINSTANCE.getContainer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__SUB = eINSTANCE.getContainer_Sub();
 
 		/**
 		 * The meta object literal for the '<em><b>Intentions</b></em>' containment reference list feature.
@@ -5613,6 +6307,138 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTENTION_TO_EVALUATION_LABEL_MAP__VALUE = eINSTANCE.getIntentionToEvaluationLabelMap_Value();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.HumanJudgmentImpl <em>Human Judgment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.HumanJudgmentImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getHumanJudgment()
+		 * @generated
+		 */
+		EClass HUMAN_JUDGMENT = eINSTANCE.getHumanJudgment();
+
+		/**
+		 * The meta object literal for the '<em><b>Result Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HUMAN_JUDGMENT__RESULT_LABEL = eINSTANCE.getHumanJudgment_ResultLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HUMAN_JUDGMENT__ENABLED = eINSTANCE.getHumanJudgment_Enabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Bag</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference HUMAN_JUDGMENT__LABEL_BAG = eINSTANCE.getHumanJudgment_LabelBag();
+
+		/**
+		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.LabelBagImpl <em>Label Bag</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.toronto.cs.openome_model.impl.LabelBagImpl
+		 * @see edu.toronto.cs.openome_model.impl.openome_modelPackageImpl#getLabelBag()
+		 * @generated
+		 */
+		EClass LABEL_BAG = eINSTANCE.getLabelBag();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Bag Intentions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LABEL_BAG__LABEL_BAG_INTENTIONS = eINSTANCE.getLabelBag_LabelBagIntentions();
+
+		/**
+		 * The meta object literal for the '<em><b>Label Bag Eval Labels</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__LABEL_BAG_EVAL_LABELS = eINSTANCE.getLabelBag_LabelBagEvalLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>To Resolve</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__TO_RESOLVE = eINSTANCE.getLabelBag_ToResolve();
+
+		/**
+		 * The meta object literal for the '<em><b>All Positive</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__ALL_POSITIVE = eINSTANCE.getLabelBag_AllPositive();
+
+		/**
+		 * The meta object literal for the '<em><b>All Negative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__ALL_NEGATIVE = eINSTANCE.getLabelBag_AllNegative();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Full Positive</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__HAS_FULL_POSITIVE = eINSTANCE.getLabelBag_HasFullPositive();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Full Negative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__HAS_FULL_NEGATIVE = eINSTANCE.getLabelBag_HasFullNegative();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Unknown</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__HAS_UNKNOWN = eINSTANCE.getLabelBag_HasUnknown();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Conflict</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__HAS_CONFLICT = eINSTANCE.getLabelBag_HasConflict();
+
+		/**
+		 * The meta object literal for the '<em><b>All Unknown</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__ALL_UNKNOWN = eINSTANCE.getLabelBag_AllUnknown();
+
+		/**
+		 * The meta object literal for the '<em><b>All Conflict</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LABEL_BAG__ALL_CONFLICT = eINSTANCE.getLabelBag_AllConflict();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.EvaluationLabel <em>Evaluation Label</em>}' enum.

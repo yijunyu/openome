@@ -11,14 +11,19 @@ import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependable;
 import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.Property;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
+import java.util.ListIterator;
 import java.util.Vector;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,9 +36,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+
 
 /**
  * <!-- begin-user-doc -->
@@ -60,12 +68,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getQuantitativeReasoningSatisfiedLabel <em>Quantitative Reasoning Satisfied Label</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContributesTo <em>Contributes To</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getContributesFrom <em>Contributes From</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getLabelBag <em>Label Bag</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getInitialEvalLabel <em>Initial Eval Label</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getReverseLabelBag <em>Reverse Label Bag</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.IntentionImpl#getHumanJudgments <em>Human Judgments</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class IntentionImpl extends DependableImpl implements Intention {
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +376,56 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * @ordered
 	 */
 	protected EList<Contribution> contributesFrom;
+
+	/**
+	 * The cached value of the '{@link #getLabelBag() <em>Label Bag</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabelBag()
+	 * @generated
+	 * @ordered
+	 */
+	protected LabelBag labelBag;
+
+	/**
+	 * The default value of the '{@link #getInitialEvalLabel() <em>Initial Eval Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialEvalLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EvaluationLabel INITIAL_EVAL_LABEL_EDEFAULT = EvaluationLabel.NONE;
+
+	/**
+	 * The cached value of the '{@link #getInitialEvalLabel() <em>Initial Eval Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialEvalLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EvaluationLabel initialEvalLabel = INITIAL_EVAL_LABEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReverseLabelBag() <em>Reverse Label Bag</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReverseLabelBag()
+	 * @generated
+	 * @ordered
+	 */
+	protected LabelBag reverseLabelBag;
+
+	/**
+	 * The cached value of the '{@link #getHumanJudgments() <em>Human Judgments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHumanJudgments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<HumanJudgment> humanJudgments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -875,6 +939,125 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<HumanJudgment> getHumanJudgments() {
+		if (humanJudgments == null) {
+			humanJudgments = new EObjectContainmentEList<HumanJudgment>(HumanJudgment.class, this, openome_modelPackage.INTENTION__HUMAN_JUDGMENTS);
+		}
+		return humanJudgments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LabelBag getLabelBag() {
+		return labelBag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLabelBag(LabelBag newLabelBag, NotificationChain msgs) {
+		LabelBag oldLabelBag = labelBag;
+		labelBag = newLabelBag;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__LABEL_BAG, oldLabelBag, newLabelBag);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLabelBag(LabelBag newLabelBag) {
+		if (newLabelBag != labelBag) {
+			NotificationChain msgs = null;
+			if (labelBag != null)
+				msgs = ((InternalEObject)labelBag).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__LABEL_BAG, null, msgs);
+			if (newLabelBag != null)
+				msgs = ((InternalEObject)newLabelBag).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__LABEL_BAG, null, msgs);
+			msgs = basicSetLabelBag(newLabelBag, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__LABEL_BAG, newLabelBag, newLabelBag));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluationLabel getInitialEvalLabel() {
+		return initialEvalLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialEvalLabel(EvaluationLabel newInitialEvalLabel) {
+		EvaluationLabel oldInitialEvalLabel = initialEvalLabel;
+		initialEvalLabel = newInitialEvalLabel == null ? INITIAL_EVAL_LABEL_EDEFAULT : newInitialEvalLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL, oldInitialEvalLabel, initialEvalLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LabelBag getReverseLabelBag() {
+		return reverseLabelBag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReverseLabelBag(LabelBag newReverseLabelBag, NotificationChain msgs) {
+		LabelBag oldReverseLabelBag = reverseLabelBag;
+		reverseLabelBag = newReverseLabelBag;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__REVERSE_LABEL_BAG, oldReverseLabelBag, newReverseLabelBag);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReverseLabelBag(LabelBag newReverseLabelBag) {
+		if (newReverseLabelBag != reverseLabelBag) {
+			NotificationChain msgs = null;
+			if (reverseLabelBag != null)
+				msgs = ((InternalEObject)reverseLabelBag).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__REVERSE_LABEL_BAG, null, msgs);
+			if (newReverseLabelBag != null)
+				msgs = ((InternalEObject)newReverseLabelBag).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - openome_modelPackage.INTENTION__REVERSE_LABEL_BAG, null, msgs);
+			msgs = basicSetReverseLabelBag(newReverseLabelBag, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.INTENTION__REVERSE_LABEL_BAG, newReverseLabelBag, newReverseLabelBag));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -915,6 +1098,12 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return ((InternalEList<?>)getContributesTo()).basicRemove(otherEnd, msgs);
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
 				return ((InternalEList<?>)getContributesFrom()).basicRemove(otherEnd, msgs);
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+				return basicSetLabelBag(null, msgs);
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+				return basicSetReverseLabelBag(null, msgs);
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
+				return ((InternalEList<?>)getHumanJudgments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -977,6 +1166,14 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return getContributesTo();
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
 				return getContributesFrom();
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+				return getLabelBag();
+			case openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL:
+				return getInitialEvalLabel();
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+				return getReverseLabelBag();
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
+				return getHumanJudgments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1049,6 +1246,19 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				getContributesFrom().clear();
 				getContributesFrom().addAll((Collection<? extends Contribution>)newValue);
 				return;
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+				setLabelBag((LabelBag)newValue);
+				return;
+			case openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL:
+				setInitialEvalLabel((EvaluationLabel)newValue);
+				return;
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+				setReverseLabelBag((LabelBag)newValue);
+				return;
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
+				getHumanJudgments().clear();
+				getHumanJudgments().addAll((Collection<? extends HumanJudgment>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1115,6 +1325,18 @@ public class IntentionImpl extends DependableImpl implements Intention {
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
 				getContributesFrom().clear();
 				return;
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+				setLabelBag((LabelBag)null);
+				return;
+			case openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL:
+				setInitialEvalLabel(INITIAL_EVAL_LABEL_EDEFAULT);
+				return;
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+				setReverseLabelBag((LabelBag)null);
+				return;
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
+				getHumanJudgments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1163,6 +1385,14 @@ public class IntentionImpl extends DependableImpl implements Intention {
 				return contributesTo != null && !contributesTo.isEmpty();
 			case openome_modelPackage.INTENTION__CONTRIBUTES_FROM:
 				return contributesFrom != null && !contributesFrom.isEmpty();
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+				return labelBag != null;
+			case openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL:
+				return initialEvalLabel != INITIAL_EVAL_LABEL_EDEFAULT;
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+				return reverseLabelBag != null;
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
+				return humanJudgments != null && !humanJudgments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1189,18 +1419,20 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		result.append(sequential);
 		result.append(", parallel: ");
 		result.append(parallel);
-		result.append(", QualitativeReasoningCombinedLabel: ");
+		result.append(", qualitativeReasoningCombinedLabel: ");
 		result.append(qualitativeReasoningCombinedLabel);
-		result.append(", QualitativeReasoningSatisfiedLabel: ");
+		result.append(", qualitativeReasoningSatisfiedLabel: ");
 		result.append(qualitativeReasoningSatisfiedLabel);
-		result.append(", QualitativeReasoningDenialLabel: ");
+		result.append(", qualitativeReasoningDenialLabel: ");
 		result.append(qualitativeReasoningDenialLabel);
-		result.append(", QuantitativeReasoningCombinedLabel: ");
+		result.append(", quantitativeReasoningCombinedLabel: ");
 		result.append(quantitativeReasoningCombinedLabel);
-		result.append(", QuantitativeReasoningDeniedLabel: ");
+		result.append(", quantitativeReasoningDeniedLabel: ");
 		result.append(quantitativeReasoningDeniedLabel);
-		result.append(", QuantitativeReasoningSatisfiedLabel: ");
+		result.append(", quantitativeReasoningSatisfiedLabel: ");
 		result.append(quantitativeReasoningSatisfiedLabel);
+		result.append(", initialEvalLabel: ");
+		result.append(initialEvalLabel);
 		result.append(')');
 		return result.toString();
 	}
@@ -1325,6 +1557,97 @@ public class IntentionImpl extends DependableImpl implements Intention {
 		}
 		
 		return slice;
+	}
+	
+	/**
+	 * * @generated NOT
+	 */
+	public EvaluationLabel findExistingHumanJudgment() {
+		System.out.println("finding existing judgment");
+		if (getLabelBag() == null)
+			return null;
+		HumanJudgment result = null;
+		for (HumanJudgment hj: getHumanJudgments())  {
+			result = hj.findOrImplies(getLabelBag());
+			if (result != null)
+				return result.getResultLabel();
+		}
+		return null;
+	}
+	
+	/**
+	 * * @generated NOT
+	 */
+	public HumanJudgment addHumanJudgment(EvaluationLabel result) {
+		//System.out.println("adding human judgment in intention");
+		
+		HumanJudgment newJudgment = new HumanJudgmentImpl();
+		LabelBag copybag = new LabelBagImpl(getLabelBag());
+		System.out.println(getLabelBag().toUIString());
+		newJudgment.setLabelBag(copybag);
+		newJudgment.setResultLabel(result);
+		
+		getHumanJudgments().add(newJudgment);
+		
+		//System.out.println("added human judgment in intention");				
+		
+		return newJudgment;
+	}
+	
+	
+	/**
+	 * * @generated NOT
+	 */
+	public void addReverseJudgment(Intention intn, EvaluationLabel result) {
+		if (getReverseLabelBag() != null) {
+			//System.out.println("reverselabelbag not null");
+			
+		}
+		else {
+			//System.out.println("reverselabelbag null");
+			setReverseLabelBag(new LabelBagImpl());
+			//getReverseLabelBag().addToLabelBag(intn, result);
+		}
+		
+		getReverseLabelBag().addToLabelBag(intn, result);
+			
+	}
+	
+	/**
+	 * * @generated NOT
+	 */
+	public boolean backtrackReverseJudgments(HumanJudgment hj) {
+		boolean success = true;
+		for (Intention child: hj.getLabelBag().getLabelBagIntentions()) {
+			int size = child.getReverseLabelBag().getLabelBagIntentions().size();
+			int index = 0;
+			for (int j = 0; j< size; j++) {
+				Intention target = child.getReverseLabelBag().getLabelBagIntentions().get(index);
+				if (target.equals(this)) {
+					EvaluationLabel label = child.getReverseLabelBag().getLabelBagEvalLabels().get(child.getReverseLabelBag().getLabelBagIntentions().indexOf(target));
+					if (hj.getResultLabel().equals(label))  {
+						if (child.getReverseLabelBag().removeFromLabelBag(target, label) != true)
+							success = false;
+					}					
+				}
+				else { index++; }
+			}
+		}
+		
+		return success;
+	}
+	
+	/**
+	 * * @generated NOT
+	 */
+	public boolean removeHumanJudgment(HumanJudgment humanJudgment) {
+		if (getHumanJudgments() == null)
+			return false;
+		if (getHumanJudgments().contains(humanJudgment)) {
+			getHumanJudgments().remove(humanJudgment);
+			return true;
+		}
+		return false;	
 	}
 
 

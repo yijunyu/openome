@@ -163,7 +163,7 @@ public class SoftgoalImpl extends IntentionImpl implements Softgoal {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Topic: ");
+		result.append(" (topic: ");
 		result.append(topic);
 		result.append(')');
 		return result.toString();

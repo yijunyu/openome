@@ -347,6 +347,24 @@ public interface openome_modelFactory extends EFactory {
 	Alternative createAlternative();
 
 	/**
+	 * Returns a new object of class '<em>Human Judgment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Human Judgment</em>'.
+	 * @generated
+	 */
+	HumanJudgment createHumanJudgment();
+
+	/**
+	 * Returns a new object of class '<em>Label Bag</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Label Bag</em>'.
+	 * @generated
+	 */
+	LabelBag createLabelBag();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

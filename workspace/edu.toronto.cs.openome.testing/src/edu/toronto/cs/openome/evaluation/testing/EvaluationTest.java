@@ -24,6 +24,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.toronto.cs.openome.testing.ActorImplCreateCommand;
+import edu.toronto.cs.openome.testing.HelpImplCreateCommand;
 import edu.toronto.cs.openome.testing.SoftgoalImplCreateCommand;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.openome_modelFactory;
@@ -105,18 +106,26 @@ public class EvaluationTest {
 		
 		assertTrue(model.getContainers().isEmpty());
 		
-		Command create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal a");
-		cs.execute(create);
-		create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal b");
-		cs.execute(create);
-		create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal c");
-		cs.execute(create);
-		create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal d");
-		cs.execute(create);
-		create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal e");
+		SoftgoalImplCreateCommand create1 = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal a");
+		cs.execute(create1);
+		SoftgoalImplCreateCommand create2 = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal b");
+		cs.execute(create2);
+		SoftgoalImplCreateCommand create3 = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal c");
+		cs.execute(create3);
+		SoftgoalImplCreateCommand create4 = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal d");
+		cs.execute(create4);
+		Command create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal e");
 		cs.execute(create);
 		create = new SoftgoalImplCreateCommand((ModelImpl) model, "Softgoal f");
 		cs.execute(create);
+		Command createHelp1 = new HelpImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create1.getSoftgoalImpl());
+		cs.execute(createHelp1);
+		Command createHelp2 = new HelpImplCreateCommand((ModelImpl) model, create3.getSoftgoalImpl(), create1.getSoftgoalImpl());
+		cs.execute(createHelp2);
+		Command createHelp3 = new HelpImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create4.getSoftgoalImpl());
+		cs.execute(createHelp3);
+		Command createHelp4 = new HelpImplCreateCommand((ModelImpl) model, create3.getSoftgoalImpl(), create4.getSoftgoalImpl());
+		cs.execute(createHelp4);
 	}
 
 }

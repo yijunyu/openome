@@ -135,7 +135,7 @@ public class BackwardEvaluationTest {
 		create4 = new AndDecompositionImplCreateCommand((ModelImpl) model, create3.getTaskImpl(), create.getGoalImpl());
 		cs.execute(create4);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -172,7 +172,7 @@ public class BackwardEvaluationTest {
 		create4 = new AndDecompositionImplCreateCommand((ModelImpl) model, create5.getTaskImpl(), create.getGoalImpl());
 		cs.execute(create4);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -205,7 +205,7 @@ public class BackwardEvaluationTest {
 		DependencyImplCreateCommand create3 = new DependencyImplCreateCommand((ModelImpl) model, resource, goal);
 		cs.execute(create3);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -236,7 +236,7 @@ public class BackwardEvaluationTest {
 		create4 = new OrDecompositionImplCreateCommand((ModelImpl) model, create3.getTaskImpl(), create.getGoalImpl());
 		cs.execute(create4);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -273,7 +273,7 @@ public class BackwardEvaluationTest {
 		create4 = new OrDecompositionImplCreateCommand((ModelImpl) model, create5.getTaskImpl(), create.getGoalImpl());
 		cs.execute(create4);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -323,7 +323,7 @@ public class BackwardEvaluationTest {
 		createCont = new BreakImplCreateCommand((ModelImpl) model, create2.getSoftgoalImpl(), create.getSoftgoalImpl());
 		cs.execute(createCont);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		
@@ -376,7 +376,7 @@ public class BackwardEvaluationTest {
 		createCont = new BreakImplCreateCommand((ModelImpl) model, create8.getSoftgoalImpl(), create.getSoftgoalImpl());
 		cs.execute(createCont);
 		
-		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model);
+		ModeltoAxiomsConverter converter = new ModeltoAxiomsConverter((ModelImpl) model, cs);
 		
 		DualHashMap<Integer, Intention> intIndex = converter.getIntentionIndex();
 		

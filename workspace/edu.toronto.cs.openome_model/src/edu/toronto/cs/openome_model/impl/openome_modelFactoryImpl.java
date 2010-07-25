@@ -105,6 +105,8 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 			case openome_modelPackage.INS_ASSOCIATION: return createINSAssociation();
 			case openome_modelPackage.ALTERNATIVE: return createAlternative();
 			case openome_modelPackage.INTENTION_TO_EVALUATION_LABEL_MAP: return (EObject)createIntentionToEvaluationLabelMap();
+			case openome_modelPackage.HUMAN_JUDGMENT: return createHumanJudgment();
+			case openome_modelPackage.LABEL_BAG: return createLabelBag();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -506,6 +508,26 @@ public class openome_modelFactoryImpl extends EFactoryImpl implements openome_mo
 	public Map.Entry<Intention, EvaluationLabel> createIntentionToEvaluationLabelMap() {
 		IntentionToEvaluationLabelMapImpl intentionToEvaluationLabelMap = new IntentionToEvaluationLabelMapImpl();
 		return intentionToEvaluationLabelMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HumanJudgment createHumanJudgment() {
+		HumanJudgmentImpl humanJudgment = new HumanJudgmentImpl();
+		return humanJudgment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LabelBag createLabelBag() {
+		LabelBagImpl labelBag = new LabelBagImpl();
+		return labelBag;
 	}
 
 	/**

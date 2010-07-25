@@ -387,6 +387,18 @@ public class openome_modelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case openome_modelPackage.HUMAN_JUDGMENT: {
+				HumanJudgment humanJudgment = (HumanJudgment)theEObject;
+				T result = caseHumanJudgment(humanJudgment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case openome_modelPackage.LABEL_BAG: {
+				LabelBag labelBag = (LabelBag)theEObject;
+				T result = caseLabelBag(labelBag);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -973,6 +985,36 @@ public class openome_modelSwitch<T> {
 	 * @generated
 	 */
 	public T caseIntentionToEvaluationLabelMap(Map.Entry<Intention, EvaluationLabel> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Human Judgment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Human Judgment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHumanJudgment(HumanJudgment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Label Bag</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Label Bag</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLabelBag(LabelBag object) {
 		return null;
 	}
 
