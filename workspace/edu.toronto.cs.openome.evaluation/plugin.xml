@@ -174,7 +174,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_MarkLeaves_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/leaf.gif"
                   id="openome_MarkLeaves_toolbarIcon"
                   tooltip="Mark Model Leaves"
                   mnemonic="L">
@@ -193,7 +193,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_MarkRoots_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/roots.jpg"
                   id="openome_MarkRoots_toolbarIcon"
                   tooltip="Mark Model Roots"
                   mnemonic="R">
@@ -212,7 +212,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_Unhighlight_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/unh.gif"
                   id="openome_Unhighlight_toolbarIcon"
                   tooltip="Unhighlight All Intentions"
                   mnemonic="U">
@@ -231,7 +231,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ClearLabels_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/clear.gif"
                   id="openome_ClearLabels_toolbarIcon"
                   tooltip="Clear All Evaluation Labels"
                   mnemonic="C">
