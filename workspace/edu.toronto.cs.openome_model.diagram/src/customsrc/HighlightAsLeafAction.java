@@ -1,8 +1,13 @@
 package customsrc;
 
+import java.util.Vector;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
+//import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
+import edu.toronto.cs.openome_model.Intention;
 
 public class HighlightAsLeafAction extends AbstractActionHandler {
     
@@ -37,8 +42,21 @@ public class HighlightAsLeafAction extends AbstractActionHandler {
      * This method contains the code that will actually be executed when user selects the context menu
      */
     protected void doRun(IProgressMonitor progressMonitor) {
-            // for the purpose of this tutorial, we should keep it simple
-            System.out.println("It's alive!");
+        IStructuredSelection selection = getStructuredSelection();
+        Vector<Intention> LeafIntentions = new Vector<Intention>();
+        if (selection == null || (selection.isEmpty())) {
+            return;
+        }
+       
+        Object[] intentions = selection.toArray();
+        int selectionSize = intentions.length;
+       
+        for (int i = 0; i < selectionSize; i++) {
+            LeafIntentions.add((Intention) intentions[i]);
+        }
+       
+   //     HighlightIntentionsCommand highlight = new HighlightIntentionsCommand( editParts , LeafIntentions, "blue" );
+    //    cs.execute(highlight);
     }
     
     public void refresh(){
