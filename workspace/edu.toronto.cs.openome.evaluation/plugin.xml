@@ -39,6 +39,41 @@
             id="openome_Unhighlight_cmd"
             name="openome_Unhighlight_cmd">
       </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyNoneHandler"
+            id="openome_ApplyNone_cmd"
+            name="openome_ApplyNone_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplySatisfiedHandler"
+            id="openome_ApplySatisfied_cmd"
+            name="openome_ApplySatisfied_cmd">
+      </command>      
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyWeaklySatisfiedHandler"
+            id="openome_ApplyWeaklySatisfied_cmd"
+            name="openome_ApplyWeaklySatisfied_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyConflictHandler"
+            id="openome_ApplyConflict_cmd"
+            name="openome_ApplyConflict_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyWeaklyDeniedHandler"
+            id="openome_ApplyWeaklyDenied_cmd"
+            name="openome_ApplyWeaklyDenied_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyDeniedHandler"
+            id="openome_ApplyDenied_cmd"
+            name="openome_ApplyDenied_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyUnknownHandler"
+            id="openome_ApplyUnknown_cmd"
+            name="openome_ApplyUnknown_cmd">
+      </command>                        
       </extension>
 
    <extension 
@@ -242,6 +277,139 @@
             	</separator>
    			</toolbar>
 		</menuContribution>
+<!-- apply none label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyNone_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyNone_toolbarIcon"
+                  tooltip="Apply None Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>		
+<!-- apply satisfied label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplySatisfied_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplySatisfied_toolbarIcon"
+                  tooltip="Apply Satisfied Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>		
+<!-- apply weakly satisfied label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyWeaklySatisfied_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyWeaklySatisfied_toolbarIcon"
+                  tooltip="Apply Weakly Satisfied Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>
+<!-- apply conflict label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyConflict_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyConflict_toolbarIcon"
+                  tooltip="Apply Conflict Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>		
+<!-- apply weakly denied label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyWeaklyDenied_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyWeaklyDenied_toolbarIcon"
+                  tooltip="Apply Weakly Denied Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>		
+<!-- apply denied label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyDenied_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyDenied_toolbarIcon"
+                  tooltip="Apply Denied Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>
+<!-- apply unknown label -->
+        <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+	            <command
+                  commandId="openome_ApplyUnknown_cmd"
+                  icon="icons/sample.gif"
+                  id="openome_ApplyUnknown_toolbarIcon"
+                  tooltip="Apply Unknown Label"
+                  mnemonic="W">
+            	</command>
+				<separator
+                	name="additions"
+                	visible="false">
+            	</separator>
+   			</toolbar>
+		</menuContribution>				
 <!-- forward button -->
       <menuContribution 
 			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			

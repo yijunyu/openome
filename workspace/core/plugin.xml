@@ -108,6 +108,7 @@
             <separator name="group2"/>
          </menu>
 -->         
+<!-- (outdated) creates an examples project
          <action
                class="edu.toronto.cs.openome.core.action.CreateExamplesAction"
                icon="icons/example.gif"
@@ -116,6 +117,7 @@
                toolbarPath="group"
                tooltip="Create the Examples project">
          </action>
+-->         
       </actionSet>
    </extension>
 	
