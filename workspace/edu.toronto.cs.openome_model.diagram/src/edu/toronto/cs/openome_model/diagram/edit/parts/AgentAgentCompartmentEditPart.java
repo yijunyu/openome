@@ -540,9 +540,6 @@ public class AgentAgentCompartmentEditPart extends CompartmentEditPart {
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CANONICAL_ROLE,
-				new edu.toronto.cs.openome_model.diagram.edit.policies.AgentAgentCompartmentCanonicalEditPolicy());
 	}
 
 	/**

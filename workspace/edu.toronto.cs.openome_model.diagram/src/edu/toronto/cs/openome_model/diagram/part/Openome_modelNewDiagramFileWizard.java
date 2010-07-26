@@ -142,6 +142,8 @@ public class Openome_modelNewDiagramFileWizard extends Wizard {
 								edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				diagramResource.getContents().add(diagram.getElement());
+				new edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramContentInitializer()
+						.initDiagramContent(diagram);
 				return CommandResult.newOKCommandResult();
 			}
 		};
