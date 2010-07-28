@@ -214,10 +214,102 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void doSaveAs() {
-		performSaveAs(new NullProgressMonitor());
+		performMySaveAs(new NullProgressMonitor());
+	}
+	
+	protected void performMySaveAs(IProgressMonitor progressMonitor) {
+		Shell shell = getSite().getShell();
+		IEditorInput input = getEditorInput();
+		SaveAsDialog dialog = new SaveAsDialog(shell);
+		IFile original = input instanceof IFileEditorInput ? ((IFileEditorInput) input)
+				.getFile()
+				: null;
+		if (original != null) {
+			dialog.setOriginalFile(original);
+		}
+		dialog.create();
+		IDocumentProvider provider = getDocumentProvider();
+		if (provider == null) {
+			// editor has been programmatically closed while the dialog was open
+			return;
+		}
+		if (provider.isDeleted(input) && original != null) {
+			String message = NLS
+					.bind(
+							edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDiagramEditor_SavingDeletedFile,
+							original.getName());
+			dialog.setErrorMessage(null);
+			dialog.setMessage(message, IMessageProvider.WARNING);
+		}
+		if (dialog.open() == Window.CANCEL) {
+			if (progressMonitor != null) {
+				progressMonitor.setCanceled(true);
+			}
+			return;
+		}
+		IPath filePath = dialog.getResult();
+		if (filePath == null) {
+			if (progressMonitor != null) {
+				progressMonitor.setCanceled(true);
+			}
+			return;
+		}
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		
+		
+		IFile file = workspaceRoot.getFile(filePath);
+		final IEditorInput newInput = new FileEditorInput(file);
+		// Check if the editor is already open
+		IEditorMatchingStrategy matchingStrategy = getEditorDescriptor()
+				.getEditorMatchingStrategy();
+		IEditorReference[] editorRefs = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences();
+		for (int i = 0; i < editorRefs.length; i++) {
+			if (matchingStrategy.matches(editorRefs[i], newInput)) {
+				MessageDialog
+						.openWarning(
+								shell,
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDiagramEditor_SaveAsErrorTitle,
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDiagramEditor_SaveAsErrorMessage);
+				return;
+			}
+		}
+		boolean success = false;
+		try {
+			provider.aboutToChange(newInput);
+			
+			//The save below leaves the new diagram in sync with the old one			
+			
+//			getDocumentProvider(newInput).saveDocument(progressMonitor,
+//					newInput,
+//					getDocumentProvider().getDocument(getEditorInput()), true);
+			
+			//Instead, simply make a new copy of the file to solve the synchronization issue.
+			original.copy(filePath, true, progressMonitor);
+			success = true;
+		} catch (CoreException x) {
+			IStatus status = x.getStatus();
+			if (status == null || status.getSeverity() != IStatus.CANCEL) {
+				ErrorDialog
+						.openError(
+								shell,
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDiagramEditor_SaveErrorTitle,
+								edu.toronto.cs.openome_model.diagram.part.Messages.Openome_modelDiagramEditor_SaveErrorMessage,
+								x.getStatus());
+			}
+		} finally {
+			provider.changed(newInput);
+			if (success) {
+				setInput(newInput);
+			}
+		}
+		if (progressMonitor != null) {
+			progressMonitor.setCanceled(!success);
+		}
 	}
 
 	/**
