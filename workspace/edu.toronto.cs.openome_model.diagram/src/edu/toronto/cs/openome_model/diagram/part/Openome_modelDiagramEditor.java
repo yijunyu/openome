@@ -210,7 +210,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	 * @generated
 	 */
 	public boolean isSaveAsAllowed() {
-		return true;
+		return !isDirty();
 	}
 
 	/**
@@ -221,6 +221,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	}
 	
 	protected void performMySaveAs(IProgressMonitor progressMonitor) {
+		
 		Shell shell = getSite().getShell();
 		IEditorInput input = getEditorInput();
 		SaveAsDialog dialog = new SaveAsDialog(shell);
