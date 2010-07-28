@@ -285,7 +285,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyNone_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/none.gif"
                   id="openome_ApplyNone_toolbarIcon"
                   tooltip="Apply None Label"
                   mnemonic="W">
@@ -295,7 +295,7 @@
                 	visible="false">
             	</separator>
    			</toolbar>
-		</menuContribution>		
+		</menuContribution>				
 <!-- apply satisfied label -->
         <menuContribution 
 			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
@@ -304,7 +304,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplySatisfied_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/satisfiedEval.png"
                   id="openome_ApplySatisfied_toolbarIcon"
                   tooltip="Apply Satisfied Label"
                   mnemonic="W">
@@ -323,7 +323,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyWeaklySatisfied_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/weaklySatisfiedEval.png"
                   id="openome_ApplyWeaklySatisfied_toolbarIcon"
                   tooltip="Apply Weakly Satisfied Label"
                   mnemonic="W">
@@ -342,7 +342,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyConflict_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/conflictEval.png"
                   id="openome_ApplyConflict_toolbarIcon"
                   tooltip="Apply Conflict Label"
                   mnemonic="W">
@@ -361,7 +361,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyWeaklyDenied_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/weaklyDeniedEval.png"
                   id="openome_ApplyWeaklyDenied_toolbarIcon"
                   tooltip="Apply Weakly Denied Label"
                   mnemonic="W">
@@ -380,7 +380,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyDenied_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/deniedEval.png"
                   id="openome_ApplyDenied_toolbarIcon"
                   tooltip="Apply Denied Label"
                   mnemonic="W">
@@ -399,7 +399,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_ApplyUnknown_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/evalLabels/unknownEval.png"
                   id="openome_ApplyUnknown_toolbarIcon"
                   tooltip="Apply Unknown Label"
                   mnemonic="W">
@@ -409,7 +409,7 @@
                 	visible="false">
             	</separator>
    			</toolbar>
-		</menuContribution>				
+		</menuContribution>						
 <!-- forward button -->
       <menuContribution 
 			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
