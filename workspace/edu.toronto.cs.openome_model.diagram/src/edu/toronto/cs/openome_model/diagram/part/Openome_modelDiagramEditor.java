@@ -2,6 +2,7 @@ package edu.toronto.cs.openome_model.diagram.part;
 
 import java.util.List;
 
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -14,11 +15,9 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
-import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
@@ -114,6 +113,14 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 				((PositionPositionCompartmentEditPart) posCompartment)
 						.forceRedirect();
 			}
+		}
+		
+		Openome_modelDiagramUpdateCommand up = new Openome_modelDiagramUpdateCommand();
+		
+		try {
+			up.execute(null);
+		} catch(ExecutionException e) {
+			System.err.println(e.getLocalizedMessage());
 		}
 	}
 
