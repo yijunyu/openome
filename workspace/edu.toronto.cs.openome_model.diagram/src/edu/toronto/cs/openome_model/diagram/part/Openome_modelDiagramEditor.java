@@ -214,7 +214,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSaveAsAllowed() {
 		return !isDirty();
