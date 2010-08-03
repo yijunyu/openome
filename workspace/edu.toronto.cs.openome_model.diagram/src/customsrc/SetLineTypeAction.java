@@ -1,43 +1,29 @@
 package customsrc;
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
-import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
-import edu.toronto.cs.openome_model.diagram.edit.commands.AndContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.AndDecompositionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.BreakContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.CoversAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.DependencyCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.HelpContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.HurtContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.INSAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.IsAAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.IsPartOfAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.MakeContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.OccupiesAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.OrContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.OrDecompositionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.PlaysAssociationCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.SomeMinusContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.SomePlusContributionCreateCommand;
-import edu.toronto.cs.openome_model.diagram.edit.commands.UnknownContributionCreateCommand;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AndContributionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.BreakContributionEditPart;
@@ -49,6 +35,7 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.INSAssociationEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.IsPartOfAssociationEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.OccupiesAssociationEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.OrContributionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart;
@@ -85,7 +72,6 @@ public class SetLineTypeAction extends AbstractActionHandler {
 	public void setChangeTo(String change){
 		changeTo = change;
 	}
-
 	
 	@Override
 	protected void doRun(IProgressMonitor progressMonitor) {
@@ -101,6 +87,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		for (int i = 0; i < selectionSize; i++) {
 			Object connection = connections[i];
 			final EObject object = ((IGraphicalEditPart)connections[i]).getNotationView().getElement();
+			
 			// determine what type of connection it is, then cast it appropriately 
 			
 			// DEPENDENCY and DECOMPOSITIONS
@@ -126,7 +113,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 				OrDecompositionEditPart part = (OrDecompositionEditPart) selection.getFirstElement();
 				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+
 				doTypeSwitch(part, object, progressMonitor, dcs);
 			}
 			
@@ -277,164 +264,141 @@ public class SetLineTypeAction extends AbstractActionHandler {
 				
 				doTypeSwitch(part, object, progressMonitor, dcs);
 			}
-			
 		}
 	}
+
+	public void doTypeSwitch(final ConnectionNodeEditPart oldPart, final EObject object, IProgressMonitor progressMonitor, DiagramCommandStack dcs) {
+		ModelEditPart modelPart = (ModelEditPart)oldPart.getParent().getChildren().get(0);
 		
-	@SuppressWarnings("restriction")
-	public void doTypeSwitch(final ConnectionNodeEditPart oldPart, final EObject object, IProgressMonitor progressMonitor, DiagramCommandStack dcs){
-		// command to create the new element
 		EObject source = null;
 		EObject target = null;
-		if (object instanceof DecompositionImpl){
-			source = ((DecompositionImpl) object).getSource();
-			target = ((DecompositionImpl) object).getTarget();
-		}
-		else if (object instanceof ContributionImpl){
-			source = ((ContributionImpl) object).getSource();
-			target = ((ContributionImpl) object).getTarget();
-		}
-		else if (object instanceof AssociationImpl){
-			source = ((AssociationImpl) object).getSource();
-			target = ((AssociationImpl) object).getTarget();
-		}
-		else if (object instanceof DependencyImpl){
+		
+		if(object instanceof DecompositionImpl) {
+			source = ((DecompositionImpl)object).getSource();
+			target = ((DecompositionImpl)object).getTarget();
+		} else if(object instanceof ContributionImpl) {
+			source = ((ContributionImpl)object).getSource();
+			target = ((ContributionImpl)object).getTarget();
+		} else if(object instanceof AssociationImpl) {
+			source = ((AssociationImpl)object).getSource();
+			target = ((AssociationImpl)object).getTarget();
+		} else if(object instanceof DependencyImpl) {
 			// the order is inverted because of the definition of a Dependency relation
-			target = ((DependencyImpl) object).getDependencyFrom();
-			source = ((DependencyImpl) object).getDependencyTo();
+			target = ((DependencyImpl)object).getDependencyFrom();
+			source = ((DependencyImpl)object).getDependencyTo();
 		}
 		
-		EditElementCommand createNew = selectCreateCommand(oldPart, source, target);
-		ICommandProxy createNewCommand = new ICommandProxy(createNew);
+		View sourceView = getElementView(source, modelPart);
+		View targetView = getElementView(target, modelPart);
 		
+		// Since types are generated, this function needs to be carefully maintained,
+		// in order to avoid using old types that result in NullPointer exceptions.
 		
-		// command to destroy the old element
-		DestroyElementRequest destroyReq = new DestroyElementRequest(null, object, false);
-		DestroyElementCommand destroy = new DestroyElementCommand(destroyReq);
-		ICommandProxy destroyOld = new ICommandProxy(destroy);
-		//command to delete the old element's view
+		IElementType type = null;
+		
+		if(changeTo.equals("And")) {
+			type = Openome_modelElementTypes.AndDecomposition_4002;	
+		} else if (changeTo.equals("Or")) {
+			type = Openome_modelElementTypes.OrDecomposition_4003;
+		} else if (changeTo.equals("Dependency")) {
+			type = Openome_modelElementTypes.Dependency_4001;
+		} else if (changeTo.equals("Make")) {
+			type = Openome_modelElementTypes.MakeContribution_4007; 	
+		} else if (changeTo.equals("Some+")) {
+			type = Openome_modelElementTypes.SomePlusContribution_4009;	
+		} else if (changeTo.equals("Help")) {
+			type = Openome_modelElementTypes.HelpContribution_4005;	
+		} else if (changeTo.equals("Unknown")) {
+			type = Openome_modelElementTypes.UnknownContribution_4011;
+		} else if (changeTo.equals("Hurt")) {
+			type = Openome_modelElementTypes.HurtContribution_4006;	
+		} else if (changeTo.equals("Some-")) {
+			type = Openome_modelElementTypes.SomeMinusContribution_4010;
+		} else if (changeTo.equals("Break")) {
+			type = Openome_modelElementTypes.BreakContribution_4008;
+		} else if (changeTo.equals("AND")) {
+			type = Openome_modelElementTypes.AndContribution_4012;
+		} else if (changeTo.equals("OR")) {
+			type = Openome_modelElementTypes.OrContribution_4013;
+		} else if (changeTo.equals("ISA")) { 
+			type = Openome_modelElementTypes.IsAAssociation_4014;	
+		} else if (changeTo.equals("Covers")) {
+			type = Openome_modelElementTypes.CoversAssociation_4015;	
+		} else if (changeTo.equals("Is part of")) {
+			type = Openome_modelElementTypes.IsPartOfAssociation_4017;	
+		} else if (changeTo.equals("Occupies")) {
+			type = Openome_modelElementTypes.OccupiesAssociation_4016;
+		} else if (changeTo.equals("Plays")) {
+			type = Openome_modelElementTypes.PlaysAssociation_4018;	
+		} else if (changeTo.equals("INS")) {
+			type = Openome_modelElementTypes.INSAssociation_4019;
+		}
+		
+		// Create a new link
+		
+		CreateConnectionViewAndElementRequest requestLink = new CreateConnectionViewAndElementRequest(
+			type, ((IHintedType)type).getSemanticHint(), modelPart.getDiagramPreferencesHint()
+		);
+
+		ICommand commandLink = new DeferredCreateConnectionViewAndElementCommand(
+			requestLink, (IAdaptable)(new EObjectAdapter(sourceView)), (IAdaptable)(new EObjectAdapter(targetView)), oldPart.getViewer()
+		);
+		
+		if(commandLink.canExecute()) {
+			dcs.execute(new ICommandProxy(commandLink));
+			dcs.flush();
+		} else {
+			System.err.println("commandLink problem!");
+		}
+		
+		// Destroy the old link
+		
+		DestroyElementCommand destroy = new DestroyElementCommand(
+			new DestroyElementRequest(null, object, false)
+		);
+		
+		if(destroy.canExecute()) {
+			dcs.execute(new ICommandProxy(destroy), progressMonitor);
+			dcs.flush();
+		} else {
+			System.err.println("destroy problem!");
+		}
+		
+		// Delete the old link's view
+		
 		DeleteCommand delete = new DeleteCommand(oldPart.getNotationView());
-		ICommandProxy deleteOld = new ICommandProxy(delete);
 		
-		// Execute all the commands, so create new and destroy old element
-		dcs.execute(deleteOld.chain(destroyOld), progressMonitor);
-		dcs.execute(createNewCommand, progressMonitor);
+		if(delete.canExecute()) {
+			dcs.execute(new ICommandProxy(delete), progressMonitor);
+			dcs.flush();
+		} else {
+			System.err.println("delete problem!");
+		}
 		
 		// refresh diagram to reflect changes
 		refresh();
 	}
 	
-	/**
-	 * Returns the correct subclass of CreateElementCommand
-	 * @param oldPart
-	 * @param source
-	 * @param target
-	 * @return
+	/*
+	 * Get an EObject's View.
 	 */
-	private EditElementCommand selectCreateCommand(ConnectionNodeEditPart oldPart, EObject source, EObject target){
-		if (changeTo.equals("And")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.AndDecomposition_4002);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new AndDecompositionCreateCommand(createReq, source, target);	
+	private View getElementView(EObject e, GraphicalEditPart p)
+	{
+		View v = p.getNotationView();
+		
+		if(v.getElement() == e) {
+			return v;
 		}
-		else if (changeTo.equals("Or")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.OrDecomposition_4003);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new OrDecompositionCreateCommand(createReq, source, target);	
+		
+		for(Object o : p.getChildren()) {
+			v = getElementView(e, (GraphicalEditPart)o);
+			
+			if(v != null) {
+				return v;
+			}
 		}
-		else if (changeTo.equals("Dependency")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.Dependency_4001);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new DependencyCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Make")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.MakeContribution_4007);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new MakeContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Some+")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.SomePlusContribution_4009);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new SomePlusContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Help")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.HelpContribution_4005);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new HelpContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Unknown")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.UnknownContribution_4011);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new UnknownContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Hurt")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.HurtContribution_4006);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new HurtContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Some-")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.SomeMinusContribution_4010);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new SomeMinusContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Break")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.BreakContribution_4008);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new BreakContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("AND")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.AndContribution_4012);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new AndContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("OR")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.OrContribution_4013);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new OrContributionCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("ISA")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.IsAAssociation_4014);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new IsAAssociationCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Covers")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.CoversAssociation_4015);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new CoversAssociationCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Is part of")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.IsPartOfAssociation_4017);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new IsPartOfAssociationCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Occupies")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.OccupiesAssociation_4016);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new OccupiesAssociationCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("Plays")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.PlaysAssociation_4018);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new PlaysAssociationCreateCommand(createReq, source, target);	
-		}
-		else if (changeTo.equals("INS")){
-			CreateRelationshipRequest createReq = new CreateRelationshipRequest(source, target, Openome_modelElementTypes.INSAssociation_4019);
-			createReq.setEditingDomain(oldPart.getEditingDomain());
-			return new INSAssociationCreateCommand(createReq, source, target);	
-		}
-		else{
-			return null;
-		}
-	}
-
-	
-	private abstract class MyCommand extends AbstractTransactionalCommand {
-		public MyCommand(EObject elt) {
-			super((TransactionalEditingDomain) AdapterFactoryEditingDomain.
-					getEditingDomainFor(elt),
-					commandName,
-					getWorkspaceFiles(elt));
-		}
+		
+		return null;
 	}
 
 	public void refresh() {
@@ -443,8 +407,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		try {
 			up.execute(null);
 		} catch(ExecutionException e) {
-			System.out.println(e.getLocalizedMessage());
+			System.err.println(e.getLocalizedMessage());
 		}
 	}
-
 }

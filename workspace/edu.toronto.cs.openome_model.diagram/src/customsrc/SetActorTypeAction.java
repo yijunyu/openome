@@ -6,38 +6,48 @@ import java.util.List;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.RootEditPart;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdateCommand;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 public class SetActorTypeAction extends AbstractActionHandler {
 	
@@ -46,7 +56,7 @@ public class SetActorTypeAction extends AbstractActionHandler {
 	protected String evalLabel = "";
 	protected String commandName = "";
 	
-	/*What we wish to change into*/
+	// What we wish to change into
 	protected String changeTo = "";
 
 	protected SetActorTypeAction(IWorkbenchPage workbenchPage) {
@@ -58,7 +68,7 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		return ID;
 	}
 	
-	public void setChangeTo(String change){
+	public void setChangeTo(String change) {
 		changeTo = change;
 	}
 
@@ -87,195 +97,253 @@ public class SetActorTypeAction extends AbstractActionHandler {
 	}
 	
 	private void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs,	IProgressMonitor progressMonitor) {
-		IGraphicalEditPart gEditPart = (IGraphicalEditPart)originalEditPart;
+		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;	
+		GraphicalEditPart container = (GraphicalEditPart)part.getParent();
 		
-		final EObject originalImpl = gEditPart.getNotationView().getElement();
-		TransactionalEditingDomain domain = gEditPart.getEditingDomain();
-		RootEditPart root = gEditPart.getRoot();
+		View originalView = part.getNotationView();
+		EObject originalImpl = originalView.getElement();
 		
-		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;
-		GraphicalEditPart containerPart = null;
+		TransactionalEditingDomain domain = part.getEditingDomain();
 		
-		List<Point> childCoords = new LinkedList<Point>();
-		findChildCoords(part, childCoords);
+		// The new container's type
+		IElementType type = null;
 		
-		//Create new element (automatically sync info as well)
-		CreateElementCommand create = selectCreateActorCommand(originalImpl, domain);
-		dcs.execute(new ICommandProxy(create));
-
-		//Delete old element
-		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
-		dcs.execute(new ICommandProxy(destroy));
+		// Since types are generated, this function needs to be carefully maintained,
+		// in order to avoid using old types that result in NullPointer exceptions.
 		
-		// Place the new container in the old one's spot
-		
-		EObject newObject = create.getCreateRequest().getNewElement();
-		IGraphicalEditPart rootContents = (IGraphicalEditPart)root.getContents();
-		
-		for(Object o : rootContents.getChildren()) {
-			View v = ((IGraphicalEditPart)o).getNotationView();
-			EObject viewObject = v.getElement();
-			
-			// this is the new container
-			if(viewObject == newObject) {
-				IFigure fig = part.getContentPane();
-				Rectangle coords = fig.getBounds();
-				
-				SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), new Point(coords.x, coords.y));
-				dcs.execute(new ICommandProxy(s));
-				
-				containerPart = (GraphicalEditPart)o;
-				
-				break;
-			}
+		if(changeTo.equals("Actor")) {
+			type = Openome_modelElementTypes.Actor_2001;
+		} else if(changeTo.equals("Agent")) {
+			type = Openome_modelElementTypes.Agent_2002;
+		} else if(changeTo.equals("Position")) {
+			type = Openome_modelElementTypes.Position_2003;
+		} else if(changeTo.equals("Role")) {
+			type = Openome_modelElementTypes.Role_2004;
 		}
 		
-		// Place container's children in their old spots
+		// Create a new container
 		
-		if(containerPart == null) {
-			// problem
+		CreateElementCommand commandElement = new CreateElementCommand(
+			new CreateElementRequest(domain, originalImpl.eContainer(), type)
+		);
+		
+		if(commandElement.canExecute()) {
+			dcs.execute(new ICommandProxy(commandElement));
+			dcs.flush();
 		} else {
-			for(Object i : ((Container)newObject).getIntentions()) {		
-				View v = getIntentionView(containerPart, (EObject)i);
-				
-				if(v == null) {
-					// problem
-				} else {				
-					Point p = childCoords.remove(0);
-					
-					SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), p);
-					dcs.execute(new ICommandProxy(s));
+			System.err.println("commandElement problem!");
+		}
+		
+		// Copy the old container's meta data
+		
+		EObject element = commandElement.getNewElement();
+		
+		TransferMetaCommand commandMeta = new TransferMetaCommand(domain, element, originalImpl);
+		
+		if(commandMeta.canExecute()) {
+			dcs.execute(new ICommandProxy(commandMeta));
+			dcs.flush();
+		} else {
+			System.err.println("commandMeta problem!");
+		}
+		
+		// Create a view for the new container
+		
+		ViewDescriptor viewDescriptor = new ViewDescriptor(
+			new EObjectAdapter(element),
+			Node.class,
+			((IHintedType)type).getSemanticHint(), true,
+			container.getDiagramPreferencesHint()
+		);
+		
+		Command commandView = container.getCommand(
+			new CreateViewRequest(viewDescriptor)
+		);
+		
+		if(commandView.canExecute()) {
+			dcs.execute(commandView);
+			dcs.flush();
+		} else {
+			System.err.println("commandView problem!");
+		}	
+		
+		// Keep the old container's canvas position	
+		
+		View view = (View)viewDescriptor.getAdapter(View.class);
+		
+		IFigure fig = part.getContentPane();
+		Rectangle coords = fig.getBounds();
+		
+		SetBoundsCommand commandPosition = new SetBoundsCommand(
+			domain,
+			"",
+			new EObjectAdapter(view),
+			new Point(coords.x, coords.y)
+		);
+		
+		if(commandPosition.canExecute()) {
+			dcs.execute(new ICommandProxy(commandPosition));
+			dcs.flush();
+		} else {
+			System.err.println("commandPosition problem!");
+		}
+		
+		// Process contained intentions
+		
+		List<GraphicalEditPart> parts = new LinkedList<GraphicalEditPart>();
+		collectIntentions(part, parts);
+		
+		for(GraphicalEditPart g : parts) {
+			View iView = g.getNotationView();
+			EObject iElement = iView.getElement();
+			
+			// Change the element's type to the one appropriate
+			// to the container it now sits in.
+			
+			// Since types are generated, this function needs to be carefully maintained,
+			// in order to avoid using old types that result in NullPointer exceptions.
+			
+			IElementType iType = null;
+			
+			if(iElement instanceof GoalImpl) {
+				if(type == Openome_modelElementTypes.Actor_2001) {
+					iType = Openome_modelElementTypes.Goal_3001;
+				} else if(type == Openome_modelElementTypes.Agent_2002) {
+					iType = Openome_modelElementTypes.Goal_3005;
+				} else if(type == Openome_modelElementTypes.Position_2003) {
+					iType = Openome_modelElementTypes.Goal_3009;
+				} else if(type == Openome_modelElementTypes.Role_2004) {
+					iType = Openome_modelElementTypes.Goal_3013;
+				}
+			} else if(iElement instanceof SoftgoalImpl) {
+				if(type == Openome_modelElementTypes.Actor_2001) {
+					iType = Openome_modelElementTypes.Softgoal_3002;
+				} else if(type == Openome_modelElementTypes.Agent_2002) {
+					iType = Openome_modelElementTypes.Softgoal_3006;
+				} else if(type == Openome_modelElementTypes.Position_2003) {
+					iType = Openome_modelElementTypes.Softgoal_3010;
+				} else if(type == Openome_modelElementTypes.Role_2004) {
+					iType = Openome_modelElementTypes.Softgoal_3014;
+				}
+			} else if(iElement instanceof TaskImpl) {
+				if(type == Openome_modelElementTypes.Actor_2001) {
+					iType = Openome_modelElementTypes.Task_3004;
+				} else if(type == Openome_modelElementTypes.Agent_2002) {
+					iType = Openome_modelElementTypes.Task_3008;
+				} else if(type == Openome_modelElementTypes.Position_2003) {
+					iType = Openome_modelElementTypes.Task_3012;
+				} else if(type == Openome_modelElementTypes.Role_2004) {
+					iType = Openome_modelElementTypes.Task_3016;
+				}
+			} else if(iElement instanceof ResourceImpl) {
+				if(type == Openome_modelElementTypes.Actor_2001) {
+					iType = Openome_modelElementTypes.Resource_3003;
+				} else if(type == Openome_modelElementTypes.Agent_2002) {
+					iType = Openome_modelElementTypes.Resource_3007;
+				} else if(type == Openome_modelElementTypes.Position_2003) {
+					iType = Openome_modelElementTypes.Resource_3011;
+				} else if(type == Openome_modelElementTypes.Role_2004) {
+					iType = Openome_modelElementTypes.Resource_3015;
 				}
 			}
+			
+			ReplaceElement.replace(g, getNewContainer(container, view), iType, dcs);
 		}
 		
+		// Delete the old container
+		
+		DestroyElementCommand commandDelete = new DestroyElementCommand(
+			new DestroyElementRequest(domain, originalImpl, false)
+		);
+		
+		if(commandDelete.canExecute()) {
+			dcs.execute(new ICommandProxy(commandDelete));
+			dcs.flush();
+		} else {
+			System.err.println("commandDelete problem!");
+		}
+		
+		// Delete the old container's view
+		
+		DeleteCommand commandDeleteView = new DeleteCommand(domain, originalView);
+		
+		if(commandDeleteView.canExecute()) {
+			dcs.execute(new ICommandProxy(commandDeleteView));
+			dcs.flush();
+		} else {
+			System.err.println("commandDeleteView problem!");
+		}
+
 		// refresh diagram to reflect changes
 		refresh();
 	}
 	
 	/*
-	 * Finds intentions inside an actor, and saves their coordinates in a list.
+	 * Command to copy a container's children and name to another one.
 	 */
-	private void findChildCoords(GraphicalEditPart part, List<Point> childCoords)
+	private class TransferMetaCommand extends AbstractTransactionalCommand
+	{
+		private Container dst;
+		private Container src;
+		
+		public TransferMetaCommand(TransactionalEditingDomain domain, EObject newElement, EObject oldElement)
+		{
+	        super(domain, "", null);
+	        
+	        this.dst = (Container)newElement;
+	        this.src = (Container)oldElement;
+		}
+		
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+		    throws ExecutionException
+		{  	
+			dst.setName(src.getName());
+			
+			dst.getIntentions().addAll(src.getIntentions());
+			
+			return CommandResult.newOKCommandResult();
+		}
+	}
+	
+	/*
+	 * Collect a container's intentions' GraphicalEditParts.
+	 */
+	private void collectIntentions(GraphicalEditPart part, List<GraphicalEditPart> parts)
 	{
 		for(Object o : part.getChildren()) {
-			// if this is an intention, then save its figure's coordinates
-			if(o instanceof AbstractBorderedShapeEditPart) {
-				GraphicalEditPart g = (GraphicalEditPart)o;
-				
-				IFigure fig = g.getContentPane();
-				Rectangle coords = fig.getBounds();
-				
-				childCoords.add(new Point(coords.x, coords.y));
+			GraphicalEditPart g = (GraphicalEditPart)o;
 			
-			// not an intention, so look deeper
+			if(o instanceof AbstractBorderedShapeEditPart) {
+				parts.add(g);
 			} else {
-				findChildCoords((GraphicalEditPart)o, childCoords);
+				collectIntentions(g, parts);
 			}
 		}
 	}
 	
 	/*
-	 * Gets the EObject's view.
+	 * Get the new container's GraphicalEditPart.
 	 */
-	private View getIntentionView(GraphicalEditPart part, EObject e)
+	private GraphicalEditPart getNewContainer(GraphicalEditPart p, View v)
 	{
-		View v = part.getNotationView();
-		
-		if(v.getElement() == e) {
-			return v;
-		} 
-		
-		for(Object o : part.getChildren()) {
-			v = getIntentionView((GraphicalEditPart)o, e);
-			
-			if(v != null) {
-				return v;
+		for(Object o : p.getChildren()) {
+			if(v == p.getNotationView()) {
+				if(o instanceof ActorActorCompartmentEditPart
+					|| o instanceof AgentAgentCompartmentEditPart
+					|| o instanceof RoleRoleCompartmentEditPart
+					|| o instanceof PositionPositionCompartmentEditPart) {
+					return (GraphicalEditPart)o;
+				}
+			} else {
+				GraphicalEditPart g = getNewContainer((GraphicalEditPart)o, v);
+				
+				if(g != null) {
+					return g;
+				}
 			}
 		}
-			
+		
 		return null;
-	}
-
-	private CreateElementCommand selectCreateActorCommand(
-			EObject originalImpl, TransactionalEditingDomain domain) {
-		CreateElementRequest req = null;
-		
-		if (changeTo.equals("Actor")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Actor_2001);
-		}
-		else if (changeTo.equals("Agent")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Agent_2002);
-		}
-		else if (changeTo.equals("Position")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Position_2003);
-		}
-		else if (changeTo.equals("Role")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Role_2004);
-		}
-		return new CreateNewActorTypeCommand(req, originalImpl);
-	}
-	
-	private static class CreateNewActorTypeCommand extends CreateElementCommand {
-		/**
-		 * The newly created element.
-		 */
-		private EObject newElement;
-		
-		/**
-		 * The element the duplicate is based on
-		 */
-		private EObject oldElement;
-		
-		/**
-		 * The element type to be created.
-		 */
-		private final IElementType elementType;
-
-		public CreateNewActorTypeCommand(CreateElementRequest request, EObject original) {
-			super(request);
-			elementType = request.getElementType();
-			oldElement = original;
-		}
-		
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-	            IAdaptable info)
-	        throws ExecutionException {
-			
-			 // Do the default element creation
-	        newElement = doDefaultElementCreation();
-	        
-	        if (!getDefaultElementCreationStatus().isOK()) {
-	        	return new CommandResult(getDefaultElementCreationStatus());
-	        }
-
-	        // Configure the new element
-	        ConfigureRequest configureRequest = createConfigureRequest();
-
-	        ICommand configureCommand = elementType
-	            .getEditCommand(configureRequest);
-	        
-	        IStatus configureStatus = null;
-	        
-	        if (configureCommand != null && configureCommand.canExecute()) {
-	        	configureStatus = configureCommand.execute(monitor, info);
-	        }
-	        
-	        //Copy the metadata
-	        ((Container) newElement).setName(((Container) oldElement).getName());
-	        
-	        // Now we should also copy children 
-	        ((Container) newElement).getIntentions().addAll(((Container) oldElement).getIntentions());
-	        
-	        // Put the newly created element in the request so that the
-	        // 'after' commands have access to it.
-	        getCreateRequest().setNewElement(newElement);
-	        
-			return (configureStatus == null) ? 
-	        		CommandResult.newOKCommandResult(newElement) : 
-	        		new CommandResult(configureStatus, newElement);
-			
-		}
 	}
 
 	public void refresh() {
@@ -284,8 +352,7 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		try {
 			up.execute(null);
 		} catch(ExecutionException e) {
-			System.out.println(e.getLocalizedMessage());
+			System.err.println(e.getLocalizedMessage());
 		}
 	}
-
 }

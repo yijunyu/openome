@@ -1,38 +1,23 @@
 package customsrc;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
 
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramUpdateCommand;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
-import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 public class SetIntentionTypeAction extends AbstractActionHandler {
 	
@@ -41,7 +26,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 	protected String evalLabel = "";
 	protected String commandName = "";
 	
-	/*What we wish to change into*/
+	// What we wish to change into
 	protected String changeTo = "";
 
 	protected SetIntentionTypeAction(IWorkbenchPage workbenchPage) {
@@ -77,73 +62,80 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
 			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
 			
-			doTypeSwitch(intention, dcs, progressMonitor);
+			doTypeSwitch(intention, dcs);
 		}
 	}
 	
-	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs, IProgressMonitor progressMonitor) {
-		IGraphicalEditPart gEditPart = (IGraphicalEditPart)originalEditPart;
-		
-		final EObject originalImpl = gEditPart.getNotationView().getElement();
-		TransactionalEditingDomain domain = gEditPart.getEditingDomain();
-		
+	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs) {
 		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;	
 		GraphicalEditPart container = (GraphicalEditPart)part.getParent();
 		
-		//Create new element (automatically sync info as well)
-		CreateElementCommand create = selectCreateIntentionCommand(originalImpl, domain);
-		dcs.execute(new ICommandProxy(create));
+		// Each intention has 5 possible sub-types:
+		// - 1 for being directly on the canvas
+		// - 4 for being inside a container: Actor, Agent, Position, or Role.	
 		
-		//Delete old element
-		DestroyElementCommand destroy = new DestroyElementCommand(new DestroyElementRequest(domain, originalImpl, false));
-		dcs.execute(new ICommandProxy(destroy));
+		// Since types are generated, this function needs to be carefully maintained,
+		// in order to avoid using old types that result in NullPointer exceptions.
 		
-		// Place the new element in the old one's spot
+		// The new element's type
+		IElementType type = null;
 		
-		EObject newObject = create.getCreateRequest().getNewElement();
-		
-		for(Object o : container.getChildren()) {
-			View v = ((IGraphicalEditPart)o).getNotationView();
-			EObject viewObject = v.getElement();
-			
-			// this is the new element
-			if(viewObject == newObject) {
-				IFigure fig = part.getContentPane();
-				Rectangle coords = fig.getBounds();
-				
-				SetBoundsCommand s = new SetBoundsCommand(domain, "", new EObjectAdapter(v), new Point(coords.x, coords.y));
-				dcs.execute(new ICommandProxy(s));
-				
-				break;
+		if((Object)container instanceof ModelEditPart) {
+			if(changeTo.equals("Hardgoal")) {
+				type = Openome_modelElementTypes.Goal_2005;
+			} else if (changeTo.equals("Softgoal")) {
+				type = Openome_modelElementTypes.Softgoal_2006;
+			} else if (changeTo.equals("Task")) {
+				type = Openome_modelElementTypes.Task_2007;
+			} else if (changeTo.equals("Resource")) {
+				type = Openome_modelElementTypes.Resource_2008;
+			}
+		} else if((Object)container instanceof ActorActorCompartmentEditPart) {
+			if(changeTo.equals("Hardgoal")) {
+				type = Openome_modelElementTypes.Goal_3001;
+			} else if (changeTo.equals("Softgoal")) {
+				type = Openome_modelElementTypes.Softgoal_3002;
+			} else if (changeTo.equals("Task")) {
+				type = Openome_modelElementTypes.Task_3004;
+			} else if (changeTo.equals("Resource")) {
+				type = Openome_modelElementTypes.Resource_3003;
+			}
+		} else if((Object)container instanceof AgentAgentCompartmentEditPart) {
+			if(changeTo.equals("Hardgoal")) {
+				type = Openome_modelElementTypes.Goal_3005;
+			} else if (changeTo.equals("Softgoal")) {
+				type = Openome_modelElementTypes.Softgoal_3006;
+			} else if (changeTo.equals("Task")) {
+				type = Openome_modelElementTypes.Task_3008;
+			} else if (changeTo.equals("Resource")) {
+				type = Openome_modelElementTypes.Resource_3007;
+			}
+		} else if((Object)container instanceof PositionPositionCompartmentEditPart) {
+			if(changeTo.equals("Hardgoal")) {
+				type = Openome_modelElementTypes.Goal_3009;
+			} else if (changeTo.equals("Softgoal")) {
+				type = Openome_modelElementTypes.Softgoal_3010;
+			} else if (changeTo.equals("Task")) {
+				type = Openome_modelElementTypes.Task_3012;
+			} else if (changeTo.equals("Resource")) {
+				type = Openome_modelElementTypes.Resource_3011;
+			}
+		} else if((Object)container instanceof RoleRoleCompartmentEditPart) {
+			if(changeTo.equals("Hardgoal")) {
+				type = Openome_modelElementTypes.Goal_3013;
+			} else if (changeTo.equals("Softgoal")) {
+				type = Openome_modelElementTypes.Softgoal_3014;
+			} else if (changeTo.equals("Task")) {
+				type = Openome_modelElementTypes.Task_3016;
+			} else if (changeTo.equals("Resource")) {
+				type = Openome_modelElementTypes.Resource_3015;
 			}
 		}
 		
+		ReplaceElement.replace(part, (GraphicalEditPart)part.getParent(), type, dcs);
+		
 		// refresh diagram to reflect changes
 		refresh();
-	}
-
-	/**
-	 * Returns the appropriate CreateElementCommand
-	 * @param originalImpl
-	 * @return
-	 */
-	private CreateElementCommand selectCreateIntentionCommand(EObject originalImpl, TransactionalEditingDomain domain) {
-		CreateElementRequest req = null;
-		
-		if (changeTo.equals("Hardgoal")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Goal_2005);
-		}
-		else if (changeTo.equals("Softgoal")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Softgoal_2006);
-		}
-		else if (changeTo.equals("Task")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Task_2007);
-		}
-		else if (changeTo.equals("Resource")){
-			req = new CreateElementRequest(domain, originalImpl.eContainer(), Openome_modelElementTypes.Resource_2008);
-		}
-		
-		return new CreateNewIntentionTypeCommand(req, originalImpl);
 	}
 	
 	public void refresh() {
@@ -152,82 +144,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		try {
 			up.execute(null);
 		} catch(ExecutionException e) {
-			System.out.println(e.getLocalizedMessage());
+			System.err.println(e.getLocalizedMessage());
 		}
 	}
-	
-	private static class CreateNewIntentionTypeCommand extends CreateElementCommand{
-		/**
-		 * The newly created element.
-		 */
-		private EObject newElement;
-		
-		/**
-		 * The element the duplicate is based on
-		 */
-		private EObject oldElement;
-		
-		/**
-		 * The element type to be created.
-		 */
-		private final IElementType elementType;
-
-		public CreateNewIntentionTypeCommand(CreateElementRequest request, EObject original) {
-			super(request);
-			elementType = request.getElementType();
-			oldElement = original;
-		}
-		
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-	            IAdaptable info)
-	        throws ExecutionException {
-			
-			 // Do the default element creation
-	        newElement = doDefaultElementCreation();
-	        
-	        if (!getDefaultElementCreationStatus().isOK()) {
-	        	return new CommandResult(getDefaultElementCreationStatus());
-	        }
-
-	        // Configure the new element
-	        ConfigureRequest configureRequest = createConfigureRequest();
-
-	        ICommand configureCommand = elementType
-	            .getEditCommand(configureRequest);
-	        
-	        IStatus configureStatus = null;
-	        
-	        if (configureCommand != null && configureCommand.canExecute()) {
-	        	configureStatus = configureCommand.execute(monitor, info);
-	        }
-	        
-	        //Copy the metadata
-	        ((IntentionImpl) newElement).setName(((IntentionImpl) oldElement).getName());
-	        
-        	((IntentionImpl) newElement).setQualitativeReasoningCombinedLabel(((IntentionImpl) oldElement).getQualitativeReasoningCombinedLabel());
-        	((IntentionImpl) newElement).setQualitativeReasoningDenialLabel(((IntentionImpl) oldElement).getQualitativeReasoningDenialLabel());
-        	((IntentionImpl) newElement).setQualitativeReasoningSatisfiedLabel(((IntentionImpl) oldElement).getQualitativeReasoningSatisfiedLabel());
-        	((IntentionImpl) newElement).setQuantitativeReasoningCombinedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningCombinedLabel());
-        	((IntentionImpl) newElement).setQuantitativeReasoningDeniedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningDeniedLabel());
-        	((IntentionImpl) newElement).setQuantitativeReasoningSatisfiedLabel(((IntentionImpl) oldElement).getQuantitativeReasoningSatisfiedLabel());
-        	
-        	((IntentionImpl) newElement).getContributesFrom().addAll(((IntentionImpl) oldElement).getContributesFrom());
-        	((IntentionImpl) newElement).getContributesTo().addAll(((IntentionImpl) oldElement).getContributesTo());
-        	((IntentionImpl) newElement).getDecompositions().addAll(((IntentionImpl) oldElement).getDecompositions());
-        	((IntentionImpl) newElement).getDecompositionsFrom().addAll(((IntentionImpl) oldElement).getDecompositionsFrom());
-        	((IntentionImpl) newElement).getDecompositionsTo().addAll(((IntentionImpl) oldElement).getDecompositionsTo());
-        	((IntentionImpl) newElement).getDependencyFrom().addAll(((IntentionImpl) oldElement).getDependencyFrom());
-        	((IntentionImpl) newElement).getDependencyTo().addAll(((IntentionImpl) oldElement).getDependencyTo());
-	        
-	        // Put the newly created element in the request so that the
-	        // 'after' commands have access to it.
-	        getCreateRequest().setNewElement(newElement);
-	        
-			return (configureStatus == null) ? 
-	        		CommandResult.newOKCommandResult(newElement) : 
-	        		new CommandResult(configureStatus, newElement);
-			
-		}
-	}
-
 }
