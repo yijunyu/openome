@@ -24,4 +24,6 @@ public interface AlternativeValidator {
 	boolean validateDescription(String value);
 	boolean validateIntentions(EList<Intention> value);
 	boolean validateEvalLabels(EList<EvaluationLabel> value);
+
+	boolean validateDirection(String value);
 }

@@ -231,6 +231,7 @@
         eType="#//Intention"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="evalLabels" ordered="false"
         unique="false" upperBound="-1" eType="#//EvaluationLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntentionToEvaluationLabelMap" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//Intention"

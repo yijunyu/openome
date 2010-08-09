@@ -96,7 +96,8 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		
 		alt.setName(ad.getName());
 		alt.setDescription(ad.getDescription());
-		
+		alt.setDirection("forward");
+
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
 		

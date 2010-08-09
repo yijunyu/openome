@@ -263,12 +263,10 @@ public class LabelBagImpl extends EObjectImpl implements LabelBag {
 	 * <!-- begin-user-doc -->
 	 * changed from protected to public for testing purposes
 	 * <!-- end-user-doc -->
-	 * @generated 
+	 * @generated NOT
 	 */
 	public LabelBagImpl() {
 		super();
-		
-		
 	}
 	
 	/**

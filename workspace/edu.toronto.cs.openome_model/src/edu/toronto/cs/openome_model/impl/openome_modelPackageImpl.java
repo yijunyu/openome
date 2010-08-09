@@ -1546,6 +1546,15 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAlternative_Direction() {
+		return (EAttribute)alternativeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIntentionToEvaluationLabelMap() {
 		return intentionToEvaluationLabelMapEClass;
 	}
@@ -1926,6 +1935,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		createEAttribute(alternativeEClass, ALTERNATIVE__DESCRIPTION);
 		createEReference(alternativeEClass, ALTERNATIVE__INTENTIONS);
 		createEAttribute(alternativeEClass, ALTERNATIVE__EVAL_LABELS);
+		createEAttribute(alternativeEClass, ALTERNATIVE__DIRECTION);
 
 		intentionToEvaluationLabelMapEClass = createEClass(INTENTION_TO_EVALUATION_LABEL_MAP);
 		createEReference(intentionToEvaluationLabelMapEClass, INTENTION_TO_EVALUATION_LABEL_MAP__KEY);
@@ -2177,6 +2187,7 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		initEAttribute(getAlternative_Description(), ecorePackage.getEString(), "description", " ", 0, 1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAlternative_Intentions(), this.getIntention(), null, "intentions", null, 0, -1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAlternative_EvalLabels(), this.getEvaluationLabel(), "evalLabels", null, 0, -1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getAlternative_Direction(), ecorePackage.getEString(), "direction", null, 0, 1, Alternative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intentionToEvaluationLabelMapEClass, Map.Entry.class, "IntentionToEvaluationLabelMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIntentionToEvaluationLabelMap_Key(), this.getIntention(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

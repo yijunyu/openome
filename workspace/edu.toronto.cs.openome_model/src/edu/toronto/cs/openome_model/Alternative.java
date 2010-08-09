@@ -27,6 +27,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
  *   <li>{@link edu.toronto.cs.openome_model.Alternative#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Alternative#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.Alternative#getEvalLabels <em>Eval Labels</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.Alternative#getDirection <em>Direction</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,6 +130,32 @@ public interface Alternative extends EObject {
 	 * @generated
 	 */
 	EList<EvaluationLabel> getEvalLabels();
+
+	/**
+	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Direction</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Direction</em>' attribute.
+	 * @see #setDirection(String)
+	 * @see edu.toronto.cs.openome_model.openome_modelPackage#getAlternative_Direction()
+	 * @model
+	 * @generated
+	 */
+	String getDirection();
+
+	/**
+	 * Sets the value of the '{@link edu.toronto.cs.openome_model.Alternative#getDirection <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Direction</em>' attribute.
+	 * @see #getDirection()
+	 * @generated
+	 */
+	void setDirection(String value);
 
 	/**
 	 * @generated NOT

@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link edu.toronto.cs.openome_model.impl.AlternativeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.AlternativeImpl#getIntentions <em>Intentions</em>}</li>
  *   <li>{@link edu.toronto.cs.openome_model.impl.AlternativeImpl#getEvalLabels <em>Eval Labels</em>}</li>
+ *   <li>{@link edu.toronto.cs.openome_model.impl.AlternativeImpl#getDirection <em>Direction</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,6 +117,25 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 * @ordered
 	 */
 	protected EList<EvaluationLabel> evalLabels;
+
+	/**
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DIRECTION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected String direction = DIRECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,6 +223,27 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDirection() {
+		return direction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDirection(String newDirection) {
+		String oldDirection = direction;
+		direction = newDirection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, openome_modelPackage.ALTERNATIVE__DIRECTION, oldDirection, direction));
+	}
+
+	/**
 	 * Add the intentions and their corresponding labels to the Alternative
 	 * @generated NOT
 	 */
@@ -238,6 +279,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				return getIntentions();
 			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				return getEvalLabels();
+			case openome_modelPackage.ALTERNATIVE__DIRECTION:
+				return getDirection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,6 +308,9 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				getEvalLabels().clear();
 				getEvalLabels().addAll((Collection<? extends EvaluationLabel>)newValue);
 				return;
+			case openome_modelPackage.ALTERNATIVE__DIRECTION:
+				setDirection((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -289,6 +335,9 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				getEvalLabels().clear();
 				return;
+			case openome_modelPackage.ALTERNATIVE__DIRECTION:
+				setDirection(DIRECTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -309,6 +358,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				return intentions != null && !intentions.isEmpty();
 			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
 				return evalLabels != null && !evalLabels.isEmpty();
+			case openome_modelPackage.ALTERNATIVE__DIRECTION:
+				return DIRECTION_EDEFAULT == null ? direction != null : !DIRECTION_EDEFAULT.equals(direction);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -329,6 +380,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		result.append(description);
 		result.append(", evalLabels: ");
 		result.append(evalLabels);
+		result.append(", direction: ");
+		result.append(direction);
 		result.append(')');
 		return result.toString();
 	}

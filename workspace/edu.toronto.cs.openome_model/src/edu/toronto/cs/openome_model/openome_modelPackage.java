@@ -3426,13 +3426,22 @@ public interface openome_modelPackage extends EPackage {
 	int ALTERNATIVE__EVAL_LABELS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__DIRECTION = 4;
+
+	/**
 	 * The number of structural features of the '<em>Alternative</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALTERNATIVE_FEATURE_COUNT = 4;
+	int ALTERNATIVE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl <em>Intention To Evaluation Label Map</em>}' class.
@@ -4971,6 +4980,17 @@ public interface openome_modelPackage extends EPackage {
 	EAttribute getAlternative_EvalLabels();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.toronto.cs.openome_model.Alternative#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see edu.toronto.cs.openome_model.Alternative#getDirection()
+	 * @see #getAlternative()
+	 * @generated
+	 */
+	EAttribute getAlternative_Direction();
+
+	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Intention To Evaluation Label Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6281,6 +6301,14 @@ public interface openome_modelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ALTERNATIVE__EVAL_LABELS = eINSTANCE.getAlternative_EvalLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALTERNATIVE__DIRECTION = eINSTANCE.getAlternative_Direction();
 
 		/**
 		 * The meta object literal for the '{@link edu.toronto.cs.openome_model.impl.IntentionToEvaluationLabelMapImpl <em>Intention To Evaluation Label Map</em>}' class.

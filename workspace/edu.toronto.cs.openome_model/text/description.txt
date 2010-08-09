@@ -166,6 +166,7 @@ Package openome_model <http:///edu/toronto/cs/openome_model.ecore>
     Attribute description : EString
     Reference intentions : Intention<<0..*>>
     Attribute evalLabels : EvaluationLabel<<0..*>>
+    Attribute direction : EString
 
   Class IntentionToEvaluationLabelMap
     Reference key : Intention

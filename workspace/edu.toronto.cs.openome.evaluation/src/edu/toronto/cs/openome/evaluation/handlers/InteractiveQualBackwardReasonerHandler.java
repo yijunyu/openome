@@ -95,6 +95,7 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		
 		alt.setName(ad.getName());
 		alt.setDescription(ad.getDescription());
+		alt.setDirection("backward");
 		
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
