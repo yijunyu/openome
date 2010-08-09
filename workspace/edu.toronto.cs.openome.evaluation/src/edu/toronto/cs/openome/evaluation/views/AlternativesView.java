@@ -40,6 +40,7 @@ import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
@@ -288,18 +289,15 @@ public class AlternativesView extends ViewPart {
 				to = new TreeNode(i.getName() + " {" + actorName + "}" , i, map.get(i));
 				node.addChild(to);
 				
-				// check if there are human judgments for this intention
-				//IntQualIntentionWrapper intWrapper = softgoalWrappers.findIntention(i);
-				/*if (intWrapper != null){
-					Vector<HumanJudgement> judgments = intWrapper.getHumanJudgements();
-					if (!judgments.isEmpty()){
-						int j = 1;
-						// add all the human judgments
-						for (HumanJudgement judgment : judgments){
-							to.addChild(new TreeObject("[HUMAN JUDGEMENT] " + j++ + ": " + judgment.toString(), judgment));
-						}
-					}
-				}*/
+				//Add the human judgements for this intention to the view
+				EList<HumanJudgment> humanJudgements = i.getHumanJudgments();
+				int j = 1;
+				for (HumanJudgment judgement : humanJudgements) {
+					to.addChild(new TreeNode("Judgement " + j++ + ": " + judgement.getResultLabel().toString(), judgement, judgement.getResultLabel()) );
+					
+				}
+				
+				
 			}
 		}
 		public void removeAllNodes() {
