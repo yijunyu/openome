@@ -13,17 +13,29 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gef.KeyHandler;
+import org.eclipse.gef.KeyStroke;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteAction;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -31,12 +43,15 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.navigator.resources.ProjectExplorer;
@@ -443,4 +458,89 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 		//getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,provider, getDiagramGraphicalViewer());
 	}
 
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected KeyHandler getKeyHandler()
+	{
+		KeyHandler h = super.getKeyHandler();		
+		
+		getActionRegistry().registerAction(new CustomPromptingDeleteAction(this));
+		
+		h.put(KeyStroke.getPressed(SWT.DEL, 127, 0),
+			getActionRegistry().getAction(ActionFactory.DELETE.getId()));
+		
+		h.put(KeyStroke.getPressed(SWT.BS, 8, 0),
+			getActionRegistry().getAction(ActionFactory.DELETE.getId()));		
+		
+		return h;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	/*
+	 * This command attempts to fix the issue of deleting links with the
+	 * Delete and Backspace keys. The default behaviour is to only remove
+	 * them from the Diagram, but not from the Model. Deleting intentions
+	 * and containers works fine however.
+	 * 
+	 * This causes problems when it comes to deciding which nodes are roots
+	 * and which are leaves. If a link is not deleted from the model, then
+	 * its source and target elements maintain their references to it.
+	 */
+	@SuppressWarnings("restriction")
+	private class CustomPromptingDeleteAction extends PromptingDeleteAction
+	{
+		public CustomPromptingDeleteAction(IWorkbenchPart part)
+		{
+			super(part);
+		}
+		
+		@Override
+		public Command createCommand(List objects)
+		{
+			// This function always returns null, so no command will be returned.
+			// Instead, all commands are generated and executed on the fly.
+			
+			for(Object o : objects) {
+				IGraphicalEditPart part = (IGraphicalEditPart)o;
+				
+				View view = part.getNotationView();
+				EObject element = view.getElement();
+				
+				TransactionalEditingDomain domain = part.getEditingDomain();
+				
+				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
+				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
+				
+				// Delete the element
+				
+				DestroyElementCommand commandDelete = new DestroyElementCommand(
+					new DestroyElementRequest(domain, element, false)
+				);
+				
+				if(commandDelete.canExecute()) {
+					dcs.execute(new ICommandProxy(commandDelete));
+					dcs.flush();
+				} else {
+					System.err.println("commandDelete problem!");
+				}
+				
+				// Delete the element's view
+				
+				DeleteCommand commandDeleteView = new DeleteCommand(domain, view);
+				
+				if(commandDeleteView.canExecute()) {
+					dcs.execute(new ICommandProxy(commandDeleteView));
+					dcs.flush();
+				} else {
+					System.err.println("commandDeleteView problem!");
+				}
+			}
+			
+			return null;
+		}
+	}
 }
