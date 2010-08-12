@@ -23,7 +23,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
 public class CreateExampleModel {
 	
 	protected static Diagram diagram;
-	protected static edu.toronto.cs.openome_model.impl.ModelImpl model;
+	protected static edu.toronto.cs.openome_model.Model model;
 	protected static TransactionalEditingDomain domain;
 	protected static CommandStack cs;
 	protected static String testfile = "";
@@ -37,8 +37,13 @@ public class CreateExampleModel {
 		URI modelURI = URI.createFileURI(testfile);		
 		
 		Resource diagramResource = Openome_modelDiagramEditorUtil.createDiagram(diagramURI, new NullProgressMonitor());
-		diagram = (Diagram) diagramResource.getContents().get(0);
-		model = (ModelImpl) diagram.getElement();
+		for (Object o : diagramResource.getContents()) {
+			if (o instanceof Diagram) {
+				diagram = (Diagram) o;
+			} else if (o instanceof Model) {
+				model = (Model) o;
+			}
+		}
 
 
 		ResourceSet rs = diagramResource.getResourceSet();

@@ -67,8 +67,13 @@ public class TestAddSoftgoalGMF{
 		URI modelURI = URI.createURI("platform:/resource/test/default.oom");
 
 		Resource diagramResource = Openome_modelDiagramEditorUtil.createDiagram(diagramURI, new NullProgressMonitor());
-		diagram = (Diagram) diagramResource.getContents().get(0);
-		model = (Model) diagram.getElement();
+		for (Object o : diagramResource.getContents()) {
+			if (o instanceof Diagram) {
+				diagram = (Diagram) o;
+			} else if (o instanceof Model) {
+				model = (Model) o;
+			}
+		}
 
 		ResourceSet rs = diagramResource.getResourceSet();
 		domain =((TransactionChangeRecorder) rs.eAdapters().get(0)).getEditingDomain();

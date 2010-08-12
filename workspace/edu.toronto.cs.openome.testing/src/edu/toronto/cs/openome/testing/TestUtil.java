@@ -74,7 +74,7 @@ public class TestUtil {
 		bot.tree().select(projectName);
 		bot.textWithLabel("Enter or select the parent folder:").setText(projectName);
 		bot.textWithLabel("File name:").setText(diagramName);
-		bot.button("Next >").click();
+		//bot.button("Next >").click();
 		
 		bot.tree().select(projectName);
 		bot.button("Finish").click();
