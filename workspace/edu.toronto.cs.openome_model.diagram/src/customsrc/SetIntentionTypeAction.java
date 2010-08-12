@@ -1,11 +1,15 @@
 package customsrc;
 
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
@@ -67,8 +71,8 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 	}
 	
 	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs) {
-		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;	
-		GraphicalEditPart container = (GraphicalEditPart)part.getParent();
+		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;
+		Object container = part.getParent();
 		
 		// Each intention has 5 possible sub-types:
 		// - 1 for being directly on the canvas
@@ -80,7 +84,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 		// The new element's type
 		IElementType type = null;
 		
-		if((Object)container instanceof ModelEditPart) {
+		if(container instanceof ModelEditPart) {
 			if(changeTo.equals("Hardgoal")) {
 				type = Openome_modelElementTypes.Goal_2005;
 			} else if (changeTo.equals("Softgoal")) {
@@ -90,7 +94,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			} else if (changeTo.equals("Resource")) {
 				type = Openome_modelElementTypes.Resource_2008;
 			}
-		} else if((Object)container instanceof ActorActorCompartmentEditPart) {
+		} else if(container instanceof ActorActorCompartmentEditPart) {
 			if(changeTo.equals("Hardgoal")) {
 				type = Openome_modelElementTypes.Goal_3001;
 			} else if (changeTo.equals("Softgoal")) {
@@ -100,7 +104,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			} else if (changeTo.equals("Resource")) {
 				type = Openome_modelElementTypes.Resource_3003;
 			}
-		} else if((Object)container instanceof AgentAgentCompartmentEditPart) {
+		} else if(container instanceof AgentAgentCompartmentEditPart) {
 			if(changeTo.equals("Hardgoal")) {
 				type = Openome_modelElementTypes.Goal_3005;
 			} else if (changeTo.equals("Softgoal")) {
@@ -110,7 +114,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			} else if (changeTo.equals("Resource")) {
 				type = Openome_modelElementTypes.Resource_3007;
 			}
-		} else if((Object)container instanceof PositionPositionCompartmentEditPart) {
+		} else if(container instanceof PositionPositionCompartmentEditPart) {
 			if(changeTo.equals("Hardgoal")) {
 				type = Openome_modelElementTypes.Goal_3009;
 			} else if (changeTo.equals("Softgoal")) {
@@ -120,7 +124,7 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			} else if (changeTo.equals("Resource")) {
 				type = Openome_modelElementTypes.Resource_3011;
 			}
-		} else if((Object)container instanceof RoleRoleCompartmentEditPart) {
+		} else if(container instanceof RoleRoleCompartmentEditPart) {
 			if(changeTo.equals("Hardgoal")) {
 				type = Openome_modelElementTypes.Goal_3013;
 			} else if (changeTo.equals("Softgoal")) {
@@ -132,10 +136,42 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 			}
 		}
 		
-		ReplaceElement.replace(part, (GraphicalEditPart)part.getParent(), type, dcs);
+		SetIntentionCommand command = new SetIntentionCommand(part, type);
+		
+		if(command.canExecute()) {
+			dcs.execute(new ICommandProxy(command));
+			dcs.flush();
+		} else {
+			System.err.println("SetIntentionCommand problem!");
+		}
 		
 		// refresh diagram to reflect changes
 		refresh();
+	}
+	
+	/*
+	 * Command to replace an intention with another of a given type.
+	 */
+	private class SetIntentionCommand extends AbstractTransactionalCommand
+	{
+		private GraphicalEditPart part;
+		private IElementType type;
+		
+		public SetIntentionCommand(GraphicalEditPart part, IElementType type)
+		{
+	        super(part.getEditingDomain(), "Change Intention Type", null);
+	        
+	        this.part = part;
+	        this.type = type;
+		}
+		
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+	    	throws ExecutionException
+		{    
+			ReplaceElement.replace(part, (GraphicalEditPart)part.getParent(), type, monitor, info);
+			
+			return CommandResult.newOKCommandResult();
+		}
 	}
 	
 	public void refresh() {

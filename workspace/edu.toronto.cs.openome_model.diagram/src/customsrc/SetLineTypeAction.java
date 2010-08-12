@@ -4,6 +4,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
@@ -334,6 +335,8 @@ public class SetLineTypeAction extends AbstractActionHandler {
 			type = Openome_modelElementTypes.INSAssociation_4019;
 		}
 		
+		CompoundCommand command = new CompoundCommand("Change Link Type");
+		
 		// Create a new link
 		
 		CreateConnectionViewAndElementRequest requestLink = new CreateConnectionViewAndElementRequest(
@@ -345,8 +348,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		);
 		
 		if(commandLink.canExecute()) {
-			dcs.execute(new ICommandProxy(commandLink));
-			dcs.flush();
+			command.add(new ICommandProxy(commandLink));
 		} else {
 			System.err.println("commandLink problem!");
 		}
@@ -358,8 +360,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		);
 		
 		if(destroy.canExecute()) {
-			dcs.execute(new ICommandProxy(destroy), progressMonitor);
-			dcs.flush();
+			command.add(new ICommandProxy(destroy));
 		} else {
 			System.err.println("destroy problem!");
 		}
@@ -369,10 +370,16 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		DeleteCommand delete = new DeleteCommand(oldPart.getNotationView());
 		
 		if(delete.canExecute()) {
-			dcs.execute(new ICommandProxy(delete), progressMonitor);
-			dcs.flush();
+			command.add(new ICommandProxy(delete));
 		} else {
 			System.err.println("delete problem!");
+		}
+		
+		if(command.canExecute()) {
+			dcs.execute(command, progressMonitor);
+			dcs.flush();
+		} else {
+			System.err.println("SetLineType problem!");
 		}
 		
 		// refresh diagram to reflect changes

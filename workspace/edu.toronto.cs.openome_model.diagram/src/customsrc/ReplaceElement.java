@@ -11,10 +11,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
@@ -32,7 +30,8 @@ import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 public class ReplaceElement
 {
-	public static void replace(GraphicalEditPart part, GraphicalEditPart container, IElementType type, DiagramCommandStack dcs)
+	public static void replace(GraphicalEditPart part, GraphicalEditPart container, IElementType type, IProgressMonitor monitor, IAdaptable info)
+		throws ExecutionException
 	{
 		TransactionalEditingDomain domain = part.getEditingDomain();
 		
@@ -46,8 +45,7 @@ public class ReplaceElement
 		);
 		
 		if(commandElement.canExecute()) {
-			dcs.execute(new ICommandProxy(commandElement));
-			dcs.flush();
+			commandElement.execute(monitor, info);
 		} else {
 			System.err.println("commandElement problem!");
 		}
@@ -59,8 +57,7 @@ public class ReplaceElement
 		TransferMetaCommand commandMeta = new TransferMetaCommand(domain, element, originalImpl);
 		
 		if(commandMeta.canExecute()) {
-			dcs.execute(new ICommandProxy(commandMeta));
-			dcs.flush();
+			commandMeta.execute(monitor, info);
 		} else {
 			System.err.println("commandMeta problem!");
 		}
@@ -75,12 +72,11 @@ public class ReplaceElement
 		);
 		
 		Command commandView = container.getCommand(
-				new CreateViewRequest(viewDescriptor)
+			new CreateViewRequest(viewDescriptor)
 		);
 		
 		if(commandView.canExecute()) {
-			dcs.execute(commandView);
-			dcs.flush();
+			commandView.execute();
 		} else {
 			System.err.println("commandView problem!");
 		}
@@ -92,8 +88,7 @@ public class ReplaceElement
 		TransferEdgesCommand commandEdges = new TransferEdgesCommand(domain, view, originalView);
 		
 		if(commandEdges.canExecute()) {
-			dcs.execute(new ICommandProxy(commandEdges));
-			dcs.flush();
+			commandEdges.execute(monitor, info);
 		} else {
 			System.err.println("commandEdges problem!");
 		}
@@ -111,8 +106,7 @@ public class ReplaceElement
 		);
 		
 		if(commandPosition.canExecute()) {
-			dcs.execute(new ICommandProxy(commandPosition));
-			dcs.flush();
+			commandPosition.execute(monitor, info);
 		} else {
 			System.err.println("commandPosition problem!");
 		}
@@ -124,8 +118,7 @@ public class ReplaceElement
 		);
 		
 		if(commandDelete.canExecute()) {
-			dcs.execute(new ICommandProxy(commandDelete));
-			dcs.flush();
+			commandDelete.execute(monitor, info);
 		} else {
 			System.err.println("commandDelete problem!");
 		}
@@ -135,8 +128,7 @@ public class ReplaceElement
 		DeleteCommand commandDeleteView = new DeleteCommand(domain, originalView);
 		
 		if(commandDeleteView.canExecute()) {
-			dcs.execute(new ICommandProxy(commandDeleteView));
-			dcs.flush();
+			commandDeleteView.execute(monitor, info);
 		} else {
 			System.err.println("commandDeleteView problem!");
 		}
