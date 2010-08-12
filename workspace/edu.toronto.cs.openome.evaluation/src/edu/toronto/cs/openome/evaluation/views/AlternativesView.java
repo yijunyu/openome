@@ -32,8 +32,11 @@ import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 
+import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.DeleteAlternativeCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.HJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.RemoveHumanJudgmentCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
 import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
@@ -543,17 +546,17 @@ public class AlternativesView extends ViewPart {
 					//viewer.expandToLevel(obj, 1);
 				}
 				
-				/**
+				/*
 				 * Human Judgement code - commented out for now
 				 */
-				
+			
 				// check if user double clicked on a human judgment
 				// if so, change the label of the intention to this judgment
 				// and propagate the change
 				if (obj instanceof TreeObject){
 					TreeObject to = (TreeObject) obj;
-					/*if (to.getObject() instanceof HumanJudgement){
-						HumanJudgement judgement = (HumanJudgement) to.getObject();
+					if (to.getObject() instanceof HumanJudgment){
+						HumanJudgment judgement = (HumanJudgment) to.getObject();
 						// get the parent, which is the Intention this label is associated with
 						// and change the label
 						if (to.getParent().getObject() instanceof Intention){
@@ -565,25 +568,37 @@ public class AlternativesView extends ViewPart {
 							// get the alternative
 							TreeObject altNode = to.getParent().getParent();
 							if(altNode != null){
-								if (altNode.getObject() instanceof Alternative){
-									Alternative alt = (Alternative)altNode.getObject();
-									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-									SoftgoalWrappers sgoalWrapper = alt.getSoftgoalWrappers();
-									IntQualIntentionWrapper intWrapper = sgoalWrapper.findIntention(inten);
-									InputWindowCommand wincom = new InputWindowCommand(ar[0], intWrapper);
-									
-									wincom.execute();
-									
-									// update the intention with the new judgment
-									
-									showMessage("Humanjudgement: " + judgement 
-											+ "\nIntention: " + inten.getName()
-											+ "\nAlternative: " + to.getParent().getParent().getName());
-								}
+								//Mike - commented WIP code
+//								if (altNode.getObject() instanceof Alternative){
+//									Alternative alt = (Alternative)altNode.getObject();
+//									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+//									
+//									//Remove the old judgement
+//									cs = ModelInstance.getCommandStack();
+//									
+//									/* Create a Remove command */
+//									Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgement);
+//									//cs.execute(removeCommand);
+//									
+//									//Open the appropriate dialog
+//									if (alt.getDirection().equals("forward")) {
+//										Command windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
+//										//cs.execute(windowCommand);
+//									} else if (alt.getDirection().equals("backward")) {
+//										Command windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
+//										//cs.execute(windowCommand);
+//									}
+//									
+//									// update the intention with the new judgment
+//									
+//									/*showMessage("Humanjudgement: " + judgement 
+//											+ "\nIntention: " + inten.getName()
+//											+ "\nAlternative: " + to.getParent().getParent().getName());*/
+//								}
 							}
 							return;
 						}
-					}*/
+					}
 				}
 				
 				
