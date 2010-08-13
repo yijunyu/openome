@@ -8,7 +8,7 @@ public class ChangeLineTypeAction extends SetLineTypeAction {
 	private String privateCommandLabelText = "Change Type";
 	
 	protected ChangeLineTypeAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, "");
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		setText(privateCommandLabelText);

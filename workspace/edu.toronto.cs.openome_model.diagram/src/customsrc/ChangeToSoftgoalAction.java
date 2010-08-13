@@ -7,15 +7,15 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToSoftgoalAction extends SetIntentionTypeAction {
 	
 	private String privateID = "ChangeToSoftgoalAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Softgoal";;
+	private static String privateCommandLabelText = "Softgoal";
 	private String imageFile = "softgoal.gif";
 	
 	protected ChangeToSoftgoalAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

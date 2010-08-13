@@ -7,16 +7,16 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToAgentAction extends SetActorTypeAction {
 	
 	private String privateID = "ChangeToAgentAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Agent";;
+	private static String privateCommandLabelText = "Agent";
 	private String imageFile = "agent.gif";
 
 	
 	protected ChangeToAgentAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

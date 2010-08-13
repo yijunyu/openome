@@ -7,15 +7,15 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToHardgoalAction extends SetIntentionTypeAction {
 	
 	private String privateID = "ChangeToHardgoalAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Hardgoal";;
+	private static String privateCommandLabelText = "Hardgoal";
 	private String imageFile = "hardgoal.gif";
 	
 	protected ChangeToHardgoalAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

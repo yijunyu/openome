@@ -7,15 +7,15 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToAndDecompositionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToAndDecompositionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "And";;
+	private static String privateCommandLabelText = "And";;
 	private String imageFile = "anddecomposition.gif";
 	
 	protected ChangeToAndDecompositionAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

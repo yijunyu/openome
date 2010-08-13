@@ -5,15 +5,15 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToSomeMinusContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToSomeMinusContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Some-";;
+	private static String privateCommandLabelText = "Some-";
 
 	
 	protected ChangeToSomeMinusContributionAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

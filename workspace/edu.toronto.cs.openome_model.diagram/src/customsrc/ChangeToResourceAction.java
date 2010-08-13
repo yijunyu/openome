@@ -7,15 +7,15 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToResourceAction extends SetIntentionTypeAction {
 	
 	private String privateID = "ChangeToResourceAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Resource";;
+	private static String privateCommandLabelText = "Resource";
 	private String imageFile = "resource.gif";
 	
 	protected ChangeToResourceAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

@@ -7,14 +7,14 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 public class ChangeToDependencyAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToDependencyAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Dependency";;
+	private static String privateCommandLabelText = "Dependency";
 	private String imageFile = "dependency.gif";
 	
 	protected ChangeToDependencyAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
-		this.setChangeTo(privateCommandLabelText);
 		init();
 	}
 	

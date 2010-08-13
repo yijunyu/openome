@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -33,45 +32,31 @@ public class SetIntentionTypeAction extends AbstractActionHandler {
 	// What we wish to change into
 	protected String changeTo = "";
 
-	protected SetIntentionTypeAction(IWorkbenchPage workbenchPage) {
+	protected SetIntentionTypeAction(IWorkbenchPage workbenchPage, String changeTo) {
 		super(workbenchPage);
-		// TODO Auto-generated constructor stub
+		this.changeTo = changeTo;
 	}
 	
 	public String getID() {
 		return ID;
 	}
 	
-	public void setChangeTo(String change){
-		changeTo = change;
-	}
-
 	@Override
 	protected void doRun(IProgressMonitor progressMonitor) {
 		IStructuredSelection selection = getStructuredSelection();
 		
-		if (selection == null || (selection.isEmpty())) {
+		if(selection == null) {
 			return;
 		}
 		
-		Object[] intentions = selection.toArray();
-		int selectionSize = intentions.length;
-		
-		for (int i = 0; i < selectionSize; i++) {
-			Object intention = intentions[i];
-			// determine what type of intention it is, then cast it appropriately 
-			// and apply the appropriate label to it
-			
-			GraphicalEditPart part = (GraphicalEditPart) selection.getFirstElement();
-			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-			
-			doTypeSwitch(intention, dcs);
+		for(Object intention : selection.toArray()) {
+			doTypeSwitch((GraphicalEditPart)intention);
 		}
 	}
 	
-	public void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs) {
-		GraphicalEditPart part = (GraphicalEditPart)originalEditPart;
+	public void doTypeSwitch(GraphicalEditPart part) {
+		DiagramCommandStack dcs = part.getDiagramEditDomain().getDiagramCommandStack();
+		
 		Object container = part.getParent();
 		
 		// Each intention has 5 possible sub-types:

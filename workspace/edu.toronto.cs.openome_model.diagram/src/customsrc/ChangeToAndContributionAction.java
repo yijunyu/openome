@@ -5,15 +5,15 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToAndContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToAndContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "AND";;
+	private static String privateCommandLabelText = "AND";
 
 	
 	protected ChangeToAndContributionAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

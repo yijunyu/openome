@@ -20,7 +20,6 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
@@ -59,44 +58,32 @@ public class SetActorTypeAction extends AbstractActionHandler {
 	// What we wish to change into
 	protected String changeTo = "";
 
-	protected SetActorTypeAction(IWorkbenchPage workbenchPage) {
+	protected SetActorTypeAction(IWorkbenchPage workbenchPage, String changeTo) {
 		super(workbenchPage);
-		// TODO Auto-generated constructor stub
+		
+		this.changeTo = changeTo;
 	}
 	
 	public String getID() {
 		return ID;
-	}
-	
-	public void setChangeTo(String change) {
-		changeTo = change;
 	}
 
 	@Override
 	protected void doRun(IProgressMonitor progressMonitor) {
 		IStructuredSelection selection = getStructuredSelection();
 		
-		if (selection == null || (selection.isEmpty())) {
+		if(selection == null) {
 			return;
 		}
 		
-		Object[] actors = selection.toArray();
-		int selectionSize = actors.length;
-		
-		for (int i = 0; i < selectionSize; i++) {
-			Object actor = actors[i];
-			// determine what type of actor it is, then cast it appropriately 
-			// and apply the appropriate label to it
-			
-			GraphicalEditPart part = (GraphicalEditPart) selection.getFirstElement();			
-			IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-			DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-			
-			doTypeSwitch(actor, dcs, progressMonitor);
+		for(Object actor : selection.toArray()) {
+			doTypeSwitch((GraphicalEditPart)actor);
 		}
 	}
 	
-	private void doTypeSwitch(Object originalEditPart, DiagramCommandStack dcs,	IProgressMonitor progressMonitor) {
+	private void doTypeSwitch(GraphicalEditPart part) {
+		DiagramCommandStack dcs = part.getDiagramEditDomain().getDiagramCommandStack();
+		
 		// The new container's type
 		IElementType type = null;
 		
@@ -120,7 +107,7 @@ public class SetActorTypeAction extends AbstractActionHandler {
 		
 		// Part 1: create the new container
 		
-		SetActorCommand1 command1 = new SetActorCommand1((GraphicalEditPart)originalEditPart, type);
+		SetActorCommand1 command1 = new SetActorCommand1(part, type);
 		
 		if(command1.canExecute()) {
 			dcs.execute(new ICommandProxy(command1));

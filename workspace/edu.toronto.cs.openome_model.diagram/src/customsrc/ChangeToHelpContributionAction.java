@@ -5,15 +5,15 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToHelpContributionAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToHelpContributionAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Help";;
+	private static String privateCommandLabelText = "Help";
 
 	
 	protected ChangeToHelpContributionAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

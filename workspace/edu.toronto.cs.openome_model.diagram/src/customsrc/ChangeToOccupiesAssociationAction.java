@@ -5,15 +5,15 @@ import org.eclipse.ui.IWorkbenchPage;
 public class ChangeToOccupiesAssociationAction extends SetLineTypeAction {
 	
 	private String privateID = "ChangeToOccupiesAssociationAction"; // this is how plugin.xml recognize us
-	private String privateCommandLabelText = "Occupies";;
+	private static String privateCommandLabelText = "Occupies";
 
 	
 	protected ChangeToOccupiesAssociationAction(IWorkbenchPage workbenchPage) {
-		super(workbenchPage);
+		super(workbenchPage, privateCommandLabelText);
+		
 		this.ID = privateID; //$NON-NLS-1$
 		this.commandName = privateCommandLabelText;
 		init();
-		this.setChangeTo(privateCommandLabelText);
 	}
 	
 	

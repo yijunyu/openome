@@ -14,7 +14,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -59,9 +58,11 @@ public class SetLineTypeAction extends AbstractActionHandler {
 	protected String changeTo = ""; // what we want to change into
 	private String imageFile = "contribution.png";
 
-	protected SetLineTypeAction(IWorkbenchPage workbenchPage) {
+	protected SetLineTypeAction(IWorkbenchPage workbenchPage, String changeTo) {
 		super(workbenchPage);
-		// TODO Auto-generated constructor stub
+		
+		this.changeTo = changeTo;
+		
 		// default line icon
 		setImageDescriptor(Openome_modelDiagramEditorPlugin.getBundledImageDescriptor("../openome_model/icons/" + imageFile));
 	}
@@ -70,205 +71,87 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		return ID;
 	}
 	
-	public void setChangeTo(String change){
-		changeTo = change;
-	}
-	
 	@Override
 	protected void doRun(IProgressMonitor progressMonitor) {
 		IStructuredSelection selection = getStructuredSelection();
 		
-		if (selection == null || (selection.isEmpty())) {
+		if(selection == null) {
 			return;
 		}
 		
-		Object[] connections = selection.toArray();
-		int selectionSize = connections.length;
-		
-		for (int i = 0; i < selectionSize; i++) {
-			Object connection = connections[i];
-			final EObject object = ((IGraphicalEditPart)connections[i]).getNotationView().getElement();
-			
-			// determine what type of connection it is, then cast it appropriately 
+		for(Object connection : selection.toArray()) {
 			
 			// DEPENDENCY and DECOMPOSITIONS
 			
-			if (connection instanceof DependencyEditPart) {				
-				DependencyEditPart part = (DependencyEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			if(connection instanceof DependencyEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((DependencyEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			} 
-			else if (connection instanceof AndDecompositionEditPart) {				
-				AndDecompositionEditPart part = (AndDecompositionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof OrDecompositionEditPart) {				
-				OrDecompositionEditPart part = (OrDecompositionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-
-				doTypeSwitch(part, object, progressMonitor, dcs);
+			} else if(connection instanceof AndDecompositionEditPart) {				
+				//
+			} else if(connection instanceof OrDecompositionEditPart) {				
+				//
 			}
 			
 			// CONTRIBUTIONS
-			else if (connection instanceof AndContributionEditPart) {
-				AndContributionEditPart part = (AndContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			
+			else if(connection instanceof AndContributionEditPart) {
 				// Straighten line so changing to Decomposition does not crash
 				((AndContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof BreakContributionEditPart) {				
-				BreakContributionEditPart part = (BreakContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof BreakContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((BreakContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof HelpContributionEditPart) {				
-				HelpContributionEditPart part = (HelpContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if (connection instanceof HelpContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((HelpContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof HurtContributionEditPart) {				
-				HurtContributionEditPart part = (HurtContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof MakeContributionEditPart) {				
-				MakeContributionEditPart part = (MakeContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof HurtContributionEditPart) {				
+				//
+			} else if(connection instanceof MakeContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((MakeContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof OrContributionEditPart) {				
-				OrContributionEditPart part = (OrContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof OrContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((OrContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof SomePlusContributionEditPart) {				
-				SomePlusContributionEditPart part = (SomePlusContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof SomePlusContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
-				((SomePlusContributionEditPart) connection).straightenLine();				
-						
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof SomeMinusContributionEditPart) {				
-				SomeMinusContributionEditPart part = (SomeMinusContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+				((SomePlusContributionEditPart) connection).straightenLine();
+			} else if(connection instanceof SomeMinusContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((SomeMinusContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof UnknownContributionEditPart) {				
-				UnknownContributionEditPart part = (UnknownContributionEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof UnknownContributionEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((UnknownContributionEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
 			}
 			
 			// ASSOCIATIONS
-			else if (connection instanceof CoversAssociationEditPart) {				
-				CoversAssociationEditPart part = (CoversAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			else if(connection instanceof CoversAssociationEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((CoversAssociationEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof INSAssociationEditPart) {				
-				INSAssociationEditPart part = (INSAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof INSAssociationEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((INSAssociationEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof IsAAssociationEditPart) {				
-				IsAAssociationEditPart part = (IsAAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof IsAAssociationEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((IsAAssociationEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof IsPartOfAssociationEditPart) {				
-				IsPartOfAssociationEditPart part = (IsPartOfAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof OccupiesAssociationEditPart) {				
-				OccupiesAssociationEditPart part = (OccupiesAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof IsPartOfAssociationEditPart) {				
+				//
+			} else if(connection instanceof OccupiesAssociationEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((OccupiesAssociationEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
-			}
-			else if (connection instanceof PlaysAssociationEditPart) {				
-				PlaysAssociationEditPart part = (PlaysAssociationEditPart) selection.getFirstElement();
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
-				
+			} else if(connection instanceof PlaysAssociationEditPart) {				
 				// Straighten line so changing to Decomposition does not crash
 				((PlaysAssociationEditPart) connection).straightenLine();
-				
-				doTypeSwitch(part, object, progressMonitor, dcs);
 			}
+			
+			final EObject object = ((IGraphicalEditPart)connection).getNotationView().getElement();
+			ConnectionNodeEditPart part = (ConnectionNodeEditPart)connection;
+			
+			doTypeSwitch(part, object, progressMonitor);
 		}
 	}
 
-	public void doTypeSwitch(final ConnectionNodeEditPart oldPart, final EObject object, IProgressMonitor progressMonitor, DiagramCommandStack dcs) {
+	public void doTypeSwitch(final ConnectionNodeEditPart oldPart, final EObject object, IProgressMonitor progressMonitor) {
+		DiagramCommandStack dcs = oldPart.getDiagramEditDomain().getDiagramCommandStack();
+		
 		ModelEditPart modelPart = (ModelEditPart)oldPart.getParent().getChildren().get(0);
 		
 		EObject source = null;
