@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome_model.diagram.part;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
@@ -19,15 +20,16 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteAction;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
@@ -504,16 +506,33 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 			// This function always returns null, so no command will be returned.
 			// Instead, all commands are generated and executed on the fly.
 			
+			List<Object> links = new LinkedList<Object>();
+			List<Object> others = new LinkedList<Object>();
+			
 			for(Object o : objects) {
+				if(o instanceof ConnectionNodeEditPart) {
+					links.add(o);
+				} else {
+					others.add(o);
+				}
+			}
+
+			// The idea is to delete all the links in the selection before the elements.
+			// This way, they will be removed manually, ensuring their deletion from both
+			// the model and the diagram.
+			
+			links.addAll(others);
+			
+			for(Object o : links) {
 				IGraphicalEditPart part = (IGraphicalEditPart)o;
 				
 				View view = part.getNotationView();
 				EObject element = view.getElement();
 				
 				TransactionalEditingDomain domain = part.getEditingDomain();
+				DiagramCommandStack dcs = part.getDiagramEditDomain().getDiagramCommandStack();
 				
-				IDiagramEditDomain partEditDomain = part.getDiagramEditDomain();
-				DiagramCommandStack dcs = partEditDomain.getDiagramCommandStack();
+				CompoundCommand command = new CompoundCommand("Delete Element");
 				
 				// Delete the element
 				
@@ -522,8 +541,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 				);
 				
 				if(commandDelete.canExecute()) {
-					dcs.execute(new ICommandProxy(commandDelete));
-					dcs.flush();
+					command.add(new ICommandProxy(commandDelete));
 				} else {
 					System.err.println("commandDelete problem!");
 				}
@@ -533,10 +551,16 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 				DeleteCommand commandDeleteView = new DeleteCommand(domain, view);
 				
 				if(commandDeleteView.canExecute()) {
-					dcs.execute(new ICommandProxy(commandDeleteView));
-					dcs.flush();
+					command.add(new ICommandProxy(commandDeleteView));
 				} else {
 					System.err.println("commandDeleteView problem!");
+				}
+				
+				if(command.canExecute()) {
+					dcs.execute(command);
+					dcs.flush();
+				} else {
+					System.err.println("DeleteKey problem!");
 				}
 			}
 			
