@@ -8,7 +8,9 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.swt.graphics.RGB;
 
+import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionOutlinesCommand;
 import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
@@ -74,7 +76,9 @@ public class UnhighlightAllHander extends ReasonerHandler{
 	
 	private void unHighlightAll() {
 		HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(getEditParts(), model.getAllIntentions(), "");
-		
+		HighlightIntentionOutlinesCommand highlightOutlines = new HighlightIntentionOutlinesCommand(
+				getEditParts(), model.getAllIntentions(), new RGB(0,0,0));
 		cs.execute(highlight);
+		cs.execute(highlightOutlines);
 	}
 }

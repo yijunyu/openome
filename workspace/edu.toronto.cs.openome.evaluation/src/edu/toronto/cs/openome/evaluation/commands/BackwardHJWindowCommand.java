@@ -1,5 +1,6 @@
 package edu.toronto.cs.openome.evaluation.commands;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,6 +12,7 @@ import java.util.Vector;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
@@ -21,11 +23,14 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.ImageCombo;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -96,31 +101,69 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		
 		final Shell shell = new Shell(display);
 		
+		//allows for easy access to evaluation images
 		EvalLabelElementTypeLabelProvider eletlp  = new EvalLabelElementTypeLabelProvider();
+		
+		//window title
 		shell.setText("Backward Evaluation Human Judgment");
 		
+		//set layout to be a 3-column grid with non-fixed column size
 		GridLayout gridLayout = new GridLayout(3, false);
         shell.setLayout(gridLayout);
-		
-		////FillLayout fillLayout = new FillLayout();
-		//fillLayout.type = SWT.VERTICAL;
-		//shell.setLayout(fillLayout);
-
-		Text text = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
-		
+        
+        // grid behaviour for each cell. currently set for a cell to to take up 3 columns.
 		GridData gridData = new GridData();
 		gridData.horizontalSpan = 3;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
-
-		text.setLayoutData(gridData);
-
+		
+		// This outputs first bit of text in the window, and gives the value of the root 
+		// of this backward eval judgement that must be satisfied by judgement
+		// this widget takes up 3/3 columns in the grid layout
+		Label text1 = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
 		String name = intention.getName();
 		String target = intention.getInitialEvalLabel().toString();
-		text.setText("Results indicate that " + name + " must have a value of " 
-				+ target + ".\nEnter a combination of evaluation labels for intentions contributing to " 
-				+ name + " which would result in " + target + " for " + name + ".");
-		System.out.println("Set intro message");
+		text1.setText(" Results indicate that \"" + name + "\" must have a value of " 
+				+ target + ".");
+		text1.setLayoutData(gridData);
+		
+		// output some more text
+		// takes up 3/3 columns in the grid layout
+		gridData = new GridData();
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.horizontalSpan = 3;
+		Text text3 = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
+		text3.setText("Enter a combination of evaluation labels for intentions contributing to \""
+				+ name + "\" which would result in:");
+		text3.setLayoutData(gridData);
+		
+		// eval label image and text, 1/3 columns in this row
+		Image evalImage = eletlp.getEvalImage(intention.getInitialEvalLabel());				
+		Image scaledImage = resizeImage(evalImage, 14, 14);
+		CLabel text4 = new CLabel(shell, SWT.SHADOW_NONE | SWT.READ_ONLY | SWT.WRAP);
+		text4.setImage(scaledImage);
+		text4.setText(target);
+		
+		// filler takes up remaining 2/3 columns in this row.
+		// this is necessary because the CLabel class has a bevel that can't be
+		// turned off, which looks bad if it extends across 3 columns.
+		Label filler = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
+		filler.setText("");
+		gridData = new GridData();
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.horizontalSpan = 2;
+		filler.setLayoutData(gridData);
+		
+		// text, takes up 3/3 columns in the grid layout for this row
+		gridData = new GridData();
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.horizontalSpan = 3;
+		Text text5 = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
+		text5.setText("for \"" + name + "\"");
+		text5.setLayoutData(gridData);
 		
 		final Table table = new Table (shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
 		table.setLinesVisible (true);
@@ -213,29 +256,29 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			}				
 		}
 		
-		System.out.println("set table info");
-		
-		text = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
-		
+		Label text = new Label(shell, SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);		
 		gridData = new GridData();
 		gridData.horizontalSpan = 3;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
-
 		text.setLayoutData(gridData);
-		String previous = "Previous combinations: \n";
+		String previous = "Previous combinations: \n";		
 		EList<HumanJudgment> hjs = intention.getHumanJudgments();
 		if (hjs.size() == 0) {
 			previous += "None";
 		} else {
-			for (HumanJudgment hj : hjs) {
+			for (HumanJudgment hj : hjs) {				
+				// if images are desired alongside text for eval labels, 
+				// create Label or CLabel objects for each, and use their
+				// setImage method to set the label's image to the
+				// evaluation label image. Each would be a separate
+				// SWT component/control.
 				previous += hj.getLabelBag().toUIString();
-				
-				previous += "produced value: " + hj.getResultLabel() + "\n";					
+				previous += "produced value: " + hj.getResultLabel() + "\n";
 			}
 		}
 		text.setText(previous);
-		
+				
 		System.out.println("set previous info");
 		
 		final Button doneB = new Button (shell, SWT.PUSH);
@@ -306,6 +349,28 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 
 		
 	}
+	
+	/**
+	 * Resize an Image object using SWT's GC class's draw function's
+	 * native ability to resize a source image.
+	 * @author Chris Aniszczyk, arupghose
+	 * @param image the image that you wish to resize
+	 * @param width width to resize to
+	 * @param height height to resize to
+	 * @return the resized image
+	 */
+	private Image resizeImage(Image image, int width, int height) {
+		Image scaled = new Image(Display.getDefault(), width, height);
+		GC gc = new GC(scaled);
+		gc.setAntialias(SWT.ON);
+		gc.setInterpolation(SWT.HIGH);
+		gc.drawImage(image, 0, 0, 
+		image.getBounds().width, image.getBounds().height, 
+		0, 0, width, height);
+		gc.dispose();
+		image.dispose();
+		return scaled;
+		}
 
 	protected void done(HashMap<Intention, ImageCombo> combos) {
 		//System.out.println("in done");

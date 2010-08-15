@@ -81,8 +81,8 @@ public class InteractiveQualReasoner extends Reasoner {
 	 * @author jenhork
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
 	 */
-	public InteractiveQualReasoner(ModelImpl m, CommandStack com, DiagramCommandStack d) {
-		super(m, com, null);
+	public InteractiveQualReasoner(ModelImpl m, CommandStack com, DiagramCommandStack d, List editParts) {
+		super(m, com, editParts);
 		
 		dcs = d;
 		
@@ -655,65 +655,6 @@ public class InteractiveQualReasoner extends Reasoner {
 		//This looks to see if the user has already answered this question
 		return i.findExistingHumanJudgment();				
 	}
-
-	/**
-	 * @author arup
-	 * Stolen from reasonerhandler.java
-	 */
-	private Openome_modelDiagramEditor mDE;
-	private void getModelDiagramEditor() {
-		
-		try {
-			IWorkbenchWindow iww = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			
-			IWorkbenchPage iwp = iww.getActivePage(); //assume correct page is showing ... dubious
-			
-			IEditorPart iep= iwp.getActiveEditor(); //
-			
-			mDE = (Openome_modelDiagramEditor) iep; //
-			//DiagramEditPart dep = mDE.getDiagramEditPart();
-			
-
-					}
-		catch (Exception e) {
-			System.out.println("Exception getting modelEditor");
-		}
-		 
-	}
-	
-	/**
-	 * @author arup
-	 * Stolen from reasonerhandler.java
-	 */
-	public ModelImpl getModelImpl() {
-		getModelDiagramEditor();
-		
-		EditingDomain editingDomain = mDE.getEditingDomain();
-				
-		ResourceSet resourceSet = editingDomain.getResourceSet();
-		
-				
-		XMIResourceImpl xmires = null;
-		
-		for(Resource tmp: resourceSet.getResources()) {
-			//System.out.println(tmp.toString());
-			if (tmp instanceof XMIResourceImpl) {
-				xmires = (XMIResourceImpl) tmp;
-			}
-			
-		}
-		
-			
-		ModelImpl model = null;
-						
-		for(EObject tmp2: xmires.getContents()){ 
-			if (tmp2 instanceof ModelImpl) 
-				model = (ModelImpl) tmp2; 
-		}
-		
-		return model;
-		
-	}
 	
 	
 	/**
@@ -735,36 +676,31 @@ public class InteractiveQualReasoner extends Reasoner {
 	//		
 	//	}
 		
-		// highlight the target of the human judgement window
-		getModelImpl();
-		DiagramEditPart dep = mDE.getDiagramEditPart();
-		List l = dep.getPrimaryEditParts();
+		// highlight the target of the human judgement window (and its children)
 		List<Intention> target = new Vector<Intention>();
 		target.add(i);
 		List<Intention> children = i.getChildren();
 		HighlightIntentionOutlinesCommand highlightTarget = new HighlightIntentionOutlinesCommand (
-				l, target, new RGB(255,0,0)); // 0 0 255 is red for target
+				editParts, target, new RGB(255,0,0)); // 255 0 0 is rgb for red for target
 		HighlightIntentionOutlinesCommand highlightChildren = new HighlightIntentionOutlinesCommand (
-				l, children, new RGB(0,0,255)); // 0 0 255 is blue for children
-		//HighlightIntentionsCommand highlightbody = new HighlightIntentionsCommand (l, target, "orange");
+				editParts, children, new RGB(0,0,255)); // 0 0 255 is rgb for blue for children
 		cs.execute(highlightTarget);
 		cs.execute(highlightChildren);
 		
-		// forward human judgement window pops up.ii
-			
+		// forward human judgement window pops up.
 		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], cs, i);			
 			
 		cs.execute(wincom);			
 		
-		// unhighlight when target moves on
+		// unhighlight target when evaluation target moves on
 		HighlightIntentionOutlinesCommand unhighlightTarget = new HighlightIntentionOutlinesCommand(
-				l, target, new RGB(0,0,0));
+				editParts, target, new RGB(0,0,0));
+		
+		// unhighlight children when evaluation target moves on
 		HighlightIntentionOutlinesCommand unhighlightChildren = new HighlightIntentionOutlinesCommand(
-				l, children, new RGB(0,0,0));
-		//HighlightIntentionsCommand unhighlightbody = new HighlightIntentionsCommand (l, target, "");
+				editParts, children, new RGB(0,0,0));
 		cs.execute(unhighlightTarget);
 		cs.execute(unhighlightChildren);
-				
 	
 		if (wincom.cancelled()) {
 			return null;

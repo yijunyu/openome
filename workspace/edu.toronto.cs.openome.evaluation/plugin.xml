@@ -190,7 +190,7 @@
          		label="Reasoning">
 	            <command
                   commandId="openome_IntQualBackReasoning_cmd"
-                  icon="icons/backwd.gif"
+                  icon="icons/backward.gif"
                   id="openome_IntQualBackReasoning_menu"
                   tooltip="Backward Interactive Qualitative Evaluation"
                   mnemonic="B">
@@ -418,7 +418,7 @@
          		label="Reasoning">
          		<command 
 					commandId="openome_IntQualReasoning_cmd"
-					icon="icons/fwd.gif"
+					icon="icons/forward.gif"
 					id="openome_IntQualReasoning_menu"
 					tooltip="Forward Interactive Qualitative Evaluation"
 					mnemonic="F">

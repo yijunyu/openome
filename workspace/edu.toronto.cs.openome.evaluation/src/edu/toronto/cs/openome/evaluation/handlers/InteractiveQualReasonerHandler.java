@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome.evaluation.handlers;
 
+import java.util.List;
+
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandlerListener;
@@ -100,8 +102,9 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 
 		ModelImpl mi = getModelImpl();
 		CommandStack cs = getCommandStack();
+		List editParts = getEditParts();
 		
-		InteractiveQualReasoner iQualReasoner = new InteractiveQualReasoner(mi, cs, dcs);
+		InteractiveQualReasoner iQualReasoner = new InteractiveQualReasoner(mi, cs, dcs, editParts);
 		Reasoning reasoning = new Reasoning(iQualReasoner);
 		
 		//for now, remove later

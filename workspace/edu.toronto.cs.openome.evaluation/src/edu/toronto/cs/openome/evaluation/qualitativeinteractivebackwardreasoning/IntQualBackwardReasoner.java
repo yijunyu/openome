@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.sat4j.core.VecInt;
@@ -23,6 +24,7 @@ import edu.toronto.cs.openome.evaluation.SATSolver.zMinimalSolver;
 import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.ClearLabelBagCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionOutlinesCommand;
 import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetInitialEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoner;
@@ -549,17 +551,60 @@ public class IntQualBackwardReasoner extends Reasoner {
 			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.NONE);
 		}
 		cs.execute(setInitLabel);
-		//Vector<Intention> tohighlight = new Vector<Intention>();
-		//tohighlight.add(w.getIntention());
-		//tohighlight.addAll(w.getIntention().getChildren());
-		//highlightIntentions(tohighlight, "yellow");
 		
+		// highlighting
+		
+		/**
+		 * highlights target body.
+		 * however, if it highlighted an intention that was a non-default colour
+		 * that would be lost when eval window target moves on.
+		 * colour is reset to default, not previous.
+		 */
+		Vector<Intention> tohighlight = new Vector<Intention>();
+		tohighlight.add(i);
+		tohighlight.addAll(i.getChildren());
+		highlightIntentions(tohighlight, "yellow");
+		
+		// highlights the target intention and its children
+		/**List<Intention> target = new Vector<Intention>();
+		target.add(i);
+		List<Intention> children = i.getChildren();
+		try {
+		HighlightIntentionOutlinesCommand highlightTarget = new HighlightIntentionOutlinesCommand (
+				editParts, target, new RGB(255,0,0)); // 255 0 0 is rgb for red for target
+		HighlightIntentionOutlinesCommand highlightChildren = new HighlightIntentionOutlinesCommand (
+				editParts, children, new RGB(0,0,255)); // 0 0 255 is rgb for blue for children
+		cs.execute(highlightTarget);
+		cs.execute(highlightChildren);
+		} catch (Exception highlightFailedException) {			
+		}*/
+		
+		// bring up backward judgement window
 		System.out.println("Opening window");
 		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], cs, i/*, softgoalWrappers*/);
 				
 		cs.execute(wincom);
 		
-		//unHighlightIntentions(tohighlight);
+		// window moves on. unhighlight: 
+		
+		/** unhighlight the intentions' body, 
+		 * not just the outline. caveat: restores it to default color,
+		 * not previous color
+		 */
+		unHighlightIntentions(tohighlight);
+		
+		/** unhighlight outlines
+		try {
+		// unhighlight target when evaluation target moves on
+		HighlightIntentionOutlinesCommand unhighlightTarget = new HighlightIntentionOutlinesCommand(
+				editParts, target, new RGB(0,0,0));		
+		// unhighlight children when evaluation target moves on
+		HighlightIntentionOutlinesCommand unhighlightChildren = new HighlightIntentionOutlinesCommand(
+				editParts, children, new RGB(0,0,0));		
+		cs.execute(unhighlightTarget);
+		cs.execute(unhighlightChildren);
+		} catch(Exception unhighlightOutlinesFailedException) {			
+		}*/
 		
 		if (wincom.noCombinations()) {
 			System.out.println("Window had no combinations");
@@ -568,8 +613,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		
 		if (wincom.done()) {
 			System.out.println("Window was done");
-			return wincom.getJudgmentResult();
-								
+			return wincom.getJudgmentResult();								
 		}
 		
 		// was cancelled

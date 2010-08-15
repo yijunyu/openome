@@ -36,7 +36,7 @@ public class EvaluationElementTypeLabelProvider extends
 		return image;
 	}
 	
-	protected Image getEvalImage(EvaluationLabel l)  {
+	public Image getEvalImage(EvaluationLabel l)  {
 		String image = getFileName(l);
 		
 		Image icon = null;

@@ -46,6 +46,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.TypedListener;
 import org.eclipse.swt.widgets.Widget;
 
+import edu.toronto.cs.openome.evaluation.gui.EvalLabelElementTypeLabelProvider;
+import edu.toronto.cs.openome_model.EvaluationLabel;
+
 /**
  * The ImageCombo class represents a selectable user interface object
  * that combines a text field and a table and issues notification
@@ -108,6 +111,12 @@ public ImageCombo (Composite parent, int style) {
     if ((style & SWT.READ_ONLY) != 0) textStyle |= SWT.READ_ONLY;
     if ((style & SWT.FLAT) != 0) textStyle |= SWT.FLAT;
     text = new Text (this, SWT.NONE);
+    Label label = new Label(this, SWT.NONE);
+    
+  //allows for easy access to evaluation images
+	EvalLabelElementTypeLabelProvider eletlp  = new EvalLabelElementTypeLabelProvider();
+    label.setImage(eletlp.getImage(EvaluationLabel.SATISFIED));
+    
     int arrowStyle = SWT.ARROW | SWT.DOWN;
     if ((style & SWT.FLAT) != 0) arrowStyle |= SWT.FLAT;
     arrow = new Button (this, arrowStyle);
