@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteAction;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
@@ -506,24 +507,42 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 			// This function always returns null, so no command will be returned.
 			// Instead, all commands are generated and executed on the fly.
 			
-			List<Object> links = new LinkedList<Object>();
-			List<Object> others = new LinkedList<Object>();
+			// This list will hold all the elements we have to delete.
+			// Links are added to the head, and intentions to the tail.
+			List<Object> elements = new LinkedList<Object>();
 			
+			// The idea is to delete all links before the intentions.
+			// This way we avoid triggering links' automatic deletion.
+			// (links' automatic deletion does not remove them from the model)
+
 			for(Object o : objects) {
 				if(o instanceof ConnectionNodeEditPart) {
-					links.add(o);
+					if(!elements.contains(o)) {
+						elements.add(0, o);
+					}
 				} else {
-					others.add(o);
+					GraphicalEditPart part = (GraphicalEditPart)o;
+					
+					// We must delete all links associated with this element,
+					// regardless if they were selected or not.
+					
+					for(Object c : part.getSourceConnections()) {
+						if(!elements.contains(c)) {
+							elements.add(0, c);
+						}
+					}
+					
+					for(Object c : part.getTargetConnections()) {
+						if(!elements.contains(c)) {
+							elements.add(0, c);
+						}
+					}
+					
+					elements.add(o);
 				}
 			}
-
-			// The idea is to delete all the links in the selection before the elements.
-			// This way, they will be removed manually, ensuring their deletion from both
-			// the model and the diagram.
 			
-			links.addAll(others);
-			
-			for(Object o : links) {
+			for(Object o : elements) {
 				IGraphicalEditPart part = (IGraphicalEditPart)o;
 				
 				View view = part.getNotationView();
