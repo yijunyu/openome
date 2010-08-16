@@ -521,21 +521,35 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 						elements.add(0, o);
 					}
 				} else {
-					GraphicalEditPart part = (GraphicalEditPart)o;
+					IGraphicalEditPart compartment = null;
+					
+					if(o instanceof ActorEditPart) {
+						compartment = ((ActorEditPart)o).getChildBySemanticHint(
+							Integer.toString(ActorActorCompartmentEditPart.VISUAL_ID)
+						);						
+					} else if(o instanceof AgentEditPart) {
+						compartment = ((AgentEditPart)o).getChildBySemanticHint(
+							Integer.toString(AgentAgentCompartmentEditPart.VISUAL_ID)
+						);					
+					} else if(o instanceof RoleEditPart) {
+						compartment = ((RoleEditPart)o).getChildBySemanticHint(
+							Integer.toString(RoleRoleCompartmentEditPart.VISUAL_ID)
+						);					
+					} else if(o instanceof PositionEditPart) {
+						compartment = ((PositionEditPart)o).getChildBySemanticHint(
+							Integer.toString(PositionPositionCompartmentEditPart.VISUAL_ID)
+						);					
+					}
 					
 					// We must delete all links associated with this element,
 					// regardless if they were selected or not.
 					
-					for(Object c : part.getSourceConnections()) {
-						if(!elements.contains(c)) {
-							elements.add(0, c);
+					if(compartment != null) {
+						for(Object part : compartment.getChildren()) {
+							addLinks((IGraphicalEditPart)part, elements);
 						}
-					}
-					
-					for(Object c : part.getTargetConnections()) {
-						if(!elements.contains(c)) {
-							elements.add(0, c);
-						}
+					} else {
+						addLinks((GraphicalEditPart)o, elements);
 					}
 					
 					elements.add(o);
@@ -584,6 +598,24 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 			}
 			
 			return null;
+		}
+		
+		/*
+		 * Add all the links associated with part to the elements list.
+		 */
+		private void addLinks(IGraphicalEditPart part, List<Object> elements)
+		{
+			for(Object c : part.getSourceConnections()) {
+				if(!elements.contains(c)) {
+					elements.add(0, c);
+				}
+			}
+			
+			for(Object c : part.getTargetConnections()) {
+				if(!elements.contains(c)) {
+					elements.add(0, c);
+				}
+			}
 		}
 	}
 }
