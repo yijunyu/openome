@@ -9,12 +9,12 @@ import org.eclipse.core.commands.IHandlerListener;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
 
-import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.diagram.edit.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 /**

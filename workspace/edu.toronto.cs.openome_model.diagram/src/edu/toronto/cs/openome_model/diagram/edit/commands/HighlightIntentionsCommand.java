@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.evaluation.commands;
+package edu.toronto.cs.openome_model.diagram.edit.commands;
 
 import java.util.Collection;
 import java.util.List;
@@ -67,7 +67,6 @@ public class HighlightIntentionsCommand implements Command {
 	}
 
 	public void execute() {
-		
 		highlightIntentions();
 	}
 

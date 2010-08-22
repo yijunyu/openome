@@ -1,13 +1,16 @@
 package customsrc;
 
-import java.util.Vector;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.ui.action.AbstractActionHandler;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
-//import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
+
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.diagram.edit.commands.HighlightIntentionsCommand;
 
 public class HighlightAsLeafAction extends AbstractActionHandler {
     
@@ -18,23 +21,23 @@ public class HighlightAsLeafAction extends AbstractActionHandler {
      * The constructor
      */
     protected HighlightAsLeafAction (IWorkbenchPage workbenchPage){
-            super(workbenchPage);
-            init();
+        super(workbenchPage);
+        init();
     }
     
     public String getId(){
-            return privateID;
+        return privateID;
     }
     
     /**
      * Initializes values for the plugins
      */
     public void init(){
-            super.init();
-            setId(privateID);
-            setText(privateCommandLabel);
-            
-            refresh();
+        super.init();
+        setId(privateID);
+        setText(privateCommandLabel);
+        
+        refresh();
     }
     
     /**
@@ -43,25 +46,26 @@ public class HighlightAsLeafAction extends AbstractActionHandler {
      */
     protected void doRun(IProgressMonitor progressMonitor) {
         IStructuredSelection selection = getStructuredSelection();
-        Vector<Intention> LeafIntentions = new Vector<Intention>();
-        if (selection == null || (selection.isEmpty())) {
-            return;
+        
+        if(selection == null) {
+        	return;
         }
-       
-        Object[] intentions = selection.toArray();
-        int selectionSize = intentions.length;
-       
-        for (int i = 0; i < selectionSize; i++) {
-            LeafIntentions.add((Intention) intentions[i]);
+        
+        List<Intention> intentions = new LinkedList();
+        
+        for(Object o : selection.toArray()) {
+        	GraphicalEditPart part = (GraphicalEditPart)o;
+        	Intention i = (Intention)part.resolveSemanticElement();
+
+        	intentions.add(i);
         }
-       
-   //     HighlightIntentionsCommand highlight = new HighlightIntentionsCommand( editParts , LeafIntentions, "blue" );
-    //    cs.execute(highlight);
+        
+        HighlightIntentionsCommand highlight = new HighlightIntentionsCommand(selection.toList(), intentions, "green");
+
+        highlight.execute();
     }
     
     public void refresh(){
-            
+        //
     }
-
-
 }

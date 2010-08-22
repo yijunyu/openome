@@ -27,10 +27,10 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.junit.Test;
 
-import edu.toronto.cs.openome.evaluation.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.diagram.edit.commands.HighlightIntentionsCommand;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
 import edu.toronto.cs.openome_model.impl.ActorImpl;

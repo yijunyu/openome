@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Activator: edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: edu.toronto.cs.openome_model.diagram.edit.parts,
+Export-Package: edu.toronto.cs.openome_model.diagram.edit.commands,
+ edu.toronto.cs.openome_model.diagram.edit.parts,
  edu.toronto.cs.openome_model.diagram.part,
  edu.toronto.cs.openome_model.diagram.providers
 Require-Bundle: org.eclipse.core.expressions,
