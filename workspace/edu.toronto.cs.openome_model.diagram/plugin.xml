@@ -898,6 +898,7 @@
    </extension>
    <extension
          point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+	  <?gmfgen generated="false"?>
       <contributionItemProvider
             checkPluginLoaded="true"
             class="customsrc.OpenOMEActionProvider">
@@ -919,64 +920,7 @@
                   path="/additionsGroup">
             </popupMenu>
             <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Goal2EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Goal3EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Goal4EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Goal5EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal2EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal3EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal4EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Softgoal5EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.TaskEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Task2EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Task3EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Task4EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Task5EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Resource2EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Resource3EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Resource4EditPart">
-            </popupStructuredContributionCriteria>
-            <popupStructuredContributionCriteria
-                  objectClass="edu.toronto.cs.openome_model.diagram.edit.parts.Resource5EditPart">
+                  objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart">
             </popupStructuredContributionCriteria></popupContribution>
          <popupContribution
                class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
