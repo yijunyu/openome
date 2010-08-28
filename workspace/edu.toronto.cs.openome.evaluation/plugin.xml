@@ -87,7 +87,7 @@
          		label="Reasoning">
          		<command 
 					commandId="openome_IntQualReasoning_cmd"
-					icon="icons/sample.gif"
+					icon="icons/forward.gif"
 					id="openome_IntQualReasoning_menu"
 					label="Forward Interactive Qualitative Evaluation"
 					tooltip=""
@@ -102,7 +102,7 @@
                label="Reasoning">
             <command
                   commandId="openome_IntQualBackReasoning_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/backward.gif"
                   id="openome_IntQualBackReasoning_menu"
                   label="Backward Interactive Qualitative Evaluation"
                   mnemonic="B">
@@ -144,7 +144,7 @@
                label="Reasoning">
             <command
                   commandId="openome_MarkLeaves_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/leaf.gif"
                   id="openome_MarkLeaves_menu"
                   label="Mark Model Leaves"
                   mnemonic="B">
@@ -158,7 +158,7 @@
                label="Reasoning">
             <command
                   commandId="openome_MarkRoots_cmd"
-                  icon="icons/sample.gif"
+                  icon="icons/roots.jpg"
                   id="openome_MarkRoots_menu"
                   label="Mark Model Roots"
                   mnemonic="B">
