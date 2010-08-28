@@ -183,22 +183,40 @@
 <!-- Toolbar Buttons for Evaluation -->
 
 <!-- backward button -->
+      <menuContribution 
+			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
+   			<toolbar
+         		id="openome_reasoning_toolbar"
+         		label="Reasoning">
+         		<command
+                 commandId="openome_IntQualReasoning_cmd"
+                 icon="icons/forward.gif"
+                 id="openome_IntQualReasoning_menu"
+                 label="Forward Eval"
+                 mnemonic="F"
+                 mode="FORCE_TEXT"
+                 tooltip="Forward Interactive Qualitative Evaluation">
+				</command>
+   			</toolbar>
+		</menuContribution>
       	<menuContribution 
 			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
    			<toolbar
          		id="openome_reasoning_toolbar"
          		label="Reasoning">
 	            <command
-                  commandId="openome_IntQualBackReasoning_cmd"
-                  icon="icons/backward.gif"
-                  id="openome_IntQualBackReasoning_menu"
-                  tooltip="Backward Interactive Qualitative Evaluation"
-                  mnemonic="B">
+                   commandId="openome_IntQualBackReasoning_cmd"
+                   icon="icons/backward.gif"
+                   id="openome_IntQualBackReasoning_menu"
+                   label="Backward Eval"
+                   mnemonic="B"
+                   mode="FORCE_TEXT"
+                   tooltip="Backward Interactive Qualitative Evaluation">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
+             <separator
+                   name="edu.toronto.cs.openome.evaluation.separator3"
+                   visible="true">
+             </separator>
    			</toolbar>
 		</menuContribution>         
 <!-- mark leaves button -->
@@ -208,16 +226,14 @@
          		id="openome_reasoning_toolbar"
          		label="Reasoning">
 	            <command
-                  commandId="openome_MarkLeaves_cmd"
-                  icon="icons/leaf.gif"
-                  id="openome_MarkLeaves_toolbarIcon"
-                  tooltip="Mark Model Leaves"
-                  mnemonic="L">
+                   commandId="openome_MarkLeaves_cmd"
+                   icon="icons/leaf.gif"
+                   id="openome_MarkLeaves_toolbarIcon"
+                   label="Leaves"
+                   mnemonic="L"
+                   mode="FORCE_TEXT"
+                   tooltip="Mark Model Leaves">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>
 <!-- mark roots -->
@@ -227,16 +243,14 @@
          		id="openome_reasoning_toolbar"
          		label="Reasoning">
 	            <command
-                  commandId="openome_MarkRoots_cmd"
-                  icon="icons/roots.jpg"
-                  id="openome_MarkRoots_toolbarIcon"
-                  tooltip="Mark Model Roots"
-                  mnemonic="R">
+                   commandId="openome_MarkRoots_cmd"
+                   icon="icons/roots.jpg"
+                   id="openome_MarkRoots_toolbarIcon"
+                   label="Roots"
+                   mnemonic="R"
+                   mode="FORCE_TEXT"
+                   tooltip="Mark Model Roots">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>
 <!-- "unhighlight all" button -->
@@ -246,16 +260,18 @@
          		id="openome_reasoning_toolbar"
          		label="Reasoning">
 	            <command
-                  commandId="openome_Unhighlight_cmd"
-                  icon="icons/unh.gif"
-                  id="openome_Unhighlight_toolbarIcon"
-                  tooltip="Unhighlight All Intentions"
-                  mnemonic="U">
+                   commandId="openome_Unhighlight_cmd"
+                   icon="icons/sample.gif"
+                   id="openome_Unhighlight_toolbarIcon"
+                   label="Clear"
+                   mnemonic="U"
+                   mode="FORCE_TEXT"
+                   tooltip="Unhighlight All Intentions">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
+             <separator
+                   name="edu.toronto.cs.openome.evaluation.separator4"
+                   visible="true">
+             </separator>
    			</toolbar>
 		</menuContribution>
 <!-- "clear all eval labels" button -->
@@ -271,10 +287,6 @@
                   tooltip="Clear All Evaluation Labels"
                   mnemonic="C">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>
 <!-- apply none label -->
@@ -290,10 +302,6 @@
                   tooltip="Apply None Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>				
 <!-- apply satisfied label -->
@@ -309,10 +317,6 @@
                   tooltip="Apply Satisfied Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>		
 <!-- apply weakly satisfied label -->
@@ -328,10 +332,6 @@
                   tooltip="Apply Weakly Satisfied Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>
 <!-- apply conflict label -->
@@ -347,10 +347,6 @@
                   tooltip="Apply Conflict Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>		
 <!-- apply weakly denied label -->
@@ -366,10 +362,6 @@
                   tooltip="Apply Weakly Denied Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>		
 <!-- apply denied label -->
@@ -385,10 +377,6 @@
                   tooltip="Apply Denied Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>
 <!-- apply unknown label -->
@@ -404,31 +392,9 @@
                   tooltip="Apply Unknown Label"
                   mnemonic="W">
             	</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
    			</toolbar>
 		</menuContribution>						
 <!-- forward button -->
-      <menuContribution 
-			locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">			
-   			<toolbar
-         		id="openome_reasoning_toolbar"
-         		label="Reasoning">
-         		<command 
-					commandId="openome_IntQualReasoning_cmd"
-					icon="icons/forward.gif"
-					id="openome_IntQualReasoning_menu"
-					tooltip="Forward Interactive Qualitative Evaluation"
-					mnemonic="F">
-				</command>
-				<separator
-                	name="additions"
-                	visible="false">
-            	</separator>
-   			</toolbar>
-		</menuContribution>
       
 	</extension>
    <extension
