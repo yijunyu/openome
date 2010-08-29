@@ -235,8 +235,19 @@ public class AlternativesView extends ViewPart {
 		}
 		
 		private TreeNode createTreeNode(Alternative alt) {
-			TreeNode node = new TreeNode(alt.getName() + " (" + alt.getDescription() + ")",
-					alt, null);
+			String name = alt.getName();
+			
+			if(!alt.getDescription().isEmpty()) {
+				name += " (" + alt.getDescription() + ")";
+			}
+			
+			if(alt.getDirection().equals("forward")) {
+				name += "\n[ Forward Evaluation ]";
+			} else if(alt.getDirection().equals("backward")) {
+				name += "\n[ Backward Evaluation ]";
+			}
+			
+			TreeNode node = new TreeNode(name, alt, null);
 			System.out.println("creating alternative called" + alt.getName());
 			return node;
 			
