@@ -430,6 +430,14 @@
             name="Alternatives"
             restorable="true">
       </view>
+      <view
+            category="edu.toronto.cs.openome.evaluation"
+            class="edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView"
+            icon="icons/sample.gif"
+            id="edu.toronto.cs.openome.evaluation.view1"
+            name="Human Judgment"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>

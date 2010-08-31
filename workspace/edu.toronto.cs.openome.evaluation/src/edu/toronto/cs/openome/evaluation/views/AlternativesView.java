@@ -1,52 +1,43 @@
 package edu.toronto.cs.openome.evaluation.views;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
 
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.internal.Workbench;
-import org.eclipse.ui.part.*;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.jface.action.*;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.*;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.SWT;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.transaction.NotificationFilter;
-import org.eclipse.emf.transaction.ResourceSetChangeEvent;
-import org.eclipse.emf.transaction.ResourceSetListener;
-import org.eclipse.emf.transaction.RollbackException;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.DrillDownAdapter;
+import org.eclipse.ui.part.ViewPart;
 
-import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.DeleteAlternativeCommand;
-import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
-import edu.toronto.cs.openome.evaluation.commands.HJWindowCommand;
-import edu.toronto.cs.openome.evaluation.commands.RemoveHumanJudgmentCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
-import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
-import edu.toronto.cs.openome.evaluation.handlers.UpdateLabelsHandler;
 import edu.toronto.cs.openome_model.Alternative;
-import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
-import edu.toronto.cs.openome_model.Model;
-import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 
@@ -86,266 +77,6 @@ public class AlternativesView extends ViewPart {
 	private Action clickAction;
 	private Action collapseAllAction;
 	private Action expandAllAction;
-	
-	/*
-	 * The content provider class is responsible for
-	 * providing objects to the view. It can wrap
-	 * existing objects in adapters or simply return
-	 * objects as-is. These objects may be sensitive
-	 * to the current input of the view, or ignore
-	 * it and always show the same content 
-	 * (like Task List, for example).
-	 */
-	 
-	// This class associates each node in the tree with an object
-	// Possible objects: Alternative, Intention, EvaluationLabel 
-	class TreeObject implements IAdaptable {
-		private String name;
-		private TreeNode parent;
-		
-		// the object this TreeObject represents
-		protected Object obj;
-		protected Object img;
-		
-		public TreeObject(String name, Object obj, Object img) {
-			this.name = name;
-			this.obj = obj;
-			this.img = img;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setParent(TreeNode parent) {
-			this.parent = parent;
-		}
-		public TreeNode getParent() {
-			return parent;
-		}
-		public String toString() {
-			return getName();
-		}
-		public Object getAdapter(Class key) {
-			return null;
-		}
-		public void setObject(Object obj){
-			this.obj = obj;
-		}
-		public Object getObject(){
-			return this.obj;
-		}
-		public Object getImg() {
-			return this.img;
-		}
-		public boolean equals(TreeObject to){
-			return ((this.name == to.getName()) 
-						&& (this.obj).equals(to.getObject()));
-		}
-		public boolean equalObject(Object o){
-			return ((this.obj).equals(o));
-		}
-	}
-	
-	// TreeNode represents nodes with children
-	class TreeNode extends TreeObject {
-		private ArrayList<TreeObject> elements;
-		private boolean status = false;
-		public TreeNode(String name, Object obj, Object img) {
-			super(name, obj, img);
-			elements = new ArrayList<TreeObject>();
-		}
-		public void addChild(TreeObject child) {
-			elements.add(child);
-			child.setParent(this);
-		}
-		public void removeChild(TreeObject child) {
-			elements.remove(child);
-			child.setParent(null);
-		}
-		public TreeObject [] getChildren() {
-			return (TreeObject [])elements.toArray(new TreeObject[elements.size()]);
-		}
-		public boolean hasChildren() {
-			return elements.size()>0;
-		}
-		public int getNumOfChild(){
-			return elements.size();
-		}
-		public Alternative getAlternative() {
-			return (Alternative) this.obj;
-		}
-		public void setAlternateStatus(boolean b) {
-			status = b;
-		}
-		public boolean isAlternative(){
-			return status;
-		}
-		public void clear() {
-			
-			elements.clear();
-		}
-	}
-	
-	// Need this to be public in order to change the view content
-	public class ViewContentProvider implements IStructuredContentProvider, 
-										   ITreeContentProvider {
-		private TreeNode invisibleRoot;
-
-		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		}
-		public void dispose() {
-		}
-		
-		public Object[] getRoot() {
-			return getChildren(invisibleRoot);
-		}
-		public Object[] getElements(Object parent) {
-			if (parent.equals(getViewSite())) {
-				if (invisibleRoot==null) initialize();
-				return getChildren(invisibleRoot);
-			}
-			return getChildren(parent);
-		}
-		public Object getParent(Object child) {
-			if (child instanceof TreeObject) {
-				return ((TreeObject)child).getParent();
-			}
-			return null;
-		}
-		public Object [] getChildren(Object parent) {
-			if (parent instanceof TreeNode) {
-				return ((TreeNode)parent).getChildren();
-			}
-			return new Object[0];
-		}
-		public boolean hasChildren(Object parent) {
-			if (parent instanceof TreeNode)
-				return ((TreeNode)parent).hasChildren();
-			return false;
-		}
-		
-		public TreeNode addNode (Alternative alt) {
-			TreeNode node = createTreeNode(alt);
-			addTreeNode(node);
-			return node;
-		}
-		
-		private boolean addTreeNode(TreeNode child) {
-			invisibleRoot.addChild(child);
-			return true;
-		}
-		
-		private TreeNode createTreeNode(Alternative alt) {
-			String name = alt.getName();
-			
-			if(!alt.getDescription().isEmpty()) {
-				name += " (" + alt.getDescription() + ")";
-			}
-			
-			if(alt.getDirection().equals("forward")) {
-				name += "\n[ Forward Evaluation ]";
-			} else if(alt.getDirection().equals("backward")) {
-				name += "\n[ Backward Evaluation ]";
-			}
-			
-			TreeNode node = new TreeNode(name, alt, null);
-			System.out.println("creating alternative called" + alt.getName());
-			return node;
-			
-		}
-		
-		/**
-		 * Code left in to demonstrate a dummy tree structure
-		 */
-		private void initialize() {
-			invisibleRoot = new TreeNode("", null, null);
-		}
-		
-//		public void addHumanJudgement(Intention intension, EvaluationLabel judgement){
-//			// create the new intention in the tree
-//			TreeNode newIntentionNode = new TreeNode(intension.getName(), intension);
-//			// add the human judgement
-//			newIntentionNode.addChild(new TreeObject("[HUMAN JUDGEMENT] " + judgement.getName(), judgement));
-//			// add the new intension into the tree
-//			currAlternative.addChild(newIntentionNode);
-//			
-//		}
-//		
-		/**
-		 * Adds child nodes to the specified node by iterating over each given intention
-		 * and creating a new TreeObject for each. 
-		 * @author aftabs
-		 * @param map
-		 * @param node
-		 */
-		//public void addChildren(EList<Intention> intentions, SoftgoalWrappers softgoalWrappers, TreeNode node) {
-		public void addChildren(HashMap<Intention, EvaluationLabel> map, TreeNode node) {
-			
-			TreeNode to;
-			String actorName;
-			Container con;
-			
-			Set<Intention> intentions = (Set<Intention>) map.keySet();
-			
-			
-			for (Intention i : intentions){
-				
-				// Add each intention as a new TreeObject as a child
-				
-				con = i.getContainer();
-				if (con != null)
-				{
-					actorName = con.getName();
-				}
-				else {
-					actorName = "";
-				}
-				
-				to = new TreeNode(i.getName() + " {" + actorName + "}" , i, map.get(i));
-				node.addChild(to);
-				
-				//Add the human judgements for this intention to the view
-				EList<HumanJudgment> humanJudgements = i.getHumanJudgments();
-				int j = 1;
-				for (HumanJudgment judgement : humanJudgements) {
-					to.addChild(new TreeNode("Judgement " + j++ + ": " + judgement.getResultLabel().toString(), judgement, judgement.getResultLabel()) );
-					
-				}
-				
-				
-			}
-		}
-		public void removeAllNodes() {
-			invisibleRoot.clear();
-		}
-	}
-	
-	/**
-	 * Label provider class
-	 */
-	class ViewLabelProvider extends EvaluationElementTypeLabelProvider {
-
-		public String getText(Object obj) {
-			return obj.toString();
-		}
-		public Image getImage(Object obj) {
-			
-				TreeNode node = (TreeNode)obj;
-				
-			if (node.getImg() != null)
-				return super.getEvalImage((EvaluationLabel)node.getImg());
-			else 
-				return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER);
-		}
-	}
-	class NameSorter extends ViewerSorter {
-	}
-
-	/**
-	 * The constructor.
-	 */
-	public AlternativesView() {
-
-	}
 
 	/**
 	 * This is a callback that will allow us
@@ -354,9 +85,9 @@ public class AlternativesView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
-		viewer.setContentProvider(new ViewContentProvider());
+		viewer.setContentProvider(new ViewContentProvider(this));
 		viewer.setLabelProvider(new ViewLabelProvider());
-		viewer.setSorter(new NameSorter());
+		viewer.setSorter(new ViewerSorter());
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
@@ -376,7 +107,6 @@ public class AlternativesView extends ViewPart {
 	    
 	    /* Add the selection listener to the active workbench window */
 	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().addSelectionListener(selectionChangeListener);
-	    
 	}
 	
 	private void contributeToActionBars() {
@@ -437,8 +167,6 @@ public class AlternativesView extends ViewPart {
 	 * Initialize the actions
 	 */
 	private void makeActions() {
-		
-		
 		/**
 		 *  Expand All Action - expands all nodes in the view
 		 */
@@ -472,13 +200,7 @@ public class AlternativesView extends ViewPart {
 		 *  Refresh Action - refreshs the view
 		 */
 		refreshAction = new Action() {
-			public void run() {
-				
-				
-//				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().get
-				TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
-				.createEditingDomain();
-								
+			public void run() {								
 				clearView();
 				loadAlternatives();
 			}
