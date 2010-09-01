@@ -8,6 +8,7 @@ import edu.toronto.cs.openome_model.Alternative;
 public class TreeNode extends TreeObject {
 	private ArrayList<TreeObject> elements;
 	private boolean status = false;
+	private boolean conflict = false;
 	
 	public TreeNode(String name, Object obj, Object img) {
 		super(name, obj, img);
@@ -32,7 +33,7 @@ public class TreeNode extends TreeObject {
 		return elements.size()>0;
 	}
 	
-	public int getNumOfChild(){
+	public int getNumOfChild() {
 		return elements.size();
 	}
 	
@@ -44,11 +45,19 @@ public class TreeNode extends TreeObject {
 		status = b;
 	}
 	
-	public boolean isAlternative(){
+	public boolean isAlternative() {
 		return status;
 	}
 	
 	public void clear() {
 		elements.clear();
+	}
+	
+	public void setConflict(boolean conflict) {
+		this.conflict = conflict;
+	}
+	
+	public boolean getConflict() {
+		return conflict;
 	}
 }

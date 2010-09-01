@@ -20,8 +20,10 @@ public class ViewLabelProvider extends EvaluationElementTypeLabelProvider {
 			
 		if(node.getImg() != null) {
 			return super.getEvalImage((EvaluationLabel)node.getImg());
-		} else { 
-			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER);
+		} else if(node.getConflict()) {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJS_ERROR_TSK);
+		} else {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
 		}
 	}
 }

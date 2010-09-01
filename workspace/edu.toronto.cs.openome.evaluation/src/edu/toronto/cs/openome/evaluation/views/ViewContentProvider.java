@@ -174,6 +174,11 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 	
 	public void addHumanJudgment(TreeNode node, Intention i, EList<Alternative> alts)
 	{
+		// if both of these will be true after the for loop, then we have a conflict
+		boolean denied = false;
+		boolean satisfied = false;
+		
+		// get the intention's label from each alternative
 		for(Alternative a : alts) {
 			HashMap<Intention, EvaluationLabel> map = a.getIntentionLabels();
 			EvaluationLabel label = map.get(i);
@@ -188,7 +193,16 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			
 			TreeNode subnode = new TreeNode(name, null, label);
 			node.addChild(subnode);
+			
+			if(label == EvaluationLabel.DENIED || label == EvaluationLabel.WEAKLY_DENIED) {
+				denied = true;
+			} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.WEAKLY_SATISFIED) {
+				satisfied = true;
+			}
 		}
+		
+		// set the conflict flag
+		node.setConflict(denied && satisfied);
 	}
 	
 	public void removeAllNodes() {
