@@ -108,6 +108,8 @@ public class AlternativesView extends ViewPart {
 	        }
 	    };
 	    
+	    final AlternativesView me = this;
+	    
 	    IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
 	    	@Override
 			public void perspectiveActivated(IWorkbenchPage page, IPerspectiveDescriptor perspective) {
@@ -118,7 +120,17 @@ public class AlternativesView extends ViewPart {
 
 			@Override
 			public void perspectiveChanged(IWorkbenchPage page, IPerspectiveDescriptor perspective, String changeId) {
-				//
+				// This fixes the problem where Alternatives/Human Judgments
+				// were shown even after all the editor tabs were closed.
+				
+				if(!changeId.equals("viewHide")) { // this check avoids a NullPointer when you close OpenOME
+					// check that no editor tabs are open
+					if(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+							.getActivePage().getActiveEditor() == null) {
+						// replace the contents with new empty ones
+						viewer.setContentProvider(new ViewContentProvider(me));
+					}
+				}
 			}
 	    };
 	    
