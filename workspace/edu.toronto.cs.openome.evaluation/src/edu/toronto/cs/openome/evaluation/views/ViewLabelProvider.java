@@ -17,9 +17,11 @@ public class ViewLabelProvider extends EvaluationElementTypeLabelProvider {
 	
 	public Image getImage(Object obj) {
 		TreeNode node = (TreeNode)obj;
-			
+
 		if(node.getImg() != null) {
 			return super.getEvalImage((EvaluationLabel)node.getImg());
+		} else if(node.isAlternative()) {
+			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER);
 		} else if(node.getConflict()) {
 			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJS_ERROR_TSK);
 		} else {

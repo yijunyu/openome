@@ -435,7 +435,7 @@
             class="edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView"
             icon="icons/sample.gif"
             id="edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView"
-            name="Human Judgment"
+            name="Human Judgments"
             restorable="true">
       </view>
    </extension>

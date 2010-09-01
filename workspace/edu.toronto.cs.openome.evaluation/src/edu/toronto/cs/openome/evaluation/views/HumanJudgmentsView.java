@@ -14,9 +14,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IPerspectiveDescriptor;
+import org.eclipse.ui.IPerspectiveListener;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
@@ -66,8 +69,27 @@ public class HumanJudgmentsView extends ViewPart
 	        }
 	    };
 	    
-	    /* Add the selection listener to the active workbench window */
+	    IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
+	    	@Override
+			public void perspectiveActivated(IWorkbenchPage page, IPerspectiveDescriptor perspective) {
+				clearView();
+				loadIntentions();
+				refreshView();
+			}
+
+			@Override
+			public void perspectiveChanged(IWorkbenchPage page, IPerspectiveDescriptor perspective, String changeId) {
+				//
+			}
+	    };
+	    
+	    // add listeners
 	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().addSelectionListener(selectionChangeListener);
+	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().addPerspectiveListener(perspectiveListener);
+
+	    clearView();
+    	loadIntentions();
+    	refreshView();
 	}
 	
 	private void contributeToActionBars() {
