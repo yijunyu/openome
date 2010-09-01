@@ -123,7 +123,7 @@ public class AlternativesView extends ViewPart {
 				// This fixes the problem where Alternatives/Human Judgments
 				// were shown even after all the editor tabs were closed.
 				
-				if(!changeId.equals("viewHide")) { // this check avoids a NullPointer when you close OpenOME
+				if(changeId.equals("editorClose")) {
 					// check that no editor tabs are open
 					if(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 							.getActivePage().getActiveEditor() == null) {
