@@ -28,7 +28,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
 
 public class HumanJudgmentsView extends ViewPart
 {
-	public static final String ID = "edu.toronto.cs.openome.evaluation.views.AlternativesView";
+	public static final String ID = "edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView";
 
 	// need this to be a static to support the singleton model
 	public static TreeViewer viewer;
