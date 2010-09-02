@@ -133,6 +133,9 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 			System.out.println("Failed to open AlternativesView");
 		}
 		
+		//Set the direction in the alternative
+		alt.setDirection("forward");
+		
 		/* Populate the Alternate View with the alternative */
 		av.addAlternative(alt);
 		

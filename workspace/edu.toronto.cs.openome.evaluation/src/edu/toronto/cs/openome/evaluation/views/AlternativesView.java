@@ -34,7 +34,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
-
+import edu.toronto.cs.openome.evaluation.commands.AddHumanJudgmentCommand;
+import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.DeleteAlternativeCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome_model.Alternative;
@@ -345,15 +346,25 @@ public class AlternativesView extends ViewPart {
 //									
 //									/* Create a Remove command */
 //									Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgement);
-//									//cs.execute(removeCommand);
+//									cs.execute(removeCommand);
 //									
 //									//Open the appropriate dialog
 //									if (alt.getDirection().equals("forward")) {
-//										Command windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
-//										//cs.execute(windowCommand);
+//										ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
+//										cs.execute(windowCommand);
+//										if (windowCommand.cancelled()) {
+//											return;
+//										}
+//										
+//										EvaluationLabel result = windowCommand.getEvalResult();	
+//										System.out.println("Window result: " + result.getName());
+//										
+//										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+//										cs.execute(addHJ);
+//										
 //									} else if (alt.getDirection().equals("backward")) {
 //										Command windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
-//										//cs.execute(windowCommand);
+//										cs.execute(windowCommand);
 //									}
 //									
 //									// update the intention with the new judgment

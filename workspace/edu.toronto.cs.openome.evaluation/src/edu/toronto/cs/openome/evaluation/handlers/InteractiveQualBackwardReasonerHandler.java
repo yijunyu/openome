@@ -132,6 +132,9 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 			System.out.println("Failed to open AlternativesView");
 		}
 		
+		//Set the direction in the alternative.
+		alt.setDirection("backward");
+		
 		/* Populate the Alternate View with the alternative */
 		av.addAlternative(alt);
 		
