@@ -99,7 +99,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		System.out.println("executing backward window");
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		
-		final Shell shell = new Shell(display);
+		final Shell shell = new Shell(display,  SWT.CLOSE | SWT.TITLE);
 		
 		//allows for easy access to evaluation images
 		EvalLabelElementTypeLabelProvider eletlp  = new EvalLabelElementTypeLabelProvider();
@@ -117,6 +117,12 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		
+		GridData gridDataCell = new GridData();
+		gridDataCell.horizontalSpan = 1;
+		gridDataCell.horizontalAlignment = SWT.FILL;
+		gridDataCell.grabExcessHorizontalSpace = false;
+		//gridDataCell.verticalAlignment = SWT.FILL;
+		
 		// This outputs first bit of text in the window, and gives the value of the root 
 		// of this backward eval judgement that must be satisfied by judgement
 		// this widget takes up 3/3 columns in the grid layout
@@ -133,10 +139,10 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.horizontalSpan = 3;
-		Text text3 = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
+		Label text3 = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
 		text3.setText("Enter a combination of evaluation labels for intentions contributing to \""
 				+ name + "\" which would result in:");
-		text3.setLayoutData(gridData);
+		text3.setLayoutData(gridDataCell);
 		
 		// eval label image and text, 1/3 columns in this row
 		Image evalImage = eletlp.getEvalImage(intention.getInitialEvalLabel());				
@@ -144,25 +150,28 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		CLabel text4 = new CLabel(shell, SWT.SHADOW_NONE | SWT.READ_ONLY | SWT.WRAP);
 		text4.setImage(scaledImage);
 		text4.setText(target);
+		GridData gridDataText = new GridData();
+		gridDataText.horizontalAlignment = SWT.LEFT;
+		text4.setLayoutData(gridDataText);
 		
 		// filler takes up remaining 2/3 columns in this row.
 		// this is necessary because the CLabel class has a bevel that can't be
 		// turned off, which looks bad if it extends across 3 columns.
-		Label filler = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
-		filler.setText("");
+		//Label filler = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
+		//filler.setText("");
 		gridData = new GridData();
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.horizontalSpan = 2;
-		filler.setLayoutData(gridData);
+		//filler.setLayoutData(gridData);
 		
 		// text, takes up 3/3 columns in the grid layout for this row
 		gridData = new GridData();
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
-		gridData.horizontalSpan = 3;
-		Text text5 = new Text(shell, SWT.READ_ONLY | SWT.WRAP);
-		text5.setText("for \"" + name + "\"");
+		gridData.horizontalSpan = 1;
+		Label text5 = new Label(shell, SWT.READ_ONLY | SWT.WRAP);
+		text5.setText("      for \"" + name + ".\"");
 		text5.setLayoutData(gridData);
 		
 		final Table table = new Table (shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
@@ -238,7 +247,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			combo.add("Partially Denied", eletlp.getImage(EvaluationLabel.WEAKLY_DENIED));
 			combo.add("Denied", eletlp.getImage(EvaluationLabel.DENIED));
 			combo.add("Don't care", null);
-			
+						
 			editor.setEditor(combo, item, 2);
 			
 			if (i != null) {				
@@ -282,7 +291,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		System.out.println("set previous info");
 		
 		final Button doneB = new Button (shell, SWT.PUSH);
-		doneB.setText ("OK");
+		doneB.setText ("    OK    ");
 		
 		doneB.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -298,11 +307,18 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		
 		gridData = new GridData();
 		gridData.horizontalSpan = 1;
-		gridData.horizontalAlignment = SWT.FILL;
+		gridData.horizontalAlignment = SWT.RIGHT;
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.verticalAlignment = SWT.FILL;
-		//gridData.grabExcessVerticalSpace = true;
+		gridData.widthHint = 30;
+		//gridData.grabExcessVerticalSpace = false;
 		doneB.setLayoutData(gridData);
+		
+		gridData = new GridData();
+		gridData.horizontalSpan = 1;
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.grabExcessHorizontalSpace = false;
+		gridData.verticalAlignment = SWT.FILL;
 		
 		Button cancel = new Button (shell, SWT.PUSH);
 		
@@ -332,8 +348,8 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		});
 		
 		
-		shell.setSize(900, 400);
-		
+		shell.setSize(785, 400);
+				
 		shell.open();
 		
 		shell.forceActive();
