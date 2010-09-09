@@ -66,17 +66,17 @@
         eType="#//Decomposition" eOpposite="#//Decomposition/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//Container"
         transient="true" eOpposite="#//Container/intentions"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualitativeReasoningCombinedLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningCombinedLabel"
         eType="#//EvaluationLabel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualitativeReasoningSatisfiedLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningSatisfiedLabel"
         eType="#//EvaluationLabel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualitativeReasoningDenialLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QualitativeReasoningDenialLabel"
         eType="#//EvaluationLabel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantitativeReasoningCombinedLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningCombinedLabel"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantitativeReasoningDeniedLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningDeniedLabel"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantitativeReasoningSatisfiedLabel"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitativeReasoningSatisfiedLabel"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributesTo" upperBound="-1"
         eType="#//Contribution" eOpposite="#//Contribution/source"/>

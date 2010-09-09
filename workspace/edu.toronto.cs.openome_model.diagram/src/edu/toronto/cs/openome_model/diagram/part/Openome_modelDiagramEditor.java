@@ -25,6 +25,7 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -132,12 +133,12 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 						.forceRedirect();
 			}
 		}
-		
+
 		Openome_modelDiagramUpdateCommand up = new Openome_modelDiagramUpdateCommand();
-		
+
 		try {
 			up.execute(null);
-		} catch(ExecutionException e) {
+		} catch (ExecutionException e) {
 			System.err.println(e.getLocalizedMessage());
 		}
 	}
@@ -244,9 +245,9 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	public void doSaveAs() {
 		performMySaveAs(new NullProgressMonitor());
 	}
-	
+
 	protected void performMySaveAs(IProgressMonitor progressMonitor) {
-		
+
 		Shell shell = getSite().getShell();
 		IEditorInput input = getEditorInput();
 		SaveAsDialog dialog = new SaveAsDialog(shell);
@@ -284,8 +285,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 			return;
 		}
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-		
-		
+
 		IFile file = workspaceRoot.getFile(filePath);
 		final IEditorInput newInput = new FileEditorInput(file);
 		// Check if the editor is already open
@@ -307,13 +307,13 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 		boolean success = false;
 		try {
 			provider.aboutToChange(newInput);
-			
+
 			//The save below leaves the new diagram in sync with the old one			
-			
-//			getDocumentProvider(newInput).saveDocument(progressMonitor,
-//					newInput,
-//					getDocumentProvider().getDocument(getEditorInput()), true);
-			
+
+			//			getDocumentProvider(newInput).saveDocument(progressMonitor,
+			//					newInput,
+			//					getDocumentProvider().getDocument(getEditorInput()), true);
+
 			//Instead, simply make a new copy of the file to solve the synchronization issue.
 			original.copy(filePath, true, progressMonitor);
 			success = true;
@@ -465,21 +465,21 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	 * @generated NOT
 	 */
 	@Override
-	protected KeyHandler getKeyHandler()
-	{
-		KeyHandler h = super.getKeyHandler();		
-		
-		getActionRegistry().registerAction(new CustomPromptingDeleteAction(this));
-		
-		h.put(KeyStroke.getPressed(SWT.DEL, 127, 0),
-			getActionRegistry().getAction(ActionFactory.DELETE.getId()));
-		
-		h.put(KeyStroke.getPressed(SWT.BS, 8, 0),
-			getActionRegistry().getAction(ActionFactory.DELETE.getId()));		
-		
+	protected KeyHandler getKeyHandler() {
+		KeyHandler h = super.getKeyHandler();
+
+		getActionRegistry().registerAction(
+				new CustomPromptingDeleteAction(this));
+
+		h.put(KeyStroke.getPressed(SWT.DEL, 127, 0), getActionRegistry()
+				.getAction(ActionFactory.DELETE.getId()));
+
+		h.put(KeyStroke.getPressed(SWT.BS, 8, 0), getActionRegistry()
+				.getAction(ActionFactory.DELETE.getId()));
+
 		return h;
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -494,125 +494,122 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	 * its source and target elements maintain their references to it.
 	 */
 	@SuppressWarnings("restriction")
-	private class CustomPromptingDeleteAction extends PromptingDeleteAction
-	{
-		public CustomPromptingDeleteAction(IWorkbenchPart part)
-		{
+	private class CustomPromptingDeleteAction extends PromptingDeleteAction {
+		public CustomPromptingDeleteAction(IWorkbenchPart part) {
 			super(part);
 		}
-		
+
 		@Override
-		public Command createCommand(List objects)
-		{
+		public Command createCommand(List objects) {
 			// This function always returns null, so no command will be returned.
 			// Instead, all commands are generated and executed on the fly.
-			
+
 			// This list will hold all the elements we have to delete.
 			// Links are added to the head, and intentions to the tail.
 			List<Object> elements = new LinkedList<Object>();
-			
+
 			// The idea is to delete all links before the intentions.
 			// This way we avoid triggering links' automatic deletion.
 			// (links' automatic deletion does not remove them from the model)
 
-			for(Object o : objects) {
-				if(o instanceof ConnectionNodeEditPart) {
-					if(!elements.contains(o)) {
+			for (Object o : objects) {
+				if (o instanceof ConnectionNodeEditPart) {
+					if (!elements.contains(o)) {
 						elements.add(0, o);
 					}
 				} else {
 					IGraphicalEditPart compartment = null;
-					
-					if(o instanceof ActorEditPart) {
-						compartment = ((ActorEditPart)o).getChildBySemanticHint(
-							Integer.toString(ActorActorCompartmentEditPart.VISUAL_ID)
-						);						
-					} else if(o instanceof AgentEditPart) {
-						compartment = ((AgentEditPart)o).getChildBySemanticHint(
-							Integer.toString(AgentAgentCompartmentEditPart.VISUAL_ID)
-						);					
-					} else if(o instanceof RoleEditPart) {
-						compartment = ((RoleEditPart)o).getChildBySemanticHint(
-							Integer.toString(RoleRoleCompartmentEditPart.VISUAL_ID)
-						);					
-					} else if(o instanceof PositionEditPart) {
-						compartment = ((PositionEditPart)o).getChildBySemanticHint(
-							Integer.toString(PositionPositionCompartmentEditPart.VISUAL_ID)
-						);					
+
+					if (o instanceof ActorEditPart) {
+						compartment = ((ActorEditPart) o)
+								.getChildBySemanticHint(Integer
+										.toString(ActorActorCompartmentEditPart.VISUAL_ID));
+					} else if (o instanceof AgentEditPart) {
+						compartment = ((AgentEditPart) o)
+								.getChildBySemanticHint(Integer
+										.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
+					} else if (o instanceof RoleEditPart) {
+						compartment = ((RoleEditPart) o)
+								.getChildBySemanticHint(Integer
+										.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
+					} else if (o instanceof PositionEditPart) {
+						compartment = ((PositionEditPart) o)
+								.getChildBySemanticHint(Integer
+										.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
 					}
-					
+
 					// We must delete all links associated with this element,
 					// regardless if they were selected or not.
-					
-					if(compartment != null) {
-						for(Object part : compartment.getChildren()) {
-							addLinks((IGraphicalEditPart)part, elements);
+
+					if (compartment != null) {
+						for (Object part : compartment.getChildren()) {
+							addLinks((IGraphicalEditPart) part, elements);
 						}
 					} else {
-						addLinks((GraphicalEditPart)o, elements);
+						addLinks((GraphicalEditPart) o, elements);
 					}
-					
+
 					elements.add(o);
 				}
 			}
-			
-			for(Object o : elements) {
-				IGraphicalEditPart part = (IGraphicalEditPart)o;
-				
+
+			for (Object o : elements) {
+				IGraphicalEditPart part = (IGraphicalEditPart) o;
+
 				View view = part.getNotationView();
 				EObject element = view.getElement();
-				
+
 				TransactionalEditingDomain domain = part.getEditingDomain();
-				DiagramCommandStack dcs = part.getDiagramEditDomain().getDiagramCommandStack();
-				
+				DiagramCommandStack dcs = part.getDiagramEditDomain()
+						.getDiagramCommandStack();
+
 				CompoundCommand command = new CompoundCommand("Delete Element");
-				
+
 				// Delete the element
-				
+
 				DestroyElementCommand commandDelete = new DestroyElementCommand(
-					new DestroyElementRequest(domain, element, false)
-				);
-				
-				if(commandDelete.canExecute()) {
+						new DestroyElementRequest(domain, element, false));
+
+				if (commandDelete.canExecute()) {
 					command.add(new ICommandProxy(commandDelete));
 				} else {
 					System.err.println("commandDelete problem!");
 				}
-				
+
 				// Delete the element's view
-				
-				DeleteCommand commandDeleteView = new DeleteCommand(domain, view);
-				
-				if(commandDeleteView.canExecute()) {
+
+				DeleteCommand commandDeleteView = new DeleteCommand(domain,
+						view);
+
+				if (commandDeleteView.canExecute()) {
 					command.add(new ICommandProxy(commandDeleteView));
 				} else {
 					System.err.println("commandDeleteView problem!");
 				}
-				
-				if(command.canExecute()) {
+
+				if (command.canExecute()) {
 					dcs.execute(command);
 					dcs.flush();
 				} else {
 					System.err.println("DeleteKey problem!");
 				}
 			}
-			
+
 			return null;
 		}
-		
+
 		/*
 		 * Add all the links associated with part to the elements list.
 		 */
-		private void addLinks(IGraphicalEditPart part, List<Object> elements)
-		{
-			for(Object c : part.getSourceConnections()) {
-				if(!elements.contains(c)) {
+		private void addLinks(IGraphicalEditPart part, List<Object> elements) {
+			for (Object c : part.getSourceConnections()) {
+				if (!elements.contains(c)) {
 					elements.add(0, c);
 				}
 			}
-			
-			for(Object c : part.getTargetConnections()) {
-				if(!elements.contains(c)) {
+
+			for (Object c : part.getTargetConnections()) {
+				if (!elements.contains(c)) {
 					elements.add(0, c);
 				}
 			}

@@ -86,6 +86,7 @@ public class IntentionItemProvider
 			addQuantitativeReasoningSatisfiedLabelPropertyDescriptor(object);
 			addContributesToPropertyDescriptor(object);
 			addContributesFromPropertyDescriptor(object);
+			addInitialEvalLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -443,6 +444,28 @@ public class IntentionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Initial Eval Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialEvalLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Intention_initialEvalLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Intention_initialEvalLabel_feature", "_UI_Intention_type"),
+				 openome_modelPackage.Literals.INTENTION__INITIAL_EVAL_LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -455,6 +478,9 @@ public class IntentionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__PROPERTY);
+			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__LABEL_BAG);
+			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__REVERSE_LABEL_BAG);
+			childrenFeatures.add(openome_modelPackage.Literals.INTENTION__HUMAN_JUDGMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -521,9 +547,13 @@ public class IntentionItemProvider
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_COMBINED_LABEL:
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_DENIED_LABEL:
 			case openome_modelPackage.INTENTION__QUANTITATIVE_REASONING_SATISFIED_LABEL:
+			case openome_modelPackage.INTENTION__INITIAL_EVAL_LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case openome_modelPackage.INTENTION__PROPERTY:
+			case openome_modelPackage.INTENTION__LABEL_BAG:
+			case openome_modelPackage.INTENTION__REVERSE_LABEL_BAG:
+			case openome_modelPackage.INTENTION__HUMAN_JUDGMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -545,6 +575,44 @@ public class IntentionItemProvider
 			(createChildParameter
 				(openome_modelPackage.Literals.INTENTION__PROPERTY,
 				 openome_modelFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.INTENTION__LABEL_BAG,
+				 openome_modelFactory.eINSTANCE.createLabelBag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.INTENTION__REVERSE_LABEL_BAG,
+				 openome_modelFactory.eINSTANCE.createLabelBag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(openome_modelPackage.Literals.INTENTION__HUMAN_JUDGMENTS,
+				 openome_modelFactory.eINSTANCE.createHumanJudgment()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == openome_modelPackage.Literals.INTENTION__LABEL_BAG ||
+			childFeature == openome_modelPackage.Literals.INTENTION__REVERSE_LABEL_BAG;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

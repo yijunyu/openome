@@ -50,12 +50,12 @@ Package openome_model <http:///edu/toronto/cs/openome_model.ecore>
     Reference decompositions : Decomposition<<0..*>>
     Reference parentDecompositions : Decomposition<<0..*>>
     Reference container : Container
-    Attribute qualitativeReasoningCombinedLabel : EvaluationLabel
-    Attribute qualitativeReasoningSatisfiedLabel : EvaluationLabel
-    Attribute qualitativeReasoningDenialLabel : EvaluationLabel
-    Attribute quantitativeReasoningCombinedLabel : EDouble
-    Attribute quantitativeReasoningDeniedLabel : EDouble
-    Attribute quantitativeReasoningSatisfiedLabel : EDouble
+    Attribute QualitativeReasoningCombinedLabel : EvaluationLabel
+    Attribute QualitativeReasoningSatisfiedLabel : EvaluationLabel
+    Attribute QualitativeReasoningDenialLabel : EvaluationLabel
+    Attribute QuantitativeReasoningCombinedLabel : EDouble
+    Attribute QuantitativeReasoningDeniedLabel : EDouble
+    Attribute QuantitativeReasoningSatisfiedLabel : EDouble
     Reference contributesTo : Contribution<<0..*>>
     Reference contributesFrom : Contribution<<0..*>>
     Reference labelBag : LabelBag

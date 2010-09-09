@@ -83,8 +83,8 @@ public class SoftgoalItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Softgoal_Topic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Softgoal_Topic_feature", "_UI_Softgoal_type"),
+				 getString("_UI_Softgoal_topic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Softgoal_topic_feature", "_UI_Softgoal_type"),
 				 openome_modelPackage.Literals.SOFTGOAL__TOPIC,
 				 true,
 				 false,
@@ -148,6 +148,29 @@ public class SoftgoalItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == openome_modelPackage.Literals.INTENTION__LABEL_BAG ||
+			childFeature == openome_modelPackage.Literals.INTENTION__REVERSE_LABEL_BAG;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

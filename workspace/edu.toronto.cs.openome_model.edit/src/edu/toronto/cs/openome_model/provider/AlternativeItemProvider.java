@@ -74,6 +74,7 @@ public class AlternativeItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addIntentionsPropertyDescriptor(object);
 			addEvalLabelsPropertyDescriptor(object);
+			addDirectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -167,6 +168,28 @@ public class AlternativeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Direction feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDirectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Alternative_direction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Alternative_direction_feature", "_UI_Alternative_type"),
+				 openome_modelPackage.Literals.ALTERNATIVE__DIRECTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Alternative.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,6 +229,7 @@ public class AlternativeItemProvider
 			case openome_modelPackage.ALTERNATIVE__NAME:
 			case openome_modelPackage.ALTERNATIVE__DESCRIPTION:
 			case openome_modelPackage.ALTERNATIVE__EVAL_LABELS:
+			case openome_modelPackage.ALTERNATIVE__DIRECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

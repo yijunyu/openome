@@ -910,6 +910,52 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.HumanJudgment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HumanJudgmentItemProvider humanJudgmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.HumanJudgment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHumanJudgmentAdapter() {
+		if (humanJudgmentItemProvider == null) {
+			humanJudgmentItemProvider = new HumanJudgmentItemProvider(this);
+		}
+
+		return humanJudgmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.toronto.cs.openome_model.LabelBag} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LabelBagItemProvider labelBagItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.toronto.cs.openome_model.LabelBag}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLabelBagAdapter() {
+		if (labelBagItemProvider == null) {
+			labelBagItemProvider = new LabelBagItemProvider(this);
+		}
+
+		return labelBagItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,6 +1090,8 @@ public class openome_modelItemProviderAdapterFactory extends openome_modelAdapte
 		if (insAssociationItemProvider != null) insAssociationItemProvider.dispose();
 		if (alternativeItemProvider != null) alternativeItemProvider.dispose();
 		if (intentionToEvaluationLabelMapItemProvider != null) intentionToEvaluationLabelMapItemProvider.dispose();
+		if (humanJudgmentItemProvider != null) humanJudgmentItemProvider.dispose();
+		if (labelBagItemProvider != null) labelBagItemProvider.dispose();
 	}
 
 }
