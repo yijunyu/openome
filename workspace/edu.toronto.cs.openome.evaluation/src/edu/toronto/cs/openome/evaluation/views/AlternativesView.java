@@ -23,6 +23,7 @@ import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveListener;
@@ -37,6 +38,8 @@ import org.eclipse.ui.part.ViewPart;
 import edu.toronto.cs.openome.evaluation.commands.AddHumanJudgmentCommand;
 import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.DeleteAlternativeCommand;
+import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.RemoveHumanJudgmentCommand;
 import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelCommand;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
@@ -315,10 +318,10 @@ public class AlternativesView extends ViewPart {
 				}
 				
 				/*
-				 * Human Judgement code - commented out for now
+				 * Human Judgement code
 				 */
 			
-				// check if user double clicked on a human judgment
+				// check if user clicked on a human judgment
 				// if so, change the label of the intention to this judgment
 				// and propagate the change
 				if (obj instanceof TreeObject){
@@ -337,50 +340,71 @@ public class AlternativesView extends ViewPart {
 							TreeObject altNode = to.getParent().getParent();
 							if(altNode != null){
 								//Mike - commented WIP code
-//								if (altNode.getObject() instanceof Alternative){
-//									Alternative alt = (Alternative)altNode.getObject();
-//									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-//									
-//									//Remove the old judgement
-//									cs = ModelInstance.getCommandStack();
-//									
-//									/* Create a Remove command */
-//									Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgement);
-//									cs.execute(removeCommand);
-//									
-//									//Open the appropriate dialog
-//									if (alt.getDirection().equals("forward")) {
-//										ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
-//										cs.execute(windowCommand);
-//										if (windowCommand.cancelled()) {
-//											return;
-//										}
-//										
-//										EvaluationLabel result = windowCommand.getEvalResult();	
-//										System.out.println("Window result: " + result.getName());
-//										
-//										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
-//										cs.execute(addHJ);
-//										
-//									} else if (alt.getDirection().equals("backward")) {
-//										Command windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
-//										cs.execute(windowCommand);
-//									}
-//									
-//									// update the intention with the new judgment
-//									
-//									/*showMessage("Humanjudgement: " + judgement 
-//											+ "\nIntention: " + inten.getName()
-//											+ "\nAlternative: " + to.getParent().getParent().getName());*/
-//								}
+								if (altNode.getObject() instanceof Alternative){
+									Alternative alt = (Alternative)altNode.getObject();
+									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+
+									//Remove the old judgement
+									cs = ModelInstance.getCommandStack();
+									
+									/* Create a Remove command */
+									Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgement);
+									
+
+									//Open the appropriate dialog
+									if (alt.getDirection().equals("forward")) {
+										ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
+										cs.execute(windowCommand);
+										if (windowCommand.cancelled()) {
+											return;
+										}
+
+										//Remove the HJ from both the model and the AlternativesView tree.
+										cs.execute(removeCommand);
+										//to.getParent().removeChild(to);
+
+										EvaluationLabel result = windowCommand.getEvalResult();	
+										System.out.println("Window result: " + result.getName());
+
+										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+										cs.execute(addHJ);
+
+									} else if (alt.getDirection().equals("backward")) {
+										BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
+										cs.execute(windowCommand);
+										if (windowCommand.cancelled()) {
+											return;
+										}
+
+										//Remove the HJ from both the model and the AlternativesView tree.
+										cs.execute(removeCommand);
+										//to.getParent().removeChild(to);
+
+										EvaluationLabel result = windowCommand.getEvalResult();	
+										System.out.println("Window result: " + result.getName());
+
+										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+										cs.execute(addHJ);
+									}
+									
+									//Update and refresh the view
+									clearView();
+									loadAlternatives();
+
+									// update the intention with the new judgment
+
+									/*showMessage("Humanjudgement: " + judgement 
+											+ "\nIntention: " + inten.getName()
+											+ "\nAlternative: " + to.getParent().getParent().getName());*/
+								}
 							}
 							return;
 						}
 					}
 				}
-				
-				
-				
+
+
+
 			}
 		};
 	}
