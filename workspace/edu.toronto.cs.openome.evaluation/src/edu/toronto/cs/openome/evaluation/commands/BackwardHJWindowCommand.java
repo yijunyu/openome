@@ -99,7 +99,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		System.out.println("executing backward window");
 		Display display = PlatformUI.getWorkbench().getDisplay();
 		
-		final Shell shell = new Shell(display,  SWT.CLOSE | SWT.TITLE);
+		final Shell shell = new Shell(display /*,  SWT.CLOSE | SWT.TITLE | SWT.RESIZE*/);
 		
 		//allows for easy access to evaluation images
 		EvalLabelElementTypeLabelProvider eletlp  = new EvalLabelElementTypeLabelProvider();
@@ -236,6 +236,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			ImageCombo combo = new ImageCombo (table, SWT.NONE);
 			combos.put(i, combo);
 			combo.setText("Label");
+			//combo.setEditable(false);
 			
 			// The following code adds the appropriate evaluation images 
 			// to the dropdown menu alongside the text.
@@ -247,7 +248,8 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			combo.add("Partially Denied", eletlp.getImage(EvaluationLabel.WEAKLY_DENIED));
 			combo.add("Denied", eletlp.getImage(EvaluationLabel.DENIED));
 			combo.add("Don't care", null);
-						
+				
+			
 			editor.setEditor(combo, item, 2);
 			
 			if (i != null) {				
