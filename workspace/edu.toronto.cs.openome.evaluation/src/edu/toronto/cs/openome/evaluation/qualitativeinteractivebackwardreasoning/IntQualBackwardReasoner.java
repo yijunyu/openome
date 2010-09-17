@@ -531,7 +531,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.SATISFIED);
 		}		
 		else if (js[1] > 0 ) { //& (js[2] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
-			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.WEAKLY_SATISFIED);
+			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.PARTIALLY_SATISFIED);
 		}	
 		else if (js[2] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[3] < 0 & js[4] < 0 & js[5] < 0)) {
 			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.UNKNOWN);
@@ -540,7 +540,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.CONFLICT);
 		}
 		else if (js[4] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0)) {
-			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.WEAKLY_DENIED);
+			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.PARTIALLY_DENIED);
 		}			
 		else if (js[5] > 0 ) { //& (js[0] < 0 & js[1] < 0 & js[2] < 0 & js[3] < 0 & js[4]<0)) {
 			setInitLabel = new SetInitialEvaluationLabelCommand(i, EvaluationLabel.DENIED);
@@ -699,7 +699,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			if (ints[0] > 0)
 				labels += "Satisfied ";
 			else if (ints[1] > 0)
-				labels += "Weakly Satisfied ";
+				labels += "Partially Satisfied ";
 			if (ints[2] > 0)
 				labels += "Unknown ";
 			if (ints[3] > 0)
@@ -707,7 +707,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			if (ints[5] > 0)
 				labels += "Denied ";
 			else if (ints[4] > 0)
-				labels += "Weakly Denied ";
+				labels += "Partially Denied ";
 		}
 		
 		return labels;
@@ -726,7 +726,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			
 			else if (ints[1] > 0 & (ints[0] < 0 & ints[2] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
 				//if (intention.getContributesFrom().size() < 2)
-					setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_SATISFIED);
+					setQualCombinedLabel(intention, EvaluationLabel.PARTIALLY_SATISFIED);
 			}
 			
 			else if (ints[2] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[3] < 0 & ints[4] < 0 & ints[5] < 0)) {
@@ -739,7 +739,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 			
 			else if (ints[4] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0 & ints[5] < 0)) {
 				//if (intention.getContributesFrom().size() < 2)
-					setQualCombinedLabel(intention, EvaluationLabel.WEAKLY_DENIED);
+					setQualCombinedLabel(intention, EvaluationLabel.PARTIALLY_DENIED);
 			}
 			
 			else if (ints[5] > 0 & (ints[0] < 0 & ints[1] < 0 & ints[2] < 0 & ints[3] < 0)) {

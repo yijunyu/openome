@@ -475,10 +475,10 @@ public class GoalModel extends IStar {
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);		    			
 				} else if(g.label!=null && g.label.equals("PS")
 						|| g.satisfied > g.denied){
-					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);  			
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_SATISFIED);  			
 				} else if(g.label!=null && g.label.equals("PD")
 						|| g.satisfied < g.denied){
-					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);		    			
+					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_DENIED);		    			
 				} else if(g.label!=null && g.label.equals("CF")
 						|| g.satisfied == g.denied && g.satisfied >= 0.5){
 					x.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);

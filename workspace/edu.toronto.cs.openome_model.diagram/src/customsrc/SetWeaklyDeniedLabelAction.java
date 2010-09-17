@@ -7,9 +7,9 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 
 public class SetWeaklyDeniedLabelAction extends SetEvaluationLabelAction {
 	
-	private EvaluationLabel privateEvalLabel = EvaluationLabel.WEAKLY_DENIED;
+	private EvaluationLabel privateEvalLabel = EvaluationLabel.PARTIALLY_DENIED;
 	private String privateID = "SetWeaklyDeniedLabelAction";
-	private String privateEvalLabelText = "Weakly Denied";
+	private String privateEvalLabelText = "Partially Denied";
 	private String imageFile = "weaklyDeniedEval.png";
 	
 	protected SetWeaklyDeniedLabelAction(IWorkbenchPage workbenchPage) {

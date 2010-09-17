@@ -22,7 +22,7 @@ public class TargetAxioms extends IntentionAxioms {
 			vi.push(tIndex);
 		}
 			
-		if (label == EvaluationLabel.WEAKLY_SATISFIED) {
+		if (label == EvaluationLabel.PARTIALLY_SATISFIED) {
 			
 			vi.push(tIndex+1);
 		}
@@ -33,7 +33,7 @@ public class TargetAxioms extends IntentionAxioms {
 		if (label == EvaluationLabel.CONFLICT) {
 			vi.push(tIndex+3);
 		}
-		if (label == EvaluationLabel.WEAKLY_DENIED) {
+		if (label == EvaluationLabel.PARTIALLY_DENIED) {
 			vi.push(tIndex+4);
 		}
 		if (label == EvaluationLabel.DENIED) {
@@ -57,7 +57,7 @@ public class TargetAxioms extends IntentionAxioms {
 			//vi.push(tIndex);
 		}
 			
-		if (label == EvaluationLabel.WEAKLY_SATISFIED) {
+		if (label == EvaluationLabel.PARTIALLY_SATISFIED) {
 			int [] indexes = {tIndex+1, -(tIndex + 2), -(tIndex + 3), -(tIndex + 4)};
 			addClauses(indexes);
 			//vi.push(tIndex+1);
@@ -71,7 +71,7 @@ public class TargetAxioms extends IntentionAxioms {
 			int [] indexes = {tIndex +3, -(tIndex + 1), -(tIndex + 2), -(tIndex + 4)};
 			addClauses(indexes);
 		}
-		if (label == EvaluationLabel.WEAKLY_DENIED) {
+		if (label == EvaluationLabel.PARTIALLY_DENIED) {
 			int [] indexes = {tIndex +4, -(tIndex + 1), -(tIndex + 2), -(tIndex + 3)};
 			addClauses(indexes);
 		}

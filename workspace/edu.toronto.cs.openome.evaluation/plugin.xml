@@ -329,7 +329,7 @@
                   commandId="openome_ApplyWeaklySatisfied_cmd"
                   icon="icons/evalLabels/weaklySatisfiedEval.png"
                   id="openome_ApplyWeaklySatisfied_toolbarIcon"
-                  tooltip="Apply Weakly Satisfied Label"
+                  tooltip="Apply Partially Satisfied Label"
                   mnemonic="W">
             	</command>
    			</toolbar>
@@ -359,7 +359,7 @@
                   commandId="openome_ApplyWeaklyDenied_cmd"
                   icon="icons/evalLabels/weaklyDeniedEval.png"
                   id="openome_ApplyWeaklyDenied_toolbarIcon"
-                  tooltip="Apply Weakly Denied Label"
+                  tooltip="Apply Partially Denied Label"
                   mnemonic="W">
             	</command>
    			</toolbar>

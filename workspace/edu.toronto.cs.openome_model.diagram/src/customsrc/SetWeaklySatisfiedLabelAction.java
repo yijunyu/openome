@@ -7,9 +7,9 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 
 public class SetWeaklySatisfiedLabelAction extends SetEvaluationLabelAction {
 	
-	private EvaluationLabel privateEvalLabel = EvaluationLabel.WEAKLY_SATISFIED;
+	private EvaluationLabel privateEvalLabel = EvaluationLabel.PARTIALLY_SATISFIED;
 	private String privateID = "SetWeaklySatisfiedLabelAction";
-	private String privateEvalLabelText = "Weakly Satisfied";
+	private String privateEvalLabelText = "Partially Satisfied";
 	private String imageFile = "weaklySatisfiedEval.png";
 	
 	protected SetWeaklySatisfiedLabelAction(IWorkbenchPage workbenchPage) {

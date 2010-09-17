@@ -17,7 +17,7 @@ public class EvaluationElementTypeLabelProvider extends
 	protected String getFileName(EvaluationLabel l) {
 		String image = "satisfiedEval.png";
 		
-		if (l == EvaluationLabel.WEAKLY_SATISFIED)  {
+		if (l == EvaluationLabel.PARTIALLY_SATISFIED)  {
 			image = "weaklySatisfiedEval.png";
 		}
 		if (l == EvaluationLabel.CONFLICT)  {
@@ -26,7 +26,7 @@ public class EvaluationElementTypeLabelProvider extends
 		if (l == EvaluationLabel.UNKNOWN)  {
 			image = "unknownEval.png";
 		}
-		if (l == EvaluationLabel.WEAKLY_DENIED) {
+		if (l == EvaluationLabel.PARTIALLY_DENIED) {
 			image = "weaklyDeniedEval.png";
 		}
 		if (l == EvaluationLabel.DENIED) {

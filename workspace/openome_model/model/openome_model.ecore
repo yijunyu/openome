@@ -242,9 +242,9 @@
     <eLiterals name="None"/>
     <eLiterals name="Unknown"/>
     <eLiterals name="Satisfied"/>
-    <eLiterals name="WeaklySatisfied"/>
+    <eLiterals name="PartiallySatisfied" literal="PartiallySatisfied"/>
     <eLiterals name="Denied"/>
-    <eLiterals name="WeaklyDenied"/>
+    <eLiterals name="PartiallyDenied" literal="PartiallyDenied"/>
     <eLiterals name="Conflict"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GoalModelingContributionType">

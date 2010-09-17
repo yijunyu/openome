@@ -91,7 +91,7 @@ public class ApplyWeaklyDeniedHandler extends ReasonerHandler{
 					try {
 						AbstractBorderedShapeEditPart aSEp = (AbstractBorderedShapeEditPart) ep;
 						IntentionImpl partIntention = (IntentionImpl) aSEp.resolveSemanticElement();
-						SetQualitativeEvaluationLabelCommand setLabel = new SetQualitativeEvaluationLabelCommand(partIntention, EvaluationLabel.WEAKLY_DENIED);
+						SetQualitativeEvaluationLabelCommand setLabel = new SetQualitativeEvaluationLabelCommand(partIntention, EvaluationLabel.PARTIALLY_DENIED);
 						cs.execute(setLabel);
 					} catch (Exception CastFail) {						
 					}

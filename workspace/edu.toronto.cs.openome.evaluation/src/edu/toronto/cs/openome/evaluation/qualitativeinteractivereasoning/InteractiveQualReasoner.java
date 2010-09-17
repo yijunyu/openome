@@ -327,10 +327,10 @@ public class InteractiveQualReasoner extends Reasoner {
 			return l;
 		
 		if (c instanceof HelpContribution) {
-			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED)
-				return EvaluationLabel.WEAKLY_SATISFIED;
-			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.WEAKLY_DENIED) {
-				return EvaluationLabel.WEAKLY_DENIED;
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.PARTIALLY_SATISFIED)
+				return EvaluationLabel.PARTIALLY_SATISFIED;
+			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.PARTIALLY_DENIED) {
+				return EvaluationLabel.PARTIALLY_DENIED;
 			}			
 		}
 		
@@ -338,23 +338,23 @@ public class InteractiveQualReasoner extends Reasoner {
 			return EvaluationLabel.UNKNOWN;
 		
 		if (c instanceof HurtContribution) {
-			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED) {
-				return EvaluationLabel.WEAKLY_DENIED;
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.PARTIALLY_SATISFIED) {
+				return EvaluationLabel.PARTIALLY_DENIED;
 			}
-			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.WEAKLY_DENIED) {
-				return EvaluationLabel.WEAKLY_SATISFIED;
+			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.PARTIALLY_DENIED) {
+				return EvaluationLabel.PARTIALLY_SATISFIED;
 			}
 		}
 		
 		if (c instanceof BreakContribution) {
-			if (l == EvaluationLabel.WEAKLY_SATISFIED) {
-				return EvaluationLabel.WEAKLY_DENIED;
+			if (l == EvaluationLabel.PARTIALLY_SATISFIED) {
+				return EvaluationLabel.PARTIALLY_DENIED;
 			}
 			if (l == EvaluationLabel.SATISFIED) {
 				return EvaluationLabel.DENIED;
 			}
-			if (l == EvaluationLabel.WEAKLY_DENIED || l == EvaluationLabel.DENIED) {
-				return EvaluationLabel.WEAKLY_SATISFIED;
+			if (l == EvaluationLabel.PARTIALLY_DENIED || l == EvaluationLabel.DENIED) {
+				return EvaluationLabel.PARTIALLY_SATISFIED;
 			}			
 		}
 		

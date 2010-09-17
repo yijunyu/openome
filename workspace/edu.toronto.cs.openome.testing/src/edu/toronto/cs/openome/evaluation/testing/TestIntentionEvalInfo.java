@@ -42,11 +42,11 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		assertTrue(i.getHumanJudgments().size() == 0);
 					
 		Command addToLB;
-		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
-		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
-		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
 		Command addHJ = new AddHumanJudgmentCommand(i, EvaluationLabel.SATISFIED, cs);
@@ -84,11 +84,11 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		assertTrue(i.getHumanJudgments().size() == 0);
 					
 		Command addToLB;
-		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
-		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
-		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
 		Command addHJ = new AddHumanJudgmentCommand(i, EvaluationLabel.SATISFIED, cs);
@@ -139,20 +139,20 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		Intention i = (Intention) elist.get(3);
 			
 		Command addToLB;
-		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
 		
-		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(1), EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
 		assertTrue(i.getLabelBag().size() == 2);
 		
-		Command addHJ = new AddHumanJudgmentCommand(i, EvaluationLabel.WEAKLY_SATISFIED, cs);
+		Command addHJ = new AddHumanJudgmentCommand(i, EvaluationLabel.PARTIALLY_SATISFIED, cs);
 		cs.execute(addHJ);
 		
 		assertTrue(i.getLabelBag().size() == 2);
 		
-		assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		//addHJ = new AddHumanJudgmentCommand(i, EvaluationLabel.SATISFIED);
 		//cs.execute(addHJ);
@@ -160,7 +160,7 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		
 		//assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.SATISFIED));
 		
-		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(2), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
 		
 		assertTrue(i.findExistingHumanJudgment() == null);
@@ -170,7 +170,7 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		
 		assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.SATISFIED));
 		
-		addToLB = new AddToLabelBagCommand(i, elist.get(3), EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(3), EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
 		assertTrue(i.findExistingHumanJudgment() == null);
@@ -180,12 +180,12 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		
 		assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.DENIED));
 		
-		addToLB = new AddToLabelBagCommand(i, elist.get(4), EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(4), EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
 		assertTrue(i.findExistingHumanJudgment().equals(EvaluationLabel.DENIED));
 		
-		addToLB = new AddToLabelBagCommand(i, elist.get(5), EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(i, elist.get(5), EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
 		
 		assertTrue(i.findExistingHumanJudgment() == null);
@@ -208,23 +208,23 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		Intention d = (Intention) elist.get(3);
 		
 		Command addToLB;
-		addToLB = new AddToLabelBagCommand(a, b, EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(a, b, EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
 		
-		addToLB = new AddToLabelBagCommand(a, c, EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(a, c, EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
-		Command addHJ = new AddHumanJudgmentCommand(a, EvaluationLabel.WEAKLY_SATISFIED, cs);
+		Command addHJ = new AddHumanJudgmentCommand(a, EvaluationLabel.PARTIALLY_SATISFIED, cs);
 		cs.execute(addHJ);
 		
 		assertTrue(b.getReverseLabelBag().size() == 1);
 		assertTrue(c.getReverseLabelBag().size() == 1);
 		
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		addToLB = new AddToLabelBagCommand(a, d, EvaluationLabel.CONFLICT);
 		cs.execute(addToLB);
@@ -248,12 +248,12 @@ public class TestIntentionEvalInfo extends EvaluationTest {
 		assertTrue(c.getReverseLabelBag().size() == 2);
 		
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(1).equals(d));
 		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(1).equals(EvaluationLabel.CONFLICT));
 		
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(1).equals(d));
 		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(1).equals(EvaluationLabel.CONFLICT));
 		
@@ -275,23 +275,23 @@ EList<Intention> elist = model.getIntentions();
 		Intention d = (Intention) elist.get(3);
 		
 		Command addToLB;
-		addToLB = new AddToLabelBagCommand(a, b, EvaluationLabel.WEAKLY_SATISFIED);
+		addToLB = new AddToLabelBagCommand(a, b, EvaluationLabel.PARTIALLY_SATISFIED);
 		cs.execute(addToLB);
 		
-		addToLB = new AddToLabelBagCommand(a, c, EvaluationLabel.WEAKLY_DENIED);
+		addToLB = new AddToLabelBagCommand(a, c, EvaluationLabel.PARTIALLY_DENIED);
 		cs.execute(addToLB);
 		
-		Command addHJ = new AddHumanJudgmentCommand(a, EvaluationLabel.WEAKLY_SATISFIED, cs);
+		Command addHJ = new AddHumanJudgmentCommand(a, EvaluationLabel.PARTIALLY_SATISFIED, cs);
 		cs.execute(addHJ);
 		
 		assertTrue(b.getReverseLabelBag().size() == 1);
 		assertTrue(c.getReverseLabelBag().size() == 1);
 		
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		addToLB = new AddToLabelBagCommand(a, d, EvaluationLabel.CONFLICT);
 		cs.execute(addToLB);
@@ -315,12 +315,12 @@ EList<Intention> elist = model.getIntentions();
 		assertTrue(c.getReverseLabelBag().size() == 2);
 		
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(1).equals(d));
 		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(1).equals(EvaluationLabel.CONFLICT));
 		
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(1).equals(d));
 		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(1).equals(EvaluationLabel.CONFLICT));
 		
@@ -331,10 +331,10 @@ EList<Intention> elist = model.getIntentions();
 		assertTrue(c.getReverseLabelBag().size() == 1);
 		
 		assertTrue(b.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(b.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		assertTrue(c.getReverseLabelBag().getLabelBagIntentions().get(0).equals(a));
-		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(c.getReverseLabelBag().getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		backtrack = new BacktrackReverseJudgmentCommand(a, a.getHumanJudgments().get(0));
 		cs.execute(backtrack);

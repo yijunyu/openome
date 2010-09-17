@@ -54,10 +54,10 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 //		list.add(Openome_modelElementTypes.BreakContribution_3007);
 		
 		labellist.add(EvaluationLabel.SATISFIED);
-		labellist.add(EvaluationLabel.WEAKLY_SATISFIED);
+		labellist.add(EvaluationLabel.PARTIALLY_SATISFIED);
 		labellist.add(EvaluationLabel.CONFLICT);
 		labellist.add(EvaluationLabel.UNKNOWN);
-		labellist.add(EvaluationLabel.WEAKLY_DENIED);
+		labellist.add(EvaluationLabel.PARTIALLY_DENIED);
 		labellist.add(EvaluationLabel.DENIED);
 	
 		System.out.println("added to labellist");

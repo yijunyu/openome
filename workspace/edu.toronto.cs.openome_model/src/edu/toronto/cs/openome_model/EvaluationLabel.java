@@ -46,14 +46,14 @@ public enum EvaluationLabel implements Enumerator {
 	 * @ordered
 	 */
 	SATISFIED(0, "Satisfied", "Satisfied"), /**
-	 * The '<em><b>Weakly Satisfied</b></em>' literal object.
+	 * The '<em><b>Partially Satisfied</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_SATISFIED_VALUE
+	 * @see #PARTIALLY_SATISFIED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	WEAKLY_SATISFIED(0, "WeaklySatisfied", "WeaklySatisfied"), /**
+	PARTIALLY_SATISFIED(0, "PartiallySatisfied", "PartiallySatisfied"), /**
 	 * The '<em><b>Denied</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,14 +62,14 @@ public enum EvaluationLabel implements Enumerator {
 	 * @ordered
 	 */
 	DENIED(0, "Denied", "Denied"), /**
-	 * The '<em><b>Weakly Denied</b></em>' literal object.
+	 * The '<em><b>Partially Denied</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_DENIED_VALUE
+	 * @see #PARTIALLY_DENIED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	WEAKLY_DENIED(0, "WeaklyDenied", "WeaklyDenied"), /**
+	PARTIALLY_DENIED(0, "PartiallyDenied", "PartiallyDenied"), /**
 	 * The '<em><b>Conflict</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,19 +132,19 @@ public enum EvaluationLabel implements Enumerator {
 	public static final int SATISFIED_VALUE = 0;
 
 	/**
-	 * The '<em><b>Weakly Satisfied</b></em>' literal value.
+	 * The '<em><b>Partially Satisfied</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Weakly Satisfied</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Partially Satisfied</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_SATISFIED
-	 * @model name="WeaklySatisfied"
+	 * @see #PARTIALLY_SATISFIED
+	 * @model name="PartiallySatisfied"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WEAKLY_SATISFIED_VALUE = 0;
+	public static final int PARTIALLY_SATISFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Denied</b></em>' literal value.
@@ -162,19 +162,19 @@ public enum EvaluationLabel implements Enumerator {
 	public static final int DENIED_VALUE = 0;
 
 	/**
-	 * The '<em><b>Weakly Denied</b></em>' literal value.
+	 * The '<em><b>Partially Denied</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Weakly Denied</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Partially Denied</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #WEAKLY_DENIED
-	 * @model name="WeaklyDenied"
+	 * @see #PARTIALLY_DENIED
+	 * @model name="PartiallyDenied"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int WEAKLY_DENIED_VALUE = 0;
+	public static final int PARTIALLY_DENIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>Conflict</b></em>' literal value.
@@ -202,9 +202,9 @@ public enum EvaluationLabel implements Enumerator {
 			NONE,
 			UNKNOWN,
 			SATISFIED,
-			WEAKLY_SATISFIED,
+			PARTIALLY_SATISFIED,
 			DENIED,
-			WEAKLY_DENIED,
+			PARTIALLY_DENIED,
 			CONFLICT,
 		};
 
@@ -379,15 +379,15 @@ public enum EvaluationLabel implements Enumerator {
 			else
 				return true;
 		}
-		if (this == EvaluationLabel.WEAKLY_SATISFIED) {
-			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED)
+		if (this == EvaluationLabel.PARTIALLY_SATISFIED) {
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.PARTIALLY_SATISFIED)
 				return false;
 			else
 				return true;
 		}
 		
 		if (this == EvaluationLabel.CONFLICT) {
-			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.WEAKLY_SATISFIED 
+			if (l == EvaluationLabel.SATISFIED || l == EvaluationLabel.PARTIALLY_SATISFIED 
 					|| l == EvaluationLabel.CONFLICT)
 				return false;
 			else
@@ -395,13 +395,13 @@ public enum EvaluationLabel implements Enumerator {
 		}
 		
 		if (this == EvaluationLabel.UNKNOWN) {
-			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.WEAKLY_DENIED)
+			if (l == EvaluationLabel.DENIED || l == EvaluationLabel.PARTIALLY_DENIED)
 				return true;
 			else
 				return false;
 		}
 		
-		if (this == EvaluationLabel.WEAKLY_DENIED) {
+		if (this == EvaluationLabel.PARTIALLY_DENIED) {
 			if (l == EvaluationLabel.DENIED)
 				return true;
 			else

@@ -38,13 +38,13 @@ public class TestHumanJudgement extends EvaluationTest {
 		
 		assertTrue(!elist.isEmpty());
 					
-		lb1.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb1.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb1.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb1.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
-		lb2.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb2.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb2.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb2.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
 		HumanJudgment hj1 = new HumanJudgmentImpl(lb1, EvaluationLabel.SATISFIED);
 		
@@ -54,7 +54,7 @@ public class TestHumanJudgement extends EvaluationTest {
 		
 		assertTrue(hj2.findOrImplies(lb1).getResultLabel().equals(EvaluationLabel.SATISFIED));
 		
-		lb2.addToLabelBag(elist.get(3), EvaluationLabel.WEAKLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(3), EvaluationLabel.PARTIALLY_SATISFIED);
 		
 		HumanJudgment hj3 = new HumanJudgmentImpl(lb2, EvaluationLabel.SATISFIED);
 		
@@ -64,7 +64,7 @@ public class TestHumanJudgement extends EvaluationTest {
 		//lb2.printBag();
 		assertTrue(hj3.findOrImplies(lb1) == null);
 		
-		lb2.addToLabelBag(elist.get(4), EvaluationLabel.WEAKLY_DENIED);
+		lb2.addToLabelBag(elist.get(4), EvaluationLabel.PARTIALLY_DENIED);
 		
 		//lb1.printBag();
 		//lb2.printBag();
@@ -88,12 +88,12 @@ public class TestHumanJudgement extends EvaluationTest {
 		
 		assertTrue(hja.findOrImplies(lb1) == null);
 		
-		lb3.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_DENIED);
-		lb3.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_DENIED);
+		lb3.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_DENIED);
+		lb3.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_DENIED);
 		lb3.addToLabelBag(elist.get(2), EvaluationLabel.CONFLICT);
 		
-		lb4.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_DENIED);
-		lb4.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_DENIED);
+		lb4.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_DENIED);
+		lb4.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_DENIED);
 		lb4.addToLabelBag(elist.get(2), EvaluationLabel.CONFLICT);
 		
 		HumanJudgment hj4 = new HumanJudgmentImpl(lb3, EvaluationLabel.DENIED);

@@ -107,10 +107,10 @@ public class Reasoning {
 						.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);
 			} else if (partiallySatisifed.contains(root)) {
 				root
-						.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_SATISFIED);
 			} else if (partiallyDenied.contains(root)) {
 				root
-						.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
+						.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_DENIED);
 			} else if (conflicted.contains(root)) {
 				root
 						.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
@@ -263,9 +263,9 @@ public class Reasoning {
 			fullySatisfied.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED) {
 			fullyDenied.add(root);
-		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_SATISFIED) {
 			partiallySatisifed.add(root);
-		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED) {
+		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_DENIED) {
 			partiallyDenied.add(root);
 		} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT) {
 			conflicted.add(root);

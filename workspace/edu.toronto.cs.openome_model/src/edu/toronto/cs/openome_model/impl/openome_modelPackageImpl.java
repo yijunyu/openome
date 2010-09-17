@@ -2216,9 +2216,9 @@ public class openome_modelPackageImpl extends EPackageImpl implements openome_mo
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.NONE);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.UNKNOWN);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.SATISFIED);
-		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_SATISFIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.PARTIALLY_SATISFIED);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.DENIED);
-		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.WEAKLY_DENIED);
+		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.PARTIALLY_DENIED);
 		addEEnumLiteral(evaluationLabelEEnum, EvaluationLabel.CONFLICT);
 
 		initEEnum(goalModelingContributionTypeEEnum, GoalModelingContributionType.class, "GoalModelingContributionType");

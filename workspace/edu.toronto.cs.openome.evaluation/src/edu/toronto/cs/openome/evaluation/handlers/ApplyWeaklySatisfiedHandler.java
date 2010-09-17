@@ -91,7 +91,7 @@ public class ApplyWeaklySatisfiedHandler extends ReasonerHandler{
 					try {
 						AbstractBorderedShapeEditPart aSEp = (AbstractBorderedShapeEditPart) ep;
 						IntentionImpl partIntention = (IntentionImpl) aSEp.resolveSemanticElement();
-						SetQualitativeEvaluationLabelCommand setLabel = new SetQualitativeEvaluationLabelCommand(partIntention, EvaluationLabel.WEAKLY_SATISFIED);
+						SetQualitativeEvaluationLabelCommand setLabel = new SetQualitativeEvaluationLabelCommand(partIntention, EvaluationLabel.PARTIALLY_SATISFIED);
 						cs.execute(setLabel);
 					} catch (Exception CastFail) {						
 					}

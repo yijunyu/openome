@@ -247,9 +247,9 @@ public class QueryVariability2 implements IConfigurator {
 				FS_goals.add(root);
 			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.DENIED ) {
 				FD_goals.add(root);
-			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED ) {
+			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_SATISFIED ) {
 				PS_goals.add(root);
-			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED ) {
+			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_DENIED ) {
 				PD_goals.add(root);
 			} else if (root.getQualitativeReasoningCombinedLabel() == EvaluationLabel.CONFLICT ) {
 				CF_goals.add(root);
@@ -732,14 +732,14 @@ public class QueryVariability2 implements IConfigurator {
 				b.append(FS(p) + " 0\n");
 				b.append(FD(p) + " 0\n");
 				numClauses += 2;
-			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_SATISFIED) { // PS
+			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_SATISFIED) { // PS
 				for (float i=1; i<LEVELS/2; i++) {
 					b.append(PS(p, i/LEVELS) + " " + "0\n");
 					numClauses ++;
 				}
 				b.append(-FS(p) + " " + "0\n");
 				numClauses += 2;
-			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.WEAKLY_DENIED) { // PD
+			} else if (p.getQualitativeReasoningCombinedLabel() == EvaluationLabel.PARTIALLY_DENIED) { // PD
 				for (float i=1; i<LEVELS/2; i++) {
 					b.append(PD(p, i/LEVELS) + " " + "0\n");
 					numClauses ++;
@@ -816,14 +816,14 @@ public class QueryVariability2 implements IConfigurator {
 				if (p instanceof Softgoal && values.contains(String.valueOf(PS(p, i/LEVELS)))) 
 				{
 //					System.out.println(p.getName() + " +" + i);
-					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_SATISFIED);
+					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_SATISFIED);
 					PS_goals.add(p);
 				}
 			for (float i=1; i<LEVELS/2; i++)
 				if (p instanceof Softgoal && values.contains(String.valueOf(PD(p, i/LEVELS))))
 				{
 //					System.out.println(p.getName() + " -" + i);
-					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.WEAKLY_DENIED);
+					p.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_DENIED);
 					PD_goals.add(p);
 				}
 			if (values.contains(String.valueOf(FS(p))))

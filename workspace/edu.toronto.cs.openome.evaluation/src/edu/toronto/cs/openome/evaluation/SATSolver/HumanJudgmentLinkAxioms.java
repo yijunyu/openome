@@ -240,13 +240,13 @@ public class HumanJudgmentLinkAxioms extends LinkAxioms {
 	private int getLabelOffset(EvaluationLabel targetLabel) {
 		if (targetLabel == EvaluationLabel.SATISFIED)
 			return 0;
-		if (targetLabel == EvaluationLabel.WEAKLY_SATISFIED)
+		if (targetLabel == EvaluationLabel.PARTIALLY_SATISFIED)
 			return 1;
 		if (targetLabel == EvaluationLabel.UNKNOWN)
 			return 2;
 		if (targetLabel == EvaluationLabel.CONFLICT)
 			return 3;
-		if (targetLabel == EvaluationLabel.WEAKLY_DENIED)
+		if (targetLabel == EvaluationLabel.PARTIALLY_DENIED)
 			return 4;
 		if (targetLabel == EvaluationLabel.DENIED)
 			return 5;

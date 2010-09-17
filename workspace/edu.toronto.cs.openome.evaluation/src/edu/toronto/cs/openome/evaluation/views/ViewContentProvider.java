@@ -194,9 +194,9 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			TreeNode subnode = new TreeNode(name, null, label);
 			node.addChild(subnode);
 			
-			if(label == EvaluationLabel.DENIED || label == EvaluationLabel.WEAKLY_DENIED) {
+			if(label == EvaluationLabel.DENIED || label == EvaluationLabel.PARTIALLY_DENIED) {
 				denied = true;
-			} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.WEAKLY_SATISFIED) {
+			} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.PARTIALLY_SATISFIED) {
 				satisfied = true;
 			}
 		}

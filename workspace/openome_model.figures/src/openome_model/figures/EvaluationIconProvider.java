@@ -38,7 +38,7 @@ public class EvaluationIconProvider {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else if (evaluationLabel.equals("WeaklyDenied")) {
+		} else if (evaluationLabel.equals("PartiallyDenied")) {
 			
 			try {
 				icon = new Image (Display.getCurrent(), FileLocator.find(Platform.getBundle(ICON_PACKAGE),
@@ -46,7 +46,7 @@ public class EvaluationIconProvider {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		} else if (evaluationLabel.equals("WeaklySatisfied")) {
+		} else if (evaluationLabel.equals("PartiallySatisfied")) {
 			try {
 				icon = new Image (Display.getCurrent(), FileLocator.find(Platform.getBundle(ICON_PACKAGE),
 						new Path("icons/weaklySatisfiedEval.png"), null).openStream());

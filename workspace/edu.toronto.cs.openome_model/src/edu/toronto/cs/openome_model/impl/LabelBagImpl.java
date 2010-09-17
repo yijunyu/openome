@@ -1002,7 +1002,7 @@ public class LabelBagImpl extends EObjectImpl implements LabelBag {
 				allConflict = false;
 				allUnknown = false;			
 			}
-			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
+			if (label == EvaluationLabel.PARTIALLY_SATISFIED)  {
 				setAllNegative(false);
 				allConflict = false;
 				allUnknown = false;	
@@ -1021,7 +1021,7 @@ public class LabelBagImpl extends EObjectImpl implements LabelBag {
 				setAllPositive(false);
 				allConflict = false;
 			}
-			if (label == EvaluationLabel.WEAKLY_DENIED) {
+			if (label == EvaluationLabel.PARTIALLY_DENIED) {
 				setAllPositive(false);
 				allConflict = false;
 				allUnknown = false;	

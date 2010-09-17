@@ -48,7 +48,7 @@ public class AutomaticQualReasoner extends Reasoner {
 			if (label == EvaluationLabel.SATISFIED) {
 				FSCount++;
 			}
-			if (label == EvaluationLabel.WEAKLY_SATISFIED)  {
+			if (label == EvaluationLabel.PARTIALLY_SATISFIED)  {
 				PSCount++;
 			}
 			if (label == EvaluationLabel.CONFLICT) {
@@ -57,7 +57,7 @@ public class AutomaticQualReasoner extends Reasoner {
 			if (label == EvaluationLabel.UNKNOWN) {
 				UCount++;
 			}
-			if (label == EvaluationLabel.WEAKLY_DENIED) {
+			if (label == EvaluationLabel.PARTIALLY_DENIED) {
 				PDCount++;
 			}
 			if (label == EvaluationLabel.DENIED) {
@@ -82,11 +82,11 @@ public class AutomaticQualReasoner extends Reasoner {
 		if ((FSPerc + PSPerc) > 0.9)
 			return EvaluationLabel.SATISFIED;
 		if ((FSPerc + PSPerc) > 0.7)
-			return EvaluationLabel.WEAKLY_SATISFIED;
+			return EvaluationLabel.PARTIALLY_SATISFIED;
 		if ((FDPerc + PDPerc) > 0.9)
 			return EvaluationLabel.DENIED;
 		if ((FDPerc + PDPerc) > 0.7)
-			return EvaluationLabel.WEAKLY_DENIED;
+			return EvaluationLabel.PARTIALLY_DENIED;
 		
 		return EvaluationLabel.CONFLICT;
 	}

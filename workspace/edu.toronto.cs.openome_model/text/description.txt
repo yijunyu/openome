@@ -194,9 +194,9 @@ Package openome_model <http:///edu/toronto/cs/openome_model.ecore>
     Literal None = 0
     Literal Unknown = 0
     Literal Satisfied = 0
-    Literal WeaklySatisfied = 0
+    Literal PartiallySatisfied = 0
     Literal Denied = 0
-    Literal WeaklyDenied = 0
+    Literal PartiallyDenied = 0
     Literal Conflict = 0
 
   Enum GoalModelingContributionType

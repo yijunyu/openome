@@ -32,11 +32,11 @@ public class TestLabelBag extends EvaluationTest{
 		
 		assertTrue(!elist.isEmpty());
 		
-		lb1.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		
 		assertTrue(lb1.size() == 1);
 		assertTrue(lb1.getLabelBagIntentions().get(0).equals((Intention) elist.get(0)));
-		assertTrue(lb1.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(lb1.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
 		lb1.addToLabelBag(elist.get(1), EvaluationLabel.DENIED);
 		
@@ -64,19 +64,19 @@ public class TestLabelBag extends EvaluationTest{
 		
 		assertTrue(!elist.isEmpty());
 		
-		lb1.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		
 		LabelBag d = lb1.bagDiff(lb2);
 		assertTrue(d.size() == 1);
 		
 		assertTrue(d.getLabelBagIntentions().get(0).equals((Intention) elist.get(0)));
-		assertTrue(d.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(d.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
-		lb1.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
 		lb1.addToLabelBag(elist.get(2), EvaluationLabel.SATISFIED);
 		
-		lb2.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb2.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
 		lb2.addToLabelBag(elist.get(3), EvaluationLabel.CONFLICT);
 				
 		d = lb1.bagDiff(lb2);
@@ -98,28 +98,28 @@ public class TestLabelBag extends EvaluationTest{
 		LabelBag lb4 = new LabelBagImpl();
 		
 							
-		lb3.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb3.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb3.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb3.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb3.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb3.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
-		lb4.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb4.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb4.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb4.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb4.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb4.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
 		d = lb3.bagDiff(lb4);
 		
 		assertTrue(d.size() == 0);
 		
-		lb4.addToLabelBag(elist.get(3), EvaluationLabel.WEAKLY_SATISFIED);
+		lb4.addToLabelBag(elist.get(3), EvaluationLabel.PARTIALLY_SATISFIED);
 		
 		d = lb3.bagDiff(lb4);
 		
 		assertTrue(d.size() == 1);
 		
 		assertTrue(d.getLabelBagIntentions().get(0).equals((Intention) elist.get(3)));
-		assertTrue(d.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.WEAKLY_SATISFIED));
+		assertTrue(d.getLabelBagEvalLabels().get(0).equals(EvaluationLabel.PARTIALLY_SATISFIED));
 		
-		lb4.addToLabelBag(elist.get(4), EvaluationLabel.WEAKLY_DENIED);
+		lb4.addToLabelBag(elist.get(4), EvaluationLabel.PARTIALLY_DENIED);
 		
 		d = lb3.bagDiff(lb4);
 		
@@ -142,7 +142,7 @@ public class TestLabelBag extends EvaluationTest{
 		
 		assertTrue(!elist.isEmpty());
 					
-		lb1.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
 		assertTrue(lb1.size() == 1);
 		
 		assertTrue(lb1.isAllPositive());
@@ -166,7 +166,7 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.isAllUnknown());
 		assertTrue(!lb1.isAllConflict());
 		
-		lb1.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb1.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		assertTrue(lb1.size() == 3);
 		
 		assertTrue(!lb1.isAllPositive());
@@ -190,7 +190,7 @@ public class TestLabelBag extends EvaluationTest{
 		assertTrue(!lb1.isAllUnknown());
 		assertTrue(!lb1.isAllConflict());
 				
-		lb2.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_DENIED);
+		lb2.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_DENIED);
 		
 		assertTrue(!lb2.isAllPositive());
 		assertTrue(lb2.isAllNegative());
@@ -265,13 +265,13 @@ public class TestLabelBag extends EvaluationTest{
 		
 		assertTrue(!elist.isEmpty());
 					
-		lb1.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb1.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb1.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb1.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb1.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
-		lb2.addToLabelBag(elist.get(0), EvaluationLabel.WEAKLY_SATISFIED);
-		lb2.addToLabelBag(elist.get(1), EvaluationLabel.WEAKLY_SATISFIED);
-		lb2.addToLabelBag(elist.get(2), EvaluationLabel.WEAKLY_DENIED);
+		lb2.addToLabelBag(elist.get(0), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(1), EvaluationLabel.PARTIALLY_SATISFIED);
+		lb2.addToLabelBag(elist.get(2), EvaluationLabel.PARTIALLY_DENIED);
 		
 		assert(lb1.equals(lb2));
 		assert(lb2.equals(lb1));
