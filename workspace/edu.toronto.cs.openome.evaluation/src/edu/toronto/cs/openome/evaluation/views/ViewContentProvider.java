@@ -104,16 +104,15 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 	
 	private TreeNode createTreeNode(Alternative alt) {
 		String name = alt.getName();
-		String newline = System.getProperty("line.separator");
 		
 		if(!alt.getDescription().isEmpty()) {
 			name += " (" + alt.getDescription() + ")";
 		}
 		
 		if(alt.getDirection().equals("forward")) {
-			name += newline + "[Forward Evaluation]";
+			name += " [Forward Evaluation]";
 		} else if(alt.getDirection().equals("backward")) {
-			name += newline + "[Backward Evaluation]";
+			name += " [Backward Evaluation]";
 		}
 		
 		TreeNode node = new TreeNode(name, alt, null);
