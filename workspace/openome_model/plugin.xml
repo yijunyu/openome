@@ -71,20 +71,12 @@
                value="OpenOME, an open-source requirements engineering tool.">
          </property>
          <property
-               name="aboutImage"
-               value="eclipse_lg.gif">
-         </property>
-         <property
                name="appName"
                value="OpenOME">
          </property>
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
-         </property>
-         <property
-               name="windowImages"
-               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse.png">
          </property>
          <property
                name="startupForegroundColor"
@@ -97,6 +89,10 @@
          <property
                name="startupProgressRect"
                value="5,275,445,15">
+         </property>
+         <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse_lg.gif,eclipse_lg.gif">
          </property>
       </product>
    </extension>

@@ -4,7 +4,6 @@
 <product name="OpenOME" id="openome_model.product" application="org.eclipse.ui.ide.workbench" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
-      <image path="eclipse_lg.gif"/>
       <text>
          OpenOME, an open-source requirements engineering tool.
       </text>
@@ -14,9 +13,11 @@
    </configIni>
 
    <launcherArgs>
+      <vmArgsLin>-Dorg.eclipse.swt.browser.UseWebKitGTK=true
+-Dorg.eclipse.swt.browser.XULRunnerPath=/usr/lib/xulrunner-2.0/</vmArgsLin>
    </launcherArgs>
 
-   <windowImages i16="/openome_model/eclipse.gif" i32="/openome_model/eclipse32.gif" i48="/openome_model/eclipse48.gif" i64="/openome_model/eclipse.png"/>
+   <windowImages i16="/openome_model/eclipse.gif" i32="/openome_model/eclipse32.gif" i48="/openome_model/eclipse48.gif" i64="/openome_model/eclipse_lg.gif" i128="/openome_model/eclipse_lg.gif"/>
 
    <splash
       location="openome_model"
@@ -24,6 +25,8 @@
       startupMessageRect="7,252,445,20"
       startupForegroundColor="8000FF" />
    <launcher name="OpenOME">
+      <linux icon="/openome_model/icons/linux.xpm"/>
+      <macosx icon="/openome_model/icons/mac.icns"/>
       <solaris/>
       <win useIco="false">
          <bmp
@@ -54,10 +57,12 @@
       <plugin id="javax.servlet.jsp"/>
       <plugin id="javax.transaction" fragment="true"/>
       <plugin id="javax.xml"/>
-      <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
+      <plugin id="lpg.runtime.java"/>
+      <plugin id="net.sourceforge.lpg.lpgjavaruntime" fragment=""/>
       <plugin id="openome_model"/>
       <plugin id="openome_model.figures"/>
       <plugin id="org.apache.ant"/>
+      <plugin id="org.apache.ant.source"/>
       <plugin id="org.apache.batik.bridge"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.dom"/>
@@ -91,6 +96,7 @@
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filebuffers"/>
       <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.aix.ppc" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.hpux.PA_RISC" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.hpux.ia64_32" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.linux.ppc" fragment="true"/>
@@ -104,6 +110,7 @@
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.net"/>
       <plugin id="org.eclipse.core.net.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.net.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.net.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.net.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.resources"/>
@@ -146,6 +153,7 @@
       <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
       <plugin id="org.eclipse.equinox.p2.core"/>
       <plugin id="org.eclipse.equinox.p2.director"/>
+      <plugin id="org.eclipse.equinox.p2.director.app"/>
       <plugin id="org.eclipse.equinox.p2.engine"/>
       <plugin id="org.eclipse.equinox.p2.garbagecollector"/>
       <plugin id="org.eclipse.equinox.p2.jarprocessor"/>
@@ -155,6 +163,7 @@
       <plugin id="org.eclipse.equinox.p2.publisher"/>
       <plugin id="org.eclipse.equinox.p2.repository"/>
       <plugin id="org.eclipse.equinox.p2.repository.tools"/>
+      <plugin id="org.eclipse.equinox.p2.touchpoint.eclipse"/>
       <plugin id="org.eclipse.equinox.p2.updatesite"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
@@ -209,8 +218,8 @@
       <plugin id="org.eclipse.jdt.core.manipulation"/>
       <plugin id="org.eclipse.jdt.debug"/>
       <plugin id="org.eclipse.jdt.launching"/>
-      <plugin id="org.eclipse.jdt.launching.macosx" fragment="true"/>
-      <plugin id="org.eclipse.jdt.launching.ui.macosx" fragment="true"/>
+      <plugin id="org.eclipse.jdt.launching.macosx"/>
+      <plugin id="org.eclipse.jdt.launching.ui.macosx"/>
       <plugin id="org.eclipse.jdt.ui"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
@@ -238,7 +247,9 @@
       <plugin id="org.eclipse.swt.carbon.macosx" fragment="true"/>
       <plugin id="org.eclipse.swt.cocoa.macosx" fragment="true"/>
       <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.aix.ppc64" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.ppc64" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.s390" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.s390x" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
@@ -254,6 +265,8 @@
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.swt.wpf.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.swtbot.ant.optional.junit3" fragment="true"/>
+      <plugin id="org.eclipse.swtbot.ant.optional.junit4" fragment="true"/>
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.team.ui"/>
       <plugin id="org.eclipse.text"/>
