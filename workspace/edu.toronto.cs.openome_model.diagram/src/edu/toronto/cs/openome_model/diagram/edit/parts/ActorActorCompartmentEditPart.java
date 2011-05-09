@@ -46,7 +46,6 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 7001;
-
 	/**
 	 * The stored width of the actor figure.
 	 * This is used for restoring (expanding) the actor
@@ -54,7 +53,6 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 	 * @generated NOT
 	 */
 	int storedWidth = 450;
-
 	/**
 	 * The stored width of the actor figure.
 	 * This is used for restoring (expanding) the actor
@@ -136,11 +134,8 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		// ensures that the scroll bars never show up
-		this.getCompartmentFigure().getScrollPane()
-				.setVerticalScrollBarVisibility(ScrollPane.NEVER);
-		this.getCompartmentFigure().getScrollPane()
-				.setHorizontalScrollBarVisibility(ScrollPane.NEVER);
-
+		this.getCompartmentFigure().getScrollPane().setVerticalScrollBarVisibility(ScrollPane.NEVER);
+		this.getCompartmentFigure().getScrollPane().setHorizontalScrollBarVisibility(ScrollPane.NEVER);
 		Object feature = event.getFeature();
 
 		// Handling a resize event
@@ -163,7 +158,7 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 			int maxy = ContainerSVGFigure.SIZE_OF_ACTOR_SYMBOL;
 			int padding = 30;
 			Rectangle currentRect;
-
+			//for (int j = 0; j < container.getDecompositions().size(); j++){}
 			for (int i = 0; i < children.size(); i++) {
 				EditPart ep = (EditPart) (children.get(i));
 
@@ -199,7 +194,7 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 					maxy = Math.max(currentRect.y + currentRect.height, maxy);
 
 				}
-
+				
 				// if it's a Softgoal intention:
 				if (ep instanceof SoftgoalEditPart) {
 					currentRect = ((SoftgoalEditPart) (ep)).getPrimaryShape()
@@ -447,7 +442,8 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 				// this call, the figure will expand but the intentions will not show
 				super.handleNotificationEvent(event);
 				// determine which type of intention it is, then redirect it's
-				// anchor points from the actor symbol to point back at the intention			
+				// anchor points from the actor symbol to point back at the intention
+				
 				List listOfChildren = this.getChildren();
 				for (int i = 0; i < listOfChildren.size(); i++) {
 					EditPart ep = (EditPart) (listOfChildren.get(i));
@@ -523,7 +519,7 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 				} catch (ExecutionException e) {
 					e.printStackTrace();
 				}
-
+				
 			}
 		} else {
 			super.handleNotificationEvent(event);
