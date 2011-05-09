@@ -221,41 +221,70 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
         
         private ConnectionAnchor getSourceConnectionAnchor(ConnectionNodeEditPart cep) {
         	if (cep instanceof AndDecompositionEditPart) {
-        		return getSourceConnectionAnchor((AndDecompositionEditPart)cep);
+        		return ((AndDecompositionEditPart) cep).getSourceConnectionAnchor();        	
         	} else if (cep instanceof AndContributionEditPart) {
-        		return getSourceConnectionAnchor((AndContributionEditPart)cep);
-        	}
+        		return ((AndContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof BreakContributionEditPart) {
+        		return ((BreakContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof HelpContributionEditPart) {
+        		return ((HelpContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof HurtContributionEditPart) {
+        		return ((HurtContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof INSAssociationEditPart) {
+        		return ((INSAssociationEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof IsAAssociationEditPart) {
+        		return ((IsAAssociationEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof IsPartOfAssociationEditPart) {
+        		return ((IsPartOfAssociationEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof MakeContributionEditPart) {
+        		return ((MakeContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof OrContributionEditPart) {
+        		return ((OrContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof OrDecompositionEditPart) {
+        		return ((OrDecompositionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof SomeMinusContributionEditPart) {
+        		return ((SomeMinusContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof SomePlusContributionEditPart) {
+        		return ((SomePlusContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof UnknownContributionEditPart) {
+        		return ((UnknownContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} 
         	return null;
         }
         
         private ConnectionAnchor getTargetConnectionAnchor(ConnectionNodeEditPart cep) {
         	if (cep instanceof AndDecompositionEditPart) {
-        		return getTargetConnectionAnchor((AndDecompositionEditPart)cep);
+        		return ((AndDecompositionEditPart) cep).getTargetConnectionAnchor();        	
         	} else if (cep instanceof AndContributionEditPart) {
-        		return getTargetConnectionAnchor((AndContributionEditPart)cep);
-        	}
+        		return ((AndContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof BreakContributionEditPart) {
+        		return ((BreakContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof HelpContributionEditPart) {
+        		return ((HelpContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof HurtContributionEditPart) {
+        		return ((HurtContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof INSAssociationEditPart) {
+        		return ((INSAssociationEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof IsAAssociationEditPart) {
+        		return ((IsAAssociationEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof IsPartOfAssociationEditPart) {
+        		return ((IsPartOfAssociationEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof MakeContributionEditPart) {
+        		return ((MakeContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof OrContributionEditPart) {
+        		return ((OrContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof OrDecompositionEditPart) {
+        		return ((OrDecompositionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof SomeMinusContributionEditPart) {
+        		return ((SomeMinusContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof SomePlusContributionEditPart) {
+        		return ((SomePlusContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof UnknownContributionEditPart) {
+        		return ((UnknownContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} 
         	return null;
         }
         
-        private ConnectionAnchor getSourceConnectionAnchor(AndDecompositionEditPart cep) {
-        	System.out.println("debug 2");
-        	return cep.getSourceConnectionAnchor();
-        }
-        
-        private ConnectionAnchor getTargetConnectionAnchor(AndDecompositionEditPart cep) {
-        	System.out.println("debug 3");
-        	return cep.getTargetConnectionAnchor();
-        }
-        
-        private ConnectionAnchor getSourceConnectionAnchor(AndContributionEditPart cep) {
-        	System.out.println("debug 4");
-        	return cep.getSourceConnectionAnchor();
-        }
-        
-        private ConnectionAnchor getTargetConnectionAnchor(AndContributionEditPart cep) {
-        	System.out.println("debug 5");
-        	return cep.getTargetConnectionAnchor();
-        }
 	}
 	
 	protected void createDefaultEditPolicies() {

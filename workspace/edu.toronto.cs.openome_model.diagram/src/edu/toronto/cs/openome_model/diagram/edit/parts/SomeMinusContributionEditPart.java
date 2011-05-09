@@ -134,6 +134,20 @@ public class SomeMinusContributionEditPart extends ConnectionNodeEditPart
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(){
+		return super.getSourceConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(){
+		return super.getTargetConnectionAnchor();
+	}
+	
+	/**
 	 * @generated
 	 */
 	public class SomeMinusContributionFigure extends PolylineConnectionEx {
@@ -262,7 +276,7 @@ public class SomeMinusContributionEditPart extends ConnectionNodeEditPart
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
-				this.setVisible(true);
+				this.setVisible(false);
 				this.getTargetDecoration().setVisible(false);
 				label.setVisible(false);
 

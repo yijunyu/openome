@@ -132,6 +132,21 @@ public class IsAAssociationEditPart extends ConnectionNodeEditPart implements
 		bendpoints.eSetDeliver(true);
 	}
 
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(){
+		return super.getSourceConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(){
+		return super.getTargetConnectionAnchor();
+	}
+	
 	/**
 	 * @generated
 	 */
@@ -250,7 +265,7 @@ public class IsAAssociationEditPart extends ConnectionNodeEditPart implements
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
-				this.setVisible(true);
+				this.setVisible(false);
 				this.getTargetDecoration().setVisible(false);
 				label.setVisible(false);
 
