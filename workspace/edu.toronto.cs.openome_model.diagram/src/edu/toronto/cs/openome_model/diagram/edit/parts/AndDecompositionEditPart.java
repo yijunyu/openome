@@ -155,7 +155,7 @@ public class AndDecompositionEditPart extends ConnectionNodeEditPart implements
 				// if any of the checks were triggered (true), then that means that this link/connector
 				// is connecting (any) 2 intentions within the same container, and the container
 				// is collapsed.. so don't do anything (ie, dont' draw the link/connector)
-				this.setVisible(false);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(false);
 			} else {
 				// else, draw the line/connector and the decoration

@@ -250,7 +250,7 @@ public class MakeContributionEditPart extends ConnectionNodeEditPart implements
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
-				this.setVisible(false);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(false);
 
 				// search for the contribution text (wrapping label), and hide

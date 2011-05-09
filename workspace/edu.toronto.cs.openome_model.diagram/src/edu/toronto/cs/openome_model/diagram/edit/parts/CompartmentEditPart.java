@@ -42,8 +42,7 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 		protected void refreshConnections(ShapeCompartmentEditPart scep) {
 			Iterator connectionNodes = getConnectionNodes(scep).iterator();
 			while (connectionNodes.hasNext()) {
-				CustomConnectionNodeEditPart cep = (CustomConnectionNodeEditPart) connectionNodes
-					.next();
+				CustomConnectionNodeEditPart cep = (CustomConnectionNodeEditPart) connectionNodes.next();
 				Connection connection = (Connection) cep.getFigure();
 				View connectionView = cep.getNotationView();
 				if (connectionView != null && !connectionView.isVisible()) {

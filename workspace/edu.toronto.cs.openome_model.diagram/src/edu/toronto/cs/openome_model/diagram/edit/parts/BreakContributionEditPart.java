@@ -262,7 +262,7 @@ public class BreakContributionEditPart extends ConnectionNodeEditPart implements
 				// is collapsed.. so don't do anything (ie, dont' draw the
 				// link/connector)
 
-				this.setVisible(false);
+				this.setVisible(true);
 				this.getTargetDecoration().setVisible(false);
 				label.setVisible(false);
 
