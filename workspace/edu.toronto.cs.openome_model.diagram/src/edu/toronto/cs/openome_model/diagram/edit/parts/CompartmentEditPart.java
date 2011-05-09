@@ -38,11 +38,13 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 		return new MyConnectionRefreshMgr();
 	}
 	
+
 	public class MyConnectionRefreshMgr extends ShapeCompartmentEditPart.ConnectionRefreshMgr{
 		protected void refreshConnections(ShapeCompartmentEditPart scep) {
 			Iterator connectionNodes = getConnectionNodes(scep).iterator();
 			while (connectionNodes.hasNext()) {
-				CustomConnectionNodeEditPart cep = (CustomConnectionNodeEditPart) connectionNodes.next();
+				System.out.println("debug 1");
+				ConnectionNodeEditPart cep = (ConnectionNodeEditPart)connectionNodes.next();
 				Connection connection = (Connection) cep.getFigure();
 				View connectionView = cep.getNotationView();
 				if (connectionView != null && !connectionView.isVisible()) {
@@ -123,8 +125,8 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 				boolean sfVisible = source != null;
 				boolean tfVisible = target != null;
                 
-                ConnectionAnchor sc = cep.getSourceConnectionAnchor();
-                ConnectionAnchor tc = cep.getTargetConnectionAnchor();
+                ConnectionAnchor sc = getSourceConnectionAnchor(cep);
+                ConnectionAnchor tc = getTargetConnectionAnchor(cep);
                 Point sRefPoint;
                 Point tRefPoint;
                 List bendpoints = (List) connection.getConnectionRouter()
@@ -215,6 +217,44 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
             if (ep!=null){
                 ep.refresh();
             }
+        }
+        
+        private ConnectionAnchor getSourceConnectionAnchor(ConnectionNodeEditPart cep) {
+        	if (cep instanceof AndDecompositionEditPart) {
+        		return getSourceConnectionAnchor((AndDecompositionEditPart)cep);
+        	} else if (cep instanceof AndContributionEditPart) {
+        		return getSourceConnectionAnchor((AndContributionEditPart)cep);
+        	}
+        	return null;
+        }
+        
+        private ConnectionAnchor getTargetConnectionAnchor(ConnectionNodeEditPart cep) {
+        	if (cep instanceof AndDecompositionEditPart) {
+        		return getTargetConnectionAnchor((AndDecompositionEditPart)cep);
+        	} else if (cep instanceof AndContributionEditPart) {
+        		return getTargetConnectionAnchor((AndContributionEditPart)cep);
+        	}
+        	return null;
+        }
+        
+        private ConnectionAnchor getSourceConnectionAnchor(AndDecompositionEditPart cep) {
+        	System.out.println("debug 2");
+        	return cep.getSourceConnectionAnchor();
+        }
+        
+        private ConnectionAnchor getTargetConnectionAnchor(AndDecompositionEditPart cep) {
+        	System.out.println("debug 3");
+        	return cep.getTargetConnectionAnchor();
+        }
+        
+        private ConnectionAnchor getSourceConnectionAnchor(AndContributionEditPart cep) {
+        	System.out.println("debug 4");
+        	return cep.getSourceConnectionAnchor();
+        }
+        
+        private ConnectionAnchor getTargetConnectionAnchor(AndContributionEditPart cep) {
+        	System.out.println("debug 5");
+        	return cep.getTargetConnectionAnchor();
         }
 	}
 	

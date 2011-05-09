@@ -133,6 +133,20 @@ public class AndContributionEditPart extends ConnectionNodeEditPart implements
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(){
+		return super.getSourceConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(){
+		return super.getTargetConnectionAnchor();
+	}
+	
+	/**
 	 * @generated
 	 */
 	public class AndContributionFigure extends PolylineConnectionEx {
