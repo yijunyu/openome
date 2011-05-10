@@ -30,7 +30,6 @@ public class TestPalette extends SWTBotGefTestCase {
  
 	@Test
 	public void testPaletteToolNamesActorsIntentions() throws Exception {
-		bot.sleep(2000);
 		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Actors
@@ -54,7 +53,6 @@ public class TestPalette extends SWTBotGefTestCase {
 	
 	@Test
 	public void testPaletteToolNamesLinksContribs() throws Exception {
-		bot.sleep(2000);
 		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Links
@@ -82,7 +80,6 @@ public class TestPalette extends SWTBotGefTestCase {
 	
 	@Test
 	public void testPaletteToolNamesAssociations() throws Exception {
-		bot.sleep(2000);
 		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Associations
@@ -102,7 +99,6 @@ public class TestPalette extends SWTBotGefTestCase {
 	@AfterClass
 	public static void sleep() {
 		
-		bot.sleep(2000);
 	}
  
 }

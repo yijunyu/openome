@@ -14,8 +14,12 @@ public class TestUtil {
 	public static String diagramName = "test.ood";
 	public String modelName = "test.oom";
 	
-	
 	public static void initializeWorkspace(){
+		// slow down tests
+		SWTBotPreferences.PLAYBACK_DELAY = 10;
+		// increase timeout to 10 seconds
+		SWTBotPreferences.TIMEOUT = 10000;
+		
 		try {
 			bot.viewByTitle("Welcome").close();
 		} catch (WidgetNotFoundException e) {
@@ -42,14 +46,13 @@ public class TestUtil {
 
 	public static void createNewProject() {
 		
-		
 		//Create the project
 		bot.menu("File").menu("New").menu("Project...").click();
  
 		SWTBotShell shell = bot.shell("New Project");
 		shell.activate();
 		
-		bot.tree().select("General").expandNode("General", true).select("Project");
+		bot.tree().expandNode("General").select("Project").click();
 		
 		bot.button("Next >").click();
  
@@ -62,13 +65,11 @@ public class TestUtil {
 	public static void createNewDiagram() {
 		//if we already have a diagram on the screen, we do not need to do this
 		
-		
-		bot.sleep(2000);
 		bot.menu("File").menu("New").menu("Other...").click();		
 		SWTBotShell shell = bot.shell("New");
 		shell.activate();
 		
-		bot.tree().select("OpenOME").expandNode("OpenOME", true).select("Diagram (ood)");
+		bot.tree().expandNode("OpenOME").select("Diagram (ood)");
 		bot.button("Next >").click();
 		
 		bot.tree().select(projectName);
