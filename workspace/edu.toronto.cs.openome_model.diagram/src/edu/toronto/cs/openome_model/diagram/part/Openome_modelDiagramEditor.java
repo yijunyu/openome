@@ -20,6 +20,7 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
@@ -470,7 +471,7 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 
 		getActionRegistry().registerAction(
 				new CustomPromptingDeleteAction(this));
-
+				
 		h.put(KeyStroke.getPressed(SWT.DEL, 127, 0), getActionRegistry()
 				.getAction(ActionFactory.DELETE.getId()));
 
@@ -501,13 +502,11 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 
 		@Override
 		public Command createCommand(List objects) {
-			// This function always returns null, so no command will be returned.
-			// Instead, all commands are generated and executed on the fly.
 
 			// This list will hold all the elements we have to delete.
 			// Links are added to the head, and intentions to the tail.
 			List<Object> elements = new LinkedList<Object>();
-
+			
 			// The idea is to delete all links before the intentions.
 			// This way we avoid triggering links' automatic deletion.
 			// (links' automatic deletion does not remove them from the model)
@@ -552,24 +551,29 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 					elements.add(o);
 				}
 			}
-
-			for (Object o : elements) {
+			
+			//This will contain the delete commands for all elements being deleted.
+			CompoundCommand command = new CompoundCommand("Delete Elements");
+			
+									
+			for (Object o : elements) { 
+								
 				IGraphicalEditPart part = (IGraphicalEditPart) o;
 
 				View view = part.getNotationView();
 				EObject element = view.getElement();
 
 				TransactionalEditingDomain domain = part.getEditingDomain();
-				DiagramCommandStack dcs = part.getDiagramEditDomain()
-						.getDiagramCommandStack();
+				//DiagramCommandStack dcs = part.getDiagramEditDomain()
+						//.getDiagramCommandStack();
 
-				CompoundCommand command = new CompoundCommand("Delete Element");
-
+				//CompoundCommand command = new CompoundCommand("Delete Element");
+				
 				// Delete the element
 
 				DestroyElementCommand commandDelete = new DestroyElementCommand(
 						new DestroyElementRequest(domain, element, false));
-
+				
 				if (commandDelete.canExecute()) {
 					command.add(new ICommandProxy(commandDelete));
 				} else {
@@ -583,19 +587,22 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 
 				if (commandDeleteView.canExecute()) {
 					command.add(new ICommandProxy(commandDeleteView));
+
 				} else {
 					System.err.println("commandDeleteView problem!");
 				}
 
-				if (command.canExecute()) {
-					dcs.execute(command);
-					dcs.flush();
-				} else {
-					System.err.println("DeleteKey problem!");
-				}
+				//if (command.canExecute()) {
+					//dcs.execute(command);
+					//dcs.flush();
+					
+				//} else {
+					//System.err.println("DeleteKey problem!");
+				//}
 			}
-
-			return null;
+			
+			
+			return command; 
 		}
 
 		/*
