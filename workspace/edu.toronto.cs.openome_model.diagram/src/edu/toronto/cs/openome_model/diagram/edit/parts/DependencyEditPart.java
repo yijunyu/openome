@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -38,6 +39,20 @@ public class DependencyEditPart extends ConnectionNodeEditPart implements
 				new edu.toronto.cs.openome_model.diagram.edit.policies.DependencyItemSemanticEditPolicy());
 	}
 
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getSourceConnectionAnchor(){
+		return super.getSourceConnectionAnchor();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public ConnectionAnchor getTargetConnectionAnchor(){
+		return super.getTargetConnectionAnchor();
+	}
+	
 	/**
 	 * Creates figure for this edit part.
 	 * 

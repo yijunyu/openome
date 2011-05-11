@@ -43,7 +43,6 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 		protected void refreshConnections(ShapeCompartmentEditPart scep) {
 			Iterator connectionNodes = getConnectionNodes(scep).iterator();
 			while (connectionNodes.hasNext()) {
-				System.out.println("debug 1");
 				ConnectionNodeEditPart cep = (ConnectionNodeEditPart)connectionNodes.next();
 				Connection connection = (Connection) cep.getFigure();
 				View connectionView = cep.getNotationView();
@@ -248,6 +247,8 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
         		return ((SomePlusContributionEditPart) cep).getSourceConnectionAnchor();        	
         	} else if (cep instanceof UnknownContributionEditPart) {
         		return ((UnknownContributionEditPart) cep).getSourceConnectionAnchor();        	
+        	} else if (cep instanceof DependencyEditPart) {
+        		return ((DependencyEditPart) cep).getSourceConnectionAnchor();        	
         	} 
         	return null;
         }
@@ -281,6 +282,8 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
         		return ((SomePlusContributionEditPart) cep).getTargetConnectionAnchor();        	
         	} else if (cep instanceof UnknownContributionEditPart) {
         		return ((UnknownContributionEditPart) cep).getTargetConnectionAnchor();        	
+        	} else if (cep instanceof DependencyEditPart) {
+        		return ((DependencyEditPart) cep).getTargetConnectionAnchor();        	
         	} 
         	return null;
         }
