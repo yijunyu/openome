@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.testing;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
+import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
@@ -12,7 +13,6 @@ public class TestUtil {
 	public static SWTWorkbenchBot bot = new SWTWorkbenchBot();
 	public static String projectName = "OMETest";
 	public static String diagramName = "test.ood";
-	public String modelName = "test.oom";
 	
 	public static void initializeWorkspace(){
 		// slow down tests
@@ -38,6 +38,7 @@ public class TestUtil {
 		
 		try {
 			bot.editorByTitle(diagramName).getWidget();
+			new SWTGefBot().gefEditor(diagramName).clear();
 		} catch (WidgetNotFoundException e) {
 			createNewDiagram();
 		}
