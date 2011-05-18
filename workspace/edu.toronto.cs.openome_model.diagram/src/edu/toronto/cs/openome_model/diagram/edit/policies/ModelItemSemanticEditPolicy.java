@@ -5,7 +5,9 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
 /**
  * @generated
@@ -77,7 +79,14 @@ public class ModelItemSemanticEditPolicy
 				.getEditingDomain();
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
-
+	
+	protected Command getSemanticCommand(IEditCommandRequest request) {
+		if (request instanceof DestroyRequest) {
+			return null;
+		}
+		return super.getSemanticCommand(request);
+	}
+	
 	/**
 	 * @generated
 	 */
