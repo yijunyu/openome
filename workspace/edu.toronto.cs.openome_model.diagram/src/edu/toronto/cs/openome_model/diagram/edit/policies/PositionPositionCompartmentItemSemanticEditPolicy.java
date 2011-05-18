@@ -1,7 +1,9 @@
 package edu.toronto.cs.openome_model.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
 /**
  * @generated
@@ -44,5 +46,8 @@ public class PositionPositionCompartmentItemSemanticEditPolicy
 		}
 		return super.getCreateCommand(req);
 	}
-
+	
+	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+		return getHost().getParent().getCommand(new EditCommandRequestWrapper(req));
+	}
 }

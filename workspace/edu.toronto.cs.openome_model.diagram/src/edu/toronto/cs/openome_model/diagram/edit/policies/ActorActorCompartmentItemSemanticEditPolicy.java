@@ -1,10 +1,22 @@
 package edu.toronto.cs.openome_model.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
 /**
  * @generated
+ */
+/**
+ * @author meatcar
+ *
+ */
+/**
+ * @author meatcar
+ *
  */
 public class ActorActorCompartmentItemSemanticEditPolicy
 		extends
@@ -43,6 +55,10 @@ public class ActorActorCompartmentItemSemanticEditPolicy
 					req));
 		}
 		return super.getCreateCommand(req);
+	}
+	
+	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+		return getHost().getParent().getCommand(new EditCommandRequestWrapper(req));
 	}
 
 }
