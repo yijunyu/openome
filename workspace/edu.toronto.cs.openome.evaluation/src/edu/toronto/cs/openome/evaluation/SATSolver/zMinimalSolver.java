@@ -29,7 +29,11 @@ public class zMinimalSolver extends SATSolver{
 			//System.out.println("Trying to run solver");
 			Runtime rt = Runtime.getRuntime() ;
 	
-		    Process p = rt.exec(homedir + "zminimal.exe " + path);
+			Process p = null;
+			String osName = System.getProperty("os.name");
+			String fileName = osName.contains("Linux") ? "zminimalLinux" : (osName.contains("Mac") ? "zminimalMac" : "zminimal.exe");
+			String[] command = {homedir + fileName, path};
+			p = rt.exec(command);
 		    //p.waitFor();
 
 		    String line;

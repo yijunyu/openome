@@ -2,6 +2,31 @@
 <?eclipse version="3.2"?>
 <plugin>
    
+      <extension-point id="solver" name="Solvers Extension Point" schema="schema/solver.exsd"/>
+   <extension
+         point="edu.toronto.cs.openome.evaluation.solver">
+      <solver
+            file="zchaff.exe">
+      </solver>
+      <solver
+            file="zminimal.exe">
+      </solver>
+      <solver
+            file="script.sh">
+      </solver>
+      <solver
+            file="zchaffLinux">
+      </solver>
+      <solver
+            file="zminimalLinux">
+      </solver>
+      <solver
+            file="zchaffMac">
+      </solver>
+      <solver
+            file="zminimalMac">
+      </solver>
+   </extension>
      <extension
          point="org.eclipse.ui.commands">
       <command

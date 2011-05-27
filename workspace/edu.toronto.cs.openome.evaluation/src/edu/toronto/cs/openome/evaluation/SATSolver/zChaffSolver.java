@@ -1,11 +1,16 @@
 package edu.toronto.cs.openome.evaluation.SATSolver;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.Platform;
+
 
 import edu.toronto.cs.openome_model.Intention;
 
@@ -22,15 +27,16 @@ public class zChaffSolver extends SATSolver{
 	public int solve(Dimacs cnf) {
 		String path = homedir + cnf.getFileName();
 		cnf.writeToFile(path); 
-		//System.out.println(path);
-		
+		//String path = cnf.writeToFile(null);
 		try	{
 			//System.out.println("Trying to run solver");
+			Process p = null;
 			Runtime rt = Runtime.getRuntime() ;
-	
-		    Process p = rt.exec(homedir + "zchaff.exe " + path);
+			String osName = System.getProperty("os.name");
+			String fileName = osName.contains("Linux") ? "zchaffLinux" : (osName.contains("Mac") ? "zchaffMac" : "zchaff.exe");
+			String[] command = {homedir + fileName, path};
+			p = rt.exec(command);
 		    //p.waitFor();
-
 		    String line;
 		    String[] vars;// = new String[cnf.getNumVariables() + 3];
 		  
@@ -38,7 +44,6 @@ public class zChaffSolver extends SATSolver{
 		    BufferedReader input =
 		        new BufferedReader
 		          (new InputStreamReader(p.getInputStream()));
-		    	
 		      while ((line = input.readLine()) != null) {
 		    	  //System.out.println(line);
 		    	  if (line.startsWith("Instance Satisfiable")) {
@@ -59,7 +64,6 @@ public class zChaffSolver extends SATSolver{
 		    	  }
 		        
 		      }
-		      
 		      BufferedReader error =
 			        new BufferedReader
 			          (new InputStreamReader(p.getErrorStream()));
@@ -75,10 +79,11 @@ public class zChaffSolver extends SATSolver{
 		    p.destroy() ;
 		 }
 		catch(Exception exc){
-			
+			System.err.println("Error: " + exc.getMessage());
 			 /*handle exception*/
 			return -1;
 		}
+		
 		return -1;
 		
 	}

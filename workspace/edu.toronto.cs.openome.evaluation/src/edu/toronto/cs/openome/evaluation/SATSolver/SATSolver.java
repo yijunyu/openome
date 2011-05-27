@@ -12,7 +12,6 @@ import edu.toronto.cs.openome.evaluation.commands.SetQualitativeEvaluationLabelC
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
-
 /**
  * @author jenhork
  * The parent reasoner class, defines the possible actions that all reasoners must have.
@@ -22,7 +21,7 @@ import edu.toronto.cs.openome_model.impl.ModelImpl;
  */
 public abstract class SATSolver {
 	Dimacs cnf;
-	static String homedir = "Solvers\\";
+	static String homedir = new SolverFileHandler().folderPath();
 	//static String filename = "dimacs.cnf";
 	protected Vector<Integer> results;
 		//"C:\\zChaffWorkspace\\zChaff\\";
