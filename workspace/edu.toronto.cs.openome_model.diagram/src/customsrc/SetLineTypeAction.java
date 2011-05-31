@@ -74,13 +74,13 @@ public class SetLineTypeAction extends AbstractActionHandler {
 	@Override
 	protected void doRun(IProgressMonitor progressMonitor) {
 		IStructuredSelection selection = getStructuredSelection();
-		
+				
 		if(selection == null) {
 			return;
 		}
 		
 		for(Object connection : selection.toArray()) {
-			
+						
 			// DEPENDENCY and DECOMPOSITIONS
 			
 			if(connection instanceof DependencyEditPart) {				
@@ -153,7 +153,7 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		DiagramCommandStack dcs = oldPart.getDiagramEditDomain().getDiagramCommandStack();
 		
 		ModelEditPart modelPart = (ModelEditPart)oldPart.getParent().getChildren().get(0);
-		
+				
 		EObject source = null;
 		EObject target = null;
 		
@@ -179,10 +179,10 @@ public class SetLineTypeAction extends AbstractActionHandler {
 		// in order to avoid using old types that result in NullPointer exceptions.
 		
 		IElementType type = null;
-		
-		if(changeTo.equals("And")) {
+				
+		if(changeTo.equals("Decomposition")) {
 			type = Openome_modelElementTypes.AndDecomposition_4002;	
-		} else if (changeTo.equals("Or")) {
+		} else if (changeTo.equals("Means-ends")) {
 			type = Openome_modelElementTypes.OrDecomposition_4003;
 		} else if (changeTo.equals("Dependency")) {
 			type = Openome_modelElementTypes.Dependency_4001;
