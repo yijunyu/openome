@@ -80,6 +80,11 @@ public class ModelItemSemanticEditPolicy
 		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 	
+	
+	/**
+	 * Makes sure that nothing is able to delete the model. 
+	 * @generated NOT
+	 */
 	protected Command getSemanticCommand(IEditCommandRequest request) {
 		if (request instanceof DestroyRequest) {
 			return null;

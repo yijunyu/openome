@@ -47,6 +47,11 @@ public class RoleRoleCompartmentItemSemanticEditPolicy
 		return super.getCreateCommand(req);
 	}
 	
+	 /**
+     * Returns the delete command to the parent actor.
+     * 
+     * @generated NOT
+     */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getHost().getParent().getCommand(new EditCommandRequestWrapper(req));
 	}
