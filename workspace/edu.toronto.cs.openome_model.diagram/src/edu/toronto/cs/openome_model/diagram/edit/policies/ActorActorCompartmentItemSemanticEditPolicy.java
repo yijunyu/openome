@@ -57,6 +57,9 @@ public class ActorActorCompartmentItemSemanticEditPolicy
 		return super.getCreateCommand(req);
 	}
 	
+	/**
+	 * @generated NOT
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		return getHost().getParent().getCommand(new EditCommandRequestWrapper(req));
 	}

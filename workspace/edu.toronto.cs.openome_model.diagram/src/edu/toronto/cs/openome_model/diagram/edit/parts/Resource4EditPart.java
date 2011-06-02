@@ -40,6 +40,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart.ResourceSVGFigure;
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 
 /**
  * @generated
@@ -144,6 +145,7 @@ public class Resource4EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.Resource4ItemSemanticEditPolicy());

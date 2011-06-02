@@ -10,18 +10,24 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.tools.SelectEditPartTracker;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart.ConnectionRefreshMgr;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ShapeCompartmentFigure;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 
 public class CompartmentEditPart extends ShapeCompartmentEditPart{
 
@@ -292,11 +298,15 @@ public class CompartmentEditPart extends ShapeCompartmentEditPart{
 	
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		
 		//Removing this policy allows anchors to snap anywhere inside our compartments.
 		removeEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE);
 	}
 	
-	
+	/**
+	 * Overrode this method to enable the compartment to listen to double click action.
+	 */
+	public DragTracker getDragTracker(Request req) {
+		return new SelectEditPartTracker((EditPart) this);
+	}
 	
 }

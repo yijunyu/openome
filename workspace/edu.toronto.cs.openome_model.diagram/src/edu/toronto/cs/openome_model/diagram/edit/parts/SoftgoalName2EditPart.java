@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -47,6 +48,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 import edu.toronto.cs.openome_model.diagram.edit.policies.NameLabelDirectEditPolicy;
 
 /**
@@ -92,6 +94,7 @@ public class SoftgoalName2EditPart extends CompartmentEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(
 				EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());

@@ -39,6 +39,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart.SoftGoalSVGFigure;
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 
 /**
  * @generated
@@ -142,6 +143,7 @@ public class GoalEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.GoalItemSemanticEditPolicy());

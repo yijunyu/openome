@@ -43,6 +43,7 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart.GoalFigure;
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 
 /**
  * @generated
@@ -81,6 +82,7 @@ public class Goal2EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.Goal2ItemSemanticEditPolicy());

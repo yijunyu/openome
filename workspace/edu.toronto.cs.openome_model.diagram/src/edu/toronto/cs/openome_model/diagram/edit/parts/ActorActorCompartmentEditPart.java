@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.notation.impl.DrawerStyleImpl;
 import org.eclipse.gmf.runtime.notation.impl.NotationFactoryImpl;
 
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart.ActorFigure;
+import edu.toronto.cs.openome_model.diagram.edit.policies.DoubleClickNameEditPolicy;
 
 /**
  * @generated
@@ -554,10 +555,11 @@ public class ActorActorCompartmentEditPart extends CompartmentEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
