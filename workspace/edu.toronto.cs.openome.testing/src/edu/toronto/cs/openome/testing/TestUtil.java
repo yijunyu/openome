@@ -43,11 +43,7 @@ public class TestUtil {
         //SWTBotPreferences.TIMEOUT = 5000;
         
         // Close the Subclipse question window.
-    	//bot.viewByTitle("Subclipse Usage").close();
-        //bot.activeShell().pressShortcut(Keystrokes.LF);
-    	//bot.activeShell().pressShortcut(Keystrokes.ESC);
-    	SWTBotShell shell = bot.shell("Subclipse Usage");
-    	shell.close();
+    	bot.shell("Subclipse Usage").close();
         
         try {
             bot.viewByTitle("Welcome").close();
@@ -55,7 +51,7 @@ public class TestUtil {
             // do nothing - Welcome screen is already closed
         }
 
-        SWTBotTree packageTree = bot.viewByTitle("Package Explorer").bot()
+        SWTBotTree packageTree = bot.viewByTitle("Project Explorer").bot()
         .tree();
         packageTree.setFocus();
         try {
