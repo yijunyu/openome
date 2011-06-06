@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
+import org.eclipse.swt.SWT;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
@@ -18,6 +19,7 @@ import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.hamcrest.Matcher;
+import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
 
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
@@ -41,7 +43,11 @@ public class TestUtil {
         //SWTBotPreferences.TIMEOUT = 5000;
         
         // Close the Subclipse question window.
-        bot.activeShell().pressShortcut(Keystrokes.ESC);
+    	//bot.viewByTitle("Subclipse Usage").close();
+        //bot.activeShell().pressShortcut(Keystrokes.LF);
+    	//bot.activeShell().pressShortcut(Keystrokes.ESC);
+    	SWTBotShell shell = bot.shell("Subclipse Usage");
+    	shell.close();
         
         try {
             bot.viewByTitle("Welcome").close();
