@@ -153,6 +153,7 @@ public class Deletion {
      * @param type the type of deletion to do
      */
     private void doDelete(String type) throws InterruptedException {
+        // need to slow down the process a bit to allow all the highlights to propagate.
         Thread.sleep(100);
         if (type.equals("delete")) {
             KeyboardFactory.getAWTKeyboard().pressShortcut(Keystrokes.DELETE);
