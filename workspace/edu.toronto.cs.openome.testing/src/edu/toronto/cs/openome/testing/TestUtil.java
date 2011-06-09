@@ -4,8 +4,21 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.allOf;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.anyOf;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withRegex;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.swt.SWT;
@@ -28,7 +41,13 @@ public class TestUtil {
     public static SWTWorkbenchBot bot = new SWTWorkbenchBot();
     public static String projectName = "OMETest";
     public static String diagramName = "test.ood";
-
+    
+    /******Change this to your path of folder TestFile in workspace*******/
+    public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
+    
+    public static String workspacePath = null;
+    public static SWTBotTree packageTree = null;
+    
     /* The labels of palette tools */
     public static final String[] intentions = { "Hardgoal", "Softgoal", "Task", "Resource" };
     public static final String[] actors = { "Actor", "Agent", "Position", "Role" };
@@ -51,24 +70,75 @@ public class TestUtil {
             // do nothing - Welcome screen is already closed
         }
 
-        SWTBotTree packageTree = bot.viewByTitle("Project Explorer").bot()
+        packageTree = bot.viewByTitle("Package Explorer").bot()
         .tree();
         packageTree.setFocus();
         try {
-            packageTree.getTreeItem(projectName);
+        	packageTree.getTreeItem(projectName);
         } catch (WidgetNotFoundException e) {
-            createNewProject();
+        	createTest();
         }
 
         try {
-            bot.editorByTitle(diagramName).getWidget();
-            new SWTGefBot().gefEditor(diagramName).clear();
+    	  packageTree.setFocus();
+    	  packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
         } catch (WidgetNotFoundException e) {
-            createNewDiagram();
+    	  System.out.println("error");
         }
-
     }
 
+    public static void createTest() {
+    	IWorkspace w = ResourcesPlugin.getWorkspace();
+		IProject project = w.getRoot().getProject(projectName);
+		try {
+			if (!project.exists())
+				project.create(null);
+			project.open(null);
+			InputStream stream = new FileInputStream (pathName + diagramName);
+			IFile file = project.getFile(diagramName);
+			try {
+			if (!file.exists())
+				file.create(stream, false, null);
+			workspacePath = file.getRawLocation().toString();
+			} catch (Exception e) {}
+			stream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		
+    }
+    
+    public static void createAndOpenFile() {
+    	String[] command =  {"sh","-c" ,"cp " + workspacePath + " " + workspacePath.replaceFirst("test.ood", "testFile.ood")};
+    	Runtime rt = Runtime.getRuntime();
+    	//ProcessBuilder pb = new ProcessBuilder("sh","-c", "cp " + workspacePath + " " + workspacePath.replaceFirst("test.ood", "testFile.ood"));
+    	try {
+			//Process s = pb.start();
+    		Process p = rt.exec(command);
+    		p.waitFor();
+			System.out.println(p.exitValue() + " " + workspacePath.replaceFirst("test.ood", "testFile.ood"));
+			packageTree.setFocus();
+			packageTree.getTreeItem(projectName).expand().getNode("testFile.ood").doubleClick();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			
+		}
+    }
+    
+    public static void closeAndDeleteFile() {
+    	ProcessBuilder pb = new ProcessBuilder("rm",workspacePath.replaceFirst("test.ood", "testFile.ood"));
+    	try {
+    		bot.closeAllEditors();
+			pb.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     public static void createNewProject() {
 
         // Create the project
