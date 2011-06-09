@@ -92,18 +92,9 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart actor = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) actor.part().getModel();
-			Actor actModel = (Actor) decnode.getElement();
 			assertTrue("EditPart instance of ActorEditPart", actor.part().getParent() instanceof ActorEditPart);
 			assertTrue("Impl instance of ActorImpl", model.getContainers().get(0) instanceof ActorImpl);
-			assertTrue("Actor has no intenions", actModel.getIntentions().isEmpty());
-			assertTrue("Actor has no children", actor.children().isEmpty());
 			
-			// Make sure no connections exist
-			assertTrue("Actor has no souce connections", actor.sourceConnections().isEmpty());
-			assertTrue("Actor has no target connections", actor.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not add a new actor.");
@@ -127,18 +118,8 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart agent = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) agent.part().getModel();
-			Agent agentModel = (Agent) decnode.getElement();
 			assertTrue("EditPart instance of AgentEditPart", agent.part().getParent() instanceof AgentEditPart);
 			assertTrue("Impl instance of AgentImpl", model.getContainers().get(0) instanceof AgentImpl);
-			assertTrue("Agent has no intenions", agentModel.getIntentions().isEmpty());
-			assertTrue("Agent has no children", agent.children().isEmpty());
-			
-			// Make sure no connections exist
-			assertTrue("Agent has no souce connections", agent.sourceConnections().isEmpty());
-			assertTrue("Agent has no target connections", agent.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not add a new actor.");
@@ -157,18 +138,8 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart role = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) role.part().getModel();
-			Role roleModel = (Role) decnode.getElement();
 			assertTrue("EditPart instance of RoleEditPart", role.part().getParent() instanceof RoleEditPart);
 			assertTrue("Impl instance of RoleImpl", model.getContainers().get(0) instanceof RoleImpl);
-			assertTrue("Role has no intenions", roleModel.getIntentions().isEmpty());
-			assertTrue("Role has no children", role.children().isEmpty());
-			
-			// Make sure no connections exist
-			assertTrue("Role has no source connections", role.sourceConnections().isEmpty());
-			assertTrue("Role has no target connections", role.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not add a new actor.");
@@ -187,18 +158,9 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart position = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) position.part().getModel();
-			Position posModel = (Position) decnode.getElement();
 			assertTrue("EditPart instance of PositionEditPart", position.part().getParent() instanceof PositionEditPart);
 			assertTrue("Impl instance of PositionImpl", model.getContainers().get(0) instanceof PositionImpl);
-			assertTrue("Position has no intenions", posModel.getIntentions().isEmpty());
-			assertTrue("Position has no children", position.children().isEmpty());
 			
-			// Make sure no connections exist
-			assertTrue("Actor has no souce connections", position.sourceConnections().isEmpty());
-			assertTrue("Actor has no target connections", position.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not adda a new position.");
@@ -218,17 +180,9 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart hardgoal = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) hardgoal.part().getModel();
-			Goal goalModel = (Goal) decnode.getElement();
 			assertTrue("EditPart instance of GoalEditPart", hardgoal.part().getParent() instanceof GoalEditPart);
 			assertTrue("Impl instance of GoalImpl", model.getIntentions().get(0) instanceof GoalImpl);
-			assertTrue("Hardgoal has no children", hardgoal.children().isEmpty());
-			/*Need to add asserts for checking that the goal has no links */
-			// Make sure no connections exist
-			assertTrue("Hardgoal has no souce connections", hardgoal.sourceConnections().isEmpty());
-			assertTrue("Hardgoal has no target connections", hardgoal.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
+			
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not adda a new Hardgoal.");
@@ -247,17 +201,9 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart softgoal = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) softgoal.part().getModel();
-			Softgoal softModel = (Softgoal) decnode.getElement();
 			assertTrue("EditPart instance of SoftgoalEditPart", softgoal.part().getParent() instanceof SoftgoalEditPart);
 			assertTrue("Impl instance of SoftgoalImpl", model.getIntentions().get(0) instanceof SoftgoalImpl);
-			assertTrue("Softgoal has no children", softgoal.children().isEmpty());
-			/*Need to add asserts for checking that the goal has no links */
-			// Make sure no connections exist
-			assertTrue("Softgoal has no souce connections", softgoal.sourceConnections().isEmpty());
-			assertTrue("Softgoal has no target connections", softgoal.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
+
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not adda a new Softgoal.");
@@ -275,18 +221,10 @@ public class TestAddSWT{
 			editor.click(0, 0);
 			editor.directEditType(name);
 			SWTBotGefEditPart task = editor.getEditPart(name);
-			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) task.part().getModel();
-			Task taskModel = (Task) decnode.getElement();
+
 			assertTrue("EditPart instance of TaskEditPart", task.part().getParent() instanceof TaskEditPart);
 			assertTrue("Impl instance of TaskImpl", model.getIntentions().get(0) instanceof TaskImpl);
-			assertTrue("Task has no children", task.children().isEmpty());
-			/*Need to add asserts for checking that the goal has no links */
-			// Make sure no connections exist
-			assertTrue("Task has no souce connections", task.sourceConnections().isEmpty());
-			assertTrue("Task has no target connections", task.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
+			
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not adda a new Task.");
@@ -305,17 +243,9 @@ public class TestAddSWT{
 			editor.directEditType(name);
 			SWTBotGefEditPart resource = editor.getEditPart(name);
 			
-			// check if the model was made correctly
-			DecorationNodeImpl decnode = (DecorationNodeImpl) resource.part().getModel();
-			Resource resourceModel = (Resource) decnode.getElement();
 			assertTrue("EditPart instance of ResourceEditPart", resource.part().getParent() instanceof ResourceEditPart);
 			assertTrue("Impl instance of ResourceImpl", model.getIntentions().get(0) instanceof ResourceImpl);
-			assertTrue("Resource has no children", resource.children().isEmpty());
-			/*Need to add asserts for checking that the goal has no links */
-			// Make sure no connections exist
-			assertTrue("Resource has no souce connections", resource.sourceConnections().isEmpty());
-			assertTrue("Resource has no target connections", resource.targetConnections().isEmpty());
-			//editor.editParts((Matcher<? extends EditPart>) allOf(withRegex(".*")));
+			
             editor.clickContextMenu("Delete from Model");
 		} catch (WidgetNotFoundException e) {
 			fail("Could not adda a new Resource.");
