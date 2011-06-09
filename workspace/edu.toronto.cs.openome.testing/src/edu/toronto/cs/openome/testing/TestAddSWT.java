@@ -79,7 +79,7 @@ public class TestAddSWT{
 		editor = new SWTGefBot().gefEditor("test.ood");
 		
 	}
- 
+	
 	@Test
 	public void TestcanAddActor() throws Exception {
 		try {
