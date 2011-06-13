@@ -47,6 +47,8 @@ public class TestUtil {
     
     public static String workspacePath = null;
     public static SWTBotTree packageTree = null;
+    public static IProject hiddenProject = null;
+    public static IProject project = null;
     
     /* The labels of palette tools */
     public static final String[] intentions = { "Hardgoal", "Softgoal", "Task", "Resource" };
@@ -80,63 +82,73 @@ public class TestUtil {
         }
 
         try {
-    	  packageTree.setFocus();
-    	  packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
+    	  //packageTree.setFocus();
+    	  //packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
         } catch (WidgetNotFoundException e) {
     	  System.out.println("error");
         }
     }
 
+    /**
+     * Initializes and creates the packages
+     */
     public static void createTest() {
     	IWorkspace w = ResourcesPlugin.getWorkspace();
-		IProject project = w.getRoot().getProject(projectName);
+    	hiddenProject = w.getRoot().getProject("HiddenProject");
 		try {
-			if (!project.exists())
-				project.create(null);
-			project.open(null);
+			if (!hiddenProject.exists())
+				hiddenProject.create(null);
+			hiddenProject.open(null);
 			InputStream stream = new FileInputStream (pathName + diagramName);
-			IFile file = project.getFile(diagramName);
+			IFile file = hiddenProject.getFile(diagramName);
 			try {
 			if (!file.exists())
 				file.create(stream, false, null);
 			workspacePath = file.getRawLocation().toString();
 			} catch (Exception e) {}
 			stream.close();
+			hiddenProject.setHidden(true);
+			project = w.getRoot().getProject(projectName);
+			project.create(null);
+			project.open(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 		
+		
     }
     
+    /**
+     * Creates and open the test.ood file
+     */
     public static void createAndOpenFile() {
-    	String[] command =  {"sh","-c" ,"cp " + workspacePath + " " + workspacePath.replaceFirst("test.ood", "testFile.ood")};
-    	Runtime rt = Runtime.getRuntime();
-    	//ProcessBuilder pb = new ProcessBuilder("sh","-c", "cp " + workspacePath + " " + workspacePath.replaceFirst("test.ood", "testFile.ood"));
-    	try {
-			//Process s = pb.start();
-    		Process p = rt.exec(command);
-    		p.waitFor();
-			System.out.println(p.exitValue() + " " + workspacePath.replaceFirst("test.ood", "testFile.ood"));
-			packageTree.setFocus();
-			packageTree.getTreeItem(projectName).expand().getNode("testFile.ood").doubleClick();
-		} catch (IOException e) {
+		IFile file = hiddenProject.getFile(diagramName);
+		try {			
+			file.copy(new Path(project.getFullPath() + "/" + diagramName), true, null);
+	    	packageTree.setFocus();
+	    	packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
+		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			
+			System.out.println("NOOOOOOO");
 		}
+    	
     }
     
+    /**
+     * Closes all the editors and delete the test.ood files.
+     */
     public static void closeAndDeleteFile() {
-    	ProcessBuilder pb = new ProcessBuilder("rm",workspacePath.replaceFirst("test.ood", "testFile.ood"));
+    	bot.closeAllEditors();
+    	IFile file = project.getFile(diagramName);
     	try {
-    		bot.closeAllEditors();
-			pb.start();
-		} catch (IOException e) {
+			file.delete(true, null);
+		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("what");
 		}
     }
     public static void createNewProject() {
