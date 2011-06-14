@@ -74,10 +74,14 @@ import edu.toronto.cs.openome_model.Model;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class TestEditActions extends SWTBotGefTestCase {
 	
-	/** The types of edit actions - DO NOT ALTER**/ 
+	/** The types of edit actions - DO NOT ALTER **/ 
 	private static final String CUT = "Cut";
 	private static final String COPY = "Copy";
 	private static final String PASTE = "Paste";
+	
+	/** The types of assertions that can be declared - DO NOT ALTER **/
+	private static final String MODEL = "model";
+	private static final String VIEW = "view";
 
 	/** A place holder to store the current element being handled **/
 	private static String current = null;
@@ -110,178 +114,95 @@ public class TestEditActions extends SWTBotGefTestCase {
 	}
 
 	/**
-	 * Tests if intentions/actors are successfully removed from the view using
-	 * Cut via context menu.
-	 */
-	//@Test
-	public void testContextCutElemFromView() {
-
-		System.out
-				.println("Testing if 'Cut' via context menu removes elements from the view properly.");
-
-		try {
-
-			for (String[] type : allElem) {
-				for (String element : type) {
-
-					createElement(element);
-					performAction(true, CUT);
-
-					// Nothing should remain in the view
-					assertTrue(element.toString()
-							+ " was not successfully removed from the view.",
-							view.children().size() == 0);
-				}
-			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("------------------------------------------------------------");
-		}
-
-	}
-	
-	/**
-	 * Tests if intentions/actors are successfully removed from the view using
-	 * Cut via keystroke.
+	 * Tests if intentions/actors are successfully removed from the view using Cut.
 	 */
 	@Test
-	public void testKeystrokeCutElemFromView(){
-		
+	public void testCutElemFromView() {
+
 		System.out
-		.println("Testing if 'Cut' via keystroke removes elements from the view properly.");
+				.println("Testing if 'Cut' removes intentions/actors from the view properly.");
 		
-		try {
-
-			for (String[] type : allElem) {
-				for (String element : type) {
-
-					createElement(element);
-					performAction(false, CUT);
-
-					// Nothing should remain in the view
-					assertTrue(element.toString()
-							+ " was not successfully removed from the view.",
-							view.children().size() == 0);
-				}
+		for (String[] type : allElem) {
+			for (String element : type) {
+				cutViaContext(element, false, CUT, VIEW);
+				cutViaShortcut(element, false, CUT, VIEW); 
 			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(current.toString() + " caused: " + e.getMessage());
-		} finally {
-			System.out.println("------------------------------------------------------------");
 		}
+		
+		System.out.println(".................................................................");
 		
 	}
-
+	
+	
 	/**
-	 * Tests if links are successfully removed from the view using Cut via
-	 * context menu.
+	 * Tests if links are successfully removed from the view using Cut.
 	 */
-	//@Test
-	public void testContextCutLinkFromView() {
+	@Test
+	public void testCutLinkFromView() {
 
 		System.out
-				.println("Testing if 'Cut' via context menu removes links from the view properly.");
+				.println("Testing if 'Cut' removes links from the view properly.");
 
-		try {
-
-			for (String[] type : allLinks) {
-				for (String link : type) {
-
-					createLink(link);
-					performAction(true, CUT);
-					
-					// Only the hard goal should remain after link has been cut
-					assertTrue(link.toString()
-							+ " was not successfully removed from the view.",
-							view.children().size() == 1);
-				}
+		for (String[] type : allLinks) {
+			for (String link : type) {
+				cutViaContext(link, true, CUT, VIEW);
+				cutViaShortcut(link, true, CUT, VIEW); 
 			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("------------------------------------------------------------");
 		}
+		
+		System.out.println(".................................................................");
+
 
 	}
 
 	/**
 	 * Tests if intentions/actors are successfully removed from the model using
-	 * Cut via context menu.
+	 * Cut.
 	 */
 	//@Test
-	public void testContextCutElemFromModel() {
+	public void testCutElemFromModel() {
 
 		System.out
-				.println("Testing if 'Cut' via context menu removes elements from the model properly.");
-
-		try {
-
-			for (String[] type : allElem) {
-				for (String element : type) {
-
-					createElement(element);
-					performAction(true, CUT);
-					
-					// Should be nothing in the model
-					assertTrue(element.toString()
-							+ " was not successfully removed from the model.",
-							model.eContents().size() == 0);
-
-				}
+				.println("Testing if 'Cut' removes intentions/actors from the model properly.");
+		
+		for (String[] type : allElem) {
+			for (String element : type) {
+				cutViaContext(element, false, CUT, MODEL);
+				cutViaShortcut(element, false, CUT, MODEL); 
 			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("------------------------------------------------------------");
 		}
+		
+		System.out.println("......................................................................");
+
 
 	}
 
 	/**
-	 * Tests if links are successfully removed from the model using Cut via
-	 * context menu.
+	 * Tests if links are successfully removed from the model using Cut.
 	 */
 	//@Test
-	public void testContextCutLinkFromModel() {
+	public void testCutLinkFromModel() {
 
 		System.out
-				.println("Testing if 'Cut' via context menu removes links from the model properly.");
+				.println("Testing if 'Cut' removes links from the model properly.");
 
-		try {
-
-			for (String[] type : allLinks) {
-				for (String link : type) {
-					current = link;
-
-					createLink(link);
-					performAction(true, CUT);
-
-					// Should only be the intention remaining in the model
-					assertTrue(link.toString()
-							+ " was not successfully removed from the model.",
-							model.eContents().size() == 1);
-				}
+		for (String[] type : allLinks) {
+			for (String link : type) {
+				cutViaContext(link, true, CUT, MODEL);
+				cutViaShortcut(link, true, CUT, MODEL); 
 			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("------------------------------------------------------------");
 		}
+		
+		System.out.println(".................................................................");
 
+		
 	}
 
 	/**
 	 * Tests if elements are stored in the clipboard using Cut via context menu.
 	 */
 	//@Test
-	public void testContextCutElemOnClipboard() {
+	public void testCutElemClipboard() {
 
 		System.out
 				.println("Testing if 'Cut' via context menu places elements in the clipboard properly.");
@@ -309,7 +230,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 		} catch (AssertionError e) {
 			System.err.println(e.getMessage());
 		} finally {
-			System.out.println("------------------------------------------------------------");
+			System.out.println("---");
 		}
 
 	}
@@ -318,7 +239,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 	 * Tests if links are stored in the clipboard using Cut via context menu.
 	 */
 	//@Test
-	public void testContextCutLinkOnClipboard() {
+	public void testCutLinkClipboard() {
 
 		System.out
 				.println("Testing if 'Cut' via context menu places links in the clipboard properly.");
@@ -340,9 +261,85 @@ public class TestEditActions extends SWTBotGefTestCase {
 		} catch (AssertionError e) {
 			System.err.println(e.getMessage());
 		} finally {
-			System.out.println("------------------------------------------------------------");
+			System.out.println("---");
 		}
 
+	}
+	
+	/**
+	 * A general method for cutting an element via context-menu. 
+	 * @param elem The element being cut via context-menu
+	 * @param isLink True if the element is a link; False otherwise 
+	 * @param action The type of edit action to be utilized 
+	 * @param assertType The type of assertion being made 
+	 */
+	public void cutViaContext(String elem, boolean isLink, String action, String assertType){
+		
+		try{
+			if (isLink){
+				createLink(elem);
+			}
+			else{
+				createElement(elem);
+			}
+			performAction(true, action);
+			chooseCutAssert(assertType, elem, isLink);
+			
+		} catch (AssertionError e){
+			System.err.println("Cut Error: " + e.getMessage() + "Method: Context-menu");
+		} finally{ 
+			current = null; 
+		}
+	}
+	
+	/**
+	 * A general method for cutting an element via shortcut. 
+	 * @param elem The element being cut via shortcut
+	 * @param isLink True if the element is a link; False otherwise 
+	 * @param action The type of edit action to be utilized 
+	 * @param assertType The type of assertion being made 
+	 */
+	public void cutViaShortcut(String elem, boolean isLink, String action, String assertType){
+		
+		try{
+			if (isLink){
+				createLink(elem);
+			}
+			else{
+				createElement(elem);
+			}
+			performAction(false, action);
+			chooseCutAssert(assertType, elem, isLink);
+			
+		} catch (AssertionError e){
+			System.err.println("Cut Error: " + e.getMessage() + "Method: Shortcut");
+		} finally {
+			current = null;
+		}
+	}
+	
+	public void chooseCutAssert(String type, String e, boolean isLink){
+		if (type.equals("model") && isLink){
+			//Only the intention should remain in the model. 
+			assertTrue(e.toString()
+					+ " was not successfully removed from the model | ",
+					model.eContents().size() == 1);
+		} else if (type.equals("model") && !isLink){
+			//Nothing should remain in the model.
+			assertTrue(e.toString()
+					+ " was not successfully removed from the model | ",
+					model.eContents().size() == 0);
+		} else if (type.equals("view") && isLink){
+			//Only the intention should remain in the view.
+			assertTrue(e.toString()
+					+ " was not successfully removed from the view | ",
+					view.children().size() == 1);
+		} else if (type.equals("view") && !isLink){
+			//Nothing should remain in the view. 
+			assertTrue(e.toString()
+					+ " was not successfully removed from the view | ",
+					view.children().size() == 0);
+		}
 	}
 
 	/**
@@ -370,7 +367,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 	 *            The type of link
 	 */
 	public void createLink(String item) {
-
+		
 		// Update current item being handled
 		current = item;
 
@@ -392,18 +389,18 @@ public class TestEditActions extends SWTBotGefTestCase {
 	public void performAction(boolean useMenu, String type) {
 				
 		if (useMenu) {
-			try {
+			
+			System.out.println("The " + type + " button is active: " + editor.clickContextMenu("Edit").select(type));
+									
+			try{
 				editor.clickContextMenu("Edit").clickContextMenu(type);
-			} catch (WidgetNotFoundException e) {
-				System.err
-						.println("Unable to perform " + type + " via context menu on: "
-								+ current);
-			}
+			} catch (Throwable t){
+				System.err.println("Unable to perform " + type + " on " + current + ": " + t.getMessage());
+			} 
 			
 		} else {	
-			
+						
 			//Determine which key to use depending on action being performed 
-			KeyStroke key = null;
 			String shortcut = null;
 			
 			if (type.equals(CUT)){
@@ -419,30 +416,44 @@ public class TestEditActions extends SWTBotGefTestCase {
 				System.err.println("Invalid edit action given: " + type);
 			}
 			
-			try {
-				key = KeyStroke.getInstance(shortcut);
-			} catch (ParseException e) {
-				e.printStackTrace();
-				System.err.println("Unable to perform " + type + " via shortcut on: " + current);
-			}
-			
-			//Check for OS to decide which keystroke would be appropriate  
-			String os = getOS();
-			
-			if (os.contains("mac")){
-				try{
-					KeyboardFactory.getAWTKeyboard().pressShortcut(Keystrokes.COMMAND, key);
-				} catch(ExceptionInInitializerError e){
-					//e.printStackTrace();
-					System.err.println(e.getCause() + " : " + e.getMessage());
-				}
-				
-			}
-			else {
-				KeyboardFactory.getAWTKeyboard().pressShortcut(Keystrokes.CTRL, key);
-			}
+			//Press the appropriate keystroke based on action type and OS 
+			pressKeys(shortcut);
 			
 		}
+	}
+	
+	/**
+	 * Determines which buttons should be pressed for the corresponding edit action. 
+	 * @param actionShortcut The shortcut for the edit action. X, C, V for Cut, Copy, Paste, respectively.
+	 */
+	public void pressKeys(String actionShortcut){
+		
+		KeyStroke key = null; 
+
+		try {
+			key = KeyStroke.getInstance(actionShortcut);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Unable to find " + actionShortcut + " shortcut Keystroke for: " + current);
+		}
+		
+		KeyStroke command = KeyStroke.getInstance(SWT.COMMAND, 0); 
+		KeyStroke ctrl = KeyStroke.getInstance(SWT.CTRL, 0); 
+		
+		//Check for OS to decide which keystroke would be appropriate  
+		String os = getOS();
+		
+		try{ 
+			if(os.contains("mac")){
+				KeyboardFactory.getAWTKeyboard().pressShortcut(command, key);
+			}
+			else{ 
+				KeyboardFactory.getAWTKeyboard().pressShortcut(ctrl, key);
+			}
+		} catch (Exception e){
+			System.err.println("Unable to perform " + actionShortcut  + "on " + current + ": " + e.getCause());
+		}
+		
 	}
 	
 	/**
