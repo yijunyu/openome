@@ -22,6 +22,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
@@ -33,6 +34,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.hamcrest.Matcher;
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
+import org.eclipse.ui.PlatformUI;
 
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
@@ -64,7 +66,11 @@ public class TestUtil {
         //SWTBotPreferences.TIMEOUT = 5000;
         
         // Close the Subclipse question window.
-    	bot.shell("Subclipse Usage").close();
+    	try { 
+    		bot.shell("Subclipse Usage").close();
+    	} catch (WidgetNotFoundException e) {
+    		//do nothing - its already closed.
+    	}
         
         try {
             bot.viewByTitle("Welcome").close();
@@ -124,17 +130,19 @@ public class TestUtil {
      * Creates and open the test.ood file
      */
     public static void createAndOpenFile() {
+    	
 		IFile file = hiddenProject.getFile(diagramName);
 		try {			
 			file.copy(new Path(project.getFullPath() + "/" + diagramName), true, null);
 	    	packageTree.setFocus();
 	    	packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
+			bot.editorByTitle(diagramName).setFocus();
+			bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("NOOOOOOO");
-		}
-    	
+		} 
     }
     
     /**

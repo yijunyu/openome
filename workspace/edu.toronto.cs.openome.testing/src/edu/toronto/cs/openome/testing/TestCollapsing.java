@@ -9,15 +9,21 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.eclipse.gmf.runtime.notation.impl.DecorationNodeImpl;
 import org.eclipse.gmf.runtime.notation.impl.DiagramImpl;
 import org.eclipse.gmf.runtime.notation.impl.DrawerStyleImpl;
@@ -41,13 +47,19 @@ import edu.toronto.cs.openome_model.Actor;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.CompartmentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
 import edu.toronto.cs.openome_model.impl.ActorImpl;
 import edu.toronto.cs.openome_model.impl.AgentImpl;
 import edu.toronto.cs.openome_model.impl.AndContributionImpl;
 import edu.toronto.cs.openome_model.impl.AndDecompositionImpl;
 import edu.toronto.cs.openome_model.impl.BreakContributionImpl;
 import edu.toronto.cs.openome_model.impl.ContainerImpl;
+import edu.toronto.cs.openome_model.impl.DependencyImpl;
 import edu.toronto.cs.openome_model.impl.HelpContributionImpl;
 import edu.toronto.cs.openome_model.impl.HurtContributionImpl;
 import edu.toronto.cs.openome_model.impl.IntentionImpl;
@@ -68,7 +80,7 @@ public class TestCollapsing {
 	private static SWTBotGefEditor editor;
     private static Keyboard keyboard;
     private SWTBotGefEditPart actors;
-    private final String[][] LINKS = { TestUtil.hardlinks, TestUtil.contributions};
+    private final String[][] LINKS = { TestUtil.contributions, TestUtil.hardlinks};
     /*
 	 * A factory that can create any class Impl
 	 */
@@ -77,18 +89,31 @@ public class TestCollapsing {
 	
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        TestUtil.initializeWorkspace();
+        
+//        TestUtil.createAndOpenFile();
+//        editor = new SWTGefBot().gefEditor("test.ood");
+//        keyboard = KeyboardFactory.getDefaultKeyboard(editor.getWidget(), null);
+    }
+
+    
+    @Before
+    public void runBeforeEverTest() {
+    	TestUtil.initializeWorkspace();
+        TestUtil.createAndOpenFile();
         editor = new SWTGefBot().gefEditor("test.ood");
         keyboard = KeyboardFactory.getDefaultKeyboard(editor.getWidget(), null);
     }
-    
     @After
     public void runAfterEveryTest() {
     	//TestUtil.closeAndDeleteFile();
-    	editor.clickContextMenu("Delete from Model");
+    	//editor.clickContextMenu("Delete from Model");
+    	TestUtil.closeAndDeleteFile();
     	//editor.clear();
     }
     
+    /**
+     * Test and collapse and opening of empty actors
+     */
     @Test
     public void testCollapseAndOpeningEmptyActors() {
     	
@@ -107,7 +132,8 @@ public class TestCollapsing {
 			assert(actors.targetConnections().isEmpty());
 			
 			//Collapse the actor and waiting for it to collapse
-	    	actors.click(new Point(1,1));
+			actors.parent().select();
+	    	actors.parent().click(new Point(10,10));
 	    	sleep(100);
 			
 			//for ( SWTBotGefEditPart i : actors.parent().children()) 
@@ -127,7 +153,8 @@ public class TestCollapsing {
 				assertTrue(((ActorImpl)actorModel).getIs_part_of().isEmpty());
 			}
 			
-			actors.click(new Point(1,1));
+			actors.parent().select();
+	    	actors.parent().click(new Point(10,10));
 			sleep(100);
 			
 			assertFalse("Testing if " + actorFromList + " compartment has opened",cmp.isCollapsed());
@@ -150,6 +177,9 @@ public class TestCollapsing {
     	}
     }
     
+    /**
+     * Test and collapse and opening of all actors with all intentions
+     */
     @Test
     public void testCollapseAndOpeningActorsWithIntentions() {
 
@@ -169,7 +199,7 @@ public class TestCollapsing {
 			
 			for (String intentionsFromList : TestUtil.intentions) {
 				//Add an intention
-				SWTBotGefEditPart intention = addIntention(intentionsFromList, "intention", 100, 100);
+				SWTBotGefEditPart intention = addIntention(intentionsFromList, "intention", 110, 80);
 		
 				actors.parent().select();
 		    	actors.parent().click(new Point(10,10));
@@ -213,30 +243,26 @@ public class TestCollapsing {
     	}
     }
     
+    /**
+     * Test Collapse and opening of all actors with one instances of all intentions
+     * and all links.
+     */
     @Test
     public void testCollapseAndOpeningActorsWithIntentionAndLink() {
 
     	for (String actorsFromList : TestUtil.actors) {
 	    	actors = addActor(actorsFromList, "test");
 	    	
-	    	DiagramImpl dImpl = (DiagramImpl) editor.mainEditPart().part().getModel();
-	    	ModelImpl model = (ModelImpl) dImpl.getElement();
+	    	ModelImpl model = (ModelImpl) TestUtil.getModel(editor);
 	    	DecorationNodeImpl decnode = (DecorationNodeImpl) actors.part().getModel();
 	    	ContainerImpl actorModel = (ContainerImpl) decnode.getElement();
 	    	CompartmentEditPart cmp = (CompartmentEditPart) actors.parent().children().get(1).part();
-	    	
-	    	assert(actorModel.getIntentions().isEmpty());
-			assert(actors.children().isEmpty());
-			
-			// Make sure no connections exist
-			assert(actors.sourceConnections().isEmpty());
-			assert(actors.targetConnections().isEmpty());
 			
 			for (String intentionsFromList : TestUtil.intentions) {
 				//Add an intention
-				SWTBotGefEditPart intention = addIntention(intentionsFromList, "intention", 100, 100);
+				SWTBotGefEditPart intentionSource = addIntention(intentionsFromList, "intention", 100, 100);
 				
-				DecorationNodeImpl intentionNode = (DecorationNodeImpl) intention.part().getModel();
+				DecorationNodeImpl intentionNode = (DecorationNodeImpl) intentionSource.part().getModel();
 		    	IntentionImpl intentionModel = (IntentionImpl) intentionNode.getElement();
 		    	DecorationNodeImpl linkNode = null;
 		    	
@@ -247,20 +273,19 @@ public class TestCollapsing {
 						assertTrue(model.getDecompositions().size() == 0);
 						assertTrue(model.getDependencies().size() == 0);
 		
-						SWTBotGefEditPart link = addLink(links, intention);
-						
-						System.out.println(actorsFromList + " " + intentionsFromList + " " + links + " " + link);
-						
+						SWTBotGefEditPart link = addLink(links, intentionSource, null, 100, 100);
+												
 						if (!links.equals("Dependency") && !links.equals("Decomposition") && !links.equals("Means-ends")) {
-							linkNode = (DecorationNodeImpl) link.part().getModel();
+							linkNode = (DecorationNodeImpl) link.children().get(0).part().getModel();
 							softLinkTestingHelperFunction(intentionModel,links, linkNode);
 						} else {
-							hardLinksTestingHelperFunction(links, intentionModel);
+							hardLinksTestingHelperFunction(link, links, intentionModel, intentionSource);
 						}
 						
 						
 						actors.parent().select();
 				    	actors.parent().click(new Point(10,10));
+				    	
 				    	sleep(100);
 				    	
 				    	assertTrue("Testing if " + actorsFromList + " compartment is collapsed" + " with "  
@@ -270,7 +295,7 @@ public class TestCollapsing {
 				    	if (!links.equals("Dependency") && !links.equals("Decomposition") && !links.equals("Means-ends")) {
 							softLinkTestingHelperFunction(intentionModel,links, linkNode);
 						} else {
-							hardLinksTestingHelperFunction(links, intentionModel);
+							hardLinksTestingHelperFunction(link, links, intentionModel, intentionSource);
 						}
 				    	
 						assertTrue(actorModel.getIntentions().size() == 1);
@@ -291,25 +316,17 @@ public class TestCollapsing {
 						if (!links.equals("Dependency") && !links.equals("Decomposition") && !links.equals("Means-ends")) {
 							softLinkTestingHelperFunction(intentionModel,links, linkNode);
 						} else {
-							hardLinksTestingHelperFunction(links, intentionModel);
+							hardLinksTestingHelperFunction(link, links, intentionModel, intentionSource);
 						}
-						
-						assertTrue(actorModel.getIntentions().size() == 1);
-				
-						
-						assertTrue(actorModel.getAssociationFrom().isEmpty());
-						assertTrue(actorModel.getAssociationTo().isEmpty());
-						assertTrue(actorModel.getDependencyFrom().isEmpty());
-						assertTrue(actorModel.getDependencyTo().isEmpty());
-						
 						editor.clear();
-						editor.select(link.parent());
+						editor.select(link);
+						editor.select(link);
 						editor.setFocus();
 						editor.clickContextMenu("Delete from Model");
 					}
 				}
 	
-				editor.select(intention.parent());
+				editor.select(intentionSource.parent());
 				editor.setFocus();
 				editor.clickContextMenu("Delete from Model");
 			}
@@ -319,14 +336,94 @@ public class TestCollapsing {
 			editor.clickContextMenu("Delete from Model");
     	}
     }
+    
+    /**
+     * Test Collapse and opening of all actors with one instances of all intentions
+     * and all links.
+     */
+    @Test
+    public void testCollapseAndOpeningActorsWithTwoIntentionAndLink() {
+
+    	
+    	for (String actorsFromList : TestUtil.actors) {
+	
+    		
+    		/***Setting up the actors. Adding intentions and links.*****/
+	    	actors = addActor(actorsFromList, "test");
+	    	actors.parent().select().focus();
+	    	actors.parent().resize(PositionConstants.LEFT_CENTER_RIGHT, 0, 2000);
+	    	//editor.getEditPart("test").select().focus();
+	    	//editor.getEditPart("test").resize(PositionConstants.SOUTH_EAST, 100, 70);
+	    	//Combining the two links array
+	    	String[] combineArray = combineArray (TestUtil.contributions, TestUtil.hardlinks);
+	    	
+	    	
+	    	ModelImpl model = (ModelImpl) TestUtil.getModel(editor);
+	    	DecorationNodeImpl decnode = (DecorationNodeImpl) actors.part().getModel();
+	    	ContainerImpl actorModel = (ContainerImpl) decnode.getElement();
+	    	CompartmentEditPart cmp = (CompartmentEditPart) actors.parent().children().get(1).part();
+	    	
+	    	
+	    	ArrayList<SWTBotGefEditPart> intentions = new ArrayList<SWTBotGefEditPart>();
+	    	
+	    	int[] pointX = {170,20,320,170,170,170,170, 40, 40, 300, 300 };
+	    	int[] pointY = {10,180,180,350,90,170,250, 120, 250, 120, 250};
+	    	
+	    	int index = 0;
+	    	Random generator = new Random();
+	    	for (String intentionFromList : TestUtil.intentions) {
+	    		intentions.add(addIntention(intentionFromList, "int" + index, pointX[index], pointY[index]));
+	    		index++;
+	    	}
+			
+	    	while(index < pointX.length) {
+	    		intentions.add(addIntention(TestUtil.intentions[generator.nextInt(TestUtil.intentions.length)], 
+	    				"int" + index, pointX[index], pointY[index]));
+	    		index++;
+	    	}
+	    	
+			ArrayList<SWTBotGefEditPart> links = new ArrayList<SWTBotGefEditPart>();
+			
+			index = 0;
+			int linkIndex;
+			while (index < 4) {
+				int innerIndex = 0;
+				while (innerIndex < 4) {
+					if (innerIndex != index) {
+						linkIndex = generator.nextInt(combineArray.length);
+						links.add(addLink(combineArray[linkIndex], intentions.get(index), 
+								intentions.get(innerIndex), pointX[innerIndex], pointY[innerIndex]));
+					}
+					innerIndex++;
+				}
+				index++;
+			}
+			
+			editor.clear();
+			editor.select(actors.parent());
+			editor.clickContextMenu("Delete from Model");
+    	}
+    }
+    
+    /**
+     * Put SWT Test on sleep.
+     * @param time
+     */
     public void sleep (int time) {
     	try {
-			Thread.sleep(time + 350);
+			Thread.sleep(time);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
+    
+    /**
+     * Add an actor on the screen
+     * @param actorName
+     * @param name
+     * @return
+     */
     public SWTBotGefEditPart addActor(String actorName, String name) {
     	editor.activateTool(actorName);
 		editor.click(0, 0);
@@ -342,16 +439,54 @@ public class TestCollapsing {
     	return editor.getEditPart(name);
     }
     
-    public SWTBotGefEditPart addLink(String linkName, SWTBotGefEditPart editPart) {
+    public SWTBotGefEditPart addLink(String linkName, SWTBotGefEditPart source, SWTBotGefEditPart target, int x, int y) {
     	editor.clear();
     	editor.activateTool(linkName);
-    	editor.click(editPart);
-    	return editor.getEditPart(linkName);
+    	editor.drag(source, x, y);
+    	//editor.click(source);
+    	editor.setFocus();
+    	//return editor.selectedEditParts().get(0);
+    	return editor.selectedEditParts().get(0);
     }
     
-    public void hardLinksTestingHelperFunction(String linkName, IntentionImpl intentionModel) {
+    /**
+     * Helper function to test hard links.
+     * @param linkName
+     * @param intentionModel
+     */
+    public void hardLinksTestingHelperFunction(SWTBotGefEditPart link, String linkName, IntentionImpl intentionModel, SWTBotGefEditPart intention) {
     	if (linkName.equals("Dependency")) {
-    		System.out.println(intentionModel.getDependencyFrom().get(0).getModel());
+    		DependencyImpl impl = (DependencyImpl) intentionModel.getDependencyFrom().get(0);
+    		((ConnectorImpl) link.part().getModel()).getElement();
+    		System.out.println(link.part().getModel());
+    		assertTrue("", ((GraphicalEditPart) intention.part().getParent()).getSourceConnections().get(0) instanceof DependencyEditPart);
+    		assertTrue(intentionModel.getDependencyFrom().size() == 1);
+    		assertTrue(intentionModel.getDependencyTo().size() == 1);
+    		
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((DependencyImpl)intentionModel.getDependencyFrom().get(0)).equals((DependencyImpl)((ConnectorImpl) link.part().getModel()).getElement()));
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((DependencyImpl)intentionModel.getDependencyTo().get(0)).equals((DependencyImpl)((ConnectorImpl) link.part().getModel()).getElement()));
+    	} else if (linkName.equals("Decomposition")){
+    		assertTrue("", ((GraphicalEditPart) intention.part().getParent()).getSourceConnections().get(0) instanceof AndDecompositionEditPart);
+    		assertTrue(intentionModel.getDecompositionsFrom().size() == 1);
+    		assertTrue(intentionModel.getDecompositionsTo().size() == 1);
+    		
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((AndDecompositionImpl)intentionModel.getDecompositionsFrom().get(0)).equals((AndDecompositionImpl)((ConnectorImpl) link.part().getModel()).getElement()));
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((AndDecompositionImpl)intentionModel.getDecompositionsTo().get(0)).equals((AndDecompositionImpl)((ConnectorImpl) link.part().getModel()).getElement()));
+    		
+    	} else if (linkName.equals("Means-ends")) {
+    		
+       		assertTrue("", ((GraphicalEditPart) intention.part().getParent()).getSourceConnections().get(0) instanceof OrDecompositionEditPart);
+       		assertTrue(intentionModel.getDecompositionsFrom().size() == 1);
+    		assertTrue(intentionModel.getDecompositionsTo().size() == 1);
+    		
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((OrDecompositionImpl)intentionModel.getDecompositionsFrom().get(0)).equals((OrDecompositionImpl)((ConnectorImpl) link.part().getModel()).getElement()));
+    		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
+    				((OrDecompositionImpl)intentionModel.getDecompositionsTo().get(0)).equals((OrDecompositionImpl)((ConnectorImpl) link.part().getModel()).getElement()));
     	}
     }
     /**
@@ -422,5 +557,19 @@ public class TestCollapsing {
     		assertTrue("Testing if the " + intentionModel.getName() + " has " + linkName + " link.", 
     				((OrContributionImpl)intentionModel.getContributesTo().get(0)).equals((OrContributionImpl)link.getElement()));
     	}
+    }
+    
+    public String[] combineArray (String[] a1, String[] a2) {
+    	String[] newArray = new String[a1.length + a2.length];
+    	int index = 0;
+    	for ( String i : a1) {
+    		newArray[index] = i;
+    		index++;
+    	}
+    	for ( String i  : a2) {
+    		newArray[index] = i;
+    		index++;
+    	}
+    	return newArray;
     }
 }
