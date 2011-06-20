@@ -63,6 +63,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
 
 /**
  * These tests deal with edit actions such as Cut, Copy, and Paste.
@@ -73,24 +74,24 @@ import edu.toronto.cs.openome_model.Model;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class TestEditActions extends SWTBotGefTestCase {
-	
-	/** The types of edit actions - DO NOT ALTER **/ 
+
+	/** The types of edit actions - DO NOT ALTER **/
 	private static final String CUT = "Cut";
 	private static final String COPY = "Copy";
 	private static final String PASTE = "Paste";
-	
-	/** The types of assertions that can be declared - DO NOT ALTER **/
-	private static final String MODEL = "model";
-	private static final String VIEW = "view";
 
 	/** A place holder to store the current element being handled **/
 	private static String current = null;
-	// Note: Be careful when using this. Should be updated meticulously.
+	// Note: Be careful when using this. Should be updated and cleaned up
+	// meticulously - especially when dealing with links.
 
 	/** Represents elements in a 2D Array **/
 	private static String[][] allElem = { TestUtil.intentions, TestUtil.actors };
 	private static String[][] allLinks = { TestUtil.hardlinks,
 			TestUtil.contributions, TestUtil.associations };
+
+	/** The two methods used to perform edit actions **/
+	private static String[] methods = { "context", "shortcut" };
 
 	private static SWTWorkbenchBot bot;
 	private static SWTGefBot gefBot;
@@ -114,364 +115,280 @@ public class TestEditActions extends SWTBotGefTestCase {
 	}
 
 	/**
-	 * Tests if intentions/actors are successfully removed from the view using Cut.
+	 * Tests if intentions/actors are successfully removed from model and view
+	 * using Cut.
 	 */
-	@Test
-	public void testCutElemFromView() {
+	//@Test
+	public void testCutElem() {
 
-		System.out
-				.println("Testing if 'Cut' removes intentions/actors from the view properly.");
-		
 		for (String[] type : allElem) {
 			for (String element : type) {
-				cutViaContext(element, false, CUT, VIEW);
-				cutViaShortcut(element, false, CUT, VIEW); 
+				for (String method : methods) {
+
+					createElement(element, 0, 0);
+					performAction(method, CUT);
+
+					assertTrue(
+							element.toString()
+									+ " was not successfully removed from the view using Cut via "
+									+ method, view.children().size() == 0);
+
+					assertTrue(
+							element.toString()
+									+ " was not successfully removed from the model using Cut via "
+									+ method, model.eContents().size() == 0);
+
+				}
 			}
 		}
-		
-		System.out.println(".................................................................");
-		
-	}
-	
-	
-	/**
-	 * Tests if links are successfully removed from the view using Cut.
-	 */
-	@Test
-	public void testCutLinkFromView() {
-
-		System.out
-				.println("Testing if 'Cut' removes links from the view properly.");
-
-		for (String[] type : allLinks) {
-			for (String link : type) {
-				cutViaContext(link, true, CUT, VIEW);
-				cutViaShortcut(link, true, CUT, VIEW); 
-			}
-		}
-		
-		System.out.println(".................................................................");
-
-
 	}
 
 	/**
-	 * Tests if intentions/actors are successfully removed from the model using
+	 * Tests if links are successfully removed from the model and view using
 	 * Cut.
 	 */
-	//@Test
-	public void testCutElemFromModel() {
+	// @Test
+	public void testCutLink() {
 
-		System.out
-				.println("Testing if 'Cut' removes intentions/actors from the model properly.");
-		
-		for (String[] type : allElem) {
-			for (String element : type) {
-				cutViaContext(element, false, CUT, MODEL);
-				cutViaShortcut(element, false, CUT, MODEL); 
-			}
-		}
-		
-		System.out.println("......................................................................");
+		createElement("Hardgoal", 0, 0);
+		createElement("Softgoal", 200, 0);
 
-
-	}
-
-	/**
-	 * Tests if links are successfully removed from the model using Cut.
-	 */
-	//@Test
-	public void testCutLinkFromModel() {
-
-		System.out
-				.println("Testing if 'Cut' removes links from the model properly.");
+		assertTrue("Set-up for intentions to link unsuccessful", model
+				.eContents().size() == 2
+				&& view.children().size() == 2);
 
 		for (String[] type : allLinks) {
 			for (String link : type) {
-				cutViaContext(link, true, CUT, MODEL);
-				cutViaShortcut(link, true, CUT, MODEL); 
-			}
-		}
-		
-		System.out.println(".................................................................");
+				for (String method : methods) {
 
-		
-	}
+					current = link;
 
-	/**
-	 * Tests if elements are stored in the clipboard using Cut via context menu.
-	 */
-	//@Test
-	public void testCutElemClipboard() {
+					editor.activateTool(link);
+					editor.drag("Hardgoal", 200, 0);
+					performAction(method, CUT);
 
-		System.out
-				.println("Testing if 'Cut' via context menu places elements in the clipboard properly.");
+					assertTrue(
+							link.toString()
+									+ " was not successfully removed from the view using Cut via "
+									+ method, view.children().size() == 0);
 
-		System.out.println(getOS());
-
-		try {
-
-			for (String[] type : allElem) {
-				for (String element : type) {
-
-					createElement(element);
-					performAction(true, CUT);
-					
-					// Check if element is in clipboard
-					Clipboard clipboard = Toolkit.getDefaultToolkit()
-							.getSystemClipboard();
-					Transferable contents = clipboard.getContents(null);
-					
-					//This isn't done. 
+					assertTrue(
+							link.toString()
+									+ " was not successfully removed from the view using Cut via context-menu.",
+							model.eContents().size() == 2);
 
 				}
 			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("---");
 		}
-
 	}
 
 	/**
-	 * Tests if links are stored in the clipboard using Cut via context menu.
+	 * Tests if intentions/actors are placed on the system clipboard accordingly
+	 * using Cut.
 	 */
-	//@Test
-	public void testCutLinkClipboard() {
+	// @Test
+	public void testCutElemOnClipboard() {
 
-		System.out
-				.println("Testing if 'Cut' via context menu places links in the clipboard properly.");
+		SWTBotGefEditPart cutPart, pastePart;
 
-		try {
+		for (String[] type : allElem) {
+			for (String element : type) {
+				for (String method : methods) {
 
-			for (String[] type : allLinks) {
-				for (String link : type) {
+					createElement(element, 0, 0);
+					cutPart = editor.getEditPart(element);
 
-					createLink(link);
-					performAction(true, CUT);
+					performAction(method, CUT);
+					performAction(method, PASTE);
 
-					// Check if the link is in the clipboard
+					pastePart = editor.getEditPart(element);
+
+					editor.clickContextMenu("Delete from Model");
+					assertTrue("Delete from Model not working", view.children()
+							.isEmpty()
+							&& model.eContents().isEmpty());
+
+					assertTrue(
+							element.toString()
+									+ " was not successfully placed onto system clipboard using Cut via "
+									+ method, cutPart.getClass().equals(
+									pastePart.getClass()));
 
 				}
 
 			}
-
-		} catch (AssertionError e) {
-			System.err.println(e.getMessage());
-		} finally {
-			System.out.println("---");
 		}
 
 	}
-	
+
 	/**
-	 * A general method for cutting an element via context-menu. 
-	 * @param elem The element being cut via context-menu
-	 * @param isLink True if the element is a link; False otherwise 
-	 * @param action The type of edit action to be utilized 
-	 * @param assertType The type of assertion being made 
+	 * Tests if Cut functionality works for actors with several intentions
+	 * inside.
 	 */
-	public void cutViaContext(String elem, boolean isLink, String action, String assertType){
-		
-		try{
-			if (isLink){
-				createLink(elem);
+	@Test
+	public void testCutActorWithElementsInside() {
+
+		SWTBotGefEditPart cutPart, pastePart;
+
+		for (String actor : TestUtil.actors) {
+			for (String method : methods) {
+
+				createElement(actor, 0, 0);
+
+				// Hard-code contents
+				createElement("Hardgoal", 30, 30);
+				createElement("Softgoal", 30, 50);
+				editor.drag("Hardgoal", 30, 50);
+
+				cutPart = editor.getEditPart(actor);
+
+				// Cut then Paste
+				editor.getEditPart(actor);
+				performAction(method, CUT);
+				performAction(method, PASTE);
+
+				pastePart = editor.getEditPart("blah");
+
+				// Delete
+
+				// Assert that it was deleted properly
+
+				// Assert that items are
 			}
-			else{
-				createElement(elem);
-			}
-			performAction(true, action);
-			chooseCutAssert(assertType, elem, isLink);
-			
-		} catch (AssertionError e){
-			System.err.println("Cut Error: " + e.getMessage() + "Method: Context-menu");
-		} finally{ 
-			current = null; 
+
 		}
-	}
-	
-	/**
-	 * A general method for cutting an element via shortcut. 
-	 * @param elem The element being cut via shortcut
-	 * @param isLink True if the element is a link; False otherwise 
-	 * @param action The type of edit action to be utilized 
-	 * @param assertType The type of assertion being made 
-	 */
-	public void cutViaShortcut(String elem, boolean isLink, String action, String assertType){
-		
-		try{
-			if (isLink){
-				createLink(elem);
-			}
-			else{
-				createElement(elem);
-			}
-			performAction(false, action);
-			chooseCutAssert(assertType, elem, isLink);
-			
-		} catch (AssertionError e){
-			System.err.println("Cut Error: " + e.getMessage() + "Method: Shortcut");
-		} finally {
-			current = null;
-		}
-	}
-	
-	public void chooseCutAssert(String type, String e, boolean isLink){
-		if (type.equals("model") && isLink){
-			//Only the intention should remain in the model. 
-			assertTrue(e.toString()
-					+ " was not successfully removed from the model | ",
-					model.eContents().size() == 1);
-		} else if (type.equals("model") && !isLink){
-			//Nothing should remain in the model.
-			assertTrue(e.toString()
-					+ " was not successfully removed from the model | ",
-					model.eContents().size() == 0);
-		} else if (type.equals("view") && isLink){
-			//Only the intention should remain in the view.
-			assertTrue(e.toString()
-					+ " was not successfully removed from the view | ",
-					view.children().size() == 1);
-		} else if (type.equals("view") && !isLink){
-			//Nothing should remain in the view. 
-			assertTrue(e.toString()
-					+ " was not successfully removed from the view | ",
-					view.children().size() == 0);
-		}
+
 	}
 
 	/**
 	 * A general method for creating actors and intentions for test cases.
 	 * 
 	 * @param item
-	 *            The type of actor or intention
+	 *            The type of element to be created
+	 * @param x
+	 *            The x coordinate to place element at
+	 * @param y
+	 *            The y coordinate to place element at
 	 */
-	public void createElement(String item) {
+	public void createElement(String item, int x, int y) {
 
 		// Update current item being handled
 		current = item;
 
 		// Create an element
-		editor.activateTool(item);
-		editor.click(150, 150);
-		editor.directEditType(item);
+		editor.activateTool(item).click(x, y);
+
+		editor.rootEditPart().activateDirectEdit();
+
+		try {
+			editor.directEditType(item);
+		} catch (Throwable t) {
+			System.err.println("Unable to type in '" + item + "' on item.");
+		}
+
+		editor.getEditPart(item).focus();
 
 	}
 
 	/**
-	 * A general method for creating links for test cases.
+	 * A general method for performing edit actions such as Cut, Copy, and
+	 * Paste. NOTE: This method assumes that the <code>SwtBotGefEditPart</code>
+	 * that the action should be performed on has already been selected.
 	 * 
-	 * @param item
-	 *            The type of link
+	 * @param useMenu
+	 *            Determines whether context menu or keystroke shortcut method
+	 *            should be utilized
+	 * @param type
+	 *            The type of action that should be performed
 	 */
-	public void createLink(String item) {
-		
-		// Update current item being handled
-		current = item;
+	public void performAction(String method, String type) {
 
-		// Create a hard goal to attach link to
-		editor.activateTool("Hardgoal");
-		editor.click(150, 150);
-		editor.directEditType("Hardgoal");
+		if (method.equals("context")) {
 
-		// Create a link
-		editor.activateTool(item);
-		editor.click(150, 150);
-	}
-
-	/**
-	 * A general method for performing edit actions such as Cut, Copy, and Paste. 
-	 * @param useMenu Determines whether context menu or keystroke shortcut method should be utilized
-	 * @param type The type of action that should be performed 
-	 */
-	public void performAction(boolean useMenu, String type) {
-				
-		if (useMenu) {
-			
-			System.out.println("The " + type + " button is active: " + editor.clickContextMenu("Edit").select(type));
-									
-			try{
+			try {
 				editor.clickContextMenu("Edit").clickContextMenu(type);
-			} catch (Throwable t){
-				System.err.println("Unable to perform " + type + " on " + current + ": " + t.getMessage());
-			} 
-			
-		} else {	
-						
-			//Determine which key to use depending on action being performed 
+			} catch (Throwable t) {
+				System.err.println("Unable to perform " + type + " on "
+						+ current + ": " + t.getMessage());
+			}
+
+		} else {
+
+			// Determine which key to use depending on action being performed
 			String shortcut = null;
-			
-			if (type.equals(CUT)){
+
+			if (type.equals(CUT)) {
 				shortcut = "X";
-			}
-			else if (type.equals(COPY)){
+			} else if (type.equals(COPY)) {
 				shortcut = "C";
-			}
-			else if (type.equals(PASTE)){
+			} else if (type.equals(PASTE)) {
 				shortcut = "V";
-			}
-			else{ 
+			} else {
 				System.err.println("Invalid edit action given: " + type);
 			}
-			
-			//Press the appropriate keystroke based on action type and OS 
+
+			// Press the appropriate keystroke based on action type and OS
 			pressKeys(shortcut);
-			
+
 		}
 	}
-	
+
 	/**
-	 * Determines which buttons should be pressed for the corresponding edit action. 
-	 * @param actionShortcut The shortcut for the edit action. X, C, V for Cut, Copy, Paste, respectively.
+	 * Determines which buttons should be pressed for the corresponding edit
+	 * action.
+	 * 
+	 * @param actionShortcut
+	 *            The shortcut for the edit action. X, C, V for Cut, Copy,
+	 *            Paste, respectively.
 	 */
-	public void pressKeys(String actionShortcut){
-		
-		KeyStroke key = null; 
+	public void pressKeys(String actionShortcut) {
+
+		KeyStroke key = null;
 
 		try {
 			key = KeyStroke.getInstance(actionShortcut);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("Unable to find " + actionShortcut + " shortcut Keystroke for: " + current);
+			System.err.println("Unable to find " + actionShortcut
+					+ " shortcut Keystroke for: " + current);
 		}
-		
-		KeyStroke command = KeyStroke.getInstance(SWT.COMMAND, 0); 
-		KeyStroke ctrl = KeyStroke.getInstance(SWT.CTRL, 0); 
-		
-		//Check for OS to decide which keystroke would be appropriate  
+
+		KeyStroke command = KeyStroke.getInstance(SWT.COMMAND, 0);
+		KeyStroke ctrl = KeyStroke.getInstance(SWT.CTRL, 0);
+
+		// Check for OS to decide which keystroke would be appropriate
 		String os = getOS();
-		
-		try{ 
-			if(os.contains("mac")){
+
+		try {
+			if (os.contains("mac")) {
 				KeyboardFactory.getAWTKeyboard().pressShortcut(command, key);
-			}
-			else{ 
+			} else {
 				KeyboardFactory.getAWTKeyboard().pressShortcut(ctrl, key);
 			}
-		} catch (Exception e){
-			System.err.println("Unable to perform " + actionShortcut  + "on " + current + ": " + e.getCause());
+		} catch (Exception e) {
+			System.err.println("Unable to perform CTRL/CMD + " + actionShortcut
+					+ " on " + current + ": " + e.getCause());
 		}
-		
+
 	}
-	
+
 	/**
 	 * Determines computer OS name.
+	 * 
 	 * @return The OS name of the computer being utilized
 	 */
-	public String getOS(){
-		
-		String osType = null; 
-		
-		try{
+	public String getOS() {
+
+		String osType = null;
+
+		try {
 			osType = System.getProperty("os.name").toLowerCase();
-		} catch (Exception e){
+		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
-		
+
 		return osType;
-		
+
 	}
 
 }
