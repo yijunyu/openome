@@ -351,10 +351,9 @@ public class TestCollapsing {
     		/***Setting up the actors. Adding intentions and links.*****/
 	    	actors = addActor(actorsFromList, "test");
 	    	actors.parent().select().focus();
-	    	actors.parent().resize(PositionConstants.LEFT_CENTER_RIGHT, 0, 2000);
-	    	//editor.getEditPart("test").select().focus();
-	    	//editor.getEditPart("test").resize(PositionConstants.SOUTH_EAST, 100, 70);
-	    	//Combining the two links array
+//	    	actors.parent().resize(PositionConstants.LEFT_CENTER_RIGHT, 0, 2000);
+
+	    	
 	    	String[] combineArray = combineArray (TestUtil.contributions, TestUtil.hardlinks);
 	    	
 	    	
@@ -366,8 +365,8 @@ public class TestCollapsing {
 	    	
 	    	ArrayList<SWTBotGefEditPart> intentions = new ArrayList<SWTBotGefEditPart>();
 	    	
-	    	int[] pointX = {170,20,320,170,170,170,170, 40, 40, 300, 300 };
-	    	int[] pointY = {10,180,180,350,90,170,250, 120, 250, 120, 250};
+	    	int[] pointX = {170, 20, 320, 170, 170,170,170, 40, 40, 40, 300, 300, 300 };
+	    	int[] pointY = {10, 180, 180, 90, 170, 250, 350, 120, 250, 310, 120, 250, 310};
 	    	
 	    	int index = 0;
 	    	Random generator = new Random();
@@ -385,20 +384,40 @@ public class TestCollapsing {
 			ArrayList<SWTBotGefEditPart> links = new ArrayList<SWTBotGefEditPart>();
 			
 			index = 0;
-			int linkIndex;
-			while (index < 4) {
+			while (index < intentions.size()) {
 				int innerIndex = 0;
-				while (innerIndex < 4) {
+				int linkIndex = 0; 
+				while (innerIndex < intentions.size()) {
 					if (innerIndex != index) {
-						linkIndex = generator.nextInt(combineArray.length);
 						links.add(addLink(combineArray[linkIndex], intentions.get(index), 
 								intentions.get(innerIndex), pointX[innerIndex], pointY[innerIndex]));
-					}
+						linkIndex++;
+					} 
 					innerIndex++;
+					//sleep(5000);
 				}
 				index++;
 			}
 			
+			
+			/*** Testing if the links and intentions are added right before collapsing.****/
+			assertTrue("Testing if actor " + actorsFromList + " has the same amount of intentions as added",
+					actorModel.getIntentions().size() == intentions.size());
+			for (SWTBotGefEditPart intention : intentions) {
+				DecorationNodeImpl intentionNode = (DecorationNodeImpl) intention.part().getModel();
+		    	IntentionImpl intentionModel = (IntentionImpl) intentionNode.getElement();
+		    	System.out.println(intentionModel.getDecompositionsFrom().size() + " " + intentionModel.getContributesTo().size() + " " + intentionModel.getDependencyFrom().size() + " " + (intentions.size() - 1));
+		    	assertTrue("Testing if intention " + intentionModel.getName() + " has the same amount of links added"  ,
+		    			intentionModel.getDecompositionsFrom().size() + intentionModel.getContributesTo().size() + intentionModel.getDependencyFrom().size()
+		    			== intentions.size() - 1);
+			}
+			
+			
+			/*** Collapsing the actor.***/
+			actors.parent().select();
+	    	actors.parent().click(new Point(10,10));
+	    	sleep(100);
+	    	
 			editor.clear();
 			editor.select(actors.parent());
 			editor.clickContextMenu("Delete from Model");
