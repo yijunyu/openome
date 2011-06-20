@@ -23,8 +23,6 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AndDecompositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.DependencyEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.GoalEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.IsAAssociationEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.MakeContributionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.OrDecompositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;

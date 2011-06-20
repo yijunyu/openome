@@ -73,6 +73,7 @@ public class TestChangeText {
 			
 			editor.click(name);
 			Thread.sleep(500);
+			//This test will not pass if your keyboard language is not set to English (US)
 			KeyboardFactory.getSWTKeyboard().typeText(change);
 			Thread.sleep(500);
 			editor.click(1000, 1000);
@@ -90,6 +91,7 @@ public class TestChangeText {
 			
 			editor.click(name);
 			Thread.sleep(500);
+			//This test will not pass if your keyboard language is not set to English (US)
 			KeyboardFactory.getSWTKeyboard().typeText(change);
 			Thread.sleep(500);
 			editor.click(1000, 1000);
