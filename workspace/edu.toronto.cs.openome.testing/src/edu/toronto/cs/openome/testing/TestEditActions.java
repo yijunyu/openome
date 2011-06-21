@@ -104,23 +104,23 @@ public class TestEditActions extends SWTBotGefTestCase {
 	private SWTBotGefEditPart view;
 	private Model model;
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-        TestUtil.initializeWorkspace();
-    }
-    
-    @Before
-    public void setUpBeforeTest() throws Exception {
-        TestUtil.createAndOpenFile();
-        editor = new SWTGefBot().gefEditor("test.ood");
-        model = TestUtil.getModel(editor);
-        view = editor.mainEditPart();
-    }
-    
-    @After
-    public void tearDownAfterTest() throws Exception {
-        TestUtil.closeAndDeleteFile();
-    }
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		TestUtil.initializeWorkspace();
+	}
+
+	@Before
+	public void setUpBeforeTest() throws Exception {
+		TestUtil.createAndOpenFile();
+		editor = new SWTGefBot().gefEditor("test.ood");
+		model = TestUtil.getModel(editor);
+		view = editor.mainEditPart();
+	}
+
+	@After
+	public void tearDownAfterTest() throws Exception {
+		TestUtil.closeAndDeleteFile();
+	}
 
 	/**
 	 * Tests if intentions/actors are successfully removed from model and view
@@ -145,6 +145,9 @@ public class TestEditActions extends SWTBotGefTestCase {
 							element.toString()
 									+ " was not successfully removed from the model using Cut via "
 									+ method, model.eContents().isEmpty());
+					
+					cleanUp(); 
+
 
 				}
 			}
@@ -156,29 +159,42 @@ public class TestEditActions extends SWTBotGefTestCase {
 	 * Cut.
 	 */
 	@Test
-	public void testCutLink() {
-
-		// Set-up for testing links - create two intentions to link
-		createElement("Hardgoal", 0, 0);
-		createElement("Softgoal", 200, 0);
-
-		assertTrue("Set-up for intentions to link unsuccessful", model
-				.eContents().size() == 2
-				&& view.children().size() == 2);
+	public void testCutLinkedElems() {
 
 		for (String[] type : allLinks) {
 			for (String link : type) {
 				for (String method : methods) {
-					
 					current = link;
+
+					// Set-up for testing links - create two intentions to link
+					createElement("Hardgoal", 0, 0);
+					createElement("Softgoal", 200, 0);
+
+					assertTrue("Set-up for intentions to link unsuccessful",
+							model.eContents().size() == 2
+									&& view.children().size() == 2);
 
 					editor.activateTool(link);
 					editor.drag("Hardgoal", 200, 0);
+					editor.drag(0, 0, 1000, 1000);
 					performAction(method, CUT);
 
-					// Ensure link is gone from model & view
-
-					// Ensure intentions are no longer linked
+					// Ensure linked elements are gone from model & view
+					assertTrue(
+							"Elements linked by "
+									+ link
+									+ " was not successfully removed from the model using Cut via "
+									+ method, model.eContents().isEmpty());
+					assertTrue(
+							"Elements linked by "
+									+ link
+									+ " was not successfully removed from the view using Cut via "
+									+ method, view.children().isEmpty());
+					
+					//Ensure the correct items were placed on clipboard 
+					
+					
+					cleanUp(); 
 
 				}
 			}
@@ -197,11 +213,11 @@ public class TestEditActions extends SWTBotGefTestCase {
 		for (String[] type : allElem) {
 			for (String element : type) {
 				for (String method : methods) {
-					
+
 					createElement(element, 0, 0);
 					cutPart = editor.getEditPart(element);
 
-					performAction(method, CUT);					
+					performAction(method, CUT);
 					performAction(method, PASTE);
 
 					pastePart = editor.getEditPart(element);
@@ -209,16 +225,14 @@ public class TestEditActions extends SWTBotGefTestCase {
 					assertTrue(element + " was not Pasted properly via "
 							+ method, model.eContents().size() == 1
 							&& view.children().size() == 1);
-					
-					// Delete and assert it was done so properly
-					editor.getEditPart(element);
-					editor.clickContextMenu("Delete from Model");
 
 					assertTrue(
 							element.toString()
 									+ " was not successfully placed onto system clipboard using Cut via "
 									+ method, cutPart.getClass().equals(
 									pastePart.getClass()));
+					
+					cleanUp(); 
 
 				}
 
@@ -273,11 +287,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 								&& cutPart.getClass().equals(
 										pastePart.getClass()));
 
-				// Delete and assert it was done so properly
-				editor.clickContextMenu("Delete from Model");
-				assertTrue("Delete from Model not working", view.children()
-						.isEmpty()
-						&& model.eContents().isEmpty());
+				cleanUp(); 
 
 			}
 		}
@@ -324,6 +334,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 							.equals(afterIntentionsInView)
 							&& beforeIntentionsInModel
 									.equals(afterIntentionsInModel));
+			cleanUp(); 
 
 		}
 	}
@@ -364,13 +375,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 									&& copyPart.getClass().equals(
 											pastePart.getClass()));
 
-					// Delete to clean up canvas for next element
-					editor.drag(0, 0, 1000, 1000);
-					editor.clickContextMenu("Delete from Model");
-
-					assertTrue("Delete from Model not working", view.children()
-							.isEmpty()
-							&& model.eContents().isEmpty());
+					cleanUp(); 
 
 				}
 			}
@@ -506,6 +511,28 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 		return osType;
 
+	}
+	
+	/**
+	 * Clean-up method to clear the canvas - used when you want to 
+	 * clear the canvas while wanting to be in the same test case 
+	 */
+	public void cleanUp(){
+		
+		// Clean-up and assert it was done properly
+		editor.drag(0, 0, 1000, 1000);
+		editor.clickContextMenu("Delete from Model");
+		
+		// Just in case
+		if (!view.children().isEmpty()){
+			editor.select(view.children()); 
+			editor.clickContextMenu("Delete from Model");
+		}
+		
+		assertTrue("Delete from Model not working", view.children()
+				.isEmpty()
+				&& model.eContents().isEmpty());
+		
 	}
 
 }
