@@ -44,6 +44,8 @@ public class Deletion {
         editor = new SWTGefBot().gefEditor("test.ood");
         diagram = editor.mainEditPart();
         model = TestUtil.getModel(editor);
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
     }
 
     @After
@@ -387,16 +389,18 @@ public class Deletion {
 
         // create two intentions
         String resName = "Role";
-        editor.activateTool(resName).click(500, 500);
+        editor.activateTool(resName).click(0, 0);
         editor.directEditType(resName);
+        editor.click(10, 10);
         RoleEditPart role = (RoleEditPart) editor.getEditPart(resName).part()
                 .getParent();
 
         for (String linkTool : TestUtil.associations) {
             for (String type : typesOfDelete) {
                 String actorTool = "Actor";
-                editor.activateTool(actorTool).click(1, 1);
+                editor.activateTool(actorTool).click(201, 0);
                 editor.directEditType(actorTool);
+                editor.click(206, 10);
                 AbstractGraphicalEditPart intention = (AbstractGraphicalEditPart) editor
                         .getEditPart(actorTool).part().getParent();
 
@@ -407,7 +411,7 @@ public class Deletion {
 
                 // create a link between the intentions
                 editor.activateTool(linkTool);
-                editor.drag(resName, 10, 10);
+                editor.drag(resName, 210, 10);
 
                 // test is running too quick, not enough time to propagate to
                 // model.
