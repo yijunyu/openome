@@ -3,9 +3,12 @@ package edu.toronto.cs.openome.testing;
 import static org.junit.Assert.*;
 
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.swt.SWT;
 import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditor;
+import org.eclipse.swtbot.swt.finder.keyboard.Keyboard;
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory;
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
 import org.junit.After;
@@ -705,9 +708,9 @@ public class Deletion {
         // propagate.
         Thread.sleep(100);
         if (type.equals("delete")) {
-            KeyboardFactory.getAWTKeyboard().pressShortcut(Keystrokes.DELETE);
+            KeyboardFactory.getAWTKeyboard().pressShortcut(KeyStroke.getInstance(SWT.DEL));
         } else if (type.equals("backspace")) {
-            KeyboardFactory.getAWTKeyboard().pressShortcut(Keystrokes.BS);
+            KeyboardFactory.getAWTKeyboard().pressShortcut(KeyStroke.getInstance(SWT.BS));
         } else {
             editor.clickContextMenu("Delete from Model");
         }
