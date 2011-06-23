@@ -136,8 +136,8 @@ public class TestUtil {
 			file.copy(new Path(project.getFullPath() + "/" + diagramName), true, null);
 	    	packageTree.setFocus();
 	    	packageTree.getTreeItem(projectName).expand().getNode(diagramName).doubleClick();
-			bot.editorByTitle(diagramName).setFocus();
-			bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
+//			bot.editorByTitle(diagramName).setFocus();
+//			bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -207,5 +207,25 @@ public class TestUtil {
         DiagramImpl dImpl = (DiagramImpl) editor.mainEditPart().part().getModel();
         ModelImpl model = (ModelImpl) dImpl.getElement();
         return (Model) model;
+    }
+    
+    /**
+     * Return a String array that is a concatenation of String array a1 and String a2
+     * @param a1 String array
+     * @param a2 String array
+     * @return String array that is a concatenation of String array a1 and String a2
+     */
+    public static String[] combineArray (String[] a1, String[] a2) {
+    	String[] newArray = new String[a1.length + a2.length];
+    	int index = 0;
+    	for ( String i : a1) {
+    		newArray[index] = i;
+    		index++;
+    	}
+    	for ( String i  : a2) {
+    		newArray[index] = i;
+    		index++;
+    	}
+    	return newArray;
     }
 }

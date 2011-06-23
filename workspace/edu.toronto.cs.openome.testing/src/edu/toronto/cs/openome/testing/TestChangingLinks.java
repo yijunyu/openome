@@ -71,7 +71,7 @@ public class TestChangingLinks {
     /**
      * Test changing links between any two intentions
      */
-    @Test
+    //@Test
     public void TestChangingLinksBetweenTwoIntentions() {
     	
     	Random generator = new Random();
@@ -151,7 +151,7 @@ public class TestChangingLinks {
     /**
      * Test changing links between any two intentions inside an Actor
      */
-    @Test
+    //@Test
     public void TestChangingLinksBetweenTwoIntentionsInAnActor() {
     	
     	Random generator = new Random();
@@ -400,20 +400,4 @@ public class TestChangingLinks {
     	}
     }
     
-    class WithEditPartType extends BaseMatcher {
-
-		@Override
-		public boolean matches(Object item) {
-			if (item instanceof ConnectionEditPart)
-				return true;
-			return false;
-		}
-
-		@Override
-		public void describeTo(Description description) {
-			// TODO Auto-generated method stub
-			
-		}
-    	
-    }
 }

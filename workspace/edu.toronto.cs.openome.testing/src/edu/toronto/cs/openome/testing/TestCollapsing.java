@@ -351,12 +351,7 @@ public class TestCollapsing {
     		
     		/***Setting up the actors. Adding intentions and links.*****/
 	    	actors = addActor(actorsFromList, "test");
-	    	editor.clear();
-	    	editor.doubleClick(700, 700);
-	    	editor.click(actors.parent());
-	    	sleep(10000);
-	    	System.out.println(MouseInfo.getPointerInfo().getLocation().x);
-	    	editor.drag(492, 492, 1000, 1000);
+	    	//System.out.println(MouseInfo.getPointerInfo().getLocation().x);
 	    	//actors.parent().resize(PositionConstants.ALWAYS_RIGHT, 1000, 350);
 
 	    	
