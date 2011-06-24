@@ -64,6 +64,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorNameEditPart;
@@ -86,8 +87,9 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 	/** A place holder to store the current element being handled **/
 	private static String current = null;
-	// Note: Be careful when using this. Should be updated and cleaned up
+	// NOTE: Be careful when using this. Should be updated and cleaned up
 	// meticulously - especially when dealing with links.
+	// This is mainly used to give a more specific error message
 
 	/** Represents elements in a 2D Array **/
 	private static String[][] allElem = { TestUtil.intentions, TestUtil.actors };
@@ -123,8 +125,8 @@ public class TestEditActions extends SWTBotGefTestCase {
 	}
 
 	/**
-	 * Tests if intentions/actors are successfully removed from model and view
-	 * using Cut.
+	 * Tests if Cut functionality works on free-standing intentions and actors
+	 * (ie. no intentions within an actor)
 	 */
 	@Test
 	public void testCutElem() {
@@ -134,20 +136,32 @@ public class TestEditActions extends SWTBotGefTestCase {
 				for (String method : methods) {
 
 					createElement(element, 0, 0);
-					performAction(method, CUT);
 
+					// Record what was created
+					List<SWTBotGefEditPart> viewBefore = view.children();
+					List<EObject> modelBefore = model.eContents();
+
+					// Ensure element has been removed from model & view
+					performAction(method, CUT);
 					assertTrue(
 							element.toString()
 									+ " was not successfully removed from the view using Cut via "
 									+ method, view.children().isEmpty());
-
 					assertTrue(
 							element.toString()
 									+ " was not successfully removed from the model using Cut via "
 									+ method, model.eContents().isEmpty());
-					
-					cleanUp(); 
 
+					// Ensure the correct items were placed on the clipboard
+					performAction(method, PASTE);
+					assertTrue(
+							element
+									+ " was not successfully placed on system clipboard using Cut via "
+									+ method, isViewEqual(viewBefore, view
+									.children())
+									&& model.eContents().equals(modelBefore));
+
+					cleanUp();
 
 				}
 			}
@@ -155,8 +169,9 @@ public class TestEditActions extends SWTBotGefTestCase {
 	}
 
 	/**
-	 * Tests if links are successfully removed from the model and view using
-	 * Cut.
+	 * Tests if Cut functionality works on intentions that are linked by any
+	 * type of link
+	 * 
 	 */
 	@Test
 	public void testCutLinkedElems() {
@@ -169,86 +184,55 @@ public class TestEditActions extends SWTBotGefTestCase {
 					// Set-up for testing links - create two intentions to link
 					createElement("Hardgoal", 0, 0);
 					createElement("Softgoal", 200, 0);
-
 					assertTrue("Set-up for intentions to link unsuccessful",
 							model.eContents().size() == 2
 									&& view.children().size() == 2);
 
 					editor.activateTool(link);
 					editor.drag("Hardgoal", 200, 0);
-					editor.drag(0, 0, 1000, 1000);
-					performAction(method, CUT);
+
+					// Record what is currently in the canvas prior to Cut
+					List<SWTBotGefEditPart> viewBefore = view.children();
+					List<EObject> modelBefore = model.eContents();
 
 					// Ensure linked elements are gone from model & view
-					assertTrue(
-							"Elements linked by "
-									+ link
-									+ " was not successfully removed from the model using Cut via "
-									+ method, model.eContents().isEmpty());
-					assertTrue(
-							"Elements linked by "
-									+ link
-									+ " was not successfully removed from the view using Cut via "
-									+ method, view.children().isEmpty());
-					
-					//Ensure the correct items were placed on clipboard 
-					
-					
-					cleanUp(); 
-
-				}
-			}
-		}
-	}
-
-	/**
-	 * Tests if intentions/actors are placed on the system clipboard accordingly
-	 * using Cut.
-	 */
-	@Test
-	public void testCutElemOnClipboard() {
-
-		SWTBotGefEditPart cutPart, pastePart;
-
-		for (String[] type : allElem) {
-			for (String element : type) {
-				for (String method : methods) {
-
-					createElement(element, 0, 0);
-					cutPart = editor.getEditPart(element);
-
+					editor.select(view.children());
 					performAction(method, CUT);
-					performAction(method, PASTE);
-
-					pastePart = editor.getEditPart(element);
-					// Ensure Paste was done correctly
-					assertTrue(element + " was not Pasted properly via "
-							+ method, model.eContents().size() == 1
-							&& view.children().size() == 1);
 
 					assertTrue(
-							element.toString()
-									+ " was not successfully placed onto system clipboard using Cut via "
-									+ method, cutPart.getClass().equals(
-									pastePart.getClass()));
-					
-					cleanUp(); 
+							"Elements linked by "
+									+ link
+									+ " were not successfully removed from the view using Cut via "
+									+ method, view.children().isEmpty());
+					assertTrue(
+							"Elements linked by "
+									+ link
+									+ " were not successfully removed from the model using Cut via "
+									+ method, model.eContents().isEmpty());
+
+					// Ensure the correct items were placed on clipboard
+					performAction(method, PASTE);
+					assertTrue(
+							"Elements linked by "
+									+ link
+									+ " was not successfully placed on system clipboard using Cut via "
+									+ method, model.eContents().equals(
+									modelBefore)
+									&& isViewEqual(viewBefore, view.children()));
+
+					cleanUp();
 
 				}
-
 			}
 		}
-
 	}
 
 	/**
-	 * Tests if Cut functionality works for actors with several intentions
-	 * inside.
+	 * Tests if Cut functionality works for actors with several intentions and
+	 * connections inside
 	 */
 	@Test
 	public void testCutActorWithElementsInside() {
-
-		SWTBotGefEditPart cutPart, pastePart;
 
 		for (String actor : TestUtil.actors) {
 			for (String method : methods) {
@@ -261,33 +245,36 @@ public class TestEditActions extends SWTBotGefTestCase {
 				editor.activateTool("Decomposition");
 				editor.drag("Hardgoal", 20, 180);
 
-				cutPart = editor.getEditPart(actor);
-				editor.click(actor);
+				// Record what is currently in the canvas prior to Cut
+				List<SWTBotGefEditPart> viewBefore = view.children();
+				List<EObject> modelBefore = model.eContents();
 
 				// Ensure actor was removed from model & view
+				editor.doubleClick(editor.getEditPart(actor));
+				/**
+				 * NOTE: For some reason, CUT doesn't happen successfully with
+				 * shortcut method in this test
+				 **/
 				performAction(method, CUT);
 
 				assertTrue(
 						actor
-								+ " with elements inside was not removed from model and view properly using Cut via "
+								+ " with elements inside was not removed from model properly using Cut via "
 								+ method, model.getContainers().isEmpty());
 				assertTrue(
 						actor
 								+ " with elements inside was not removed from view properly using Cut via "
 								+ method, view.children().isEmpty());
-				performAction(method, PASTE);
-				pastePart = editor.getEditPart(actor);
 
 				// Check if clipboard contents reflects Cut action
+				performAction(method, PASTE);
 				assertTrue(
 						actor
 								+ " with elements inside was not successfully placed onto system clipboard using Cut via "
-								+ method, cutPart.children().equals(
-								pastePart.children())
-								&& cutPart.getClass().equals(
-										pastePart.getClass()));
+								+ method, model.eContents().equals(modelBefore)
+								&& isViewEqual(viewBefore, view.children()));
 
-				cleanUp(); 
+				cleanUp();
 
 			}
 		}
@@ -295,11 +282,9 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 	/**
 	 * Tests if Cut functionality works on multiple elements
-	 * 
-	 * @throws InterruptedException
-	 */
+	 **/
 	@Test
-	public void testCutMultipleIntentions() throws InterruptedException {
+	public void testCutMultipleIntentions() {
 
 		for (String method : methods) {
 
@@ -309,13 +294,14 @@ public class TestEditActions extends SWTBotGefTestCase {
 			createElement("Task", 320, 180);
 			createElement("Resource", 170, 90);
 
-			List<SWTBotGefEditPart> beforeIntentionsInView = view.children();
-			List<Intention> beforeIntentionsInModel = model.getIntentions();
+			// Record what is on canvas
+			List<SWTBotGefEditPart> viewBefore = view.children();
+			List<Intention> modelBefore = model.getIntentions();
 
-			editor.drag(0, 0, 1000, 1000);
+			editor.select(view.children());
 			performAction(method, CUT);
-			Thread.sleep(500);
 
+			// Ensure intentions are gone from model & view
 			assertTrue(
 					"Multiple intentions were not removed from model using Cut via "
 							+ method, model.eContents().isEmpty());
@@ -323,18 +309,14 @@ public class TestEditActions extends SWTBotGefTestCase {
 					"Multiple intentions were not removed from view using Cut via "
 							+ method, view.children().isEmpty());
 
+			// Ensure correct items were placed on system clipboard
 			performAction(method, PASTE);
-
-			List<SWTBotGefEditPart> afterIntentionsInView = view.children();
-			List<Intention> afterIntentionsInModel = model.getIntentions();
-
 			assertTrue(
 					"Multiple intentions were not placed on system clipboard properly using Cut via "
-							+ method, beforeIntentionsInView
-							.equals(afterIntentionsInView)
-							&& beforeIntentionsInModel
-									.equals(afterIntentionsInModel));
-			cleanUp(); 
+							+ method, modelBefore.equals(model.getIntentions())
+							&& isViewEqual(viewBefore, view.children()));
+
+			cleanUp();
 
 		}
 	}
@@ -345,8 +327,6 @@ public class TestEditActions extends SWTBotGefTestCase {
 	@Test
 	public void testCopyPasteElem() {
 
-		SWTBotGefEditPart copyPart, pastePart;
-
 		for (String[] type : allElem) {
 			for (String element : type) {
 				for (String method : methods) {
@@ -356,30 +336,144 @@ public class TestEditActions extends SWTBotGefTestCase {
 							.eContents().size() == 1
 							&& view.children().size() == 1);
 
+					// Record what is on canvas
+					List<SWTBotGefEditPart> beforeView = view.children();
+					List<EObject> beforeModel = model.eContents();
+
 					performAction(method, COPY);
-					copyPart = editor.getEditPart(element);
+					// Clean up canvas for Paste
+					cleanUp();
 
-					// Delete to clean up canvas for Paste
-					editor.click(element);
-					editor.clickContextMenu("Delete from Model");
-					assertTrue("Delete from Model not working", view.children()
-							.isEmpty()
-							&& model.eContents().isEmpty());
-
+					// Check if what was copied reflects what has been pasted
 					performAction(method, PASTE);
-					pastePart = view.children().get(0);
 
-					assertTrue(element + " was not copied and pasted properly",
-							copyPart != null
-									&& pastePart != null
-									&& copyPart.getClass().equals(
-											pastePart.getClass()));
+					assertTrue(
+							element
+									+ " was not Copied and Pasted properly on model via "
+									+ method, beforeModel.equals(model
+									.eContents()));
+					assertTrue(
+							element
+									+ " was not Copied and Pasted properly on view via "
+									+ method, isViewEqual(beforeView, view
+									.children()));
 
-					cleanUp(); 
+					cleanUp();
 
 				}
 			}
 		}
+	}
+
+	@Test
+	public void testCopyPasteActorWithElementsInside() {
+
+		for (String actor : TestUtil.actors) {
+			for (String method : methods) {
+
+				createElement(actor, 0, 0);
+
+				// Hard-code contents inside actor
+				createElement("Hardgoal", 170, 10);
+				createElement("Softgoal", 20, 180);
+				editor.activateTool("Decomposition");
+				editor.drag("Hardgoal", 20, 180);
+
+				// Record what is on canvas
+				List<SWTBotGefEditPart> beforeView = view.children();
+				List<EObject> beforeModel = model.eContents();
+
+				// Ensure actor was removed from model & view
+				editor.doubleClick(editor.getEditPart(actor));
+				performAction(method, COPY);
+				
+				// Clean up canvas for paste
+				cleanUp();
+
+				// Check if what was copied reflects what has been pasted
+				performAction(method, PASTE);
+				assertTrue(
+						actor
+								+ " with elements inside was not Copied and Pasted properly on model via "
+								+ method, beforeModel.equals(model.eContents()));
+				assertTrue(
+						actor
+								+ " with elements inside was not Copied and Pasted properly on view via "
+								+ method, isViewEqual(beforeView, view
+								.children()));
+
+				cleanUp();
+
+			}
+		}
+
+	}
+
+	@Test
+	public void testCopyPasteMultipleIntentions() {
+		
+		for (String method : methods) {
+
+			// Set-up
+			createElement("Hardgoal", 170, 10);
+			createElement("Softgoal", 170, 170);
+			createElement("Task", 320, 180);
+			createElement("Resource", 170, 90);
+
+			// Record what is on canvas
+			List<SWTBotGefEditPart> viewBefore = view.children();
+			List<Intention> modelBefore = model.getIntentions();
+
+			editor.select(view.children());
+			performAction(method, COPY);
+
+			//Clean up canvas for paste
+			cleanUp();
+
+			// Check if what was copied reflects what has been pasted
+			performAction(method, PASTE);
+			assertTrue(
+					"Multiple intentions were not copied and pasted properly via "
+							+ method, modelBefore.equals(model.getIntentions())
+							&& isViewEqual(viewBefore, view.children()));
+
+			cleanUp();
+
+		}
+		
+	}
+
+	/**
+	 * Compares two objects of type <code>List</code> and checks if the items
+	 * inside are of the same class. The regular <method>isequal</method> does
+	 * not function for the purpose of the test cases because it compares the
+	 * <code>Impl</code> as well - which differs for the objects - but we don't
+	 * need this to be the same in the tests.
+	 * 
+	 * @param parts
+	 *            A <code>List</code> of <code>SWTBotGefEditPart</code> objects
+	 * @return True if the items in the two lists have the same items it, False
+	 *         otherwise
+	 */
+	public boolean isViewEqual(List<SWTBotGefEditPart> l1,
+			List<SWTBotGefEditPart> l2) {
+
+		if (l1.size() != l2.size() || l1 == null || l2 == null) {
+			return false;
+		} else if (l1.isEmpty() && l2.isEmpty()) { // Base case
+			return true;
+		} else { // We want the class and children (if any) to be the
+			// same
+			if (l1.get(0).getClass().equals(l2.get(0).getClass())
+					|| l1.get(0).children().equals(l2.get(0).children())) {
+				l1.remove(l1.get(0));
+				l2.remove(l2.get(0));
+				return isViewEqual(l1, l2);
+			} else {
+				return false;
+			}
+		}
+
 	}
 
 	/**
@@ -405,7 +499,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 		try {
 			editor.directEditType(item);
 		} catch (Throwable t) {
-			System.err.println("Unable to type in '" + item + "' on item.");
+			System.err.println("Unable to create '" + item);
 		}
 
 		editor.getEditPart(item).focus();
@@ -512,27 +606,21 @@ public class TestEditActions extends SWTBotGefTestCase {
 		return osType;
 
 	}
-	
+
 	/**
-	 * Clean-up method to clear the canvas - used when you want to 
-	 * clear the canvas while wanting to be in the same test case 
+	 * Clean-up method to clear the canvas - used when you want to clear the
+	 * canvas while wanting to be in the same test case. NOTE: This may not work
+	 * when using with Cut since it is not working properly (ie. not deleting
+	 * from model)
 	 */
-	public void cleanUp(){
-		
-		// Clean-up and assert it was done properly
-		editor.drag(0, 0, 1000, 1000);
+	public void cleanUp() {
+
+		editor.select(view.children());
 		editor.clickContextMenu("Delete from Model");
-		
-		// Just in case
-		if (!view.children().isEmpty()){
-			editor.select(view.children()); 
-			editor.clickContextMenu("Delete from Model");
-		}
-		
-		assertTrue("Delete from Model not working", view.children()
-				.isEmpty()
-				&& model.eContents().isEmpty());
-		
+
+		assertTrue("Delete from Model not working", model.eContents().isEmpty()
+				&& view.children().isEmpty());
+
 	}
 
 }
