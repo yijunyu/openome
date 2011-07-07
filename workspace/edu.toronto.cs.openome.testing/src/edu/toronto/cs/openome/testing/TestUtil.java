@@ -49,7 +49,7 @@ public class TestUtil {
     //public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
     private static String pathName = null;
     
-    private static String workspacePath = null;
+    public static String workspacePath = null;
     private static SWTBotTree packageTree = null;
     private static IProject project = null;
     
@@ -79,7 +79,7 @@ public class TestUtil {
             // do nothing - Welcome screen is already closed
         }
 
-        packageTree = bot.viewByTitle("Package Explorer").bot().tree();
+        packageTree = bot.viewByTitle("Project Explorer").bot().tree();
         packageTree.setFocus();
         try {
         	packageTree.getTreeItem(projectName);
@@ -100,7 +100,7 @@ public class TestUtil {
      */
     public static void createTest() {
     	try {
-			System.out.println(new File(".").getCanonicalPath());
+			//System.out.println(new File(".").getCanonicalPath());
 			pathName =  new File(".").getCanonicalPath() + "/TestFile/" ;
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -113,6 +113,7 @@ public class TestUtil {
 				project.create(null);
 			project.open(null);
 			InputStream stream = new FileInputStream (pathName + diagramName);
+			System.out.println(project.getRawLocation());
 			IFile file = project.getFile(diagramName+"Hidden");
 			try {
 			if (!file.exists())

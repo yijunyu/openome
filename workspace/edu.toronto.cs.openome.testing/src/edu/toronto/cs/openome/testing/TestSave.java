@@ -38,7 +38,7 @@ public class TestSave {
 	
 	@BeforeClass
     public static void setUpBeforeClass() throws Exception {
-		System.setProperty("isTest", "true");
+		//System.setProperty("isTest", "true");
         TestUtil.initializeWorkspace();
     }
 
@@ -55,7 +55,7 @@ public class TestSave {
         TestUtil.closeAndDeleteFile();
     }
     
-//	@Test
+	@Test
 	public void SaveFile() throws Exception{
 		try{
 			Boolean flag = false;
@@ -69,7 +69,7 @@ public class TestSave {
 			
 			bot.menu("File").menu("Save").click();
 			Thread.sleep(500);
-			DataInputStream in = new DataInputStream(new FileInputStream("D:/Documents/Work/UofT/Eclipse/junit-workspace/OMETest/test.ood"));
+			DataInputStream in = new DataInputStream(new FileInputStream(TestUtil.workspacePath.replaceAll("Hidden", "")));
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine;
 			while ((strLine = br.readLine()) != null){
@@ -79,12 +79,14 @@ public class TestSave {
 			}
 			assertTrue("The file does not contain an Actor", flag);
 			editor.clickContextMenu("Delete from Model");
+			br.close();
+			in.close();
 		}catch (WidgetNotFoundException e) {
 			fail("Could not save file properly");
 		}
 	}
 	
-//	@Test
+	@Test
 	public void SaveFileKey() throws Exception{
 		try{
 			
@@ -97,7 +99,7 @@ public class TestSave {
 
             KeyboardFactory.getAWTKeyboard().pressShortcut(SWT.CTRL, 's');
 			Thread.sleep(500);
-			DataInputStream in = new DataInputStream(new FileInputStream("D:/Documents/Work/UofT/Eclipse/junit-workspace/OMETest/test.ood"));
+			DataInputStream in = new DataInputStream(new FileInputStream(TestUtil.workspacePath.replaceAll("Hidden", "")));
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine;
 			while ((strLine = br.readLine()) != null){
@@ -107,6 +109,8 @@ public class TestSave {
 			}
 			assertTrue("The file does not contain a Goal", flag);
 			editor.clickContextMenu("Delete from Model");
+			br.close();
+			in.close();
 		}catch (WidgetNotFoundException e) {
 			fail("Could not save file properly");
 		}
