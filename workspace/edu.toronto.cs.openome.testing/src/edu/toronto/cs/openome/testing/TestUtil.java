@@ -4,6 +4,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.allOf;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.anyOf;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withRegex;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,7 +46,8 @@ public class TestUtil {
     public static String diagramName = "test.ood";
     
     /******Change this to your path of folder TestFile in workspace*******/
-    public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
+    //public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
+    public static String pathName = null;
     
     public static String workspacePath = null;
     public static SWTBotTree packageTree = null;
@@ -99,24 +101,28 @@ public class TestUtil {
      * Initializes and creates the packages
      */
     public static void createTest() {
+    	try {
+			System.out.println(new File(".").getCanonicalPath());
+			pathName =  new File(".").getCanonicalPath() + "/TestFile/" ;
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
     	IWorkspace w = ResourcesPlugin.getWorkspace();
-    	hiddenProject = w.getRoot().getProject("HiddenProject");
+    	project = w.getRoot().getProject(projectName);
 		try {
-			if (!hiddenProject.exists())
-				hiddenProject.create(null);
-			hiddenProject.open(null);
+			if (!project.exists())
+				project.create(null);
+			project.open(null);
 			InputStream stream = new FileInputStream (pathName + diagramName);
-			IFile file = hiddenProject.getFile(diagramName);
+			IFile file = project.getFile(diagramName+"Hidden");
 			try {
 			if (!file.exists())
 				file.create(stream, false, null);
 			workspacePath = file.getRawLocation().toString();
 			} catch (Exception e) {}
+			file.setHidden(true);
 			stream.close();
-			hiddenProject.setHidden(true);
-			project = w.getRoot().getProject(projectName);
-			project.create(null);
-			project.open(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (CoreException e) {
@@ -131,7 +137,7 @@ public class TestUtil {
      */
     public static void createAndOpenFile() {
     	
-		IFile file = hiddenProject.getFile(diagramName);
+		IFile file = project.getFile(diagramName+"Hidden");
 		try {			
 			file.copy(new Path(project.getFullPath() + "/" + diagramName), true, null);
 	    	packageTree.setFocus();
