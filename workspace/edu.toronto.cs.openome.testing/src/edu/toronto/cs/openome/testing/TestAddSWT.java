@@ -8,7 +8,9 @@ import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,12 +46,23 @@ public class TestAddSWT{
 	private static SWTBotGefEditor editor;
 	
 	@BeforeClass
-	public static void beforeClass() throws Exception {
-		TestUtil.initializeWorkspace();
-		editor = new SWTGefBot().gefEditor("test.ood");
-		
-	}
-	
+    public static void setUpBeforeClass() throws Exception {
+        TestUtil.initializeWorkspace();
+    }
+
+    @Before
+    public void setUpBeforeTest() throws Exception {
+        TestUtil.createAndOpenFile();
+        editor = new SWTGefBot().gefEditor("test.ood");
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
+    }
+
+    @After
+    public void tearDownAfterTest() throws Exception {
+        TestUtil.closeAndDeleteFile();
+    }
+    
 	@Test
 	public void TestcanAddActor() throws Exception {
 		try {

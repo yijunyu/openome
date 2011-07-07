@@ -22,7 +22,9 @@ import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory;
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,13 +37,25 @@ public class TestSave {
 	private static SWTBotGefEditor editor;
 	
 	@BeforeClass
-	public static void beforeClass() throws Exception {
+    public static void setUpBeforeClass() throws Exception {
 		System.setProperty("isTest", "true");
-		TestUtil.initializeWorkspace();
-		editor = new SWTGefBot().gefEditor("test.ood");
-	}
-	
-	@Test
+        TestUtil.initializeWorkspace();
+    }
+
+    @Before
+    public void setUpBeforeTest() throws Exception {
+        TestUtil.createAndOpenFile();
+        editor = new SWTGefBot().gefEditor("test.ood");
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
+    }
+
+    @After
+    public void tearDownAfterTest() throws Exception {
+        TestUtil.closeAndDeleteFile();
+    }
+    
+//	@Test
 	public void SaveFile() throws Exception{
 		try{
 			Boolean flag = false;
@@ -70,7 +84,7 @@ public class TestSave {
 		}
 	}
 	
-	@Test
+//	@Test
 	public void SaveFileKey() throws Exception{
 		try{
 			

@@ -23,7 +23,9 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.hamcrest.Matcher;
 import org.hamcrest.core.IsInstanceOf;
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,9 +44,21 @@ public class TestAddActor{
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		TestUtil.initializeWorkspace();
-		editor = new SWTGefBot().gefEditor("test.ood");
 	}
- 
+
+	@Before
+    public void setUpBeforeTest() throws Exception {
+        TestUtil.createAndOpenFile();
+        editor = new SWTGefBot().gefEditor("test.ood");
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
+    }
+	
+    @After
+    public void tearDownAfterTest() throws Exception {
+        TestUtil.closeAndDeleteFile();
+    }
+	
 	@Test
 	public void canAddActor() throws Exception {
 		try {
@@ -72,10 +86,4 @@ public class TestAddActor{
 			fail("Could not add a new actor.");
 		}
 	}
-	
-	@AfterClass
-	public static void afterClass() {
-		editor.clear();
-	}
-	
 }

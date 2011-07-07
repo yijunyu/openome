@@ -704,8 +704,7 @@ public class Deletion {
      * "backspace": press the backspace key,
      * for everything else: Delete from Model in the context menu.
      * 
-     * @param type
-     *            the type of deletion to do
+     * @param type the type of deletion to do
      */
     private void doDelete(String type) throws InterruptedException {
         // need to slow down the process a bit to allow all the highlights to

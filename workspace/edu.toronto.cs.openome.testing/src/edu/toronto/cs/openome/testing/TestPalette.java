@@ -7,7 +7,9 @@ import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,18 +21,29 @@ public class TestPalette extends SWTBotGefTestCase {
 	private static SWTGefBot gefBot;
 	private SWTBotGefEditor editor;
  
+	
 	@BeforeClass
-	public static void beforeClass() throws Exception {
-		TestUtil.initializeWorkspace();
-		bot = new SWTWorkbenchBot();
-		gefBot = new SWTGefBot();		
-	}
+    public static void setUpBeforeClass() throws Exception {
+        TestUtil.initializeWorkspace();
+    }
+
+    @Before
+    public void setUpBeforeTest() throws Exception {
+        TestUtil.createAndOpenFile();
+        editor = new SWTGefBot().gefEditor("test.ood");
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
+    }
+
+    @After
+    public void tearDownAfterTest() throws Exception {
+        TestUtil.closeAndDeleteFile();
+    }
  
 	//Some simple tests to ensure that all of the tools are appearing in the palette
  
 	@Test
 	public void testPaletteToolNamesActorsIntentions() throws Exception {
-		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Actors
 			editor.activateTool("Actor");
@@ -53,7 +66,6 @@ public class TestPalette extends SWTBotGefTestCase {
 	
 	@Test
 	public void testPaletteToolNamesLinksContribs() throws Exception {
-		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Links
 			editor.activateTool("Dependency");
@@ -80,7 +92,6 @@ public class TestPalette extends SWTBotGefTestCase {
 	
 	@Test
 	public void testPaletteToolNamesAssociations() throws Exception {
-		editor = gefBot.gefEditor("test.ood");
 		try {
 			//Associations
 			editor.activateTool("ISA");
