@@ -47,12 +47,11 @@ public class TestUtil {
     
     /******Change this to your path of folder TestFile in workspace*******/
     //public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
-    public static String pathName = null;
+    private static String pathName = null;
     
-    public static String workspacePath = null;
-    public static SWTBotTree packageTree = null;
-    public static IProject hiddenProject = null;
-    public static IProject project = null;
+    private static String workspacePath = null;
+    private static SWTBotTree packageTree = null;
+    private static IProject project = null;
     
     /* The labels of palette tools */
     public static final String[] intentions = { "Hardgoal", "Softgoal", "Task", "Resource" };
@@ -80,8 +79,7 @@ public class TestUtil {
             // do nothing - Welcome screen is already closed
         }
 
-        packageTree = bot.viewByTitle("Package Explorer").bot()
-        .tree();
+        packageTree = bot.viewByTitle("Package Explorer").bot().tree();
         packageTree.setFocus();
         try {
         	packageTree.getTreeItem(projectName);
