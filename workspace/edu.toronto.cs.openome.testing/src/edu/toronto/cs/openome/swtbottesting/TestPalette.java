@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.SWTTesting;
+package edu.toronto.cs.openome.swtbottesting;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.gef.finder.SWTBotGefTestCase;

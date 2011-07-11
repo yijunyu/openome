@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.SWTTesting;
+package edu.toronto.cs.openome.swtbottesting;
 
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withRegex;
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withLabel;
