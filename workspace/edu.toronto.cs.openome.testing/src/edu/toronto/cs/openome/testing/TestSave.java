@@ -1,35 +1,24 @@
 package edu.toronto.cs.openome.testing;
 
 import static org.junit.Assert.*;
-
 import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
-import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory;
-import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import edu.toronto.cs.openome_model.Model;
-import edu.toronto.cs.openome_model.impl.ActorImpl;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class TestSave {
@@ -69,8 +58,7 @@ public class TestSave {
 			
 			bot.menu("File").menu("Save").click();
 			Thread.sleep(500);
-			DataInputStream in = new DataInputStream(new FileInputStream(TestUtil.workspacePath.replaceAll("Hidden", "")));
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			BufferedReader br = getBuffer();
 			String strLine;
 			while ((strLine = br.readLine()) != null){
 				if (strLine.contains("<containers") && strLine.contains("Actor") && strLine.contains("TestActor")){
@@ -80,7 +68,6 @@ public class TestSave {
 			assertTrue("The file does not contain an Actor", flag);
 			editor.clickContextMenu("Delete from Model");
 			br.close();
-			in.close();
 		}catch (WidgetNotFoundException e) {
 			fail("Could not save file properly");
 		}
@@ -89,18 +76,20 @@ public class TestSave {
 	@Test
 	public void SaveFileKey() throws Exception{
 		try{
-			
 			Boolean flag = false;
 			String name = "TestGoal";
 			
 			editor.activateTool("Hardgoal");
 			editor.click(0, 0);
 			editor.directEditType(name);
-
-            KeyboardFactory.getAWTKeyboard().pressShortcut(SWT.CTRL, 's');
+			
+			if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+	            KeyboardFactory.getAWTKeyboard().pressShortcut(KeyStroke.getInstance(SWT.COMMAND, 0), KeyStroke.getInstance("S"));
+			} else {
+	            KeyboardFactory.getAWTKeyboard().pressShortcut(KeyStroke.getInstance(SWT.CTRL, 0), KeyStroke.getInstance("S"));
+			}
 			Thread.sleep(500);
-			DataInputStream in = new DataInputStream(new FileInputStream(TestUtil.workspacePath.replaceAll("Hidden", "")));
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			BufferedReader br = getBuffer();
 			String strLine;
 			while ((strLine = br.readLine()) != null){
 				if (strLine.contains("<intentions") && strLine.contains("Goal") && strLine.contains("TestGoal")){
@@ -110,9 +99,12 @@ public class TestSave {
 			assertTrue("The file does not contain a Goal", flag);
 			editor.clickContextMenu("Delete from Model");
 			br.close();
-			in.close();
 		}catch (WidgetNotFoundException e) {
 			fail("Could not save file properly");
 		}
+	}
+	
+	private BufferedReader getBuffer() throws FileNotFoundException{		
+		return new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(TestUtil.workspacePath.replaceAll("Hidden", "")))));
 	}
 }
