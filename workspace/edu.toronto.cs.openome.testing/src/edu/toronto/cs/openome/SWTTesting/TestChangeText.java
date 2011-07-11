@@ -1,4 +1,4 @@
-package edu.toronto.cs.openome.testing;
+package edu.toronto.cs.openome.SWTTesting;
 
 import static org.junit.Assert.*;
 
