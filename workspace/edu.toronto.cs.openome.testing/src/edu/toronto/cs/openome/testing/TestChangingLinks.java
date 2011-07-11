@@ -59,6 +59,8 @@ public class TestChangingLinks {
     public void runBeforeEverTest() {
     	TestUtil.initializeWorkspace();
         TestUtil.createAndOpenFile();
+        TestUtil.bot.editorByTitle(TestUtil.diagramName).setFocus();
+		TestUtil.bot.menu("Window").menu("Navigation").menu("Maximize Active View or Editor").click();
         editor = new SWTGefBot().gefEditor("test.ood");
     }
     
