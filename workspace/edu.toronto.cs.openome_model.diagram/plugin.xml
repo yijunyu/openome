@@ -1090,6 +1090,23 @@
 <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
+<extension
+      point="org.eclipse.ui.importWizards">
+   <category
+         id="edu.toronto.cs.openome_model.diagram.importWizards.sampleCategory"
+         name="OpenOME">
+   </category>
+   <wizard
+         category="edu.toronto.cs.openome_model.diagram.importWizards.sampleCategory"
+         class="edu.toronto.cs.openome_model.diagram.importWizards.ImportWizard"
+         icon="icons/sample.gif"
+         id="edu.toronto.cs.openome_model.diagram.importWizards.ImportWizard"
+         name="q7 files">
+      <description>
+         Import a file from the local file system into the workspace.
+      </description>
+   </wizard>
+</extension>
 
    
    
