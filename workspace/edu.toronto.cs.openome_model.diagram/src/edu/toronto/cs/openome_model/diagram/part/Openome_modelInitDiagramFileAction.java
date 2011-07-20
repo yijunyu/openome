@@ -43,6 +43,15 @@ public class Openome_modelInitDiagramFileAction implements
 	}
 
 	/**
+	 * Set the domain model URI manually so that we can create diagram through q7
+	 * @generated NOT
+	 */
+	public void setDomainModelURI(IFile file) {
+		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
+				.toString(), true);
+	}
+	
+	/**
 	 * @generated
 	 */
 	public void selectionChanged(IAction action, ISelection selection) {

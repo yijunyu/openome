@@ -1,6 +1,8 @@
 package edu.toronto.cs.openome.conversion.action;
 
-import edu.toronto.cs.openome.core.action.ConvertAction;
+import action.ConvertAction;
+
+
 
 public class Q7_GoalModel extends ConvertAction {
 	public Q7_GoalModel() {
