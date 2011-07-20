@@ -90,8 +90,8 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		if (intention.getContainer() != null)
 			mess += " in " + intention.getContainer().getName();
 	
-		ld.setTitle("Sofgoal Resolution for " + mess);
-		ld.setMessage(mess + " has recieved the following labels.  Please select a resulting label.");
+		ld.setTitle("Softgoal Resolution for " + mess);
+		ld.setMessage(mess + " has received the following labels.  Please select a resulting label.");
 
 		System.out.println("set title and message");	
 		
