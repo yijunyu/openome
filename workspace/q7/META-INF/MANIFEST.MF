@@ -7,7 +7,12 @@ Bundle-Vendor: Yijun Yu
 Bundle-Localization: plugin
 Require-Bundle: util,
  org.eclipse.emf.ecore,
- core
+ core,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.core.runtime,
+ edu.toronto.cs.openome_model.diagram;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Export-Package: action,
  codegen,
