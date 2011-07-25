@@ -235,7 +235,7 @@ public class AlternativesView extends ViewPart {
 			getImageDescriptor(ISharedImages.IMG_ELCL_COLLAPSEALL));
 		
 		/**
-		 *  Refresh Action - refreshs the view
+		 *  Refresh Action - refreshes the view
 		 */
 		refreshAction = new Action() {
 			public void run() {								
@@ -494,7 +494,7 @@ public class AlternativesView extends ViewPart {
 	private boolean showConfirm (String message) {
 		return MessageDialog.openConfirm(
 				viewer.getControl().getShell(),
-				"Delete Alternate?",
+				"Delete Alternative?",
 				message);
 		
 		

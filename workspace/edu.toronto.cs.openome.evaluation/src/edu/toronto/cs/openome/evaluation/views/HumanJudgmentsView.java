@@ -1,5 +1,9 @@
 package edu.toronto.cs.openome.evaluation.views;
 
+import java.util.HashMap;
+
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
@@ -7,12 +11,18 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveListener;
@@ -25,23 +35,37 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 
+import edu.toronto.cs.openome.evaluation.commands.AddHumanJudgmentCommand;
+import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
 import edu.toronto.cs.openome_model.Alternative;
+import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 public class HumanJudgmentsView extends ViewPart
 {
-	public static final String ID = "edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView";
+	
+	/* ID of Judgments view */
+	public static final String ID = "edu.toronto.cs.openome.evaluation.views.JudgmentsView";
 
-	// need this to be a static to support the singleton model
+	/* Singleton TreeViewer */
 	public static TreeViewer viewer;
 
 	private DrillDownAdapter drillDownAdapter;
 	
-	// Action variables
+	/* Action variables */
+	private Action clickAction;
+	private Action deleteAction;
 	private Action refreshAction;
 	private Action collapseAllAction;
 	private Action expandAllAction;
+	
 
 	/**
 	 * This is a callback that will allow us
@@ -59,6 +83,7 @@ public class HumanJudgmentsView extends ViewPart
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "edu.toronto.cs.openome.evaluation.viewer");
 		makeActions();
 		hookContextMenu();
+		hookDoubleClickAction();
 		contributeToActionBars();
 		
 		/* ISelectionListener will notify the view about every time the user changes/selects a model tab */
@@ -189,6 +214,90 @@ public class HumanJudgmentsView extends ViewPart
 		refreshAction.setToolTipText("Refresh");
 		refreshAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 			getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
+		
+		/**
+		 *   Double-Click Action - determines what should be done when item is double-clicked
+		 */
+		clickAction = new Action() {
+			public void run(){
+				
+				ModelImpl mi;
+				CommandStack cs; 
+				
+				ISelection selection = viewer.getSelection();
+				//The item that got selected by the user 
+				Object obj = ((IStructuredSelection)selection).getFirstElement();
+				
+				//Double check location of this 
+				mi = ModelInstance.getModelImpl();
+				cs = ModelInstance.getCommandStack();
+				
+				//User clicks on a Judgment 
+				if (obj instanceof TreeObject){
+					TreeObject to = (TreeObject) obj;
+					Object treeObj = to.getObject();
+					
+					if (treeObj instanceof Alternative){
+						//This means the user clicked on a judgment 
+						
+						Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
+						
+						Alternative alt = (Alternative) treeObj;
+						Object intenObj = to.getParent().getObject(); //This is the intention being handled 
+						Intention inten = (Intention) intenObj; //Cast 
+						
+						//Open the appropriate dialog
+						if (alt.getDirection().equals("forward")) {
+							ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
+							cs.execute(windowCommand);
+							if (windowCommand.cancelled()) {
+								return;
+							}
+
+							//Remove the HJ from both the model and the AlternativesView tree.
+							//cs.execute(removeCommand);
+							//to.getParent().removeChild(to);
+
+							EvaluationLabel result = windowCommand.getEvalResult();	
+							System.out.println("Window result: " + result.getName());
+
+							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+							cs.execute(addHJ);
+
+						} else if (alt.getDirection().equals("backward")) {
+							BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
+							cs.execute(windowCommand);
+							if (windowCommand.cancelled()) {
+								return;
+							}
+						}
+						
+					}
+
+					
+				}
+				
+			}
+		};
+
+	}
+	
+	/**
+	 * Assigns the double-click action for the viewer
+	 */
+	private void hookDoubleClickAction() {
+		viewer.addDoubleClickListener(new IDoubleClickListener() {
+			public void doubleClick(DoubleClickEvent event) {
+				clickAction.run();
+			}
+		});
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			
+			// @Override
+			public void selectionChanged(SelectionChangedEvent arg0) {
+				clickAction.run();				
+			}
+		});
 	}
 
 	/**
@@ -236,6 +345,8 @@ public class HumanJudgmentsView extends ViewPart
 	 * Loads Intentions from the model into the view
 	 */
 	private void loadIntentions() {
+		
+		/* Get the active model*/
 		ModelImpl mi = ModelInstance.getModelImpl();
 		
 		if(mi != null) {
@@ -243,9 +354,11 @@ public class HumanJudgmentsView extends ViewPart
 			EList<Intention> ints = mi.getAllIntentions();
 			EList<Alternative> alts = mi.getAlternatives();
 			
-			/* Add each Intention to the view */
+			/* Add Intention decided by Human Judgments to the view */
 			for(Intention i : ints) {
-				addIntention(i, alts);
+				if (!i.getHumanJudgments().isEmpty()){
+					addIntention(i, alts);
+				}
 			}
 		}
 		
@@ -253,18 +366,30 @@ public class HumanJudgmentsView extends ViewPart
 	}
 	
 	/**
-	 * Add the Intention to the View, and all its qualitative labels.
+	 * Add the Intention to the View, and all its evaluations. 
 	 */
 	public void addIntention(Intention i, EList<Alternative> alts) {
+		
 		// Get the content provider
 		ViewContentProvider contentProvider = (ViewContentProvider)viewer.getContentProvider();
 		
 		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(i);
+		
 		node.setAlternateStatus(false);
 		
-		contentProvider.addHumanJudgment(node, i, alts);
+		/* Differentiates between different kinds of intentions for icon label */		
+		if(i instanceof GoalImpl){
+			node.setHardgoalStatus(true);
+		} else if(i instanceof SoftgoalImpl){
+			node.setSoftgoalStatus(true);
+		} else if(i instanceof TaskImpl){
+			node.setTaskStatus(true);
+		} else if(i instanceof ResourceImpl){
+			node.setResourceStatus(true);
+		}
 		
+		contentProvider.addJudgment(node, i, alts);
 		refreshView();
 	}
 }

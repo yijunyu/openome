@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome.evaluation.views;
 
+import java.text.AttributedCharacterIterator;
+import java.text.AttributedString;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -116,12 +118,15 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 		}
 		
 		TreeNode node = new TreeNode(name, alt, null);
-		System.out.println("creating alternative called " + alt.getName());
+		//System.out.println("creating alternative called " + alt.getName());
 		return node;
 	}
 	
 	private TreeNode createTreeNode(Intention i) {
-		String name = i.getName();
+		
+		String name = ""; 
+		
+		name += i.getName();
 		TreeNode node = new TreeNode(name, i, null);
 		
 		return node;
@@ -162,22 +167,24 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			to = new TreeNode(i.getName() + " {" + actorName + "}" , i, map.get(i));
 			node.addChild(to);
 			
-			//Add the human judgements for this intention to the view
+			//Add the human judgments for this intention to the view
 			EList<HumanJudgment> humanJudgements = i.getHumanJudgments();
 			int j = 1;
 			
 			for (HumanJudgment judgement : humanJudgements) {
-				to.addChild(new TreeNode("Judgement " + j++ + ": " + judgement.getResultLabel().toString(), judgement, judgement.getResultLabel()));
+				to.addChild(new TreeNode("Judgment " + j++ + ": " + judgement.getResultLabel().toString(), 
+						judgement, judgement.getResultLabel()));
 			}
 		}
 	}
 	
-	public void addHumanJudgment(TreeNode node, Intention i, EList<Alternative> alts)
+	public void addJudgment(TreeNode node, Intention i, EList<Alternative> alts)
 	{
+		
 		// if both of these will be true after the for loop, then we have a conflict
 		boolean denied = false;
 		boolean satisfied = false;
-		
+				
 		// get the intention's label from each alternative
 		for(Alternative a : alts) {
 			HashMap<Intention, EvaluationLabel> map = a.getIntentionLabels();
@@ -191,7 +198,9 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 				name += "[Backward Evaluation]";
 			}
 			
-			TreeNode subnode = new TreeNode(name, null, label);
+			//Get the Evaluation Label associated with the intention i ONLY and put this into 
+			//the tree node. 				
+			TreeNode subnode = new TreeNode(name, a, label);
 			node.addChild(subnode);
 			
 			if(label == EvaluationLabel.DENIED || label == EvaluationLabel.PARTIALLY_DENIED) {
@@ -199,10 +208,12 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.PARTIALLY_SATISFIED) {
 				satisfied = true;
 			}
+			
 		}
 		
 		// set the conflict flag
-		node.setConflict(denied && satisfied);
+		node.setConflict(denied && satisfied); 
+
 	}
 	
 	public void removeAllNodes() {
