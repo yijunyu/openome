@@ -21,6 +21,7 @@ import edu.toronto.cs.openome.evaluation.gui.AlternateDialog;
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome.evaluation.views.AlternativesView;
+import edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
@@ -143,6 +144,18 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		Command addAlternnative = new SetAlternativeCommand(alt);
 		CommandStack cs1 = getCommandStack();
 		cs1.execute(addAlternnative);
+		
+		/* Create Human Judgments view */
+		HumanJudgmentsView hj = null;
+		try {
+			// open the HJView, if already opened just give the focus to it
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(HumanJudgmentsView.ID);
+			// Get the HJ View
+			hj = (HumanJudgmentsView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(HumanJudgmentsView.ID);
+		} catch (PartInitException e) {
+			// Shouldn't happen...
+			System.err.println("Failed to open HumanJudgmentsView");
+		}
 
 		return null;
 	}

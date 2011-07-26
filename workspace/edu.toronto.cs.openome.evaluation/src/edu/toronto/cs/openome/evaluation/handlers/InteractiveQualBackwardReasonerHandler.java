@@ -23,6 +23,7 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivebackwardreasoning
 import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.InteractiveQualReasoner;
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome.evaluation.views.AlternativesView;
+import edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
@@ -60,7 +61,6 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
 		
-		
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		
 		Shell shell = ar[0];
@@ -84,14 +84,11 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 			return null;
 		}
 		
-	
 		openome_modelPackage _openome_modelPackage = openome_modelPackage.eINSTANCE;
 		openome_modelFactory _openome_modelFactory = _openome_modelPackage.getopenome_modelFactory();
 		
 		/* Create an Alternative */
 		Alternative alt = _openome_modelFactory.createAlternative();
-		
-		
 		
 		alt.setName(ad.getName());
 		alt.setDescription(ad.getDescription());
@@ -101,12 +98,11 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		CommandStack cs = getCommandStack();
 		List editParts = getEditParts();
 		
-		
 		IntQualBackwardReasoner iQualReasoner = new IntQualBackwardReasoner(mi, cs, editParts);
 		
 		Reasoning reasoning = new Reasoning(iQualReasoner);
 		
-		//for now, remove later
+		// For now, remove later
 		clearAllJudgments(mi, cs);
 	
 		reasoning.reason();
@@ -139,9 +135,22 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		av.addAlternative(alt);
 		
 		/* Add the Alternative to the Model */
-		Command addAlternnative = new SetAlternativeCommand(alt);
+		Command addAlternative = new SetAlternativeCommand(alt);
 		CommandStack cs1 = getCommandStack();
-		cs1.execute(addAlternnative);
+		cs1.execute(addAlternative);
+		
+		
+		/* Create Human Judgments view */
+		HumanJudgmentsView hj = null;
+		try {
+			// open the HJView, if already opened just give the focus to it
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(HumanJudgmentsView.ID);
+			// Get the HJ View
+			hj = (HumanJudgmentsView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(HumanJudgmentsView.ID);
+		} catch (PartInitException e) {
+			// Shouldn't happen...
+			System.err.println("Failed to open HumanJudgmentsView");
+		}
 
 		return null;
 	}

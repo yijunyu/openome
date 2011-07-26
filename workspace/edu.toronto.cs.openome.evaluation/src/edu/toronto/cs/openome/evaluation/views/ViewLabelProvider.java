@@ -3,6 +3,8 @@ package edu.toronto.cs.openome.evaluation.views;
 import java.awt.Toolkit;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ITableColorProvider;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
@@ -13,7 +15,7 @@ import edu.toronto.cs.openome_model.EvaluationLabel;
 /**
  * Label provider class
  */
-public class ViewLabelProvider extends EvaluationElementTypeLabelProvider {
+public class ViewLabelProvider extends EvaluationElementTypeLabelProvider implements ITableColorProvider {
 	public String getText(Object obj) {
 		return obj.toString();
 	}
@@ -50,5 +52,17 @@ public class ViewLabelProvider extends EvaluationElementTypeLabelProvider {
 		} else {
 			return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
 		}
+	}
+
+	@Override
+	public Color getBackground(Object element, int columnIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Color getForeground(Object element, int columnIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
