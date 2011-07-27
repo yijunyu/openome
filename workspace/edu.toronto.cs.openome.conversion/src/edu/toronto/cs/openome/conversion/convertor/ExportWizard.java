@@ -15,22 +15,35 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 
 /**
  * Mostly copied from org.bflow.toolbox.export.ExportWizard
  * @author showzeb
  *
  */
+@SuppressWarnings("restriction")
 public class ExportWizard extends Wizard implements IExportWizard {
 
 	private ExportWizardPage exportWizardPage;
 	
 	private IStructuredSelection selection;
+	private IWorkspace w;
+	private IProject project;
 
 	@Override
 	public boolean performFinish() {
 		String targetFile = exportWizardPage.getTextFieldTargetFile().getText();
 		
+		if (exportWizardPage.insideSelected()) {
+			w = ResourcesPlugin.getWorkspace();
+	    	project = w.getRoot().getProject(exportWizardPage.projectName().replaceFirst("/", ""));
+	    	targetFile = project.getLocation() + "/" + exportWizardPage.targetFileName().getText();
+	    	System.out.println(targetFile);
+		}
 		if (targetFile.isEmpty()) {
 			exportWizardPage.setMessage("No export file selected", WizardPage.ERROR);
 			return false;
@@ -41,6 +54,15 @@ public class ExportWizard extends Wizard implements IExportWizard {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if (exportWizardPage.insideSelected()) {
+			try {
+				project.refreshLocal(2, null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return true;
 	}

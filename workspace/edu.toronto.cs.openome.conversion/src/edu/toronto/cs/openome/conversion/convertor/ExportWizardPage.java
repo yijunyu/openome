@@ -2,6 +2,9 @@ package edu.toronto.cs.openome.conversion.convertor;
 
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.DialogTray;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -12,24 +15,34 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.eclipse.jface.dialogs.TrayDialog;
 
 /**
  * Mostly copied from org.bflow.toolbox.export.pages.ExportWizardPage
  * @author showzeb
  *
  */
+@SuppressWarnings("restriction")
 public class ExportWizardPage extends WizardPage {
 
 	private Text textFieldTargetFile;
 	private Text textFieldSourceFile;
 	private Text txtDescription;
-	
 	private IStructuredSelection selectedFiles;
 	
+	
 	private Combo cbExportTypes;
+	
+	private Button inside;
+	private Button outside;
+	private Text targetFile;
+	private String projectName = "";
 	
 	/**
 	 * constructor
@@ -92,6 +105,41 @@ public class ExportWizardPage extends WizardPage {
 
 		txtDescription.setLayoutData(txtDescriptionGridData);
 		
+		//Making a button for outside...
+		outside = new Button(composite, SWT.RADIO);
+		outside.setText("Export outside the workspace");
+		//gd = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				//| GridData.GRAB_HORIZONTAL);
+		GridData gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd.horizontalSpan = 2;
+		outside.setLayoutData(gd);
+		outside.setSelection(true);
+		
+		//Making a button for inside....
+		inside = new Button(composite, SWT.RADIO);
+		inside.setText("Export inside the workspace");
+		//GridData gd = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+				//| GridData.GRAB_HORIZONTAL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd.horizontalSpan = 1;
+		inside.setLayoutData(gd);
+		
+		//Having a text field
+		Composite targetFileSelection = new Composite(composite, SWT.NONE);
+		GridLayout targetSelectionLayout = new GridLayout(2, false);
+		targetSelectionLayout.marginLeft = 0;
+		targetSelectionLayout.horizontalSpacing = 0;
+		targetFileSelection.setLayout(targetSelectionLayout);
+		targetFileSelection.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		Label name = new Label(targetFileSelection, SWT.NONE);
+		name.setText("Name:");
+		targetFile = new Text(targetFileSelection, SWT.BORDER);
+		GridData targetFileGridData = new GridData(GridData.FILL_HORIZONTAL);
+		targetFileGridData.widthHint = 100;
+		targetFile.setLayoutData(targetFileGridData);
+		targetFile.setEnabled(false);
+		
+		
 		Label lblTargetFile = new Label(composite, SWT.NONE);
 		lblTargetFile.setText("Target Path: ");
 		
@@ -127,18 +175,71 @@ public class ExportWizardPage extends WizardPage {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				DirectoryDialog dialog = new DirectoryDialog(composite.getShell());
-				dialog.setFilterPath(null);
-				dialog.setMessage("Choose your target path:");
-				
-				textFieldTargetFile.setText(dialog.open());
+				handleSelect(composite);
 			}
 			
 		});
 		
+		//Adding a listener to the inside/outside buttons.
+		outside.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				targetFile.setEnabled(false);
+				textFieldTargetFile.setText("");
+				
+			}
+			
+		});
+		inside.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				targetFile.setEnabled(true);
+				textFieldTargetFile.setText("");
+			}
+			
+		});
 		this.setControl(composite);
 		
 	}
+	
+	private void handleSelect(Composite composite) {
+		if (outside.getSelection()) {
+			FileDialog dialog = new FileDialog(composite.getShell());
+			dialog.setFilterPath(null);
+			dialog.setText("Choose your target path:");
+			textFieldTargetFile.setText(dialog.open());
+		} else {
+			
+			ContainerSelectionDialog dialog = new ContainerSelectionDialog(
+					getShell(), ResourcesPlugin.getWorkspace().getRoot(), false,
+					"Select new file container");
+//			Object[] a = {((IFile)selectedFiles.getFirstElement()).getParent()};
+//			dialog.setInitialSelections(a);
+			if (dialog.open() == ContainerSelectionDialog.OK) {
+				Object[] result = dialog.getResult();
+				if (result.length == 1) {
+					//System.out.println(((Path) result[0]).toOSString());
+					projectName = ((Path) result[0]).toString();
+					textFieldTargetFile.setText(((Path) result[0]).toString() + "/" +  targetFile.getText() + ".q7");
+				}
+			}
+		}
+	}
+	
 	
 	private void prepareComboBox() {
 		cbExportTypes.add("Q7 Format (*.q7)");
@@ -178,6 +279,31 @@ public class ExportWizardPage extends WizardPage {
 	 * @return text field containing path to the target file
 	 */
 	public Text getTextFieldTargetFile() {
+		//Initialize ood diagram file
 		return textFieldTargetFile;
+	}
+	
+	/**
+	 * Return the project name.
+	 * @return
+	 */
+	public String projectName() {
+		return projectName;
+	}
+	
+	/**
+	 * Return the target file name text value.
+	 * @return
+	 */
+	public Text targetFileName() {
+		return targetFile;
+	}
+	
+	/**
+	 * Return true if the inside option radio button was selected.
+	 * @return true if the inside option radio button was selected.
+	 */
+	public boolean insideSelected() {
+		return inside.getSelection();
 	}
 }
