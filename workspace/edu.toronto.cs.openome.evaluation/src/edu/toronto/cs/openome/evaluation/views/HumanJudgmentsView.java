@@ -23,6 +23,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveListener;
@@ -31,6 +32,7 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
@@ -38,6 +40,7 @@ import org.eclipse.ui.part.ViewPart;
 import edu.toronto.cs.openome.evaluation.commands.AddHumanJudgmentCommand;
 import edu.toronto.cs.openome.evaluation.commands.BackwardHJWindowCommand;
 import edu.toronto.cs.openome.evaluation.commands.ForwardHJWindowCommand;
+import edu.toronto.cs.openome.evaluation.commands.RemoveHumanJudgmentCommand;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.HumanJudgment;
@@ -48,31 +51,29 @@ import edu.toronto.cs.openome_model.impl.ResourceImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.TaskImpl;
 
-public class HumanJudgmentsView extends ViewPart
-{
-	
+public class HumanJudgmentsView extends ViewPart {
+
 	/* ID of Judgments view */
-	public static final String ID = "edu.toronto.cs.openome.evaluation.views.JudgmentsView";
+	public static final String ID = "edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView";
 
 	/* Singleton TreeViewer */
 	public static TreeViewer viewer;
 
 	private DrillDownAdapter drillDownAdapter;
-	
+
 	/* Action variables */
 	private Action clickAction;
-	private Action deleteAction;
 	private Action refreshAction;
 	private Action collapseAllAction;
 	private Action expandAllAction;
-	
 
 	/**
-	 * This is a callback that will allow us
-	 * to create the viewer and initialize it.
+	 * This is a callback that will allow us to create the viewer and initialize
+	 * it.
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+
 		drillDownAdapter = new DrillDownAdapter(viewer);
 		viewer.setContentProvider(new ViewContentProvider(this));
 		viewer.setLabelProvider(new ViewLabelProvider());
@@ -80,62 +81,73 @@ public class HumanJudgmentsView extends ViewPart
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
-		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "edu.toronto.cs.openome.evaluation.viewer");
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(),
+				"edu.toronto.cs.openome.evaluation.viewer");
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-		
-		/* ISelectionListener will notify the view about every time the user changes/selects a model tab */
+
+		/*
+		 * ISelectionListener will notify the view about every time the user
+		 * changes/selects a model tab
+		 */
 		ISelectionListener selectionChangeListener = new ISelectionListener() {
-	        public void selectionChanged(IWorkbenchPart sourcepart, ISelection selection) {
-	        	clearView();
-	        	loadIntentions();
-	        }
-	    };
-	    
-	    final HumanJudgmentsView me = this;
-	    
-	    IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
-	    	@Override
-			public void perspectiveActivated(IWorkbenchPage page, IPerspectiveDescriptor perspective) {
+			public void selectionChanged(IWorkbenchPart sourcepart,
+					ISelection selection) {
+				clearView();
+				loadIntentions();
+			}
+		};
+
+		final HumanJudgmentsView me = this;
+
+		IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
+			@Override
+			public void perspectiveActivated(IWorkbenchPage page,
+					IPerspectiveDescriptor perspective) {
 				clearView();
 				loadIntentions();
 				refreshView();
 			}
 
 			@Override
-			public void perspectiveChanged(IWorkbenchPage page, IPerspectiveDescriptor perspective, String changeId) {
+			public void perspectiveChanged(IWorkbenchPage page,
+					IPerspectiveDescriptor perspective, String changeId) {
 				// This fixes the problem where Alternatives/Human Judgments
 				// were shown even after all the editor tabs were closed.
-				
-				if(changeId.equals("editorClose")) {
+
+				if (changeId.equals("editorClose")) {
 					// check that no editor tabs are open
-					if(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					if (PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 							.getActivePage().getActiveEditor() == null) {
 						// replace the contents with new empty ones
 						viewer.setContentProvider(new ViewContentProvider(me));
 					}
 				}
 			}
-	    };
-	    
-	    // add listeners
-	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().addSelectionListener(selectionChangeListener);
-	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().addPerspectiveListener(perspectiveListener);
+		};
 
-	    clearView();
-    	loadIntentions();
-    	refreshView();
+		// add listeners
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getSelectionService().addSelectionListener(
+						selectionChangeListener);
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.addPerspectiveListener(perspectiveListener);
+
+		clearView();
+		loadIntentions();
+		refreshView();
 	}
-	
+
 	private void contributeToActionBars() {
 		IActionBars bars = getViewSite().getActionBars();
 		fillLocalToolBar(bars.getToolBarManager());
 	}
-	
+
 	/**
 	 * Initialize the action buttons
+	 * 
 	 * @param manager
 	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
@@ -144,7 +156,7 @@ public class HumanJudgmentsView extends ViewPart
 	}
 
 	/**
-	 *  Initialize the right-click drown down menu 
+	 * Initialize the right-click drown down menu
 	 */
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
@@ -166,122 +178,171 @@ public class HumanJudgmentsView extends ViewPart
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
-	
-	/** 
+
+	/**
 	 * Initialize the actions
 	 */
 	private void makeActions() {
 		/**
-		 *  Expand All Action - expands all nodes in the view
+		 * Expand All Action - expands all nodes in the view
 		 */
 		expandAllAction = new Action() {
 			public void run() {
 				expandAll();
-				
+
 			}
 		};
 		expandAllAction.setText("Expand All");
 		expandAllAction.setToolTipText("Expand All");
-		expandAllAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_ELCL_COLLAPSEALL_DISABLED));
-		
-		
+		expandAllAction.setImageDescriptor(PlatformUI.getWorkbench()
+				.getSharedImages().getImageDescriptor(
+						ISharedImages.IMG_ELCL_COLLAPSEALL_DISABLED));
+
 		/**
-		 *  Collapse All Action - collapses all nodes in the view
+		 * Collapse All Action - collapses all nodes in the view
 		 */
 		collapseAllAction = new Action() {
 			public void run() {
 				collapseAll();
-				
+
 			}
 		};
 		collapseAllAction.setText("Collapse All");
 		collapseAllAction.setToolTipText("Collapse All");
-		collapseAllAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_ELCL_COLLAPSEALL));
-		
+		collapseAllAction.setImageDescriptor(PlatformUI.getWorkbench()
+				.getSharedImages().getImageDescriptor(
+						ISharedImages.IMG_ELCL_COLLAPSEALL));
+
 		/**
-		 *  Refresh Action - refreshes the view
+		 * Refresh Action - refreshes the view
 		 */
 		refreshAction = new Action() {
-			public void run() {								
+			public void run() {
 				clearView();
 				loadIntentions();
 			}
 		};
-		
+
 		refreshAction.setText("Refresh");
 		refreshAction.setToolTipText("Refresh");
-		refreshAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
-		
+		refreshAction.setImageDescriptor(PlatformUI.getWorkbench()
+				.getSharedImages().getImageDescriptor(
+						ISharedImages.IMG_TOOL_UNDO));
+
 		/**
-		 *   Double-Click Action - determines what should be done when item is double-clicked
+		 * Double-Click Action - determines what should be done when item is
+		 * double-clicked
 		 */
 		clickAction = new Action() {
-			public void run(){
-				
+			public void run() {
+
 				ModelImpl mi;
-				CommandStack cs; 
-				
+				CommandStack cs;
+
 				ISelection selection = viewer.getSelection();
-				//The item that got selected by the user 
-				Object obj = ((IStructuredSelection)selection).getFirstElement();
-				
-				//Double check location of this 
+				// The item that got selected by the user
+				Object obj = ((IStructuredSelection) selection)
+						.getFirstElement();
+
+				// Double check location of this
 				mi = ModelInstance.getModelImpl();
 				cs = ModelInstance.getCommandStack();
-				
-				//User clicks on a Judgment 
-				if (obj instanceof TreeObject){
+
+				if (obj instanceof TreeObject) {
 					TreeObject to = (TreeObject) obj;
 					Object treeObj = to.getObject();
-					
-					if (treeObj instanceof Alternative){
-						//This means the user clicked on a judgment 
-						
-						Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
-						
+
+					// The user clicked on a judgment
+					if (treeObj instanceof Alternative) {
+
+						Shell[] ar = PlatformUI.getWorkbench().getDisplay()
+								.getShells();
+
+						// Retrieve the model command stack
+						cs = ModelInstance.getCommandStack();
+
 						Alternative alt = (Alternative) treeObj;
-						Object intenObj = to.getParent().getObject(); //This is the intention being handled 
-						Intention inten = (Intention) intenObj; //Cast 
-						
-						//Open the appropriate dialog
+						//The intention being handled 
+						Object intenObj = to.getParent().getObject(); 
+						Intention inten = (Intention) intenObj; // Cast
+
+						// Open the appropriate dialog
 						if (alt.getDirection().equals("forward")) {
-							ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(ar[0], cs, inten);
+							ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(
+									ar[0], cs, inten);
 							cs.execute(windowCommand);
 							if (windowCommand.cancelled()) {
 								return;
 							}
 
-							//Remove the HJ from both the model and the AlternativesView tree.
-							//cs.execute(removeCommand);
-							//to.getParent().removeChild(to);
-
-							EvaluationLabel result = windowCommand.getEvalResult();	
-							System.out.println("Window result: " + result.getName());
-
-							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
-							cs.execute(addHJ);
+							EvaluationLabel result = windowCommand
+									.getEvalResult();
+							
+							//Change the judgment 
+							
+							//Flag the affected Alternative 
+							alt.setStatus(true);
+							propagateToAltView();
 
 						} else if (alt.getDirection().equals("backward")) {
-							BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
+							BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(
+									ar[0], cs, inten);
 							cs.execute(windowCommand);
 							if (windowCommand.cancelled()) {
 								return;
 							}
+
+							// Determine the nodes to be highlighted in the
+							// AlternativesView
+
+							// Highlight the current AlternativesView
+							// highlightAltView();
 						}
-						
+
+						// GET THE ALT VIEW HERE???!!
+
 					}
 
-					
 				}
-				
+
 			}
 		};
 
 	}
 	
+	/**
+	 * Propagates any changes made in <code>HumanJudgmentsView</code> to the model to the <code>AlternativesView</code>
+	 */
+	private void propagateToAltView() {
+		
+		// Retrieve the current AlternativesView
+		AlternativesView av = null;
+		try {
+			// open the AlternativesView, if already opened
+			// just give the focus to it
+			/*PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow()
+					.getActivePage().showView(
+							AlternativesView.ID);*/
+			
+			// Get the Alternates View
+			av = (AlternativesView) PlatformUI
+					.getWorkbench()
+					.getActiveWorkbenchWindow()
+					.getActivePage().findView(
+							AlternativesView.ID);
+		}catch (Exception e) {
+			// Shouldn't happen...
+			System.out
+					.println("Failed to open AlternativesView");
+		}
+
+		// Update and refresh the view
+		av.clearView();
+		av.loadAlternatives();
+
+	}
+
 	/**
 	 * Assigns the double-click action for the viewer
 	 */
@@ -292,10 +353,10 @@ public class HumanJudgmentsView extends ViewPart
 			}
 		});
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			
+
 			// @Override
 			public void selectionChanged(SelectionChangedEvent arg0) {
-				clickAction.run();				
+				clickAction.run();
 			}
 		});
 	}
@@ -304,10 +365,10 @@ public class HumanJudgmentsView extends ViewPart
 	 * Clears all content from the Alternatives view
 	 */
 	private void clearView() {
-		/* Get the viewer's content provider */ 
+		/* Get the viewer's content provider */
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
-		.getContentProvider();
-		
+				.getContentProvider();
+
 		/* Remove all nodes from the content provider */
 		contentProvider.removeAllNodes();
 	}
@@ -318,9 +379,10 @@ public class HumanJudgmentsView extends ViewPart
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
-	
+
 	/**
 	 * Refresh the view
+	 * 
 	 * @author aftabs
 	 */
 	public void refreshView() {
@@ -333,62 +395,64 @@ public class HumanJudgmentsView extends ViewPart
 	private void collapseAll() {
 		viewer.collapseAll();
 	}
-	
+
 	/**
 	 * Expands all nodes in the view
 	 */
 	private void expandAll() {
 		viewer.expandAll();
 	}
-	
+
 	/**
 	 * Loads Intentions from the model into the view
 	 */
 	private void loadIntentions() {
-		
-		/* Get the active model*/
+
+		// Get the active model
 		ModelImpl mi = ModelInstance.getModelImpl();
-		
-		if(mi != null) {
-			/* Get a list of all the Intentions currently in the model */
+
+		if (mi != null) {
+			// Get a list of all the Intentions and Alternatives currently in
+			// the model
 			EList<Intention> ints = mi.getAllIntentions();
 			EList<Alternative> alts = mi.getAlternatives();
-			
-			/* Add Intention decided by Human Judgments to the view */
-			for(Intention i : ints) {
-				if (!i.getHumanJudgments().isEmpty()){
+
+			// Add Intention decided by Human Judgments to the view
+			for (Intention i : ints) {
+				if (!i.getHumanJudgments().isEmpty()) {
 					addIntention(i, alts);
 				}
 			}
 		}
-		
+
 		refreshView();
 	}
-	
+
 	/**
-	 * Add the Intention to the View, and all its evaluations. 
+	 * Add the Intention to the View, and all its evaluations.
 	 */
 	public void addIntention(Intention i, EList<Alternative> alts) {
-		
+
 		// Get the content provider
-		ViewContentProvider contentProvider = (ViewContentProvider)viewer.getContentProvider();
-		
+		ViewContentProvider contentProvider = (ViewContentProvider) viewer
+				.getContentProvider();
+
 		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(i);
-		
+
 		node.setAlternateStatus(false);
-		
-		/* Differentiates between different kinds of intentions for icon label */		
-		if(i instanceof GoalImpl){
+
+		/* Differentiates between different kinds of intentions for icon label */
+		if (i instanceof GoalImpl) {
 			node.setHardgoalStatus(true);
-		} else if(i instanceof SoftgoalImpl){
+		} else if (i instanceof SoftgoalImpl) {
 			node.setSoftgoalStatus(true);
-		} else if(i instanceof TaskImpl){
+		} else if (i instanceof TaskImpl) {
 			node.setTaskStatus(true);
-		} else if(i instanceof ResourceImpl){
+		} else if (i instanceof ResourceImpl) {
 			node.setResourceStatus(true);
 		}
-		
+
 		contentProvider.addJudgment(node, i, alts);
 		refreshView();
 	}

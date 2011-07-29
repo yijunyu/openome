@@ -24,6 +24,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveListener;
@@ -84,13 +85,20 @@ public class AlternativesView extends ViewPart {
 	private Action clickAction;
 	private Action collapseAllAction;
 	private Action expandAllAction;
+	private Action clearHighlightsAction; 
 
 	/**
-	 * This is a callback that will allow us
+	 * This is a call back that will allow us
 	 * to create the viewer and initialize it.
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		
+		// Set up columns in the view 
+		TreeColumn column = new TreeColumn(viewer.getTree(), SWT.NONE);
+		column.setWidth(300);
+		column.setText("Alternatives Column");
+		
 		drillDownAdapter = new DrillDownAdapter(viewer);
 		viewer.setContentProvider(new ViewContentProvider(this));
 		viewer.setLabelProvider(new ViewLabelProvider());
@@ -195,6 +203,7 @@ public class AlternativesView extends ViewPart {
 
 	private void fillContextMenu(IMenuManager manager) {
 		manager.add(refreshAction);
+		manager.add(clearHighlightsAction); 
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
@@ -258,8 +267,6 @@ public class AlternativesView extends ViewPart {
 				loadAlternatives();
 			}
 		};
-		
-		
 		evaluateAction.setText("Evaluate");
 		evaluateAction.setToolTipText("Evaluate");
 		evaluateAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
@@ -279,6 +286,21 @@ public class AlternativesView extends ViewPart {
 		deleteAction.setToolTipText("Delete");
 		deleteAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(ISharedImages.IMG_ETOOL_DELETE));
+		
+		/**
+		 * Clear Highlights Action - clears all highlights done to Alternatives View 
+		 */
+		clearHighlightsAction = new Action(){
+			public void run(){
+				clearAlternativeStatus(); 
+				clearView();
+				loadAlternatives();
+			}
+		}; 
+		clearHighlightsAction.setText("Clear Highlights");
+		clearHighlightsAction.setToolTipText("Clear Highlights");
+		clearHighlightsAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+				getImageDescriptor(ISharedImages.IMG_ETOOL_CLEAR));
 		
 		
 		/**
@@ -318,7 +340,7 @@ public class AlternativesView extends ViewPart {
 				}
 				
 				/*
-				 * Human Judgement code
+				 * Human Judgment code
 				 */
 			
 				// check if user clicked on a human judgment
@@ -344,7 +366,7 @@ public class AlternativesView extends ViewPart {
 									Alternative alt = (Alternative)altNode.getObject();
 									Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 
-									//Remove the old judgement
+									//Remove the old judgment
 									cs = ModelInstance.getCommandStack();
 									
 									/* Create a Remove command */
@@ -364,7 +386,6 @@ public class AlternativesView extends ViewPart {
 										//to.getParent().removeChild(to);
 
 										EvaluationLabel result = windowCommand.getEvalResult();	
-										System.out.println("Window result: " + result.getName());
 
 										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
 										cs.execute(addHJ);
@@ -446,7 +467,7 @@ public class AlternativesView extends ViewPart {
 	/**
 	 * Clears all content from the Alternatives view
 	 */
-	private void clearView() {
+	public void clearView() {
 		
 		/* Get the viewer's content provider */ 
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
@@ -455,6 +476,27 @@ public class AlternativesView extends ViewPart {
 		/* Remove all nodes from the content provider */
 		contentProvider.removeAllNodes();
 		
+	}
+	
+	/**
+	 * Resets the status of all ALternatives in the model
+	 * RECALL: The status of an Alternative is true if it has been affected 
+	 * by some change in the human judgments view and false otherwise. 
+	 */
+	private void clearAlternativeStatus(){
+		
+		//Get the active model 
+		ModelImpl mi = ModelInstance.getModelImpl();
+		
+		if (mi!=null) {
+			// Get a list of all the Alternatives currently in the model
+			EList<Alternative> alts = mi.getAlternatives();
+			
+			// Reset the status of each Alternative 
+			for (Alternative alt : alts) {
+				alt.setStatus(false);
+			}
+		}
 	}
 
 	/**
@@ -541,7 +583,7 @@ public class AlternativesView extends ViewPart {
 	/**
 	 * Loads Alternatives from the model into the view
 	 */
-	private void loadAlternatives() {
+	public void loadAlternatives() {
 		
 		/* Get the active model */
 		ModelImpl mi = ModelInstance.getModelImpl();
