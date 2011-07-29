@@ -318,13 +318,6 @@ public class HumanJudgmentsView extends ViewPart {
 		// Retrieve the current AlternativesView
 		AlternativesView av = null;
 		try {
-			// open the AlternativesView, if already opened
-			// just give the focus to it
-			/*PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow()
-					.getActivePage().showView(
-							AlternativesView.ID);*/
-			
 			// Get the Alternates View
 			av = (AlternativesView) PlatformUI
 					.getWorkbench()
@@ -334,7 +327,7 @@ public class HumanJudgmentsView extends ViewPart {
 		}catch (Exception e) {
 			// Shouldn't happen...
 			System.out
-					.println("Failed to open AlternativesView");
+					.println("Failed to propagate to AlternativesView");
 		}
 
 		// Update and refresh the view
@@ -364,7 +357,7 @@ public class HumanJudgmentsView extends ViewPart {
 	/**
 	 * Clears all content from the Alternatives view
 	 */
-	private void clearView() {
+	void clearView() {
 		/* Get the viewer's content provider */
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
 				.getContentProvider();
@@ -406,7 +399,7 @@ public class HumanJudgmentsView extends ViewPart {
 	/**
 	 * Loads Intentions from the model into the view
 	 */
-	private void loadIntentions() {
+	void loadIntentions() {
 
 		// Get the active model
 		ModelImpl mi = ModelInstance.getModelImpl();

@@ -280,6 +280,7 @@ public class AlternativesView extends ViewPart {
 				ISelection selection = viewer.getSelection();
 				Object obj = ((IStructuredSelection)selection).getFirstElement();
 				deleteAlternative(obj);
+				propagateToHJView();
 			}
 		};
 		deleteAction.setText("Delete");
@@ -428,6 +429,32 @@ public class AlternativesView extends ViewPart {
 
 			}
 		};
+	}
+	
+	/**
+	 * Propagates any changes made in <code>AlternativesView</code> to the model to the <code>HumanJudgmentsView</code>
+	 */
+	private void propagateToHJView() {
+		
+		// Retrieve the current AlternativesView
+		HumanJudgmentsView hjv = null;
+		try {
+			// Get the Alternates View
+			hjv = (HumanJudgmentsView) PlatformUI
+					.getWorkbench()
+					.getActiveWorkbenchWindow()
+					.getActivePage().findView(
+							HumanJudgmentsView.ID);
+		}catch (Exception e) {
+			// Shouldn't happen...
+			System.out
+					.println("Failed to propagate to AlternativesView");
+		}
+
+		// Update and refresh the view
+		hjv.clearView();
+		hjv.loadIntentions();
+
 	}
 
 	/**
