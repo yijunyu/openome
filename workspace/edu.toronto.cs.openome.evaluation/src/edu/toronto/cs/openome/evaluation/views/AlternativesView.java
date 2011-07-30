@@ -390,6 +390,9 @@ public class AlternativesView extends ViewPart {
 
 										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
 										cs.execute(addHJ);
+										
+										//Flag the Alternative as altered 
+										alt.setStatus(true);
 
 									} else if (alt.getDirection().equals("backward")) {
 										BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
@@ -407,6 +410,9 @@ public class AlternativesView extends ViewPart {
 
 										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
 										cs.execute(addHJ);
+										
+										//Flag the Alternative as altered 
+										alt.setStatus(true);
 									}
 									
 									//Update and refresh the view
