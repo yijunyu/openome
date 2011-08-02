@@ -418,7 +418,10 @@ public class AlternativesView extends ViewPart {
 									//Update and refresh the view
 									clearView();
 									loadAlternatives();
-
+									
+									//Propagate changes to HJ view 
+									propagateToHJView(); 
+									
 									// update the intention with the new judgment
 
 									/*showMessage("Humanjudgement: " + judgement 
