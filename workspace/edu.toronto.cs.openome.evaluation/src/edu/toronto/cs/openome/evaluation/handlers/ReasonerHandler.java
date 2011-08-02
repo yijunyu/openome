@@ -138,6 +138,8 @@ public class ReasonerHandler implements IHandler {
 		DiagramEditPart dep = mDE.getDiagramEditPart();
 		List l = dep.getPrimaryEditParts();	
 		
+		System.out.println(l.toString());
+		
 		return l;
 	}
 	

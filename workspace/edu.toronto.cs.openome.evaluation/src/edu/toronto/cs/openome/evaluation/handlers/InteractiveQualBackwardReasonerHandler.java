@@ -151,7 +151,10 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 			// Shouldn't happen...
 			System.err.println("Failed to open HumanJudgmentsView");
 		}
-
+		
+		/* Populate the Human JudgmentsView with intentions */
+		hj.loadIntentions(); 
+		
 		return null;
 	}
 
