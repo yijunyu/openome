@@ -88,6 +88,7 @@ public class IntQualBackwardReasoner extends Reasoner {
 		//DEBUGGING stuff, delete eventually
 		
 		System.out.println("Qualitative Interactive Backward Reasoning - !yohA");
+		System.out.println(System.getProperty("os.name"));
 		
 		//First, translate the model into a form that the SAT solver can read
 		

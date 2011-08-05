@@ -6,11 +6,13 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 
 public class ChangeToAndDecompositionAction extends SetLineTypeAction {
 	
+	
 	private String privateID = "ChangeToAndDecompositionAction"; // this is how plugin.xml recognize us
 	private static String privateCommandLabelText = "Decomposition";;
 	private String imageFile = "anddecomposition.gif";
 	
 	protected ChangeToAndDecompositionAction(IWorkbenchPage workbenchPage) {
+		
 		super(workbenchPage, privateCommandLabelText);
 		
 		this.ID = privateID; //$NON-NLS-1$
@@ -19,9 +21,8 @@ public class ChangeToAndDecompositionAction extends SetLineTypeAction {
 	}
 	
 	
-	
 	public void init() {
-		super.init();
+		super.init();		
 		setId(ID);
 		setText(privateCommandLabelText);
 		setImageDescriptor(Openome_modelDiagramEditorPlugin.getBundledImageDescriptor("../openome_model/icons/" + imageFile));

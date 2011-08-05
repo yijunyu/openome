@@ -96,7 +96,7 @@ public class AlternativesView extends ViewPart {
 		
 		// Set up columns in the view 
 		TreeColumn column = new TreeColumn(viewer.getTree(), SWT.NONE);
-		column.setWidth(300);
+		column.setWidth(1000);
 		column.setText("Alternatives Column");
 		
 		drillDownAdapter = new DrillDownAdapter(viewer);
@@ -293,7 +293,7 @@ public class AlternativesView extends ViewPart {
 		 */
 		clearHighlightsAction = new Action(){
 			public void run(){
-				clearAlternativeStatus(); 
+				clearAllNodeStatus(); 
 				clearView();
 				loadAlternatives();
 			}
@@ -392,7 +392,7 @@ public class AlternativesView extends ViewPart {
 										cs.execute(addHJ);
 										
 										//Flag the Alternative as altered 
-										alt.setStatus(true);
+										alt.setAffectedStatus(true);
 
 									} else if (alt.getDirection().equals("backward")) {
 										BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(ar[0], cs, inten);
@@ -406,13 +406,13 @@ public class AlternativesView extends ViewPart {
 										//to.getParent().removeChild(to);
 
 										EvaluationLabel result = windowCommand.getEvalResult();	
-										System.out.println("Window result: " + result.getName());
+										//System.out.println("Window result: " + result.getName());
 
 										Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
 										cs.execute(addHJ);
 										
 										//Flag the Alternative as altered 
-										alt.setStatus(true);
+										alt.setAffectedStatus(true);
 									}
 									
 									//Update and refresh the view
@@ -515,11 +515,11 @@ public class AlternativesView extends ViewPart {
 	}
 	
 	/**
-	 * Resets the status of all ALternatives in the model
+	 * Resets the status of all affected elements in the model
 	 * RECALL: The status of an Alternative is true if it has been affected 
 	 * by some change in the human judgments view and false otherwise. 
 	 */
-	private void clearAlternativeStatus(){
+	private void clearAllNodeStatus(){
 		
 		//Get the active model 
 		ModelImpl mi = ModelInstance.getModelImpl();
@@ -527,10 +527,23 @@ public class AlternativesView extends ViewPart {
 		if (mi!=null) {
 			// Get a list of all the Alternatives currently in the model
 			EList<Alternative> alts = mi.getAlternatives();
+			EList<Intention> intens = mi.getAllIntentions();
 			
 			// Reset the status of each Alternative 
 			for (Alternative alt : alts) {
-				alt.setStatus(false);
+				alt.setAffectedStatus(false);
+			}
+			
+			// Reset the status of each Intention
+			for (Intention i : intens){
+				i.setAffectedStatus(false); 
+				EList<HumanJudgment> judgments = i.getHumanJudgments();
+				//Reset the status of each Human Judgment 
+				if (!judgments.isEmpty()){
+					for (HumanJudgment hj : judgments){
+						hj.setAffectedStatus(false);
+					}
+				}
 			}
 		}
 	}

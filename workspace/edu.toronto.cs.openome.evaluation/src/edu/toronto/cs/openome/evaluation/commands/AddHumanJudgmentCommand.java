@@ -51,9 +51,9 @@ public class AddHumanJudgmentCommand implements Command {
 	}	
 
 	public void execute() {
-		System.out.println("Executing addHumanJudgment, adding " + label.getName() + " to " + intention.getName());
+		//System.out.println("Executing addHumanJudgment, adding " + label.getName() + " to " + intention.getName());
 		result = intention.addHumanJudgment(label);
-		System.out.println(result.toUIString());
+		//System.out.println(result.toUIString());
 		Command addReverse = new AddReverseJudgmentCommand(intention, label);
 		cs.execute(addReverse);		
 	}

@@ -35,7 +35,7 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 
 	@SuppressWarnings("restriction")
 	public void execute() {
-		System.out.println("executign ForwardHJWindowCommand");
+		//System.out.println("executign ForwardHJWindowCommand");
 		
 		
 		//InputDialog d = new InputDialog(shell, "a", "b", "c", null);
@@ -47,7 +47,7 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		
 		List<EvaluationLabel> labellist = new ArrayList<EvaluationLabel>();
 		
-		System.out.println("created dialog and labellist");
+		//System.out.println("created dialog and labellist");
 		
 //		list.add(Openome_modelElementTypes.Goal_1005);
 //		list.add(Openome_modelElementTypes.Dependency_3001);
@@ -60,22 +60,22 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		labellist.add(EvaluationLabel.PARTIALLY_DENIED);
 		labellist.add(EvaluationLabel.DENIED);
 	
-		System.out.println("added to labellist");
+		//System.out.println("added to labellist");
 		
 		//ld.setAddCancelButton(true);  
 		ld.setEvalLabelContentProvider(new ArrayContentProvider());
 		ld.setLabelBagContentProvider(new ArrayContentProvider());
 		
-		System.out.println("set content provider");
+		//System.out.println("set content provider");
 		
 		ld.setEvalLabelLabelProvider(new EvalLabelElementTypeLabelProvider());
 		ld.setLabelBagLabelProvider(new LabelBagElementTypeLabelProvider());
 		
-		System.out.println("set provider");
+		//System.out.println("set provider");
 	
 		ld.setEvalLabelInput(labellist);
 		
-		System.out.println("set label list");
+		//System.out.println("set label list");
 		
 		if (intention != null) {
 			Object array = intention.getLabelBag().toArray();
@@ -84,7 +84,7 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		else
 			System.out.println("Intention is null");
 		
-		System.out.println("set label bag");		
+		//System.out.println("set label bag");		
 		
 		String mess = intention.getName();
 		if (intention.getContainer() != null)
@@ -93,7 +93,7 @@ public class ForwardHJWindowCommand extends HJWindowCommand {
 		ld.setTitle("Softgoal Resolution for " + mess);
 		ld.setMessage(mess + " has received the following labels.  Please select a resulting label.");
 
-		System.out.println("set title and message");	
+		//System.out.println("set title and message");	
 		
 		ld.open();
 		

@@ -34,6 +34,18 @@ public interface HumanJudgment extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2001-2008 University of Toronto";
+	
+	/**
+	 * 
+	 * @return A <code>boolean</code> which denotes whether this <code>Alternative</code>
+	 * has been affected by a change in <code>HumanJudgmentsView</code> 
+	 */
+	boolean getAffectedStatus(); 
+	
+	/**
+	 * Sets the affected status of this <code>Alternative</code> 
+	 */
+	void setAffectedStatus(boolean b); 
 
 	/**
 	 * Returns the value of the '<em><b>Result Label</b></em>' attribute.

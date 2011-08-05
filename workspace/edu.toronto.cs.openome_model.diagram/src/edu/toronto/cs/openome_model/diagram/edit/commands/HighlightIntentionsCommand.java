@@ -44,6 +44,7 @@ public class HighlightIntentionsCommand implements Command {
 		intentionList = list;
 		color = c;
 		editParts = editP;
+				
 	}
 
 	public boolean canExecute() {
@@ -105,9 +106,10 @@ public class HighlightIntentionsCommand implements Command {
 	 
 	 */
 	public void highlightIntentions() {
+				
 		//get a list of editparts for all of the intentions in the model
 		Vector<GraphicalEditPart> processedEditParts = processEditParts();
-		
+				
 		for (GraphicalEditPart ep : processedEditParts) {
 			AbstractBorderedShapeEditPart aSEp = (AbstractBorderedShapeEditPart) ep;
 			IntentionImpl partIntention = (IntentionImpl) aSEp.resolveSemanticElement();

@@ -1,6 +1,7 @@
 package edu.toronto.cs.openome.evaluation.views;
 
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ITableColorProvider;
@@ -17,12 +18,15 @@ import org.eclipse.ui.PlatformUI;
 import edu.toronto.cs.openome.evaluation.gui.EvaluationElementTypeLabelProvider;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
+import edu.toronto.cs.openome_model.HumanJudgment;
+import edu.toronto.cs.openome_model.Intention;
 
 /**
- * Label provider class
+ * 
+ * Label provider class 
+ *
  */
 public class ViewLabelProvider extends EvaluationElementTypeLabelProvider implements ITableLabelProvider, ITableColorProvider {
-	
 
 	public String getText(Object obj) {
 		return obj.toString();
@@ -64,26 +68,30 @@ public class ViewLabelProvider extends EvaluationElementTypeLabelProvider implem
 
 	@Override
 	public Color getBackground(Object element, int columnIndex) {
-
-				
 		return null;
 	}
 
 	@Override
 	public Color getForeground(Object element, int columnIndex) {
 		
-		//Check if this Alternative has been affected by some previous change 
-		
+		//Check if this element has been affected by some change in the Human Judgments view 
 		Object e = ((TreeNode) element).getObject();
-							
+		Color orange = new Color(null, 238, 154, 0);
+		
 		if (e instanceof Alternative){
-			Alternative elem = (Alternative) e;
-			
-			if (elem.getStatus()){
-				return new Color(null, 238, 154, 0);
+			if (((Alternative) e).getAffectedStatus() == true){
+				return orange;
+			}
+		} else if (e instanceof Intention){
+			if (((Intention) e).getAffectedStatus() == true){
+				return orange;
+			}
+		} else if (e instanceof HumanJudgment){
+			if (((HumanJudgment) e).getAffectedStatus() == true){
+				return orange;
 			}
 		}
-				
+
 		return null;
 		
 	}

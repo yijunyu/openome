@@ -39,8 +39,7 @@ public class OpenOMEActionProvider extends AbstractContributionItemProvider{
         // Enable right click popmenu for changing line types
         } else if (actionId.equals("ChangeToDependencyAction")) {
         	return new ChangeToDependencyAction(workbenchPage);
-        } else if (actionId.equals("ChangeToAndDecompositio" +
-        		"nAction")) {
+        } else if (actionId.equals("ChangeToAndDecompositionAction")) {
         	return new ChangeToAndDecompositionAction(workbenchPage);
         } else if (actionId.equals("ChangeToOrDecompositionAction")) {
         	return new ChangeToOrDecompositionAction(workbenchPage);

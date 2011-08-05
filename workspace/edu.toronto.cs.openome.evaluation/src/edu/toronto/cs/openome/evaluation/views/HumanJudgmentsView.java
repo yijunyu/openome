@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome.evaluation.views;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.command.Command;
@@ -234,6 +236,7 @@ public class HumanJudgmentsView extends ViewPart {
 		 * double-clicked
 		 */
 		clickAction = new Action() {
+			@SuppressWarnings("unchecked")
 			public void run() {
 
 				ModelImpl mi;
@@ -253,19 +256,28 @@ public class HumanJudgmentsView extends ViewPart {
 					Object treeObj = to.getObject();
 
 					// The user clicked on a judgment
-					if (treeObj instanceof Alternative) {
+					if (treeObj instanceof HashMap) {
 
 						Shell[] ar = PlatformUI.getWorkbench().getDisplay()
 								.getShells();
 
 						// Retrieve the model command stack
 						cs = ModelInstance.getCommandStack();
-
-						Alternative alt = (Alternative) treeObj;
+						
 						//The intention being handled 
 						Object intenObj = to.getParent().getObject(); 
-						Intention inten = (Intention) intenObj; // Cast
-
+						Intention inten = (Intention) intenObj; // Cast						
+						
+						//Extract the alternative from HashMap
+						HashMap<HumanJudgment, Alternative> map = (HashMap<HumanJudgment, Alternative>) treeObj;
+						Object[] judgmentArray = map.keySet().toArray();
+						HumanJudgment judgment = (HumanJudgment) judgmentArray[0]; //The Human Judgment being handled
+						
+						Alternative alt = map.get(judgment); //Get associated alternative 
+													
+						// Create a remove command 
+						Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgment);
+						
 						// Open the appropriate dialog
 						if (alt.getDirection().equals("forward")) {
 							ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(
@@ -278,11 +290,20 @@ public class HumanJudgmentsView extends ViewPart {
 							EvaluationLabel result = windowCommand
 									.getEvalResult();
 							
-							//Change the judgment 
+							cs.execute(removeCommand); //Remove the HJ from model & view 
 							
-							//Flag the affected Alternative 
-							alt.setStatus(true);
+							//Create a new HJ to replace removed HJ 
+							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+							cs.execute(addHJ);
+
+							//Flag the affected elements
+							alt.setAffectedStatus(true);
+							inten.setAffectedStatus(true);
+							EList<HumanJudgment> judgments = inten.getHumanJudgments();
+							judgments.get(judgments.size() - 1).setAffectedStatus(true);
+							
 							propagateToAltView();
+							
 
 						} else if (alt.getDirection().equals("backward")) {
 							BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(
@@ -291,16 +312,29 @@ public class HumanJudgmentsView extends ViewPart {
 							if (windowCommand.cancelled()) {
 								return;
 							}
+							
+							EvaluationLabel result = windowCommand.getEvalResult();
+							
+							cs.execute(removeCommand); //Remove the HJ from model & view 
+							
+							//Create a new HJ to replace removed HJ 
+							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
+							cs.execute(addHJ);
+					
+							//Flag the affected elements 
+							alt.setAffectedStatus(true);
+							inten.setAffectedStatus(true);
+							EList<HumanJudgment> judgments = inten.getHumanJudgments();
+							judgments.get(judgments.size() - 1).setAffectedStatus(true);
+							
+							propagateToAltView();
 
-							// Determine the nodes to be highlighted in the
-							// AlternativesView
-
-							// Highlight the current AlternativesView
-							// highlightAltView();
 						}
-
-						// GET THE ALT VIEW HERE???!!
-
+						
+						//Update and refresh the view 
+						clearView(); 
+						loadIntentions(); 
+						
 					}
 
 				}
@@ -376,7 +410,6 @@ public class HumanJudgmentsView extends ViewPart {
 	/**
 	 * Refresh the view
 	 * 
-	 * @author aftabs
 	 */
 	public void refreshView() {
 		viewer.refresh();
@@ -399,7 +432,7 @@ public class HumanJudgmentsView extends ViewPart {
 	/**
 	 * Loads Intentions from the model into the view
 	 */
-	void loadIntentions() {
+	public void loadIntentions() {
 
 		// Get the active model
 		ModelImpl mi = ModelInstance.getModelImpl();
@@ -410,7 +443,7 @@ public class HumanJudgmentsView extends ViewPart {
 			EList<Intention> ints = mi.getAllIntentions();
 			EList<Alternative> alts = mi.getAlternatives();
 
-			// Add Intention decided by Human Judgments to the view
+			// Add each intention to the view 
 			for (Intention i : ints) {
 				if (!i.getHumanJudgments().isEmpty()) {
 					addIntention(i, alts);
@@ -420,9 +453,11 @@ public class HumanJudgmentsView extends ViewPart {
 
 		refreshView();
 	}
+	
+	
 
 	/**
-	 * Add the Intention to the View, and all its evaluations.
+	 * Add the Intention to the View, and all its human judgments.
 	 */
 	public void addIntention(Intention i, EList<Alternative> alts) {
 

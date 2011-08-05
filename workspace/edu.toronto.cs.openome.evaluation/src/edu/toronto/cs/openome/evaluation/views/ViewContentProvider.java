@@ -2,6 +2,7 @@ package edu.toronto.cs.openome.evaluation.views;
 
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -29,6 +30,7 @@ import edu.toronto.cs.openome_model.Intention;
 
 // Need this to be public in order to change the view content
 public class ViewContentProvider implements IStructuredContentProvider, ITreeContentProvider {
+	
 	private TreeNode invisibleRoot;
 	private ViewPart viewPart;
 	
@@ -178,37 +180,51 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 		}
 	}
 	
+	/**
+	 * 
+	 * @param node The <code>TreeNode</code> displaying the <code>Intention</code> name 
+	 * @param i The intention which has been decided via Human Judgment
+	 * @param alts An <code>EList</code> containing all the alternatives in the model
+	 */
 	public void addJudgment(TreeNode node, Intention i, EList<Alternative> alts)
 	{
 		
-		// if both of these will be true after the for loop, then we have a conflict
+		// If both of these are true after the for loop, there is a conflict
 		boolean denied = false;
 		boolean satisfied = false;
 				
-		// get the intention's label from each alternative
+		// Retrieve the intention's Human Judgments and the associated labels from each alternative
 		for(Alternative a : alts) {
-			HashMap<Intention, EvaluationLabel> map = a.getIntentionLabels();
-			EvaluationLabel label = map.get(i);
 			
-			String name = label.getName() + " (" + a.getName() + ") ";
-			
-			if(a.getDirection().equals("forward")) {
-				name += "[Forward Evaluation]";
-			} else if(a.getDirection().equals("backward")) {
-				name += "[Backward Evaluation]";
+			EList<HumanJudgment> allJudgments = i.getHumanJudgments();
+						
+			//Retrieve all human judgments associated with the intention 
+			for (HumanJudgment h: allJudgments){
+				
+				EvaluationLabel label = h.getResultLabel();
+				
+				String name = label.getName() + " (" + a.getName() + ") ";
+				
+				if(a.getDirection().equals("forward")) {
+					name += "[Forward Evaluation]";
+				} else if(a.getDirection().equals("backward")) {
+					name += "[Backward Evaluation]";
+				}
+				
+				//Create a HashMap with the human judgment as the key and the associated alternative as the value
+				HashMap<HumanJudgment, Alternative> map = new HashMap<HumanJudgment, Alternative>(1); 
+				map.put(h, a);
+				
+				TreeNode subnode = new TreeNode(name, map, label);
+				node.addChild(subnode);
+				
+				//Check 
+				if(label == EvaluationLabel.DENIED || label == EvaluationLabel.PARTIALLY_DENIED) {
+					denied = true;
+				} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.PARTIALLY_SATISFIED) {
+					satisfied = true;
+				}
 			}
-			
-			//Get the Evaluation Label associated with the intention i ONLY and put this into 
-			//the tree node. 				
-			TreeNode subnode = new TreeNode(name, a, label);
-			node.addChild(subnode);
-			
-			if(label == EvaluationLabel.DENIED || label == EvaluationLabel.PARTIALLY_DENIED) {
-				denied = true;
-			} else if(label == EvaluationLabel.SATISFIED || label == EvaluationLabel.PARTIALLY_SATISFIED) {
-				satisfied = true;
-			}
-			
 		}
 		
 		// set the conflict flag

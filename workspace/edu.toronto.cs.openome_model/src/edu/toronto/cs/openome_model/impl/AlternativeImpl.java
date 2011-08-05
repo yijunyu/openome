@@ -56,12 +56,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class AlternativeImpl extends EObjectImpl implements Alternative {
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
+	/**
+	 * The status of this Alternative - utilized for <code>AlternativesView</code> purposes 
+	 */
+	protected boolean status = false; 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -382,6 +387,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		result.append(evalLabels);
 		result.append(", direction: ");
 		result.append(direction);
+		result.append(", status: ");
+		result.append(status);
 		result.append(')');
 		return result.toString();
 	}
@@ -402,4 +409,15 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		
 		return map;
 	}
+
+	@Override
+	public boolean getAffectedStatus() {
+		return status;
+	}
+
+	@Override
+	public void setAffectedStatus(boolean b) {
+		status = b; 
+	}
+	
 } //AlternativeImpl

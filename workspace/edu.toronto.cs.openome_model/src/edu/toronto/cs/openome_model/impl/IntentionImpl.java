@@ -88,6 +88,11 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
 
 	/**
+	 * The status of this Alternative - utilized for <code>AlternativesView</code> purposes 
+	 */
+	protected boolean status = false; 
+	
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -593,16 +598,21 @@ public class IntentionImpl extends DependableImpl implements Intention {
 	 */
 	public boolean isLeaf() {
 		
-		
 		EList<Dependency> depFrom = getDependencyFrom();
+		EList<Decomposition> decFrom = getDecompositionsTo();
+		EList<Contribution> contFrom = getContributesFrom();
 		
+		System.out.println(depFrom.size() > 0); 
+		System.out.println(decFrom.size() > 0);
+		System.out.println(decFrom.size() + " | " + decFrom.toString());
+		System.out.println(contFrom.size() > 0);
+
 		if (depFrom.size() > 0) 
 			return false;
 		
-		EList<Decomposition> decFrom = getDecompositionsTo();
 		if (decFrom.size() > 0) 
 			return false;
-		EList<Contribution> contFrom = getContributesFrom();
+		
 		if (contFrom.size() > 0) 
 			return false;
 		
@@ -1648,6 +1658,16 @@ public class IntentionImpl extends DependableImpl implements Intention {
 			return true;
 		}
 		return false;	
+	}
+
+	@Override
+	public boolean getAffectedStatus() {
+		return status;
+	}
+
+	@Override
+	public void setAffectedStatus(boolean b) {
+		status = b;
 	}
 
 

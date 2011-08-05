@@ -550,6 +550,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	public EList<Intention> getLeaves() {
 		BasicEList<Intention> leaves = new BasicEList<Intention>();
 		for (Intention i : getAllIntentions()) {
+			System.out.println("Intention: " + i);
 			if (i.isLeaf())
 				leaves.add(i);
 				

@@ -42,6 +42,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	 */
 	public void init() {
 		super.init();
+				
 		setId(ActionIds.ACTION_DELETE_FROM_MODEL);
 		setText(DiagramUIMessages.DiagramEditor_Delete_from_Model);
 		setToolTipText(DiagramUIMessages.DiagramEditor_Delete_from_ModelToolTip);

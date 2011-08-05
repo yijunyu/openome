@@ -51,6 +51,11 @@ public class HumanJudgmentImpl extends EObjectImpl implements HumanJudgment {
 	public static final String copyright = "Copyright 2001-2008 University of Toronto";
 
 	/**
+	 * The status of this Alternative - utilized for <code>AlternativesView</code> purposes 
+	 */
+	protected boolean status = false; 
+	
+	/**
 	 * The default value of the '{@link #getResultLabel() <em>Result Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +376,17 @@ public class HumanJudgmentImpl extends EObjectImpl implements HumanJudgment {
 				return this;
 		}
 		return null;
+	}
+
+	@Override
+	public boolean getAffectedStatus() {
+		return status;
+	}
+
+	@Override
+	public void setAffectedStatus(boolean b) {
+		status = b; 
+		
 	}
 
 } //HumanJudgmentImpl
