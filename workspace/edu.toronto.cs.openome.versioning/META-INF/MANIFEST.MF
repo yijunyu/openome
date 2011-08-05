@@ -10,5 +10,6 @@ Require-Bundle: molhado,
  org.eclipse.gmf.runtime.diagram.core,
  org.eclipse.gmf.runtime.diagram.ui,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
- org.apache.log4j;bundle-version="1.2.13";resolution:=optional
+ org.apache.log4j;bundle-version="1.2.13";resolution:=optional,
+ org.bflow.toolbox.attributes;bundle-version="1.0.0"
 Eclipse-LazyStart: true

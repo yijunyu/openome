@@ -41,7 +41,8 @@ Require-Bundle: org.eclipse.core.expressions,
  openome_model,
  org.eclipse.ui,
  org.junit4,
- org.eclipse.draw2d;visibility:=reexport
+ org.eclipse.draw2d;visibility:=reexport,
+ org.bflow.toolbox.attributes;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Import-Package: edu.toronto.cs.openome_model.diagram.edit.parts,
  junit.framework,

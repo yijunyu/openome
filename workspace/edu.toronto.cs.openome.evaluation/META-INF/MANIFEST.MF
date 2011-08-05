@@ -13,7 +13,8 @@ Require-Bundle: org.sat4j.core,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
  org.eclipse.core.runtime,
  org.eclipse.ui,
- core
+ core,
+ org.bflow.toolbox.attributes;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Import-Package: edu.toronto.cs.openome.conversion.service,
  edu.toronto.cs.openome.core.action,

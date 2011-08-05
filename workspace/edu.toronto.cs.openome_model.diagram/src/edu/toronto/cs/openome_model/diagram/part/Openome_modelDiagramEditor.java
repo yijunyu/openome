@@ -77,12 +77,12 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPa
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart;
-
+import org.bflow.toolbox.attributes.IAttributableDocumentEditor;
 /**
  * @generated
  */
 public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
-		IGotoMarker {
+		IGotoMarker, IAttributableDocumentEditor {
 
 	/**
 	 * @generated
@@ -485,6 +485,18 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 
 		return h;
 	}
+	@Override
+	public void firePropertyChanged() {
+		this.firePropertyChange(PROP_DIRTY);		
+	}
+
+	@Override
+	public String getFileExtension() {
+		String name = this.getEditorInput().getName();
+			
+		return name.split("\\.")[1];
+	}
+
 
 	/**
 	 * @generated NOT
