@@ -1107,6 +1107,33 @@
       </description>
    </wizard>
 </extension>
+<extension
+      point="org.eclipse.ui.views">
+   <category
+         id="edu.toronto.cs.openome_model.diagram"
+         name="OpenOME">
+   </category>
+   <view
+         category="edu.toronto.cs.openome_model.diagram"
+         class="edu.toronto.cs.openome_model.diagram.views.tabular.TabularView"
+         icon="icons/sample.gif"
+         id="edu.toronto.cs.openome_model.diagram.views.TabularView"
+         name="Tabular View">
+   </view>
+</extension>
+<extension
+      point="org.eclipse.ui.perspectiveExtensions">
+   <perspectiveExtension
+         targetID="org.eclipse.ui.resourcePerspective">
+      <view
+            id="edu.toronto.cs.openome_model.diagram.views.TabularView"
+            ratio="0.7"
+            relationship="right"
+            relative="org.eclipse.ui.editorss"
+            visible="true">
+      </view>
+   </perspectiveExtension>
+</extension>
 
    
    
