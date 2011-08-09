@@ -463,6 +463,14 @@
             name="Human Judgments"
             restorable="true">
       </view>
+      <view
+            category="edu.toronto.cs.openome.evaluation"
+            class="edu.toronto.cs.openome.evaluation.views.JudgmentInconsistenciesView"
+            icon="icons/sample.gif"
+            id="edu.toronto.cs.openome.evaluation.views.JudgmentInconsistenciesView"
+            name="Inconsistency Checks"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>

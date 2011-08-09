@@ -158,7 +158,7 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 		}
 		
 		/* Populate the Human JudgmentsView with intentions */
-		hj.loadIntentions();  
+		//hj.loadIntentions();  
 		
 		return null;
 	}
