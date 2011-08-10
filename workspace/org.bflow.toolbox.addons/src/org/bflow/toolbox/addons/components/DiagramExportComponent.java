@@ -97,7 +97,9 @@ public class DiagramExportComponent implements IDiagramExportComponent {
 			// Hinzufügen des Attributs
 			AttributeFile aF = AttributeViewPart.getInstance().getAttributeFile();
 			
-			aF.load();
+			if (aF != null) {
+				aF.load();
+			}
 			
 			for(String id:selElements) {
 				aF.add(id, "marked", "true");
