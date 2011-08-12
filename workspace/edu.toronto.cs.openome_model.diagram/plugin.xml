@@ -1101,7 +1101,7 @@
          class="edu.toronto.cs.openome_model.diagram.importWizards.ImportWizard"
          icon="icons/sample.gif"
          id="edu.toronto.cs.openome_model.diagram.importWizards.ImportWizard"
-         name="q7 files">
+         name="Import Q7 and iStarML files.">
       <description>
          Import a file from the local file system into the workspace.
       </description>

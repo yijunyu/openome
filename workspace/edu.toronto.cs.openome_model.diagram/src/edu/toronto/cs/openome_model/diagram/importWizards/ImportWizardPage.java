@@ -62,7 +62,7 @@ public class ImportWizardPage extends WizardNewFileCreationPage {
 				setFileName(path.lastSegment());
 			}
 		});
-		String[] extensions = new String[] { "*.q7" }; //NON-NLS-1
+		String[] extensions = new String[] { "*.q7", "*.istarml" }; //NON-NLS-1
 		editor.setFileExtensions(extensions);
 		fileSelectionArea.moveAbove(null);
 
