@@ -40,9 +40,15 @@ public class ExportWizard extends Wizard implements IExportWizard {
 		
 		if (exportWizardPage.insideSelected()) {
 			w = ResourcesPlugin.getWorkspace();
-	    	project = w.getRoot().getProject(exportWizardPage.projectName().replaceFirst("/", ""));
-	    	targetFile = project.getLocation() + "/" + exportWizardPage.targetFileName().getText();
-	    	System.out.println(targetFile);
+			if (exportWizardPage.projectName().indexOf("/", 1) >= 0) {
+				project = w.getRoot().getProject(exportWizardPage.projectName().replaceFirst("/", "").
+						substring(0, exportWizardPage.projectName().replaceFirst("/", "").indexOf("/")));
+				targetFile = project.getLocation() + exportWizardPage.projectName().substring(exportWizardPage.projectName().indexOf("/", 1)) +
+				"/" + exportWizardPage.targetFileName().getText();
+			} else { 
+				project = w.getRoot().getProject(exportWizardPage.projectName().replaceFirst("/", ""));
+				targetFile = project.getLocation() + "/" + exportWizardPage.targetFileName().getText();
+			}
 		}
 		if (targetFile.isEmpty()) {
 			exportWizardPage.setMessage("No export file selected", WizardPage.ERROR);

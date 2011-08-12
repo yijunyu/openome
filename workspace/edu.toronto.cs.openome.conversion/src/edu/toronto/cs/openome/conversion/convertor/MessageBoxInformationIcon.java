@@ -1,9 +1,28 @@
 package edu.toronto.cs.openome.conversion.convertor;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
+
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+
+import edu.toronto.cs.openome.conversion.ccistarml.ERelement;
+import edu.toronto.cs.openome.conversion.ccistarml.ERelementList;
+import edu.toronto.cs.openome.conversion.ccistarml.ccistarmlFile;
+import edu.toronto.cs.openome_model.Container;
+import edu.toronto.cs.openome_model.Contribution;
+import edu.toronto.cs.openome_model.Decomposition;
+import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.Link;
+import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.openome_modelFactory;
+import edu.toronto.cs.openome_model.openome_modelPackage;
+import edu.toronto.cs.openome_model.impl.ContainerImpl;
+import edu.toronto.cs.openome_model.impl.IntentionImpl;
 
 public class MessageBoxInformationIcon {
 
