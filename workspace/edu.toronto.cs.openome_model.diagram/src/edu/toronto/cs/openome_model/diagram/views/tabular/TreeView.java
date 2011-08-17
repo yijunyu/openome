@@ -2,8 +2,12 @@ package edu.toronto.cs.openome_model.diagram.views.tabular;
 
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.viewers.*;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -30,7 +34,7 @@ import org.eclipse.swt.SWT;
  * <p>
  */
 
-public class TabularView extends ViewPart {
+public class TreeView extends ViewPart {
 
 	/**
 	 * The ID of the view as specified by the extension.
@@ -99,6 +103,17 @@ public class TabularView extends ViewPart {
 			public String getText(Object element) {
 				return ((Node) element).getLink();
 			}
+			@Override
+			public Font getFont(Object element) {
+				Font f = super.getFont(element);
+				if (f == null) {
+					return (Font) null;
+				}
+				FontData fd = f.getFontData()[0];
+				fd.setStyle(SWT.BOLD);
+				return new Font(null, fd);
+				// TODO Auto-generated method stub
+			}
 		});
 		
 		c = new TreeViewerColumn(viewer, SWT.NONE);
@@ -118,7 +133,7 @@ public class TabularView extends ViewPart {
 	        }
 	    };
 	    
-		final TabularView me = this;
+		final TreeView me = this;
 	    
 	    IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
 	    	@Override
@@ -178,7 +193,7 @@ public class TabularView extends ViewPart {
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
 			public void menuAboutToShow(IMenuManager manager) {
-				TabularView.this.fillContextMenu(manager);
+				TreeView.this.fillContextMenu(manager);
 			}
 		});
 		Menu menu = menuMgr.createContextMenu(viewer.getControl());

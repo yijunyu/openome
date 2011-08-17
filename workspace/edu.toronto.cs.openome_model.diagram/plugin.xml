@@ -1115,10 +1115,10 @@
    </category>
    <view
          category="edu.toronto.cs.openome_model.diagram"
-         class="edu.toronto.cs.openome_model.diagram.views.tabular.TabularView"
+         class="edu.toronto.cs.openome_model.diagram.views.tabular.TreeView"
          icon="icons/sample.gif"
-         id="edu.toronto.cs.openome_model.diagram.views.TabularView"
-         name="Tabular View">
+         id="edu.toronto.cs.openome_model.diagram.views.TreeView"
+         name="Tree View">
    </view>
 </extension>
 <extension
@@ -1126,7 +1126,7 @@
    <perspectiveExtension
          targetID="org.eclipse.ui.resourcePerspective">
       <view
-            id="edu.toronto.cs.openome_model.diagram.views.TabularView"
+            id="edu.toronto.cs.openome_model.diagram.views.TreeView"
             ratio="0.7"
             relationship="right"
             relative="org.eclipse.ui.editorss"
