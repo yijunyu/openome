@@ -1,10 +1,13 @@
-package edu.toronto.cs.openome.conversion.convertor;
+ package edu.toronto.cs.openome.conversion.convertor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
@@ -23,6 +26,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.internal.forms.widgets.SWTUtil;
 
 import edu.toronto.cs.openome.conversion.ccistarml.ERelement;
 import edu.toronto.cs.openome.conversion.ccistarml.ERelementList;
@@ -50,12 +54,21 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	private ERelementList erL;
 	private ERelement erle;
 	private StructuredSelection ts = null;
-	private HashMap<ERelement, ERelement> parent;
+	private HashMap<String, ERelement> parent;
 	private HashMap<String, ERelement> map;
 	private HashMap<String, Intention> intentions;
 	private HashMap<String, Container> containers;
 	private HashMap<String, Link> links;
 	private IWorkbenchPart targetPart;
+	private boolean syntax;
+	private String warning;
+	private boolean answer;
+	String[] c = {	"is_a", "is_part_of", "instance_of", "plays", "covers", "occupies", 
+			"goal", "softgoal", "resource", "task", 
+			"means-end", "contribution", "decomposition", 
+			"make", "help", "some+", "unknown", "some-", "hurt", "break", "role", "agent", "position"};
+	//ArrayList<String> contents = new ArrayList<String>();
+	List<String> contents = Arrays.asList(c);
 
 	public IStarML_GoalModel() {
 	}
@@ -66,53 +79,67 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	private void initialize() {
 		source = new ccistarmlFile();
 		source.loadFile(sourceFile);
-		generateGoalModelContent();
+		source.xmlParser();
+		erL = new ERelementList(source.xmlStructure());
+		//erL.display();
+		// Store each element in the dictionary "map" with its ID as its k
+		// { ID, ERelement}
+		LinkedList<ERelement> it = erL.list();
+		for (ERelement o : it) {
+			if (!checkSyntax(o)) {
+				map.put(o.ID, o);
+				// is_in tag attributes is {parent=ID, child=ID}
+				// It tells whose the parent of an element
+				// Using a dictionary "parent" to store each element parent ID with
+				// that element ID as the key
+				if (o.name.equals("is_in") && map.containsKey(o.attribute.get("child")) && map.containsKey(o.attribute.get("parent"))) {
+					
+					parent.put((String) o.attribute.get("child"), (ERelement)map
+							.get(o.attribute.get("parent")));
+				}
+				//Check for elements that are not supported by OpenOME
+			}
+		}
+		
+		if (syntax) {
+			messageDialog();
+		} 
+		if (!syntax || (syntax && answer))
+			generateGoalModelContent();
+		
 	}
 
 	/**
 	 * Parse the iStarML file content.
 	 */
 	private void generateGoalModelContent() {
-		source.xmlParser();
-		erL = new ERelementList(source.xmlStructure());
-
-		// Store each element in the dictionary "map" with its ID as its k
-		// { ID, ERelement}
+		
 		LinkedList<ERelement> it = erL.list();
-		for (ERelement o : it) {
-			map.put(o.ID, o);
-			// is_in tag attributes is {parent=ID, child=ID}
-			// It tells whose the parent of an element
-			// Using a dictionary "parent" to store each element parent ID with
-			// that element ID as the key
-			if (o.name.equals("is_in")) {
-				parent.put(map.get(o.attribute.get("child")), map
-						.get(o.attribute.get("parent")));
-			}
-		}
-
 		int n = 0;
-		while (n < it.size()) {
+		while (n < it.size()) {		
 			erle = it.get(n);
-			// System.out.println(erle.diagram + "-" + erle.ID + ":" + erle.name
-			// + "-->" + erle.attribute);
-			if (erle.name.equals("actor")) {
-				// method for actor links
-				checkActors(erle);
-			} else if (erle.name.equals("ielement")) {
-				checkIntentions(erle);
-				// method for intention links
-			} else if (erle.name.equals("is_in")) {
-				isIn(erle);
-			} else if (erle.name.equals("ielementLink")) {
-				checkIntentionLinks(erle);
-			} else if (erle.name.equals("actorLink")) {
-				checkActorLinks(erle);
-			} else if (erle.name.equals("dependee")
-					|| erle.name.equals("depender")) {
-				checkDependencyLinks(erle);
+			if (map.containsKey(erle.ID)) {
+				// System.out.println(erle.diagram + "-" + erle.ID + ":" + erle.name
+				// + "-->" + erle.attribute);
+				if (erle.name.equals("actor")) {
+					// method for actor links
+					checkActors(erle);
+				} else if (erle.name.equals("ielement")) {
+					checkIntentions(erle);
+					// method for intention links
+				} else if (erle.name.equals("is_in")) {
+					isIn(erle);
+				} else if (erle.name.equals("ielementLink")) {
+					checkIntentionLinks(erle);
+				} else if (erle.name.equals("actorLink")) {
+					checkActorLinks(erle);
+				} else if (erle.name.equals("dependee")
+						|| erle.name.equals("depender")) {
+					checkDependencyLinks(erle);
+				}
 			}
 			n++;
+			
 		}
 		
 		
@@ -121,26 +148,89 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		for (String key : links.keySet()) {
 			ERelement linkERelement = map.get(key);
 			//System.out.println(source + " " + links.size() + " " + key);
-			if (linkERelement.name.equals("ielementLink")) {
+			if (linkERelement.name.equals("ielementLink") && linkERelement.attribute.containsKey("type")) {
 				//Intention links
 				
 				if (linkERelement.attribute.get("type").equals("contribution")) {
 					ERelement targetERelement = map.get(linkERelement.attribute.get("iref"));
 					Contribution link = (Contribution) links.get(linkERelement.ID);
-					link.setTarget(intentions.get(targetERelement.ID));
+					if (targetERelement != null && link.getSource() != null) {
+						link.setTarget(intentions.get(targetERelement.ID));
+						link.setModel(m);
+						m.getContributions().add(link);
+					} else {
+						link.setSource(null);
+					}
 				} else if (linkERelement.attribute.get("type").equals("means-end") || linkERelement.attribute
 								.get("type").equals("decomposition")) {
 					ERelement target = map.get(linkERelement.attribute.get("iref"));
 					Decomposition link = (Decomposition) links.get(linkERelement.ID);
-					link.setTarget(intentions.get(target.ID));
+					if (target != null && link.getSource() != null) {
+						link.setTarget(intentions.get(target.ID));
+						link.setModel(m);
+						m.getDecompositions().add(link);
+					} else {
+						link.setSource(null);
+					}
 				} 
 				
-			} else if (linkERelement.name.equals("actorLink")) {
+			} else if (linkERelement.name.equals("actorLink") && linkERelement.attribute.containsKey("type")) {
 				//Association links.
 				
 				ERelement targetERelement = map.get(linkERelement.attribute.get("aref"));
+				
 				Association link = (Association) links.get(linkERelement.ID);
-				link.setTarget(containers.get(targetERelement.ID));
+				if (targetERelement != null && link.getSource() != null) {
+					link.setTarget(containers.get(targetERelement.ID));
+					m.getAssociations().add(link);
+				} else {
+					link.setSource(null);
+				}
+				
+			} else if (linkERelement.name.equals("dependee") || linkERelement.name.equals("depender")) {
+				//Get Dependency ERelement
+				ERelement dependency = parent.get(linkERelement.ID);
+				// get grandParent (Intention)
+				ERelement grandparent = ((ERelement) parent.get(dependency.ID));
+				
+				if (linkERelement.name.equals("dependee") && grandparent != null) {
+					// Get the corresponding intention.
+					Intention intention = intentions.get(grandparent.ID);
+					Dependency dependee = (Dependency) links.get(linkERelement.ID);
+					
+					if (intentions.containsKey(linkERelement.attribute.get("iref"))) {
+						dependee.setDependencyTo(intention);
+						dependee.setDependencyFrom(intentions.get(linkERelement.attribute
+								.get("iref")));
+						dependee.setModel(m);
+						m.getDependencies().add(dependee);
+					} else if (containers.containsKey(linkERelement.attribute.get("aref"))) {
+						dependee.setDependencyTo(intention);
+						dependee.setDependencyFrom(containers.get(linkERelement.attribute
+								.get("aref")));
+						dependee.setModel(m);
+						m.getDependencies().add(dependee);
+						
+					} 
+				} else if (grandparent != null && linkERelement.name.equals("depender")) { 
+					Intention intention = intentions.get(grandparent.ID);
+					Dependency depender = (Dependency) links.get(linkERelement.ID);
+					
+					if (intentions.containsKey(linkERelement.attribute.get("iref"))) {
+						depender.setDependencyFrom(intention);
+						depender.setDependencyTo(intentions.get(linkERelement.attribute
+								.get("iref")));
+						depender.setModel(m);
+						m.getDependencies().add(depender);
+					} else if (containers.containsKey(linkERelement.attribute.get("aref"))) {
+						depender.setDependencyFrom(intention);
+						depender.setDependencyTo(containers.get(linkERelement.attribute
+								.get("aref")));
+						depender.setModel(m);
+						m.getDependencies().add(depender);
+						
+					} 
+				}
 			}
 		}
 	}
@@ -206,7 +296,16 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		} else if (link.attribute.get("type").equals("means-end")) {
 			cont = f.createOrDecomposition();
 		} else if (link.attribute.get("type").equals("decomposition")) {
-			cont = f.createAndDecomposition();
+			if (link.attribute.containsKey("value")) {
+				String value = ((String) link.attribute.get("value"));
+				if (value.equalsIgnoreCase("or")) {
+					cont = f.createOrDecomposition();
+				} else if (value.equalsIgnoreCase("and")){
+					cont = f.createAndDecomposition();
+				}
+			} else {
+				cont = f.createAndDecomposition();
+			}
 		}
 
 		links.put(link.ID, cont);
@@ -216,6 +315,7 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	 * This method takes care of parent-child relationship in the diagram.
 	 * @param isin ERelement tag that contains parent and child id as its attribute i.e {parent=ID, child=ID}
 	 */
+	@SuppressWarnings("restriction")
 	private void isIn(ERelement isin) {
 
 		Hashtable table = isin.attribute;
@@ -224,25 +324,42 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		ERelement parentElement = map.get(isin.attribute.get("parent"));
 		ERelement childElement = map.get(isin.attribute.get("child"));
 
+		if (parentElement == null || childElement == null) {
+			//do nothing
+		}
+		
 		// Check for intention inside actor. If parent is the boundary tag and child is ielement tag then
 		// the intention is inside the actor. There must be an is_in tag before this with parent as actor and
 		// child as boundary.
-		if (parentElement.name.equals("boundary") && childElement.name.equals("ielement")) {
+		else if (parentElement.name.equals("boundary") && childElement.name.equals("ielement")) {
 
 			// get grandParent (Actor)
-			ERelement grandparent = ((ERelement) parent.get(parentElement));
+			ERelement grandparent = (ERelement) parent.get(parentElement.ID);
 
 			// Get the corresponding actor and intention
-			Container container = containers.get(grandparent.ID);
+			Container container = null;
+			if (grandparent != null) {
+				container = containers.get(grandparent.ID);
+			} 
 			Intention intention = intentions.get(childElement.ID);
-			intention.setContainer(container);
-			container.getIntentions().add(intention);
+			
+			//Check if these element have been accepted as a OpenOME element.
+			if (intention != null && container != null) {
+				intention.setContainer(container);
+				container.getIntentions().add(intention);
+			} else if (container == null) {
+				m.getIntentions().add(intention);
+			} 
+			//Do nothing if the intention is null
 
 		} else if (parentElement.name.equals("diagram")
 				&& childElement.name.equals("ielement")) { // If intention is not inside an actor, its inside the model. 
 			// This should be different if considering different diagram.
 			Intention intention = intentions.get(childElement.ID);
-			m.getIntentions().add(intention);
+			
+			if (intention != null) {
+				m.getIntentions().add(intention);
+			}
 
 		} else if (parentElement.name.equals("ielement")
 				&& childElement.name.equals("ielementLink")) { 
@@ -254,15 +371,13 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 			if (childElement.attribute.get("type").equals("contribution")) {
 				Contribution link = (Contribution) links.get(childElement.ID);
 				link.setSource(intention);
-				link.setModel(m);
-				m.getContributions().add(link);
+
 			} else if (childElement.attribute.get("type").equals("means-end")
 					|| childElement.attribute.get("type").equals(
 							"decomposition")) {
 				Decomposition link = (Decomposition) links.get(childElement.ID);
 				link.setSource(intention);
-				link.setModel(m);
-				m.getDecompositions().add(link);
+
 			}
 			
 		} else if (parentElement.name.equals("actor")
@@ -274,40 +389,8 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 			Container actor = containers.get(parentElement.ID);
 			Association link = (Association) links.get(childElement.ID);
 			link.setSource(actor);
-			m.getAssociations().add(link);
 			
-		} else if (parentElement.name.equals("dependency")
-				&& childElement.name.equals("dependee")) { 
-			
-			//With dependency relationship we have {dependency, dependee}, {dependency, depender} and {intention, dependency}
-			
-			// get grandParent (Intention)
-			ERelement grandparent = ((ERelement) parent.get(parentElement));
-
-			// Get the corresponding intention.
-			Intention intention = intentions.get(grandparent.ID);
-			Dependency dependee = (Dependency) links.get(childElement.ID);
-			dependee.setDependencyTo(intention);
-			dependee.setDependencyFrom(containers.get(childElement.attribute
-					.get("aref")));
-			dependee.setModel(m);
-			m.getDependencies().add(dependee);
-
-		} else if (parentElement.name.equals("dependency")
-				&& childElement.name.equals("depender")) {
-
-			// get grandParent (Intention)
-			ERelement grandparent = ((ERelement) parent.get(parentElement));
-
-			// Get the corresponding intention.
-			Intention intention = intentions.get(grandparent.ID);
-			Dependency depender = (Dependency) links.get(childElement.ID);
-			depender.setDependencyFrom(intention);
-			depender.setDependencyTo(containers.get(childElement.attribute
-					.get("aref")));
-			depender.setModel(m);
-			m.getDependencies().add(depender);
-		}
+		} 
 
 	}
 
@@ -319,30 +402,30 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	 *            about the Actor actor.
 	 */
 	private void checkActors(ERelement actor) {
-		if (actor.attribute.containsKey("aref")) {
-			// Fill this afterwords
+		if (!actor.attribute.containsKey("aref")) {
+			
+			Container act = null;
+			if (!actor.attribute.containsKey("type")) { // if it doesn't have the
+														// attribute "type" => its
+														// just an actor
+				act = (Container) f.createActor();
+			} else if (((String)actor.attribute.get("type")).equalsIgnoreCase("agent")) {
+				act = (Container) f.createAgent();
+			} else if (((String)actor.attribute.get("type")).equalsIgnoreCase("role")) {
+				act = (Container) f.createRole();
+			} else if (((String)actor.attribute.get("type")).equalsIgnoreCase("position")) {
+				act = (Container) f.createPosition();
+			}
+	
+			// Add actor inside the dictionary so that it can be called afterward easily with key as
+			// its corresponding ERelement tag ID.
+			containers.put((String) actor.ID, act);
+			act.setName((String) actor.attribute.get("name"));
+	
+			// /Following might change in future;
+			act.setModel(m);
+			m.getContainers().add(act);
 		}
-		Container act = null;
-		if (!actor.attribute.containsKey("type")) { // if it doesn't have the
-													// attribute "type" => its
-													// just an actor
-			act = (Container) f.createActor();
-		} else if (actor.attribute.get("type").equals("agent")) {
-			act = (Container) f.createAgent();
-		} else if (actor.attribute.get("type").equals("role")) {
-			act = (Container) f.createRole();
-		} else if (actor.attribute.get("type").equals("position")) {
-			act = (Container) f.createPosition();
-		}
-
-		// Add inside the actor inside the dictionary so that it can be called afterward easily with key as
-		// its corresponding ERelement tag ID.
-		containers.put((String) actor.ID, act);
-		act.setName((String) actor.attribute.get("name"));
-
-		// /Following might change in future;
-		act.setModel(m);
-		m.getContainers().add(act);
 	}
 
 	/**
@@ -355,27 +438,42 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	 *            about the Intention intention.
 	 */
 	private void checkIntentions(ERelement intention) {
-		if (intention.attribute.containsKey("iref")) {
-			// Fill this afterwords
+		if (!intention.attribute.containsKey("iref")) {
+			Intention i = null;
+	
+			if (((String)intention.attribute.get("type")).equalsIgnoreCase("goal")) {
+				i = (Intention) f.createGoal();
+			} else if (((String)intention.attribute.get("type")).equalsIgnoreCase("task")) {
+				i = (Intention) f.createTask();
+			} else if (((String)intention.attribute.get("type")).equalsIgnoreCase("resource")) {
+				i = (Intention) f.createResource();
+			} else if (((String)intention.attribute.get("type")).equalsIgnoreCase("softgoal")) {
+				i = (Intention) f.createSoftgoal();
+			}
+	
+			// Add inside the intention inside the dictionary so that it can be called afterward easily with key as
+			// its corresponding ERelement tag ID.
+			intentions.put((String) intention.ID, i);
+			i.setName((String) intention.attribute.get("name"));
+			
+			//Set the evaluation label of each intention.
+			if (intention.attribute.containsKey("QualitativeReasoningCombinedLabel")) {
+				String value = (String) intention.attribute.get("QualitativeReasoningCombinedLabel");
+				if (value.equalsIgnoreCase("satisfied")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.SATISFIED);
+				} else if (value.equalsIgnoreCase("partiallysatisfied")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_SATISFIED);
+				} else if (value.equalsIgnoreCase("unknown")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.UNKNOWN);
+				} else if (value.equalsIgnoreCase("conflict")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.CONFLICT);
+				} else if (value.equalsIgnoreCase("partiallydenied")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.PARTIALLY_DENIED);
+				} else if (value.equalsIgnoreCase("denied")) {
+					i.setQualitativeReasoningCombinedLabel(EvaluationLabel.DENIED);
+				}
+			}
 		}
-
-		Intention i = null;
-
-		if (intention.attribute.get("type").equals("goal")) {
-			i = (Intention) f.createGoal();
-		} else if (intention.attribute.get("type").equals("task")) {
-			i = (Intention) f.createTask();
-		} else if (intention.attribute.get("type").equals("resource")) {
-			i = (Intention) f.createResource();
-		} else if (intention.attribute.get("type").equals("softgoal")) {
-			i = (Intention) f.createSoftgoal();
-		}
-
-		// Add inside the intention inside the dictionary so that it can be called afterward easily with key as
-		// its corresponding ERelement tag ID.
-		intentions.put((String) intention.ID, i);
-		i.setName((String) intention.attribute.get("name"));
-
 	}
 
 	/**
@@ -391,11 +489,14 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 
-		parent = new HashMap<ERelement, ERelement>();
+		parent = new HashMap<String, ERelement>();
 		map = new HashMap<String, ERelement>();
 		intentions = new HashMap<String, Intention>();
 		containers = new HashMap<String, Container>();
 		links = new HashMap<String, Link>();
+		syntax = false;
+		warning = "";
+		answer = false;
 
 		// System.out.println(((IFile)ts.getFirstElement()).getLocation());
 		IFile file = (IFile) ts.getFirstElement();
@@ -407,11 +508,14 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		m = f.createModel();
 		m.setName(targetFile);
 		initialize();
-		output_to_xmi(file);
-		IFile f2 = file.getProject().getFile(
-				file.getName().replaceFirst("istarml", "oom"));
-		if (f2.exists()) {
-			toModel(f2);
+		
+		if (!syntax || (syntax && answer)) {
+			output_to_xmi(file);
+			IFile f2 = file.getProject().getFile(
+					file.getName().replaceFirst("istarml", "oom"));
+			if (f2.exists()) {
+				toModel(f2);
+			}
 		}
 	}
 
@@ -472,21 +576,89 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 	public boolean messageDialog() {
 		Shell shell = new Shell(Display.getCurrent());
 
-		MessageBox messageBox = new MessageBox(shell, SWT.YES | SWT.NO);
+		MessageBox messageBox = new MessageBox(shell, SWT.YES | SWT.NO | SWT.Resize | SWT.RESIZE);
+		
+		messageBox.setText("WARNING");
+		
 		messageBox
-				.setMessage("This iStarML file contains elements not supported by OpenOME "
-						+ "and will be removed when converted to OpenOME diagram.\nDo you want to continue?");
+				.setMessage(warning + "Above Elements will be removed when converted to OpenOME diagram.\nDo you want to continue?");
 
 		int rc = messageBox.open();
 
 		switch (rc) {
 		case SWT.YES:
-			return true;
+			answer = true;
+			break;
 		case SWT.NO:
-			return false;
+			answer = false;
+			break;
 		}
 
-		return false;
+		return answer;
+	}
+	
+	/**
+	 * Return true if the ERelemenet is not supported by OpenOME
+	 * @param element ERelement from the iStarML file.
+	 */
+	public boolean checkSyntax(ERelement element) {
+		
+		boolean syn = false;
+
+		if (	element.name.equals("actor") &&
+				(element.attribute.containsKey("aref") ||
+				(element.attribute.containsKey("type") &&
+				!contents.contains(((String) element.attribute.get("type")).toLowerCase())))) {
+			
+			syn = true;
+			syntax = true;
+			
+			warning += "- " + element.attribute.get("type") + " is not recognized by OpenOME. " +
+			"Accepted Actors are \"role\" \"agent\" \"position\"\n";
+			
+		} else if (	element.name.equals("actorLink") && 
+					!contents.contains(((String) element.attribute.get("type")).toLowerCase())) {
+			
+			syn = true;
+			syntax = true;
+			warning += "- " + element.attribute.get("type") + " is not recognized by OpenOME. " +
+					"Accepted actor links are \"is_a\" \"is_part_of\" \"instance_of\" \"plays\" \"covers\" \"occupies\"\n";
+			
+		} else if (	element.name.equals("ielement") && 
+					(element.attribute.containsKey("iref") ||
+					(element.attribute.containsKey("type") &&
+					!contents.contains(((String) element.attribute.get("type")).toLowerCase())))) {
+			
+			syn = true;
+			if (!element.attribute.containsKey("iref")) {
+				syntax = true;
+				warning += "- " + element.attribute.get("type") + " is not recognized by OpenOME. " +
+						"Accepted Intentions are \"goal\" \"softgoal\" \"resource\" \"task\"\n";
+			}
+			
+		} else if (element.name.equals("ielementLink")) {
+			
+			String type = (String) element.attribute.get("type");
+			if (!contents.contains(type.toLowerCase())) {
+				syn = true;
+				syntax = true;
+				
+				warning += "- " + element.attribute.get("type") + " is not recognized by OpenOME. " +
+				"Accepted intention link types are \"contribution\" \"decomposition\" \"means-end\" \n";
+			}
+			
+			if (type.equalsIgnoreCase("contribution") && !contents.contains(((String)element.attribute.get("value")).toLowerCase())) {
+				
+				syn = true;
+				syntax = true;
+				
+				warning += "- " + element.attribute.get("value") + " is not recognized by OpenOME as a contribution link. " +
+				"Accepted contribution links are \"make\", \"help\", \"some+\", \"unknown\", \"some-\", \"hurt\", \"break\" \n";
+				
+			}
+		}
+		
+		return syn;
 	}
 
 }
