@@ -1,6 +1,7 @@
 package org.bflow.toolbox.interchange.model;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,11 +23,15 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.bflow.toolbox.interchange.events.ExportEvent;
 import org.bflow.toolbox.interchange.events.ExportListenerRegistry;
+import org.eclipse.core.resources.IFile;
 import org.osgi.framework.Bundle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
+
+import edu.toronto.cs.openome.conversion.convertor.GoalModel_Q7;
+
 
 /**
  * Defines an export description object that is represented by a xml file.
@@ -148,170 +153,179 @@ public class ExportDescription {
 				targetFile = new File(targetFile.getPath() + "."
 						+ this.fileExtension);
 
-		Vector<File> createdFiles = new Vector<File>(); // beinhaltet temporär
-														// angelegte Dateien
-		
-		fireExportEvent(ExportEvent.START, -1, sourceFile, targetFile);
-
-		File newSourceFile = null;
-
-		// removing unhandable extensions
-		try {
-			String fContent = FileUtils.readFileToString(sourceFile);
-
-			int begin = 0;
-
-			while ((begin = fContent.indexOf("<Subdiagram>")) != -1) {
-				int end = fContent.indexOf("</Subdiagram>", begin);
-				String rpl = fContent.substring(begin, end + 13);
-
-				fContent = fContent.replaceFirst(rpl, "");
+		if (this.fileExtension.equals("q7")) {
+			try {
+				GoalModel_Q7 q7 = new GoalModel_Q7(sourceFile.getCanonicalPath(),targetFile.getCanonicalPath());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-			newSourceFile = File.createTempFile("newSourceFile", ".epctmp");
-			createdFiles.add(newSourceFile);
-
-			FileUtils.writeStringToFile(newSourceFile, fContent);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-
-		if (newSourceFile != null)
-			sourceFile = newSourceFile;
-
-		// finished
-
-		int countScripts = this.getScripts().size(); // Anzahl der XSLT-Skripte
-
-		for (int i = 0; i < countScripts; i++) {
-			Script script = this.getScripts().get(i);
+		} else {
+			Vector<File> createdFiles = new Vector<File>(); // beinhaltet temporï¿½r
+															// angelegte Dateien
 			
-			/*
-			 * copying the script file temporarly on local
-			 */
-			String scriptFileLocation;
-			InputStream scriptStream = null;
-
-			scriptFileLocation = script.getFile();
-
+			fireExportEvent(ExportEvent.START, -1, sourceFile, targetFile);
+	
+			File newSourceFile = null;
+	
+			// removing unhandable extensions
 			try {
-				if(bundle != null) {
-					scriptStream = bundle.getEntry(scriptFileLocation).openStream();
-				} else {
-					scriptStream = new FileInputStream(new File(FilenameUtils
-							.getFullPath(this.filename)
-							+ script.getFile()));
+				String fContent = FileUtils.readFileToString(sourceFile);
+	
+				int begin = 0;
+	
+				while ((begin = fContent.indexOf("<Subdiagram>")) != -1) {
+					int end = fContent.indexOf("</Subdiagram>", begin);
+					String rpl = fContent.substring(begin, end + 13);
+	
+					fContent = fContent.replaceFirst(rpl, "");
 				}
-				
-				if(scriptStream == null)
-					throw new NullPointerException("Input stream for XSLT script is null");
-				
+	
+				newSourceFile = File.createTempFile("newSourceFile", ".epctmp");
+				createdFiles.add(newSourceFile);
+	
+				FileUtils.writeStringToFile(newSourceFile, fContent);
 			} catch (Exception ex) {
 				ex.printStackTrace();
-				fireExportEvent(ExportEvent.BROKEN, i, sourceFile, targetFile);
-				return false;
 			}
-
-			File tempScriptFile;
-
-			try {
-				tempScriptFile = File.createTempFile("temp", ".xslt");
-
-				OutputStream os = new FileOutputStream(tempScriptFile);
+	
+			if (newSourceFile != null)
+				sourceFile = newSourceFile;
+	
+			// finished
+	
+			int countScripts = this.getScripts().size(); // Anzahl der XSLT-Skripte
+	
+			for (int i = 0; i < countScripts; i++) {
+				Script script = this.getScripts().get(i);
 				
-				IOUtils.copy(scriptStream, os);
-				
-			} catch (Exception ex) {
-				ex.printStackTrace();
-				fireExportEvent(ExportEvent.BROKEN, i, sourceFile, targetFile);
-				return false;
-			}
-
-			/*
-			 * finished
-			 */
-
-			/*
-			 * setting up source file
-			 */
-			File source;
-
-			if (createdFiles.size() == 0) // es muss stets die zuletzt
-				source = sourceFile; // angelegte Datei zur Weiterverarbeitung
-			else
-				// genutzt werden
-				source = createdFiles.lastElement(); //
-
-			/*
-			 * setting up target file
-			 */
-			File target = null;
-
-			if (i == countScripts - 1) // beim letzten Skript
-				target = targetFile; // ist die Zieldatei
-			else
+				/*
+				 * copying the script file temporarly on local
+				 */
+				String scriptFileLocation;
+				InputStream scriptStream = null;
+	
+				scriptFileLocation = script.getFile();
+	
 				try {
-					target = File.createTempFile("temp_"+i, "tmp");
-				} catch (IOException e) {
-					e.printStackTrace();
+					if(bundle != null) {
+						scriptStream = bundle.getEntry(scriptFileLocation).openStream();
+					} else {
+						scriptStream = new FileInputStream(new File(FilenameUtils
+								.getFullPath(this.filename)
+								+ script.getFile()));
+					}
+					
+					if(scriptStream == null)
+						throw new NullPointerException("Input stream for XSLT script is null");
+					
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					fireExportEvent(ExportEvent.BROKEN, i, sourceFile, targetFile);
+					return false;
+				}
+	
+				File tempScriptFile;
+	
+				try {
+					tempScriptFile = File.createTempFile("temp", ".xslt");
+	
+					OutputStream os = new FileOutputStream(tempScriptFile);
+					
+					IOUtils.copy(scriptStream, os);
+					
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					fireExportEvent(ExportEvent.BROKEN, i, sourceFile, targetFile);
+					return false;
+				}
+	
+				/*
+				 * finished
+				 */
+	
+				/*
+				 * setting up source file
+				 */
+				File source;
+	
+				if (createdFiles.size() == 0) // es muss stets die zuletzt
+					source = sourceFile; // angelegte Datei zur Weiterverarbeitung
+				else
+					// genutzt werden
+					source = createdFiles.lastElement(); //
+	
+				/*
+				 * setting up target file
+				 */
+				File target = null;
+	
+				if (i == countScripts - 1) // beim letzten Skript
+					target = targetFile; // ist die Zieldatei
+				else
+					try {
+						target = File.createTempFile("temp_"+i, "tmp");
+					} catch (IOException e) {
+						e.printStackTrace();
+						fireExportEvent(ExportEvent.BROKEN, i, source, target);
+						return false;
+					} 
+	
+				try {
+	
+					ArrayList<String> parameterList = new ArrayList<String>();
+	
+					TransformerFactoryImpl tFactory = new TransformerFactoryImpl();
+					Transformer transformer = tFactory
+							.newTransformer(new StreamSource(tempScriptFile));
+	
+					for (String key : script.getParams().keySet()) {
+						if(isControlKey(key))
+							continue;
+						
+						String value = key + "=" + script.getParams().get(key);
+						parameterList.add(value);
+	
+						String val = script.getParams().get(key);
+						Object oVal = null;
+	
+						try {
+							double d = Double.parseDouble(val);
+							oVal = d;
+						} catch (NumberFormatException ex) {
+							oVal = val;
+						}
+	
+						transformer.setParameter(key, oVal);
+					}
+	
+					OutputStream os = new FileOutputStream(target);
+					StreamResult sr = new StreamResult(os);
+					transformer.transform(new StreamSource(source), sr);
+					
+					if(script.getParams().containsKey("insertAttributes")) {
+						fireExportEvent(ExportEvent.INSERT_ATTRIBUTES, i, source, target);
+					}
+									
+				} catch (Exception ex) {
+					ex.printStackTrace();
 					fireExportEvent(ExportEvent.BROKEN, i, source, target);
 					return false;
-				} 
-
-			try {
-
-				ArrayList<String> parameterList = new ArrayList<String>();
-
-				TransformerFactoryImpl tFactory = new TransformerFactoryImpl();
-				Transformer transformer = tFactory
-						.newTransformer(new StreamSource(tempScriptFile));
-
-				for (String key : script.getParams().keySet()) {
-					if(isControlKey(key))
-						continue;
-					
-					String value = key + "=" + script.getParams().get(key);
-					parameterList.add(value);
-
-					String val = script.getParams().get(key);
-					Object oVal = null;
-
-					try {
-						double d = Double.parseDouble(val);
-						oVal = d;
-					} catch (NumberFormatException ex) {
-						oVal = val;
-					}
-
-					transformer.setParameter(key, oVal);
 				}
-
-				OutputStream os = new FileOutputStream(target);
-				StreamResult sr = new StreamResult(os);
-				transformer.transform(new StreamSource(source), sr);
-				
-				if(script.getParams().containsKey("insertAttributes")) {
-					fireExportEvent(ExportEvent.INSERT_ATTRIBUTES, i, source, target);
-				}
-								
-			} catch (Exception ex) {
-				ex.printStackTrace();
-				fireExportEvent(ExportEvent.BROKEN, i, source, target);
-				return false;
+	
+				tempScriptFile.delete();
+				createdFiles.add(target);
+	
+				lastExportedFile = target; //targetFile;
+	
+				fireExportEvent(ExportEvent.STEP_DONE, i, source, target);
 			}
-
-			tempScriptFile.delete();
-			createdFiles.add(target);
-
-			lastExportedFile = target; //targetFile;
-
-			fireExportEvent(ExportEvent.STEP_DONE, i, source, target);
+	
+			for (int i = 0; i < countScripts - 1; i++)
+				createdFiles.get(i).delete();
+			
+			fireExportEvent(ExportEvent.EXPORT_DONE, -1, sourceFile, targetFile);
 		}
-
-		for (int i = 0; i < countScripts - 1; i++)
-			createdFiles.get(i).delete();
-		
-		fireExportEvent(ExportEvent.EXPORT_DONE, -1, sourceFile, targetFile);
 
 		return true;
 	}
@@ -491,6 +505,29 @@ public class ExportDescription {
 		return fileExtension;
 	}
 
+	/**
+	 * Set the name of the ExportDescription
+	 * @param name name of the ExportDescription
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	/**
+	 * Set the description of the ExportDescription
+	 * @param description description of the ExportDescription
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	/**
+	 * Set the extension of the exported file.
+	 * @param extension extension of the exported file.
+	 */
+	public void setFileExtension(String extension) {
+		this.fileExtension  = extension;
+	}
 	/**
 	 * returns the scripts of the export description<br/>
 	 * <b>note:</b> call <code>parse()</code> first, else null will be returned

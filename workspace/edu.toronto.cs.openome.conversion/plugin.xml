@@ -45,18 +45,5 @@
  </objectContribution>
 
    </extension>
-  <extension
-        point="org.eclipse.ui.exportWizards">
-     <wizard
-           category="org.bflow.toolbox.export.category.modellingtoolbox"
-           class="edu.toronto.cs.openome.conversion.convertor.ExportWizard"
-           icon="icons/telos.gif"
-           id="edu.toronto.cs.openome.conversion.convertor.ExportWizardID"
-           name="Conversion Wizard">
-        <description>
-           Export the diagram to Q7 file
-        </description>
-     </wizard>
-  </extension>
 
 </plugin>

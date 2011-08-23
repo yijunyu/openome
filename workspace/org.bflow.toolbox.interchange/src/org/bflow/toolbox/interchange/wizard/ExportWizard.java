@@ -34,6 +34,11 @@ public class ExportWizard extends Wizard implements IExportWizard
 	
 	private IStructuredSelection selection;
 	
+	public boolean canFinish() {
+
+		return (exportWizardPage.getSelectionIndex() >= 0 && !exportWizardPage.getTextFieldTargetFile().getText().isEmpty());
+	}
+	
 	@Override
 	public boolean performFinish() 
 	{		

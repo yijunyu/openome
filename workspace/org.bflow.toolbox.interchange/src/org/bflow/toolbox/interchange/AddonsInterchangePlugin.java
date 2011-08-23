@@ -104,7 +104,7 @@ public class AddonsInterchangePlugin extends AbstractUIPlugin {
 		Path exportPath = (Path) wsRootPath.append(".export/");
 		File exportDir = exportPath.toFile();
 
-		if (exportDir.exists()) // es wurden manuell Skripte hinzugefügt
+		if (exportDir.exists()) // es wurden manuell Skripte hinzugefï¿½gt
 		{
 			File files[] = exportDir.listFiles(new FileFilter() {
 
@@ -131,6 +131,13 @@ public class AddonsInterchangePlugin extends AbstractUIPlugin {
 				ExportscriptStore.register(exp);
 			}
 		}
+		
+		//Add export description for Q7 export.
+		ExportDescription exp = new ExportDescription(null,null,null);
+		exp.setName("Q7");
+		exp.setDescription("Exports an openOME diagram as Q7 file");
+		exp.setFileExtension("q7");
+		ExportscriptStore.register(exp);
 	}
 
 	private void registerImportscripts() throws IOException {
@@ -157,7 +164,7 @@ public class AddonsInterchangePlugin extends AbstractUIPlugin {
 		Path importPath = (Path) wsRootPath.append(".import/");
 		File importDir = importPath.toFile();
 
-		if (importDir.exists()) // es wurden manuell Skripte hinzugefügt
+		if (importDir.exists()) // es wurden manuell Skripte hinzugefï¿½gt
 		{
 			File files[] = importDir.listFiles(new FileFilter() {
 

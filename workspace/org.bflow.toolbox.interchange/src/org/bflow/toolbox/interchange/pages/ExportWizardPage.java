@@ -138,8 +138,12 @@ public class ExportWizardPage extends WizardPage
 				
 				dialog.setFilterPath(null);
 				dialog.setMessage(MessageProvider.getMessage("ExportWizardPage#msg8"));
-				
-				textFieldTargetFile.setText(dialog.open());
+				String path = dialog.open();
+				if (path != null) {
+					textFieldTargetFile.setText(path);
+					//Update buttons.
+					getWizard().getContainer().updateButtons();
+				}
 			}});
 		
 		this.setControl(composite);
@@ -183,9 +187,20 @@ public class ExportWizardPage extends WizardPage
 				
 				txtDescription.setText(exportDescription.getDescription());
 				
+				//Update buttons.
+				getWizard().getContainer().updateButtons();
+				
 			}});
 		
 		cbExportTypes.setVisibleItemCount(10);
+	}
+	
+	/**
+	 * Return the selection index of the combo box.
+	 * @return the selection index of the combo box.
+	 */
+	public int getSelectionIndex() {
+		return cbExportTypes.getSelectionIndex();
 	}
 	
 	/**

@@ -44,7 +44,6 @@ import edu.toronto.cs.openome_model.Position;
 import edu.toronto.cs.openome_model.Role;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.Task;
-import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil;
 import edu.toronto.cs.openome_model.impl.AndDecompositionImpl;
 import edu.toronto.cs.openome_model.impl.BreakContributionImpl;
 import edu.toronto.cs.openome_model.impl.ContributionImpl;
@@ -390,7 +389,7 @@ public class GoalModel_Q7 {
 	 */
 	private void createFile() {
 		try {
-			FileWriter fstream = new FileWriter(targetFile + ".q7");
+			FileWriter fstream = new FileWriter(targetFile);
 			writer = new BufferedWriter(fstream);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
