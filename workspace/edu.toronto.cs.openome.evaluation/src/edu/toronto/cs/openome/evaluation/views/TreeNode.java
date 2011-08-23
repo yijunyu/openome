@@ -8,6 +8,11 @@ import edu.toronto.cs.openome_model.Intention;
 //TreeNode represents nodes with children
 public class TreeNode extends TreeObject {
 	private ArrayList<TreeObject> elements;
+	private String inconsistentWith; 
+	
+	//If the tree node is an inconsistency 
+    public static final String MODEL = "model";
+    public static final String JUDGMENT = "judgment";
 	
 	/* Differentiates between the different kinds of nodes (ie. Alternative or Intentions) */
 	private boolean altStatus = false;
@@ -18,9 +23,10 @@ public class TreeNode extends TreeObject {
 	
 	private boolean conflict = false;
 	
-	public TreeNode(String name, Object obj, Object img) {
+	public TreeNode(String name, Object obj, Object img, String inconsWith) {
 		super(name, obj, img);
 		elements = new ArrayList<TreeObject>();
+		this.inconsistentWith = inconsWith; 
 	}
 	
 	public void addChild(TreeObject child) {
@@ -91,6 +97,17 @@ public class TreeNode extends TreeObject {
 	
 	public boolean isResource() {
 		return rStatus; 
+	}
+	
+	public void setInconsistentWith(String type) {
+		this.inconsistentWith = type;
+	}
+
+	public String getInconsistentWith() {
+		if (inconsistentWith == null) {
+			return "";
+		}
+		return this.inconsistentWith;
 	}
 	
 	public void clear() {

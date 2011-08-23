@@ -13,6 +13,8 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
@@ -20,11 +22,16 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPerspectiveDescriptor;
@@ -47,16 +54,17 @@ import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.LabelBag;
 import edu.toronto.cs.openome_model.impl.GoalImpl;
 import edu.toronto.cs.openome_model.impl.ModelImpl;
 import edu.toronto.cs.openome_model.impl.ResourceImpl;
 import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
 import edu.toronto.cs.openome_model.impl.TaskImpl;
 
-public class JudgmentInconsistenciesView extends ViewPart {
+public class InconsistencyChecksView extends ViewPart {
 
 	/* ID of Judgments view */
-	public static final String ID = "edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView";
+	public static final String ID = "edu.toronto.cs.openome.evaluation.views.InconsistencyChecksView";
 
 	/* Singleton TreeViewer */
 	public static TreeViewer viewer;
@@ -75,6 +83,8 @@ public class JudgmentInconsistenciesView extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+		viewer.getTree().setHeaderVisible(true);
+		viewer.getTree().setLinesVisible(true);
 
 		drillDownAdapter = new DrillDownAdapter(viewer);
 		viewer.setContentProvider(new ViewContentProvider(this));
@@ -90,6 +100,42 @@ public class JudgmentInconsistenciesView extends ViewPart {
 		hookDoubleClickAction();
 		contributeToActionBars();
 
+		// General Label provider
+		final ViewLabelProvider v = new ViewLabelProvider();
+
+		// Label provider for "Inconsistencies" column
+		TreeViewerColumn c = new TreeViewerColumn(viewer, SWT.NONE);
+		c.getColumn().setWidth(350);
+		c.getColumn().setText("Inconsistencies");
+		c.setLabelProvider(new ColumnLabelProvider() {
+			public String getText(Object element) {
+				// Label
+				return ((TreeNode) element).getName();
+			}
+
+			@Override
+			public Image getImage(Object element) {
+				return v.getImage(element);
+			}
+		});
+
+		// Label provider for "Inconsistent with" column
+		c = new TreeViewerColumn(viewer, SWT.NONE);
+		c.getColumn().setWidth(350);
+		c.getColumn().setText("Inconsistent with");
+		c.setLabelProvider(new ColumnLabelProvider() {
+			public String getText(Object element) {
+				if (((TreeNode) element).getInconsistentWith().equals(
+						TreeNode.MODEL)) {
+					return "Model";
+				} else if (((TreeNode) element).getInconsistentWith().equals(
+						TreeNode.JUDGMENT)) {
+					return "Judgment History";
+				}
+				return ""; // Return empty string otherwise
+			}
+		});
+
 		/*
 		 * ISelectionListener will notify the view about every time the user
 		 * changes/selects a model tab
@@ -102,7 +148,7 @@ public class JudgmentInconsistenciesView extends ViewPart {
 			}
 		};
 
-		final JudgmentInconsistenciesView me = this;
+		final InconsistencyChecksView me = this;
 
 		IPerspectiveListener perspectiveListener = new IPerspectiveListener() {
 			@Override
@@ -165,7 +211,7 @@ public class JudgmentInconsistenciesView extends ViewPart {
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
 			public void menuAboutToShow(IMenuManager manager) {
-				JudgmentInconsistenciesView.this.fillContextMenu(manager);
+				InconsistencyChecksView.this.fillContextMenu(manager);
 			}
 		});
 		Menu menu = menuMgr.createContextMenu(viewer.getControl());
@@ -239,134 +285,9 @@ public class JudgmentInconsistenciesView extends ViewPart {
 			@SuppressWarnings("unchecked")
 			public void run() {
 
-				ModelImpl mi;
-				CommandStack cs;
-
-				ISelection selection = viewer.getSelection();
-				// The item that got selected by the user
-				Object obj = ((IStructuredSelection) selection)
-						.getFirstElement();
-
-				// Double check location of this
-				mi = ModelInstance.getModelImpl();
-				cs = ModelInstance.getCommandStack();
-
-				if (obj instanceof TreeObject) {
-					TreeObject to = (TreeObject) obj;
-					Object treeObj = to.getObject();
-
-					// The user clicked on a judgment
-					if (treeObj instanceof HashMap) {
-
-						Shell[] ar = PlatformUI.getWorkbench().getDisplay()
-								.getShells();
-
-						// Retrieve the model command stack
-						cs = ModelInstance.getCommandStack();
-						
-						//The intention being handled 
-						Object intenObj = to.getParent().getObject(); 
-						Intention inten = (Intention) intenObj; // Cast						
-						
-						//Extract the alternative from HashMap
-						HashMap<HumanJudgment, Alternative> map = (HashMap<HumanJudgment, Alternative>) treeObj;
-						Object[] judgmentArray = map.keySet().toArray();
-						HumanJudgment judgment = (HumanJudgment) judgmentArray[0]; //The Human Judgment being handled
-						
-						Alternative alt = map.get(judgment); //Get associated alternative 
-													
-						// Create a remove command 
-						Command removeCommand = new RemoveHumanJudgmentCommand(inten, judgment);
-						
-						// Open the appropriate dialog
-						if (alt.getDirection().equals("forward")) {
-							ForwardHJWindowCommand windowCommand = new ForwardHJWindowCommand(
-									ar[0], cs, inten);
-							cs.execute(windowCommand);
-							if (windowCommand.cancelled()) {
-								return;
-							}
-
-							EvaluationLabel result = windowCommand
-									.getEvalResult();
-							
-							cs.execute(removeCommand); //Remove the HJ from model & view 
-							
-							//Create a new HJ to replace removed HJ 
-							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
-							cs.execute(addHJ);
-
-							//Flag the affected elements
-							alt.setAffectedStatus(true);
-							inten.setAffectedStatus(true);
-							EList<HumanJudgment> judgments = inten.getHumanJudgments();
-							judgments.get(judgments.size() - 1).setAffectedStatus(true);
-							
-							propagateToAltView();
-							
-
-						} else if (alt.getDirection().equals("backward")) {
-							BackwardHJWindowCommand windowCommand = new BackwardHJWindowCommand(
-									ar[0], cs, inten);
-							cs.execute(windowCommand);
-							if (windowCommand.cancelled()) {
-								return;
-							}
-							
-							EvaluationLabel result = windowCommand.getEvalResult();
-							
-							cs.execute(removeCommand); //Remove the HJ from model & view 
-							
-							//Create a new HJ to replace removed HJ 
-							Command addHJ = new AddHumanJudgmentCommand(inten, result, cs);
-							cs.execute(addHJ);
-					
-							//Flag the affected elements 
-							alt.setAffectedStatus(true);
-							inten.setAffectedStatus(true);
-							EList<HumanJudgment> judgments = inten.getHumanJudgments();
-							judgments.get(judgments.size() - 1).setAffectedStatus(true);
-							
-							propagateToAltView();
-
-						}
-						
-						//Update and refresh the view 
-						clearView(); 
-						loadIntentions(); 
-						
-					}
-
-				}
-
+				// Reload the intentions here???
 			}
 		};
-
-	}
-	
-	/**
-	 * Propagates any changes made in <code>HumanJudgmentsView</code> to the model to the <code>AlternativesView</code>
-	 */
-	private void propagateToAltView() {
-		
-		// Retrieve the current AlternativesView
-		AlternativesView av = null;
-		try {
-			// Get the Alternates View
-			av = (AlternativesView) PlatformUI
-					.getWorkbench()
-					.getActiveWorkbenchWindow()
-					.getActivePage().findView(
-							AlternativesView.ID);
-		}catch (Exception e) {
-			// Shouldn't happen...
-			System.out
-					.println("Failed to propagate to AlternativesView");
-		}
-
-		// Update and refresh the view
-		av.clearView();
-		av.loadAlternatives();
 
 	}
 
@@ -438,50 +359,101 @@ public class JudgmentInconsistenciesView extends ViewPart {
 		ModelImpl mi = ModelInstance.getModelImpl();
 
 		if (mi != null) {
-			// Get a list of all the Intentions and Alternatives currently in
-			// the model
-			EList<Intention> ints = mi.getAllIntentions();
+			// Get a list of all the Intentions
+			EList<Intention> intens = mi.getAllIntentions();
 			EList<Alternative> alts = mi.getAlternatives();
 
-			// Add each intention to the view 
-			for (Intention i : ints) {
-				if (!i.getHumanJudgments().isEmpty()) {
-					addIntention(i, alts);
-				}
+			for (Intention i : intens) {
+				// Check for inconsistencies
+				checkInconsistency(i, alts);
 			}
 		}
 
 		refreshView();
 	}
-	
-	
 
 	/**
-	 * Add the Intention to the View, and all its human judgments.
+	 * 
+	 * @param a
+	 *            The <code>Intention</code> being checked for inconsistency
+	 *            with model
 	 */
-	public void addIntention(Intention i, EList<Alternative> alts) {
+	public void checkInconsistency(Intention i, EList<Alternative> alts) {
 
-		// Get the content provider
-		ViewContentProvider contentProvider = (ViewContentProvider) viewer
-				.getContentProvider();
+		TreeNode node = null;
 
-		// Add a node in the viewer tree structure
-		TreeNode node = contentProvider.addNode(i);
+		// The label of intention has been decided via HJ -
+		// Therefore, check for inconsistency
+		if (!i.getHumanJudgments().isEmpty()) {
 
-		node.setAlternateStatus(false);
+			// Get the label bag
+			LabelBag bag = i.getLabelBag();
+			// Get the result
+			EvaluationLabel result = i.getQualitativeReasoningCombinedLabel();
 
-		/* Differentiates between different kinds of intentions for icon label */
-		if (i instanceof GoalImpl) {
-			node.setHardgoalStatus(true);
-		} else if (i instanceof SoftgoalImpl) {
-			node.setSoftgoalStatus(true);
-		} else if (i instanceof TaskImpl) {
-			node.setTaskStatus(true);
-		} else if (i instanceof ResourceImpl) {
-			node.setResourceStatus(true);
+			/** DETERMINE INCONSISTENCY **/
+			boolean modelInconsistent = isModelInconsistent(bag, result);
+			boolean historyInconsistent = false;
+
+			if (modelInconsistent || historyInconsistent) {
+				// Get the content provider
+				ViewContentProvider contentProvider = (ViewContentProvider) viewer
+						.getContentProvider();
+
+				if (modelInconsistent) {
+					node = contentProvider.addNode(i,
+							TreeNode.MODEL);
+				} else if (historyInconsistent) {
+					node = contentProvider.addNode(i,
+							TreeNode.JUDGMENT);
+				}
+				
+				contentProvider.addJudgment(node, i, alts);
+
+			}
+
 		}
 
-		contentProvider.addJudgment(node, i, alts);
-		refreshView();
 	}
+
+	/**
+	 * 
+	 * @param bag
+	 *            The combination of labels or <code>LabelBag</code>
+	 * @param l
+	 *            The result
+	 * @return True if the result is inconsistent with model, False otherwise
+	 */
+	public boolean isModelInconsistent(LabelBag bag, EvaluationLabel l) {
+
+		if (!bag.isHasUnknown() && l.equals(EvaluationLabel.UNKNOWN)) {
+			System.out
+					.println("Conflict: " + bag.toString() + " | " + l.name());
+			return true;
+		} else if (bag.isAllPositive()
+				&& (l.equals(EvaluationLabel.PARTIALLY_DENIED) || l
+						.equals(EvaluationLabel.DENIED))) {
+			System.out
+					.println("Conflict: " + bag.toString() + " | " + l.name());
+			return true;
+		} else if (bag.isAllNegative()
+				&& (l.equals(EvaluationLabel.PARTIALLY_SATISFIED) || l
+						.equals(EvaluationLabel.SATISFIED))) {
+			System.out
+					.println("Conflict: " + bag.toString() + " | " + l.name());
+			return true;
+		} else if ((bag.isAllNegative() || bag.isAllPositive())
+				&& l.equals(EvaluationLabel.CONFLICT)) {
+			System.out
+					.println("Conflict: " + bag.toString() + " | " + l.name());
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isJudgHistInconsistent() {
+		return false;
+	}
+
 }

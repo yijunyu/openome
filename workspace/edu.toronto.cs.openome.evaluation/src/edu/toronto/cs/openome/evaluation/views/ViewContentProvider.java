@@ -17,6 +17,10 @@ import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.HumanJudgment;
 import edu.toronto.cs.openome_model.Intention;
+import edu.toronto.cs.openome_model.impl.GoalImpl;
+import edu.toronto.cs.openome_model.impl.ResourceImpl;
+import edu.toronto.cs.openome_model.impl.SoftgoalImpl;
+import edu.toronto.cs.openome_model.impl.TaskImpl;
 
 /*
  * The content provider class is responsible for
@@ -93,8 +97,8 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 		return node;
 	}
 	
-	public TreeNode addNode(Intention i) {
-		TreeNode node = createTreeNode(i);
+	public TreeNode addNode(Intention i, String type) {
+		TreeNode node = createTreeNode(i, type);
 		addTreeNode(node);
 		
 		return node;
@@ -119,26 +123,36 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			name += " [Backward Evaluation]";
 		}
 		
-		TreeNode node = new TreeNode(name, alt, null);
+		TreeNode node = new TreeNode(name, alt, null, null);
 		//System.out.println("creating alternative called " + alt.getName());
 		return node;
 	}
 	
-	private TreeNode createTreeNode(Intention i) {
+	private TreeNode createTreeNode(Intention i, String type) {
 		
 		String name = ""; 
+		String actorName;
+		Container con; 
 		
-		name += i.getName();
-		TreeNode node = new TreeNode(name, i, null);
+		con = i.getContainer();
+		if(con != null)	{
+			actorName = " {" + con.getName() + "}";
+		} else {
+			actorName = "";
+		}
+		
+		name += i.getName() + actorName;
+		TreeNode node = new TreeNode(name, i, null, type);
 		
 		return node;
 	}
+
 	
 	/**
 	 * Code left in to demonstrate a dummy tree structure
 	 */
 	private void initialize() {
-		invisibleRoot = new TreeNode("", null, null);
+		invisibleRoot = new TreeNode("", null, null, null);
 	}
 	
 	/**
@@ -166,7 +180,7 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 				actorName = "";
 			}
 			
-			to = new TreeNode(i.getName() + " {" + actorName + "}" , i, map.get(i));
+			to = new TreeNode(i.getName() + " {" + actorName + "}" , i, map.get(i), null);
 			node.addChild(to);
 			
 			//Add the human judgments for this intention to the view
@@ -175,10 +189,11 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 			
 			for (HumanJudgment judgement : humanJudgements) {
 				to.addChild(new TreeNode("Judgment " + j++ + ": " + judgement.getResultLabel().toString(), 
-						judgement, judgement.getResultLabel()));
+						judgement, judgement.getResultLabel(), null));
 			}
 		}
 	}
+	
 	
 	/**
 	 * 
@@ -192,6 +207,17 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 		// If both of these are true after the for loop, there is a conflict
 		boolean denied = false;
 		boolean satisfied = false;
+		
+		/* Differentiates between different kinds of intentions for icon label */
+		if (i instanceof GoalImpl) {
+			node.setHardgoalStatus(true);
+		} else if (i instanceof SoftgoalImpl) {
+			node.setSoftgoalStatus(true);
+		} else if (i instanceof TaskImpl) {
+			node.setTaskStatus(true);
+		} else if (i instanceof ResourceImpl) {
+			node.setResourceStatus(true);
+		}
 				
 		// Retrieve the intention's Human Judgments and the associated labels from each alternative
 		for(Alternative a : alts) {
@@ -215,7 +241,7 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 				HashMap<HumanJudgment, Alternative> map = new HashMap<HumanJudgment, Alternative>(1); 
 				map.put(h, a);
 				
-				TreeNode subnode = new TreeNode(name, map, label);
+				TreeNode subnode = new TreeNode(name, map, label, null);
 				node.addChild(subnode);
 				
 				//Check 

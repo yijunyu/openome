@@ -24,6 +24,7 @@ import edu.toronto.cs.openome.evaluation.qualitativeinteractivereasoning.Interac
 import edu.toronto.cs.openome.evaluation.reasoning.Reasoning;
 import edu.toronto.cs.openome.evaluation.views.AlternativesView;
 import edu.toronto.cs.openome.evaluation.views.HumanJudgmentsView;
+import edu.toronto.cs.openome.evaluation.views.InconsistencyChecksView;
 import edu.toronto.cs.openome_model.Alternative;
 import edu.toronto.cs.openome_model.EvaluationLabel;
 import edu.toronto.cs.openome_model.Intention;
@@ -109,7 +110,6 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 	
 		// Get a list of all intentions currently in the model
 		EList<Intention> intentionsList = mi.getAllIntentions();
-	
 		
 		/* Add the intentions to the newly created Alternative */
 		Command addIntentionsToAlternative = new AddIntentionsToAlternativeCommand(alt, intentionsList, mi);
@@ -152,8 +152,17 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 			System.err.println("Failed to open HumanJudgmentsView");
 		}
 		
-		/* Populate the Human JudgmentsView with intentions */
-		//hj.loadIntentions(); 
+		
+		/* Create the Inconsistency Checks view */ 
+		InconsistencyChecksView icv = null; 
+		try {
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(InconsistencyChecksView.ID);
+			// Get the HJ View
+			icv = (InconsistencyChecksView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(InconsistencyChecksView.ID);
+		} catch (PartInitException e) {
+			// Shouldn't happen...
+			System.err.println("Failed to open InconsistencyChecksView");
+		}
 		
 		return null;
 	}

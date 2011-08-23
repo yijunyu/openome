@@ -443,10 +443,11 @@ public class HumanJudgmentsView extends ViewPart {
 			EList<Intention> ints = mi.getAllIntentions();
 			EList<Alternative> alts = mi.getAlternatives();
 
-			// Add each intention to the view 
+			// Add each intention decided by human judgment to the view 
 			for (Intention i : ints) {
 				if (!i.getHumanJudgments().isEmpty()) {
 					addIntention(i, alts);
+					
 				}
 			}
 		}
@@ -466,20 +467,7 @@ public class HumanJudgmentsView extends ViewPart {
 				.getContentProvider();
 
 		// Add a node in the viewer tree structure
-		TreeNode node = contentProvider.addNode(i);
-
-		node.setAlternateStatus(false);
-
-		/* Differentiates between different kinds of intentions for icon label */
-		if (i instanceof GoalImpl) {
-			node.setHardgoalStatus(true);
-		} else if (i instanceof SoftgoalImpl) {
-			node.setSoftgoalStatus(true);
-		} else if (i instanceof TaskImpl) {
-			node.setTaskStatus(true);
-		} else if (i instanceof ResourceImpl) {
-			node.setResourceStatus(true);
-		}
+		TreeNode node = contentProvider.addNode(i, null);
 
 		contentProvider.addJudgment(node, i, alts);
 		refreshView();
