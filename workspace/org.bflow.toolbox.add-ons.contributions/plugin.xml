@@ -9,6 +9,9 @@
       <Exportscript
             File="exportscripts/SimpleAttributeExtract.exd.xml">
       </Exportscript>
+      <Exportscript
+            File="exportscripts/OpenOME2iStarML.exd.xml">
+      </Exportscript>
    </extension>
    <extension
          point="org.bflow.toolbox.addons.rule">
