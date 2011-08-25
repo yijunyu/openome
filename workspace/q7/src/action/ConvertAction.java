@@ -153,6 +153,11 @@ public class ConvertAction extends ExtensionReader implements IObjectActionDeleg
 		model.setActivePart(null, targetPart);
 		model.setDomainModelURI(file);
 		model.run(null);
-		
+		try {
+			file.delete(true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
