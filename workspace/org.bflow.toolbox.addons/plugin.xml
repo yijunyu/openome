@@ -32,6 +32,20 @@
       </page>
    </extension>
    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               id="org.eclipse.ui.views.ProblemView"
+               minimized="false"
+               ratio="80"
+               relationship="stack"
+               relative="org.eclipse.ui.views.TaskList"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
