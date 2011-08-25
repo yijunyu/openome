@@ -174,13 +174,13 @@ public class GoalModel_Q7 {
 			for (Contribution link : list) {
 				// System.out.println(link);
 				if (link instanceof MakeContributionImpl) {
-					write("++" + printName(link.getTarget()));
+					write("++" + printName(link.getTarget(), false));
 				} else if (link instanceof HelpContributionImpl) {
-					write("+" + printName(link.getTarget()));
+					write("+" + printName(link.getTarget(), false));
 				} else if (link instanceof HurtContributionImpl) {
-					write("-" + printName(link.getTarget()));
+					write("-" + printName(link.getTarget(), false));
 				} else if (link instanceof BreakContributionImpl) {
-					write("--" + printName(link.getTarget()));
+					write("--" + printName(link.getTarget(), false));
 				}
 				size++;
 				if (size < list.size())
@@ -210,7 +210,7 @@ public class GoalModel_Q7 {
 			}
 			for (Dependency link : intention.getDependencyFrom()) {
 				if (link instanceof DependencyImpl) {
-					write("~" + printName((Intention) link.getDependencyFrom()));
+					write("~" + printName((Intention) link.getDependencyFrom(), true));
 					// System.out.println(link);
 				}
 				size++;
@@ -233,6 +233,7 @@ public class GoalModel_Q7 {
 	private void startProcess(Intention intention, String recurse,
 			boolean fromDecomposition, boolean root) {
 
+		
 		// Seperate decomposition and means-end link of intention from the array
 		ArrayList<OrDecompositionImpl> meansEnd = new ArrayList<OrDecompositionImpl>();
 		ArrayList<AndDecompositionImpl> decompose = new ArrayList<AndDecompositionImpl>();
@@ -247,7 +248,7 @@ public class GoalModel_Q7 {
 		// Go through all the intentions that are connected through means-end
 		// link
 		if (meansEnd.size() > 0) {
-			write(recurse + printName(intention));
+			write(recurse + printName(intention, false));
 			write(" { |\n");
 			bracketOpen = true;
 			for (OrDecompositionImpl link : meansEnd) {
@@ -264,7 +265,7 @@ public class GoalModel_Q7 {
 		// Go through all the intentions that are connected through
 		// decomposition link
 		if (decompose.size() > 0) {
-			write(recurse + printName(intention));
+			write(recurse + printName(intention, false));
 			write(" { &\n");
 			bracketOpen = true;
 			for (AndDecompositionImpl link : decompose) {
@@ -281,15 +282,15 @@ public class GoalModel_Q7 {
 		// If it has no means-end and decomposition links 
 		// then just print name and its contributions and dependencies
 		if (meansEnd.size() == 0 && decompose.size() == 0) {
-			if (!root) {
-				write(recurse + printName(intention));
+			if (!root && (fromDecomposition || !alreadyVisited.contains(intention))) {
+				write(recurse + printName(intention, false));
 				printLabel(intention);
 				sizeContribution = printContributionTo(intention);
 				sizeDependum = printDependencyFrom(intention);
 				write("\n");
-			} else if (!(intention instanceof Softgoal) || 
-					intention.getQualitativeReasoningCombinedLabel().compareTo(EvaluationLabel.NONE) != 0){
-				write(recurse + printName(intention));
+			} else if (root && (!(intention instanceof Softgoal) || 
+					intention.getQualitativeReasoningCombinedLabel().compareTo(EvaluationLabel.NONE) != 0)){
+				write(recurse + printName(intention, false));
 				printLabel(intention);
 				sizeContribution = printContributionTo(intention);
 				sizeDependum = printDependencyFrom(intention);
@@ -300,12 +301,21 @@ public class GoalModel_Q7 {
 		// If it is a softgoal then just recurse to its parent goal/task unless we are inside the means-end/decomposition brackets.
 		if (intention.getContributesFrom().size() > 0) {
 			if (fromDecomposition && !(meansEnd.size() == 0 && decompose.size() == 0)) {
-				write(recurse + printName(intention));
+				write(recurse + printName(intention, false));
 				write("\n");
-			} else if (!fromDecomposition && !alreadyVisited.contains(intention)) {
+			} else if (!fromDecomposition && (!alreadyVisited.contains(intention) ||
+					intention.getQualitativeReasoningCombinedLabel().compareTo(EvaluationLabel.NONE) != 0)) {
 				for (Contribution connectInt : intention.getContributesFrom()) {
 					startProcess(connectInt.getSource(), recurse, false, false);
 				}
+			}
+		}
+		
+		if (intention.getDependencyFrom().size() > 0) {
+			
+			for (Dependency link : intention.getDependencyFrom()) {
+				if (!alreadyVisited.contains((Intention) link.getDependencyFrom()))
+					startProcess((Intention) link.getDependencyFrom(), "", false, false);
 			}
 		}
 	}
@@ -325,7 +335,7 @@ public class GoalModel_Q7 {
 		} else if (label.compareTo(label.PARTIALLY_DENIED) == 0) {
 			write(" @PD@ ");
 		} else if (label.compareTo(label.CONFLICT) == 0) {
-			write(" @CN@ ");
+			write(" @CF@ ");
 		} else if (label.compareTo(label.UNKNOWN) == 0) {
 			write(" @UN@ ");
 		}
@@ -334,10 +344,12 @@ public class GoalModel_Q7 {
 	 * Write the name of the intention in Q7 syntax in the file.
 	 * 
 	 * @param intention
+	 * @param isDependency TODO
 	 */
-	private String printName(Intention intention) {
+	private String printName(Intention intention, boolean isDependency) {
 		// Checking for name
-		alreadyVisited.add(intention);
+		if (!isDependency)
+			alreadyVisited.add(intention);
 		String start = "";
 		if (intention.getContainer() != null
 				&& !intention.getContainer().getName().startsWith("Aspect"))

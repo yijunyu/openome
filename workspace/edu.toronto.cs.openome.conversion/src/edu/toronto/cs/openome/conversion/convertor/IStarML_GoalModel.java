@@ -499,8 +499,8 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		answer = false;
 
 		// System.out.println(((IFile)ts.getFirstElement()).getLocation());
-		IFile file = (IFile) ts.getFirstElement();
-		String fileLoc = ((IFile) ts.getFirstElement()).getLocation()
+		IFile file = (IFile) ts.toArray()[0];
+		String fileLoc = file.getLocation()
 				.removeFileExtension().toOSString();
 		// System.out.println(file);
 		sourceFile = fileLoc + ".istarml";
@@ -511,8 +511,10 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		
 		if (!syntax || (syntax && answer)) {
 			output_to_xmi(file);
-			IFile f2 = file.getProject().getFile(
-					file.getName().replaceFirst("istarml", "oom"));
+			String name = file.getProjectRelativePath().toString();
+			String stem1 = name.substring(0, name.lastIndexOf("."));
+			String new_name = stem1 + ".oom";
+			IFile f2 = file.getProject().getFile(new_name);
 			if (f2.exists()) {
 				toModel(f2);
 			}
@@ -566,7 +568,12 @@ public class IStarML_GoalModel implements IObjectActionDelegate {
 		model.setActivePart(null, targetPart);
 		model.setDomainModelURI(file);
 		model.run(null);
-
+		try {
+			file.delete(true, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**

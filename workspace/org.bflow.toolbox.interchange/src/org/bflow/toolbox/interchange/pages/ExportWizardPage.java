@@ -138,6 +138,7 @@ public class ExportWizardPage extends WizardPage
 				
 				dialog.setFilterPath(null);
 				dialog.setMessage(MessageProvider.getMessage("ExportWizardPage#msg8"));
+				dialog.setText("Folder Selection");
 				String path = dialog.open();
 				if (path != null) {
 					textFieldTargetFile.setText(path);

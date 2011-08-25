@@ -6,6 +6,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withRe
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -29,10 +30,13 @@ import org.eclipse.swtbot.eclipse.gef.finder.SWTGefBot;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
+import org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable;
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
+import org.eclipse.swtbot.swt.finder.results.VoidResult;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.hamcrest.Matcher;
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
 import org.eclipse.ui.PlatformUI;
@@ -47,11 +51,11 @@ public class TestUtil {
     
     /******Change this to your path of folder TestFile in workspace*******/
     //public static String pathName = "/home/showzeb/workspace/edu.toronto.cs.openome.testing/TestFile/";
-    private static String pathName = null;
+    public static String pathName = null;
     
     public static String workspacePath = null;
-    private static SWTBotTree packageTree = null;
-    private static IProject project = null;
+    public static SWTBotTree packageTree = null;
+    public static IProject project = null;
     
     /* The labels of palette tools */
     public static final String[] intentions = { "Hardgoal", "Softgoal", "Task", "Resource" };
@@ -113,7 +117,6 @@ public class TestUtil {
 				project.create(null);
 			project.open(null);
 			InputStream stream = new FileInputStream (pathName + diagramName);
-			System.out.println(project.getRawLocation());
 			IFile file = project.getFile(diagramName+"Hidden");
 			try {
 			if (!file.exists())
@@ -233,4 +236,96 @@ public class TestUtil {
     	}
     	return newArray;
     }
+    
+	/**
+	 * Open the diagram of name String name in the editor that is in the folder String foldername 
+	 * inside TestFile folder.
+	 * @param name Name of the diagram
+	 * @param foldername Name of the folder holding the file inside TestFile folder
+	 */
+	public static void openFile(String foldername, String name) {
+		TestUtil.bot.closeAllEditors();
+		try {
+			InputStream stream = new FileInputStream (TestUtil.pathName + foldername  + "/" + name);
+			IFile file = TestUtil.project.getFile(name);
+			if (!file.exists())
+				file.create(stream, false, null);
+			stream.close();
+			TestUtil.packageTree.setFocus();
+	    	TestUtil.packageTree.getTreeItem(TestUtil.projectName).expand().getNode(name).doubleClick();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {}
+	}
+	
+	/**
+	 * Export the OpenOME diagram of name String filename to format String format
+	 * @param format Extension of the file to export too.
+	 * @param filename Name of the file to export.
+	 */
+	public static void ExportDiagramTo(String format, String filename) {
+		
+		SWTBotTreeItem item = TestUtil.packageTree.getTreeItem(TestUtil.projectName)
+			.getNode(filename).select();
+		item.contextMenu("Export...").click();
+		TestUtil.bot.shell("Export").setFocus();
+		TestUtil.bot.tree().select("Modeling Toolbox")
+			.expandNode("Modeling Toolbox").select("Multitarget Export");
+		TestUtil.bot.button("Next >").click();
+		TestUtil.bot.shell("Add-ons Export Wizard").setFocus();
+		if (format.equals("istarml")) {
+			TestUtil.bot.comboBox(0).setSelection("iStarML (*.istarml)");
+		} else if (format.equals("q7")) {
+			TestUtil.bot.comboBox(0).setSelection("Q7 (*.q7)");
+		}
+		
+		UIThreadRunnable.asyncExec(new VoidResult() {
+			public void run() {
+				TestUtil.bot.text(2).widget.setEnabled(true);
+			}
+		});
+		
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		TestUtil.bot.text(2).setText(TestUtil.project.getLocation().toString());
+		if (format.equals("istarml")) {
+			TestUtil.bot.comboBox(0).setSelection("iStarML (*.istarml)");
+		} else if (format.equals("q7")) {
+			TestUtil.bot.comboBox(0).setSelection("Q7 (*.q7)");
+		}
+		TestUtil.bot.button("Finish").click();
+		try {
+			TestUtil.project.refreshLocal(2, null);
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Convert the file of name String filename of format String sourceFormat to OpenOME diagram.
+	 * @param sourceFormat Format of the filename
+	 * @param filename Name of the file to convert from.
+	 */
+	public static void ConvertToDiagram(String sourceFormat, String filename) {
+		
+		if (sourceFormat.equals("istarml")) {
+	    	SWTBotTreeItem item = TestUtil.packageTree.getTreeItem(TestUtil.projectName)
+			.getNode(filename.replaceFirst("ood", "istarml")).select();
+	    	//item.contextMenu("OpenOME").click();
+	    	SWTBotUtils.clickContextMenu(item, "OpenOME");
+		} else if (sourceFormat.equals("q7")) {
+			SWTBotTreeItem item = TestUtil.packageTree.getTreeItem(TestUtil.projectName)
+			.getNode(filename.replaceFirst("ood", "q7")).select();
+	    	//item.contextMenu("OpenOME").click();
+	    	SWTBotUtils.clickContextMenu(item, "OpenOME Model");
+		}
+		TestUtil.bot.shell("Initialize new openome_model diagram file").bot().button("Finish").click();
+		
+	}
 }
