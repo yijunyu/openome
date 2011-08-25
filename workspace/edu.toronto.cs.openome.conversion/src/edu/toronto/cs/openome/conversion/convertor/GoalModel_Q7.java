@@ -77,6 +77,7 @@ public class GoalModel_Q7 {
 	private Document doc;
 	private int sizeContribution;
 	private int sizeDependum;
+	private String warning = "";
 
 	public GoalModel_Q7(String sourceFile, String targetFile) {
 		this.sourceFile = sourceFile;
@@ -418,8 +419,7 @@ public class GoalModel_Q7 {
 
 		MessageBox messageBox = new MessageBox(shell, SWT.YES | SWT.NO);
 		messageBox
-				.setMessage("This model contains element that are not supported by Q7 syntax "
-						+ "and will be removed when converted to .q7 file.\nDo you want to continue?");
+				.setMessage(warning + "Do you want to continue?");
 
 		int rc = messageBox.open();
 
@@ -444,8 +444,10 @@ public class GoalModel_Q7 {
 
 		boolean syntax = false;
 		for (Intention intention : model.getAllIntentions()) {
-			if (intention instanceof Resource) {
+			if (intention instanceof edu.toronto.cs.openome_model.Resource) {
 				syntax = true;
+				warning += "- " + intention.getName() + " Resource is not recognized by Q7. It will be converted to a Goal." +
+				" Accepted Intentions are \"Goal\", \"Softgoal\", and \"Task\".\n";
 			}
 			for (Contribution link : intention.getContributesTo()) {
 				if (	!(link instanceof MakeContributionImpl ||
@@ -453,12 +455,15 @@ public class GoalModel_Q7 {
 						link instanceof HurtContributionImpl ||
 						link instanceof BreakContributionImpl)) {
 					syntax = true;
+					warning += "- " + link.getContributionType() + " is not recognized by Q7 as a contribution link. It will be removed. " +
+					"Accepted contribution links are \"Make\", \"Help\", \"Hurt\", and \"Break\".\n";
 				}
 			}
 		}
 
 		if (model.getAssociations().size() > 0) {
 			syntax = true;
+			warning += "- Association links are not recognized by Q7 and they will be removed.\n";
 		}
 		return syntax;
 	}
