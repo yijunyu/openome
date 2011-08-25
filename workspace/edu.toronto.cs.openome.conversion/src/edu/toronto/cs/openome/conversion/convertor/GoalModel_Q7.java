@@ -354,12 +354,24 @@ public class GoalModel_Q7 {
 		String start = "";
 		if (intention.getContainer() != null
 				&& !intention.getContainer().getName().startsWith("Aspect"))
-			start = "<\"" + actorType(intention) + " "
-					+ intention.getContainer().getName() + "\">::";
+			start = "<\"" + actorType(intention) + " ";
+			if (intention.getContainer().getName() != null) {
+				start += intention.getContainer().getName() + "\">::";
+			} else {
+				start += "untitled\">::";
+			}
 		if (intention instanceof Task) {
-			return start + "\"Do " + intention.getName() + "\"";
+			if (intention.getName() != null) {
+				return start + "\"Do " + intention.getName() + "\"";
+			} else {
+				return start + "\"Do untitled\"";
+			}
 		} else {
-			return start + "\"" + intention.getName() + "\"";
+			if (intention.getName() != null) {
+				return start + "\"" + intention.getName() + "\"";
+			} else {
+				return start + "\"untitled\"";
+			}
 		}
 	}
 
