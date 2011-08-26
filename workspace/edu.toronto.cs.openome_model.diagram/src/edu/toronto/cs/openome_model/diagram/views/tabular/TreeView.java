@@ -4,6 +4,7 @@ package edu.toronto.cs.openome_model.diagram.views.tabular;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.*;
+import org.eclipse.ui.views.IViewDescriptor;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -105,14 +106,23 @@ public class TreeView extends ViewPart {
 			}
 			@Override
 			public Font getFont(Object element) {
-				Font f = super.getFont(element);
-				if (f == null) {
-					return (Font) null;
-				}
-				FontData fd = f.getFontData()[0];
-				fd.setStyle(SWT.BOLD);
+				Display display = getSite().getShell().getDisplay();
+				FontData fd[] = display.getSystemFont().getFontData();
+				fd[0].setStyle(SWT.BOLD);
 				return new Font(null, fd);
 				// TODO Auto-generated method stub
+			}
+			
+		});
+		
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				Node node = (Node) ((TreeSelection) event.getSelection()).getFirstElement();
+				if (node != null) {
+					node.select();
+				}
 			}
 		});
 		
@@ -129,7 +139,7 @@ public class TreeView extends ViewPart {
 		ISelectionListener selectionChangeListener = new ISelectionListener() {
 	        public void selectionChanged(IWorkbenchPart sourcepart, ISelection selection) {
 //	        	clearView();
-	        	refreshView();
+	        	//refreshView();
 	        }
 	    };
 	    
@@ -152,7 +162,7 @@ public class TreeView extends ViewPart {
 					if(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 							.getActivePage().getActiveEditor() == null) {
 						// replace the contents with new empty ones
-						viewer.setContentProvider(new ViewContentProvider(me));
+						//viewer.setContentProvider(new ViewContentProvider(me));
 					}
 				}
 			}

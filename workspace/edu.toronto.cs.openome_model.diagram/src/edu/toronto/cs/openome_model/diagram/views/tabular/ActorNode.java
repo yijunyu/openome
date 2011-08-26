@@ -14,11 +14,10 @@ import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugi
 
 
 class ActorNode extends Node {
-	private Container actor;
 	
 	public ActorNode(Container actor) {
 		super(actor.getName());
-		this.actor = actor;
+		setModel(actor);
 		
 		for (Intention intention : actor.getIntentions()) {
 			IntentionNode child = new IntentionNode(intention);
@@ -26,12 +25,8 @@ class ActorNode extends Node {
 		}
 	}
 	
-	public Container getActor() {
-		return actor;
-	}
-	
 	public Image getImage() {
-		Container actor = getActor();
+		Container actor = (Container) getModel();
 		Image image = null;
 		
 		if (actor instanceof Actor) {

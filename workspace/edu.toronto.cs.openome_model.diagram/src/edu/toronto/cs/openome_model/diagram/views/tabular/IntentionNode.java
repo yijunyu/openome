@@ -5,8 +5,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.registry.EditorRegistry;
+import org.eclipse.ui.views.IViewDescriptor;
 
 import edu.toronto.cs.openome_model.AndContribution;
 import edu.toronto.cs.openome_model.AndDecomposition;
@@ -29,8 +36,13 @@ import edu.toronto.cs.openome_model.SomeMinusContribution;
 import edu.toronto.cs.openome_model.SomePlusContribution;
 import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.UnknownContribution;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditor;
 import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorPlugin;
+import edu.toronto.cs.openome_model.diagram.part.Openome_modelDiagramEditorUtil;
+import edu.toronto.cs.openome_model.diagram.providers.Openome_modelEditPartProvider;
 import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
+import edu.toronto.cs.openome_model.diagram.providers.Openome_modelViewProvider;
 
 
 /**
@@ -38,7 +50,6 @@ import edu.toronto.cs.openome_model.diagram.providers.Openome_modelElementTypes;
  *
  */
 class IntentionNode extends Node {
-	private Intention intention;
 	private int usages; //TODO: Somehow count this...
 	
 	public IntentionNode(Intention intention) {
@@ -51,8 +62,8 @@ class IntentionNode extends Node {
 	*/
 	private IntentionNode(Intention intention, String linkName, int height) {
 		super(intention.getName());
-		this.intention = intention;
-		this.setLink(linkName);
+		setModel(intention);
+		setLink(linkName);
 		
 		usages = intention.getContributesTo().size() + 
 				intention.getDecompositionsTo().size() +
@@ -144,13 +155,9 @@ class IntentionNode extends Node {
 		return list;
 	}
 	
-	public Intention getIntention() {
-		return intention;
-	}
-	
 	@Override
 	public Image getImage() {
-		Intention intention = getIntention();
+		Intention intention = (Intention) getModel();
 		Image image = null;
 		
 		if(intention instanceof Goal) {
@@ -168,4 +175,5 @@ class IntentionNode extends Node {
 	public String getUsages() {
 		return String.valueOf(Math.max(usages - 1, 0));
 	}
+	
 }
