@@ -37,11 +37,9 @@
             targetID="org.eclipse.ui.resourcePerspective">
          <view
                id="org.eclipse.ui.views.ProblemView"
-               minimized="false"
                ratio="80"
                relationship="stack"
-               relative="org.eclipse.ui.views.TaskList"
-               visible="true">
+               relative="org.eclipse.ui.views.TaskList">
          </view>
       </perspectiveExtension>
    </extension>
