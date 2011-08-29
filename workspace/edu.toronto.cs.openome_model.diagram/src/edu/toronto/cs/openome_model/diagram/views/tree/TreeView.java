@@ -74,7 +74,7 @@ public class TreeView extends ViewPart {
 	
 		viewer.setContentProvider(new ViewContentProvider(this));
 		viewer.setLabelProvider(new LabelProvider());
-		viewer.setSorter(new ViewerSorter());
+		viewer.setSorter(new TreeViewSorter());
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control

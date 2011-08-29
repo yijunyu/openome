@@ -91,16 +91,26 @@ class ViewContentProvider implements IStructuredContentProvider,
 	 */
 	private void buildTree(Model model) {
 		invisibleRoot = new Node("");
+		DependumNode dependums = new DependumNode();
+		invisibleRoot.addChild(dependums);
 		
+		// Create All Actors
 		for (Container actor : model.getContainers()) {
 			ActorNode parent = new ActorNode(actor);
 			invisibleRoot.addChild(parent);
 		}
 		
+		/*  Create All Intentions and Dependums from nodes at the root of the model */
 		for (Intention intention : model.getIntentions()) {
 			Node child = new IntentionNode(intention);
-			invisibleRoot.addChild(child);
+			
+			if (!intention.getDependencyTo().isEmpty()) {
+				dependums.addChild(child);
+			} else {
+				invisibleRoot.addChild(child);
+			}
 		}
+		
 	}
 	
 	
