@@ -3,6 +3,7 @@ package edu.toronto.cs.openome_model.diagram.part;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
@@ -16,28 +17,48 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.ui.action.DeleteAction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gef.requests.GroupRequest;
+import org.eclipse.gef.ui.actions.GEFActionConstants;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
+import org.eclipse.gmf.runtime.diagram.ui.actions.DeleteFromModelAction;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteAction;
+import org.eclipse.gmf.runtime.diagram.ui.internal.actions.PromptingDeleteFromModelAction;
+import org.eclipse.gmf.runtime.diagram.ui.internal.services.editpolicy.EditPolicyService;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramCommandStack;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
+import org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandler;
+import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -65,25 +86,25 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.RoleRoleCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalNameEditPart;
-import edu.toronto.cs.openome_model.diagram.edit.parts.SoftgoalQualitativeReasoningComEditPart;
-import org.bflow.toolbox.attributes.IAttributableDocumentEditor;
+import edu.toronto.cs.openome_model.diagram.edit.parts.UnknownContributionEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelBaseItemSemanticEditPolicy;
+
 /**
  * @generated
  */
 public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
-		IGotoMarker, IAttributableDocumentEditor {
+		IGotoMarker {
 
 	/**
 	 * @generated
@@ -471,178 +492,23 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated NOT
 	 */
-	@Override
+	@SuppressWarnings("restriction")
+    @Override
 	protected KeyHandler getKeyHandler() {
 		KeyHandler h = super.getKeyHandler();
-
-		getActionRegistry().registerAction(
-				new CustomPromptingDeleteAction(this));
+		
+		// Pair the delete and backspace keys to call the delete from model action, to make sure 
+		// that the respective model representation is being deleted.
+		PromptingDeleteFromModelAction action = new PromptingDeleteFromModelAction(this);
+		action.init();
+		this.getActionRegistry().registerAction(action);
 				
 		h.put(KeyStroke.getPressed(SWT.DEL, 127, 0), getActionRegistry()
-				.getAction(ActionFactory.DELETE.getId()));
+				.getAction(ActionIds.ACTION_DELETE_FROM_MODEL));
 
 		h.put(KeyStroke.getPressed(SWT.BS, 8, 0), getActionRegistry()
-				.getAction(ActionFactory.DELETE.getId()));
+				.getAction(ActionIds.ACTION_DELETE_FROM_MODEL));
 
 		return h;
-	}
-	@Override
-	public void firePropertyChanged() {
-		this.firePropertyChange(PROP_DIRTY);		
-	}
-
-	@Override
-	public String getFileExtension() {
-		String name = this.getEditorInput().getName();
-			
-		return name.split("\\.")[1];
-	}
-
-
-	/**
-	 * @generated NOT
-	 */
-	/*
-	 * This command attempts to fix the issue of deleting links with the
-	 * Delete and Backspace keys. The default behaviour is to only remove
-	 * them from the Diagram, but not from the Model. Deleting intentions
-	 * and containers works fine however.
-	 * 
-	 * This causes problems when it comes to deciding which nodes are roots
-	 * and which are leaves. If a link is not deleted from the model, then
-	 * its source and target elements maintain their references to it.
-	 */
-	@SuppressWarnings("restriction")
-	private class CustomPromptingDeleteAction extends PromptingDeleteAction {
-		public CustomPromptingDeleteAction(IWorkbenchPart part) {
-			super(part);
-		}
-
-		@Override
-		public Command createCommand(List objects) {
-			
-			// This list will hold all the elements we have to delete.
-			// Links are added to the head, and intentions to the tail.
-			List<Object> elements = new LinkedList<Object>();
-			
-			// The idea is to delete all links before the intentions.
-			// This way we avoid triggering links' automatic deletion.
-			// (links' automatic deletion does not remove them from the model)
-
-			for (Object o : objects) {				
-				
-				if (o instanceof ConnectionNodeEditPart) {
-					if (!elements.contains(o)) {
-						elements.add(0, o);
-					}
-				} else {
-					IGraphicalEditPart compartment = null;
-
-					if (o instanceof ActorEditPart) {
-						compartment = ((ActorEditPart) o)
-								.getChildBySemanticHint(Integer
-										.toString(ActorActorCompartmentEditPart.VISUAL_ID));
-					} else if (o instanceof AgentEditPart) {
-						compartment = ((AgentEditPart) o)
-								.getChildBySemanticHint(Integer
-										.toString(AgentAgentCompartmentEditPart.VISUAL_ID));
-					} else if (o instanceof RoleEditPart) {
-						compartment = ((RoleEditPart) o)
-								.getChildBySemanticHint(Integer
-										.toString(RoleRoleCompartmentEditPart.VISUAL_ID));
-					} else if (o instanceof PositionEditPart) {
-						compartment = ((PositionEditPart) o)
-								.getChildBySemanticHint(Integer
-										.toString(PositionPositionCompartmentEditPart.VISUAL_ID));
-					}
-					
-					// We must delete all links associated with this element,
-					// regardless if they were selected or not.
-
-					if (compartment != null) {
-						for (Object part : compartment.getChildren()) {
-							addLinks((IGraphicalEditPart) part, elements);
-						}
-					} else {
-						addLinks((GraphicalEditPart) o, elements);
-					}
-
-					elements.add(o);
-				}
-			}
-			
-			//This will contain the delete commands for all elements being deleted.
-			CompoundCommand command = new CompoundCommand("Delete Elements");
-			
-									
-			for (Object o : elements) { 
-								
-				
-				if (!(o instanceof ModelEditPart)) { 
-					IGraphicalEditPart part = (IGraphicalEditPart) o;
-	
-					View view = part.getNotationView();
-					EObject element = view.getElement();
-	
-					TransactionalEditingDomain domain = part.getEditingDomain();
-					//DiagramCommandStack dcs = part.getDiagramEditDomain()
-							//.getDiagramCommandStack();
-	
-					//CompoundCommand command = new CompoundCommand("Delete Element");
-					
-					// Delete the element
-	
-					DestroyElementCommand commandDelete = new DestroyElementCommand(
-							new DestroyElementRequest(domain, element, false));
-					
-					if (commandDelete.canExecute()) {
-						command.add(new ICommandProxy(commandDelete));
-					} else {
-						System.err.println("commandDelete problem!");
-					}
-	
-					// Delete the element's view
-	
-					DeleteCommand commandDeleteView = new DeleteCommand(domain,
-							view);
-	
-					if (commandDeleteView.canExecute()) {
-						command.add(new ICommandProxy(commandDeleteView));
-	
-					} else {
-						System.err.println("commandDeleteView problem!");
-					}
-	
-					//if (command.canExecute()) {
-						//dcs.execute(command);
-						//dcs.flush();
-						
-					//} else {
-						//System.err.println("DeleteKey problem!");
-					//}
-				}
-			}
-			
-			
-			return command; 
-		}
-		
-
-		/*
-		 * Add all the links associated with part to the elements list.
-		 */
-		private void addLinks(IGraphicalEditPart part, List<Object> elements) {
-			for (Object c : part.getSourceConnections()) {
-				if (!elements.contains(c)) {
-					elements.add(0, c);
-				}
-			}
-
-			for (Object c : part.getTargetConnections()) {
-				if (!elements.contains(c)) {
-					elements.add(0, c);
-				}
-			}
-		}
 	}
 }
