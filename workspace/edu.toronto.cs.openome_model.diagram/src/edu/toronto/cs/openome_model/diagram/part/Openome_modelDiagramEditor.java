@@ -69,6 +69,7 @@ import edu.toronto.cs.openome_model.diagram.edit.parts.ActorActorCompartmentEdit
 import edu.toronto.cs.openome_model.diagram.edit.parts.ActorEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentAgentCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.AgentEditPart;
+import edu.toronto.cs.openome_model.diagram.edit.parts.ModelEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.PositionPositionCompartmentEditPart;
 import edu.toronto.cs.openome_model.diagram.edit.parts.ResourceEditPart;
@@ -576,47 +577,50 @@ public class Openome_modelDiagramEditor extends DiagramDocumentEditor implements
 									
 			for (Object o : elements) { 
 								
-				IGraphicalEditPart part = (IGraphicalEditPart) o;
-
-				View view = part.getNotationView();
-				EObject element = view.getElement();
-
-				TransactionalEditingDomain domain = part.getEditingDomain();
-				//DiagramCommandStack dcs = part.getDiagramEditDomain()
-						//.getDiagramCommandStack();
-
-				//CompoundCommand command = new CompoundCommand("Delete Element");
 				
-				// Delete the element
-
-				DestroyElementCommand commandDelete = new DestroyElementCommand(
-						new DestroyElementRequest(domain, element, false));
-				
-				if (commandDelete.canExecute()) {
-					command.add(new ICommandProxy(commandDelete));
-				} else {
-					System.err.println("commandDelete problem!");
-				}
-
-				// Delete the element's view
-
-				DeleteCommand commandDeleteView = new DeleteCommand(domain,
-						view);
-
-				if (commandDeleteView.canExecute()) {
-					command.add(new ICommandProxy(commandDeleteView));
-
-				} else {
-					System.err.println("commandDeleteView problem!");
-				}
-
-				//if (command.canExecute()) {
-					//dcs.execute(command);
-					//dcs.flush();
+				if (!(o instanceof ModelEditPart)) { 
+					IGraphicalEditPart part = (IGraphicalEditPart) o;
+	
+					View view = part.getNotationView();
+					EObject element = view.getElement();
+	
+					TransactionalEditingDomain domain = part.getEditingDomain();
+					//DiagramCommandStack dcs = part.getDiagramEditDomain()
+							//.getDiagramCommandStack();
+	
+					//CompoundCommand command = new CompoundCommand("Delete Element");
 					
-				//} else {
-					//System.err.println("DeleteKey problem!");
-				//}
+					// Delete the element
+	
+					DestroyElementCommand commandDelete = new DestroyElementCommand(
+							new DestroyElementRequest(domain, element, false));
+					
+					if (commandDelete.canExecute()) {
+						command.add(new ICommandProxy(commandDelete));
+					} else {
+						System.err.println("commandDelete problem!");
+					}
+	
+					// Delete the element's view
+	
+					DeleteCommand commandDeleteView = new DeleteCommand(domain,
+							view);
+	
+					if (commandDeleteView.canExecute()) {
+						command.add(new ICommandProxy(commandDeleteView));
+	
+					} else {
+						System.err.println("commandDeleteView problem!");
+					}
+	
+					//if (command.canExecute()) {
+						//dcs.execute(command);
+						//dcs.flush();
+						
+					//} else {
+						//System.err.println("DeleteKey problem!");
+					//}
+				}
 			}
 			
 			
