@@ -94,7 +94,6 @@ public class TaskName4EditPart extends CompartmentEditPart implements
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new DoubleClickNameEditPolicy());
 		installEditPolicy(
 				EditPolicy.SELECTION_FEEDBACK_ROLE,
 				new edu.toronto.cs.openome_model.diagram.edit.policies.Openome_modelTextSelectionEditPolicy());
