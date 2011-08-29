@@ -13,11 +13,14 @@ import org.bflow.toolbox.addons.interfaces.IPrologRunComponent;
 import org.bflow.toolbox.addons.protocols.Standardprotocol;
 import org.bflow.toolbox.addons.store.PrologAdditionStore;
 import org.bflow.toolbox.addons.store.ToolStore;
+import org.bflow.toolbox.addons.utils.PrologFileHandler;
 import org.bflow.toolbox.addons.utils.PrologListener;
 import org.bflow.toolbox.addons.utils.ToolDescriptor;
 import org.bflow.toolbox.addons.validation.Rule;
 import org.bflow.toolbox.addons.validation.ValidationService;
 import org.bflow.toolbox.i18n.MessageProvider;
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.swt.SWT;
 
 import com.declarativa.interprolog.SWISubprocessEngine;
 import com.declarativa.interprolog.SubprocessEngine;
@@ -110,9 +113,11 @@ public class PrologRunComponent implements IPrologRunComponent {
 	 */
 	@Override
 	public void init() {
-		this.engine = new SWISubprocessEngine(ToolStore.getTool("SWI-Prolog")
-				.getPath(), false);
-
+		String osName = System.getProperty("os.name");
+		String fileName = osName.contains("Linux") ? "pl" : (osName.contains("Mac") ? "swipl" : "bin\\plcon.exe");
+		
+		this.engine = new SWISubprocessEngine( (new PrologFileHandler()).extract() + fileName, false);
+		
 		this.simpleStream = new StringBuffer(1024);
 
 		this.params = new Vector<String>();
