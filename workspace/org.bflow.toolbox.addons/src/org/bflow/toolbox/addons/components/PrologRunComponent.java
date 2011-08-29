@@ -312,10 +312,12 @@ public class PrologRunComponent implements IPrologRunComponent {
 
 	@Override
 	public boolean isValid() {
-		ToolDescriptor td = ToolStore.getTool("SWI-Prolog");
+		/*
+		 ToolDescriptor td = ToolStore.getTool("SWI-Prolog");
 
 		if (td != null && td.getPath() != null && !td.getPath().isEmpty())
 			return true;
+		*/
 
 		return true;
 	}
