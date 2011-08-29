@@ -5,6 +5,7 @@
    <extension-point id="org.bflow.toolbox.addons.prologaddition" name="Modelling Add-ons Prolog programm" schema="schema/org.bflow.toolbox.addons.prologaddition.exsd"/>
    <extension-point id="org.bflow.toolbox.addons.protocol" name="Modelling Add-ons Protocol" schema="schema/org.bflow.toolbox.addons.protocol.exsd"/>
    <extension-point id="org.bflow.toolbox.addons.rule" name="Add-ons Validation Rule" schema="schema/org.bflow.toolbox.addons.rule.exsd"/>
+   <extension-point id="org.bflow.toolbox.addons.prolog" name="Prolog Files" schema="schema/org.bflow.toolbox.addons.prolog.exsd"/>
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
@@ -116,6 +117,18 @@
       <Component
             Class="org.bflow.toolbox.addons.components.ToolRunComponent">
       </Component>
+   </extension>
+   <extension
+         point="org.bflow.toolbox.addons.prolog">
+      <prolog
+            file="pl">
+      </prolog>
+      <prolog
+            file="swipl">
+      </prolog>
+      <prolog
+            file="pl.zip">
+      </prolog>
    </extension>
 
 </plugin>
