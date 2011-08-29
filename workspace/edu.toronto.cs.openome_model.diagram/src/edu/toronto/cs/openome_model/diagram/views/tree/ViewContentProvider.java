@@ -92,7 +92,6 @@ class ViewContentProvider implements IStructuredContentProvider,
 	private void buildTree(Model model) {
 		invisibleRoot = new Node("");
 		DependumNode dependums = new DependumNode();
-		invisibleRoot.addChild(dependums);
 		
 		// Create All Actors
 		for (Container actor : model.getContainers()) {
@@ -109,6 +108,9 @@ class ViewContentProvider implements IStructuredContentProvider,
 			} else {
 				invisibleRoot.addChild(child);
 			}
+		}
+		if (dependums.hasChildren()) {
+			invisibleRoot.addChild(dependums);
 		}
 		
 	}
