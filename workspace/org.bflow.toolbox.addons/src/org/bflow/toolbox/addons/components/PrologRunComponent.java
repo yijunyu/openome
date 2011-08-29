@@ -317,7 +317,7 @@ public class PrologRunComponent implements IPrologRunComponent {
 		if (td != null && td.getPath() != null && !td.getPath().isEmpty())
 			return true;
 
-		return false;
+		return true;
 	}
 
 	@Override
