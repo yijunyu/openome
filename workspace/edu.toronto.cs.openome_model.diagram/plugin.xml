@@ -1129,8 +1129,7 @@
             id="edu.toronto.cs.openome_model.diagram.views.TreeView"
             ratio="0.7"
             relationship="right"
-            relative="org.eclipse.ui.editorss"
-            visible="true">
+            relative="org.eclipse.ui.editorss">
       </view>
    </perspectiveExtension>
 </extension>

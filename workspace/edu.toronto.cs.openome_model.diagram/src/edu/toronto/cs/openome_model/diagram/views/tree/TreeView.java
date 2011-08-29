@@ -85,7 +85,7 @@ public class TreeView extends ViewPart {
 		contributeToActionBars();
 		
 		TreeViewerColumn c = new TreeViewerColumn(viewer, SWT.NONE);
-		c.getColumn().setWidth(150);
+		c.getColumn().setWidth(108);
 		c.getColumn().setText("Name");
 		c.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {
