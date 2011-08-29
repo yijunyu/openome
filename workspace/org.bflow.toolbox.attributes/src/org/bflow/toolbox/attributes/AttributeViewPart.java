@@ -715,7 +715,7 @@ public class AttributeViewPart extends ViewPart implements ISelectionListener,
 
 			return;
 		}
-
+		
 		if (!attribute.isLoner()) {
 
 			Class<?> baseClass = null;
@@ -742,11 +742,14 @@ public class AttributeViewPart extends ViewPart implements ISelectionListener,
 						String eObjID = EMFCoreUtil.getProxyID(eObj);
 
 						if (attribute.getValue() == null) {
-							attrFile.remove(eObjID, name);
+							if (attrFile != null){
+								attrFile.remove(eObjID, name);
+							}
 							continue;
 						}
-
-						attrFile.add(eObjID, name, value);
+						if (attrFile != null){
+							attrFile.add(eObjID, name, value);
+						}
 					}
 				}
 			}
@@ -754,10 +757,12 @@ public class AttributeViewPart extends ViewPart implements ISelectionListener,
 		}
 
 		// speichern
-		attrFile.add(id, name, (value.isEmpty() ? " " : value));
-
-		((IAttributableDocumentEditor) diagramEditor).firePropertyChanged();
-
+		if (attrFile != null){
+			attrFile.add(id, name, (value.isEmpty() ? " " : value));
+		}
+		if (diagramEditor != null){
+			((IAttributableDocumentEditor) diagramEditor).firePropertyChanged();
+		}
 	}
 
 	@Override
