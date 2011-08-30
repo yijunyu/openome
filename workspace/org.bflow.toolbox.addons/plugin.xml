@@ -42,6 +42,11 @@
                relationship="stack"
                relative="org.eclipse.ui.views.TaskList">
          </view>
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               minimized="true"
+               relationship="stack">
+         </view>
       </perspectiveExtension>
    </extension>
    <extension
@@ -128,6 +133,9 @@
       </prolog>
       <prolog
             file="pl.zip">
+      </prolog>
+      <prolog
+            file="script.sh">
       </prolog>
    </extension>
 

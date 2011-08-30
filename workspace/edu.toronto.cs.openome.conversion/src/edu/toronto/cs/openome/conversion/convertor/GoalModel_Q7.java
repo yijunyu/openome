@@ -353,13 +353,14 @@ public class GoalModel_Q7 {
 			alreadyVisited.add(intention);
 		String start = "";
 		if (intention.getContainer() != null
-				&& !intention.getContainer().getName().startsWith("Aspect"))
+				&& !intention.getContainer().getName().startsWith("Aspect")) {
 			start = "<\"" + actorType(intention) + " ";
 			if (intention.getContainer().getName() != null) {
 				start += intention.getContainer().getName() + "\">::";
 			} else {
 				start += "untitled\">::";
 			}
+		}
 		if (intention instanceof Task) {
 			if (intention.getName() != null) {
 				return start + "\"Do " + intention.getName() + "\"";

@@ -127,7 +127,7 @@ public class TreeView extends ViewPart {
 		});
 		
 		c = new TreeViewerColumn(viewer, SWT.NONE);
-		c.getColumn().setWidth(5);
+		c.getColumn().setWidth(20);
 		c.getColumn().setText("#");
 		c.setLabelProvider(new ColumnLabelProvider() {
 			public String getText(Object element) {

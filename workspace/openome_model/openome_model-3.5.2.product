@@ -78,6 +78,7 @@
       <plugin id="org.apache.commons.el"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.jasper"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.xerces"/>
@@ -89,9 +90,10 @@
       <plugin id="org.bflow.toolbox.i18n"/>
       <plugin id="org.bflow.toolbox.interchange"/>
       <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.ant.optional.junit" fragment="true"/>
       <plugin id="org.eclipse.compare"/>
       <plugin id="org.eclipse.compare.core"/>
-      <plugin id="org.eclipse.compare.win32" fragment=""/>
+      <plugin id="org.eclipse.compare.win32"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
@@ -156,6 +158,7 @@
       <plugin id="org.eclipse.equinox.http.jetty"/>
       <plugin id="org.eclipse.equinox.http.servlet"/>
       <plugin id="org.eclipse.equinox.p2.artifact.repository"/>
+      <plugin id="org.eclipse.equinox.p2.console"/>
       <plugin id="org.eclipse.equinox.p2.core"/>
       <plugin id="org.eclipse.equinox.p2.director"/>
       <plugin id="org.eclipse.equinox.p2.director.app"/>
@@ -223,8 +226,8 @@
       <plugin id="org.eclipse.jdt.core.manipulation"/>
       <plugin id="org.eclipse.jdt.debug"/>
       <plugin id="org.eclipse.jdt.launching"/>
-      <plugin id="org.eclipse.jdt.launching.macosx" fragment=""/>
-      <plugin id="org.eclipse.jdt.launching.ui.macosx" fragment=""/>
+      <plugin id="org.eclipse.jdt.launching.macosx"/>
+      <plugin id="org.eclipse.jdt.launching.ui.macosx"/>
       <plugin id="org.eclipse.jdt.ui"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>

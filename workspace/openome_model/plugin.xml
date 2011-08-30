@@ -16,18 +16,6 @@
    </extension>
 
 
-   <extension point="core.example">
-      <example file="pattern/README"/>
-      <example file="pattern/openome_model.ecore"/>
-      <example file="pattern/security.atl"/>
-      <example file="pattern/pattern.q7"/>
-      <example file="pattern/pattern.png"/>
-      <example file="pattern/pattern-after.png"/>
-      <example file="pattern/openaccount.q7"/>
-      <example file="pattern/openaccount.png"/>
-      <example file="pattern/openaccount-after.png"/>
-      <example file="pattern/openaccount-attack.png"/>
-   </extension>    
    <extension point="core.generator">
       <generator id="EMF model generation" 
       	class="codegen.EMFProjectsGeneration"/>
@@ -79,6 +67,10 @@
                value="plugin_customization.ini">
          </property>
          <property
+               name="windowImages"
+               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse_lg.gif,eclipse_lg.gif">
+         </property>
+         <property
                name="startupForegroundColor"
                value="8000FF">
          </property>
@@ -89,10 +81,6 @@
          <property
                name="startupProgressRect"
                value="5,275,445,15">
-         </property>
-         <property
-               name="windowImages"
-               value="eclipse.gif,eclipse32.gif,eclipse48.gif,eclipse_lg.gif,eclipse_lg.gif">
          </property>
       </product>
    </extension>

@@ -46,7 +46,7 @@ public class PrologFileHandler extends ExtensionReader{
 					String pluginname = file.getDeclaringExtension().getNamespaceIdentifier();
 					Bundle bundle = Platform.getBundle(pluginname);
 					String filename = file.getAttribute("file");
-					if (filename.equals(fileType)) {
+					if (filename.equals(fileType) || filename.equals("script.sh")) {
 						writeToFile(pluginname, filename,bundle);
 						
 						if (filename.equals("pl.zip")) {
@@ -54,6 +54,9 @@ public class PrologFileHandler extends ExtensionReader{
 						}
 					}
 				
+				}
+				if (fileType.equals("pl") || fileType.equals("swipl"))	{
+					Process p = new ProcessBuilder("sh", path + "script.sh", path).start();				
 				}
 			}
 		} catch (Exception e) {

@@ -213,8 +213,8 @@ public class AddonPlugin extends AbstractUIPlugin {
 
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
 				new IConsole[] { this.console });
-		ConsolePlugin.getDefault().getConsoleManager().showConsoleView(
-				this.console);
+		//ConsolePlugin.getDefault().getConsoleManager().showConsoleView(
+				//this.console);
 	}
 
 	/**
