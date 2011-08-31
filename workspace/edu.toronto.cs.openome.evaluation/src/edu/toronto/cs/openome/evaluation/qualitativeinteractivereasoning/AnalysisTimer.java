@@ -32,7 +32,8 @@ public class AnalysisTimer {
 	
 	public void stopReasoningTimer() {
 		reasoningTimer.stop();
-		print();
+		if (print)
+			print();
 	}
 	
 	public void startHumanJudgmentTimer() {
@@ -55,7 +56,9 @@ public class AnalysisTimer {
 	 * Display the results of the timing.
 	 */
 	public void print() {
+		// whether to print to console or not
 		boolean console = true;
+		
 		String message = "";
 		
 		message += "Tot Reasoning Time:\t" + String.valueOf(reasoningTimer.getElapsedTimeSecs()) + "s\n";
@@ -83,12 +86,10 @@ public class AnalysisTimer {
 		if (console) 
 			System.out.println(message);
 		
-		if (print) {
-			Shell shell = PlatformUI.getWorkbench().getDisplay().getShells()[0];
-			MessageDialog.openInformation(shell, 
-					"Interactive Qualitative Backward Reasoning", 
-					message);
-		}
+		Shell shell = PlatformUI.getWorkbench().getDisplay().getShells()[0];
+		MessageDialog.openInformation(shell, 
+				"Interactive Qualitative Backward Reasoning", 
+				message);
 	}
  	
 	private class Timer {
