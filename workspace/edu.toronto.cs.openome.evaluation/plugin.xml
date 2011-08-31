@@ -98,6 +98,11 @@
             defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ApplyUnknownHandler"
             id="openome_ApplyUnknown_cmd"
             name="openome_ApplyUnknown_cmd">
+      </command>
+      <command
+            defaultHandler="edu.toronto.cs.openome.evaluation.handlers.ModelStatsHandler"
+            id="openome_Model_Statistics_cmd"
+            name="openome_Model_Statistics_cmd">
       </command>                        
       </extension>
 
@@ -203,6 +208,16 @@
                   mnemonic="B">
             </command>
          </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:openome_top_menu?after=additions">
+         <command
+               commandId="openome_Model_Statistics_cmd"
+               icon="icons/sample.gif"
+               id="openome_Model_Statistics"
+               label="Model Statistics"
+               mnemonic="B">
+         </command>
       </menuContribution>
 
 <!-- Toolbar Buttons for Evaluation -->

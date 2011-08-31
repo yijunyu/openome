@@ -222,5 +222,12 @@ public interface Model extends EObject {
 	 * @generated NOT
 	 */
 	public EList<Intention> getRoots();
+	
+	/** @author jenhork
+	 * Return number of intentions in the model 
+	 * String type can be All, Softgoal, Goal, Resource, Task
+	 * @generated NOT
+	 */
+	public int getNumIntentions(String type);
 
 } // Model

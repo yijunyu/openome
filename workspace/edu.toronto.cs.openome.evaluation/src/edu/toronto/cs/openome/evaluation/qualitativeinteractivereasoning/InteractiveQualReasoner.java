@@ -100,6 +100,8 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		//DEBUGGING stuff, delete eventually
 		
+		startTiming();
+		
 		System.out.println("Qualitative Interactive Reasoning - Ahoy!");
 //		for (Intention i : model.getAllIntentions()) {
 //									
@@ -154,6 +156,8 @@ public class InteractiveQualReasoner extends Reasoner {
 //			MessageDialog outputD = new MessageDialog(ar[0], "Label Queue", i, lq.toString(), 0, labels, 0);
 //			
 //			outputD.open();
+			
+			startTiming();
 			
 		}
 	}

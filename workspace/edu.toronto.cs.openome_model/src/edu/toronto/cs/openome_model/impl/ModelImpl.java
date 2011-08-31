@@ -12,8 +12,12 @@ import edu.toronto.cs.openome_model.Contribution;
 import edu.toronto.cs.openome_model.Correlation;
 import edu.toronto.cs.openome_model.Decomposition;
 import edu.toronto.cs.openome_model.Dependency;
+import edu.toronto.cs.openome_model.Goal;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.Resource;
+import edu.toronto.cs.openome_model.Softgoal;
+import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.openome_modelPackage;
 
 import java.util.Collection;
@@ -570,5 +574,62 @@ public class ModelImpl extends EObjectImpl implements Model {
 		}
 		return roots;
 	}
+	
+	/** @author jenhork
+	 * Return number of intentions in the model 
+	 * @generated NOT
+	 */
+	public int getNumIntentions(String type) {
+		if (type == "All")
+			return getAllIntentions().size();
+		
+		int count = 0;
+		for (Intention i : getAllIntentions()) {
+			//so annoying that you can't use strings in a switch statement
+			if (type == "Softgoal") {
+				//also really annoying that you can't check the instance of with string 
+				//describing that instance type, i.e. "Softgoal"
+				if (i instanceof Softgoal) {
+					count++;
+				}
+			}
+			if (type == "Task") {
+				if (i instanceof Task) {
+					count++;
+				}
+			}
+			if (type == "Resource") {
+				if (i instanceof Resource) {
+					count++;
+				}
+			}
+			if (type == "Goal") {
+				if (i instanceof Goal) {
+					count++;
+				}
+			}
+			
+		}
+		return count;	
+		
+		
+			
+	}
+		
+	/** @author jenhork
+	 * Return number of intentions in the model 
+	 * @generated NOT
+	*/
+	public int getNumSoftgoals() {
+			
+		int count = 0;
+		for (Intention i : getAllIntentions()) {
+			if (i instanceof Softgoal) {
+				count++;
+			}
+		}
+		return count;		
+	}
+	
 
 } //ModelImpl

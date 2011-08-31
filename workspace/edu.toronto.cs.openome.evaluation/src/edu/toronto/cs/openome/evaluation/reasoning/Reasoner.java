@@ -3,8 +3,10 @@
  */
 package edu.toronto.cs.openome.evaluation.reasoning;
 
+import java.sql.Time;
 import java.util.Collection;
 import java.util.List;
+import java.util.Timer;
 import java.util.Vector;
 
 import org.eclipse.emf.common.command.CommandStack;
@@ -105,6 +107,16 @@ public class Reasoner {
 		cs.execute(setLabel);
 		
 		//put something here to slow it down?
+	}
+	
+	public void startTiming() {
+		Timer t = new Timer();
+		Time t2 = new Time(0);
+		
+		
+		long time = t2.getTime();
+		
+		System.out.println("Time: " + time);
 	}
 		
 }
