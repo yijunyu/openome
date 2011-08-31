@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <protocol name="ExtendedModelValidation">
 	<display>
-		<default>extended model validation</default>
+		<default>Check Syntax</default>
 		<de>Erweiterte Modellprüfung</de>
 	</display>
 	<description>
