@@ -82,21 +82,28 @@ public class ModelStatsHandler extends ReasonerHandler{
 		
 		String message = "";
 		
-		Vector<String> types = new Vector<String>();
-		types.add("All");
-		types.add("Softgoal");
-		types.add("Task");
-		types.add("Resource");
-		types.add("Goal");
-		
-		//add counts for the rest of stuff, all actors and links
-		
+		// Count Intentions
+		String[] types = "All,Softgoal,Task,Resource,Goal".split(",");
+		message += "Number of Intentions:\n";
 		for (String t : types) {
 			int count = model.getNumIntentions(t);
-			message += "Num " + t +"\t" + count + "\n";
-			
+			message += t +":\t" + count + "\n";
 		}
-			
+		
+		// Count Actors
+		types = "All,Actor,Agent,Role,Position".split(",");
+		message += "Number of Actors:\n";
+		for (String t : types) {
+			message += t + ":\t" + model.getNumActors(t) + "\n";
+		}
+		
+		// Count Links
+		types = "All,Contribution,Dependency,Means-Ends,Decomposition,Association".split(",");
+		message += "Number of Links:\n";
+		for (String t : types) {
+			message += t + ":\t" + model.getNumLinks(t) + "\n";
+		}
+		
 		if (printme) {
 			System.out.println(message);
 		}
@@ -115,6 +122,7 @@ public class ModelStatsHandler extends ReasonerHandler{
 	 * @param message
 	 */
 	private void showMessage(String message, Shell shell) {		
+		
 		MessageDialog.openInformation(
 			shell,
 			"Interactive Qualitative Backward Reasoning",

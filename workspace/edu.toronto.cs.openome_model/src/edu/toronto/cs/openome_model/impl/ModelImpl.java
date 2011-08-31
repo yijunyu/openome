@@ -5,7 +5,10 @@
  */
 package edu.toronto.cs.openome_model.impl;
 
+import edu.toronto.cs.openome_model.Actor;
+import edu.toronto.cs.openome_model.Agent;
 import edu.toronto.cs.openome_model.Alternative;
+import edu.toronto.cs.openome_model.AndDecomposition;
 import edu.toronto.cs.openome_model.Association;
 import edu.toronto.cs.openome_model.Container;
 import edu.toronto.cs.openome_model.Contribution;
@@ -15,7 +18,10 @@ import edu.toronto.cs.openome_model.Dependency;
 import edu.toronto.cs.openome_model.Goal;
 import edu.toronto.cs.openome_model.Intention;
 import edu.toronto.cs.openome_model.Model;
+import edu.toronto.cs.openome_model.OrDecomposition;
+import edu.toronto.cs.openome_model.Position;
 import edu.toronto.cs.openome_model.Resource;
+import edu.toronto.cs.openome_model.Role;
 import edu.toronto.cs.openome_model.Softgoal;
 import edu.toronto.cs.openome_model.Task;
 import edu.toronto.cs.openome_model.openome_modelPackage;
@@ -580,30 +586,30 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated NOT
 	 */
 	public int getNumIntentions(String type) {
-		if (type == "All")
+		if (type.equals("All"))
 			return getAllIntentions().size();
 		
 		int count = 0;
 		for (Intention i : getAllIntentions()) {
 			//so annoying that you can't use strings in a switch statement
-			if (type == "Softgoal") {
+			if (type.equals("Softgoal")) {
 				//also really annoying that you can't check the instance of with string 
 				//describing that instance type, i.e. "Softgoal"
 				if (i instanceof Softgoal) {
 					count++;
 				}
 			}
-			if (type == "Task") {
+			if (type.equals("Task")) {
 				if (i instanceof Task) {
 					count++;
 				}
 			}
-			if (type == "Resource") {
+			if (type.equals("Resource")) {
 				if (i instanceof Resource) {
 					count++;
 				}
 			}
-			if (type == "Goal") {
+			if (type.equals("Goal")) {
 				if (i instanceof Goal) {
 					count++;
 				}
@@ -630,6 +636,82 @@ public class ModelImpl extends EObjectImpl implements Model {
 		}
 		return count;		
 	}
+	
+	/* (non-Javadoc)
+	 * @see edu.toronto.cs.openome_model.Model#getNumActors(java.lang.String)
+	 */
+	public int getNumActors(String type) {
+		if (type.equals("All"))
+			return getContainers().size();
+		
+		int count = 0;
+		for (Container c : getContainers()) {
+			//so annoying that you can't use strings in a switch statement
+			if (type.equals("Actor")) {
+				//also really annoying that you can't check the instance of with string 
+				//describing that instance type, i.e. "Softgoal"
+				if (c instanceof Actor) {
+					count++;
+				}
+			}
+			if (type.equals("Role")) {
+				if (c instanceof Role) {
+					count++;
+				}
+			}
+			if (type.equals("Position")) {
+				if (c instanceof Position) {
+					count++;
+				}
+			}
+			if (type.equals("Agent")) {
+				if (c instanceof Agent) {
+					count++;
+				}
+			}
+			
+		}
+		return count;	
+	}
+
+	/* (non-Javadoc)
+	 * @see edu.toronto.cs.openome_model.Model#getNumLinks(java.lang.String)
+	 * @generated NOT
+	 */
+	@Override
+	public int getNumLinks(String type) {
+		if (type.equals("All")) {
+			return getAssociations().size() +
+					getContributions().size() +
+					getDependencies().size() +
+					getDecompositions().size();
+		}
+		if (type.equals("Association")) {
+			return getAssociations().size();
+		} else if (type.equals("Contribution")) {
+			return getContributions().size();
+		} else if (type.equals("Dependency")) {
+			return getDependencies().size();
+		} else {
+			int count = 0;
+			for (Decomposition link : getDecompositions()) {
+				
+				if (type.equals("Decomposition")) {
+					if (link instanceof AndDecomposition) {
+						count++;
+					}
+				} else if (type.equals("Means-Ends")) {
+					if (link instanceof OrDecomposition) {
+						count ++;
+					}
+				}
+			}
+			return count;
+		}
+	}
+	
+	
+	
 	
 
 } //ModelImpl

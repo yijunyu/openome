@@ -229,5 +229,20 @@ public interface Model extends EObject {
 	 * @generated NOT
 	 */
 	public int getNumIntentions(String type);
+	
+	/** @author denys
+	 * Return the number of actors of specified type in the model
+	 * @param type one of All, Actor, Role, Position, Agent
+	 * @return the number of elements of specified type in the model
+	 * @generated NOT
+	 */
+	public int getNumActors(String type);
+	
+	/** @author denys
+	 * Return the number of link of specified type in the model
+	 * @param type one of All, Contribution, Dependency, Means-Ends, Decomposition, Association
+	 * @return the number of links of specified type in the model
+	 */
+	public int getNumLinks(String type);
 
 } // Model
