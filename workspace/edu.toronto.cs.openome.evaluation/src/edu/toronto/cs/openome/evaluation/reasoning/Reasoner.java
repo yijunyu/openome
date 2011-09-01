@@ -62,6 +62,12 @@ public class Reasoner {
 	protected ModelImpl model;
 	protected CommandStack cs;
 	protected List editParts;
+		
+	//timing structure
+	protected Vector <Integer> hjTimes;
+	
+	//judged intentions for timing
+	protected Vector <Intention> judgedIntentions;
 	
 	/**
 	 * @author jenhork
@@ -71,6 +77,10 @@ public class Reasoner {
 		model = null;
 		cs = null;
 		editParts = null;
+
+		hjTimes = new Vector<Integer>();
+		judgedIntentions = new Vector <Intention>();
+		
 	}
 	
 	/**
@@ -81,6 +91,9 @@ public class Reasoner {
 		model = mod;
 		cs = com;	
 		editParts = ep;
+
+		hjTimes = new Vector<Integer>();
+		judgedIntentions = new Vector <Intention>();
 	}
 		
 	/**
@@ -109,14 +122,28 @@ public class Reasoner {
 		//put something here to slow it down?
 	}
 	
-	public void startTiming() {
-		Timer t = new Timer();
-		Time t2 = new Time(0);
+protected void processHJTimes() {
 		
+		int max = -1;
+		int min = 999999999;
+		int sum = 0;
 		
-		long time = t2.getTime();
+		for (Integer i:  hjTimes) {
+			max = Math.max(i.intValue(), max);
+			min = Math.min(i.intValue(), min);
+			sum+= i.intValue();
+		}
 		
-		System.out.println("Time: " + time);
+		int average = sum/hjTimes.size();
+		
+		System.out.println("Num human judgments in model: " + hjTimes.size());
+		System.out.println("Num intentions which recieved judgment: " + judgedIntentions.size());
+		System.out.println("Max human judgment time: " + max);
+		System.out.println("Min human judgment time: " + min);
+		System.out.println("Total human judgment time: " + sum);
+		System.out.println("Average human judgment time: " + average);
+		
 	}
+	
 		
 }

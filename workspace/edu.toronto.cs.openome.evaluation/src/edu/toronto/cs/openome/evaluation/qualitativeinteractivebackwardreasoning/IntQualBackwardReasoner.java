@@ -59,6 +59,10 @@ public class IntQualBackwardReasoner extends Reasoner {
 	Stack<HashMap<Intention, HumanJudgment>> hjStack;
 	Vector<Intention> targets;
 	Shell shell;
+	
+	//timing structure
+	protected Vector <Integer> messageTimes;
+	
 	/**
 	 * @author jenhork
 	 * Constructor, takes in a ModelImpl (how the model is stored) a CommandStack, to execute commands, also a diagram Command stack
@@ -77,6 +81,9 @@ public class IntQualBackwardReasoner extends Reasoner {
 		Shell [] ar = PlatformUI.getWorkbench().getDisplay().getShells();
 		shell = ar[0];
 		//System.out.println("finished constructor");
+		
+		//timing structure
+		messageTimes = new Vector<Integer>();
 	}
 	
 	/**
@@ -85,6 +92,18 @@ public class IntQualBackwardReasoner extends Reasoner {
 	 * stuff starts from.
 	 */
 	public void reason() {
+		
+		internalReason();
+		
+		//process hj times
+		processHJTimes();
+		
+		processMessageTimes();
+				
+	}
+
+
+	private void internalReason() {
 		//DEBUGGING stuff, delete eventually
 		
 		System.out.println("Qualitative Interactive Backward Reasoning - !yohA");
@@ -580,11 +599,25 @@ public class IntQualBackwardReasoner extends Reasoner {
 		} catch (Exception highlightFailedException) {			
 		}*/
 		
+		long start = System.currentTimeMillis();
+		
+		
 		// bring up backward judgement window
 		System.out.println("Opening window");
 		BackwardHJWindowCommand wincom = new BackwardHJWindowCommand(ar[0], cs, i/*, softgoalWrappers*/);
 				
 		cs.execute(wincom);
+		
+		long end = System.currentTimeMillis();
+		
+		Integer time = new Integer((int) (end-start));
+		
+		System.out.println("Human judgment time for analysis was "+(end-start)+" ms.");		
+		
+		hjTimes.add(time);
+		
+		if (!judgedIntentions.contains(i)) 
+			judgedIntentions.add(i);
 		
 		// window moves on. unhighlight: 
 		
@@ -776,11 +809,34 @@ public class IntQualBackwardReasoner extends Reasoner {
 	 * Shows a message in a dialog box with an OK button 
 	 * @param message
 	 */
-	private void showMessage(String message, Shell shell) {		
+	private void showMessage(String message, Shell shell) {			
+		//timing
+		long start = System.currentTimeMillis();
+		
 		MessageDialog.openInformation(
 			shell,
 			"Interactive Qualitative Backward Reasoning",
 			message);
+		
+		long end = System.currentTimeMillis();
+		
+		Integer time = new Integer((int) (end-start));
+		
+		messageTimes.add(time);				
+	}
+	
+	
+	private void processMessageTimes() {
+		int sum = 0;
+		
+		for (Integer i:  messageTimes) {
+			
+			sum+= i.intValue();
+		}
+		
+		System.out.println("Num messages given: " + messageTimes.size());
+		System.out.println("Total time for other messages: " + sum);
+		
 	}
 
 }

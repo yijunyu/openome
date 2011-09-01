@@ -77,8 +77,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	//diagram command stack
 	private DiagramCommandStack dcs;
 	
-	//timer
-	private AnalysisTimer timer = new AnalysisTimer(true);
+	
 
 	/**
 	 * @author jenhork
@@ -92,6 +91,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		lq = new LabelQueue();
 		softgoalWrappers = new Vector<Intention>();
 		resolvedHardIntentions = new Vector<Intention>();
+		
 	}
 	
 	/**
@@ -103,7 +103,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		//DEBUGGING stuff, delete eventually
 		
-		timer.startReasoningTimer();
+		//startTiming();
 		
 		System.out.println("Qualitative Interactive Reasoning - Ahoy!");
 //		for (Intention i : model.getAllIntentions()) {
@@ -141,10 +141,8 @@ public class InteractiveQualReasoner extends Reasoner {
 			}
 						
 			//do step two.  If not step 2, i.e. the user has pressed cancel, stop the entire algorithm
-			if (!step2()) {
-				timer.stopReasoningTimer();
+			if (!step2())
 				return;
-			}
 			
 			
 			//DEBUGGING, at the end of each iteration, print out the label queue
@@ -162,10 +160,17 @@ public class InteractiveQualReasoner extends Reasoner {
 //			
 //			outputD.open();
 			
+			//process hj times
+			processHJTimes();
+			//startTiming();
+			
+			
+			
 		}
-		timer.stopReasoningTimer();
 	}
 	
+	
+
 	/**
 	 * @author jenhork
 	 * This looks through all the intentions and finds the ones with evaluation labels.  They must be propagated
@@ -608,17 +613,12 @@ public class InteractiveQualReasoner extends Reasoner {
 				//Can't get automatic result, need human judgment
 				if (result == null)  {				
 					//get human judgment
-					timer.startHumanJudgmentTimer();
-					result = resolveOtherCases(i);
-					timer.stopHumanJudgmentTimer();
+						result = resolveOtherCases(i);
 										
 					//the result will be null if they cancel the window, which means they want to quit evaluating
 					if (result == null) {
 						return false;
 					}
-					
-					// Judgment completed successfully
-					timer.judgementDoneOnIntention();
 					
 				}
 			
@@ -700,10 +700,23 @@ public class InteractiveQualReasoner extends Reasoner {
 		cs.execute(highlightTarget);
 		cs.execute(highlightChildren);
 		
+		//timing
+		long start = System.currentTimeMillis();
+		
 		// forward human judgement window pops up.
 		ForwardHJWindowCommand wincom = new ForwardHJWindowCommand(ar[0], cs, i);			
 			
 		cs.execute(wincom);			
+		
+		long end = System.currentTimeMillis();
+		
+		Integer time = new Integer((int) (end-start));
+		
+		System.out.println("Human judgment time for analysis was "+(end-start)+" ms.");		
+		
+		hjTimes.add(time);
+		
+		if (!judgedIntentions.contains(i)) judgedIntentions.add(i);
 		
 		// unhighlight target when evaluation target moves on
 		HighlightIntentionOutlinesCommand unhighlightTarget = new HighlightIntentionOutlinesCommand(
@@ -728,7 +741,6 @@ public class InteractiveQualReasoner extends Reasoner {
 		
 		System.out.println("Human Judgement result: " + result.getName());
 		
-		
 		return result;
 	
 	}
@@ -736,5 +748,7 @@ public class InteractiveQualReasoner extends Reasoner {
 	public Vector<Intention> getSoftgoalWrappers(){
 		return softgoalWrappers;
 	}
+	
+
 	
 }

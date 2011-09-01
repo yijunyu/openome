@@ -1,5 +1,7 @@
 package edu.toronto.cs.openome.evaluation.reasoning;
 
+import java.util.Vector;
+
 
 /**
  * @author jenhork
@@ -57,8 +59,18 @@ public class Reasoning {
 	 * This is where the magic happens, this will perform reasoning over whatever model is currently stored.
 	 */
 	public void reason() {
+		
+		long start = System.currentTimeMillis();
+		
 		reasoner.reason();
+		
+		long end = System.currentTimeMillis();
+
+		System.out.println("Execution time for analysis was "+(end-start)+" ms.");		
+	
+		
 	}
 	
+
 	
 }

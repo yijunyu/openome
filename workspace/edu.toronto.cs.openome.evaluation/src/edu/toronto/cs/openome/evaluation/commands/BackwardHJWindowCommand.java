@@ -242,7 +242,10 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 			}				
 		}
 		
-		Label text = new Label(shell, SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);		
+		//Commented out for now to avoid situationw where there are no buttons in backward eval.
+		//this needs to be fixed
+		
+		/*Label text = new Label(shell, SWT.READ_ONLY | SWT.WRAP | SWT.BORDER);		
 		//text.setLayoutData(gridData);
 		String previous = "Previous combinations: \n";		
 		
@@ -262,6 +265,7 @@ public class BackwardHJWindowCommand extends HJWindowCommand {
 		}
 		text.setText(previous);
 		text.setLayoutData(new RowData(900, SWT.DEFAULT));
+		*/
 				
 		//Use a different layout for buttons so they are not vertical.
 		Composite composite = new Composite (shell, SWT.NONE);
