@@ -78,6 +78,9 @@ public class InteractiveQualReasoner extends Reasoner {
 	private DiagramCommandStack dcs;
 	
 	
+	
+	//timer
+	private AnalysisTimer timer = new AnalysisTimer(true);
 
 	/**
 	 * @author jenhork
@@ -104,6 +107,7 @@ public class InteractiveQualReasoner extends Reasoner {
 		//DEBUGGING stuff, delete eventually
 		
 		//startTiming();
+		timer.startReasoningTimer();
 		
 		System.out.println("Qualitative Interactive Reasoning - Ahoy!");
 //		for (Intention i : model.getAllIntentions()) {
@@ -141,8 +145,10 @@ public class InteractiveQualReasoner extends Reasoner {
 			}
 						
 			//do step two.  If not step 2, i.e. the user has pressed cancel, stop the entire algorithm
-			if (!step2())
+			if (!step2()) {
+				timer.stopReasoningTimer();
 				return;
+			}
 			
 			
 			//DEBUGGING, at the end of each iteration, print out the label queue
@@ -163,10 +169,10 @@ public class InteractiveQualReasoner extends Reasoner {
 			//process hj times
 			processHJTimes();
 			//startTiming();
-			
-			
+					
 			
 		}
+		timer.stopReasoningTimer();
 	}
 	
 	
@@ -613,12 +619,17 @@ public class InteractiveQualReasoner extends Reasoner {
 				//Can't get automatic result, need human judgment
 				if (result == null)  {				
 					//get human judgment
-						result = resolveOtherCases(i);
+					timer.startHumanJudgmentTimer();
+					result = resolveOtherCases(i);
+					timer.stopHumanJudgmentTimer();
 										
 					//the result will be null if they cancel the window, which means they want to quit evaluating
 					if (result == null) {
 						return false;
 					}
+					
+					// Judgment completed successfully
+					timer.judgementDoneOnIntention();
 					
 				}
 			
