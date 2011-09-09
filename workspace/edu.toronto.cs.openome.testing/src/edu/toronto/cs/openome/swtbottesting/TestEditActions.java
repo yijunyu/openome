@@ -282,9 +282,10 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 	/**
 	 * Tests if Cut functionality works on multiple elements
+	 * @throws InterruptedException 
 	 **/
 	@Test
-	public void testCutMultipleIntentions() {
+	public void testCutMultipleIntentions() throws InterruptedException {
 
 		for (String method : methods) {
 
@@ -300,7 +301,7 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 			editor.select(view.children());
 			performAction(method, CUT);
-
+			Thread.sleep(100);
 			// Ensure intentions are gone from model & view
 			assertTrue(
 					"Multiple intentions were not removed from model using Cut via "
@@ -617,7 +618,6 @@ public class TestEditActions extends SWTBotGefTestCase {
 
 		editor.select(view.children());
 		editor.clickContextMenu("Delete from Model");
-
 		assertTrue("Delete from Model not working", model.eContents().isEmpty()
 				&& view.children().isEmpty());
 
