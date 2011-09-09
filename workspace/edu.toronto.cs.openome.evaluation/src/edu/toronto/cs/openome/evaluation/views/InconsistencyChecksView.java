@@ -401,14 +401,13 @@ public class InconsistencyChecksView extends ViewPart {
 						.getContentProvider();
 
 				if (modelInconsistent) {
-					node = contentProvider.addNode(i,
-							TreeNode.MODEL);
+					node = contentProvider.addNode(i, null);
+					contentProvider.addJudgment(node, i, alts, TreeNode.MODEL);
 				} else if (historyInconsistent) {
-					node = contentProvider.addNode(i,
-							TreeNode.JUDGMENT);
+					node = contentProvider.addNode(i, null);
+					contentProvider.addJudgment(node, i, alts, TreeNode.JUDGMENT);
 				}
 				
-				contentProvider.addJudgment(node, i, alts);
 
 			}
 
@@ -427,25 +426,25 @@ public class InconsistencyChecksView extends ViewPart {
 	public boolean isModelInconsistent(LabelBag bag, EvaluationLabel l) {
 
 		if (!bag.isHasUnknown() && l.equals(EvaluationLabel.UNKNOWN)) {
-			System.out
-					.println("Conflict: " + bag.toString() + " | " + l.name());
+			//System.out
+			//		.println("Conflict: " + bag.toString() + " | " + l.name());
 			return true;
 		} else if (bag.isAllPositive()
 				&& (l.equals(EvaluationLabel.PARTIALLY_DENIED) || l
 						.equals(EvaluationLabel.DENIED))) {
-			System.out
-					.println("Conflict: " + bag.toString() + " | " + l.name());
+			//System.out
+			//		.println("Conflict: " + bag.toString() + " | " + l.name());
 			return true;
 		} else if (bag.isAllNegative()
 				&& (l.equals(EvaluationLabel.PARTIALLY_SATISFIED) || l
 						.equals(EvaluationLabel.SATISFIED))) {
-			System.out
-					.println("Conflict: " + bag.toString() + " | " + l.name());
+			//System.out
+			//		.println("Conflict: " + bag.toString() + " | " + l.name());
 			return true;
 		} else if ((bag.isAllNegative() || bag.isAllPositive())
 				&& l.equals(EvaluationLabel.CONFLICT)) {
-			System.out
-					.println("Conflict: " + bag.toString() + " | " + l.name());
+			//System.out
+			//		.println("Conflict: " + bag.toString() + " | " + l.name());
 			return true;
 		} else {
 			return false;

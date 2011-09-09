@@ -158,17 +158,6 @@ public class InteractiveQualReasonerHandler extends ReasonerHandler {
 			System.err.println("Failed to open HumanJudgmentsView");
 		}
 		
-		/* Create the Inconsistency Checks view */ 
-		InconsistencyChecksView icv = null; 
-		try {
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(InconsistencyChecksView.ID);
-			// Get the HJ View
-			icv = (InconsistencyChecksView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(InconsistencyChecksView.ID);
-		} catch (PartInitException e) {
-			// Shouldn't happen...
-			System.err.println("Failed to open InconsistencyChecksView");
-		}
-		
 		return null;
 	}
 

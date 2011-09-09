@@ -469,7 +469,7 @@ public class HumanJudgmentsView extends ViewPart {
 		// Add a node in the viewer tree structure
 		TreeNode node = contentProvider.addNode(i, null);
 
-		contentProvider.addJudgment(node, i, alts);
+		contentProvider.addJudgment(node, i, alts, null);
 		refreshView();
 	}
 }

@@ -7,12 +7,16 @@ import edu.toronto.cs.openome_model.Intention;
 
 //TreeNode represents nodes with children
 public class TreeNode extends TreeObject {
+	
 	private ArrayList<TreeObject> elements;
 	private String inconsistentWith; 
 	
-	//If the tree node is an inconsistency 
-    public static final String MODEL = "model";
+	/* The types of inconsistencies */ 
+	public static final String MODEL = "model";
     public static final String JUDGMENT = "judgment";
+    
+    /* This TreeNode has been affected by some change in one of the views */
+    public boolean isAffected = false; 
 	
 	/* Differentiates between the different kinds of nodes (ie. Alternative or Intentions) */
 	private boolean altStatus = false;
@@ -108,6 +112,14 @@ public class TreeNode extends TreeObject {
 			return "";
 		}
 		return this.inconsistentWith;
+	}
+	
+	public void setIsAffected(boolean b) {
+		this.isAffected = b;
+	}
+
+	public boolean getIsAffected() {
+		return this.isAffected;
 	}
 	
 	public void clear() {

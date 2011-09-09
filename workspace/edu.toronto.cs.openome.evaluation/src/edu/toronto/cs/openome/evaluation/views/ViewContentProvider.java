@@ -201,7 +201,7 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 	 * @param i The intention which has been decided via Human Judgment
 	 * @param alts An <code>EList</code> containing all the alternatives in the model
 	 */
-	public void addJudgment(TreeNode node, Intention i, EList<Alternative> alts)
+	public void addJudgment(TreeNode node, Intention i, EList<Alternative> alts, String type)
 	{
 		
 		// If both of these are true after the for loop, there is a conflict
@@ -241,7 +241,7 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 				HashMap<HumanJudgment, Alternative> map = new HashMap<HumanJudgment, Alternative>(1); 
 				map.put(h, a);
 				
-				TreeNode subnode = new TreeNode(name, map, label, null);
+				TreeNode subnode = new TreeNode(name, map, label, type);
 				node.addChild(subnode);
 				
 				//Check 
