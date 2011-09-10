@@ -50,7 +50,7 @@ public class CreateExamplesHandler extends ExtensionReader implements org.eclips
 				String pluginname = example.getDeclaringExtension().getNamespaceIdentifier();
 				Bundle bundle = Platform.getBundle(pluginname);
 				String filename = example.getAttribute("file");
-				String name = pluginname + "/" + filename;
+				String name = filename;
 				String[] words = name.split("/");
 				String pathName = "";
 				IFolder folder = null;
