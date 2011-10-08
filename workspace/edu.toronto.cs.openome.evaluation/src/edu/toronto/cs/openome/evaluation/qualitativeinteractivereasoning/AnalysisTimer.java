@@ -56,6 +56,8 @@ public class AnalysisTimer {
 	 * Display the results of the timing.
 	 */
 	public void print() {
+		
+		if(hjTimes.size() != 0) { 
 		// whether to print to console or not
 		boolean console = true;
 		
@@ -90,6 +92,7 @@ public class AnalysisTimer {
 		MessageDialog.openInformation(shell, 
 				"Interactive Qualitative Backward Reasoning", 
 				message);
+		}
 	}
  	
 	private class Timer {

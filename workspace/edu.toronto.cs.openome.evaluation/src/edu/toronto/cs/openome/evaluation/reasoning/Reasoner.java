@@ -124,24 +124,26 @@ public class Reasoner {
 	
 protected void processHJTimes() {
 		
-		int max = -1;
-		int min = 999999999;
-		int sum = 0;
-		
-		for (Integer i:  hjTimes) {
-			max = Math.max(i.intValue(), max);
-			min = Math.min(i.intValue(), min);
-			sum+= i.intValue();
+		if(hjTimes.size() != 0) { 
+			int max = -1;
+			int min = 999999999;
+			int sum = 0;
+			
+			for (Integer i:  hjTimes) {
+				max = Math.max(i.intValue(), max);
+				min = Math.min(i.intValue(), min);
+				sum+= i.intValue();
+			}
+			
+			int average = sum/hjTimes.size();
+			
+			System.out.println("Num human judgments in model: " + hjTimes.size());
+			System.out.println("Num intentions which recieved judgment: " + judgedIntentions.size());
+			System.out.println("Max human judgment time: " + max);
+			System.out.println("Min human judgment time: " + min);
+			System.out.println("Total human judgment time: " + sum);
+			System.out.println("Average human judgment time: " + average);
 		}
-		
-		int average = sum/hjTimes.size();
-		
-		System.out.println("Num human judgments in model: " + hjTimes.size());
-		System.out.println("Num intentions which recieved judgment: " + judgedIntentions.size());
-		System.out.println("Max human judgment time: " + max);
-		System.out.println("Min human judgment time: " + min);
-		System.out.println("Total human judgment time: " + sum);
-		System.out.println("Average human judgment time: " + average);
 		
 	}
 	
