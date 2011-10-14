@@ -117,6 +117,18 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		
 		//alt.setSoftgoalWrappers(iQualReasoner.getSoftgoalWrappers());
 		
+		/* Create Human Judgments view */
+		HumanJudgmentsView hj = null;
+		try {
+			// open the HJView, if already opened just give the focus to it
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(HumanJudgmentsView.ID);
+			// Get the HJ View
+			hj = (HumanJudgmentsView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(HumanJudgmentsView.ID);
+		} catch (PartInitException e) {
+			// Shouldn't happen...
+			System.err.println("Failed to open HumanJudgmentsView");
+		}
+		
 		AlternativesView av = null;
 		try {
 			// open the AlternativesView, if already opened just give the focus to it
@@ -138,19 +150,6 @@ public class InteractiveQualBackwardReasonerHandler extends ReasonerHandler {
 		Command addAlternative = new SetAlternativeCommand(alt);
 		CommandStack cs1 = getCommandStack();
 		cs1.execute(addAlternative);
-		
-		
-		/* Create Human Judgments view */
-		HumanJudgmentsView hj = null;
-		try {
-			// open the HJView, if already opened just give the focus to it
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(HumanJudgmentsView.ID);
-			// Get the HJ View
-			hj = (HumanJudgmentsView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(HumanJudgmentsView.ID);
-		} catch (PartInitException e) {
-			// Shouldn't happen...
-			System.err.println("Failed to open HumanJudgmentsView");
-		}
 		
 		
 		return null;
