@@ -80,7 +80,8 @@ public class InteractiveQualReasoner extends Reasoner {
 	
 	
 	//timer
-	private AnalysisTimer timer = new AnalysisTimer(true);
+	//for now turn off pop-up, variable to false
+	private AnalysisTimer timer = new AnalysisTimer(false);
 
 	/**
 	 * @author jenhork

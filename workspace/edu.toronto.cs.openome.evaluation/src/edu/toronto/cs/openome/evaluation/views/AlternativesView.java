@@ -611,6 +611,10 @@ public class AlternativesView extends ViewPart {
 	 */
 	public void addAlternative(Alternative alt) {
 		
+		//trying to avoid null pointer exception, not sure why alternative is null
+		if (alt == null)
+			return; 
+		
 		// Get the content provider
 		ViewContentProvider contentProvider = (ViewContentProvider) viewer
 				.getContentProvider();
@@ -646,9 +650,20 @@ public class AlternativesView extends ViewPart {
 			/* Get a list of all the Alternatives currently in the model */
 			EList<Alternative> alts = mi.getAlternatives();
 			
+			System.out.println(alts.toString());
+			
 			/* Add each Alternative to the view */
 			for (Alternative alt : alts) {
-				addAlternative(alt);
+				if (alt.getDirection() == null) {
+					System.out.println("alt direction is null");
+					alt.setDirection("unknown");
+				}
+				
+				System.out.println(alt.toString());
+				
+				//it was throwing a null pointer exception for some null alternatives.  Not sure why some alternatives are null.
+				if (alt != null)
+					addAlternative(alt);
 			}
 		}
 		refreshView();

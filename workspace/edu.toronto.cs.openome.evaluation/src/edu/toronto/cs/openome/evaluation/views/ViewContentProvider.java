@@ -111,10 +111,16 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 	}
 	
 	private TreeNode createTreeNode(Alternative alt) {
+				
 		String name = alt.getName();
 		
 		if(!alt.getDescription().isEmpty()) {
 			name += " (" + alt.getDescription() + ")";
+		}
+		
+		//I was getting a null pointer exception here, this is a quick fix
+		if (alt.getDirection() == null) {
+			alt.setDirection("unknown");
 		}
 		
 		if(alt.getDirection().equals("forward")) {
@@ -221,29 +227,33 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 				
 		// Retrieve the intention's Human Judgments and the associated labels from each alternative
 		for(Alternative a : alts) {
+			//I was getting a null pointer exception here, this is a quick fix
+			if (a.getDirection() == null) {
+				a.setDirection("unknown");
+			}
 			
 			EList<HumanJudgment> allJudgments = i.getHumanJudgments();
-						
+
 			//Retrieve all human judgments associated with the intention 
 			for (HumanJudgment h: allJudgments){
-				
+
 				EvaluationLabel label = h.getResultLabel();
-				
+
 				String name = label.getName() + " (" + a.getName() + ") ";
-				
+
 				if(a.getDirection().equals("forward")) {
 					name += "[Forward Evaluation]";
 				} else if(a.getDirection().equals("backward")) {
 					name += "[Backward Evaluation]";
 				}
-				
+
 				//Create a HashMap with the human judgment as the key and the associated alternative as the value
 				HashMap<HumanJudgment, Alternative> map = new HashMap<HumanJudgment, Alternative>(1); 
 				map.put(h, a);
-				
+
 				TreeNode subnode = new TreeNode(name, map, label, type);
 				node.addChild(subnode);
-				
+
 				//Check 
 				if(label == EvaluationLabel.DENIED || label == EvaluationLabel.PARTIALLY_DENIED) {
 					denied = true;
@@ -251,6 +261,7 @@ public class ViewContentProvider implements IStructuredContentProvider, ITreeCon
 					satisfied = true;
 				}
 			}
+			
 		}
 		
 		// set the conflict flag
